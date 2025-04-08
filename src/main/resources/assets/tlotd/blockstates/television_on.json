@@ -1,0 +1,53 @@
+{
+  "variants": {
+    "facing=south,channel=0":{"model":"tlotd:block/television_channel0"},
+    "facing=west,channel=0":{"model":"tlotd:block/television_channel0","y":90},
+    "facing=north,channel=0":{"model":"tlotd:block/television_channel0","y":180},
+    "facing=east,channel=0":{"model":"tlotd:block/television_channel0","y":270},
+
+    "facing=south,channel=1":{"model":"tlotd:block/television_channel1"},
+    "facing=west,channel=1":{"model":"tlotd:block/television_channel1","y":90},
+    "facing=north,channel=1":{"model":"tlotd:block/television_channel1","y":180},
+    "facing=east,channel=1":{"model":"tlotd:block/television_channel1","y":270},
+
+    "facing=south,channel=2":{"model":"tlotd:block/television_channel2"},
+    "facing=west,channel=2":{"model":"tlotd:block/television_channel2","y":90},
+    "facing=north,channel=2":{"model":"tlotd:block/television_channel2","y":180},
+    "facing=east,channel=2":{"model":"tlotd:block/television_channel2","y":270},
+
+    "facing=south,channel=3":{"model":"tlotd:block/television_channel3"},
+    "facing=west,channel=3":{"model":"tlotd:block/television_channel3","y":90},
+    "facing=north,channel=3":{"model":"tlotd:block/television_channel3","y":180},
+    "facing=east,channel=3":{"model":"tlotd:block/television_channel3","y":270},
+
+    "facing=south,channel=4":{"model":"tlotd:block/television_channel4"},
+    "facing=west,channel=4":{"model":"tlotd:block/television_channel4","y":90},
+    "facing=north,channel=4":{"model":"tlotd:block/television_channel4","y":180},
+    "facing=east,channel=4":{"model":"tlotd:block/television_channel4","y":270},
+
+    "facing=south,channel=5":{"model":"tlotd:block/television_channel5"},
+    "facing=west,channel=5":{"model":"tlotd:block/television_channel5","y":90},
+    "facing=north,channel=5":{"model":"tlotd:block/television_channel5","y":180},
+    "facing=east,channel=5":{"model":"tlotd:block/television_channel5","y":270},
+
+    "facing=south,channel=6":{"model":"tlotd:block/television_channel6"},
+    "facing=west,channel=6":{"model":"tlotd:block/television_channel6","y":90},
+    "facing=north,channel=6":{"model":"tlotd:block/television_channel6","y":180},
+    "facing=east,channel=6":{"model":"tlotd:block/television_channel6","y":270},
+
+    "facing=south,channel=7":{"model":"tlotd:block/television_channel7"},
+    "facing=west,channel=7":{"model":"tlotd:block/television_channel7","y":90},
+    "facing=north,channel=7":{"model":"tlotd:block/television_channel7","y":180},
+    "facing=east,channel=7":{"model":"tlotd:block/television_channel7","y":270},
+
+    "facing=south,channel=8":{"model":"tlotd:block/television_channel8"},
+    "facing=west,channel=8":{"model":"tlotd:block/television_channel8","y":90},
+    "facing=north,channel=8":{"model":"tlotd:block/television_channel8","y":180},
+    "facing=east,channel=8":{"model":"tlotd:block/television_channel8","y":270},
+
+    "facing=south,channel=9":{"model":"tlotd:block/television_channel9"},
+    "facing=west,channel=9":{"model":"tlotd:block/television_channel9","y":90},
+    "facing=north,channel=9":{"model":"tlotd:block/television_channel9","y":180},
+    "facing=east,channel=9":{"model":"tlotd:block/television_channel9","y":270}
+  }
+}

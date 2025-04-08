@@ -1,0 +1,48 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_apple": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:apple"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:wooden_apple_juice_stein"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_wooden_stein": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "tlotd:wooden_stein"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_wooden_stein",
+      "has_apple",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:wooden_apple_juice_stein"
+    ]
+  },
+  "sends_telemetry_event": false
+}

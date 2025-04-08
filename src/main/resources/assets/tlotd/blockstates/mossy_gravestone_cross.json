@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "tlotd:block/mossy_gravestone_cross",
+      "y": 180
+    },
+    "facing=east": {
+      "model": "tlotd:block/mossy_gravestone_cross",
+      "y": 270
+    },
+    "facing=south": {
+      "model": "tlotd:block/mossy_gravestone_cross"
+    },
+    "facing=west": {
+      "model": "tlotd:block/mossy_gravestone_cross",
+      "y": 90
+    }
+  }
+}

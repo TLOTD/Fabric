@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "endurium_axe",
+  "key": {
+    "#": {
+      "item": "tlotd:endurium_ingot"
+    },
+    "I": {
+      "tag": "c:steel_rods"
+    }
+  },
+  "pattern": [
+    "##",
+    "#I",
+    " I"
+  ],
+  "result": {
+    "item": "tlotd:endurium_axe"
+  },
+  "show_notification": true
+}

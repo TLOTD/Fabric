@@ -1,0 +1,6 @@
+{
+	"parent": "tlotd:block/template_computer",
+	"textures": {
+		"4": "minecraft:block/black_concrete"
+	}
+}

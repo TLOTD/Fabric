@@ -1,0 +1,32 @@
+{
+  "display": {
+    "icon": {
+      "item": "tlotd:narsil_handle"
+    },
+    "title": {
+      "translate": "advancements.tlotd.anduril"
+    },
+    "description": {
+      "translate": "advancements.tlotd.anduril.desc"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true
+  },
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "tlotd:anduril"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "parent": "tlotd:mithril"
+}

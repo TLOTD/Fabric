@@ -1,0 +1,17 @@
+{
+  "replace": false,
+  "values": [
+    "tlotd:copper_sickle",
+    "tlotd:golden_sickle",
+    "tlotd:steel_sickle",
+    "tlotd:netherite_sickle",
+    "tlotd:heliorite_sickle",
+    "tlotd:endurium_sickle",
+    "tlotd:palladium_sickle",
+    "tlotd:jurassoline_sickle",
+    "tlotd:cinnabar_sickle",
+    "tlotd:nebular_sickle",
+    "tlotd:mithril_sickle",
+    "tlotd:astral_sickle"
+  ]
+}

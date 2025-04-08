@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "elevator_base",
+  "key": {
+    "#": {
+      "tag": "minecraft:planks"
+    },
+    "E": {
+      "item": "minecraft:ender_pearl"
+    }
+  },
+  "pattern": [
+    "# #",
+    "#E#",
+    "###"
+  ],
+  "result": {
+    "item": "tlotd:wooden_elevator_base"
+  },
+  "show_notification": true
+}

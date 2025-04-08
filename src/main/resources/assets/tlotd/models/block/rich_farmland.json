@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/template_farmland",
+  "textures": {
+    "dirt": "tlotd:block/rich_dirt",
+    "top": "tlotd:block/rich_farmland"
+  }
+}

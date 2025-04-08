@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "tlotd:mithril_ingot"
+    },
+    "I": {
+      "item": "tlotd:fancy_tool_rod"
+    }
+  },
+  "pattern": [
+    "#",
+    "#",
+    "I"
+  ],
+  "result": {
+    "item": "tlotd:mithril_sword"
+  },
+  "show_notification": true
+}

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "#": {
+      "item": "tlotd:red_deepslate"
+    }
+  },
+  "pattern": [
+    "##"
+  ],
+  "result": {
+    "item": "tlotd:red_deepslate_pressure_plate"
+  },
+  "show_notification": true
+}

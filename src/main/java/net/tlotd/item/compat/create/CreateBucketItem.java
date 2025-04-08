@@ -1,0 +1,32 @@
+package net.tlotd.item.compat.create;
+
+import net.minecraft.client.item.TooltipContext;
+import net.minecraft.fluid.Fluid;
+import net.minecraft.item.BucketItem;
+import net.minecraft.item.ItemStack;
+import net.minecraft.text.Style;
+import net.minecraft.text.Text;
+import net.minecraft.util.Formatting;
+import net.minecraft.util.Identifier;
+import net.minecraft.world.World;
+import org.jetbrains.annotations.Nullable;
+
+import java.util.List;
+
+public class CreateBucketItem extends BucketItem {
+    public CreateBucketItem(Fluid fluid, Settings settings) {
+        super(fluid, settings);
+    }
+
+    public static final Identifier DEFAULT_FONT_ID = new Identifier("minecraft", "default");
+    public static final Identifier MODS_FONT_ID = new Identifier("tlotd", "mods");
+
+    @Override
+    public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
+        if (context.isCreative()){
+            Style style = this.getName().getStyle();
+            tooltip.add(Text.literal("\uE001").setStyle(style.withFont(MODS_FONT_ID)).append(Text.literal(" Create").setStyle(style.withFont(DEFAULT_FONT_ID).withFormatting(Formatting.GRAY))));
+        }
+        super.appendTooltip(stack, world, tooltip, context);
+    }
+}

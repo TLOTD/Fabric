@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "tlotd:block/limestone_slab"
+    },
+    "type=double": {
+      "model": "tlotd:block/limestone"
+    },
+    "type=top": {
+      "model": "tlotd:block/limestone_slab_top"
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "tlotd:block/ouija_board",
+      "y": 180
+    },
+    "facing=east": {
+      "model": "tlotd:block/ouija_board",
+      "y": 270
+    },
+    "facing=south": {
+      "model": "tlotd:block/ouija_board"
+    },
+    "facing=west": {
+      "model": "tlotd:block/ouija_board",
+      "y": 90
+    }
+  }
+}

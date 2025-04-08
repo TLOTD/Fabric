@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:netherite_ingot"
+    },
+    "I": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "#",
+    "I"
+  ],
+  "result": {
+    "item": "tlotd:netherite_forging_hammer"
+  },
+  "show_notification": true
+}

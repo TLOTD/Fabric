@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "tlotd:palladium_ore",
+    "tlotd:raw_palladium_block",
+    "tlotd:palladium_block",
+    "tlotd:red_deepslate_palladium_ore",
+    "tlotd:jurassoline_ore",
+    "tlotd:jurassoline_crystal_block",
+    "tlotd:jurassoline_block",
+    "tlotd:red_deepslate_jurassoline_ore"
+  ]
+}

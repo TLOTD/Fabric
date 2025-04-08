@@ -1,0 +1,32 @@
+{
+  "display": {
+    "icon": {
+      "item": "tlotd:futuristic_circuit_board"
+    },
+    "title": {
+      "translate": "advancements.tlotd.futuristic_circuitry"
+    },
+    "description": {
+      "translate": "advancements.tlotd.futuristic_circuitry.desc"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "tlotd:futuristic_circuit_board"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "parent": "tlotd:advanced_circuitry"
+}

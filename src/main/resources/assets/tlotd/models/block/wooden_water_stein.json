@@ -1,0 +1,10 @@
+{
+  "parent": "tlotd:block/template_wooden_stein",
+  "textures": {
+    "0": "minecraft:block/spruce_log",
+		"1": "minecraft:block/polished_deepslate",
+		"2": "tlotd:block/empty",
+		"3": "tlotd:block/wooden_water_stein",
+		"particle": "minecraft:block/spruce_log"
+  }
+}

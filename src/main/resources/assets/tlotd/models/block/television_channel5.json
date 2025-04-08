@@ -1,0 +1,9 @@
+{
+	"parent": "tlotd:block/template_television",
+	"texture_size": [64, 64],
+	"textures": {
+		"0": "tlotd:block/television",
+		"1": "tlotd:block/television/channel5",
+		"particle": "minecraft:block/black_concrete"
+	}
+}

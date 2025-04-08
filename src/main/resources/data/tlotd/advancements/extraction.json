@@ -1,0 +1,30 @@
+{
+  "display": {
+    "icon": {
+      "item": "tlotd:cinnabar_pickaxe"
+    },
+    "title": {
+      "translate": "advancements.tlotd.extraction"
+    },
+    "description": {
+      "translate": "advancements.tlotd.extraction.desc"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "tlotd:extraction_pickaxes"
+          }
+        ]
+      }
+    }
+  },
+  "parent": "tlotd:rich_in_ingots"
+}

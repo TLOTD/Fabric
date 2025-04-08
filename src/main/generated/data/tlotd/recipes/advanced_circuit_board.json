@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "minecraft:black_dye"
+    },
+    "C": {
+      "item": "tlotd:circuit_board"
+    },
+    "G": {
+      "item": "tlotd:gold_wire"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "pattern": [
+    "BIG",
+    "CCC",
+    "IGB"
+  ],
+  "result": {
+    "item": "tlotd:advanced_circuit_board"
+  },
+  "show_notification": true
+}

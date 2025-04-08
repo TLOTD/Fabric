@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 0.7,
+  "group": "nebular_ingot",
+  "ingredient": {
+    "item": "tlotd:nebular_crystal"
+  },
+  "result": "tlotd:nebular_ingot"
+}

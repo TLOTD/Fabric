@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "Block{tlotd:wooden_stein}",
+  "ingredients": [
+    {
+      "item": "tlotd:wooden_water_stein"
+    },
+    {
+      "item": "minecraft:wheat"
+    }
+  ],
+  "result": {
+    "item": "tlotd:wooden_beer_stein"
+  }
+}

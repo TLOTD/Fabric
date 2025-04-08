@@ -1,0 +1,20 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "twilightforest"
+      ]
+    }
+  ],
+  "replace": false,
+  "values": [
+    "tlotd:mithril_ingot",
+    "tlotd:cinnabar_crystal",
+    "tlotd:nebular_crystal",
+    "tlotd:jurassoline_crystal",
+    "tlotd:raw_palladium",
+    "tlotd:endurium_crystal",
+    "tlotd:heliorite_comb"
+  ]
+}

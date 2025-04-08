@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "tlotd:block/gravestone",
+      "y": 180
+    },
+    "facing=east": {
+      "model": "tlotd:block/gravestone",
+      "y": 270
+    },
+    "facing=south": {
+      "model": "tlotd:block/gravestone"
+    },
+    "facing=west": {
+      "model": "tlotd:block/gravestone",
+      "y": 90
+    }
+  }
+}

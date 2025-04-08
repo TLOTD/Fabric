@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "A": {
+      "item": "tlotd:advanced_circuit_board"
+    },
+    "B": {
+      "tag": "minecraft:buttons"
+    },
+    "G": {
+      "tag": "c:colorless_glass_panes"
+    },
+    "Q": {
+      "tag": "c:quartz_blocks"
+    },
+    "R": {
+      "item": "tlotd:cathode_ray_tube"
+    }
+  },
+  "pattern": [
+    "QAQ",
+    "GRA",
+    "BAB"
+  ],
+  "result": {
+    "item": "tlotd:computer"
+  },
+  "show_notification": true
+}

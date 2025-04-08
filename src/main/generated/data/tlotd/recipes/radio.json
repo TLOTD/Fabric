@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "#": {
+      "tag": "minecraft:logs"
+    },
+    "B": {
+      "tag": "minecraft:buttons"
+    },
+    "C": {
+      "item": "tlotd:circuit_board"
+    },
+    "J": {
+      "item": "minecraft:jukebox"
+    },
+    "N": {
+      "item": "minecraft:iron_nugget"
+    },
+    "W": {
+      "item": "tlotd:copper_wire"
+    }
+  },
+  "pattern": [
+    "WNN",
+    "#J#",
+    "#CB"
+  ],
+  "result": {
+    "item": "tlotd:radio"
+  },
+  "show_notification": true
+}

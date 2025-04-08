@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "tlotd:heliorite_ore",
+    "tlotd:heliorite_comb_block",
+    "tlotd:heliorite_block",
+    "tlotd:end_stone_endurium_ore",
+    "tlotd:raw_endurium_block",
+    "tlotd:endurium_block",
+    "tlotd:red_deepslate_heliorite_ore"
+  ]
+}

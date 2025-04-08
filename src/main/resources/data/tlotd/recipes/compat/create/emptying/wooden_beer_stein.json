@@ -1,0 +1,25 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "create"
+      ]
+    }
+  ],
+  "type": "create:emptying",
+  "ingredients": [
+    {
+      "item": "tlotd:wooden_beer_stein"
+    }
+  ],
+  "results": [
+    {
+      "item": "tlotd:wooden_stein"
+    },
+    {
+      "amount": 81000,
+      "fluid": "tlotd:beer"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "toughasnails"
+      ]
+    }
+  ],
+  "replace": false,
+  "values": [
+    "tlotd:wooden_chocolate_milkshake_stein",
+    "tlotd:wooden_strawberry_milkshake_stein",
+    "tlotd:wooden_orange_milkshake_stein"
+  ]
+}

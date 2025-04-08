@@ -1,0 +1,32 @@
+{
+  "display": {
+    "icon": {
+      "item": "tlotd:astral_ingot"
+    },
+    "title": {
+      "translate": "advancements.tlotd.astral"
+    },
+    "description": {
+      "translate": "advancements.tlotd.astral.desc"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "tlotd:astral_ingot"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "parent": "tlotd:mithril"
+}

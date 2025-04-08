@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "tag": "c:colorless_glass_panes"
+    },
+    "I": {
+      "tag": "c:steel_rods"
+    }
+  },
+  "pattern": [
+    "###",
+    "#I#",
+    "###"
+  ],
+  "result": {
+    "count": 8,
+    "item": "tlotd:framed_glass"
+  },
+  "show_notification": true
+}

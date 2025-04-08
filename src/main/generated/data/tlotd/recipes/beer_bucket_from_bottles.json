@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "beer_bucket",
+  "ingredients": [
+    {
+      "item": "minecraft:bucket"
+    },
+    {
+      "item": "tlotd:beer_bottle"
+    },
+    {
+      "item": "tlotd:beer_bottle"
+    },
+    {
+      "item": "tlotd:beer_bottle"
+    }
+  ],
+  "result": {
+    "item": "tlotd:beer_bucket"
+  }
+}

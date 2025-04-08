@@ -1,0 +1,17 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "toughasnails"
+      ]
+    }
+  ],
+  "replace": false,
+  "values": [
+    "tlotd:cthonaut_helmet",
+    "tlotd:depth_suit_chestplate",
+    "tlotd:depth_suit_leggings",
+    "tlotd:depth_suit_boots"
+  ]
+}

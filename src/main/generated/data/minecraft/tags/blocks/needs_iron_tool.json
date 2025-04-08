@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "tlotd:deepslate_uranium_ore",
+    "tlotd:raw_uranium_block",
+    "tlotd:uranium_block",
+    "tlotd:red_deepslate_uranium_ore",
+    "tlotd:red_deepslate_gold_ore",
+    "tlotd:red_deepslate_redstone_ore",
+    "tlotd:red_deepslate_emerald_ore",
+    "tlotd:red_deepslate_diamond_ore"
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "create"
+      ]
+    }
+  ],
+    "type": "create:milling",
+    "ingredients": [
+      {
+        "item": "tlotd:cobbled_red_deepslate"
+      }
+    ],
+    "results": [
+      {
+        "item": "tlotd:red_gravel",
+        "count": 1
+      }
+    ],
+    "processingTime": 250
+  }

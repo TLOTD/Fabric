@@ -1,0 +1,16 @@
+{
+  "entity_t-rex_idle":{"subtitle":"sounds.tlotd.entity_t-rex_idle","sounds":["tlotd:entity/t-rex_idle"]},
+  "entity_t-rex_hurt":{"subtitle":"sounds.tlotd.entity_t-rex_hurt","sounds":["tlotd:entity/t-rex_hurt"]},
+  "entity_t-rex_death":{"subtitle": "sounds.tlotd.entity_t-rex_death","sounds":["tlotd:entity/t-rex_death"]},
+  "item_pickaxe_extract":{"subtitle": "sounds.tlotd.item_pickaxe_extract","sounds":["tlotd:item/pickaxe_extract"]},
+  "block_elevator_pling":{"subtitle": "sounds.tlotd.block_elevator_pling","sounds":["tlotd:block/elevator_pling"]},
+  "block_radio_switch_frequency":{"subtitle": "sounds.tlotd.block_radio_switch_frequency","sounds":["tlotd:block/radio_switch_frequency"]},
+  "radio_frequency_1":{"sounds":[{"name":"tlotd:block/radio_frequency_1","stream":true}]},
+  "radio_frequency_2":{"sounds":[{"name":"tlotd:block/radio_frequency_2","stream":true}]},
+  "radio_frequency_3":{"sounds":[{"name":"tlotd:block/radio_frequency_3","stream":true}]},
+  "radio_frequency_4":{"sounds":[{"name":"tlotd:block/radio_frequency_4","stream":true}]},
+  "block_television_switch_channel":{"subtitle":"sounds.tlotd.block_television_switch_channel","sounds":["tlotd:block/television_switch_channel"]},
+  "block_television_static_channel":{"subtitle":"sounds.tlotd.block_television_static_channel","sounds":["tlotd:block/television_static_channel"]},
+  "block_videocassette_recorder":{"subtitle":"sounds.tlotd.block_videocassette_recorder","sounds":["tlotd:block/videocassette_recorder"]},
+  "block_computer_interact":{"subtitle":"sounds.tlotd.block_computer_interact","sounds":["tlotd:block/computer_interact"]}
+}

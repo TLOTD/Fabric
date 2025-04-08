@@ -1,0 +1,10 @@
+{
+	"parent": "tlotd:block/template_radio",
+	"textures": {
+		"0": "minecraft:block/spruce_log",
+		"1": "minecraft:block/stripped_spruce_log",
+		"2": "tlotd:block/radio_front",
+		"3": "tlotd:block/radio/frequency1",
+		"particle": "minecraft:block/spruce_log"
+	}
+}

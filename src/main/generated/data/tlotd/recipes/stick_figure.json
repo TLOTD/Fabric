@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "I": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "III",
+    " I ",
+    "I I"
+  ],
+  "result": {
+    "item": "tlotd:stick_figure"
+  },
+  "show_notification": true
+}

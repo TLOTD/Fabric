@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "item": "tlotd:reinforced_red_deepslate"
+    },
+    "title": {
+      "translate": "advancements.tlotd.jurassic"
+    },
+    "description": {
+      "translate": "advancements.tlotd.jurassic.desc"
+    },
+    "background": "tlotd:textures/gui/advancements/backgrounds/jurassic.png",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:changed_dimension",
+      "conditions": {
+        "to": "tlotd:prehistoric"
+      }
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "tlotd:heliorite_ingot"
+    },
+    "I": {
+      "tag": "c:steel_rods"
+    }
+  },
+  "pattern": [
+    " #",
+    "I "
+  ],
+  "result": {
+    "item": "tlotd:heliorite_sickle"
+  },
+  "show_notification": true
+}

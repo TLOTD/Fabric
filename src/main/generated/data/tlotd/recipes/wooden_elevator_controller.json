@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "elevator_controller",
+  "key": {
+    "#": {
+      "tag": "minecraft:planks"
+    },
+    "B": {
+      "tag": "minecraft:buttons"
+    },
+    "C": {
+      "item": "tlotd:copper_wire"
+    },
+    "P": {
+      "item": "minecraft:painting"
+    }
+  },
+  "pattern": [
+    "###",
+    "#P#",
+    "#BC"
+  ],
+  "result": {
+    "item": "tlotd:wooden_elevator_controller"
+  },
+  "show_notification": true
+}

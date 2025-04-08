@@ -1,0 +1,29 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "create"
+      ]
+    }
+  ],
+  "type": "create:mixing",
+  "ingredients": [
+    {
+      "fluid": "minecraft:lava",
+      "amount": 81000
+    },
+    {
+      "item": "tlotd:uranium"
+    },
+    {
+      "item": "tlotd:endurium_crystal"
+    }
+  ],
+  "results": [
+    {
+      "fluid": "tlotd:chemical_waste",
+      "amount": 81000
+    }
+  ]
+}

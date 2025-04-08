@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/template_glass_pane_side",
+  "textures": {
+    "edge": "tlotd:block/framed_glass_pane_top",
+    "pane": "tlotd:block/framed_glass"
+  }
+}

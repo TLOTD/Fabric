@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "elevator_base",
+  "key": {
+    "#": {
+      "tag": "minecraft:planks"
+    },
+    "E": {
+      "item": "minecraft:ender_pearl"
+    },
+    "Q": {
+      "tag": "c:quartz_blocks"
+    }
+  },
+  "pattern": [
+    "Q Q",
+    "QEQ",
+    "###"
+  ],
+  "result": {
+    "item": "tlotd:quartz_elevator_base"
+  },
+  "show_notification": true
+}

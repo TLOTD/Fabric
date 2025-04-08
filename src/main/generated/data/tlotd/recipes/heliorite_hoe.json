@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "heliorite_hoe",
+  "key": {
+    "#": {
+      "item": "tlotd:heliorite_ingot"
+    },
+    "I": {
+      "tag": "c:steel_rods"
+    }
+  },
+  "pattern": [
+    "##",
+    " I",
+    " I"
+  ],
+  "result": {
+    "item": "tlotd:heliorite_hoe"
+  },
+  "show_notification": true
+}

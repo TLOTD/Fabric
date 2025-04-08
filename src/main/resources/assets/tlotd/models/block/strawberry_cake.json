@@ -1,0 +1,21 @@
+{
+    "textures": {
+        "particle": "tlotd:block/strawberry_cake_side",
+        "bottom": "tlotd:block/strawberry_cake_bottom",
+        "top": "tlotd:block/strawberry_cake_top",
+        "side": "tlotd:block/strawberry_cake_side"
+    },
+    "elements": [
+        {   "from": [ 1, 0, 1 ],
+            "to": [ 15, 8, 15 ],
+            "faces": {
+                "down":  { "texture": "#bottom", "cullface": "down" },
+                "up":    { "texture": "#top" },
+                "north": { "texture": "#side" },
+                "south": { "texture": "#side" },
+                "west":  { "texture": "#side" },
+                "east":  { "texture": "#side" }
+            }
+        }
+    ]
+}

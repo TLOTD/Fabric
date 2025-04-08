@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/door_top_left",
+  "textures": {
+    "bottom": "tlotd:block/glass_door_bottom",
+    "top": "tlotd:block/glass_door_top"
+  }
+}

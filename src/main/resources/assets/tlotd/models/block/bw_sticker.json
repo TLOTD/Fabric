@@ -1,0 +1,7 @@
+{
+	"parent": "tlotd:block/template_sticker",
+	"textures": {
+		"1": "tlotd:block/bw_sticker",
+		"particle": "tlotd:block/bw_sticker"
+	}
+}

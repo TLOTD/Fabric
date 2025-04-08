@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "elevator_base",
+  "key": {
+    "#": {
+      "tag": "minecraft:planks"
+    },
+    "E": {
+      "item": "minecraft:ender_pearl"
+    },
+    "I": {
+      "item": "minecraft:iron_bars"
+    }
+  },
+  "pattern": [
+    "I I",
+    "IEI",
+    "###"
+  ],
+  "result": {
+    "item": "tlotd:mining_elevator_base"
+  },
+  "show_notification": true
+}

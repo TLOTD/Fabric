@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:tinted_glass"
+    },
+    "S": {
+      "tag": "c:steel_ingots"
+    }
+  },
+  "pattern": [
+    "###",
+    "# #",
+    "SSS"
+  ],
+  "result": {
+    "item": "tlotd:cthonaut_helmet"
+  },
+  "show_notification": true
+}

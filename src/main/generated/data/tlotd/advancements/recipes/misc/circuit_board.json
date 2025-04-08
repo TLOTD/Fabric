@@ -1,0 +1,87 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_copper_wire": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "tlotd:copper_wire"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_gold_wire": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "tlotd:gold_wire"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_green_dye": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:green_dye"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_integrated_circuit": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "tlotd:integrated_circuit"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_iron_ingot": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:iron_ingot"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:circuit_board"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_green_dye",
+      "has_copper_wire",
+      "has_integrated_circuit",
+      "has_gold_wire",
+      "has_iron_ingot",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:circuit_board"
+    ]
+  },
+  "sends_telemetry_event": false
+}

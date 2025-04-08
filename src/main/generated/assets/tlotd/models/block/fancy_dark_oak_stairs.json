@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/stairs",
+  "textures": {
+    "bottom": "tlotd:block/fancy_dark_oak_planks",
+    "side": "tlotd:block/fancy_dark_oak_planks",
+    "top": "tlotd:block/fancy_dark_oak_planks"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "tlotd:ginkgo_log",
+    "tlotd:ginkgo_wood",
+    "tlotd:stripped_ginkgo_log",
+    "tlotd:stripped_ginkgo_wood"
+  ]
+}

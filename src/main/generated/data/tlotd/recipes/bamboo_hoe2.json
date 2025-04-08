@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "bamboo_hoe",
+  "key": {
+    "#": {
+      "item": "minecraft:bamboo"
+    },
+    "I": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "##",
+    "I ",
+    "I "
+  ],
+  "result": {
+    "item": "tlotd:bamboo_hoe"
+  },
+  "show_notification": true
+}

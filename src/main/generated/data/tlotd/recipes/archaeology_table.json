@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "#": {
+      "tag": "minecraft:planks"
+    },
+    "I": {
+      "item": "tlotd:fossilized_bone"
+    }
+  },
+  "pattern": [
+    "II",
+    "##",
+    "##"
+  ],
+  "result": {
+    "item": "tlotd:archaeology_table"
+  },
+  "show_notification": true
+}

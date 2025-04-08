@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:leather"
+    },
+    "G": {
+      "item": "minecraft:gray_dye"
+    }
+  },
+  "pattern": [
+    "###",
+    "#G#",
+    "# #"
+  ],
+  "result": {
+    "item": "tlotd:imperial_german_uniform_pants"
+  },
+  "show_notification": true
+}

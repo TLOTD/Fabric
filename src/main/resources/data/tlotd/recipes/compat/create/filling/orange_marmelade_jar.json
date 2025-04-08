@@ -1,0 +1,25 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "create"
+      ]
+    }
+  ],
+  "type": "create:filling",
+  "ingredients": [
+    {
+      "item": "tlotd:preserves_jar"
+    },
+    {
+      "fluid": "tlotd:orange_marmelade",
+      "amount": 81000
+    }
+  ],
+  "results": [
+    {
+      "item": "tlotd:orange_marmelade_jar"
+    }
+  ]
+}

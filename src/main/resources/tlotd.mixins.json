@@ -1,0 +1,12 @@
+{
+  "required": true,
+  "package": "net.tlotd.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "ModEntityDataSaverMixin",
+    "WoodStrippingItemDrop"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+	}
+}

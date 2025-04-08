@@ -1,0 +1,15 @@
+{
+  "replace": false,
+  "values": [
+    "tlotd:wooden_water_stein",
+    "tlotd:wooden_beer_stein",
+    "tlotd:wooden_apple_juice_stein",
+    "tlotd:wooden_orange_juice_stein",
+    "tlotd:wooden_milk_stein",
+    "tlotd:wooden_chocolate_milkshake_stein",
+    "tlotd:wooden_strawberry_milkshake_stein",
+    "tlotd:wooden_orange_milkshake_stein",
+    "tlotd:hot_wooden_milk_stein",
+    "tlotd:wooden_hot_chocolate_stein"
+  ]
+}

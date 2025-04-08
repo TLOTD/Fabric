@@ -1,0 +1,36 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "create"
+      ]
+    }
+  ],
+  "replace": false,
+  "values": [
+    "minecraft:goat_horn",
+    "tlotd:beer_goat_horn",
+    "tlotd:apple_juice_bottle",
+    "tlotd:orange_juice_bottle",
+    "tlotd:blood_bottle",
+    "tlotd:beer_bottle",
+    "tlotd:spezi_bottle",
+    "tlotd:tinted_glass_flask",
+    "tlotd:soul_flask",
+    "tlotd:cursed_soul_flask",
+
+    "tlotd:preserves_jar",
+    "tlotd:sweet_berry_jam_jar",
+    "tlotd:sweet_berry_jam_bucket",
+    "tlotd:glow_berry_jam_jar",
+    "tlotd:glow_berry_jam_bucket",
+    "tlotd:strawberry_jam_jar",
+    "tlotd:strawberry_jam_bucket",
+    "tlotd:orange_marmelade_jar",
+    "tlotd:orange_marmelade_bucket",
+
+    "tlotd:strawberry_cake",
+    "tlotd:orange_cake"
+  ]
+}

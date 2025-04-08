@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:leather"
+    },
+    "W": {
+      "item": "minecraft:white_dye"
+    }
+  },
+  "pattern": [
+    "###",
+    "#W#",
+    "# #"
+  ],
+  "result": {
+    "item": "tlotd:space_suit_leggings"
+  },
+  "show_notification": true
+}

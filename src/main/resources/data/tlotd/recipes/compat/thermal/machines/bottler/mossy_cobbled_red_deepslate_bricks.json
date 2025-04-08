@@ -1,0 +1,27 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "thermal"
+      ]
+    }
+  ],
+  "type": "thermal:bottler",
+  "ingredients": [
+    {
+      "item": "tlotd:cobbled_red_deepslate_bricks"
+    },
+    {
+      "fluid": "minecraft:water",
+      "amount": 500
+    }
+  ],
+  "result": [
+    {
+      "item": "tlotd:mossy_cobbled_red_deepslate_bricks"
+    }
+  ],
+  "energy": 2000,
+  "experience": 0.1
+}

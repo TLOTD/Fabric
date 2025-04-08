@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "minecraft:amethyst_shard"
+    },
+    "C": {
+      "item": "tlotd:circuit_board"
+    },
+    "G": {
+      "tag": "c:colorless_glass_panes"
+    },
+    "R": {
+      "item": "minecraft:redstone_lamp"
+    }
+  },
+  "pattern": [
+    "GGG",
+    "GAR",
+    "CCC"
+  ],
+  "result": {
+    "item": "tlotd:liquid_crystal_display_panel"
+  },
+  "show_notification": true
+}

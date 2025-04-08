@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "elevator_controller",
+  "key": {
+    "#": {
+      "tag": "minecraft:planks"
+    },
+    "B": {
+      "tag": "minecraft:buttons"
+    },
+    "C": {
+      "item": "tlotd:copper_wire"
+    },
+    "P": {
+      "item": "minecraft:painting"
+    },
+    "Q": {
+      "tag": "c:quartz_blocks"
+    }
+  },
+  "pattern": [
+    "###",
+    "QPQ",
+    "QBC"
+  ],
+  "result": {
+    "item": "tlotd:quartz_elevator_controller"
+  },
+  "show_notification": true
+}

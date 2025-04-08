@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=south":{"model":"tlotd:block/signal_transmitter"},
+    "facing=west":{"model":"tlotd:block/signal_transmitter","y":90},
+    "facing=north":{"model":"tlotd:block/signal_transmitter","y":180},
+    "facing=east":{"model": "tlotd:block/signal_transmitter","y":270}
+  }
+}

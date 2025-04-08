@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "tag": "c:lead_ingots"
+    },
+    "X": {
+      "item": "tlotd:xen_crystal"
+    }
+  },
+  "pattern": [
+    "###",
+    "X X",
+    "# #"
+  ],
+  "result": {
+    "item": "tlotd:hev_suit_leggings"
+  },
+  "show_notification": true
+}

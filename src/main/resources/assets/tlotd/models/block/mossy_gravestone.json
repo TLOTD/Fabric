@@ -1,0 +1,7 @@
+{
+	"parent": "tlotd:block/template_gravestone",
+	"textures": {
+		"0": "tlotd:block/mossy_gravestone",
+		"particle": "tlotd:block/mossy_gravestone"
+	}
+}

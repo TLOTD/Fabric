@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "tag": "tlotd:vhs_cassettes"
+    }
+  ],
+  "result": {
+    "item": "tlotd:vhs_cassette"
+  }
+}

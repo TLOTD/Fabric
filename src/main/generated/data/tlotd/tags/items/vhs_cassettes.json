@@ -1,0 +1,16 @@
+{
+  "replace": false,
+  "values": [
+    "tlotd:vhs_cassette",
+    "tlotd:vhs_cassette_1",
+    "tlotd:vhs_cassette_2",
+    "tlotd:vhs_cassette_3",
+    "tlotd:vhs_cassette_4",
+    "tlotd:vhs_cassette_5",
+    "tlotd:vhs_cassette_6",
+    "tlotd:vhs_cassette_7",
+    "tlotd:vhs_cassette_8",
+    "tlotd:vhs_cassette_9",
+    "tlotd:vhs_cassette_broken"
+  ]
+}

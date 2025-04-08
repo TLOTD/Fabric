@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "tag": "c:steel_ingots"
+    },
+    "I": {
+      "item": "minecraft:gold_ingot"
+    }
+  },
+  "pattern": [
+    " I ",
+    "###",
+    "# #"
+  ],
+  "result": {
+    "item": "tlotd:pickelhaube"
+  },
+  "show_notification": true
+}

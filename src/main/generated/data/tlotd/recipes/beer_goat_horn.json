@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "beer_goat_horn",
+  "ingredients": [
+    {
+      "item": "minecraft:goat_horn"
+    },
+    {
+      "tag": "tlotd:beer_container"
+    }
+  ],
+  "result": {
+    "item": "tlotd:beer_goat_horn"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "age=0":{"model":"tlotd:block/orange_tree_0"},
+    "age=1":{"model":"tlotd:block/orange_tree_1"},
+    "age=2":{"model":"tlotd:block/orange_tree_2"},
+    "age=3":{"model":"tlotd:block/orange_tree_3"},
+    "age=4":{"model":"tlotd:block/orange_tree_4"},
+    "age=5,upper=false":{"model":"tlotd:block/orange_tree_5"},
+    "age=6,upper=false":{"model":"tlotd:block/orange_tree_6"},
+    "age=7,upper=false":{"model":"tlotd:block/orange_tree_7"},
+    "age=8,upper=false":{"model":"tlotd:block/orange_tree_8"},
+    "age=9,upper=false":{"model":"tlotd:block/orange_tree_9"},
+    "age=5,upper=true":{"model":"tlotd:block/orange_tree_5_top"},
+    "age=6,upper=true":{"model":"tlotd:block/orange_tree_6_top"},
+    "age=7,upper=true":{"model":"tlotd:block/orange_tree_7_top"},
+    "age=8,upper=true":{"model":"tlotd:block/orange_tree_8_top"},
+    "age=9,upper=true":{"model":"tlotd:block/orange_tree_9_top"}
+  }
+}

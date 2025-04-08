@@ -1,0 +1,102 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "create"
+      ]
+    }
+  ],
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "tag": "c:iron_ingots"
+  },
+  "loops": 2,
+  "results": [
+    {
+      "item": "tlotd:circuit_board"
+    }
+  ],
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "tlotd:incomplete_circuit_board"
+        },
+        {
+          "item": "minecraft:green_dye"
+        }
+      ],
+      "results": [
+        {
+          "item": "tlotd:incomplete_circuit_board"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "tlotd:incomplete_circuit_board"
+        },
+        {
+          "item": "tlotd:gold_wire"
+        }
+      ],
+      "results": [
+        {
+          "item": "tlotd:incomplete_circuit_board"
+        }
+      ]
+    },
+    {
+      "type": "create:pressing",
+      "ingredients": [
+        {
+          "item": "tlotd:incomplete_circuit_board"
+        }
+      ],
+      "results": [
+        {
+          "item": "tlotd:incomplete_circuit_board"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "tlotd:incomplete_circuit_board"
+        },
+        {
+          "item": "tlotd:copper_wire"
+        }
+      ],
+      "results": [
+        {
+          "item": "tlotd:incomplete_circuit_board"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "tlotd:incomplete_circuit_board"
+        },
+        {
+          "item": "tlotd:integrated_circuit"
+        }
+      ],
+      "results": [
+        {
+          "item": "tlotd:incomplete_circuit_board"
+        }
+      ]
+    }
+  ],
+  "transitionalItem": {
+    "item": "tlotd:incomplete_circuit_board"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "tlotd:red_deepslate"
+    },
+    {
+      "item": "tlotd:fossilized_bone"
+    }
+  ],
+  "result": {
+    "item": "tlotd:reinforced_red_deepslate"
+  }
+}

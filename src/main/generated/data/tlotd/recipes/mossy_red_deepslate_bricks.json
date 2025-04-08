@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "Block{tlotd:mossy_red_deepslate_bricks}",
+  "ingredients": [
+    {
+      "item": "tlotd:red_deepslate_bricks"
+    },
+    {
+      "item": "minecraft:vine"
+    }
+  ],
+  "result": {
+    "item": "tlotd:mossy_red_deepslate_bricks"
+  }
+}

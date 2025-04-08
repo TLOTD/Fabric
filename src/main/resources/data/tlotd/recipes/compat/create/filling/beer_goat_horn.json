@@ -1,0 +1,25 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "create"
+      ]
+    }
+  ],
+  "type": "create:filling",
+  "ingredients": [
+    {
+      "item": "minecraft:goat_horn"
+    },
+    {
+      "amount": 81000,
+      "fluid": "tlotd:beer"
+    }
+  ],
+  "results": [
+    {
+      "item": "tlotd:beer_goat_horn"
+    }
+  ]
+}

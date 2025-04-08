@@ -1,0 +1,11 @@
+{
+  "type": "tlotd:witching",
+  "ingredients": [
+    {
+      "item": "tlotd:spell_book"
+    }
+  ],
+  "output": {
+    "item": "tlotd:forbidden_spell_book"
+  }
+}

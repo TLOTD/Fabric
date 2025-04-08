@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "C": {
+      "item": "minecraft:copper_ingot"
+    },
+    "G": {
+      "tag": "c:colorless_glass_panes"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    },
+    "R": {
+      "item": "minecraft:redstone_lamp"
+    }
+  },
+  "pattern": [
+    "IGI",
+    "GCR",
+    "IGI"
+  ],
+  "result": {
+    "item": "tlotd:cathode_ray_tube"
+  },
+  "show_notification": true
+}

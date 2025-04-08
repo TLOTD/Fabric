@@ -1,0 +1,19 @@
+{
+  "replace": false,
+  "values": [
+    "tlotd:beer",
+    "tlotd:flowing_beer",
+    "tlotd:oil",
+    "tlotd:flowing_oil",
+    "tlotd:blood",
+    "tlotd:flowing_blood",
+    "tlotd:sweet_berry_jam",
+    "tlotd:flowing_sweet_berry_jam",
+    "tlotd:glow_berry_jam",
+    "tlotd:flowing_glow_berry_jam",
+    "tlotd:strawberry_jam",
+    "tlotd:flowing_strawberry_jam",
+    "tlotd:orange_marmelade",
+    "tlotd:flowing_orange_marmelade"
+  ]
+}

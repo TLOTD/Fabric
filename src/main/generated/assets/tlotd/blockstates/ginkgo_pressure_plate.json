@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "powered=false": {
+      "model": "tlotd:block/ginkgo_pressure_plate"
+    },
+    "powered=true": {
+      "model": "tlotd:block/ginkgo_pressure_plate_down"
+    }
+  }
+}

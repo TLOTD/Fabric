@@ -1,0 +1,14 @@
+{
+  "replace": false,
+  "values": [
+    "tlotd:orange",
+    {
+      "id": "croptopia:orange",
+      "required": false
+    },
+    {
+      "id": "simplefarming:orange",
+      "required": false
+    }
+  ]
+}

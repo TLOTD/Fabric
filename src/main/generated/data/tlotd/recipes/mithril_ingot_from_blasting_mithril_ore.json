@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 400,
+  "experience": 1.0,
+  "group": "mithril_ingot",
+  "ingredient": {
+    "item": "tlotd:mithril_ore"
+  },
+  "result": "tlotd:mithril_ingot"
+}

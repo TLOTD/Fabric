@@ -1,0 +1,7 @@
+{
+  "parent": "tlotd:block/template_t-rex_head",
+  "textures": {
+    "0": "tlotd:block/t-rex/sculk",
+    "particle": "tlotd:block/t-rex/sculk"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "tlotd:item/imperial_german_uniform_pants",
+    "layer1": "minecraft:trims/items/leggings_trim_lapis"
+  }
+}

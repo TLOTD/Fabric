@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "A": {
+      "item": "tlotd:advanced_circuit_board"
+    },
+    "C": {
+      "item": "minecraft:copper_ingot"
+    },
+    "J": {
+      "item": "minecraft:jukebox"
+    },
+    "P": {
+      "tag": "minecraft:planks"
+    },
+    "V": {
+      "item": "tlotd:videocassette_recorder"
+    },
+    "W": {
+      "item": "tlotd:copper_wire"
+    }
+  },
+  "pattern": [
+    "CWC",
+    "AVA",
+    "PJP"
+  ],
+  "result": {
+    "item": "tlotd:signal_transmitter"
+  },
+  "show_notification": true
+}

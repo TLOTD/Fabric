@@ -1,0 +1,17 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "toughasnails"
+      ]
+    }
+  ],
+  "replace": false,
+  "values": [
+    "tlotd:wooden_apple_juice_stein",
+    "tlotd:wooden_orange_juice_stein",
+    "tlotd:wooden_beer_stein",
+    "tlotd:beer_goat_horn"
+  ]
+}

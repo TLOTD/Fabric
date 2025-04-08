@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "tlotd:dinosaur_hide"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "item": "minecraft:leather"
+  }
+}

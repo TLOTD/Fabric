@@ -1,0 +1,30 @@
+{
+  "variants": {
+    "facing=west": {
+      "model": "tlotd:block/bw_sticker",
+      "x": 90,
+      "y": 90
+    },
+    "facing=north": {
+      "model": "tlotd:block/bw_sticker",
+      "x": 90,
+      "y": 180
+    },
+    "facing=east": {
+      "model": "tlotd:block/bw_sticker",
+      "x": 90,
+      "y": 270
+    },
+    "facing=south": {
+      "model": "tlotd:block/bw_sticker",
+      "x": 90
+    },
+    "facing=down": {
+      "model": "tlotd:block/bw_sticker"
+    },
+    "facing=up": {
+      "model": "tlotd:block/bw_sticker",
+      "x": 180
+    }
+  }
+}

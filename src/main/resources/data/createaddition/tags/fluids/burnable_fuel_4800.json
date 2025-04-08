@@ -1,0 +1,17 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "createaddition"
+      ]
+    }
+  ],
+  "replace": false,
+  "values": [
+    "createaddition:seed_oil",
+    "createaddition:flowing_seed_oil",
+    "tlotd:blood",
+    "tlotd:flowing_blood"
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_painting": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:painting"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_smooth_quartz": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:smooth_quartz"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:quartz_elevator_controller"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_smooth_quartz",
+      "has_painting",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:quartz_elevator_controller"
+    ]
+  },
+  "sends_telemetry_event": false
+}

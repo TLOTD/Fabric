@@ -1,0 +1,14 @@
+{
+	"parent": "tlotd:block/template_preserves_jar",
+	"textures": {
+		"0": "tlotd:block/preserves_jar",
+		"1": "tlotd:block/preserves_jar_bottom",
+		"2": "tlotd:block/preserves_jar_big",
+		"3": "tlotd:block/preserves_jar_big_top",
+		"4": "tlotd:block/preserves_jar_smaller",
+		"5": "tlotd:block/preserves_jar_lid_bottom",
+		"6": "tlotd:block/preserves_jar_lid",
+		"7": "tlotd:block/empty",
+		"particle": "tlotd:block/preserves_jar"
+	}
+}

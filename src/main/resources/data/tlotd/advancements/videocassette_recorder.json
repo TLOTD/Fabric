@@ -1,0 +1,32 @@
+{
+  "display": {
+    "icon": {
+      "item": "tlotd:videocassette_recorder"
+    },
+    "title": {
+      "translate": "advancements.tlotd.videocassette_recorder"
+    },
+    "description": {
+      "translate": "advancements.tlotd.videocassette_recorder.desc"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "tlotd:videocassette_recorder"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "parent": "tlotd:simple_circuitry"
+}

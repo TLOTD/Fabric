@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "tlotd:block/fancy_mangrove_slab"
+    },
+    "type=double": {
+      "model": "tlotd:block/fancy_mangrove_planks"
+    },
+    "type=top": {
+      "model": "tlotd:block/fancy_mangrove_slab_top"
+    }
+  }
+}

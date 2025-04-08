@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "tlotd:block/wooden_stein",
+      "y": 180
+    },
+    "facing=north": {
+      "model": "tlotd:block/wooden_stein",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "tlotd:block/wooden_stein",
+      "y": 270
+    },
+    "facing=west": {
+      "model": "tlotd:block/wooden_stein",
+      "y": 0
+    }
+  }
+}

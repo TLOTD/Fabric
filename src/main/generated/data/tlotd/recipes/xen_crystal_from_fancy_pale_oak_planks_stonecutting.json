@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "tlotd:fancy_pale_oak_planks"
+  },
+  "result": "tlotd:xen_crystal"
+}

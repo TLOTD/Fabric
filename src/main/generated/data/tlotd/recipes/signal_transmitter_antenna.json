@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "C": {
+      "item": "minecraft:copper_ingot"
+    },
+    "W": {
+      "item": "tlotd:copper_wire"
+    }
+  },
+  "pattern": [
+    " C ",
+    "CWC",
+    "CWC"
+  ],
+  "result": {
+    "item": "tlotd:signal_transmitter_antenna"
+  },
+  "show_notification": true
+}

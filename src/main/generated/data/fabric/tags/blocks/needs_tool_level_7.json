@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "tlotd:raw_mithril_block",
+    "tlotd:mithril_block",
+    "tlotd:mithril_anvil"
+  ]
+}

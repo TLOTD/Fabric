@@ -1,0 +1,26 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "create"
+      ]
+    }
+  ],
+  "type": "create:mixing",
+  "ingredients": [
+    {
+      "fluid": "minecraft:water",
+      "amount": 81000
+    },
+    {
+      "item": "minecraft:wheat"
+    }
+  ],
+  "results": [
+    {
+      "fluid": "tlotd:beer",
+      "amount": 81000
+    }
+  ]
+}

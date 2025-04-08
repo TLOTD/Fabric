@@ -1,0 +1,311 @@
+{
+  "variants": {
+    "facing=south,frequency=0,wood_type=1":{"model":"tlotd:block/oak_radio_0"},
+    "facing=west,frequency=0,wood_type=1":{"model":"tlotd:block/oak_radio_0","y":90},
+    "facing=north,frequency=0,wood_type=1":{"model":"tlotd:block/oak_radio_0","y":180},
+    "facing=east,frequency=0,wood_type=1":{"model":"tlotd:block/oak_radio_0","y":270},
+
+    "facing=south,frequency=0,wood_type=2":{"model":"tlotd:block/spruce_radio_0"},
+    "facing=west,frequency=0,wood_type=2":{"model":"tlotd:block/spruce_radio_0","y":90},
+    "facing=north,frequency=0,wood_type=2":{"model":"tlotd:block/spruce_radio_0","y":180},
+    "facing=east,frequency=0,wood_type=2":{"model":"tlotd:block/spruce_radio_0","y":270},
+
+    "facing=south,frequency=0,wood_type=3":{"model":"tlotd:block/birch_radio_0"},
+    "facing=west,frequency=0,wood_type=3":{"model":"tlotd:block/birch_radio_0","y":90},
+    "facing=north,frequency=0,wood_type=3":{"model":"tlotd:block/birch_radio_0","y":180},
+    "facing=east,frequency=0,wood_type=3":{"model":"tlotd:block/birch_radio_0","y":270},
+
+    "facing=south,frequency=0,wood_type=4":{"model":"tlotd:block/jungle_radio_0"},
+    "facing=west,frequency=0,wood_type=4":{"model":"tlotd:block/jungle_radio_0","y":90},
+    "facing=north,frequency=0,wood_type=4":{"model":"tlotd:block/jungle_radio_0","y":180},
+    "facing=east,frequency=0,wood_type=4":{"model":"tlotd:block/jungle_radio_0","y":270},
+
+    "facing=south,frequency=0,wood_type=5":{"model":"tlotd:block/acacia_radio_0"},
+    "facing=west,frequency=0,wood_type=5":{"model":"tlotd:block/acacia_radio_0","y":90},
+    "facing=north,frequency=0,wood_type=5":{"model":"tlotd:block/acacia_radio_0","y":180},
+    "facing=east,frequency=0,wood_type=5":{"model":"tlotd:block/acacia_radio_0","y":270},
+
+    "facing=south,frequency=0,wood_type=6":{"model":"tlotd:block/dark_oak_radio_0"},
+    "facing=west,frequency=0,wood_type=6":{"model":"tlotd:block/dark_oak_radio_0","y":90},
+    "facing=north,frequency=0,wood_type=6":{"model":"tlotd:block/dark_oak_radio_0","y":180},
+    "facing=east,frequency=0,wood_type=6":{"model":"tlotd:block/dark_oak_radio_0","y":270},
+
+    "facing=south,frequency=0,wood_type=7":{"model":"tlotd:block/mangrove_radio_0"},
+    "facing=west,frequency=0,wood_type=7":{"model":"tlotd:block/mangrove_radio_0","y":90},
+    "facing=north,frequency=0,wood_type=7":{"model":"tlotd:block/mangrove_radio_0","y":180},
+    "facing=east,frequency=0,wood_type=7":{"model":"tlotd:block/mangrove_radio_0","y":270},
+
+    "facing=south,frequency=0,wood_type=8":{"model":"tlotd:block/cherry_radio_0"},
+    "facing=west,frequency=0,wood_type=8":{"model":"tlotd:block/cherry_radio_0","y":90},
+    "facing=north,frequency=0,wood_type=8":{"model":"tlotd:block/cherry_radio_0","y":180},
+    "facing=east,frequency=0,wood_type=8":{"model":"tlotd:block/cherry_radio_0","y":270},
+
+    "facing=south,frequency=0,wood_type=10":{"model":"tlotd:block/ginkgo_radio_0"},
+    "facing=west,frequency=0,wood_type=10":{"model":"tlotd:block/ginkgo_radio_0","y":90},
+    "facing=north,frequency=0,wood_type=10":{"model":"tlotd:block/ginkgo_radio_0","y":180},
+    "facing=east,frequency=0,wood_type=10":{"model":"tlotd:block/ginkgo_radio_0","y":270},
+
+    "facing=south,frequency=0,wood_type=11":{"model":"tlotd:block/bamboo_radio_0"},
+    "facing=west,frequency=0,wood_type=11":{"model":"tlotd:block/bamboo_radio_0","y":90},
+    "facing=north,frequency=0,wood_type=11":{"model":"tlotd:block/bamboo_radio_0","y":180},
+    "facing=east,frequency=0,wood_type=11":{"model":"tlotd:block/bamboo_radio_0","y":270},
+
+    "facing=south,frequency=0,wood_type=12":{"model":"tlotd:block/crimson_radio_0"},
+    "facing=west,frequency=0,wood_type=12":{"model":"tlotd:block/crimson_radio_0","y":90},
+    "facing=north,frequency=0,wood_type=12":{"model":"tlotd:block/crimson_radio_0","y":180},
+    "facing=east,frequency=0,wood_type=12":{"model":"tlotd:block/crimson_radio_0","y":270},
+
+    "facing=south,frequency=0,wood_type=13":{"model":"tlotd:block/warped_radio_0"},
+    "facing=west,frequency=0,wood_type=13":{"model":"tlotd:block/warped_radio_0","y":90},
+    "facing=north,frequency=0,wood_type=13":{"model":"tlotd:block/warped_radio_0","y":180},
+    "facing=east,frequency=0,wood_type=13":{"model":"tlotd:block/warped_radio_0","y":270},
+
+
+
+    "facing=south,frequency=1,wood_type=1":{"model":"tlotd:block/oak_radio_1"},
+    "facing=west,frequency=1,wood_type=1":{"model":"tlotd:block/oak_radio_1","y":90},
+    "facing=north,frequency=1,wood_type=1":{"model":"tlotd:block/oak_radio_1","y":180},
+    "facing=east,frequency=1,wood_type=1":{"model":"tlotd:block/oak_radio_1","y":270},
+
+    "facing=south,frequency=1,wood_type=2":{"model":"tlotd:block/spruce_radio_1"},
+    "facing=west,frequency=1,wood_type=2":{"model":"tlotd:block/spruce_radio_1","y":90},
+    "facing=north,frequency=1,wood_type=2":{"model":"tlotd:block/spruce_radio_1","y":180},
+    "facing=east,frequency=1,wood_type=2":{"model":"tlotd:block/spruce_radio_1","y":270},
+
+    "facing=south,frequency=1,wood_type=3":{"model":"tlotd:block/birch_radio_1"},
+    "facing=west,frequency=1,wood_type=3":{"model":"tlotd:block/birch_radio_1","y":90},
+    "facing=north,frequency=1,wood_type=3":{"model":"tlotd:block/birch_radio_1","y":180},
+    "facing=east,frequency=1,wood_type=3":{"model":"tlotd:block/birch_radio_1","y":270},
+
+    "facing=south,frequency=1,wood_type=4":{"model":"tlotd:block/jungle_radio_1"},
+    "facing=west,frequency=1,wood_type=4":{"model":"tlotd:block/jungle_radio_1","y":90},
+    "facing=north,frequency=1,wood_type=4":{"model":"tlotd:block/jungle_radio_1","y":180},
+    "facing=east,frequency=1,wood_type=4":{"model":"tlotd:block/jungle_radio_1","y":270},
+
+    "facing=south,frequency=1,wood_type=5":{"model":"tlotd:block/acacia_radio_1"},
+    "facing=west,frequency=1,wood_type=5":{"model":"tlotd:block/acacia_radio_1","y":90},
+    "facing=north,frequency=1,wood_type=5":{"model":"tlotd:block/acacia_radio_1","y":180},
+    "facing=east,frequency=1,wood_type=5":{"model":"tlotd:block/acacia_radio_1","y":270},
+
+    "facing=south,frequency=1,wood_type=6":{"model":"tlotd:block/dark_oak_radio_1"},
+    "facing=west,frequency=1,wood_type=6":{"model":"tlotd:block/dark_oak_radio_1","y":90},
+    "facing=north,frequency=1,wood_type=6":{"model":"tlotd:block/dark_oak_radio_1","y":180},
+    "facing=east,frequency=1,wood_type=6":{"model":"tlotd:block/dark_oak_radio_1","y":270},
+
+    "facing=south,frequency=1,wood_type=7":{"model":"tlotd:block/mangrove_radio_1"},
+    "facing=west,frequency=1,wood_type=7":{"model":"tlotd:block/mangrove_radio_1","y":90},
+    "facing=north,frequency=1,wood_type=7":{"model":"tlotd:block/mangrove_radio_1","y":180},
+    "facing=east,frequency=1,wood_type=7":{"model":"tlotd:block/mangrove_radio_1","y":270},
+
+    "facing=south,frequency=1,wood_type=8":{"model":"tlotd:block/cherry_radio_1"},
+    "facing=west,frequency=1,wood_type=8":{"model":"tlotd:block/cherry_radio_1","y":90},
+    "facing=north,frequency=1,wood_type=8":{"model":"tlotd:block/cherry_radio_1","y":180},
+    "facing=east,frequency=1,wood_type=8":{"model":"tlotd:block/cherry_radio_1","y":270},
+
+    "facing=south,frequency=1,wood_type=10":{"model":"tlotd:block/ginkgo_radio_1"},
+    "facing=west,frequency=1,wood_type=10":{"model":"tlotd:block/ginkgo_radio_1","y":90},
+    "facing=north,frequency=1,wood_type=10":{"model":"tlotd:block/ginkgo_radio_1","y":180},
+    "facing=east,frequency=1,wood_type=10":{"model":"tlotd:block/ginkgo_radio_1","y":270},
+
+    "facing=south,frequency=1,wood_type=11":{"model":"tlotd:block/bamboo_radio_1"},
+    "facing=west,frequency=1,wood_type=11":{"model":"tlotd:block/bamboo_radio_1","y":90},
+    "facing=north,frequency=1,wood_type=11":{"model":"tlotd:block/bamboo_radio_1","y":180},
+    "facing=east,frequency=1,wood_type=11":{"model":"tlotd:block/bamboo_radio_1","y":270},
+
+    "facing=south,frequency=1,wood_type=12":{"model":"tlotd:block/crimson_radio_1"},
+    "facing=west,frequency=1,wood_type=12":{"model":"tlotd:block/crimson_radio_1","y":90},
+    "facing=north,frequency=1,wood_type=12":{"model":"tlotd:block/crimson_radio_1","y":180},
+    "facing=east,frequency=1,wood_type=12":{"model":"tlotd:block/crimson_radio_1","y":270},
+
+    "facing=south,frequency=1,wood_type=13":{"model":"tlotd:block/warped_radio_1"},
+    "facing=west,frequency=1,wood_type=13":{"model":"tlotd:block/warped_radio_1","y":90},
+    "facing=north,frequency=1,wood_type=13":{"model":"tlotd:block/warped_radio_1","y":180},
+    "facing=east,frequency=1,wood_type=13":{"model":"tlotd:block/warped_radio_1","y":270},
+
+
+    
+    "facing=south,frequency=2,wood_type=1":{"model":"tlotd:block/oak_radio_2"},
+    "facing=west,frequency=2,wood_type=1":{"model":"tlotd:block/oak_radio_2","y":90},
+    "facing=north,frequency=2,wood_type=1":{"model":"tlotd:block/oak_radio_2","y":180},
+    "facing=east,frequency=2,wood_type=1":{"model":"tlotd:block/oak_radio_2","y":270},
+
+    "facing=south,frequency=2,wood_type=2":{"model":"tlotd:block/spruce_radio_2"},
+    "facing=west,frequency=2,wood_type=2":{"model":"tlotd:block/spruce_radio_2","y":90},
+    "facing=north,frequency=2,wood_type=2":{"model":"tlotd:block/spruce_radio_2","y":180},
+    "facing=east,frequency=2,wood_type=2":{"model":"tlotd:block/spruce_radio_2","y":270},
+
+    "facing=south,frequency=2,wood_type=3":{"model":"tlotd:block/birch_radio_2"},
+    "facing=west,frequency=2,wood_type=3":{"model":"tlotd:block/birch_radio_2","y":90},
+    "facing=north,frequency=2,wood_type=3":{"model":"tlotd:block/birch_radio_2","y":180},
+    "facing=east,frequency=2,wood_type=3":{"model":"tlotd:block/birch_radio_2","y":270},
+
+    "facing=south,frequency=2,wood_type=4":{"model":"tlotd:block/jungle_radio_2"},
+    "facing=west,frequency=2,wood_type=4":{"model":"tlotd:block/jungle_radio_2","y":90},
+    "facing=north,frequency=2,wood_type=4":{"model":"tlotd:block/jungle_radio_2","y":180},
+    "facing=east,frequency=2,wood_type=4":{"model":"tlotd:block/jungle_radio_2","y":270},
+
+    "facing=south,frequency=2,wood_type=5":{"model":"tlotd:block/acacia_radio_2"},
+    "facing=west,frequency=2,wood_type=5":{"model":"tlotd:block/acacia_radio_2","y":90},
+    "facing=north,frequency=2,wood_type=5":{"model":"tlotd:block/acacia_radio_2","y":180},
+    "facing=east,frequency=2,wood_type=5":{"model":"tlotd:block/acacia_radio_2","y":270},
+
+    "facing=south,frequency=2,wood_type=6":{"model":"tlotd:block/dark_oak_radio_2"},
+    "facing=west,frequency=2,wood_type=6":{"model":"tlotd:block/dark_oak_radio_2","y":90},
+    "facing=north,frequency=2,wood_type=6":{"model":"tlotd:block/dark_oak_radio_2","y":180},
+    "facing=east,frequency=2,wood_type=6":{"model":"tlotd:block/dark_oak_radio_2","y":270},
+
+    "facing=south,frequency=2,wood_type=7":{"model":"tlotd:block/mangrove_radio_2"},
+    "facing=west,frequency=2,wood_type=7":{"model":"tlotd:block/mangrove_radio_2","y":90},
+    "facing=north,frequency=2,wood_type=7":{"model":"tlotd:block/mangrove_radio_2","y":180},
+    "facing=east,frequency=2,wood_type=7":{"model":"tlotd:block/mangrove_radio_2","y":270},
+
+    "facing=south,frequency=2,wood_type=8":{"model":"tlotd:block/cherry_radio_2"},
+    "facing=west,frequency=2,wood_type=8":{"model":"tlotd:block/cherry_radio_2","y":90},
+    "facing=north,frequency=2,wood_type=8":{"model":"tlotd:block/cherry_radio_2","y":180},
+    "facing=east,frequency=2,wood_type=8":{"model":"tlotd:block/cherry_radio_2","y":270},
+
+    "facing=south,frequency=2,wood_type=10":{"model":"tlotd:block/ginkgo_radio_2"},
+    "facing=west,frequency=2,wood_type=10":{"model":"tlotd:block/ginkgo_radio_2","y":90},
+    "facing=north,frequency=2,wood_type=10":{"model":"tlotd:block/ginkgo_radio_2","y":180},
+    "facing=east,frequency=2,wood_type=10":{"model":"tlotd:block/ginkgo_radio_2","y":270},
+
+    "facing=south,frequency=2,wood_type=11":{"model":"tlotd:block/bamboo_radio_2"},
+    "facing=west,frequency=2,wood_type=11":{"model":"tlotd:block/bamboo_radio_2","y":90},
+    "facing=north,frequency=2,wood_type=11":{"model":"tlotd:block/bamboo_radio_2","y":180},
+    "facing=east,frequency=2,wood_type=11":{"model":"tlotd:block/bamboo_radio_2","y":270},
+
+    "facing=south,frequency=2,wood_type=12":{"model":"tlotd:block/crimson_radio_2"},
+    "facing=west,frequency=2,wood_type=12":{"model":"tlotd:block/crimson_radio_2","y":90},
+    "facing=north,frequency=2,wood_type=12":{"model":"tlotd:block/crimson_radio_2","y":180},
+    "facing=east,frequency=2,wood_type=12":{"model":"tlotd:block/crimson_radio_2","y":270},
+
+    "facing=south,frequency=2,wood_type=13":{"model":"tlotd:block/warped_radio_2"},
+    "facing=west,frequency=2,wood_type=13":{"model":"tlotd:block/warped_radio_2","y":90},
+    "facing=north,frequency=2,wood_type=13":{"model":"tlotd:block/warped_radio_2","y":180},
+    "facing=east,frequency=2,wood_type=13":{"model":"tlotd:block/warped_radio_2","y":270},
+
+
+
+    "facing=south,frequency=3,wood_type=1":{"model":"tlotd:block/oak_radio_3"},
+    "facing=west,frequency=3,wood_type=1":{"model":"tlotd:block/oak_radio_3","y":90},
+    "facing=north,frequency=3,wood_type=1":{"model":"tlotd:block/oak_radio_3","y":180},
+    "facing=east,frequency=3,wood_type=1":{"model":"tlotd:block/oak_radio_3","y":270},
+
+    "facing=south,frequency=3,wood_type=2":{"model":"tlotd:block/spruce_radio_3"},
+    "facing=west,frequency=3,wood_type=2":{"model":"tlotd:block/spruce_radio_3","y":90},
+    "facing=north,frequency=3,wood_type=2":{"model":"tlotd:block/spruce_radio_3","y":180},
+    "facing=east,frequency=3,wood_type=2":{"model":"tlotd:block/spruce_radio_3","y":270},
+
+    "facing=south,frequency=3,wood_type=3":{"model":"tlotd:block/birch_radio_3"},
+    "facing=west,frequency=3,wood_type=3":{"model":"tlotd:block/birch_radio_3","y":90},
+    "facing=north,frequency=3,wood_type=3":{"model":"tlotd:block/birch_radio_3","y":180},
+    "facing=east,frequency=3,wood_type=3":{"model":"tlotd:block/birch_radio_3","y":270},
+
+    "facing=south,frequency=3,wood_type=4":{"model":"tlotd:block/jungle_radio_3"},
+    "facing=west,frequency=3,wood_type=4":{"model":"tlotd:block/jungle_radio_3","y":90},
+    "facing=north,frequency=3,wood_type=4":{"model":"tlotd:block/jungle_radio_3","y":180},
+    "facing=east,frequency=3,wood_type=4":{"model":"tlotd:block/jungle_radio_3","y":270},
+
+    "facing=south,frequency=3,wood_type=5":{"model":"tlotd:block/acacia_radio_3"},
+    "facing=west,frequency=3,wood_type=5":{"model":"tlotd:block/acacia_radio_3","y":90},
+    "facing=north,frequency=3,wood_type=5":{"model":"tlotd:block/acacia_radio_3","y":180},
+    "facing=east,frequency=3,wood_type=5":{"model":"tlotd:block/acacia_radio_3","y":270},
+
+    "facing=south,frequency=3,wood_type=6":{"model":"tlotd:block/dark_oak_radio_3"},
+    "facing=west,frequency=3,wood_type=6":{"model":"tlotd:block/dark_oak_radio_3","y":90},
+    "facing=north,frequency=3,wood_type=6":{"model":"tlotd:block/dark_oak_radio_3","y":180},
+    "facing=east,frequency=3,wood_type=6":{"model":"tlotd:block/dark_oak_radio_3","y":270},
+
+    "facing=south,frequency=3,wood_type=7":{"model":"tlotd:block/mangrove_radio_3"},
+    "facing=west,frequency=3,wood_type=7":{"model":"tlotd:block/mangrove_radio_3","y":90},
+    "facing=north,frequency=3,wood_type=7":{"model":"tlotd:block/mangrove_radio_3","y":180},
+    "facing=east,frequency=3,wood_type=7":{"model":"tlotd:block/mangrove_radio_3","y":270},
+
+    "facing=south,frequency=3,wood_type=8":{"model":"tlotd:block/cherry_radio_3"},
+    "facing=west,frequency=3,wood_type=8":{"model":"tlotd:block/cherry_radio_3","y":90},
+    "facing=north,frequency=3,wood_type=8":{"model":"tlotd:block/cherry_radio_3","y":180},
+    "facing=east,frequency=3,wood_type=8":{"model":"tlotd:block/cherry_radio_3","y":270},
+
+    "facing=south,frequency=3,wood_type=10":{"model":"tlotd:block/ginkgo_radio_3"},
+    "facing=west,frequency=3,wood_type=10":{"model":"tlotd:block/ginkgo_radio_3","y":90},
+    "facing=north,frequency=3,wood_type=10":{"model":"tlotd:block/ginkgo_radio_3","y":180},
+    "facing=east,frequency=3,wood_type=10":{"model":"tlotd:block/ginkgo_radio_3","y":270},
+
+    "facing=south,frequency=3,wood_type=11":{"model":"tlotd:block/bamboo_radio_3"},
+    "facing=west,frequency=3,wood_type=11":{"model":"tlotd:block/bamboo_radio_3","y":90},
+    "facing=north,frequency=3,wood_type=11":{"model":"tlotd:block/bamboo_radio_3","y":180},
+    "facing=east,frequency=3,wood_type=11":{"model":"tlotd:block/bamboo_radio_3","y":270},
+
+    "facing=south,frequency=3,wood_type=12":{"model":"tlotd:block/crimson_radio_3"},
+    "facing=west,frequency=3,wood_type=12":{"model":"tlotd:block/crimson_radio_3","y":90},
+    "facing=north,frequency=3,wood_type=12":{"model":"tlotd:block/crimson_radio_3","y":180},
+    "facing=east,frequency=3,wood_type=12":{"model":"tlotd:block/crimson_radio_3","y":270},
+
+    "facing=south,frequency=3,wood_type=13":{"model":"tlotd:block/warped_radio_3"},
+    "facing=west,frequency=3,wood_type=13":{"model":"tlotd:block/warped_radio_3","y":90},
+    "facing=north,frequency=3,wood_type=13":{"model":"tlotd:block/warped_radio_3","y":180},
+    "facing=east,frequency=3,wood_type=13":{"model":"tlotd:block/warped_radio_3","y":270},
+
+
+    
+    "facing=south,frequency=4,wood_type=1":{"model":"tlotd:block/oak_radio_4"},
+    "facing=west,frequency=4,wood_type=1":{"model":"tlotd:block/oak_radio_4","y":90},
+    "facing=north,frequency=4,wood_type=1":{"model":"tlotd:block/oak_radio_4","y":180},
+    "facing=east,frequency=4,wood_type=1":{"model":"tlotd:block/oak_radio_4","y":270},
+
+    "facing=south,frequency=4,wood_type=2":{"model":"tlotd:block/spruce_radio_4"},
+    "facing=west,frequency=4,wood_type=2":{"model":"tlotd:block/spruce_radio_4","y":90},
+    "facing=north,frequency=4,wood_type=2":{"model":"tlotd:block/spruce_radio_4","y":180},
+    "facing=east,frequency=4,wood_type=2":{"model":"tlotd:block/spruce_radio_4","y":270},
+
+    "facing=south,frequency=4,wood_type=3":{"model":"tlotd:block/birch_radio_4"},
+    "facing=west,frequency=4,wood_type=3":{"model":"tlotd:block/birch_radio_4","y":90},
+    "facing=north,frequency=4,wood_type=3":{"model":"tlotd:block/birch_radio_4","y":180},
+    "facing=east,frequency=4,wood_type=3":{"model":"tlotd:block/birch_radio_4","y":270},
+
+    "facing=south,frequency=4,wood_type=4":{"model":"tlotd:block/jungle_radio_4"},
+    "facing=west,frequency=4,wood_type=4":{"model":"tlotd:block/jungle_radio_4","y":90},
+    "facing=north,frequency=4,wood_type=4":{"model":"tlotd:block/jungle_radio_4","y":180},
+    "facing=east,frequency=4,wood_type=4":{"model":"tlotd:block/jungle_radio_4","y":270},
+
+    "facing=south,frequency=4,wood_type=5":{"model":"tlotd:block/acacia_radio_4"},
+    "facing=west,frequency=4,wood_type=5":{"model":"tlotd:block/acacia_radio_4","y":90},
+    "facing=north,frequency=4,wood_type=5":{"model":"tlotd:block/acacia_radio_4","y":180},
+    "facing=east,frequency=4,wood_type=5":{"model":"tlotd:block/acacia_radio_4","y":270},
+
+    "facing=south,frequency=4,wood_type=6":{"model":"tlotd:block/dark_oak_radio_4"},
+    "facing=west,frequency=4,wood_type=6":{"model":"tlotd:block/dark_oak_radio_4","y":90},
+    "facing=north,frequency=4,wood_type=6":{"model":"tlotd:block/dark_oak_radio_4","y":180},
+    "facing=east,frequency=4,wood_type=6":{"model":"tlotd:block/dark_oak_radio_4","y":270},
+
+    "facing=south,frequency=4,wood_type=7":{"model":"tlotd:block/mangrove_radio_4"},
+    "facing=west,frequency=4,wood_type=7":{"model":"tlotd:block/mangrove_radio_4","y":90},
+    "facing=north,frequency=4,wood_type=7":{"model":"tlotd:block/mangrove_radio_4","y":180},
+    "facing=east,frequency=4,wood_type=7":{"model":"tlotd:block/mangrove_radio_4","y":270},
+
+    "facing=south,frequency=4,wood_type=8":{"model":"tlotd:block/cherry_radio_4"},
+    "facing=west,frequency=4,wood_type=8":{"model":"tlotd:block/cherry_radio_4","y":90},
+    "facing=north,frequency=4,wood_type=8":{"model":"tlotd:block/cherry_radio_4","y":180},
+    "facing=east,frequency=4,wood_type=8":{"model":"tlotd:block/cherry_radio_4","y":270},
+
+    "facing=south,frequency=4,wood_type=10":{"model":"tlotd:block/ginkgo_radio_4"},
+    "facing=west,frequency=4,wood_type=10":{"model":"tlotd:block/ginkgo_radio_4","y":90},
+    "facing=north,frequency=4,wood_type=10":{"model":"tlotd:block/ginkgo_radio_4","y":180},
+    "facing=east,frequency=4,wood_type=10":{"model":"tlotd:block/ginkgo_radio_4","y":270},
+
+    "facing=south,frequency=4,wood_type=11":{"model":"tlotd:block/bamboo_radio_4"},
+    "facing=west,frequency=4,wood_type=11":{"model":"tlotd:block/bamboo_radio_4","y":90},
+    "facing=north,frequency=4,wood_type=11":{"model":"tlotd:block/bamboo_radio_4","y":180},
+    "facing=east,frequency=4,wood_type=11":{"model":"tlotd:block/bamboo_radio_4","y":270},
+
+    "facing=south,frequency=4,wood_type=12":{"model":"tlotd:block/crimson_radio_4"},
+    "facing=west,frequency=4,wood_type=12":{"model":"tlotd:block/crimson_radio_4","y":90},
+    "facing=north,frequency=4,wood_type=12":{"model":"tlotd:block/crimson_radio_4","y":180},
+    "facing=east,frequency=4,wood_type=12":{"model":"tlotd:block/crimson_radio_4","y":270},
+
+    "facing=south,frequency=4,wood_type=13":{"model":"tlotd:block/warped_radio_4"},
+    "facing=west,frequency=4,wood_type=13":{"model":"tlotd:block/warped_radio_4","y":90},
+    "facing=north,frequency=4,wood_type=13":{"model":"tlotd:block/warped_radio_4","y":180},
+    "facing=east,frequency=4,wood_type=13":{"model":"tlotd:block/warped_radio_4","y":270}
+  }
+}

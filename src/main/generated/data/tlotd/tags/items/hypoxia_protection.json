@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "tlotd:astronaut_helmet",
+    "tlotd:space_suit_chestplate",
+    "tlotd:space_suit_leggings",
+    "tlotd:space_suit_boots"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+	"fabric:load_conditions": [
+	  {
+		"condition": "fabric:all_mods_loaded",
+		"values": [
+		  "sereneseasons"
+		]
+	  }
+	],
+	"replace": false,
+	"values": [
+		"tlotd:strawberry_seeds",
+		"tlotd:orange_seeds"
+	]
+}

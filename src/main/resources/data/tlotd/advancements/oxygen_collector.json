@@ -1,0 +1,32 @@
+{
+  "display": {
+    "icon": {
+      "item": "tlotd:oxygen_collector"
+    },
+    "title": {
+      "translate": "advancements.tlotd.oxygen_collector"
+    },
+    "description": {
+      "translate": "advancements.tlotd.oxygen_collector.desc"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "tlotd:oxygen_collector"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "parent": "tlotd:simple_circuitry"
+}

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:bamboo"
+    },
+    "I": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "###",
+    " I ",
+    " I "
+  ],
+  "result": {
+    "item": "tlotd:bamboo_pickaxe"
+  },
+  "show_notification": true
+}

@@ -1,0 +1,10 @@
+{
+	"parent": "tlotd:block/template_radio_on",
+	"textures": {
+		"0": "tlotd:block/ginkgo_log",
+		"1": "tlotd:block/stripped_ginkgo_log",
+		"2": "tlotd:block/radio_front",
+		"3": "tlotd:block/radio/frequency4",
+		"particle": "tlotd:block/ginkgo_log"
+	}
+}

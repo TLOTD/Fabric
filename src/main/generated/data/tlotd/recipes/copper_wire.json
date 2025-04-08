@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "C": {
+      "tag": "c:copper_ingots"
+    },
+    "I": {
+      "item": "minecraft:stick"
+    },
+    "_": {
+      "tag": "minecraft:wooden_pressure_plates"
+    }
+  },
+  "pattern": [
+    " _ ",
+    "CIC",
+    " _ "
+  ],
+  "result": {
+    "count": 4,
+    "item": "tlotd:copper_wire"
+  },
+  "show_notification": true
+}

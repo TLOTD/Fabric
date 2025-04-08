@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "tlotd:block/emerging_skeleton",
+      "y": 180
+    },
+    "facing=east": {
+      "model": "tlotd:block/emerging_skeleton",
+      "y": 270
+    },
+    "facing=south": {
+      "model": "tlotd:block/emerging_skeleton"
+    },
+    "facing=west": {
+      "model": "tlotd:block/emerging_skeleton",
+      "y": 90
+    }
+  }
+}

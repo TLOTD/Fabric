@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:leather"
+    },
+    "O": {
+      "item": "tlotd:oxygen_tank"
+    },
+    "W": {
+      "item": "minecraft:white_dye"
+    }
+  },
+  "pattern": [
+    "#W#",
+    "O#O",
+    "###"
+  ],
+  "result": {
+    "item": "tlotd:space_suit_chestplate"
+  },
+  "show_notification": true
+}

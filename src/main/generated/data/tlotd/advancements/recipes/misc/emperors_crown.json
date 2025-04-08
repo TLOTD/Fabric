@@ -1,0 +1,48 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_globus_cruciger": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "tlotd:globus_cruciger"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_golden_helmet": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:golden_helmet"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:emperors_crown"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_golden_helmet",
+      "has_globus_cruciger",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:emperors_crown"
+    ]
+  },
+  "sends_telemetry_event": false
+}

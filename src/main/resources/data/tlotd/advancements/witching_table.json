@@ -1,0 +1,32 @@
+{
+  "display": {
+    "icon": {
+      "item": "tlotd:witching_table"
+    },
+    "title": {
+      "translate": "advancements.tlotd.witching_table"
+    },
+    "description": {
+      "translate": "advancements.tlotd.witching_table.desc"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "tlotd:witching_table"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "parent": "tlotd:blood_bottle"
+}

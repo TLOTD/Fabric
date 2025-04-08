@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "tlotd:cinnabar_ore",
+    "tlotd:cinnabar_crystal_block",
+    "tlotd:cinnabar_block",
+    "tlotd:red_deepslate_cinnabar_ore",
+    "tlotd:nebular_ore",
+    "tlotd:raw_nebular_block",
+    "tlotd:nebular_block",
+    "tlotd:red_deepslate_nebular_ore"
+  ]
+}

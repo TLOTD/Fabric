@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:paper"
+    },
+    {
+      "item": "minecraft:black_dye"
+    },
+    {
+      "item": "tlotd:cursed_soul_flask"
+    }
+  ],
+  "result": {
+    "item": "tlotd:ouija_board"
+  }
+}

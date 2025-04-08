@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "Block{tlotd:wooden_stein}",
+  "ingredients": [
+    {
+      "item": "tlotd:wooden_stein"
+    },
+    {
+      "tag": "c:milks"
+    }
+  ],
+  "result": {
+    "item": "tlotd:wooden_milk_stein"
+  }
+}

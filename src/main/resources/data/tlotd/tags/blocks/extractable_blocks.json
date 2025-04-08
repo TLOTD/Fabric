@@ -1,0 +1,25 @@
+{
+  "replace": false,
+  "values": [
+    "#tlotd:stone_extractable_blocks",
+    "#tlotd:andesite_extractable_blocks",
+    "#tlotd:diorite_extractable_blocks",
+    "#tlotd:granite_extractable_blocks",
+    "#tlotd:tuff_extractable_blocks",
+    "#tlotd:calcite_extractable_blocks",
+    "#tlotd:deepslate_extractable_blocks",
+    "#tlotd:red_deepslate_extractable_blocks",
+    "#tlotd:bedrock_extractable_blocks",
+    "#tlotd:end_stone_extractable_blocks",
+    "#tlotd:moon_rock_extractable_blocks",
+    "#tlotd:netherrack_extractable_blocks",
+    "#tlotd:basalt_extractable_blocks",
+    "#tlotd:blackstone_extractable_blocks",
+    "minecraft:raw_copper_block",
+    "minecraft:raw_iron_block",
+    "minecraft:raw_gold_block",
+    "minecraft:ancient_debris",
+    "tlotd:prehistoric_debris",
+    "tlotd:raw_mithril_block"
+  ]
+}

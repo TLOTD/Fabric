@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "#c:steel_rods",
+    "tlotd:reinforced_tool_rod",
+    "tlotd:fancy_tool_rod"
+  ]
+}

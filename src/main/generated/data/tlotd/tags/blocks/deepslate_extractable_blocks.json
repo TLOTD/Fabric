@@ -1,0 +1,28 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:deepslate_coal_ore",
+    "minecraft:deepslate_copper_ore",
+    "minecraft:deepslate_lapis_ore",
+    "minecraft:deepslate_iron_ore",
+    "minecraft:deepslate_redstone_ore",
+    "minecraft:deepslate_gold_ore",
+    "minecraft:deepslate_diamond_ore",
+    "minecraft:deepslate_emerald_ore",
+    "tlotd:deepslate_uranium_ore",
+    "tlotd:heliorite_ore",
+    "tlotd:palladium_ore",
+    "tlotd:jurassoline_ore",
+    "tlotd:cinnabar_ore",
+    "tlotd:nebular_ore",
+    "tlotd:deepslate_fossil",
+    {
+      "id": "create:deepslate_zinc_ore",
+      "required": false
+    },
+    {
+      "id": "vs_clockwork:wanderlite_deepslate_ore",
+      "required": false
+    }
+  ]
+}

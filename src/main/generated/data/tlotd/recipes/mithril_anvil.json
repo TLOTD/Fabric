@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "tlotd:mithril_block"
+    },
+    "I": {
+      "item": "tlotd:mithril_ingot"
+    }
+  },
+  "pattern": [
+    "###",
+    " I ",
+    "III"
+  ],
+  "result": {
+    "item": "tlotd:mithril_anvil"
+  },
+  "show_notification": true
+}

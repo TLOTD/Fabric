@@ -1,0 +1,14 @@
+{
+  "replace": false,
+  "values": [
+    "tlotd:bamboo_shovel",
+    "tlotd:heliorite_shovel",
+    "tlotd:endurium_shovel",
+    "tlotd:jurassoline_shovel",
+    "tlotd:palladium_shovel",
+    "tlotd:cinnabar_shovel",
+    "tlotd:nebular_shovel",
+    "tlotd:mithril_shovel",
+    "tlotd:astral_shovel"
+  ]
+}

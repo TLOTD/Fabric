@@ -1,0 +1,7 @@
+{
+  "parent": "tlotd:block/template_crop_cross",
+  "textures": {
+    "0": "tlotd:block/strawberry_bush_3",
+    "particle": "tlotd:block/strawberry_bush_3"
+  }
+}

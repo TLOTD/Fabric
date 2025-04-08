@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "tlotd:block/red_deepslate_slab"
+    },
+    "type=double": {
+      "model": "tlotd:block/red_deepslate"
+    },
+    "type=top": {
+      "model": "tlotd:block/red_deepslate_slab_top"
+    }
+  }
+}

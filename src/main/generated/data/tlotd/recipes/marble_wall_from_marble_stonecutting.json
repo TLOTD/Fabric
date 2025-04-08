@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "tlotd:marble"
+  },
+  "result": "tlotd:marble_wall"
+}

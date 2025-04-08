@@ -1,0 +1,16 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "thermal"
+      ]
+    }
+  ],
+    "type": "thermal:rock_gen",
+    "adjacent": "minecraft:deepslate",
+    "below": "minecraft:redstone_block",
+    "result": {
+      "item": "tlotd:red_deepslate"
+    }
+  }

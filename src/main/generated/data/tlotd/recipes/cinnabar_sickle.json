@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "tlotd:cinnabar_ingot"
+    },
+    "I": {
+      "item": "tlotd:reinforced_tool_rod"
+    }
+  },
+  "pattern": [
+    " #",
+    "I "
+  ],
+  "result": {
+    "item": "tlotd:cinnabar_sickle"
+  },
+  "show_notification": true
+}

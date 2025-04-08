@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "tlotd:nether_sulfur_ore",
+    "minecraft:nether_quartz_ore",
+    "minecraft:nether_gold_ore"
+  ]
+}

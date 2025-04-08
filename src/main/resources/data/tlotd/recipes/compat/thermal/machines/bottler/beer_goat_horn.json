@@ -1,0 +1,25 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "thermal"
+      ]
+    }
+  ],
+  "type": "thermal:bottler",
+  "ingredients": [
+    {
+      "item": "minecraft:goat_horn"
+    },
+    {
+      "fluid": "tlotd:beer",
+      "amount": 1000
+    }
+  ],
+  "result": [
+    {
+      "item": "tlotd:beer_goat_horn"
+    }
+  ]
+}

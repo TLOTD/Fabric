@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 0.7,
+  "group": "cinnabar_ingot",
+  "ingredient": {
+    "item": "tlotd:red_deepslate_cinnabar_ore"
+  },
+  "result": "tlotd:cinnabar_ingot"
+}

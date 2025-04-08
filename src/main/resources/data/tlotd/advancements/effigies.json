@@ -1,0 +1,32 @@
+{
+  "display": {
+    "icon": {
+      "item": "tlotd:effigies"
+    },
+    "title": {
+      "translate": "advancements.tlotd.effigies"
+    },
+    "description": {
+      "translate": "advancements.tlotd.effigies.desc"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "tlotd:effigies"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "parent": "tlotd:magic"
+}

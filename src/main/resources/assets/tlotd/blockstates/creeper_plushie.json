@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=south": {"model":"tlotd:block/creeper_plushie"},
+    "facing=west":{"model":"tlotd:block/creeper_plushie","y":90},
+    "facing=north":{"model":"tlotd:block/creeper_plushie","y":180},
+    "facing=east":{"model":"tlotd:block/creeper_plushie","y":270}
+  }
+}

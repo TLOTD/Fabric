@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "G": {
+      "tag": "c:gold_ingots"
+    },
+    "I": {
+      "item": "minecraft:stick"
+    },
+    "_": {
+      "tag": "minecraft:wooden_pressure_plates"
+    }
+  },
+  "pattern": [
+    " _ ",
+    "GIG",
+    " _ "
+  ],
+  "result": {
+    "count": 4,
+    "item": "tlotd:gold_wire"
+  },
+  "show_notification": true
+}

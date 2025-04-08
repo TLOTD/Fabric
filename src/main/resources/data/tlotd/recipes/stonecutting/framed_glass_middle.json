@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "tag": "c:framed_colorless_glass"
+  },
+  "result": "tlotd:framed_glass_middle"
+}

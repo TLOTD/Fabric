@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "tlotd:red_deepslate_bricks"
+  },
+  "result": "tlotd:red_deepslate_brick_wall"
+}

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "tlotd:palladium_ingot"
+    },
+    "I": {
+      "item": "tlotd:fossilized_bone"
+    }
+  },
+  "pattern": [
+    "#",
+    "#",
+    "I"
+  ],
+  "result": {
+    "item": "tlotd:palladium_sword"
+  },
+  "show_notification": true
+}

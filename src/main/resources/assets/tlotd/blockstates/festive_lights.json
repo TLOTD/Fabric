@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=south":{"model":"tlotd:block/festive_lights"},
+    "facing=west":{"model":"tlotd:block/festive_lights","y":90},
+    "facing=north":{"model":"tlotd:block/festive_lights","y":180},
+    "facing=east":{"model":"tlotd:block/festive_lights","y":270}
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "replace": false,
+  "values": [
+    "tlotd:red_deepslate_iron_ore",
+    "tlotd:red_deepslate_copper_ore",
+    "tlotd:red_deepslate_gold_ore",
+    "tlotd:red_deepslate_redstone_ore",
+    "tlotd:red_deepslate_emerald_ore",
+    "tlotd:red_deepslate_lapis_ore",
+    "tlotd:red_deepslate_diamond_ore",
+    "tlotd:red_deepslate_sulfur_ore",
+    "tlotd:red_deepslate_lead_ore",
+    "tlotd:red_deepslate_uranium_ore",
+    "tlotd:red_deepslate_heliorite_ore",
+    "tlotd:red_deepslate_palladium_ore",
+    "tlotd:red_deepslate_jurassoline_ore",
+    "tlotd:red_deepslate_cinnabar_ore",
+    "tlotd:red_deepslate_nebular_ore"
+  ]
+}

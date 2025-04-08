@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "B": {
+      "tag": "minecraft:buttons"
+    },
+    "C": {
+      "item": "tlotd:circuit_board"
+    },
+    "N": {
+      "item": "minecraft:iron_nugget"
+    },
+    "R": {
+      "item": "tlotd:cathode_ray_tube"
+    },
+    "S": {
+      "tag": "c:steel_ingots"
+    }
+  },
+  "pattern": [
+    "NCN",
+    "SRB",
+    "SCS"
+  ],
+  "result": {
+    "item": "tlotd:television"
+  },
+  "show_notification": true
+}

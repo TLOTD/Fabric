@@ -1,0 +1,33 @@
+{
+  "replace": false,
+  "values": [
+    "tlotd:heliorite_helmet",
+    "tlotd:heliorite_chestplate",
+    "tlotd:heliorite_leggings",
+    "tlotd:heliorite_boots",
+    "tlotd:endurium_helmet",
+    "tlotd:endurium_chestplate",
+    "tlotd:endurium_leggings",
+    "tlotd:endurium_boots",
+    "tlotd:palladium_helmet",
+    "tlotd:palladium_chestplate",
+    "tlotd:palladium_leggings",
+    "tlotd:palladium_boots",
+    "tlotd:jurassoline_helmet",
+    "tlotd:jurassoline_chestplate",
+    "tlotd:jurassoline_leggings",
+    "tlotd:jurassoline_boots",
+    "tlotd:cinnabar_helmet",
+    "tlotd:cinnabar_chestplate",
+    "tlotd:cinnabar_leggings",
+    "tlotd:cinnabar_boots",
+    "tlotd:nebular_helmet",
+    "tlotd:nebular_chestplate",
+    "tlotd:nebular_leggings",
+    "tlotd:nebular_boots",
+    "tlotd:mithril_helmet",
+    "tlotd:mithril_chestplate",
+    "tlotd:mithril_leggings",
+    "tlotd:mithril_boots"
+  ]
+}

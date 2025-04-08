@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "nebular_axe",
+  "key": {
+    "#": {
+      "item": "tlotd:nebular_ingot"
+    },
+    "I": {
+      "item": "tlotd:reinforced_tool_rod"
+    }
+  },
+  "pattern": [
+    "##",
+    "I#",
+    "I "
+  ],
+  "result": {
+    "item": "tlotd:nebular_axe"
+  },
+  "show_notification": true
+}

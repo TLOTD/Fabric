@@ -1,0 +1,11 @@
+{
+  "type": "tlotd:witching",
+  "ingredients": [
+    {
+      "item": "tlotd:tinted_glass_flask"
+    }
+  ],
+  "output": {
+    "item": "tlotd:cursed_soul_flask"
+  }
+}

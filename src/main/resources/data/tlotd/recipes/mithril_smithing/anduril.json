@@ -1,0 +1,17 @@
+{
+  "type": "tlotd:mithril_smithing",
+  "ingredients": [
+    {
+      "tag": "tlotd:forging_hammers_tier2"
+    },
+    {
+      "tag": "c:ingots/mithril"
+    },
+    {
+      "item": "tlotd:narsil_handle"
+    }
+  ],
+  "output": {
+    "item": "tlotd:anduril"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "replace": false,
+  "values": [
+    "tlotd:chemical_waste",
+    "tlotd:flowing_chemical_waste"
+  ]
+}

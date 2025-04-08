@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "tlotd:heliorite_ingot",
+    "tlotd:endurium_ingot",
+    "tlotd:palladium_ingot",
+    "tlotd:jurassoline_ingot",
+    "tlotd:cinnabar_ingot",
+    "tlotd:nebular_ingot",
+    "tlotd:mithril_ingot",
+    "tlotd:astral_ingot"
+  ]
+}

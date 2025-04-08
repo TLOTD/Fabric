@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "tlotd:end_stone_endurium_ore",
+    {
+      "id": "vs_clockwork:wanderlite_end_ore",
+      "required": false
+    }
+  ]
+}

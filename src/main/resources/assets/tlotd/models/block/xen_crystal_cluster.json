@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "tlotd:block/xen_crystal_cluster"
+  }
+}

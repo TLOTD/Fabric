@@ -1,0 +1,102 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "create"
+      ]
+    }
+  ],
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "item": "minecraft:stick"
+  },
+  "loops": 1,
+  "results": [
+    {
+      "item": "tlotd:copper_wire"
+    }
+  ],
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "tlotd:incomplete_copper_wire"
+        },
+        {
+          "tag": "minecraft:wooden_pressure_plates"
+        }
+      ],
+      "results": [
+        {
+          "item": "tlotd:incomplete_copper_wire"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "tlotd:incomplete_copper_wire"
+        },
+        {
+          "tag": "c:copper_ingots"
+        }
+      ],
+      "results": [
+        {
+          "item": "tlotd:incomplete_copper_wire"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "tlotd:incomplete_copper_wire"
+        },
+        {
+          "tag": "c:copper_ingots"
+        }
+      ],
+      "results": [
+        {
+          "item": "tlotd:incomplete_copper_wire"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "tlotd:incomplete_copper_wire"
+        },
+        {
+          "tag": "minecraft:wooden_pressure_plates"
+        }
+      ],
+      "results": [
+        {
+          "item": "tlotd:incomplete_copper_wire"
+        }
+      ]
+    },
+    {
+      "type": "create:pressing",
+      "ingredients": [
+        {
+          "item": "tlotd:incomplete_copper_wire"
+        }
+      ],
+      "results": [
+        {
+          "item": "tlotd:incomplete_copper_wire"
+        }
+      ]
+    }
+  ],
+  "transitionalItem": {
+    "item": "tlotd:incomplete_copper_wire"
+  }
+}

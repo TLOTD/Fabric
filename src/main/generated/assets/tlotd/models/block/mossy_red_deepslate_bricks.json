@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "tlotd:block/mossy_red_deepslate_bricks"
+  }
+}

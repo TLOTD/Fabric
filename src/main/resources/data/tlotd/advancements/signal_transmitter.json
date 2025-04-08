@@ -1,0 +1,32 @@
+{
+  "display": {
+    "icon": {
+      "item": "tlotd:signal_transmitter"
+    },
+    "title": {
+      "translate": "advancements.tlotd.signal_transmitter"
+    },
+    "description": {
+      "translate": "advancements.tlotd.signal_transmitter.desc"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true
+  },
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "tlotd:signal_transmitter"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "parent": "tlotd:advanced_circuitry"
+}

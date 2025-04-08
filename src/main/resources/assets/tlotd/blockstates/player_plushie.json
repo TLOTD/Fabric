@@ -1,0 +1,148 @@
+{
+  "variants": {
+    "facing=south,skin=0,alternative=false": { "model": "tlotd:block/player_plushie" },
+    "facing=west,skin=0,alternative=false": { "model": "tlotd:block/player_plushie", "y": 90 },
+    "facing=north,skin=0,alternative=false": { "model": "tlotd:block/player_plushie", "y": 180 },
+    "facing=east,skin=0,alternative=false": { "model": "tlotd:block/player_plushie", "y": 270 },
+
+    "facing=south,skin=0,alternative=true": { "model": "tlotd:block/player_plushie_alternative" },
+    "facing=west,skin=0,alternative=true": { "model": "tlotd:block/player_plushie_alternative", "y": 90 },
+    "facing=north,skin=0,alternative=true": { "model": "tlotd:block/player_plushie_alternative", "y": 180 },
+    "facing=east,skin=0,alternative=true": { "model": "tlotd:block/player_plushie_alternative", "y": 270 },
+
+    "facing=south,skin=1,alternative=false": { "model": "tlotd:block/player_plushie_tlotd" },
+    "facing=west,skin=1,alternative=false": { "model": "tlotd:block/player_plushie_tlotd", "y": 90 },
+    "facing=north,skin=1,alternative=false": { "model": "tlotd:block/player_plushie_tlotd", "y": 180 },
+    "facing=east,skin=1,alternative=false": { "model": "tlotd:block/player_plushie_tlotd", "y": 270 },
+
+    "facing=south,skin=1,alternative=true": { "model": "tlotd:block/player_plushie_tlotd_alternative" },
+    "facing=west,skin=1,alternative=true": { "model": "tlotd:block/player_plushie_tlotd_alternative", "y": 90 },
+    "facing=north,skin=1,alternative=true": { "model": "tlotd:block/player_plushie_tlotd_alternative", "y": 180 },
+    "facing=east,skin=1,alternative=true": { "model": "tlotd:block/player_plushie_tlotd_alternative", "y": 270 },
+
+    "facing=south,skin=2,alternative=false": { "model": "tlotd:block/player_plushie_isla_nublar" },
+    "facing=west,skin=2,alternative=false": { "model": "tlotd:block/player_plushie_isla_nublar", "y": 90 },
+    "facing=north,skin=2,alternative=false": { "model": "tlotd:block/player_plushie_isla_nublar", "y": 180 },
+    "facing=east,skin=2,alternative=false": { "model": "tlotd:block/player_plushie_isla_nublar", "y": 270 },
+
+    "facing=south,skin=2,alternative=true": { "model": "tlotd:block/player_plushie_isla_nublar_alternative" },
+    "facing=west,skin=2,alternative=true": { "model": "tlotd:block/player_plushie_isla_nublar_alternative", "y": 90 },
+    "facing=north,skin=2,alternative=true": { "model": "tlotd:block/player_plushie_isla_nublar_alternative", "y": 180 },
+    "facing=east,skin=2,alternative=true": { "model": "tlotd:block/player_plushie_isla_nublar_alternative", "y": 270 },
+
+    "facing=south,skin=3,alternative=false": { "model": "tlotd:block/player_plushie_einsdarki" },
+    "facing=west,skin=3,alternative=false": { "model": "tlotd:block/player_plushie_einsdarki", "y": 90 },
+    "facing=north,skin=3,alternative=false": { "model": "tlotd:block/player_plushie_einsdarki", "y": 180 },
+    "facing=east,skin=3,alternative=false": { "model": "tlotd:block/player_plushie_einsdarki", "y": 270 },
+
+    "facing=south,skin=3,alternative=true": { "model": "tlotd:block/player_plushie_einsdarki_alternative" },
+    "facing=west,skin=3,alternative=true": { "model": "tlotd:block/player_plushie_einsdarki_alternative", "y": 90 },
+    "facing=north,skin=3,alternative=true": { "model": "tlotd:block/player_plushie_einsdarki_alternative", "y": 180 },
+    "facing=east,skin=3,alternative=true": { "model": "tlotd:block/player_plushie_einsdarki_alternative", "y": 270 },
+
+    "facing=south,skin=4": { "model": "tlotd:block/player_plushie_aliasophie" },
+    "facing=west,skin=4": { "model": "tlotd:block/player_plushie_aliasophie", "y": 90 },
+    "facing=north,skin=4": { "model": "tlotd:block/player_plushie_aliasophie", "y": 180 },
+    "facing=east,skin=4": { "model": "tlotd:block/player_plushie_aliasophie", "y": 270 },
+
+    "facing=south,skin=5": { "model": "tlotd:block/player_plushie_teneba" },
+    "facing=west,skin=5": { "model": "tlotd:block/player_plushie_teneba", "y": 90 },
+    "facing=north,skin=5": { "model": "tlotd:block/player_plushie_teneba", "y": 180 },
+    "facing=east,skin=5": { "model": "tlotd:block/player_plushie_teneba", "y": 270 },
+
+    "facing=south,skin=6": { "model": "tlotd:block/player_plushie_alex1666" },
+    "facing=west,skin=6": { "model": "tlotd:block/player_plushie_alex1666", "y": 90 },
+    "facing=north,skin=6": { "model": "tlotd:block/player_plushie_alex1666", "y": 180 },
+    "facing=east,skin=6": { "model": "tlotd:block/player_plushie_alex1666", "y": 270 },
+
+    "facing=south,skin=7,alternative=false": { "model": "tlotd:block/player_plushie_isso_21_" },
+    "facing=west,skin=7,alternative=false": { "model": "tlotd:block/player_plushie_isso_21_", "y": 90 },
+    "facing=north,skin=7,alternative=false": { "model": "tlotd:block/player_plushie_isso_21_", "y": 180 },
+    "facing=east,skin=7,alternative=false": { "model": "tlotd:block/player_plushie_isso_21_", "y": 270 },
+
+    "facing=south,skin=7,alternative=true": { "model": "tlotd:block/player_plushie_isso_21_alternative" },
+    "facing=west,skin=7,alternative=true": { "model": "tlotd:block/player_plushie_isso_21_alternative", "y": 90 },
+    "facing=north,skin=7,alternative=true": { "model": "tlotd:block/player_plushie_isso_21_alternative", "y": 180 },
+    "facing=east,skin=7,alternative=true": { "model": "tlotd:block/player_plushie_isso_21_alternative", "y": 270 },
+
+    "facing=south,skin=8": { "model": "tlotd:block/player_plushie_akitorlp" },
+    "facing=west,skin=8": { "model": "tlotd:block/player_plushie_akitorlp", "y": 90 },
+    "facing=north,skin=8": { "model": "tlotd:block/player_plushie_akitorlp", "y": 180 },
+    "facing=east,skin=8": { "model": "tlotd:block/player_plushie_akitorlp", "y": 270 },
+
+    "facing=south,skin=9": { "model": "tlotd:block/player_plushie_polarfoxtm" },
+    "facing=west,skin=9": { "model": "tlotd:block/player_plushie_polarfoxtm", "y": 90 },
+    "facing=north,skin=9": { "model": "tlotd:block/player_plushie_polarfoxtm", "y": 180 },
+    "facing=east,skin=9": { "model": "tlotd:block/player_plushie_polarfoxtm", "y": 270 },
+
+    "facing=south,skin=10,alternative=false": { "model": "tlotd:block/player_plushie_salsafox" },
+    "facing=west,skin=10,alternative=false": { "model": "tlotd:block/player_plushie_salsafox", "y": 90 },
+    "facing=north,skin=10,alternative=false": { "model": "tlotd:block/player_plushie_salsafox", "y": 180 },
+    "facing=east,skin=10,alternative=false": { "model": "tlotd:block/player_plushie_salsafox", "y": 270 },
+
+    "facing=south,skin=10,alternative=true": { "model": "tlotd:block/player_plushie_salsafox_alternative" },
+    "facing=west,skin=10,alternative=true": { "model": "tlotd:block/player_plushie_salsafox_alternative", "y": 90 },
+    "facing=north,skin=10,alternative=true": { "model": "tlotd:block/player_plushie_salsafox_alternative", "y": 180 },
+    "facing=east,skin=10,alternative=true": { "model": "tlotd:block/player_plushie_salsafox_alternative", "y": 270 },
+
+    "facing=south,skin=11": { "model": "tlotd:block/player_plushie_vandagr" },
+    "facing=west,skin=11": { "model": "tlotd:block/player_plushie_vandagr", "y": 90 },
+    "facing=north,skin=11": { "model": "tlotd:block/player_plushie_vandagr", "y": 180 },
+    "facing=east,skin=11": { "model": "tlotd:block/player_plushie_vandagr", "y": 270 },
+
+    "facing=south,skin=12": { "model": "tlotd:block/player_plushie_tlotdshido" },
+    "facing=west,skin=12": { "model": "tlotd:block/player_plushie_tlotdshido", "y": 90 },
+    "facing=north,skin=12": { "model": "tlotd:block/player_plushie_tlotdshido", "y": 180 },
+    "facing=east,skin=12": { "model": "tlotd:block/player_plushie_tlotdshido", "y": 270 },
+
+    "facing=south,skin=13,alternative=false": { "model": "tlotd:block/player_plushie_nischi2612" },
+    "facing=west,skin=13,alternative=false": { "model": "tlotd:block/player_plushie_nischi2612", "y": 90 },
+    "facing=north,skin=13,alternative=false": { "model": "tlotd:block/player_plushie_nischi2612", "y": 180 },
+    "facing=east,skin=13,alternative=false": { "model": "tlotd:block/player_plushie_nischi2612", "y": 270 },
+
+    "facing=south,skin=13,alternative=true": { "model": "tlotd:block/player_plushie_nischi2612_alternative" },
+    "facing=west,skin=13,alternative=true": { "model": "tlotd:block/player_plushie_nischi2612_alternative", "y": 90 },
+    "facing=north,skin=13,alternative=true": { "model": "tlotd:block/player_plushie_nischi2612_alternative", "y": 180 },
+    "facing=east,skin=13,alternative=true": { "model": "tlotd:block/player_plushie_nischi2612_alternative", "y": 270 },
+
+    "facing=south,skin=14": { "model": "tlotd:block/player_plushie_sk_chuuya" },
+    "facing=west,skin=14": { "model": "tlotd:block/player_plushie_sk_chuuya", "y": 90 },
+    "facing=north,skin=14": { "model": "tlotd:block/player_plushie_sk_chuuya", "y": 180 },
+    "facing=east,skin=14": { "model": "tlotd:block/player_plushie_sk_chuuya", "y": 270 },
+
+    "facing=south,skin=15": { "model": "tlotd:block/player_plushie_akashic_system" },
+    "facing=west,skin=15": { "model": "tlotd:block/player_plushie_akashic_system", "y": 90 },
+    "facing=north,skin=15": { "model": "tlotd:block/player_plushie_akashic_system", "y": 180 },
+    "facing=east,skin=15": { "model": "tlotd:block/player_plushie_akashic_system", "y": 270 },
+
+    "facing=south,skin=16": { "model": "tlotd:block/player_plushie_magickvo" },
+    "facing=west,skin=16": { "model": "tlotd:block/player_plushie_magickvo", "y": 90 },
+    "facing=north,skin=16": { "model": "tlotd:block/player_plushie_magickvo", "y": 180 },
+    "facing=east,skin=16": { "model": "tlotd:block/player_plushie_magickvo", "y": 270 },
+
+    "facing=south,skin=17": { "model": "tlotd:block/player_plushie_thevextv" },
+    "facing=west,skin=17": { "model": "tlotd:block/player_plushie_thevextv", "y": 90 },
+    "facing=north,skin=17": { "model": "tlotd:block/player_plushie_thevextv", "y": 180 },
+    "facing=east,skin=17": { "model": "tlotd:block/player_plushie_thevextv", "y": 270 },
+
+    "facing=south,skin=18": { "model": "tlotd:block/player_plushie_glamin" },
+    "facing=west,skin=18": { "model": "tlotd:block/player_plushie_glamin", "y": 90 },
+    "facing=north,skin=18": { "model": "tlotd:block/player_plushie_glamin", "y": 180 },
+    "facing=east,skin=18": { "model": "tlotd:block/player_plushie_glamin", "y": 270 },
+
+    "facing=south,skin=19": { "model": "tlotd:block/player_plushie_jakx444" },
+    "facing=west,skin=19": { "model": "tlotd:block/player_plushie_jakx444", "y": 90 },
+    "facing=north,skin=19": { "model": "tlotd:block/player_plushie_jakx444", "y": 180 },
+    "facing=east,skin=19": { "model": "tlotd:block/player_plushie_jakx444", "y": 270 },
+
+    "facing=south,skin=20": { "model": "tlotd:block/player_plushie_nighthawk241199" },
+    "facing=west,skin=20": { "model": "tlotd:block/player_plushie_nighthawk241199", "y": 90 },
+    "facing=north,skin=20": { "model": "tlotd:block/player_plushie_nighthawk241199", "y": 180 },
+    "facing=east,skin=20": { "model": "tlotd:block/player_plushie_nighthawk241199", "y": 270 },
+
+    "facing=south,skin=21": { "model": "tlotd:block/player_plushie_red_ice" },
+    "facing=west,skin=21": { "model": "tlotd:block/player_plushie_red_ice", "y": 90 },
+    "facing=north,skin=21": { "model": "tlotd:block/player_plushie_red_ice", "y": 180 },
+    "facing=east,skin=21": { "model": "tlotd:block/player_plushie_red_ice", "y": 270 }
+  }
+}

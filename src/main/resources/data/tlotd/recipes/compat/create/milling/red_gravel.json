@@ -1,0 +1,30 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "create"
+      ]
+    }
+  ],
+  "type": "create:milling",
+  "ingredients": [
+    {
+      "item": "tlotd:red_gravel"
+    }
+  ],
+  "processingTime": 250,
+  "results": [
+    {
+      "item": "minecraft:red_sand"
+    },
+    {
+      "chance": 0.1,
+      "item": "minecraft:flint"
+    },
+    {
+      "chance": 0.05,
+      "item": "minecraft:clay_ball"
+    }
+  ]
+}

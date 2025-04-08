@@ -1,0 +1,22 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:coal_ore",
+    "minecraft:copper_ore",
+    "minecraft:lapis_ore",
+    "minecraft:iron_ore",
+    "minecraft:redstone_ore",
+    "minecraft:gold_ore",
+    "minecraft:diamond_ore",
+    "minecraft:emerald_ore",
+    "tlotd:lead_ore",
+    {
+      "id": "create:zinc_ore",
+      "required": false
+    },
+    {
+      "id": "create_new_age:thorium_ore",
+      "required": false
+    }
+  ]
+}

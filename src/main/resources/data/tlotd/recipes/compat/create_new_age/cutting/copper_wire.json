@@ -1,0 +1,24 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "create",
+        "create_new_age"
+      ]
+    }
+  ],
+  "type": "create:cutting",
+  "ingredients": [
+    {
+      "item": "tlotd:copper_wire"
+    }
+  ],
+  "results": [
+    {
+      "item": "create_new_age:copper_wire",
+      "count": 2
+    }
+  ],
+  "processingTime": 50
+}

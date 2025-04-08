@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "facing=south,screen=0":{"model":"tlotd:block/computer_desktop"},
+    "facing=west,screen=0":{"model":"tlotd:block/computer_desktop","y":90},
+    "facing=north,screen=0":{"model":"tlotd:block/computer_desktop","y":180},
+    "facing=east,screen=0":{"model":"tlotd:block/computer_desktop","y":270},
+
+    "facing=south,screen=1":{"model":"tlotd:block/computer_start_menu"},
+    "facing=west,screen=1":{"model":"tlotd:block/computer_start_menu","y":90},
+    "facing=north,screen=1":{"model":"tlotd:block/computer_start_menu","y":180},
+    "facing=east,screen=1":{"model":"tlotd:block/computer_start_menu","y":270}
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "tlotd:orange"
+    }
+  ],
+  "result": {
+    "item": "tlotd:orange_seeds"
+  }
+}

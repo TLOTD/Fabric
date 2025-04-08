@@ -1,0 +1,11 @@
+{
+  "parent": "tlotd:block/template_t-rex_egg",
+  "textures": {
+    "bottom": "tlotd:block/t-rex_egg_not_cracked_bottom",
+    "east": "tlotd:block/t-rex_egg_not_cracked_east",
+    "north": "tlotd:block/t-rex_egg_not_cracked_north",
+    "south": "tlotd:block/t-rex_egg_not_cracked_south",
+    "top": "tlotd:block/t-rex_egg_not_cracked_top",
+    "west": "tlotd:block/t-rex_egg_not_cracked_west"
+  }
+}

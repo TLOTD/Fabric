@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "tlotd:block/red_deepslate_lapis_ore"
+  }
+}

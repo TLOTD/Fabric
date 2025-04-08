@@ -1,0 +1,32 @@
+{
+  "display": {
+    "icon": {
+      "item": "tlotd:integrated_circuit"
+    },
+    "title": {
+      "translate": "advancements.tlotd.micromanagement"
+    },
+    "description": {
+      "translate": "advancements.tlotd.micromanagement.desc"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true
+  },
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "tlotd:integrated_circuit"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "parent": "tlotd:technology"
+}

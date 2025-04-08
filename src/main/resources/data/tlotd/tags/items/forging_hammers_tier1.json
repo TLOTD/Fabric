@@ -1,0 +1,7 @@
+{
+  "replace": false,
+  "values": [
+    "tlotd:netherite_forging_hammer",
+    "#tlotd:forging_hammers_tier2"
+  ]
+}

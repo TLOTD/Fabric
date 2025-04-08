@@ -1,0 +1,18 @@
+{
+  "replace": false,
+  "values": [
+    "tlotd:strawberry",
+    {
+      "id": "croptopia:strawberry",
+      "required": false
+    },
+    {
+      "id": "simplefarming:strawberries",
+      "required": false
+    },
+    {
+      "id": "neapolitan:strawberries",
+      "required": false
+    }
+  ]
+}

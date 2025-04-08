@@ -1,0 +1,14 @@
+{
+  "replace": false,
+  "values": [
+    "tlotd:oak_bark",
+    "tlotd:spruce_bark",
+    "tlotd:birch_bark",
+    "tlotd:jungle_bark",
+    "tlotd:acacia_bark",
+    "tlotd:dark_oak_bark",
+    "tlotd:mangrove_bark",
+    "tlotd:cherry_bark",
+    "tlotd:ginkgo_bark"
+  ]
+}

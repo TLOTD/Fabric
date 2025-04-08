@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "tlotd:heliorite_ingot"
+    },
+    "R": {
+      "item": "tlotd:cobbled_red_deepslate"
+    },
+    "S": {
+      "tag": "c:steel_ingots"
+    }
+  },
+  "pattern": [
+    "#S#",
+    "#R#",
+    "###"
+  ],
+  "result": {
+    "item": "tlotd:heliorite_upgrade_smithing_template"
+  },
+  "show_notification": true
+}

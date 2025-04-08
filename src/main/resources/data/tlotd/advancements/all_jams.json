@@ -1,0 +1,68 @@
+{
+  "display": {
+    "icon": {
+      "item": "tlotd:sweet_berry_jam_jar"
+    },
+    "title": {
+      "translate": "advancements.tlotd.all_jams"
+    },
+    "description": {
+      "translate": "advancements.tlotd.all_jams.desc"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "tlotd:sweet_berry_jam": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "tlotd:sweet_berry_jam_jar"
+            ]
+          }
+        ]
+      }
+    },
+    "tlotd:glow_berry_jam": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "tlotd:glow_berry_jam_jar"
+            ]
+          }
+        ]
+      }
+    },
+    "tlotd:strawberry_jam": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "tlotd:strawberry_jam_jar"
+            ]
+          }
+        ]
+      }
+    },
+    "tlotd:orange_marmelade": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "tlotd:orange_marmelade_jar"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "parent": "minecraft:husbandry/root"
+}
