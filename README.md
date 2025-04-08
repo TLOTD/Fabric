@@ -23,9 +23,9 @@ With [Sinytra Connector](https://modrinth.com/mod/connector)
 - If you are able to speak more than one language you could help by providing translations for you language.
 
 ## Supported Languages
-- 🇺🇸 [English (United States)](https://github.com/tlotd/Fabric/blob/main/src/main/resources/assets/tlotd/lang/en_us.json) [100%] - Translators: [@tlotd](https://github.com/tlotd), [@isla_nublar](https://github.com/Isla-Nublar)
-- 🇩🇪 [Deutsch (Deutschland)](https://github.com/tlotd/Fabric/blob/main/src/main/resources/assets/tlotd/lang/de_de.json) [100%] - Translators: [@tlotd](https://github.com/tlotd), [@isla_nublar](https://github.com/Isla-Nublar)
-- 🇩🇪 [Schwäbisch (s' Ländle)](https://github.com/tlotd/Fabric/blob/main/src/main/resources/assets/tlotd/lang/sch_de.json) [100%] - Translators: [@tlotd](https://github.com/tlotd), [@isla_nublar](https://github.com/Isla-Nublar) | [(Schwabenpatch Required)](https://github.com/tlotd/Schwabenpatch)
+- 🇺🇸 [English (United States)](https://github.com/tlotd/Fabric/blob/main/src/1.20.1/resources/assets/tlotd/lang/en_us.json) [100%] - Translators: [@tlotd](https://github.com/tlotd), [@isla_nublar](https://github.com/Isla-Nublar)
+- 🇩🇪 [Deutsch (Deutschland)](https://github.com/tlotd/Fabric/blob/main/src/1.20.1/resources/assets/tlotd/lang/de_de.json) [100%] - Translators: [@tlotd](https://github.com/tlotd), [@isla_nublar](https://github.com/Isla-Nublar)
+- 🇩🇪 [Schwäbisch (s' Ländle)](https://github.com/tlotd/Fabric/blob/main/src/1.20.1/resources/assets/tlotd/lang/sch_de.json) [100%] - Translators: [@tlotd](https://github.com/tlotd), [@isla_nublar](https://github.com/Isla-Nublar) | [(Schwabenpatch Required)](https://github.com/tlotd/Schwabenpatch)
 
 ## Developer Notes
 The main focus currently is porting the entire project over to fabric, all new releases will be on fabric for now. No I dont hate Forge, however the entire Forge version was made in MCreator and I actually wanted make the mod properly, aditionally due to my aging pc, Fabric with optimization mods has been the only way lately for me to enjoy the game. Thank you to everybody who downloaded my mod, stay tuned a big realease is in the works!
