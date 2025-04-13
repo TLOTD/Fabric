@@ -26,7 +26,7 @@
   "generic.tlotd.ouija_message_11": "it's dark down here",
   "generic.tlotd.ouija_message_12": "...",
 
-  "messages.tlotd.radio.frequency.0": "Scanning for signal",
+  "messages.tlotd.radio.frequency.0": "Scanning for a signal",
   "messages.tlotd.radio.frequency.1": "Frequency: 97.7 MHz",
   "messages.tlotd.radio.frequency.2": "Frequency: 98.1 MHz",
   "messages.tlotd.radio.frequency.3": "Frequency: 98.9 MHz",
@@ -45,15 +45,12 @@
   "sounds.tlotd.entity_t-rex_idle": "T-Rex breathes",
   "sounds.tlotd.entity_t-rex_hurt": "T-Rex is hurt",
   "sounds.tlotd.entity_t-rex_death": "T-Rex dies",
-
   "sounds.tlotd.item_pickaxe_extract": "Pickaxe extracts",
-
   "sounds.tlotd.block_elevator_pling": "Elevator used",
   "sounds.tlotd.block_radio_switch_frequency": "Radio frequency switched",
   "sounds.tlotd.block_television_switch_channel": "Television channel switched",
   "sounds.tlotd.block_television_static_channel": "Television plays static",
   "sounds.tlotd.block_computer_interact": "Computer used",
-
   "sounds.tlotd.block_videocassette_recorder": "Videocassette Recorder used",
 
   "advancements.tlotd.radioactive": "§eRadioactive!§r",
@@ -177,7 +174,7 @@
   "item.tlotd.forging_hammer.tooltip": "When in Mithril Anvil:",
   "item.tlotd.forging_hammer.tooltip_2": "Forging Level",
   "item.tlotd.star_catcher.tooltip": "When Used at Night at:",
-  "item.tlotd.star_catcher.tooltip_2": "Blocks in Air",
+  "item.tlotd.star_catcher.tooltip_2": "Blocks in the Air",
 
   "item.tlotd.stick_cross": "Stick Cross",
   "item.tlotd.stick_effigy": "Stick Effigy",
@@ -248,7 +245,7 @@
   "item.tlotd.game_cartridge_1": "Game Cartridge",
   "item.tlotd.game_cartridge_1.desc": "DOOM",
   "item.tlotd.game_cartridge_2": "Game Cartridge",
-  "item.tlotd.game_cartridge_2.desc": "Half-Life",
+  "item.tlotd.game_cartridge_2.desc": "Hλlf-Life",
   "item.tlotd.game_cartridge_3": "Game Cartridge",
   "item.tlotd.game_cartridge_3.desc": "Terraria",
 
@@ -575,7 +572,7 @@
   "block.tlotd.effigies.tooltip_3": "a cauldron",
   "block.tlotd.blood_cauldron": "Blood Cauldron",
   "block.tlotd.ouija_board": "Ouija Board",
-  "block.tlotd.ouija_board.tooltip": "Allows fo the",
+  "block.tlotd.ouija_board.tooltip": "Allows for the",
   "block.tlotd.ouija_board.tooltip_2": "communication",
   "block.tlotd.ouija_board.tooltip_3": "with the dead",
   "block.tlotd.goat_head": "Goat Head",

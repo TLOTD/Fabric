@@ -1,6 +1,5 @@
 package net.tlotd.block.entity.renderer;
 
-import net.minecraft.block.FacingBlock;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.render.LightmapTextureManager;
 import net.minecraft.client.render.OverlayTexture;
