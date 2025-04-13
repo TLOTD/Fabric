@@ -4,6 +4,10 @@
   "itemgroup.tlotd.blocks": "TLOTD Blocks",
   "itemgroup.tlotd.compat": "TLOTD Compatibility",
 
+  "itemGroup.create.base": "Create",
+  "itemGroup.spore": "Spore",
+  "spore.name.calamity": "Calamity",
+
   "gui.tlotd.mithril_smithing": "Mithril Smithing",
   "gui.tlotd.witching": "Witching",
   "gui.tlotd.tooltip.liquid_amount_with_capacity": "§f%s§7: %smB/%smB",
@@ -511,7 +515,7 @@
   "item.tlotd.astral_forging_hammer": "Astral Forging Hammer",
 
   "item.tlotd.t-rex_spawn_egg": "T-Rex Spawn Egg",
-  "item.tlotd.infected_t-rex_spawn_egg": "Infected T-Rex Spawn Egg",
+  "item.tlotd.infected_t-rex_spawn_egg": "Infected T-Rex",
 
   "block.tlotd.t-rex_egg": "T-Rex Egg",
 

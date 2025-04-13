@@ -26,6 +26,7 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 import net.tlotd.block.ModBlocks;
+import net.tlotd.config.ModConfigs;
 import net.tlotd.sound.ModSounds;
 import org.jetbrains.annotations.Nullable;
 
@@ -102,8 +103,10 @@ public class TelevisionBlock extends Block {
     @Override
     public void appendTooltip(ItemStack stack, @Nullable BlockView world, List<Text> tooltip, TooltipContext options) {
         tooltip.add(Text.literal(""));
-        tooltip.add(Text.translatable("block.tlotd.television.tooltip").formatted(Formatting.GRAY));
-        tooltip.add(Text.literal(" ").append(Text.translatable("block.tlotd.signal_transmitter").formatted(Formatting.BLUE)));
+        if (!ModConfigs.ALL_SIGNALS_UNLOCKED) {
+            tooltip.add(Text.translatable("block.tlotd.television.tooltip").formatted(Formatting.GRAY));
+            tooltip.add(Text.literal(" ").append(Text.translatable("block.tlotd.signal_transmitter").formatted(Formatting.BLUE)));
+        }
         tooltip.add(Text.translatable("block.tlotd.television.tooltip_2").formatted(Formatting.GRAY));
         tooltip.add(Text.literal(" ").append(Text.translatable("block.tlotd.videocassette_recorder").formatted(Formatting.BLUE)));
         super.appendTooltip(stack, world, tooltip, options);
@@ -115,7 +118,7 @@ public class TelevisionBlock extends Block {
         if (player.isSneaking()) {
             if (!world.isClient) {
                 if (state.getBlock().equals(ModBlocks.TELEVISION)) {
-                    if (world.getBlockState(pos.up()).isOf(ModBlocks.INTERDIMENSIONAL_RECEIVER)) {
+                    if (ModConfigs.ALL_SIGNALS_UNLOCKED || world.getBlockState(pos.up()).isOf(ModBlocks.INTERDIMENSIONAL_RECEIVER)) {
                         world.setBlockState(pos, ModBlocks.TELEVISION_ON.getStateWithProperties(state));
                     } else if (world.getBlockState(zero).getBlock().equals(ModBlocks.BEDROCK)) {
                         if (world.getBlockState(zero).get(CHANNEL_1) && state.get(CHANNEL) <= 1) {
@@ -151,7 +154,7 @@ public class TelevisionBlock extends Block {
         } else {
             if (state.getBlock().equals(ModBlocks.TELEVISION_ON)) {
                 if (!world.isClient) {
-                    if (world.getBlockState(pos.up()).isOf(ModBlocks.INTERDIMENSIONAL_RECEIVER)) {
+                    if (ModConfigs.ALL_SIGNALS_UNLOCKED || world.getBlockState(pos.up()).isOf(ModBlocks.INTERDIMENSIONAL_RECEIVER)) {
                         if (state.get(CHANNEL) == 9) {
                             world.setBlockState(pos, ModBlocks.TELEVISION_ON.getStateWithProperties(state).with(CHANNEL,0));
                         } else {

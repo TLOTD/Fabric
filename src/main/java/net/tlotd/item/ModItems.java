@@ -303,7 +303,7 @@ public class ModItems {
     public static final Item GINKGO_CHEST_BOAT = TerraformBoatItemHelper.registerBoatItem(ModBoats.GINKGO_CHEST_BOAT_ID, ModBoats.GINKGO_BOAT_KEY, true);
 
     public static final Item TREX_SPAWN_EGG = registerItem("t-rex_spawn_egg", new SpawnEggItem(ModEntities.TREX, 0x573722, 0x705341, new FabricItemSettings()));
-    public static final Item INFECTED_TREX_SPAWN_EGG = registerItem("infected_t-rex_spawn_egg", new CalamitySpawnItem(ModEntities.INFECTED_TREX, 0x9d8071, 0xc8b095, new FabricItemSettings()));
+    public static final Item INFECTED_TREX_SPAWN_EGG = registerItem("infected_t-rex_spawn_egg", new CalamitySpawnItem(ModEntities.INFECTED_TREX, 0x9d8071, 0xffffff, new FabricItemSettings()));
 
     public static final Item DINOSAUR_HIDE = registerItem("dinosaur_hide", new Item(new FabricItemSettings()));
     public static final Item DINOSAUR_MEAT = registerItem("dinosaur_meat", new Item(new FabricItemSettings().food(ModFoodComponents.DINOSAUR_MEAT)));

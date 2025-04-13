@@ -4,6 +4,10 @@
   "itemgroup.tlotd.blocks": "TLOTD Baublöcke",
   "itemgroup.tlotd.compat": "TLOTD Kompatibilität",
 
+  "itemGroup.create.base": "Create",
+  "itemGroup.spore": "Spore",
+  "spore.name.calamity": "Unheil",
+
   "gui.tlotd.mithril_smithing": "Mithrilschmiede",
   "gui.tlotd.witching": "Hexentisch",
   "gui.tlotd.tooltip.liquid_amount_with_capacity": "§f%s§7: %smB/%smB",
@@ -514,7 +518,7 @@
   "item.tlotd.astral_forging_hammer": "Astralschmiedehammer",
 
   "item.tlotd.t-rex_spawn_egg": "T-Rex-Spawn-Ei",
-  "item.tlotd.infected_t-rex_spawn_egg": "Infizierter-T-Rex-Spawn-Ei",
+  "item.tlotd.infected_t-rex_spawn_egg": "Infizierter T-Rex",
 
   "block.tlotd.t-rex_egg": "T-Rex-Ei",
 

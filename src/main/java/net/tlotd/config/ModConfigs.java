@@ -12,6 +12,7 @@ public class ModConfigs {
     public static boolean MITHRIL_ANVIL_NEEDS_DIRECT_MOONLIGHT;
     public static boolean WITCHING_TABLE_NEEDS_BLOOD;
     public static boolean WITCHING_TABLE_NEEDS_SOULS;
+    public static boolean ALL_SIGNALS_UNLOCKED;
     public static boolean FORMER_TLOTD_REWARDS;
 
     public static void registerConfigs() {
@@ -29,6 +30,7 @@ public class ModConfigs {
         configs.addKeyValuePair(new Pair<>("mithrilAnvilNeedsDirectMoonlight", true), "boolean");
         configs.addKeyValuePair(new Pair<>("witchingTableNeedsBlood", true), "boolean");
         configs.addKeyValuePair(new Pair<>("witchingTableNeedsSouls", true), "boolean");
+        configs.addKeyValuePair(new Pair<>("allSignalsUnlocked", false), "boolean");
         configs.addKeyValuePair(new Pair<>("formerTlotdRewards", false), "boolean");
     }
 
@@ -38,6 +40,7 @@ public class ModConfigs {
         MITHRIL_ANVIL_NEEDS_DIRECT_MOONLIGHT = CONFIG.getOrDefault("mithrilAnvilNeedsDirectMoonlight", true);
         WITCHING_TABLE_NEEDS_BLOOD = CONFIG.getOrDefault("witchingTableNeedsBlood", true);
         WITCHING_TABLE_NEEDS_SOULS = CONFIG.getOrDefault("witchingTableNeedsSouls", true);
+        ALL_SIGNALS_UNLOCKED = CONFIG.getOrDefault("allSignalsUnlocked", false);
         FORMER_TLOTD_REWARDS = CONFIG.getOrDefault("formerTlotdRewards", false);
 
         System.out.println("All " + configs.getConfigsList().size() + " " + TLOTD.MOD_ID + " configs have been set properly");

@@ -318,11 +318,6 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.CATHODE_RAY_TUBE, Models.GENERATED);
         itemModelGenerator.register(ModItems.LIQUID_CRYSTAL_DISPLAY_PANEL, Models.GENERATED);
 
-        itemModelGenerator.register(ModItems.INCOMPLETE_COPPER_WIRE, Models.GENERATED);
-        itemModelGenerator.register(ModItems.INCOMPLETE_INTEGRATED_CIRCUIT, Models.GENERATED);
-        itemModelGenerator.register(ModItems.INCOMPLETE_CIRCUIT_BOARD, Models.GENERATED);
-        itemModelGenerator.register(ModItems.INCOMPLETE_ADVANCED_CIRCUIT_BOARD, Models.GENERATED);
-
         itemModelGenerator.register(ModItems.RAW_LEAD, Models.GENERATED);
         itemModelGenerator.register(ModItems.LEAD_NUGGET, Models.GENERATED);
         itemModelGenerator.register(ModItems.LEAD_INGOT, Models.GENERATED);
@@ -504,9 +499,6 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.GINKGO_CHEST_BOAT, Models.GENERATED);
 
         itemModelGenerator.register(ModItems.TREX_SPAWN_EGG,
-                new Model(Optional.of(new Identifier("item/template_spawn_egg")), Optional.empty()));
-
-        itemModelGenerator.register(ModItems.INFECTED_TREX_SPAWN_EGG,
                 new Model(Optional.of(new Identifier("item/template_spawn_egg")), Optional.empty()));
 
         itemModelGenerator.register(ModItems.DINOSAUR_HIDE, Models.GENERATED);

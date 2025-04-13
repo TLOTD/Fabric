@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "tlotd:item/compat/spore/calamity_spawn",
+    "layer1": "tlotd:item/compat/spore/calamity_spawn_overlay"
+  }
+}
