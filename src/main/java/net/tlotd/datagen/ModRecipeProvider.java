@@ -25,12 +25,12 @@ import java.util.function.Consumer;
 
 public class ModRecipeProvider extends FabricRecipeProvider {
 
-    private static final List<ItemConvertible> ENDURIUM_BLASTABLES = List.of(ModItems.ENDURIUM_CRYSTAL, ModBlocks.END_STONE_ENDURIUM_ORE);
-    private static final List<ItemConvertible> PALLADIUM_BLASTABLES = List.of(ModItems.RAW_PALLADIUM, ModBlocks.PALLADIUM_ORE, ModBlocks. RED_DEEPSLATE_PALLADIUM_ORE);
-    private static final List<ItemConvertible> JURASSOLINE_BLASTABLES = List.of(ModItems.JURASSOLINE_CRYSTAL, ModBlocks.JURASSOLINE_ORE, ModBlocks.RED_DEEPSLATE_JURASSOLINE_ORE);
-    private static final List<ItemConvertible> CINNABAR_BLASTABLES = List.of(ModItems.CINNABAR_CRYSTAL, ModBlocks.CINNABAR_ORE, ModBlocks. RED_DEEPSLATE_CINNABAR_ORE);
-    private static final List<ItemConvertible> NEBULAR_BLASTABLES = List.of(ModItems.NEBULAR_CRYSTAL, ModBlocks.NEBULAR_ORE, ModBlocks. RED_DEEPSLATE_NEBULAR_ORE);
-    private static final List<ItemConvertible> MITHRIL_BLASTABLES = List.of(ModItems.RAW_MITHRIL, ModBlocks.MITHRIL_ORE);
+    private static final List<ItemConvertible> ENDURIUM_BLASTABLES = List.of(ModItems.ENDURIUM_CRYSTAL, ModBlocks.END_ENDURIUM_ORE);
+    private static final List<ItemConvertible> PALLADIUM_BLASTABLES = List.of(ModItems.RAW_PALLADIUM, ModBlocks.DEEPSLATE_PALLADIUM_ORE, ModBlocks. RED_DEEPSLATE_PALLADIUM_ORE);
+    private static final List<ItemConvertible> JURASSOLINE_BLASTABLES = List.of(ModItems.JURASSOLINE_CRYSTAL, ModBlocks.DEEPSLATE_JURASSOLINE_ORE, ModBlocks.RED_DEEPSLATE_JURASSOLINE_ORE);
+    private static final List<ItemConvertible> CINNABAR_BLASTABLES = List.of(ModItems.CINNABAR_CRYSTAL, ModBlocks.DEEPSLATE_CINNABAR_ORE, ModBlocks. RED_DEEPSLATE_CINNABAR_ORE);
+    private static final List<ItemConvertible> NEBULAR_BLASTABLES = List.of(ModItems.NEBULAR_CRYSTAL, ModBlocks.DEEPSLATE_NEBULAR_ORE, ModBlocks. RED_DEEPSLATE_NEBULAR_ORE);
+    private static final List<ItemConvertible> MITHRIL_BLASTABLES = List.of(ModItems.RAW_MITHRIL, ModBlocks.BEDROCK_MITHRIL_ORE);
 
     public ModRecipeProvider(FabricDataOutput output) {
         super(output);
@@ -50,6 +50,132 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('#', ModTags.Items.WOODEN_BARK)
                 .criterion(hasItem(Items.PAPER), conditionsFromItem(Items.PAPER))
                 .offerTo(exporter, new Identifier(getRecipeName(Items.PAPER)));
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, Items.OAK_LOG)
+                .input(Items.STRIPPED_OAK_LOG)
+                .input(ModItems.OAK_BARK)
+                .criterion(hasItem(Items.STRIPPED_OAK_LOG), conditionsFromItem(Items.STRIPPED_OAK_LOG))
+                .criterion(hasItem(ModItems.OAK_BARK), conditionsFromItem(ModItems.OAK_BARK))
+                .offerTo(exporter, new Identifier(getRecipeName(Items.OAK_LOG)));
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, Items.OAK_WOOD)
+                .input(Items.STRIPPED_OAK_WOOD)
+                .input(ModItems.OAK_BARK)
+                .criterion(hasItem(Items.STRIPPED_OAK_WOOD), conditionsFromItem(Items.STRIPPED_OAK_WOOD))
+                .criterion(hasItem(ModItems.OAK_BARK), conditionsFromItem(ModItems.OAK_BARK))
+                .offerTo(exporter, new Identifier(getRecipeName(Items.OAK_WOOD)));
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, Items.SPRUCE_LOG)
+                .input(Items.STRIPPED_SPRUCE_LOG)
+                .input(ModItems.SPRUCE_BARK)
+                .criterion(hasItem(Items.STRIPPED_SPRUCE_LOG), conditionsFromItem(Items.STRIPPED_SPRUCE_LOG))
+                .criterion(hasItem(ModItems.SPRUCE_BARK), conditionsFromItem(ModItems.SPRUCE_BARK))
+                .offerTo(exporter, new Identifier(getRecipeName(Items.SPRUCE_LOG)));
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, Items.SPRUCE_WOOD)
+                .input(Items.STRIPPED_SPRUCE_WOOD)
+                .input(ModItems.SPRUCE_BARK)
+                .criterion(hasItem(Items.STRIPPED_SPRUCE_WOOD), conditionsFromItem(Items.STRIPPED_SPRUCE_WOOD))
+                .criterion(hasItem(ModItems.SPRUCE_BARK), conditionsFromItem(ModItems.SPRUCE_BARK))
+                .offerTo(exporter, new Identifier(getRecipeName(Items.SPRUCE_WOOD)));
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, Items.BIRCH_LOG)
+                .input(Items.STRIPPED_BIRCH_LOG)
+                .input(ModItems.BIRCH_BARK)
+                .criterion(hasItem(Items.STRIPPED_BIRCH_LOG), conditionsFromItem(Items.STRIPPED_BIRCH_LOG))
+                .criterion(hasItem(ModItems.BIRCH_BARK), conditionsFromItem(ModItems.BIRCH_BARK))
+                .offerTo(exporter, new Identifier(getRecipeName(Items.BIRCH_LOG)));
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, Items.BIRCH_WOOD)
+                .input(Items.STRIPPED_BIRCH_WOOD)
+                .input(ModItems.BIRCH_BARK)
+                .criterion(hasItem(Items.STRIPPED_BIRCH_WOOD), conditionsFromItem(Items.STRIPPED_BIRCH_WOOD))
+                .criterion(hasItem(ModItems.BIRCH_BARK), conditionsFromItem(ModItems.BIRCH_BARK))
+                .offerTo(exporter, new Identifier(getRecipeName(Items.BIRCH_WOOD)));
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, Items.JUNGLE_LOG)
+                .input(Items.STRIPPED_JUNGLE_LOG)
+                .input(ModItems.JUNGLE_BARK)
+                .criterion(hasItem(Items.STRIPPED_JUNGLE_LOG), conditionsFromItem(Items.STRIPPED_JUNGLE_LOG))
+                .criterion(hasItem(ModItems.JUNGLE_BARK), conditionsFromItem(ModItems.JUNGLE_BARK))
+                .offerTo(exporter, new Identifier(getRecipeName(Items.JUNGLE_LOG)));
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, Items.JUNGLE_WOOD)
+                .input(Items.STRIPPED_JUNGLE_WOOD)
+                .input(ModItems.JUNGLE_BARK)
+                .criterion(hasItem(Items.STRIPPED_JUNGLE_WOOD), conditionsFromItem(Items.STRIPPED_JUNGLE_WOOD))
+                .criterion(hasItem(ModItems.JUNGLE_BARK), conditionsFromItem(ModItems.JUNGLE_BARK))
+                .offerTo(exporter, new Identifier(getRecipeName(Items.JUNGLE_WOOD)));
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, Items.ACACIA_LOG)
+                .input(Items.STRIPPED_ACACIA_LOG)
+                .input(ModItems.ACACIA_BARK)
+                .criterion(hasItem(Items.STRIPPED_ACACIA_LOG), conditionsFromItem(Items.STRIPPED_ACACIA_LOG))
+                .criterion(hasItem(ModItems.ACACIA_BARK), conditionsFromItem(ModItems.ACACIA_BARK))
+                .offerTo(exporter, new Identifier(getRecipeName(Items.ACACIA_LOG)));
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, Items.ACACIA_WOOD)
+                .input(Items.STRIPPED_ACACIA_WOOD)
+                .input(ModItems.ACACIA_BARK)
+                .criterion(hasItem(Items.STRIPPED_ACACIA_WOOD), conditionsFromItem(Items.STRIPPED_ACACIA_WOOD))
+                .criterion(hasItem(ModItems.ACACIA_BARK), conditionsFromItem(ModItems.ACACIA_BARK))
+                .offerTo(exporter, new Identifier(getRecipeName(Items.ACACIA_WOOD)));
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, Items.DARK_OAK_LOG)
+                .input(Items.STRIPPED_DARK_OAK_LOG)
+                .input(ModItems.DARK_OAK_BARK)
+                .criterion(hasItem(Items.STRIPPED_DARK_OAK_LOG), conditionsFromItem(Items.STRIPPED_DARK_OAK_LOG))
+                .criterion(hasItem(ModItems.DARK_OAK_BARK), conditionsFromItem(ModItems.DARK_OAK_BARK))
+                .offerTo(exporter, new Identifier(getRecipeName(Items.DARK_OAK_LOG)));
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, Items.DARK_OAK_WOOD)
+                .input(Items.STRIPPED_DARK_OAK_WOOD)
+                .input(ModItems.DARK_OAK_BARK)
+                .criterion(hasItem(Items.STRIPPED_DARK_OAK_WOOD), conditionsFromItem(Items.STRIPPED_DARK_OAK_WOOD))
+                .criterion(hasItem(ModItems.DARK_OAK_BARK), conditionsFromItem(ModItems.DARK_OAK_BARK))
+                .offerTo(exporter, new Identifier(getRecipeName(Items.DARK_OAK_WOOD)));
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, Items.MANGROVE_LOG)
+                .input(Items.STRIPPED_MANGROVE_LOG)
+                .input(ModItems.MANGROVE_BARK)
+                .criterion(hasItem(Items.STRIPPED_MANGROVE_LOG), conditionsFromItem(Items.STRIPPED_MANGROVE_LOG))
+                .criterion(hasItem(ModItems.MANGROVE_BARK), conditionsFromItem(ModItems.MANGROVE_BARK))
+                .offerTo(exporter, new Identifier(getRecipeName(Items.MANGROVE_LOG)));
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, Items.MANGROVE_WOOD)
+                .input(Items.STRIPPED_MANGROVE_WOOD)
+                .input(ModItems.MANGROVE_BARK)
+                .criterion(hasItem(Items.STRIPPED_MANGROVE_WOOD), conditionsFromItem(Items.STRIPPED_MANGROVE_WOOD))
+                .criterion(hasItem(ModItems.MANGROVE_BARK), conditionsFromItem(ModItems.MANGROVE_BARK))
+                .offerTo(exporter, new Identifier(getRecipeName(Items.MANGROVE_WOOD)));
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, Items.CHERRY_LOG)
+                .input(Items.STRIPPED_CHERRY_LOG)
+                .input(ModItems.CHERRY_BARK)
+                .criterion(hasItem(Items.STRIPPED_CHERRY_LOG), conditionsFromItem(Items.STRIPPED_CHERRY_LOG))
+                .criterion(hasItem(ModItems.CHERRY_BARK), conditionsFromItem(ModItems.CHERRY_BARK))
+                .offerTo(exporter, new Identifier(getRecipeName(Items.CHERRY_LOG)));
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, Items.CHERRY_WOOD)
+                .input(Items.STRIPPED_CHERRY_WOOD)
+                .input(ModItems.CHERRY_BARK)
+                .criterion(hasItem(Items.STRIPPED_CHERRY_WOOD), conditionsFromItem(Items.STRIPPED_CHERRY_WOOD))
+                .criterion(hasItem(ModItems.CHERRY_BARK), conditionsFromItem(ModItems.CHERRY_BARK))
+                .offerTo(exporter, new Identifier(getRecipeName(Items.CHERRY_WOOD)));
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.GINKGO_LOG)
+                .input(ModBlocks.STRIPPED_GINKGO_LOG)
+                .input(ModItems.GINKGO_BARK)
+                .criterion(hasItem(ModBlocks.STRIPPED_GINKGO_LOG), conditionsFromItem(ModBlocks.STRIPPED_GINKGO_LOG))
+                .criterion(hasItem(ModItems.GINKGO_BARK), conditionsFromItem(ModItems.GINKGO_BARK))
+                .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.GINKGO_LOG)));
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.GINKGO_WOOD)
+                .input(ModBlocks.STRIPPED_GINKGO_WOOD)
+                .input(ModItems.GINKGO_BARK)
+                .criterion(hasItem(ModBlocks.STRIPPED_GINKGO_WOOD), conditionsFromItem(ModBlocks.STRIPPED_GINKGO_WOOD))
+                .criterion(hasItem(ModItems.GINKGO_BARK), conditionsFromItem(ModItems.GINKGO_BARK))
+                .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.GINKGO_WOOD)));
 
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.DRAGON_BANNER_PATTERN)
                 .input(Items.PAPER)
@@ -153,6 +279,26 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(ModBlocks.ORANGE_MARMELADE_JAR), conditionsFromItem(ModBlocks.ORANGE_MARMELADE_JAR))
                 .criterion(hasItem(ModItems.TOAST), conditionsFromItem(ModItems.TOAST))
                 .offerTo(exporter, new Identifier(getRecipeName(ModItems.ORANGE_MARMELADE_TOAST)));
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.BLUE_BERRY_JAM_TOAST, 3)
+                .group("toasts")
+                .input(ModBlocks.BLUE_BERRY_JAM_JAR)
+                .input(ModItems.TOAST)
+                .input(ModItems.TOAST)
+                .input(ModItems.TOAST)
+                .criterion(hasItem(ModBlocks.BLUE_BERRY_JAM_JAR), conditionsFromItem(ModBlocks.BLUE_BERRY_JAM_JAR))
+                .criterion(hasItem(ModItems.TOAST), conditionsFromItem(ModItems.TOAST))
+                .offerTo(exporter, new Identifier(getRecipeName(ModItems.BLUE_BERRY_JAM_TOAST)));
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.ANCIENT_SOULBERRY_JAM_TOAST, 3)
+                .group("toasts")
+                .input(ModBlocks.ANCIENT_SOULBERRY_JAM_JAR)
+                .input(ModItems.TOAST)
+                .input(ModItems.TOAST)
+                .input(ModItems.TOAST)
+                .criterion(hasItem(ModBlocks.ANCIENT_SOULBERRY_JAM_JAR), conditionsFromItem(ModBlocks.ANCIENT_SOULBERRY_JAM_JAR))
+                .criterion(hasItem(ModItems.TOAST), conditionsFromItem(ModItems.TOAST))
+                .offerTo(exporter, new Identifier(getRecipeName(ModItems.ANCIENT_SOULBERRY_JAM_TOAST)));
 
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.STRAWBERRY_SEEDS)
                 .input(ModItems.STRAWBERRY)
@@ -1069,7 +1215,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .pattern("##")
                 .input('#', ModBlocks.GINKGO_LOG)
                 .criterion(hasItem(ModBlocks.GINKGO_LOG), conditionsFromItem(ModBlocks.GINKGO_LOG))
-                .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.GINKGO_WOOD)));
+                .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.GINKGO_WOOD)+"_from_logs"));
 
         ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModBlocks.STRIPPED_GINKGO_WOOD, 3)
                 .pattern("##")
@@ -1120,7 +1266,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .pattern("###")
                 .pattern("#I#")
                 .pattern("###")
-                .input('#', TagKey.of(RegistryKeys.ITEM, new Identifier("c", "colorless_glass_panes")))
+                .input('#', TagKey.of(RegistryKeys.ITEM, new Identifier("c", "colorless_glass")))
                 .input('I', TagKey.of(RegistryKeys.ITEM, new Identifier("c", "steel_rods")))
                 .criterion(hasItem(Items.GLASS), conditionsFromItem(Items.GLASS))
                 .criterion(hasItem(ModItems.STEEL_ROD), conditionsFromItem(ModItems.STEEL_ROD))
@@ -2615,7 +2761,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .offerTo(exporter, new Identifier(getRecipeName(ModItems.NEBULAR_BOOTS)));
 
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.REINFORCED_TOOL_ROD)
-                .input(ModItems.STEEL_ROD)
+                .input(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "steel_rods")))
                 .input(Items.NETHERITE_SCRAP)
                 .criterion(hasItem(ModItems.STEEL_ROD), conditionsFromItem(ModItems.STEEL_ROD))
                 .criterion(hasItem(Items.NETHERITE_SCRAP), conditionsFromItem(Items.NETHERITE_SCRAP))

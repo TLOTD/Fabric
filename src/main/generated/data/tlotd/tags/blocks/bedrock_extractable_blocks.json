@@ -1,6 +1,10 @@
 {
   "replace": false,
   "values": [
-    "tlotd:mithril_ore"
+    "tlotd:bedrock_mithril_ore",
+    {
+      "id": "terramity:bedrock_black_matter_ore",
+      "required": false
+    }
   ]
 }

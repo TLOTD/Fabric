@@ -26,9 +26,9 @@ public class CalamitySpawnItem extends SpawnEggItem {
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
         if (context.isCreative()){
             Style style = this.getName().getStyle();
-            tooltip.add(Text.literal("\u0019 ").setStyle(style.withFont(MODS_FONT_ID)).append(Text.translatable("itemGroup.spore").setStyle(style.withFont(DEFAULT_FONT_ID).withFormatting(Formatting.GRAY))));
+            tooltip.add(Text.literal("\u0019 ").setStyle(style.withFont(MODS_FONT_ID)).append(Text.translatable("mod.spore.name").setStyle(style.withFont(DEFAULT_FONT_ID).withFormatting(Formatting.GRAY))));
             super.appendTooltip(stack, world, tooltip, context);
         }
-        tooltip.add(Text.translatable("spore.name.calamity").formatted(Formatting.GOLD));
+        tooltip.add(Text.translatable("mod.spore.calamity").formatted(Formatting.GOLD));
     }
 }

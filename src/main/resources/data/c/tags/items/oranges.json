@@ -9,6 +9,10 @@
     {
       "id": "simplefarming:orange",
       "required": false
+    },
+    {
+      "id": "pamhc2trees:orangeitem",
+      "required": false
     }
   ]
 }

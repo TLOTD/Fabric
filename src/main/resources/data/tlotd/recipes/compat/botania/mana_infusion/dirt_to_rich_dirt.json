@@ -1,0 +1,14 @@
+{
+  "type": "botania:mana_infusion",
+  "catalyst": {
+    "type": "block",
+    "block": "tlotd:archaeology_table"
+  },
+  "input": {
+    "item": "minecraft:dirt"
+  },
+  "mana": 120,
+  "output": {
+    "item": "tlotd:rich_dirt"
+  }
+}

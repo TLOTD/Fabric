@@ -32,6 +32,39 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.LEAD_ORE)
                 .addOptional(Identifier.tryParse("create:zinc_ore"))
                 .addOptional(Identifier.tryParse("create_new_age:thorium_ore"))
+
+                .addOptional(Identifier.tryParse("alltheores:aluminum_ore"))
+                .addOptional(Identifier.tryParse("alltheores:lead_ore"))
+                .addOptional(Identifier.tryParse("alltheores:nickel_ore"))
+                .addOptional(Identifier.tryParse("alltheores:osmium_ore"))
+                .addOptional(Identifier.tryParse("alltheores:platinum_ore"))
+                .addOptional(Identifier.tryParse("alltheores:silver_ore"))
+                .addOptional(Identifier.tryParse("alltheores:tin_ore"))
+                .addOptional(Identifier.tryParse("alltheores:uranium_ore"))
+                .addOptional(Identifier.tryParse("alltheores:zinc_ore"))
+                .addOptional(Identifier.tryParse("alltheores:iridium_ore"))
+                .addOptional(Identifier.tryParse("alltheores:peridot_ore"))
+                .addOptional(Identifier.tryParse("alltheores:ruby_ore"))
+                .addOptional(Identifier.tryParse("alltheores:sapphire_ore"))
+
+                .addOptional(Identifier.tryParse("allthemodium:allthemodium_ore"))
+
+                .addOptional(Identifier.tryParse("thermal:apatite_ore"))
+                .addOptional(Identifier.tryParse("thermal:cinnabar_ore"))
+                .addOptional(Identifier.tryParse("thermal:niter_ore"))
+                .addOptional(Identifier.tryParse("thermal:sulfur_ore"))
+                .addOptional(Identifier.tryParse("thermal:tin_ore"))
+                .addOptional(Identifier.tryParse("thermal:lead_ore"))
+                .addOptional(Identifier.tryParse("thermal:silver_ore"))
+                .addOptional(Identifier.tryParse("thermal:nickel_ore"))
+                .addOptional(Identifier.tryParse("thermal:ruby_ore"))
+                .addOptional(Identifier.tryParse("thermal:sapphire_ore"))
+
+                .addOptional(Identifier.tryParse("terramity:sapphire_ore"))
+                .addOptional(Identifier.tryParse("terramity:topaz_ore"))
+
+                .addOptional(Identifier.tryParse("iceandfire:silver_ore"))
+                .addOptional(Identifier.tryParse("iceandfire:sapphire_ore"))
         ;
         getOrCreateTagBuilder(ModTags.Blocks.ANDESITE_EXTRACTABLE_BLOCKS)
                 .addOptional(Identifier.tryParse("universal_ores:andesite_coal_ore"))
@@ -93,14 +126,50 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(Blocks.DEEPSLATE_DIAMOND_ORE)
                 .add(Blocks.DEEPSLATE_EMERALD_ORE)
                 .add(ModBlocks.DEEPSLATE_URANIUM_ORE)
-                .add(ModBlocks.HELIORITE_ORE)
-                .add(ModBlocks.PALLADIUM_ORE)
-                .add(ModBlocks.JURASSOLINE_ORE)
-                .add(ModBlocks.CINNABAR_ORE)
-                .add(ModBlocks.NEBULAR_ORE)
+                .add(ModBlocks.DEEPSLATE_HELIORITE_ORE)
+                .add(ModBlocks.DEEPSLATE_PALLADIUM_ORE)
+                .add(ModBlocks.DEEPSLATE_JURASSOLINE_ORE)
+                .add(ModBlocks.DEEPSLATE_CINNABAR_ORE)
+                .add(ModBlocks.DEEPSLATE_NEBULAR_ORE)
                 .add(ModBlocks.DEEPSLATE_FOSSIL)
                 .addOptional(Identifier.tryParse("create:deepslate_zinc_ore"))
                 .addOptional(Identifier.tryParse("vs_clockwork:wanderlite_deepslate_ore"))
+
+                .addOptional(Identifier.tryParse("alltheores:deepslate_aluminum_ore"))
+                .addOptional(Identifier.tryParse("alltheores:deepslate_lead_ore"))
+                .addOptional(Identifier.tryParse("alltheores:deepslate_nickel_ore"))
+                .addOptional(Identifier.tryParse("alltheores:deepslate_osmium_ore"))
+                .addOptional(Identifier.tryParse("alltheores:deepslate_platinum_ore"))
+                .addOptional(Identifier.tryParse("alltheores:deepslate_silver_ore"))
+                .addOptional(Identifier.tryParse("alltheores:deepslate_tin_ore"))
+                .addOptional(Identifier.tryParse("alltheores:deepslate_uranium_ore"))
+                .addOptional(Identifier.tryParse("alltheores:deepslate_zinc_ore"))
+                .addOptional(Identifier.tryParse("alltheores:deepslate_iridium_ore"))
+                .addOptional(Identifier.tryParse("alltheores:deepslate_peridot_ore"))
+                .addOptional(Identifier.tryParse("alltheores:deepslate_ruby_ore"))
+                .addOptional(Identifier.tryParse("alltheores:deepslate_sapphire_ore"))
+
+                .addOptional(Identifier.tryParse("allthemodium:allthemodium_slate_ore"))
+
+                .addOptional(Identifier.tryParse("thermal:deepslate_apatite_ore"))
+                .addOptional(Identifier.tryParse("thermal:deepslate_cinnabar_ore"))
+                .addOptional(Identifier.tryParse("thermal:deepslate_niter_ore"))
+                .addOptional(Identifier.tryParse("thermal:deepslate_sulfur_ore"))
+                .addOptional(Identifier.tryParse("thermal:deepslate_tin_ore"))
+                .addOptional(Identifier.tryParse("thermal:deepslate_lead_ore"))
+                .addOptional(Identifier.tryParse("thermal:deepslate_silver_ore"))
+                .addOptional(Identifier.tryParse("thermal:deepslate_nickel_ore"))
+                .addOptional(Identifier.tryParse("thermal:deepslate_ruby_ore"))
+                .addOptional(Identifier.tryParse("thermal:deepslate_sapphire_ore"))
+
+                .addOptional(Identifier.tryParse("terramity:deepslate_sapphire_ore"))
+                .addOptional(Identifier.tryParse("terramity:deepslate_topaz_ore"))
+                .addOptional(Identifier.tryParse("terramity:deepslate_dimlite_ore"))
+                .addOptional(Identifier.tryParse("terramity:deepslate_iridescent_ore"))
+                .addOptional(Identifier.tryParse("terramity:gaianite_cluster_ore"))
+                .addOptional(Identifier.tryParse("terramity:profaned_ore"))
+
+                .addOptional(Identifier.tryParse("iceandfire:deepslate_silver_ore"))
         ;
         getOrCreateTagBuilder(ModTags.Blocks.RED_DEEPSLATE_EXTRACTABLE_BLOCKS)
                 .add(ModBlocks.RED_DEEPSLATE_IRON_ORE)
@@ -121,11 +190,28 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.RED_DEEPSLATE_NEBULAR_ORE)
         ;
         getOrCreateTagBuilder(ModTags.Blocks.BEDROCK_EXTRACTABLE_BLOCKS)
-                .add(ModBlocks.MITHRIL_ORE)
+                .add(ModBlocks.BEDROCK_MITHRIL_ORE)
+                .addOptional(Identifier.tryParse("terramity:bedrock_black_matter_ore"))
         ;
         getOrCreateTagBuilder(ModTags.Blocks.END_STONE_EXTRACTABLE_BLOCKS)
-                .add(ModBlocks.END_STONE_ENDURIUM_ORE)
+                .add(ModBlocks.END_ENDURIUM_ORE)
                 .addOptional(Identifier.tryParse("vs_clockwork:wanderlite_end_ore"))
+
+                .addOptional(Identifier.tryParse("alltheores:end_aluminum_ore"))
+                .addOptional(Identifier.tryParse("alltheores:end_lead_ore"))
+                .addOptional(Identifier.tryParse("alltheores:end_nickel_ore"))
+                .addOptional(Identifier.tryParse("alltheores:end_osmium_ore"))
+                .addOptional(Identifier.tryParse("alltheores:end_platinum_ore"))
+                .addOptional(Identifier.tryParse("alltheores:end_silver_ore"))
+                .addOptional(Identifier.tryParse("alltheores:end_tin_ore"))
+                .addOptional(Identifier.tryParse("alltheores:end_uranium_ore"))
+                .addOptional(Identifier.tryParse("alltheores:end_zinc_ore"))
+                .addOptional(Identifier.tryParse("alltheores:end_iridium_ore"))
+
+                .addOptional(Identifier.tryParse("allthemodium:unobtainium_ore"))
+
+                .addOptional(Identifier.tryParse("terramity:end_iridium_ore"))
+                .addOptional(Identifier.tryParse("terramity:end_onyx_ore"))
         ;
         getOrCreateTagBuilder(ModTags.Blocks.MOON_ROCK_EXTRACTABLE_BLOCKS)
                 .add(ModBlocks.MOON_ROCK_COAL_ORE)
@@ -136,6 +222,24 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.NETHER_SULFUR_ORE)
                 .add(Blocks.NETHER_QUARTZ_ORE)
                 .add(Blocks.NETHER_GOLD_ORE)
+
+                .addOptional(Identifier.tryParse("tconstruct:cobalt_ore"))
+
+                .addOptional(Identifier.tryParse("alltheores:nether_aluminum_ore"))
+                .addOptional(Identifier.tryParse("alltheores:nether_lead_ore"))
+                .addOptional(Identifier.tryParse("alltheores:nether_nickel_ore"))
+                .addOptional(Identifier.tryParse("alltheores:nether_osmium_ore"))
+                .addOptional(Identifier.tryParse("alltheores:nether_platinum_ore"))
+                .addOptional(Identifier.tryParse("alltheores:nether_silver_ore"))
+                .addOptional(Identifier.tryParse("alltheores:nether_tin_ore"))
+                .addOptional(Identifier.tryParse("alltheores:nether_uranium_ore"))
+                .addOptional(Identifier.tryParse("alltheores:nether_zinc_ore"))
+                .addOptional(Identifier.tryParse("alltheores:nether_iridium_ore"))
+
+                .addOptional(Identifier.tryParse("allthemodium:vibranium_ore"))
+
+                .addOptional(Identifier.tryParse("terramity:nether_ruby_ore"))
+                .addOptional(Identifier.tryParse("terramity:daemonium_ore"))
         ;
         getOrCreateTagBuilder(ModTags.Blocks.BASALT_EXTRACTABLE_BLOCKS)
                 .addOptional(Identifier.tryParse("universal_ores:basalt_gold_ore"))
@@ -303,6 +407,62 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(Blocks.CHERRY_WOOD)
                 .add(ModBlocks.GINKGO_LOG)
                 .add(ModBlocks.GINKGO_WOOD)
+
+                .addOptional(Identifier.tryParse("aether:skyroot_log"))
+                .addOptional(Identifier.tryParse("aether:skyroot_wood"))
+
+                .addOptional(Identifier.tryParse("alexscaves:pewen_log"))
+                .addOptional(Identifier.tryParse("alexscaves:pewen_wood"))
+                .addOptional(Identifier.tryParse("alexscaves:thornwood_log"))
+                .addOptional(Identifier.tryParse("alexscaves:thornwood_wood"))
+
+                .addOptional(Identifier.tryParse("biomesoplenty:fir_log"))
+                .addOptional(Identifier.tryParse("biomesoplenty:fir_wood"))
+                .addOptional(Identifier.tryParse("biomesoplenty:redwood_log"))
+                .addOptional(Identifier.tryParse("biomesoplenty:redwood_wood"))
+                .addOptional(Identifier.tryParse("biomesoplenty:mahogany_log"))
+                .addOptional(Identifier.tryParse("biomesoplenty:mahogany_wood"))
+                .addOptional(Identifier.tryParse("biomesoplenty:jacaranda_log"))
+                .addOptional(Identifier.tryParse("biomesoplenty:jacaranda_wood"))
+                .addOptional(Identifier.tryParse("biomesoplenty:palm_log"))
+                .addOptional(Identifier.tryParse("biomesoplenty:palm_wood"))
+                .addOptional(Identifier.tryParse("biomesoplenty:willow_log"))
+                .addOptional(Identifier.tryParse("biomesoplenty:willow_wood"))
+                .addOptional(Identifier.tryParse("biomesoplenty:dead_log"))
+                .addOptional(Identifier.tryParse("biomesoplenty:dead_wood"))
+                .addOptional(Identifier.tryParse("biomesoplenty:magic_log"))
+                .addOptional(Identifier.tryParse("biomesoplenty:magic_wood"))
+                .addOptional(Identifier.tryParse("biomesoplenty:umbran_log"))
+                .addOptional(Identifier.tryParse("biomesoplenty:umbran_wood"))
+                .addOptional(Identifier.tryParse("biomesoplenty:hellbark_log"))
+                .addOptional(Identifier.tryParse("biomesoplenty:hellbark_wood"))
+
+                .addOptional(Identifier.tryParse("quark:ancient_log"))
+                .addOptional(Identifier.tryParse("quark:ancient_wood"))
+                .addOptional(Identifier.tryParse("quark:azalea_log"))
+                .addOptional(Identifier.tryParse("quark:azalea_wood"))
+                .addOptional(Identifier.tryParse("quark:blossom_log"))
+                .addOptional(Identifier.tryParse("quark:blossom_wood"))
+
+                .addOptional(Identifier.tryParse("thermal:rubberwood_log"))
+                .addOptional(Identifier.tryParse("thermal:rubberwood_wood"))
+
+                .addOptional(Identifier.tryParse("twilightforest:twilight_oak_log"))
+                .addOptional(Identifier.tryParse("twilightforest:twilight_oak_wood"))
+                .addOptional(Identifier.tryParse("twilightforest:canopy_log"))
+                .addOptional(Identifier.tryParse("twilightforest:canopy_wood"))
+                .addOptional(Identifier.tryParse("twilightforest:mangrove_log"))
+                .addOptional(Identifier.tryParse("twilightforest:mangrove_wood"))
+                .addOptional(Identifier.tryParse("twilightforest:dark_log"))
+                .addOptional(Identifier.tryParse("twilightforest:dark_wood"))
+                .addOptional(Identifier.tryParse("twilightforest:time_log"))
+                .addOptional(Identifier.tryParse("twilightforest:time_wood"))
+                .addOptional(Identifier.tryParse("twilightforest:transformation_log"))
+                .addOptional(Identifier.tryParse("twilightforest:transformation_wood"))
+                .addOptional(Identifier.tryParse("twilightforest:mining_log"))
+                .addOptional(Identifier.tryParse("twilightforest:mining_wood"))
+                .addOptional(Identifier.tryParse("twilightforest:sorting_log"))
+                .addOptional(Identifier.tryParse("twilightforest:sorting_wood"))
         ;
 
         getOrCreateTagBuilder(BlockTags.SHOVEL_MINEABLE)
@@ -450,31 +610,31 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
                 .add(ModBlocks.DEEPSLATE_FOSSIL)
 
-                .add(ModBlocks.HELIORITE_ORE)
+                .add(ModBlocks.DEEPSLATE_HELIORITE_ORE)
                 .add(ModBlocks.HELIORITE_COMB_BLOCK)
                 .add(ModBlocks.HELIORITE_BLOCK)
 
-                .add(ModBlocks.END_STONE_ENDURIUM_ORE)
+                .add(ModBlocks.END_ENDURIUM_ORE)
                 .add(ModBlocks.RAW_ENDURIUM_BLOCK)
                 .add(ModBlocks.ENDURIUM_BLOCK)
 
-                .add(ModBlocks.PALLADIUM_ORE)
+                .add(ModBlocks.DEEPSLATE_PALLADIUM_ORE)
                 .add(ModBlocks.RAW_PALLADIUM_BLOCK)
                 .add(ModBlocks.PALLADIUM_BLOCK)
 
-                .add(ModBlocks.JURASSOLINE_ORE)
+                .add(ModBlocks.DEEPSLATE_JURASSOLINE_ORE)
                 .add(ModBlocks.JURASSOLINE_CRYSTAL_BLOCK)
                 .add(ModBlocks.JURASSOLINE_BLOCK)
 
-                .add(ModBlocks.CINNABAR_ORE)
+                .add(ModBlocks.DEEPSLATE_CINNABAR_ORE)
                 .add(ModBlocks.CINNABAR_CRYSTAL_BLOCK)
                 .add(ModBlocks.CINNABAR_BLOCK)
 
-                .add(ModBlocks.NEBULAR_ORE)
+                .add(ModBlocks.DEEPSLATE_NEBULAR_ORE)
                 .add(ModBlocks.RAW_NEBULAR_BLOCK)
                 .add(ModBlocks.NEBULAR_BLOCK)
 
-                .add(ModBlocks.MITHRIL_ORE)
+                .add(ModBlocks.BEDROCK_MITHRIL_ORE)
                 .add(ModBlocks.RAW_MITHRIL_BLOCK)
                 .add(ModBlocks.MITHRIL_BLOCK)
 
@@ -560,6 +720,14 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.BLOOD_CAULDRON)
         ;
 
+        getOrCreateTagBuilder(BlockTags.ENCHANTMENT_POWER_PROVIDER)
+                .add(ModBlocks.VIDEOCASSETTE_RECORDER_BOOKSHELF)
+        ;
+
+        getOrCreateTagBuilder(TagKey.of(RegistryKeys.BLOCK, new Identifier("c", "bookshelves")))
+                .add(ModBlocks.VIDEOCASSETTE_RECORDER_BOOKSHELF)
+        ;
+
         getOrCreateTagBuilder(TagKey.of(RegistryKeys.BLOCK, new Identifier("c", "clusters")))
                 .add(ModBlocks.XEN_CRYSTAL_CLUSTER)
         ;
@@ -616,11 +784,11 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
         getOrCreateTagBuilder(BlockTags.DRAGON_IMMUNE)
                 .add(ModBlocks.BEDROCK)
-                .add(ModBlocks.MITHRIL_ORE)
+                .add(ModBlocks.BEDROCK_MITHRIL_ORE)
                 .add(ModBlocks.RAW_MITHRIL_BLOCK)
                 .add(ModBlocks.MITHRIL_BLOCK)
                 .add(ModBlocks.MITHRIL_ANVIL)
-                .add(ModBlocks.END_STONE_ENDURIUM_ORE)
+                .add(ModBlocks.END_ENDURIUM_ORE)
                 .add(ModBlocks.RAW_ENDURIUM_BLOCK)
                 .add(ModBlocks.ENDURIUM_BLOCK)
                 .add(ModBlocks.REINFORCED_RED_DEEPSLATE)
@@ -628,7 +796,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
         getOrCreateTagBuilder(BlockTags.WITHER_IMMUNE)
                 .add(ModBlocks.BEDROCK)
-                .add(ModBlocks.MITHRIL_ORE)
+                .add(ModBlocks.BEDROCK_MITHRIL_ORE)
                 .add(ModBlocks.RAW_MITHRIL_BLOCK)
                 .add(ModBlocks.MITHRIL_BLOCK)
                 .add(ModBlocks.MITHRIL_ANVIL)
@@ -637,14 +805,14 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
         getOrCreateTagBuilder(BlockTags.FEATURES_CANNOT_REPLACE)
                 .add(ModBlocks.BEDROCK)
-                .add(ModBlocks.MITHRIL_ORE)
+                .add(ModBlocks.BEDROCK_MITHRIL_ORE)
         ;
 
         getOrCreateTagBuilder(TagKey.of(RegistryKeys.BLOCK, new Identifier("fabric", "needs_tool_level_4")))
-                .add(ModBlocks.HELIORITE_ORE)
+                .add(ModBlocks.DEEPSLATE_HELIORITE_ORE)
                 .add(ModBlocks.HELIORITE_COMB_BLOCK)
                 .add(ModBlocks.HELIORITE_BLOCK)
-                .add(ModBlocks.END_STONE_ENDURIUM_ORE)
+                .add(ModBlocks.END_ENDURIUM_ORE)
                 .add(ModBlocks.RAW_ENDURIUM_BLOCK)
                 .add(ModBlocks.ENDURIUM_BLOCK)
 
@@ -652,22 +820,22 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         ;
 
         getOrCreateTagBuilder(TagKey.of(RegistryKeys.BLOCK, new Identifier("fabric", "needs_tool_level_5")))
-                .add(ModBlocks.PALLADIUM_ORE)
+                .add(ModBlocks.DEEPSLATE_PALLADIUM_ORE)
                 .add(ModBlocks.RAW_PALLADIUM_BLOCK)
                 .add(ModBlocks.PALLADIUM_BLOCK)
                 .add(ModBlocks.RED_DEEPSLATE_PALLADIUM_ORE)
-                .add(ModBlocks.JURASSOLINE_ORE)
+                .add(ModBlocks.DEEPSLATE_JURASSOLINE_ORE)
                 .add(ModBlocks.JURASSOLINE_CRYSTAL_BLOCK)
                 .add(ModBlocks.JURASSOLINE_BLOCK)
                 .add(ModBlocks.RED_DEEPSLATE_JURASSOLINE_ORE)
         ;
 
         getOrCreateTagBuilder(TagKey.of(RegistryKeys.BLOCK, new Identifier("fabric", "needs_tool_level_6")))
-                .add(ModBlocks.CINNABAR_ORE)
+                .add(ModBlocks.DEEPSLATE_CINNABAR_ORE)
                 .add(ModBlocks.CINNABAR_CRYSTAL_BLOCK)
                 .add(ModBlocks.CINNABAR_BLOCK)
                 .add(ModBlocks.RED_DEEPSLATE_CINNABAR_ORE)
-                .add(ModBlocks.NEBULAR_ORE)
+                .add(ModBlocks.DEEPSLATE_NEBULAR_ORE)
                 .add(ModBlocks.RAW_NEBULAR_BLOCK)
                 .add(ModBlocks.NEBULAR_BLOCK)
                 .add(ModBlocks.RED_DEEPSLATE_NEBULAR_ORE)

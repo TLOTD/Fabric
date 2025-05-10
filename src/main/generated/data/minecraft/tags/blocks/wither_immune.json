@@ -2,7 +2,7 @@
   "replace": false,
   "values": [
     "tlotd:bedrock",
-    "tlotd:mithril_ore",
+    "tlotd:bedrock_mithril_ore",
     "tlotd:raw_mithril_block",
     "tlotd:mithril_block",
     "tlotd:mithril_anvil",

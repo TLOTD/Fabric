@@ -8,6 +8,7 @@ public class ModFoodComponents {
 
     public static final FoodComponent TOAST = new FoodComponent.Builder().snack().hunger(2).saturationModifier(0.2f).build();
     public static final FoodComponent JAM_TOAST = new FoodComponent.Builder().snack().hunger(5).saturationModifier(0.5f).build();
+    public static final FoodComponent ANCIENT_SOULBERRY_JAM_TOAST = new FoodComponent.Builder().snack().hunger(7).saturationModifier(1.7f).build();
 
     public static final FoodComponent STRAWBERRY = new FoodComponent.Builder().snack().hunger(2).saturationModifier(0.2f).build();
     public static final FoodComponent CHOCOLATE_STRAWBERRY = new FoodComponent.Builder().snack().hunger(4).saturationModifier(0.4f).build();

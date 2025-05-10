@@ -1,5 +1,15 @@
 {
 	"credit": "Made by Isla_Nublar for the TLOTD Mod (https://tlotd.net)",
+	"textures": {
+		"0": "tlotd:block/preserves_jar_sealed",
+		"1": "tlotd:block/preserves_jar_bottom",
+		"2": "tlotd:block/preserves_jar_big",
+		"3": "tlotd:block/preserves_jar_big_top_sealed",
+		"4": "tlotd:block/preserves_jar_smaller_sealed",
+		"5": "tlotd:block/preserves_jar_lid_bottom_sealed",
+		"6": "tlotd:block/preserves_jar_lid_sealed",
+		"particle": "tlotd:block/preserves_jar"
+	},
 	"elements": [
 		{
 			"name": "lid",

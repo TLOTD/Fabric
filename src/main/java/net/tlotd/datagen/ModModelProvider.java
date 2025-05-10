@@ -105,31 +105,31 @@ public class ModModelProvider extends FabricModelProvider {
 
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DEEPSLATE_FOSSIL);
 
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.HELIORITE_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DEEPSLATE_HELIORITE_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.HELIORITE_COMB_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.HELIORITE_BLOCK);
 
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.END_STONE_ENDURIUM_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.END_ENDURIUM_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RAW_ENDURIUM_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.ENDURIUM_BLOCK);
 
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.PALLADIUM_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DEEPSLATE_PALLADIUM_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RAW_PALLADIUM_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.PALLADIUM_BLOCK);
 
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.JURASSOLINE_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DEEPSLATE_JURASSOLINE_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.JURASSOLINE_CRYSTAL_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.JURASSOLINE_BLOCK);
 
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.CINNABAR_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DEEPSLATE_CINNABAR_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.CINNABAR_CRYSTAL_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.CINNABAR_BLOCK);
 
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.NEBULAR_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DEEPSLATE_NEBULAR_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RAW_NEBULAR_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.NEBULAR_BLOCK);
 
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.MITHRIL_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.BEDROCK_MITHRIL_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RAW_MITHRIL_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.MITHRIL_BLOCK);
 
@@ -237,6 +237,37 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.CHERRY_BARK, Models.GENERATED);
         itemModelGenerator.register(ModItems.GINKGO_BARK, Models.GENERATED);
 
+        itemModelGenerator.register(ModItems.SKYROOT_BARK, Models.GENERATED);
+
+        itemModelGenerator.register(ModItems.PEWEN_BARK, Models.GENERATED);
+        itemModelGenerator.register(ModItems.THORNWOOD_BARK, Models.GENERATED);
+
+        itemModelGenerator.register(ModItems.FIR_BARK, Models.GENERATED);
+        itemModelGenerator.register(ModItems.REDWOOD_BARK, Models.GENERATED);
+        itemModelGenerator.register(ModItems.MAHOGANY_BARK, Models.GENERATED);
+        itemModelGenerator.register(ModItems.JACARANCA_BARK, Models.GENERATED);
+        itemModelGenerator.register(ModItems.PALM_BARK, Models.GENERATED);
+        itemModelGenerator.register(ModItems.WILLOW_BARK, Models.GENERATED);
+        itemModelGenerator.register(ModItems.DEAD_BARK, Models.GENERATED);
+        itemModelGenerator.register(ModItems.MAGIC_BARK, Models.GENERATED);
+        itemModelGenerator.register(ModItems.UMBRAN_BARK, Models.GENERATED);
+        itemModelGenerator.register(ModItems.HELLBARK_BARK, Models.GENERATED);
+
+        itemModelGenerator.register(ModItems.ASHEN_BARK, Models.GENERATED);
+        itemModelGenerator.register(ModItems.AZALEA_BARK, Models.GENERATED);
+        itemModelGenerator.register(ModItems.TRUMPET_BARK, Models.GENERATED);
+
+        itemModelGenerator.register(ModItems.RUBBERWOOD_BARK, Models.GENERATED);
+
+        itemModelGenerator.register(ModItems.TWILIGHT_OAK_BARK, Models.GENERATED);
+        itemModelGenerator.register(ModItems.CANOPY_TREE_BARK, Models.GENERATED);
+        itemModelGenerator.register(ModItems.TWILIGHT_MANGROVE_BARK, Models.GENERATED);
+        itemModelGenerator.register(ModItems.DARKWOOD_BARK, Models.GENERATED);
+        itemModelGenerator.register(ModItems.TIMEWOOD_BARK, Models.GENERATED);
+        itemModelGenerator.register(ModItems.TRANSWOOD_BARK, Models.GENERATED);
+        itemModelGenerator.register(ModItems.MINEWOOD_BARK, Models.GENERATED);
+        itemModelGenerator.register(ModItems.SORTINGWOOD_BARK, Models.GENERATED);
+
         itemModelGenerator.register(ModItems.APPLE_JUICE_BOTTLE, Models.GENERATED);
 
         itemModelGenerator.register(ModItems.OXYGEN_TANK, Models.GENERATED);
@@ -255,6 +286,9 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.ORANGE_JUICE_BOTTLE, Models.GENERATED);
         itemModelGenerator.register(ModItems.ORANGE_MARMELADE_TOAST, Models.GENERATED);
         itemModelGenerator.register(ModItems.SPEZI_BOTTLE, Models.GENERATED);
+
+        itemModelGenerator.register(ModItems.BLUE_BERRY_JAM_TOAST, Models.GENERATED);
+        itemModelGenerator.register(ModItems.ANCIENT_SOULBERRY_JAM_TOAST, Models.GENERATED);
 
         itemModelGenerator.registerArmor(((ArmorItem) ModItems.MONOCLE));
         itemModelGenerator.registerArmor(((ArmorItem) ModItems.VICTORIAN_SUIT));

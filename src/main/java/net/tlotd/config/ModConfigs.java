@@ -7,6 +7,7 @@ public class ModConfigs {
     public static SimpleConfig CONFIG;
     private static ModConfigProvider configs;
 
+    public static boolean EXTRACTION_ORE_EXPERIMENTAL_COMPAT;
     public static boolean AXE_STRIPPING_DROPS_BARK;
     public static int ELEVATOR_MAX_DISTANCE;
     public static boolean MITHRIL_ANVIL_NEEDS_DIRECT_MOONLIGHT;
@@ -25,6 +26,7 @@ public class ModConfigs {
     }
 
     private static void createConfigs() {
+        configs.addKeyValuePair(new Pair<>("extractionOreExperimentalCompat", true), "boolean");
         configs.addKeyValuePair(new Pair<>("axeStrippingDropsBark", true), "boolean");
         configs.addKeyValuePair(new Pair<>("elevatorMaxDistance", 100), "int");
         configs.addKeyValuePair(new Pair<>("mithrilAnvilNeedsDirectMoonlight", true), "boolean");
@@ -35,6 +37,7 @@ public class ModConfigs {
     }
 
     private static void assignConfigs() {
+        EXTRACTION_ORE_EXPERIMENTAL_COMPAT = CONFIG.getOrDefault("extractionOreExperimentalCompat", true);
         AXE_STRIPPING_DROPS_BARK = CONFIG.getOrDefault("axeStrippingDropsBark", true);
         ELEVATOR_MAX_DISTANCE = CONFIG.getOrDefault("elevatorMaxDistance", 100);
         MITHRIL_ANVIL_NEEDS_DIRECT_MOONLIGHT = CONFIG.getOrDefault("mithrilAnvilNeedsDirectMoonlight", true);

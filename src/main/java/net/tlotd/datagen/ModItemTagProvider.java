@@ -33,6 +33,37 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModItems.MANGROVE_BARK)
                 .add(ModItems.CHERRY_BARK)
                 .add(ModItems.GINKGO_BARK)
+
+                .add(ModItems.SKYROOT_BARK)
+
+                .add(ModItems.PEWEN_BARK)
+                .add(ModItems.THORNWOOD_BARK)
+
+                .add(ModItems.FIR_BARK)
+                .add(ModItems.REDWOOD_BARK)
+                .add(ModItems.MAHOGANY_BARK)
+                .add(ModItems.JACARANCA_BARK)
+                .add(ModItems.PALM_BARK)
+                .add(ModItems.WILLOW_BARK)
+                .add(ModItems.DEAD_BARK)
+                .add(ModItems.MAGIC_BARK)
+                .add(ModItems.UMBRAN_BARK)
+                .add(ModItems.HELLBARK_BARK)
+
+                .add(ModItems.ASHEN_BARK)
+                .add(ModItems.AZALEA_BARK)
+                .add(ModItems.TRUMPET_BARK)
+
+                .add(ModItems.RUBBERWOOD_BARK)
+
+                .add(ModItems.TWILIGHT_OAK_BARK)
+                .add(ModItems.CANOPY_TREE_BARK)
+                .add(ModItems.TWILIGHT_MANGROVE_BARK)
+                .add(ModItems.DARKWOOD_BARK)
+                .add(ModItems.TIMEWOOD_BARK)
+                .add(ModItems.TRANSWOOD_BARK)
+                .add(ModItems.MINEWOOD_BARK)
+                .add(ModItems.SORTINGWOOD_BARK)
         ;
 
         getOrCreateTagBuilder(ModTags.Items.GINKGO_LOGS)
@@ -58,10 +89,6 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModItems.CINNABAR_HELMET, ModItems.CINNABAR_CHESTPLATE, ModItems.CINNABAR_LEGGINGS, ModItems.CINNABAR_BOOTS)
                 .add(ModItems.NEBULAR_HELMET, ModItems.NEBULAR_CHESTPLATE, ModItems.NEBULAR_LEGGINGS, ModItems.NEBULAR_BOOTS)
                 .add(ModItems.MITHRIL_HELMET, ModItems.MITHRIL_CHESTPLATE, ModItems.MITHRIL_LEGGINGS, ModItems.MITHRIL_BOOTS)
-        ;
-
-        getOrCreateTagBuilder(ItemTags.COALS)
-                .add(ModItems.SULFUR)
         ;
 
         getOrCreateTagBuilder(ItemTags.BOOKSHELF_BOOKS)
@@ -312,6 +339,10 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(Items.GLASS)
         ;
 
+        getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "bones")))
+                .add(ModItems.FOSSILIZED_BONE)
+        ;
+
         getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "seeds")))
                 .add(ModItems.STRAWBERRY_SEEDS)
                 .add(ModItems.ORANGE_SEEDS)
@@ -373,12 +404,12 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
         ;
 
         getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "palladium_ores")))
-                .add(ModBlocks.PALLADIUM_ORE.asItem())
+                .add(ModBlocks.DEEPSLATE_PALLADIUM_ORE.asItem())
                 .add(ModBlocks.RED_DEEPSLATE_PALLADIUM_ORE.asItem())
         ;
 
         getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "cinnabar_ores")))
-                .add(ModBlocks.CINNABAR_ORE.asItem())
+                .add(ModBlocks.DEEPSLATE_CINNABAR_ORE.asItem())
                 .add(ModBlocks.RED_DEEPSLATE_CINNABAR_ORE.asItem())
         ;
 
@@ -407,7 +438,15 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModBlocks.RED_DEEPSLATE_LEAD_ORE.asItem())
         ;
 
-        getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "uranium_raw_materials")))
+        getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "sulfur_dusts")))
+                .add(ModItems.SULFUR)
+        ;
+
+        getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "raw_uranium")))
+                .add(ModItems.URANIUM)
+        ;
+
+        getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("forge", "raw_materials/uranium")))
                 .add(ModItems.URANIUM)
         ;
 
@@ -505,6 +544,8 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModItems.ORANGE_MARMELADE_TOAST)
                 .add(ModItems.SWEET_BERRY_JAM_TOAST)
                 .add(ModItems.GLOW_BERRY_JAM_TOAST)
+                .add(ModItems.BLUE_BERRY_JAM_TOAST)
+                .add(ModItems.ANCIENT_SOULBERRY_JAM_TOAST)
                 .add(ModItems.MAULTASCHE)
                 .add(ModItems.MAULTASCHEN_BROTH)
                 .add(ModItems.RAW_SCHNITZEL)

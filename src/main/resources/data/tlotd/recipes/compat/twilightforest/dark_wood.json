@@ -1,0 +1,23 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "twilightforest"
+      ]
+    }
+  ],
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "twilightforest:stripped_dark_wood"
+    },
+    {
+      "item": "tlotd:darkwood_bark"
+    }
+  ],
+  "result": {
+    "item": "twilightforest:dark_wood"
+  }
+}

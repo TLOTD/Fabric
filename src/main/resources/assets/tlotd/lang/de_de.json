@@ -4,9 +4,7 @@
   "itemgroup.tlotd.blocks": "TLOTD Baublöcke",
   "itemgroup.tlotd.compat": "TLOTD Kompatibilität",
 
-  "itemGroup.create.base": "Create",
-  "itemGroup.spore": "Spore",
-  "spore.name.calamity": "Unheil",
+  "mod.spore.calamity": "Unheil",
 
   "gui.tlotd.mithril_smithing": "Mithrilschmiede",
   "gui.tlotd.witching": "Hexentisch",
@@ -174,6 +172,9 @@
   "item.tlotd.orange_juice_bottle": "Orangensaftflasche",
   "item.tlotd.spezi_bottle": "Spezi-Flasche",
 
+  "block.tlotd.ancient_soulberry_jam_jar": "Uraltes Seelenbeermarmeladenglas",
+  "item.tlotd.ancient_soulberry_jam_toast": "Uraltes Seelenbeermarmeladentoast",
+
   "item.tlotd.irradiated.tooltip": "☢ Verstrahlt (00:03)",
   "item.tlotd.radiaton_proof_armor.tooltip": "Wenn ganzes Set ausgerüsted:",
   "item.tlotd.radiaton_proof_armor.tooltip_2": "Schützt vor Strahlung",
@@ -286,6 +287,7 @@
   "item.tlotd.glow_berry_jam_bucket": "Leuchtbeermarmeladeneimer",
   "item.tlotd.strawberry_jam_bucket": "Erdbeermarmeladeneimer",
   "item.tlotd.orange_marmelade_bucket": "Orangenmarmeladeneimer",
+  "item.tlotd.ancient_soulberry_jam_bucket": "Uralter Seelenbeermarmeladeneimer",
 
   "item.tlotd.copper_sickle": "Kupfersichel",
   "item.tlotd.golden_sickle": "Goldsichel",
@@ -564,6 +566,8 @@
   "block.tlotd.strawberry_jam_block": "Erdbeermarmelade",
   "block.tlotd.orange_marmelade": "Orangenmarmelade",
   "block.tlotd.orange_marmelade_block": "Orangenmarmelade",
+  "block.tlotd.ancient_soulberry_jam": "Uralte Seelenbeermarme",
+  "block.tlotd.ancient_soulberry_jam_block": "Uralte Seelenbeermarme",
 
   "block.tlotd.gravestone": "Grabstein",
   "block.tlotd.mossy_gravestone": "Bemooster Grabstein",
@@ -615,10 +619,15 @@
   "block.tlotd.oxygen_collector.tooltip": "Kann plaziert werden auf:",
   "block.tlotd.oxygen_collector.tooltip_2": "Blumen & Setzlingen",
   "block.tlotd.signal_transmitter": "Signalgeber",
-  "block.tlotd.signal_transmitter.tooltip": "Ausstrahlung benötigt:",
+  "block.tlotd.signal_transmitter.tooltip": "Kann übertragen:",
+  "block.tlotd.signal_transmitter.tooltip_2": "VHS-Kassetten",
+  "block.tlotd.signal_transmitter.tooltip_3": "Ausgewählte Schallplatten",
+  "block.tlotd.signal_transmitter.tooltip_4": "Übertragung benötigt:",
+  "block.tlotd.signal_transmitter.list_empty": "Keine Signale werden momentan ausgestrahlt.",
   "block.tlotd.signal_transmitter.list": "Signale die momentan ausgestrahlt werden:",
   "block.tlotd.signal_transmitter.added": "Signal wurde hinzugefügt.",
   "block.tlotd.signal_transmitter.removed": "Signal wurde entfernt.",
+  "block.tlotd.signal_transmitter.incomplete": "Signalgeberantenne unvollständig!",
   "block.tlotd.signal_transmitter_antenna": "Signalgeberantenne",
 
   "block.tlotd.mining_elevator_controller": "Bergwerksaufzugssteuerung",
@@ -722,31 +731,31 @@
 
   "block.tlotd.deepslate_fossil": "Tiefenschiefer-Fossil",
 
-  "block.tlotd.heliorite_ore": "Helioriterz",
+  "block.tlotd.deepslate_heliorite_ore": "Tiefenschiefer-Helioriterz",
   "block.tlotd.heliorite_comb_block": "Helioritwabenblock",
   "block.tlotd.heliorite_block": "Helioritblock",
 
-  "block.tlotd.end_stone_endurium_ore": "Endstein-Endurium-Erz",
+  "block.tlotd.end_endurium_ore": "Endstein-Endurium-Erz",
   "block.tlotd.raw_endurium_block": "Rohenduriumblock",
   "block.tlotd.endurium_block": "Enduriumblock",
 
-  "block.tlotd.palladium_ore": "Palladiumerz",
+  "block.tlotd.deepslate_palladium_ore": "Tiefenschiefer-Palladiumerz",
   "block.tlotd.raw_palladium_block": "Rohpalladiumblock",
   "block.tlotd.palladium_block": "Palladiumblock",
 
-  "block.tlotd.jurassoline_ore": "Jurassolinerz",
+  "block.tlotd.deepslate_jurassoline_ore": "Tiefenschiefer-Jurassolinerz",
   "block.tlotd.jurassoline_crystal_block": "Jurassolinkristallblock",
   "block.tlotd.jurassoline_block": "Jurassolinblock",
 
-  "block.tlotd.cinnabar_ore": "Zinnobererz",
+  "block.tlotd.deepslate_cinnabar_ore": "Tiefenschiefer-Zinnobererz",
   "block.tlotd.cinnabar_crystal_block": "Zinnoberkristallblock",
   "block.tlotd.cinnabar_block": "Zinnoberblock",
 
-  "block.tlotd.nebular_ore": "Nebularerz",
+  "block.tlotd.deepslate_nebular_ore": "Tiefenschiefer-Nebularerz",
   "block.tlotd.raw_nebular_block": "Rohnebularblock",
   "block.tlotd.nebular_block": "Nebularblock",
 
-  "block.tlotd.mithril_ore": "Mithrilerz",
+  "block.tlotd.bedrock_mithril_ore": "Grundgestein-Mithrilerz",
   "block.tlotd.raw_mithril_block": "Rohmithrilerz",
   "block.tlotd.mithril_block": "Mithrilblock",
 
@@ -905,6 +914,37 @@
   "item.tlotd.cherry_bark": "Kirschrinde",
   "item.tlotd.pale_oak_bark": "Blasseichenrinde",
   "item.tlotd.ginkgo_bark": "Ginkgorinde",
+
+  "item.tlotd.skyroot_bark": "Himmelswurzrinde",
+
+  "item.tlotd.pewen_bark": "Pewenrinde",
+  "item.tlotd.thornwood_bark": "Dornenholzrinde",
+
+  "item.tlotd.fir_bark": "Tannenbaumrinde",
+  "item.tlotd.redwood_bark": "Mammutbaumrinde",
+  "item.tlotd.mahogany_bark": "Mahagonirinde",
+  "item.tlotd.jacaranda_bark": "Palisanderrinde",
+  "item.tlotd.palm_bark": "Palmenrinde",
+  "item.tlotd.willow_bark": "Weidenbaumrinde",
+  "item.tlotd.dead_bark": "Totenbaumrinde",
+  "item.tlotd.magic_bark": "Zauberbaumrinde",
+  "item.tlotd.umbran_bark": "Schattenbaumrinde",
+  "item.tlotd.hellbark_bark": "Höllenborkenrinde",
+
+  "item.tlotd.ashen_bark": "Aschenrinde",
+  "item.tlotd.azalea_bark": "Azaleenrinde",
+  "item.tlotd.trumpet_bark": "Amerikanische Klettertrompetenrinde",
+
+  "item.tlotd.rubberwood_bark": "Gummibaumrinde",
+
+  "item.tlotd.twilight_oak_bark": "Dämmerungseichenrinde",
+  "item.tlotd.canopy_tree_bark": "Baldachinrinde",
+  "item.tlotd.twilight_mangrove_bark": "Mangrovenrinde",
+  "item.tlotd.darkwood_bark": "Dunkelbaumrinde",
+  "item.tlotd.timewood_bark": "Zeitbaumrinde",
+  "item.tlotd.transwood_bark": "Wandelholzrinde",
+  "item.tlotd.minewood_bark": "Bergwerksholzrinde",
+  "item.tlotd.sortingwood_bark": "Sortierbaumrinde",
 
   "item.tlotd.flour": "Mehl",
   "item.tlotd.raw_schnitzel": "Rohes Schnitzel",

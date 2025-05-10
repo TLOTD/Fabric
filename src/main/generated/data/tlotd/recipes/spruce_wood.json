@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:stripped_spruce_wood"
+    },
+    {
+      "item": "tlotd:spruce_bark"
+    }
+  ],
+  "result": {
+    "item": "minecraft:spruce_wood"
+  }
+}

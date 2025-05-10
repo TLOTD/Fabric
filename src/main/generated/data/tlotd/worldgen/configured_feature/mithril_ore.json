@@ -6,7 +6,7 @@
     "targets": [
       {
         "state": {
-          "Name": "tlotd:mithril_ore"
+          "Name": "tlotd:bedrock_mithril_ore"
         },
         "target": {
           "block": "minecraft:bedrock",

@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:stripped_mangrove_wood"
+    },
+    {
+      "item": "tlotd:mangrove_bark"
+    }
+  ],
+  "result": {
+    "item": "minecraft:mangrove_wood"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "biomesoplenty"
+      ]
+    }
+  ],
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "biomesoplenty:stripped_dead_log"
+    },
+    {
+      "item": "tlotd:dead_bark"
+    }
+  ],
+  "result": {
+    "item": "biomesoplenty:dead_log"
+  }
+}

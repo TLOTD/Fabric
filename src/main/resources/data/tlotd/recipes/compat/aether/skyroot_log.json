@@ -1,0 +1,23 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "aether"
+      ]
+    }
+  ],
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "aether:stripped_skyroot_log"
+    },
+    {
+      "item": "tlotd:skyroot_bark"
+    }
+  ],
+  "result": {
+    "item": "aether:skyroot_log"
+  }
+}

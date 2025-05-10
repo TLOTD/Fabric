@@ -64,7 +64,7 @@ public class ModConfiguredFeatures {
                 List.of(OreFeatureConfig.createTarget(netherReplacables, ModBlocks.NETHER_SULFUR_ORE.getDefaultState()));
 
         List<OreFeatureConfig.Target> endstoneEnduriumOre =
-                List.of(OreFeatureConfig.createTarget(endReplacables, ModBlocks.END_STONE_ENDURIUM_ORE.getDefaultState()));
+                List.of(OreFeatureConfig.createTarget(endReplacables, ModBlocks.END_ENDURIUM_ORE.getDefaultState()));
 
         List<OreFeatureConfig.Target> leadOre =
                 List.of(OreFeatureConfig.createTarget(deepslateReplacables, ModBlocks.LEAD_ORE.getDefaultState()));
@@ -76,18 +76,18 @@ public class ModConfiguredFeatures {
                 List.of(OreFeatureConfig.createTarget(deepslateReplacables, ModBlocks.DEEPSLATE_FOSSIL.getDefaultState()));
 
         List<OreFeatureConfig.Target> deepslateHelioriteOres =
-                List.of(OreFeatureConfig.createTarget(deepslateReplacables, ModBlocks.HELIORITE_ORE.getDefaultState()));
+                List.of(OreFeatureConfig.createTarget(deepslateReplacables, ModBlocks.DEEPSLATE_HELIORITE_ORE.getDefaultState()));
         List<OreFeatureConfig.Target> deepslatePalladiumOres =
-                List.of(OreFeatureConfig.createTarget(deepslateReplacables, ModBlocks.PALLADIUM_ORE.getDefaultState()));
+                List.of(OreFeatureConfig.createTarget(deepslateReplacables, ModBlocks.DEEPSLATE_PALLADIUM_ORE.getDefaultState()));
         List<OreFeatureConfig.Target> deepslateJurassolineOres =
-                List.of(OreFeatureConfig.createTarget(deepslateReplacables, ModBlocks.JURASSOLINE_ORE.getDefaultState()));
+                List.of(OreFeatureConfig.createTarget(deepslateReplacables, ModBlocks.DEEPSLATE_JURASSOLINE_ORE.getDefaultState()));
         List<OreFeatureConfig.Target> deepslateCinnabarOres =
-                List.of(OreFeatureConfig.createTarget(deepslateReplacables, ModBlocks.CINNABAR_ORE.getDefaultState()));
+                List.of(OreFeatureConfig.createTarget(deepslateReplacables, ModBlocks.DEEPSLATE_CINNABAR_ORE.getDefaultState()));
         List<OreFeatureConfig.Target> deepslateNebularOres =
-                List.of(OreFeatureConfig.createTarget(deepslateReplacables, ModBlocks.NEBULAR_ORE.getDefaultState()));
+                List.of(OreFeatureConfig.createTarget(deepslateReplacables, ModBlocks.DEEPSLATE_NEBULAR_ORE.getDefaultState()));
 
         List<OreFeatureConfig.Target> bedrockMithrilOres =
-                List.of(OreFeatureConfig.createTarget(bedrockReplacables, ModBlocks.MITHRIL_ORE.getDefaultState()));
+                List.of(OreFeatureConfig.createTarget(bedrockReplacables, ModBlocks.BEDROCK_MITHRIL_ORE.getDefaultState()));
 
         register(context, MARBLE_KEY, Feature.ORE, new OreFeatureConfig(stoneMarble, 32));
         register(context, LIMESTONE_KEY, Feature.ORE, new OreFeatureConfig(deepslateLimestone, 32));

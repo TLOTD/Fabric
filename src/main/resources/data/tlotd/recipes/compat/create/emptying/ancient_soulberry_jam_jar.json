@@ -1,0 +1,25 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "create"
+      ]
+    }
+  ],
+  "type": "create:emptying",
+  "ingredients": [
+    {
+      "item": "tlotd:ancient_soulberry_jam_jar"
+    }
+  ],
+  "results": [
+    {
+      "item": "tlotd:preserves_jar"
+    },
+    {
+      "fluid": "tlotd:ancient_soulberry_jam",
+      "amount": 81000
+    }
+  ]
+}

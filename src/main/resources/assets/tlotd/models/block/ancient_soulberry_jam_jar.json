@@ -1,0 +1,6 @@
+{
+	"parent": "tlotd:block/template_preserves_jar",
+	"textures": {
+		"7": "tlotd:block/ancient_soulberry_jam_still"
+	}
+}

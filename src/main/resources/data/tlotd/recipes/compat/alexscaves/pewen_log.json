@@ -1,0 +1,23 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "alexscaves"
+      ]
+    }
+  ],
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "alexscaves:stripped_pewen_log"
+    },
+    {
+      "item": "tlotd:pewen_bark"
+    }
+  ],
+  "result": {
+    "item": "alexscaves:pewen_log"
+  }
+}

@@ -22,11 +22,10 @@ import net.minecraft.util.Rarity;
 import net.tlotd.TLOTD;
 import net.tlotd.block.custom.*;
 import net.tlotd.item.ModFoodComponents;
+import net.tlotd.item.compat.aether.AetherJamJarBlockItem;
+import net.tlotd.item.compat.allthemods.AtmJamJarBlockItem;
 import net.tlotd.item.compat.spore.SporeBlockItem;
-import net.tlotd.item.custom.DrinkableWoodenSteinBlockItem;
-import net.tlotd.item.custom.IrradiatedBlockItem;
-import net.tlotd.item.custom.VCRBlockItem;
-import net.tlotd.item.custom.WoodenSteinBlockItem;
+import net.tlotd.item.custom.*;
 import net.tlotd.world.tree.GinkgoSaplingGenerator;
 
 public class ModBlocks {
@@ -41,6 +40,12 @@ public class ModBlocks {
     public static final Block STRAWBERRY_JAM_JAR = registerJamJarBlock("strawberry_jam_jar",
             new PreservesJarBlock(FabricBlockSettings.create().mapColor(MapColor.WHITE).strength(0.3f, 0.3f).sounds(BlockSoundGroup.GLASS).nonOpaque()));
     public static final Block ORANGE_MARMELADE_JAR = registerJamJarBlock("orange_marmelade_jar",
+            new PreservesJarBlock(FabricBlockSettings.create().mapColor(MapColor.WHITE).strength(0.3f, 0.3f).sounds(BlockSoundGroup.GLASS).nonOpaque()));
+
+    public static final Block BLUE_BERRY_JAM_JAR = registerAetherJamJarBlock("blue_berry_jam_jar",
+            new PreservesJarBlock(FabricBlockSettings.create().mapColor(MapColor.WHITE).strength(0.3f, 0.3f).sounds(BlockSoundGroup.GLASS).nonOpaque()));
+
+    public static final Block ANCIENT_SOULBERRY_JAM_JAR = registerAtmJamJarBlock("ancient_soulberry_jam_jar",
             new PreservesJarBlock(FabricBlockSettings.create().mapColor(MapColor.WHITE).strength(0.3f, 0.3f).sounds(BlockSoundGroup.GLASS).nonOpaque()));
 
     public static final Block TREX_EGG = registerBlock("t-rex_egg",
@@ -260,49 +265,49 @@ public class ModBlocks {
     public static final Block DEEPSLATE_FOSSIL = registerBlock("deepslate_fossil",
             new Block(FabricBlockSettings.create().mapColor(MapColor.PALE_YELLOW).requiresTool().strength(3.0F, 3.0F).sounds(BlockSoundGroup.DEEPSLATE)));
 
-    public static final Block HELIORITE_ORE = registerBlock("heliorite_ore",
+    public static final Block DEEPSLATE_HELIORITE_ORE = registerBlock("deepslate_heliorite_ore",
             new Block(FabricBlockSettings.create().mapColor(MapColor.MAGENTA).requiresTool().strength(16.0F, 1200.0F).sounds(BlockSoundGroup.DEEPSLATE)));
     public static final Block HELIORITE_COMB_BLOCK = registerBlock("heliorite_comb_block",
             new Block(FabricBlockSettings.create().mapColor(MapColor.MAGENTA).requiresTool().strength(16.0F, 1200.0F)));
     public static final Block HELIORITE_BLOCK = registerBlock("heliorite_block",
             new Block(FabricBlockSettings.create().mapColor(MapColor.MAGENTA).requiresTool().strength(16.0F, 1200.0F).sounds(BlockSoundGroup.NETHERITE)));
 
-    public static final Block END_STONE_ENDURIUM_ORE = registerBlock("end_stone_endurium_ore",
+    public static final Block END_ENDURIUM_ORE = registerBlock("end_endurium_ore",
             new Block(FabricBlockSettings.create().mapColor(MapColor.DARK_AQUA).requiresTool().strength(16.0F, 1200.0F)));
     public static final Block RAW_ENDURIUM_BLOCK = registerBlock("raw_endurium_block",
             new Block(FabricBlockSettings.create().mapColor(MapColor.DARK_AQUA).requiresTool().strength(16.0F, 1200.0F)));
     public static final Block ENDURIUM_BLOCK = registerBlock("endurium_block",
             new Block(FabricBlockSettings.create().mapColor(MapColor.DARK_AQUA).requiresTool().strength(16.0F, 1200.0F).sounds(BlockSoundGroup.NETHERITE)));
 
-    public static final Block PALLADIUM_ORE = registerBlock("palladium_ore",
+    public static final Block DEEPSLATE_PALLADIUM_ORE = registerBlock("deepslate_palladium_ore",
             new Block(FabricBlockSettings.create().mapColor(MapColor.ORANGE).requiresTool().strength(16.0F, 1200.0F).sounds(BlockSoundGroup.DEEPSLATE)));
     public static final Block RAW_PALLADIUM_BLOCK = registerBlock("raw_palladium_block",
             new Block(FabricBlockSettings.create().mapColor(MapColor.ORANGE).requiresTool().strength(16.0F, 1200.0F)));
     public static final Block PALLADIUM_BLOCK = registerBlock("palladium_block",
             new Block(FabricBlockSettings.create().mapColor(MapColor.ORANGE).requiresTool().strength(16.0F, 1200.0F).sounds(BlockSoundGroup.NETHERITE)));
 
-    public static final Block JURASSOLINE_ORE = registerBlock("jurassoline_ore",
+    public static final Block DEEPSLATE_JURASSOLINE_ORE = registerBlock("deepslate_jurassoline_ore",
             new Block(FabricBlockSettings.create().mapColor(MapColor.PALE_GREEN).requiresTool().strength(16.0F, 1200.0F).sounds(BlockSoundGroup.DEEPSLATE)));
     public static final Block JURASSOLINE_CRYSTAL_BLOCK = registerBlock("jurassoline_crystal_block",
             new Block(FabricBlockSettings.create().mapColor(MapColor.PALE_GREEN).requiresTool().strength(16.0F, 1200.0F).sounds(BlockSoundGroup.AMETHYST_BLOCK)));
     public static final Block JURASSOLINE_BLOCK = registerBlock("jurassoline_block",
             new Block(FabricBlockSettings.create().mapColor(MapColor.PALE_GREEN).requiresTool().strength(16.0F, 1200.0F).sounds(BlockSoundGroup.NETHERITE)));
 
-    public static final Block CINNABAR_ORE = registerBlock("cinnabar_ore",
+    public static final Block DEEPSLATE_CINNABAR_ORE = registerBlock("deepslate_cinnabar_ore",
             new Block(FabricBlockSettings.create().mapColor(MapColor.DARK_RED).requiresTool().strength(16.0F, 1200.0F).sounds(BlockSoundGroup.DEEPSLATE)));
     public static final Block CINNABAR_CRYSTAL_BLOCK = registerBlock("cinnabar_crystal_block",
             new Block(FabricBlockSettings.create().mapColor(MapColor.DARK_RED).requiresTool().strength(16.0F, 1200.0F).sounds(BlockSoundGroup.AMETHYST_BLOCK)));
     public static final Block CINNABAR_BLOCK = registerBlock("cinnabar_block",
             new Block(FabricBlockSettings.create().mapColor(MapColor.DARK_RED).requiresTool().strength(16.0F, 1200.0F).sounds(BlockSoundGroup.NETHERITE)));
 
-    public static final Block NEBULAR_ORE = registerBlock("nebular_ore",
+    public static final Block DEEPSLATE_NEBULAR_ORE = registerBlock("deepslate_nebular_ore",
             new Block(FabricBlockSettings.create().mapColor(MapColor.DARK_AQUA).requiresTool().strength(16.0F, 1200.0F).sounds(BlockSoundGroup.DEEPSLATE)));
     public static final Block RAW_NEBULAR_BLOCK = registerBlock("raw_nebular_block",
             new Block(FabricBlockSettings.create().mapColor(MapColor.DARK_AQUA).requiresTool().strength(16.0F, 1200.0F)));
     public static final Block NEBULAR_BLOCK = registerBlock("nebular_block",
             new Block(FabricBlockSettings.create().mapColor(MapColor.DARK_AQUA).requiresTool().strength(16.0F, 1200.0F).sounds(BlockSoundGroup.NETHERITE)));
 
-    public static final Block MITHRIL_ORE = registerUncommonBlock("mithril_ore",
+    public static final Block BEDROCK_MITHRIL_ORE = registerUncommonBlock("bedrock_mithril_ore",
             new Block(FabricBlockSettings.create().mapColor(MapColor.WHITE_GRAY).requiresTool().strength(-1.0F, 3600000.0F)));
     public static final Block RAW_MITHRIL_BLOCK = registerUncommonBlock("raw_mithril_block",
             new Block(FabricBlockSettings.create().mapColor(MapColor.WHITE_GRAY).requiresTool().strength(10.0F, 1200.0F).sounds(BlockSoundGroup.NETHERITE)));
@@ -665,6 +670,16 @@ public class ModBlocks {
         return Registry.register(Registries.BLOCK, new Identifier(TLOTD.MOD_ID, name), block);
     }
 
+    private static Block registerAetherJamJarBlock(String name, Block block) {
+        registerAetherJamJarBlockItem(name, block);
+        return Registry.register(Registries.BLOCK, new Identifier(TLOTD.MOD_ID, name), block);
+    }
+
+    private static Block registerAtmJamJarBlock(String name, Block block) {
+        registerAtmJamJarBlockItem(name, block);
+        return Registry.register(Registries.BLOCK, new Identifier(TLOTD.MOD_ID, name), block);
+    }
+
     private static Block registerWoodenSteinBlock(String name, Block block) {
         registerWoodenSteinBlockItem(name, block);
         return Registry.register(Registries.BLOCK, new Identifier(TLOTD.MOD_ID, name), block);
@@ -717,6 +732,16 @@ public class ModBlocks {
     private static Item registerJamJarBlockItem(String name, Block block) {
         return Registry.register(Registries.ITEM, new Identifier(TLOTD.MOD_ID, name),
                 new BlockItem(block, new FabricItemSettings().maxCount(16).recipeRemainder(ModBlocks.PRESERVES_JAR.asItem())));
+    }
+
+    private static Item registerAetherJamJarBlockItem(String name, Block block) {
+        return Registry.register(Registries.ITEM, new Identifier(TLOTD.MOD_ID, name),
+                new AetherJamJarBlockItem(block, new FabricItemSettings().maxCount(16).recipeRemainder(ModBlocks.PRESERVES_JAR.asItem())));
+    }
+
+    private static Item registerAtmJamJarBlockItem(String name, Block block) {
+        return Registry.register(Registries.ITEM, new Identifier(TLOTD.MOD_ID, name),
+                new AtmJamJarBlockItem(block, new FabricItemSettings().maxCount(16).recipeRemainder(ModBlocks.PRESERVES_JAR.asItem())));
     }
 
     private static Item registerWoodenSteinBlockItem(String name, Block block) {

@@ -6,7 +6,7 @@
     "targets": [
       {
         "state": {
-          "Name": "tlotd:end_stone_endurium_ore"
+          "Name": "tlotd:end_endurium_ore"
         },
         "target": {
           "block": "minecraft:end_stone",

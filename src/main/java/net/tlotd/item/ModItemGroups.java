@@ -16,17 +16,6 @@ public class ModItemGroups {
             new Identifier(TLOTD.MOD_ID, "1_materials"),
             FabricItemGroup.builder().displayName(Text.translatable("itemgroup.tlotd.materials"))
                     .icon(() -> new ItemStack(ModItems.GUIDEBOOK)).entries((displayContext, entries) -> {
-
-                        entries.add(ModItems.OAK_BARK);
-                        entries.add(ModItems.SPRUCE_BARK);
-                        entries.add(ModItems.BIRCH_BARK);
-                        entries.add(ModItems.JUNGLE_BARK);
-                        entries.add(ModItems.ACACIA_BARK);
-                        entries.add(ModItems.DARK_OAK_BARK);
-                        entries.add(ModItems.MANGROVE_BARK);
-                        entries.add(ModItems.CHERRY_BARK);
-                        entries.add(ModItems.GINKGO_BARK);
-
                         entries.add(ModItems.GUIDEBOOK);
 
                         entries.add(ModItems.SPELL_BOOK);
@@ -146,11 +135,15 @@ public class ModItemGroups {
                         entries.add(ModBlocks.GLOW_BERRY_JAM_JAR);
                         entries.add(ModBlocks.STRAWBERRY_JAM_JAR);
                         entries.add(ModBlocks.ORANGE_MARMELADE_JAR);
+                        entries.add(ModBlocks.BLUE_BERRY_JAM_JAR);
+                        entries.add(ModBlocks.ANCIENT_SOULBERRY_JAM_JAR);
                         entries.add(ModItems.TOAST);
                         entries.add(ModItems.SWEET_BERRY_JAM_TOAST);
                         entries.add(ModItems.GLOW_BERRY_JAM_TOAST);
                         entries.add(ModItems.STRAWBERRY_JAM_TOAST);
                         entries.add(ModItems.ORANGE_MARMELADE_TOAST);
+                        entries.add(ModItems.BLUE_BERRY_JAM_TOAST);
+                        entries.add(ModItems.ANCIENT_SOULBERRY_JAM_TOAST);
 
                         entries.add(ModItems.SPEZI_BOTTLE);
 
@@ -194,6 +187,46 @@ public class ModItemGroups {
                         entries.add(ModItems.GAME_CARTRIDGE_2);
                         entries.add(ModItems.GAME_CARTRIDGE_3);
 
+                        entries.add(ModItems.OAK_BARK);
+                        entries.add(ModItems.SPRUCE_BARK);
+                        entries.add(ModItems.BIRCH_BARK);
+                        entries.add(ModItems.JUNGLE_BARK);
+                        entries.add(ModItems.ACACIA_BARK);
+                        entries.add(ModItems.DARK_OAK_BARK);
+                        entries.add(ModItems.MANGROVE_BARK);
+                        entries.add(ModItems.CHERRY_BARK);
+                        entries.add(ModItems.GINKGO_BARK);
+
+                        entries.add(ModItems.SKYROOT_BARK);
+
+                        entries.add(ModItems.PEWEN_BARK);
+                        entries.add(ModItems.THORNWOOD_BARK);
+
+                        entries.add(ModItems.FIR_BARK);
+                        entries.add(ModItems.REDWOOD_BARK);
+                        entries.add(ModItems.MAHOGANY_BARK);
+                        entries.add(ModItems.JACARANCA_BARK);
+                        entries.add(ModItems.PALM_BARK);
+                        entries.add(ModItems.WILLOW_BARK);
+                        entries.add(ModItems.DEAD_BARK);
+                        entries.add(ModItems.MAGIC_BARK);
+                        entries.add(ModItems.UMBRAN_BARK);
+                        entries.add(ModItems.HELLBARK_BARK);
+
+                        entries.add(ModItems.ASHEN_BARK);
+                        entries.add(ModItems.AZALEA_BARK);
+                        entries.add(ModItems.TRUMPET_BARK);
+
+                        entries.add(ModItems.RUBBERWOOD_BARK);
+
+                        entries.add(ModItems.TWILIGHT_OAK_BARK);
+                        entries.add(ModItems.CANOPY_TREE_BARK);
+                        entries.add(ModItems.TWILIGHT_MANGROVE_BARK);
+                        entries.add(ModItems.DARKWOOD_BARK);
+                        entries.add(ModItems.TIMEWOOD_BARK);
+                        entries.add(ModItems.TRANSWOOD_BARK);
+                        entries.add(ModItems.MINEWOOD_BARK);
+                        entries.add(ModItems.SORTINGWOOD_BARK);
                     }).build());
 
     public static final ItemGroup TLOTD_2_WEAPONS_TOOLS_UTILITIES_GROUP = Registry.register(Registries.ITEM_GROUP,
@@ -513,31 +546,31 @@ public class ModItemGroups {
 
                         entries.add(ModBlocks.DEEPSLATE_FOSSIL);
 
-                        entries.add(ModBlocks.HELIORITE_ORE);
+                        entries.add(ModBlocks.DEEPSLATE_HELIORITE_ORE);
                         entries.add(ModBlocks.HELIORITE_COMB_BLOCK);
                         entries.add(ModBlocks.HELIORITE_BLOCK);
 
-                        entries.add(ModBlocks.END_STONE_ENDURIUM_ORE);
+                        entries.add(ModBlocks.END_ENDURIUM_ORE);
                         entries.add(ModBlocks.RAW_ENDURIUM_BLOCK);
                         entries.add(ModBlocks.ENDURIUM_BLOCK);
 
-                        entries.add(ModBlocks.PALLADIUM_ORE);
+                        entries.add(ModBlocks.DEEPSLATE_PALLADIUM_ORE);
                         entries.add(ModBlocks.RAW_PALLADIUM_BLOCK);
                         entries.add(ModBlocks.PALLADIUM_BLOCK);
 
-                        entries.add(ModBlocks.JURASSOLINE_ORE);
+                        entries.add(ModBlocks.DEEPSLATE_JURASSOLINE_ORE);
                         entries.add(ModBlocks.JURASSOLINE_CRYSTAL_BLOCK);
                         entries.add(ModBlocks.JURASSOLINE_BLOCK);
 
-                        entries.add(ModBlocks.CINNABAR_ORE);
+                        entries.add(ModBlocks.DEEPSLATE_CINNABAR_ORE);
                         entries.add(ModBlocks.CINNABAR_CRYSTAL_BLOCK);
                         entries.add(ModBlocks.CINNABAR_BLOCK);
 
-                        entries.add(ModBlocks.NEBULAR_ORE);
+                        entries.add(ModBlocks.DEEPSLATE_NEBULAR_ORE);
                         entries.add(ModBlocks.RAW_NEBULAR_BLOCK);
                         entries.add(ModBlocks.NEBULAR_BLOCK);
 
-                        entries.add(ModBlocks.MITHRIL_ORE);
+                        entries.add(ModBlocks.BEDROCK_MITHRIL_ORE);
                         entries.add(ModBlocks.RAW_MITHRIL_BLOCK);
                         entries.add(ModBlocks.MITHRIL_BLOCK);
 
@@ -676,9 +709,39 @@ public class ModItemGroups {
                         entries.add(ModFluids.GLOW_BERRY_JAM_BUCKET);
                         entries.add(ModFluids.STRAWBERRY_JAM_BUCKET);
                         entries.add(ModFluids.ORANGE_MARMELADE_BUCKET);
+                        entries.add(ModFluids.BLUE_BERRY_JAM_BUCKET);
+                        entries.add(ModBlocks.BLUE_BERRY_JAM_JAR);
+                        entries.add(ModItems.BLUE_BERRY_JAM_TOAST);
+                        entries.add(ModFluids.ANCIENT_SOULBERRY_JAM_BUCKET);
+                        entries.add(ModBlocks.ANCIENT_SOULBERRY_JAM_JAR);
+                        entries.add(ModItems.ANCIENT_SOULBERRY_JAM_TOAST);
                         entries.add(ModItems.INFECTED_TREX_SPAWN_EGG);
                         entries.add(ModBlocks.INFECTED_TREX_HEAD);
-
+                        entries.add(ModItems.SKYROOT_BARK);
+                        entries.add(ModItems.PEWEN_BARK);
+                        entries.add(ModItems.THORNWOOD_BARK);
+                        entries.add(ModItems.FIR_BARK);
+                        entries.add(ModItems.REDWOOD_BARK);
+                        entries.add(ModItems.MAHOGANY_BARK);
+                        entries.add(ModItems.JACARANCA_BARK);
+                        entries.add(ModItems.PALM_BARK);
+                        entries.add(ModItems.WILLOW_BARK);
+                        entries.add(ModItems.DEAD_BARK);
+                        entries.add(ModItems.MAGIC_BARK);
+                        entries.add(ModItems.UMBRAN_BARK);
+                        entries.add(ModItems.HELLBARK_BARK);
+                        entries.add(ModItems.ASHEN_BARK);
+                        entries.add(ModItems.AZALEA_BARK);
+                        entries.add(ModItems.TRUMPET_BARK);
+                        entries.add(ModItems.RUBBERWOOD_BARK);
+                        entries.add(ModItems.TWILIGHT_OAK_BARK);
+                        entries.add(ModItems.CANOPY_TREE_BARK);
+                        entries.add(ModItems.TWILIGHT_MANGROVE_BARK);
+                        entries.add(ModItems.DARKWOOD_BARK);
+                        entries.add(ModItems.TIMEWOOD_BARK);
+                        entries.add(ModItems.TRANSWOOD_BARK);
+                        entries.add(ModItems.MINEWOOD_BARK);
+                        entries.add(ModItems.SORTINGWOOD_BARK);
                     }).build());
 
     public static void registerItemGroups(){

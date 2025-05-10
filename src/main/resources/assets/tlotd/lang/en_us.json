@@ -4,9 +4,16 @@
   "itemgroup.tlotd.blocks": "TLOTD Blocks",
   "itemgroup.tlotd.compat": "TLOTD Compatibility",
 
-  "itemGroup.create.base": "Create",
-  "itemGroup.spore": "Spore",
-  "spore.name.calamity": "Calamity",
+  "mod.aether.name": "Aether",
+  "mod.alexscaves.name": "Alex's Caves",
+  "mod.allthemodium.name": "AllTheModium",
+  "mod.biomesoplenty.name": "Biomes O' Plenty",
+  "mod.create.name": "Create",
+  "mod.quark.name": "Quark",
+  "mod.spore.name": "Spore",
+  "mod.spore.calamity": "Calamity",
+  "mod.thermal.name": "Thermal Series",
+  "mod.twilightforest.name": "Twilight Forest",
 
   "gui.tlotd.mithril_smithing": "Mithril Smithing",
   "gui.tlotd.witching": "Witching",
@@ -171,6 +178,12 @@
   "item.tlotd.orange_juice_bottle": "Orange Juice Bottle",
   "item.tlotd.spezi_bottle": "Spezi Bottle",
 
+  "block.tlotd.blue_berry_jam_jar": "Blue Berry Jam Jar",
+  "item.tlotd.blue_berry_jam_toast": "Blue Berry Jam Toast",
+
+  "block.tlotd.ancient_soulberry_jam_jar": "Ancient Soul Berry Jam Jar",
+  "item.tlotd.ancient_soulberry_jam_toast": "Ancient Soul Berry Jam Toast",
+
   "item.tlotd.irradiated.tooltip": "☢ Irradiated (00:03)",
   "item.tlotd.radiaton_proof_armor.tooltip": "When Full Set:",
   "item.tlotd.radiaton_proof_armor.tooltip_2": "Shields from Radiation",
@@ -283,6 +296,8 @@
   "item.tlotd.glow_berry_jam_bucket": "Glow Berry Jam Bucket",
   "item.tlotd.strawberry_jam_bucket": "Strawberry Jam Bucket",
   "item.tlotd.orange_marmelade_bucket": "Orange Marmelade Bucket",
+  "item.tlotd.blue_berry_jam_bucket": "Blue Berry Jam Bucket",
+  "item.tlotd.ancient_soulberry_jam_bucket": "Ancient Soul Berry Jam Bucket",
 
   "item.tlotd.copper_sickle": "Copper Sickle",
   "item.tlotd.golden_sickle": "Golden Sickle",
@@ -561,6 +576,10 @@
   "block.tlotd.strawberry_jam_block": "Strawberry Jam",
   "block.tlotd.orange_marmelade": "Orange Marmelade",
   "block.tlotd.orange_marmelade_block": "Orange Marmelade",
+  "block.tlotd.blue_berry_jam": "Blue Berry Jam",
+  "block.tlotd.blue_berry_jam_block": "Blue Berry Jam",
+  "block.tlotd.ancient_soulberry_jam": "Ancient Soul Berry Jam",
+  "block.tlotd.ancient_soulberry_jam_block": "Ancient Soul Berry Jam",
 
   "block.tlotd.gravestone": "Gravestone",
   "block.tlotd.mossy_gravestone": "Mossy Gravestone",
@@ -612,10 +631,15 @@
   "block.tlotd.oxygen_collector.tooltip": "Can be placed on:",
   "block.tlotd.oxygen_collector.tooltip_2": "Flowers & Saplings",
   "block.tlotd.signal_transmitter": "Signal Transmitter",
-  "block.tlotd.signal_transmitter.tooltip": "Transmission requires:",
+  "block.tlotd.signal_transmitter.tooltip": "Can Transmit:",
+  "block.tlotd.signal_transmitter.tooltip_2": "VHS Cassettes",
+  "block.tlotd.signal_transmitter.tooltip_3": "Select Music Discs",
+  "block.tlotd.signal_transmitter.tooltip_4": "Transmission requires:",
+  "block.tlotd.signal_transmitter.list_empty": "No signals are currently being broadcast.",
   "block.tlotd.signal_transmitter.list": "Signals currently broadcasting:",
   "block.tlotd.signal_transmitter.added": "Signal was added.",
   "block.tlotd.signal_transmitter.removed": "Signal was removed.",
+  "block.tlotd.signal_transmitter.incomplete": "Signal Transmitter Antenna Incomplete!",
   "block.tlotd.signal_transmitter_antenna": "Signal Transmitter Antenna",
 
   "block.tlotd.mining_elevator_controller": "Mining Elevator Controller",
@@ -718,31 +742,31 @@
 
   "block.tlotd.deepslate_fossil": "Deepslate Fossil",
 
-  "block.tlotd.heliorite_ore": "Heliorite Ore",
+  "block.tlotd.deepslate_heliorite_ore": "Deepslate Heliorite Ore",
   "block.tlotd.heliorite_comb_block": "Heliorite Comb Block",
   "block.tlotd.heliorite_block": "Heliorite Block",
 
-  "block.tlotd.end_stone_endurium_ore": "End Stone Endurium Ore",
+  "block.tlotd.end_endurium_ore": "End Endurium Ore",
   "block.tlotd.raw_endurium_block": "Raw Endurium Block",
   "block.tlotd.endurium_block": "Block of Endurium",
 
-  "block.tlotd.palladium_ore": "Palladium Ore",
+  "block.tlotd.deepslate_palladium_ore": "Deepslate Palladium Ore",
   "block.tlotd.raw_palladium_block": "Raw Palladium Block",
   "block.tlotd.palladium_block": "Block of Palladium",
 
-  "block.tlotd.jurassoline_ore": "Jurassoline Ore",
+  "block.tlotd.deepslate_jurassoline_ore": "Deepslate Jurassoline Ore",
   "block.tlotd.jurassoline_crystal_block": "Jurassoline Crystal Block",
   "block.tlotd.jurassoline_block": "Block of Jurassoline",
 
-  "block.tlotd.cinnabar_ore": "Cinnabar Ore",
+  "block.tlotd.deepslate_cinnabar_ore": "Deepslate Cinnabar Ore",
   "block.tlotd.cinnabar_crystal_block": "Cinnabar Crystal Block",
   "block.tlotd.cinnabar_block": "Block of Cinnabar",
 
-  "block.tlotd.nebular_ore": "Nebular Ore",
+  "block.tlotd.deepslate_nebular_ore": "Deepslate Nebular Ore",
   "block.tlotd.raw_nebular_block": "Raw Nebular Block",
   "block.tlotd.nebular_block": "Block of Nebular",
 
-  "block.tlotd.mithril_ore": "Mithril Ore",
+  "block.tlotd.bedrock_mithril_ore": "Bedrock Mithril Ore",
   "block.tlotd.raw_mithril_block": "Block of Raw Mithril",
   "block.tlotd.mithril_block": "Block of Mithril",
 
@@ -901,6 +925,37 @@
   "item.tlotd.cherry_bark": "Cherry Bark",
   "item.tlotd.pale_oak_bark": "Pale Oak Bark",
   "item.tlotd.ginkgo_bark": "Ginkgo Bark",
+
+  "item.tlotd.skyroot_bark": "Skyroot Bark",
+
+  "item.tlotd.pewen_bark": "Pewen Bark",
+  "item.tlotd.thornwood_bark": "Thornwood Bark",
+
+  "item.tlotd.fir_bark": "Fir Bark",
+  "item.tlotd.redwood_bark": "Redwood Bark",
+  "item.tlotd.mahogany_bark": "Mahogany Bark",
+  "item.tlotd.jacaranda_bark": "Jacaranda Bark",
+  "item.tlotd.palm_bark": "Palm Bark",
+  "item.tlotd.willow_bark": "Willow Bark",
+  "item.tlotd.dead_bark": "Dead Bark",
+  "item.tlotd.magic_bark": "Magic Bark",
+  "item.tlotd.umbran_bark": "Umbran Bark",
+  "item.tlotd.hellbark_bark": "Hellbark Bark",
+
+  "item.tlotd.ashen_bark": "Ashen Bark",
+  "item.tlotd.azalea_bark": "Azalea Bark",
+  "item.tlotd.trumpet_bark": "Trumpet Bark",
+
+  "item.tlotd.rubberwood_bark": "Rubberwood Bark",
+
+  "item.tlotd.twilight_oak_bark": "Twilight Oak Bark",
+  "item.tlotd.canopy_tree_bark": "Canopy Tree Bark",
+  "item.tlotd.twilight_mangrove_bark": "Mangrove Bark",
+  "item.tlotd.darkwood_bark": "Darkwood Bark",
+  "item.tlotd.timewood_bark": "Timewood Bark",
+  "item.tlotd.transwood_bark": "Transwood Bark",
+  "item.tlotd.minewood_bark": "Minewood Bark",
+  "item.tlotd.sortingwood_bark": "Sortingwood Bark",
 
   "item.tlotd.flour": "Flour",
   "item.tlotd.raw_schnitzel": "Raw Schnitzel",

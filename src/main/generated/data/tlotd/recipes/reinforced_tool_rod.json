@@ -3,7 +3,7 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "tlotd:steel_rod"
+      "tag": "c:steel_rods"
     },
     {
       "item": "minecraft:netherite_scrap"

@@ -1,0 +1,15 @@
+{
+  "type": "botania:mana_infusion",
+  "catalyst": {
+    "type": "block",
+    "block": "tlotd:archaeology_table"
+  },
+  "group": "botania:log_cycle",
+  "input": {
+    "item": "minecraft:oak_log"
+  },
+  "mana": 40,
+  "output": {
+    "item": "tlotd:ginkgo_log"
+  }
+}

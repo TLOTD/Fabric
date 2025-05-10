@@ -6,7 +6,7 @@
     "targets": [
       {
         "state": {
-          "Name": "tlotd:heliorite_ore"
+          "Name": "tlotd:deepslate_heliorite_ore"
         },
         "target": {
           "predicate_type": "minecraft:tag_match",

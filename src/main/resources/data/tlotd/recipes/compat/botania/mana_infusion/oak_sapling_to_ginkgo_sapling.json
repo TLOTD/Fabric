@@ -1,0 +1,15 @@
+{
+  "type": "botania:mana_infusion",
+  "catalyst": {
+    "type": "block",
+    "block": "tlotd:archaeology_table"
+  },
+  "group": "botania:sapling_cycle",
+  "input": {
+    "item": "minecraft:oak_sapling"
+  },
+  "mana": 120,
+  "output": {
+    "item": "tlotd:ginkgo_sapling"
+  }
+}

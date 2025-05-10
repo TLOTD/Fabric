@@ -1,0 +1,23 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "twilightforest"
+      ]
+    }
+  ],
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "twilightforest:stripped_mangrove_wood"
+    },
+    {
+      "item": "tlotd:twilight_mangrove_bark"
+    }
+  ],
+  "result": {
+    "item": "twilightforest:mangrove_wood"
+  }
+}

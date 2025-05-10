@@ -13,6 +13,14 @@
     {
       "id": "neapolitan:strawberries",
       "required": false
+    },
+    {
+      "id": "thermal:strawberry",
+      "required": false
+    },
+    {
+      "id": "pamhc2crops:strawberryitem",
+      "required": false
     }
   ]
 }

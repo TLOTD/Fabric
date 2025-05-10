@@ -6,7 +6,7 @@
     "targets": [
       {
         "state": {
-          "Name": "tlotd:nebular_ore"
+          "Name": "tlotd:deepslate_nebular_ore"
         },
         "target": {
           "predicate_type": "minecraft:tag_match",

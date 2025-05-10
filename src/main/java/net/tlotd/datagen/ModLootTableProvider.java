@@ -18,6 +18,8 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.GLOW_BERRY_JAM_JAR);
         addDrop(ModBlocks.STRAWBERRY_JAM_JAR);
         addDrop(ModBlocks.ORANGE_MARMELADE_JAR);
+        addDrop(ModBlocks.BLUE_BERRY_JAM_JAR);
+        addDrop(ModBlocks.ANCIENT_SOULBERRY_JAM_JAR);
 
         addDrop(ModBlocks.FRAMED_GLASS);
         addDrop(ModBlocks.FRAMED_GLASS_PANE);
@@ -137,31 +139,31 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
 
         addDrop(ModBlocks.DEEPSLATE_FOSSIL, drops(ModBlocks.DEEPSLATE_FOSSIL, ModItems.FOSSILIZED_BONE));
 
-        addDrop(ModBlocks.HELIORITE_ORE, drops(ModBlocks.HELIORITE_ORE, ModItems.HELIORITE_COMB));
+        addDrop(ModBlocks.DEEPSLATE_HELIORITE_ORE, drops(ModBlocks.DEEPSLATE_HELIORITE_ORE, ModItems.HELIORITE_COMB));
         addDrop(ModBlocks.HELIORITE_COMB_BLOCK);
         addDrop(ModBlocks.HELIORITE_BLOCK);
 
-        addDrop(ModBlocks.END_STONE_ENDURIUM_ORE, drops(ModBlocks.END_STONE_ENDURIUM_ORE, ModItems.ENDURIUM_CRYSTAL));
+        addDrop(ModBlocks.END_ENDURIUM_ORE, drops(ModBlocks.END_ENDURIUM_ORE, ModItems.ENDURIUM_CRYSTAL));
         addDrop(ModBlocks.RAW_ENDURIUM_BLOCK);
         addDrop(ModBlocks.ENDURIUM_BLOCK);
 
-        addDrop(ModBlocks.PALLADIUM_ORE, drops(ModBlocks.PALLADIUM_ORE, ModItems.RAW_PALLADIUM));
+        addDrop(ModBlocks.DEEPSLATE_PALLADIUM_ORE, drops(ModBlocks.DEEPSLATE_PALLADIUM_ORE, ModItems.RAW_PALLADIUM));
         addDrop(ModBlocks.RAW_PALLADIUM_BLOCK);
         addDrop(ModBlocks.PALLADIUM_BLOCK);
 
-        addDrop(ModBlocks.JURASSOLINE_ORE, drops(ModBlocks.JURASSOLINE_ORE, ModItems.JURASSOLINE_CRYSTAL));
+        addDrop(ModBlocks.DEEPSLATE_JURASSOLINE_ORE, drops(ModBlocks.DEEPSLATE_JURASSOLINE_ORE, ModItems.JURASSOLINE_CRYSTAL));
         addDrop(ModBlocks.JURASSOLINE_CRYSTAL_BLOCK);
         addDrop(ModBlocks.JURASSOLINE_BLOCK);
 
-        addDrop(ModBlocks.CINNABAR_ORE, drops(ModBlocks.CINNABAR_ORE, ModItems.CINNABAR_CRYSTAL));
+        addDrop(ModBlocks.DEEPSLATE_CINNABAR_ORE, drops(ModBlocks.DEEPSLATE_CINNABAR_ORE, ModItems.CINNABAR_CRYSTAL));
         addDrop(ModBlocks.CINNABAR_CRYSTAL_BLOCK);
         addDrop(ModBlocks.CINNABAR_BLOCK);
 
-        addDrop(ModBlocks.NEBULAR_ORE, drops(ModBlocks.NEBULAR_ORE, ModItems.NEBULAR_CRYSTAL));
+        addDrop(ModBlocks.DEEPSLATE_NEBULAR_ORE, drops(ModBlocks.DEEPSLATE_NEBULAR_ORE, ModItems.NEBULAR_CRYSTAL));
         addDrop(ModBlocks.RAW_NEBULAR_BLOCK);
         addDrop(ModBlocks.NEBULAR_BLOCK);
 
-        addDrop(ModBlocks.MITHRIL_ORE, drops(ModBlocks.MITHRIL_ORE, ModItems.RAW_MITHRIL));
+        addDrop(ModBlocks.BEDROCK_MITHRIL_ORE, drops(ModBlocks.BEDROCK_MITHRIL_ORE, ModItems.RAW_MITHRIL));
         addDrop(ModBlocks.RAW_MITHRIL_BLOCK);
         addDrop(ModBlocks.MITHRIL_BLOCK);
 
@@ -242,11 +244,6 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
 
         addDrop(ModBlocks.GINKGO_SLAB, slabDrops(ModBlocks.GINKGO_SLAB));
         addDrop(ModBlocks.GINKGO_DOOR, doorDrops(ModBlocks.GINKGO_DOOR));
-
-        addDrop(ModBlocks.STANDING_GINKGO_SIGN);
-        addDrop(ModBlocks.WALL_GINKGO_SIGN, drops(ModBlocks.WALL_GINKGO_SIGN, ModBlocks.STANDING_GINKGO_SIGN));
-        addDrop(ModBlocks.HANGING_GINKGO_SIGN);
-        addDrop(ModBlocks.WALL_HANGING_GINKGO_SIGN, drops(ModBlocks.WALL_HANGING_GINKGO_SIGN, ModBlocks.HANGING_GINKGO_SIGN));
 
         addDrop(ModBlocks.FANCY_OAK_PLANKS);
         addDrop(ModBlocks.FANCY_OAK_STAIRS);
