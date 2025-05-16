@@ -1,0 +1,26 @@
+{
+  "type": "tlotd:mithril_smithing",
+  "ingredients": [
+    {
+      "tag": "tlotd:forging_hammers_tier3"
+    },
+    {
+      "item": "tlotd:astral_pickaxe"
+    },
+    {
+      "item": "tlotd:daybreak_domain_fragments"
+    },
+    {
+      "item": "tlotd:daybreak_domain_fragments"
+    },
+    {
+      "item": "tlotd:daybreak_domain_fragments"
+    },
+    {
+      "item": "tlotd:daybreak_domain_fragments"
+    }
+  ],
+  "output": {
+    "item": "tlotd:divine_pickaxe"
+  }
+}

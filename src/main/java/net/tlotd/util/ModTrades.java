@@ -37,7 +37,17 @@ public class ModTrades {
 
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.FOSSILIZED_BONE, 3),
+                            new ItemStack(ModBlocks.IRIS, 1),
+                            6, 2, 0.1f));
+
+                    factories.add((entity, random) -> new TradeOffer(
+                            new ItemStack(ModItems.FOSSILIZED_BONE, 3),
                             new ItemStack(ModBlocks.EDELWEISS, 1),
+                            6, 2, 0.1f));
+
+                    factories.add((entity, random) -> new TradeOffer(
+                            new ItemStack(ModItems.FOSSILIZED_BONE, 3),
+                            new ItemStack(ModBlocks.ATHELAS, 1),
                             6, 2, 0.1f));
                 });
 
@@ -95,6 +105,22 @@ public class ModTrades {
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(Items.EMERALD, 3),
                             new ItemStack(ModItems.ORANGE, 1),
+                            1, 5, 0.1f));
+                    factories.add((entity, random) -> new TradeOffer(
+                            new ItemStack(Items.EMERALD, 3),
+                            new ItemStack(ModBlocks.ROSE, 1),
+                            1, 5, 0.1f));
+                    factories.add((entity, random) -> new TradeOffer(
+                            new ItemStack(Items.EMERALD, 3),
+                            new ItemStack(ModBlocks.IRIS, 1),
+                            1, 5, 0.1f));
+                    factories.add((entity, random) -> new TradeOffer(
+                            new ItemStack(Items.EMERALD, 3),
+                            new ItemStack(ModBlocks.EDELWEISS, 1),
+                            1, 5, 0.1f));
+                    factories.add((entity, random) -> new TradeOffer(
+                            new ItemStack(Items.EMERALD, 3),
+                            new ItemStack(ModBlocks.ATHELAS, 1),
                             1, 5, 0.1f));
                 });
     }

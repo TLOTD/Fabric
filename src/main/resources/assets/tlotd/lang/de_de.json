@@ -38,6 +38,11 @@
   "effect.tlotd.irradiated": "§eVerstrahlt§r",
   "effect.tlotd.hypoxia": "Hypoxia",
 
+  "death.attack.radiation": "%1$s ist an Strahlenkrankheit verstorben",
+  "death.attack.radiation.player": "%1$s ist im Kampf mit %2$s an Strahlenkrankheit verstorben",
+  "death.attack.hypoxia": "%1$s ist erstickt",
+  "death.attack.hypoxia.player": "%1$s ist im Kampf mit %2$s erstickt",
+
   "entity.minecraft.villager.archaeologist": "Archaeologe",
   "entity.minecraft.villager.cultist": "Kultist",
   "entity.minecraft.villager.engineer": "Techniker",
@@ -269,6 +274,7 @@
   "item.tlotd.integrated_circuit": "Integrierter Schaltkreis",
   "item.tlotd.cathode_ray_tube": "Kathodenstrahlröhre",
   "item.tlotd.liquid_crystal_display_panel": "Flüssigkristallanzeigefeld",
+  "item.tlotd.holographic_projector": "Holografischer Projektor",
 
   "item.tlotd.incomplete_copper_wire": "Unvollendetes Kupferkabel",
   "item.tlotd.incomplete_integrated_circuit": "Unvollendeter Integrierter Schaltkreis",
@@ -494,6 +500,8 @@
   "item.tlotd.mithril_leggings": "Mithrilbeinschutz",
   "item.tlotd.mithril_boots": "Mithrilstiefel",
 
+  "item.tlotd.mithril_horse_armor": "Mithril Rossharnisch",
+
   "item.tlotd.narsil_handle": "Narsilgriff",
   "item.tlotd.anduril": "Andúril",
   "item.tlotd.anduril.tooltip": "Die Flamme des Westens,",
@@ -516,8 +524,15 @@
   "item.tlotd.astral_shovel": "Astralschaufel",
   "item.tlotd.astral_hoe": "Astralhacke",
   "item.tlotd.astral_sickle": "Astralsichel",
-
   "item.tlotd.astral_forging_hammer": "Astralschmiedehammer",
+
+  "item.tlotd.daybreak_domain_fragments": "§6Dämmerungsreichfragmente",
+  "item.tlotd.somber_blood_orbs": "§cDüstere Blutkugeln",
+  "item.tlotd.otherworldly_whispers": "§4Stimmen aus dem Jenseits",
+
+  "item.tlotd.divine_pickaxe": "§6Göttliche Spitzhacke",
+  "item.tlotd.cataclysmic_pickaxe": "§cKataklysmusspitzhacke",
+  "item.tlotd.eldritch_pickaxe": "§4Verschlinger des Jenseits",
 
   "item.tlotd.t-rex_spawn_egg": "T-Rex-Spawn-Ei",
   "item.tlotd.infected_t-rex_spawn_egg": "Infizierter T-Rex",
@@ -576,6 +591,10 @@
 
   "block.tlotd.skeleton": "Skelett",
   "block.tlotd.emerging_skeleton": "Auftauchendes Skelett",
+
+  "block.tlotd.white_pumpkin": "Weißer Kürbis",
+  "block.tlotd.carved_white_pumpkin": "Geschnitzter Weißer Kürbis",
+  "block.tlotd.white_jack_o_lantern": "Weiße Kürbislaterne",
 
   "block.tlotd.effigies": "Bildnisse",
   "block.tlotd.effigies.tooltip": "Könnte Blut",
@@ -720,6 +739,8 @@
 
   "block.tlotd.nether_sulfur_ore": "Netherschwefelerz",
   "block.tlotd.sulfur_block": "Schwefelblock",
+  "block.tlotd.sulfur_torch": "Schwefelfackel",
+  "block.tlotd.sulfur_lantern": "Schwefellaterne",
 
   "block.tlotd.lead_ore": "Bleierz",
   "block.tlotd.raw_lead_block": "Rohbleiblock",
@@ -786,7 +807,9 @@
   "block.tlotd.cursed_carpet.tooltip_3": "Jack irre werden",
 
   "block.tlotd.rose": "Rose",
+  "block.tlotd.iris": "Schwertlilie",
   "block.tlotd.edelweiss": "Edelweiss",
+  "block.tlotd.athelas": "Athelas",
 
   "block.tlotd.glass_door": "Glastür",
   "block.tlotd.glass_trapdoor": "Glasfalltür",
@@ -947,6 +970,7 @@
   "item.tlotd.sortingwood_bark": "Sortierbaumrinde",
 
   "item.tlotd.flour": "Mehl",
+  "item.tlotd.breadcrumbs": "Brotkrumen",
   "item.tlotd.raw_schnitzel": "Rohes Schnitzel",
   "item.tlotd.schnitzel": "Schnitzel",
 
@@ -962,6 +986,7 @@
   "item.tlotd.beer_goat_horn": "Bierbockshorn",
 
   "item.tlotd.extraction.tooltip": "Ausgrabung",
+  "item.tlotd.mouth_of_the_abyss.tooltip": "Schlund des Abgrundes",
 
   "block.tlotd.artisan_table": "Handwerkertisch",
   "block.tlotd.archaeology_table": "Archäologietisch",

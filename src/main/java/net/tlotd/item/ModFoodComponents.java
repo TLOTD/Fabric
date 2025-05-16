@@ -16,8 +16,8 @@ public class ModFoodComponents {
     public static final FoodComponent DINOSAUR_MEAT = new FoodComponent.Builder().hunger(4).saturationModifier(0.4f).meat().build();
     public static final FoodComponent DINOSAUR_MEAT_COOKED = new FoodComponent.Builder().hunger(10).saturationModifier(1.0f).meat().build();
 
-    public static final FoodComponent RAW_SCHNITZEL = new FoodComponent.Builder().hunger(5).saturationModifier(0.5f).meat().build();
-    public static final FoodComponent SCHNITZEL = new FoodComponent.Builder().hunger(12).saturationModifier(1.2f).meat().build();
+    public static final FoodComponent RAW_SCHNITZEL = new FoodComponent.Builder().hunger(6).saturationModifier(0.5f).meat().build();
+    public static final FoodComponent SCHNITZEL = new FoodComponent.Builder().hunger(14).saturationModifier(1.2f).meat().build();
 
     public static final FoodComponent CALAMARI = new FoodComponent.Builder().snack().hunger(2).saturationModifier(0.2f).meat().build();
     public static final FoodComponent FRIED_CALAMARI = new FoodComponent.Builder().snack().hunger(4).saturationModifier(0.4f).meat().build();

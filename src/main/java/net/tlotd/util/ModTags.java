@@ -87,6 +87,9 @@ public class ModTags {
         public static final TagKey<Item> EXTRACTION_III_PICKAXES =
                 createTag("extraction_iii_pickaxes");
 
+        public static final TagKey<Item> MOUTH_OF_THE_ABYSS =
+                createTag("mouth_of_the_abyss");
+
         public static final TagKey<Item> STICK_EFFIGIES =
                 createTag("stick_effigies");
 

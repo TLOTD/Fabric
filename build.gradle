@@ -17,6 +17,7 @@ repositories {
 	}
 	maven {url = "https://maven.kyrptonaught.dev"}
 	maven { url "https://maven.shedaniel.me" }
+	maven { url "https://api.modrinth.com/maven" }
 }
 
 fabricApi {
@@ -37,6 +38,9 @@ dependencies {
 
 	modImplementation 'net.kyrptonaught:customportalapi:0.0.1-beta65-1.20'
 	include 'net.kyrptonaught:customportalapi:0.0.1-beta65-1.20'
+
+	modImplementation 'maven.modrinth:Wd844r7Q:1.20.1-01'
+	include 'maven.modrinth:Wd844r7Q:1.20.1-01'
 
 	modCompileOnly("com.terraformersmc:modmenu:7.1.0")
 	modRuntimeOnly("com.terraformersmc:modmenu:7.1.0")

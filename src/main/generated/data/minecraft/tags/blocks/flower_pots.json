@@ -2,7 +2,9 @@
   "replace": false,
   "values": [
     "tlotd:potted_rose",
+    "tlotd:potted_iris",
     "tlotd:potted_edelweiss",
+    "tlotd:potted_athelas",
     "tlotd:potted_ginkgo_sapling"
   ]
 }

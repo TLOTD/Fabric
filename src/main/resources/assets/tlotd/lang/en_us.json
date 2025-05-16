@@ -4,7 +4,7 @@
   "itemgroup.tlotd.blocks": "TLOTD Blocks",
   "itemgroup.tlotd.compat": "TLOTD Compatibility",
 
-  "mod.aether.name": "Aether",
+  "mod.aether.name": "The Aether",
   "mod.alexscaves.name": "Alex's Caves",
   "mod.allthemodium.name": "AllTheModium",
   "mod.biomesoplenty.name": "Biomes O' Plenty",
@@ -13,7 +13,7 @@
   "mod.spore.name": "Spore",
   "mod.spore.calamity": "Calamity",
   "mod.thermal.name": "Thermal Series",
-  "mod.twilightforest.name": "Twilight Forest",
+  "mod.twilightforest.name": "The Twilight Forest",
 
   "gui.tlotd.mithril_smithing": "Mithril Smithing",
   "gui.tlotd.witching": "Witching",
@@ -46,6 +46,11 @@
   "effect.tlotd.drunk": "Drunk",
   "effect.tlotd.irradiated": "§eIrradiated§r",
   "effect.tlotd.hypoxia": "Hypoxia",
+
+  "death.attack.radiation": "%1$s has died from radiation sickness",
+  "death.attack.radiation.player": "%1$s has died from radiation sickness whilst fighting %2$s",
+  "death.attack.hypoxia": "%1$s has succumbed to hypoxia",
+  "death.attack.hypoxia.player": "%1$s has succumbed to hypoxia whilst fighting %2$s",
 
   "entity.minecraft.villager.archaeologist": "Archaeologist",
   "entity.minecraft.villager.cultist": "Cultist",
@@ -278,6 +283,7 @@
   "item.tlotd.futuristic_circuit_board.tooltip_3": "by evading it today",
   "item.tlotd.cathode_ray_tube": "Cathode Ray Tube",
   "item.tlotd.liquid_crystal_display_panel": "Liquid Crystal Display Panel",
+  "item.tlotd.holographic_projector": "Holographic Projector",
 
   "item.tlotd.incomplete_copper_wire": "Incomplete Copper Wire",
   "item.tlotd.incomplete_integrated_circuit": "Incomplete Integrated Circuit",
@@ -504,6 +510,8 @@
   "item.tlotd.mithril_leggings": "Mithril Leggings",
   "item.tlotd.mithril_boots": "Mithril Boots",
 
+  "item.tlotd.mithril_horse_armor": "Mithril Horse Armor",
+
   "item.tlotd.narsil_handle": "Narsil Handle",
   "item.tlotd.anduril": "Andúril",
   "item.tlotd.anduril.tooltip": "The Flame of the West,",
@@ -526,8 +534,15 @@
   "item.tlotd.astral_shovel": "Astral Shovel",
   "item.tlotd.astral_hoe": "Astral Hoe",
   "item.tlotd.astral_sickle": "Astral Sickle",
-
   "item.tlotd.astral_forging_hammer": "Astral Forging Hammer",
+
+  "item.tlotd.daybreak_domain_fragments": "§6Daybreak Domain Fragments",
+  "item.tlotd.somber_blood_orbs": "§cSomber Blood Orbs",
+  "item.tlotd.otherworldly_whispers": "§4Otherworldly Whispers",
+
+  "item.tlotd.divine_pickaxe": "§6Divine Pickaxe",
+  "item.tlotd.cataclysmic_pickaxe": "§cCataclysmic Pickaxe",
+  "item.tlotd.eldritch_pickaxe": "§4Devourer of the Beyond",
 
   "item.tlotd.t-rex_spawn_egg": "T-Rex Spawn Egg",
   "item.tlotd.infected_t-rex_spawn_egg": "Infected T-Rex",
@@ -588,6 +603,10 @@
 
   "block.tlotd.skeleton": "Skeleton",
   "block.tlotd.emerging_skeleton": "Emerging Skeleton",
+
+  "block.tlotd.white_pumpkin": "White Pumpkin",
+  "block.tlotd.carved_white_pumpkin": "Carved White Pumpkin",
+  "block.tlotd.white_jack_o_lantern": "White Jack o'Lantern",
 
   "block.tlotd.effigies": "Effigies",
   "block.tlotd.effigies.tooltip": "May drip",
@@ -731,6 +750,8 @@
 
   "block.tlotd.nether_sulfur_ore": "Nether Sulfur Ore",
   "block.tlotd.sulfur_block": "Sulfur Block",
+  "block.tlotd.sulfur_torch": "Sulfur Torch",
+  "block.tlotd.sulfur_lantern": "Sulfur Lantern",
 
   "block.tlotd.lead_ore": "Lead Ore",
   "block.tlotd.raw_lead_block": "Raw Lead Block",
@@ -797,7 +818,9 @@
   "block.tlotd.cursed_carpet.tooltip_3": "jack a dull boy",
 
   "block.tlotd.rose": "Rose",
+  "block.tlotd.iris": "Iris",
   "block.tlotd.edelweiss": "Edelweiss",
+  "block.tlotd.athelas": "Athelas",
 
   "block.tlotd.glass_door": "Glass Door",
   "block.tlotd.glass_trapdoor": "Glass Trapdoor",
@@ -958,6 +981,7 @@
   "item.tlotd.sortingwood_bark": "Sortingwood Bark",
 
   "item.tlotd.flour": "Flour",
+  "item.tlotd.breadcrumbs": "Breadcrumbs",
   "item.tlotd.raw_schnitzel": "Raw Schnitzel",
   "item.tlotd.schnitzel": "Schnitzel",
 
@@ -973,6 +997,7 @@
   "item.tlotd.beer_goat_horn": "Beer Goat Horn",
 
   "item.tlotd.extraction.tooltip": "Extraction",
+  "item.tlotd.mouth_of_the_abyss.tooltip": "Mouth of the Abyss",
 
   "block.tlotd.artisan_table": "Artisan Table",
   "block.tlotd.archaeology_table": "Archaeology Table",

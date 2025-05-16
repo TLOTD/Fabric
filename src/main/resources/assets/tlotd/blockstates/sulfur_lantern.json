@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "hanging=false": {
+      "model": "tlotd:block/sulfur_lantern"
+    },
+    "hanging=true": {
+      "model": "tlotd:block/sulfur_lantern_hanging"
+    }
+  }
+}

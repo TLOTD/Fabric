@@ -25,7 +25,7 @@ public class AtmJamJarBlockItem extends BlockItem {
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
         if (context.isCreative()){
             Style style = this.getName().getStyle();
-            tooltip.add(Text.literal("\uE004 ").setStyle(style.withFont(MODS_FONT_ID)).append(Text.translatable("mod.allthemodium.name").setStyle(style.withFont(DEFAULT_FONT_ID).withFormatting(Formatting.GRAY))));
+            tooltip.add(Text.literal("\uE00B ").setStyle(style.withFont(MODS_FONT_ID)).append(Text.translatable("mod.allthemodium.name").setStyle(style.withFont(DEFAULT_FONT_ID).withFormatting(Formatting.GRAY))));
             super.appendTooltip(stack, world, tooltip, context);
         }
     }

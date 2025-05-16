@@ -11,7 +11,6 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.screen.NamedScreenHandlerFactory;
 import net.minecraft.state.StateManager;
-import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.IntProperty;
 import net.minecraft.text.Style;
 import net.minecraft.text.Text;
@@ -25,15 +24,15 @@ import net.tlotd.block.entity.WitchingTableBlockEntity;
 import net.tlotd.block.entity.ModBlockEntities;
 import net.tlotd.config.ModConfigs;
 import net.tlotd.item.ModItems;
-import net.tlotd.util.EnlightenedData;
-import net.tlotd.util.EntityDataSaver;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
 public class WitchingTableBlock extends BlockWithEntity implements BlockEntityProvider {
 
-    public static final IntProperty CHARGES = IntProperty.of("charges", 0, 3);
+    public static final IntProperty SOUL_CHARGES = IntProperty.of("soul_charges", 0, 3);
+    public static final IntProperty CURSED_SOUL_CHARGES = IntProperty.of("cursed_soul_charges", 0, 3);
+    public static final IntProperty ABYSSAL_SOUL_CHARGES = IntProperty.of("abyssal_soul_charges", 0, 3);
 
     public WitchingTableBlock(Settings settings) {
         super(settings);
@@ -76,7 +75,7 @@ public class WitchingTableBlock extends BlockWithEntity implements BlockEntityPr
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         if (!world.isClient) {
-            if (player.getStackInHand(hand).isOf(ModItems.SOUL_FLASK)) {
+            if (player.getStackInHand(hand).isOf(ModItems.SOUL_FLASK) || player.getStackInHand(hand).isOf(ModItems.CURSED_SOUL_FLASK) || player.getStackInHand(hand).isOf(ModItems.SOUL_FLASK_OF_THE_ABYSS)) {
                 return ActionResult.FAIL;
             }
             NamedScreenHandlerFactory screenHandlerFactory = ((WitchingTableBlockEntity) world.getBlockEntity(pos));
@@ -95,7 +94,7 @@ public class WitchingTableBlock extends BlockWithEntity implements BlockEntityPr
 
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        builder.add(CHARGES);
+        builder.add(SOUL_CHARGES, CURSED_SOUL_CHARGES, ABYSSAL_SOUL_CHARGES);
     }
 
     public static final Identifier ILLAGER_FONT_ID = new Identifier("minecraft", "illageralt");

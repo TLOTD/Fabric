@@ -38,6 +38,11 @@
   "effect.tlotd.irradiated": "§eVrschdrahld§r",
   "effect.tlotd.hypoxia": "Hypoxia",
 
+  "death.attack.radiation": "%1$s isch an Schtrahlekrankheit verschtorben",
+  "death.attack.radiation.player": "%1$s isch im Kampf mit %2$s an Schtrahlekrankheit verschtorben",
+  "death.attack.hypoxia": "%1$s isch erschtickt",
+  "death.attack.hypoxia.player": "%1$s isch im Kampf mit %2$s erschtickt",
+
   "entity.minecraft.villager.archaeologist": "Archaeologe",
   "entity.minecraft.villager.cultist": "Kultischt",
   "entity.minecraft.villager.engineer": "Technigr",
@@ -269,6 +274,7 @@
   "item.tlotd.integrated_circuit": "Integriertr Scheitkreis",
   "item.tlotd.cathode_ray_tube": "Kathodenschtrahlrehre",
   "item.tlotd.liquid_crystal_display_panel": "Flissigkrischtallazeigefeld",
+  "item.tlotd.holographic_projector": "Holografischr Projektor",
 
   "item.tlotd.incomplete_copper_wire": "Unvollendets Kupfrkabl",
   "item.tlotd.incomplete_integrated_circuit": "Unvollendetr Integriertr Scheitkreis",
@@ -494,6 +500,8 @@
   "item.tlotd.mithril_leggings": "Mithrilboischutz",
   "item.tlotd.mithril_boots": "Mithrilschtiefl",
 
+  "item.tlotd.mithril_horse_armor": "Mithrilrossrüschtung",
+
   "item.tlotd.narsil_handle": "Narsilgriff",
   "item.tlotd.anduril": "Andúril",
   "item.tlotd.anduril.tooltip": "Die Flamme s' Weschtens,",
@@ -516,8 +524,15 @@
   "item.tlotd.astral_shovel": "Aschtralschpatn",
   "item.tlotd.astral_hoe": "Aschtralhaggn",
   "item.tlotd.astral_sickle": "Aschtralsichl",
-
   "item.tlotd.astral_forging_hammer": "Aschtralschmiedehammr",
+
+  "item.tlotd.daybreak_domain_fragments": "§6Dämmerungsreichfragmente",
+  "item.tlotd.somber_blood_orbs": "§cDüstere Blutkugeln",
+  "item.tlotd.otherworldly_whispers": "§4Stimmen aus dem Jenseits",
+
+  "item.tlotd.divine_pickaxe": "§6Göttliche Spitzhacke",
+  "item.tlotd.cataclysmic_pickaxe": "§cKataklysmusspitzhacke",
+  "item.tlotd.eldritch_pickaxe": "§4Verschlinger des Jenseits",
 
   "item.tlotd.t-rex_spawn_egg": "Tireggs-Spawn-Oi",
   "item.tlotd.infected_t-rex_spawn_egg": "Infizierdr Tireggs",
@@ -576,6 +591,10 @@
 
   "block.tlotd.skeleton": "Skelett",
   "block.tlotd.emerging_skeleton": "Uffdaucheds Skelett",
+
+  "block.tlotd.white_pumpkin": "Weißr Kirbis",
+  "block.tlotd.carved_white_pumpkin": "Gschnitztr Weißr Kirbis",
+  "block.tlotd.white_jack_o_lantern": "Weiße Kirbislaterne",
 
   "block.tlotd.effigies": "Bildnisse",
   "block.tlotd.effigies.tooltip": "Kennd Bluad",
@@ -720,6 +739,8 @@
 
   "block.tlotd.nether_sulfur_ore": "Netherschwefelerz",
   "block.tlotd.sulfur_block": "Schweflblogg",
+  "block.tlotd.sulfur_torch": "Schweflfaggl",
+  "block.tlotd.sulfur_lantern": "Schwefllatern",
 
   "block.tlotd.lead_ore": "Bleierz",
   "block.tlotd.raw_lead_block": "Rohbleiblogg",
@@ -786,7 +807,9 @@
   "block.tlotd.cursed_carpet.tooltip_3": "Jack irre werda",
 
   "block.tlotd.rose": "Rosn",
+  "block.tlotd.iris": "Schwertlilie",
   "block.tlotd.edelweiss": "Edelweiss",
+  "block.tlotd.athelas": "Athelas",
 
   "block.tlotd.glass_door": "Glasdira",
   "block.tlotd.glass_trapdoor": "Glasfalldira",
@@ -947,6 +970,7 @@
   "item.tlotd.sortingwood_bark": "Sortierbaumrinde",
 
   "item.tlotd.flour": "Mehl",
+  "item.tlotd.breadcrumbs": "Brotkrumen",
   "item.tlotd.raw_schnitzel": "Rohs Schnitzl",
   "item.tlotd.schnitzel": "Schnitzl",
 
@@ -962,6 +986,7 @@
   "item.tlotd.beer_goat_horn": "Biabockshorn",
 
   "item.tlotd.extraction.tooltip": "Ausgrabung",
+  "item.tlotd.mouth_of_the_abyss.tooltip": "Schlund des Abgrunds",
 
   "block.tlotd.artisan_table": "Handwergerdisch",
   "block.tlotd.archaeology_table": "Archäologiedisch",

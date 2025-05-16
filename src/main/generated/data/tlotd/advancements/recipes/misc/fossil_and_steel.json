@@ -34,8 +34,8 @@
   },
   "requirements": [
     [
-      "has_fossilized_bone",
       "has_iron_ingot",
+      "has_fossilized_bone",
       "has_the_recipe"
     ]
   ],

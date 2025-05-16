@@ -41,6 +41,7 @@ public class ModItemGroups {
                         entries.add(ModItems.INTEGRATED_CIRCUIT);
                         entries.add(ModItems.CATHODE_RAY_TUBE);
                         entries.add(ModItems.LIQUID_CRYSTAL_DISPLAY_PANEL);
+                        entries.add(ModItems.HOLOGRAPHIC_PROJECTOR);
 
                         entries.add(ModItems.STEEL_INGREDIENTS);
                         entries.add(ModItems.STEEL_NUGGET);
@@ -102,6 +103,10 @@ public class ModItemGroups {
                         entries.add(ModItems.STAR_FRAGMENT);
                         entries.add(ModItems.LUNAR_CALLAINUS_LUMP);
 
+                        entries.add(ModItems.DAYBREAK_DOMAIN_FRAGMENTS);
+                        entries.add(ModItems.SOMBER_BLOOD_ORBS);
+                        entries.add(ModItems.OTHERWORLDLY_WHISPERS);
+
                         entries.add(ModItems.BLOOD_BOTTLE);
 
                         entries.add(ModItems.STICK_CROSS);
@@ -155,6 +160,7 @@ public class ModItemGroups {
                         entries.add(ModItems.COOKED_DINOSAUR_MEAT);
 
                         entries.add(ModItems.FLOUR);
+                        entries.add(ModItems.BREADCRUMBS);
                         entries.add(ModItems.RAW_SCHNITZEL);
                         entries.add(ModItems.SCHNITZEL);
 
@@ -364,6 +370,8 @@ public class ModItemGroups {
                         entries.add(ModItems.MITHRIL_LEGGINGS);
                         entries.add(ModItems.MITHRIL_BOOTS);
 
+                        entries.add(ModItems.MITHRIL_HORSE_ARMOR);
+
                         entries.add(ModItems.ASTRAL_SWORD);
                         entries.add(ModItems.ASTRAL_PICKAXE);
                         entries.add(ModItems.ASTRAL_AXE);
@@ -372,6 +380,10 @@ public class ModItemGroups {
 
                         entries.add(ModItems.ASTRAL_SICKLE);
                         entries.add(ModItems.ASTRAL_FORGING_HAMMER);
+
+                        entries.add(ModItems.DIVINE_PICKAXE);
+                        entries.add(ModItems.CATACLYSMIC_PICKAXE);
+                        entries.add(ModItems.ELDRITCH_PICKAXE);
 
                         entries.add(ModItems.NARSIL_HANDLE);
                         entries.add(ModItems.ANDURIL);
@@ -458,6 +470,10 @@ public class ModItemGroups {
                         entries.add(ModBlocks.XEN_CRYSTAL_CLUSTER);
                         entries.add(ModBlocks.XEN_CRYSTAL_BLOCK);
 
+                        entries.add(ModBlocks.WHITE_PUMPKIN);
+                        entries.add(ModBlocks.CARVED_WHITE_PUMPKIN);
+                        entries.add(ModBlocks.WHITE_JACK_O_LANTERN);
+
                         entries.add(ModBlocks.MOON_ROCK);
                         entries.add(ModBlocks.MOON_ROCK_COAL_ORE);
                         entries.add(ModBlocks.MOON_ROCK_IRON_ORE);
@@ -535,6 +551,8 @@ public class ModItemGroups {
 
                         entries.add(ModBlocks.NETHER_SULFUR_ORE);
                         entries.add(ModBlocks.SULFUR_BLOCK);
+                        entries.add(ModItems.SULFUR_TORCH);
+                        entries.add(ModBlocks.SULFUR_LANTERN);
 
                         entries.add(ModBlocks.LEAD_ORE);
                         entries.add(ModBlocks.RAW_LEAD_BLOCK);
@@ -580,7 +598,9 @@ public class ModItemGroups {
                         entries.add(ModBlocks.CURSED_CARPET);
 
                         entries.add(ModBlocks.ROSE);
+                        entries.add(ModBlocks.IRIS);
                         entries.add(ModBlocks.EDELWEISS);
+                        entries.add(ModBlocks.ATHELAS);
 
                         entries.add(ModBlocks.PRESENT);
                         entries.add(ModBlocks.FESTIVE_LIGHTS);

@@ -6,6 +6,7 @@ import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectCategory;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.nbt.NbtCompound;
+import net.tlotd.util.ModDamageTypes;
 import net.tlotd.util.ModTags;
 
 public class HypoxiaEffect extends StatusEffect {
@@ -26,8 +27,8 @@ public class HypoxiaEffect extends StatusEffect {
                     NbtCompound nbtData = new NbtCompound();
                     nbtData.putInt("tlotd:oxygen", player.getInventory().getArmorStack(2).getNbt().getInt("tlotd:oxygen")-1);
                     player.getInventory().getArmorStack(2).setNbt(nbtData);
-                } else entity.damage(entity.getDamageSources().magic(), 1.0F);
-            } else entity.damage(entity.getDamageSources().magic(), 1.0F);
+                } else entity.damage(ModDamageTypes.of(entity.getWorld(), ModDamageTypes.HYPOXIA), 1.0F);
+            } else entity.damage(ModDamageTypes.of(entity.getWorld(), ModDamageTypes.HYPOXIA), 1.0F);
         }
         super.applyUpdateEffect(entity, amplifier);
     }

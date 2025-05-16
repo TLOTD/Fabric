@@ -9,6 +9,7 @@ import net.minecraft.entity.effect.StatusEffectCategory;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.text.Text;
+import net.tlotd.util.ModDamageTypes;
 import net.tlotd.util.ModTags;
 
 public class IrradiatedEffect extends StatusEffect {
@@ -26,8 +27,8 @@ public class IrradiatedEffect extends StatusEffect {
                     player.getInventory().getArmorStack(0).damage(1,player,e -> e.sendEquipmentBreakStatus(EquipmentSlot.FEET));
                     player.getInventory().getArmorStack(1).damage(1,player,e -> e.sendEquipmentBreakStatus(EquipmentSlot.LEGS));
                     player.getInventory().getArmorStack(2).damage(1,player,e -> e.sendEquipmentBreakStatus(EquipmentSlot.CHEST));
-                } else entity.damage(entity.getDamageSources().magic(), 1.0F);
-            } else entity.damage(entity.getDamageSources().magic(), 1.0F);
+                } else entity.damage(ModDamageTypes.of(entity.getWorld(), ModDamageTypes.RADIATION), 1.0F);
+            } else entity.damage(ModDamageTypes.of(entity.getWorld(), ModDamageTypes.RADIATION), 1.0F);
         }
         super.applyUpdateEffect(entity, amplifier);
     }

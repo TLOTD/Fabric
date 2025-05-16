@@ -99,7 +99,9 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
 
         getOrCreateTagBuilder(ItemTags.SMALL_FLOWERS)
                 .add(ModBlocks.ROSE.asItem())
+                .add(ModBlocks.IRIS.asItem())
                 .add(ModBlocks.EDELWEISS.asItem())
+                .add(ModBlocks.ATHELAS.asItem())
         ;
 
         getOrCreateTagBuilder(ItemTags.BOATS)
@@ -150,6 +152,13 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
 
         getOrCreateTagBuilder(ItemTags.FOX_FOOD)
                 .add(ModItems.STRAWBERRY)
+        ;
+
+        getOrCreateTagBuilder(ItemTags.SMALL_FLOWERS)
+                .add(ModBlocks.ROSE.asItem())
+                .add(ModBlocks.IRIS.asItem())
+                .add(ModBlocks.ROSE.asItem())
+                .add(ModBlocks.ATHELAS.asItem())
         ;
 
         getOrCreateTagBuilder(ItemTags.CREEPER_DROP_MUSIC_DISCS)
@@ -207,6 +216,12 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
 
         getOrCreateTagBuilder(ModTags.Items.EXTRACTION_III_PICKAXES)
                 .add(ModItems.ASTRAL_PICKAXE)
+                .add(ModItems.DIVINE_PICKAXE)
+                .add(ModItems.CATACLYSMIC_PICKAXE)
+        ;
+
+        getOrCreateTagBuilder(ModTags.Items.MOUTH_OF_THE_ABYSS)
+                .add(ModItems.ELDRITCH_PICKAXE)
         ;
 
         getOrCreateTagBuilder(ModTags.Items.WOODEN_LIQUID_STEINS)

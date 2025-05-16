@@ -666,12 +666,16 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
         getOrCreateTagBuilder(BlockTags.SMALL_FLOWERS)
                 .add(ModBlocks.ROSE)
+                .add(ModBlocks.IRIS)
                 .add(ModBlocks.EDELWEISS)
+                .add(ModBlocks.ATHELAS)
         ;
 
         getOrCreateTagBuilder(BlockTags.FLOWER_POTS)
                 .add(ModBlocks.POTTED_ROSE)
+                .add(ModBlocks.POTTED_IRIS)
                 .add(ModBlocks.POTTED_EDELWEISS)
+                .add(ModBlocks.POTTED_ATHELAS)
                 .add(ModBlocks.POTTED_GINKGO_SAPLING)
         ;
 
@@ -730,6 +734,13 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
         getOrCreateTagBuilder(TagKey.of(RegistryKeys.BLOCK, new Identifier("c", "clusters")))
                 .add(ModBlocks.XEN_CRYSTAL_CLUSTER)
+        ;
+
+        getOrCreateTagBuilder(TagKey.of(RegistryKeys.BLOCK, new Identifier("c", "golem_heads")))
+                .add(Blocks.CARVED_PUMPKIN)
+                .add(Blocks.JACK_O_LANTERN)
+                .add(ModBlocks.CARVED_WHITE_PUMPKIN)
+                .add(ModBlocks.WHITE_JACK_O_LANTERN)
         ;
 
         getOrCreateTagBuilder(BlockTags.BEACON_BASE_BLOCKS)

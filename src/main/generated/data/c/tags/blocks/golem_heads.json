@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:carved_pumpkin",
+    "minecraft:jack_o_lantern",
+    "tlotd:carved_white_pumpkin",
+    "tlotd:white_jack_o_lantern"
+  ]
+}

@@ -1,0 +1,18 @@
+{
+	"fabric:load_conditions": [
+	  {
+		"condition": "fabric:all_mods_loaded",
+		"values": [
+		  "apotheosis"
+		]
+	  }
+	],
+	"block": "tlotd:goat_head",
+	"stats": {
+		"maxEterna": 10,
+		"eterna": 0.5,
+		"quanta": 7.5,
+		"arcana": -2.5,
+		"clues": 0
+	}
+}

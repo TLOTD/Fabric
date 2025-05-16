@@ -1,0 +1,18 @@
+{
+	"fabric:load_conditions": [
+	  {
+		"condition": "fabric:all_mods_loaded",
+		"values": [
+		  "apotheosis"
+		]
+	  }
+	],
+	"block": "tlotd:ouija_board",
+	"stats": {
+		"maxEterna": 20,
+		"eterna": 2.5,
+		"quanta": 10,
+		"arcana": 2.5,
+		"clues": 1
+	}
+}

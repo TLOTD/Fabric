@@ -134,6 +134,7 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.MITHRIL_BLOCK);
 
         blockStateModelGenerator.registerFlowerPotPlant(ModBlocks.ROSE, ModBlocks.POTTED_ROSE, BlockStateModelGenerator.TintType.NOT_TINTED);
+        blockStateModelGenerator.registerFlowerPotPlant(ModBlocks.IRIS, ModBlocks.POTTED_IRIS, BlockStateModelGenerator.TintType.NOT_TINTED);
         blockStateModelGenerator.registerFlowerPotPlant(ModBlocks.EDELWEISS, ModBlocks.POTTED_EDELWEISS, BlockStateModelGenerator.TintType.NOT_TINTED);
 
         blockStateModelGenerator.registerFlowerPotPlant(ModBlocks.GINKGO_SAPLING, ModBlocks.POTTED_GINKGO_SAPLING, BlockStateModelGenerator.TintType.NOT_TINTED);
@@ -351,6 +352,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.CIRCUIT_BOARD, Models.GENERATED);
         itemModelGenerator.register(ModItems.CATHODE_RAY_TUBE, Models.GENERATED);
         itemModelGenerator.register(ModItems.LIQUID_CRYSTAL_DISPLAY_PANEL, Models.GENERATED);
+        itemModelGenerator.register(ModItems.HOLOGRAPHIC_PROJECTOR, Models.GENERATED);
 
         itemModelGenerator.register(ModItems.RAW_LEAD, Models.GENERATED);
         itemModelGenerator.register(ModItems.LEAD_NUGGET, Models.GENERATED);
@@ -512,6 +514,8 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.registerArmor(((ArmorItem) ModItems.MITHRIL_LEGGINGS));
         itemModelGenerator.registerArmor(((ArmorItem) ModItems.MITHRIL_BOOTS));
 
+        itemModelGenerator.register(ModItems.MITHRIL_HORSE_ARMOR, Models.GENERATED);
+
         itemModelGenerator.register(ModItems.NARSIL_HANDLE, Models.HANDHELD);
 
         itemModelGenerator.register(ModItems.ASTRAL_NUGGET, Models.GENERATED);
@@ -522,10 +526,16 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.ASTRAL_AXE, Models.HANDHELD);
         itemModelGenerator.register(ModItems.ASTRAL_SHOVEL, Models.HANDHELD);
         itemModelGenerator.register(ModItems.ASTRAL_HOE, Models.HANDHELD);
-
         itemModelGenerator.register(ModItems.ASTRAL_SICKLE, Models.HANDHELD);
-
         itemModelGenerator.register(ModItems.ASTRAL_FORGING_HAMMER, Models.HANDHELD);
+
+        itemModelGenerator.register(ModItems.DAYBREAK_DOMAIN_FRAGMENTS, Models.GENERATED);
+        itemModelGenerator.register(ModItems.SOMBER_BLOOD_ORBS, Models.GENERATED);
+        itemModelGenerator.register(ModItems.OTHERWORLDLY_WHISPERS, Models.GENERATED);
+
+        itemModelGenerator.register(ModItems.DIVINE_PICKAXE, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.CATACLYSMIC_PICKAXE, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.ELDRITCH_PICKAXE, Models.HANDHELD);
 
         itemModelGenerator.register(ModItems.HANGING_GINKGO_SIGN, Models.GENERATED);
 
@@ -540,6 +550,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.COOKED_DINOSAUR_MEAT, Models.GENERATED);
 
         itemModelGenerator.register(ModItems.FLOUR, Models.GENERATED);
+        itemModelGenerator.register(ModItems.BREADCRUMBS, Models.GENERATED);
         itemModelGenerator.register(ModItems.RAW_SCHNITZEL, Models.GENERATED);
         itemModelGenerator.register(ModItems.SCHNITZEL, Models.GENERATED);
 

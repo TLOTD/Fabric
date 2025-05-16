@@ -24,7 +24,7 @@ public class AetherItem extends Item {
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
         if (context.isCreative()){
             Style style = this.getName().getStyle();
-            tooltip.add(Text.literal("\uE001 ").setStyle(style.withFont(MODS_FONT_ID)).append(Text.translatable("mod.aether.name").setStyle(style.withFont(DEFAULT_FONT_ID).withFormatting(Formatting.GRAY))));
+            tooltip.add(Text.literal("\uE008 ").setStyle(style.withFont(MODS_FONT_ID)).append(Text.translatable("mod.aether.name").setStyle(style.withFont(DEFAULT_FONT_ID).withFormatting(Formatting.GRAY))));
             super.appendTooltip(stack, world, tooltip, context);
         }
     }

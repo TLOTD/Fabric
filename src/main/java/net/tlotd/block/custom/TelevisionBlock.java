@@ -76,7 +76,6 @@ public class TelevisionBlock extends Block {
 
     public TelevisionBlock(Settings settings) {
         super(settings);
-        this.setDefaultState(this.stateManager.getDefaultState().with(FACING, Direction.NORTH).with(WATERLOGGED, false).with(CHANNEL,0));
     }
 
     public static final VoxelShape Z_SHAPE = Block.createCuboidShape(3, 0, 0, 13, 12, 16);

@@ -6,7 +6,7 @@
       "item": "tlotd:tinted_glass_flask"
     },
     {
-      "item": "minecraft:soul_sand"
+      "tag": "minecraft:soul_fire_base_blocks"
     }
   ],
   "result": {

@@ -1,0 +1,6 @@
+{
+    "parent": "tlotd:block/template_witching_table",
+    "textures": {
+        "side": "tlotd:block/witching_table_side_0_1_2"
+    }
+}

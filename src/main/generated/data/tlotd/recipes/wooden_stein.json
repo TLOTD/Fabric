@@ -16,6 +16,7 @@
     "###"
   ],
   "result": {
+    "count": 4,
     "item": "tlotd:wooden_stein"
   },
   "show_notification": true

@@ -83,6 +83,8 @@ public class ExtractionPickaxeItem extends PickaxeItem {
                     extraction_damage = damage*10;
                 } else if (context.getStack().isIn(ModTags.Items.EXTRACTION_III_PICKAXES)) {
                     extraction_damage = damage;
+                } else if (context.getStack().isIn(ModTags.Items.MOUTH_OF_THE_ABYSS)) {
+                    extraction_damage = 0;
                 }
                 context.getStack().damage(extraction_damage, player, playerEntity -> playerEntity.sendToolBreakStatus(playerEntity.getActiveHand()));
                 if (player instanceof ServerPlayerEntity serverPlayerEntity) {
@@ -96,10 +98,12 @@ public class ExtractionPickaxeItem extends PickaxeItem {
     }
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        if (stack.isOf(ModItems.ASTRAL_PICKAXE)) {
+        if (stack.isOf(ModItems.ASTRAL_PICKAXE) || stack.isOf(ModItems.DIVINE_PICKAXE) || stack.isOf(ModItems.CATACLYSMIC_PICKAXE) || stack.isOf(ModItems.ELDRITCH_PICKAXE)) {
             tooltip.add(Text.translatable("item.unbreakable").formatted(Formatting.GOLD));
         }
-        if (stack.isIn(ModTags.Items.EXTRACTION_III_PICKAXES)) {
+        if (stack.isIn(ModTags.Items.MOUTH_OF_THE_ABYSS)) {
+            tooltip.add(Text.translatable("item.tlotd.mouth_of_the_abyss.tooltip").formatted(Formatting.GRAY));
+        } else if (stack.isIn(ModTags.Items.EXTRACTION_III_PICKAXES)) {
             tooltip.add(Text.translatable("item.tlotd.extraction.tooltip").append(Text.literal(" ").append(Text.translatable("enchantment.level.3"))).formatted(Formatting.GRAY));
         } else if (stack.isIn(ModTags.Items.EXTRACTION_II_PICKAXES)) {
             tooltip.add(Text.translatable("item.tlotd.extraction.tooltip").append(Text.literal(" ").append(Text.translatable("enchantment.level.2"))).formatted(Formatting.GRAY));

@@ -1,0 +1,20 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "thermal"
+      ]
+    }
+  ],
+  "type": "thermal:insolator",
+  "ingredient": {
+    "item": "tlotd:iris"
+  },
+  "result": [
+    {
+      "item": "tlotd:iris",
+      "chance": 2.0
+    }
+  ]
+}

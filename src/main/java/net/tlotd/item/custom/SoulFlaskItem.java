@@ -15,12 +15,10 @@ import net.minecraft.util.math.BlockPos;
 import net.tlotd.block.ModBlocks;
 import net.tlotd.item.ModItems;
 
-import static net.tlotd.block.custom.WitchingTableBlock.CHARGES;
+import static net.tlotd.block.custom.WitchingTableBlock.*;
 
 public class SoulFlaskItem extends Item {
-    public SoulFlaskItem(Settings settings) {
-        super(settings);
-    }
+    public SoulFlaskItem(Settings settings) { super(settings); }
 
     @Override
     public ActionResult useOnBlock(ItemUsageContext context) {
@@ -29,9 +27,9 @@ public class SoulFlaskItem extends Item {
             BlockPos positionClicked = context.getBlockPos();
             PlayerEntity player = context.getPlayer();
             BlockState block = context.getWorld().getBlockState(positionClicked);
-            if (block.isOf(ModBlocks.WITCHING_TABLE) && block.get(CHARGES)<3) {
-                int charges = block.get(CHARGES);
-                context.getWorld().setBlockState(positionClicked, block.with(CHARGES, charges+1), 2);
+            if (block.isOf(ModBlocks.WITCHING_TABLE) && (block.get(SOUL_CHARGES)+block.get(CURSED_SOUL_CHARGES)+block.get(ABYSSAL_SOUL_CHARGES))<3) {
+                int charges = block.get(SOUL_CHARGES);
+                context.getWorld().setBlockState(positionClicked, block.with(SOUL_CHARGES, charges+1), 2);
                 context.getWorld().playSound(null, positionClicked, SoundEvents.BLOCK_RESPAWN_ANCHOR_CHARGE, SoundCategory.BLOCKS, 1.0f, 1.0f);
                 if (player instanceof ServerPlayerEntity serverPlayerEntity) {
                     Criteria.CONSUME_ITEM.trigger(serverPlayerEntity, context.getStack());

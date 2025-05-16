@@ -14,6 +14,7 @@ import net.minecraft.data.family.BlockFamily;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
+import net.minecraft.particle.ParticleTypes;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.sound.BlockSoundGroup;
@@ -29,6 +30,18 @@ import net.tlotd.item.custom.*;
 import net.tlotd.world.tree.GinkgoSaplingGenerator;
 
 public class ModBlocks {
+
+    public static final Block WHITE_PUMPKIN = registerBlock("white_pumpkin",
+            new WhitePumkinBlock(FabricBlockSettings.create().mapColor(MapColor.WHITE).instrument(Instrument.DIDGERIDOO).strength(1f, 1f).sounds(BlockSoundGroup.WOOD).pistonBehavior(PistonBehavior.DESTROY)));
+    public static final Block CARVED_WHITE_PUMPKIN = registerBlock("carved_white_pumpkin",
+            new WearableCarvedPumpkinBlock(FabricBlockSettings.create().mapColor(MapColor.WHITE).strength(1f, 1f).sounds(BlockSoundGroup.WOOD).allowsSpawning(Blocks::always).pistonBehavior(PistonBehavior.DESTROY)));
+    public static final Block WHITE_JACK_O_LANTERN = registerBlock("white_jack_o_lantern",
+            new CarvedPumpkinBlock(FabricBlockSettings.create().mapColor(MapColor.WHITE).strength(1f, 1f).sounds(BlockSoundGroup.WOOD).luminance(14).allowsSpawning(Blocks::always).pistonBehavior(PistonBehavior.DESTROY)));
+
+    public static final Block SULFUR_TORCH = registerBlockWithoutItem("sulfur_torch", new TorchBlock(FabricBlockSettings.create().noCollision().breakInstantly().luminance(13).sounds(BlockSoundGroup.WOOD).pistonBehavior(PistonBehavior.DESTROY), ParticleTypes.SOUL_FIRE_FLAME));
+    public static final Block SULFUR_WALL_TORCH = registerBlockWithoutItem("sulfur_wall_torch", new WallTorchBlock(FabricBlockSettings.create().noCollision().breakInstantly().luminance(13).sounds(BlockSoundGroup.WOOD).pistonBehavior(PistonBehavior.DESTROY), ParticleTypes.SOUL_FIRE_FLAME));
+
+    public static final Block SULFUR_LANTERN = registerBlock("sulfur_lantern", new LanternBlock(FabricBlockSettings.create().mapColor(MapColor.IRON_GRAY).solid().requiresTool().strength(3.5F).sounds(BlockSoundGroup.LANTERN).luminance(14).nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
 
     public static final Block PRESERVES_JAR = registerSmallStackableBlock("preserves_jar",
             new PreservesJarBlock(FabricBlockSettings.create().mapColor(MapColor.WHITE).strength(0.3f, 0.3f).sounds(BlockSoundGroup.GLASS).nonOpaque()));
@@ -415,14 +428,24 @@ public class ModBlocks {
             new TRexHeadBlock(FabricBlockSettings.create().mapColor(MapColor.BROWN).strength(1.0F, 1.0F).nonOpaque()));
 
     public static final Block ROSE = registerBlock("rose",
-            new FlowerBlock(StatusEffects.REGENERATION, 10, FabricBlockSettings.create().breakInstantly().nonOpaque().sounds(BlockSoundGroup.GRASS).noCollision().pistonBehavior(PistonBehavior.DESTROY)));
+            new ModFlowerBlock(StatusEffects.INSTANT_HEALTH, 10, FabricBlockSettings.create().breakInstantly().nonOpaque().sounds(BlockSoundGroup.GRASS).noCollision().pistonBehavior(PistonBehavior.DESTROY)));
     public static final Block POTTED_ROSE = Registry.register(Registries.BLOCK, new Identifier(TLOTD.MOD_ID, "potted_rose"),
             new FlowerPotBlock(ROSE, FabricBlockSettings.create().breakInstantly().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
 
+    public static final Block IRIS = registerBlock("iris",
+            new ModFlowerBlock(StatusEffects.POISON, 10, FabricBlockSettings.create().breakInstantly().nonOpaque().sounds(BlockSoundGroup.GRASS).noCollision().pistonBehavior(PistonBehavior.DESTROY)));
+    public static final Block POTTED_IRIS = Registry.register(Registries.BLOCK, new Identifier(TLOTD.MOD_ID, "potted_iris"),
+            new FlowerPotBlock(IRIS, FabricBlockSettings.create().breakInstantly().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
+
     public static final Block EDELWEISS = registerBlock("edelweiss",
-            new FlowerBlock(StatusEffects.REGENERATION, 10, FabricBlockSettings.create().breakInstantly().nonOpaque().sounds(BlockSoundGroup.GRASS).noCollision().pistonBehavior(PistonBehavior.DESTROY)));
+            new ModFlowerBlock(StatusEffects.JUMP_BOOST, 10, FabricBlockSettings.create().breakInstantly().nonOpaque().sounds(BlockSoundGroup.GRASS).noCollision().pistonBehavior(PistonBehavior.DESTROY)));
     public static final Block POTTED_EDELWEISS = Registry.register(Registries.BLOCK, new Identifier(TLOTD.MOD_ID, "potted_edelweiss"),
             new FlowerPotBlock(EDELWEISS, FabricBlockSettings.create().breakInstantly().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
+
+    public static final Block ATHELAS = registerBlock("athelas",
+            new ModFlowerBlock(StatusEffects.REGENERATION, 10, FabricBlockSettings.create().breakInstantly().nonOpaque().sounds(BlockSoundGroup.GRASS).noCollision().pistonBehavior(PistonBehavior.DESTROY)));
+    public static final Block POTTED_ATHELAS = Registry.register(Registries.BLOCK, new Identifier(TLOTD.MOD_ID, "potted_athelas"),
+            new FlowerPotBlock(ATHELAS, FabricBlockSettings.create().breakInstantly().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
 
     public static final Block GINKGO_SAPLING = registerBlock("ginkgo_sapling",
             new SaplingBlock(new GinkgoSaplingGenerator(), FabricBlockSettings.create().mapColor(MapColor.PALE_GREEN).noCollision().strength(0F, 0F).sounds(BlockSoundGroup.GRASS).nonOpaque().ticksRandomly().pistonBehavior(PistonBehavior.DESTROY)));

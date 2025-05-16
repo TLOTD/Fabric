@@ -1,0 +1,18 @@
+{
+	"fabric:load_conditions": [
+	  {
+		"condition": "fabric:all_mods_loaded",
+		"values": [
+		  "apotheosis"
+		]
+	  }
+	],
+	"block": "tlotd:bedrock_mithril_ore",
+	"stats": {
+		"maxEterna": 40,
+		"eterna": 5,
+		"quanta": 0,
+		"arcana": 3,
+		"clues": 0
+	}
+}

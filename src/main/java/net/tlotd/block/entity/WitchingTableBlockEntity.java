@@ -22,15 +22,12 @@ import net.minecraft.network.PacketByteBuf;
 import net.minecraft.network.listener.ClientPlayPacketListener;
 import net.minecraft.network.packet.Packet;
 import net.minecraft.network.packet.s2c.play.BlockEntityUpdateS2CPacket;
-import net.minecraft.particle.ParticleEffect;
-import net.minecraft.particle.ParticleTypes;
 import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
 import net.minecraft.util.collection.DefaultedList;
@@ -43,7 +40,6 @@ import net.tlotd.gui.WitchingTableGUIHandler;
 import net.tlotd.item.ModItems;
 import net.tlotd.networking.ModMessages;
 import net.tlotd.recipe.WitchingRecipe;
-import net.tlotd.util.FluidStack;
 import net.tlotd.util.ModTags;
 import org.jetbrains.annotations.Nullable;
 
@@ -51,7 +47,7 @@ import java.util.Optional;
 
 import static net.minecraft.block.CandleBlock.LIT;
 import static net.tlotd.block.custom.RitualisticCircleBlock.STATE;
-import static net.tlotd.block.custom.WitchingTableBlock.CHARGES;
+import static net.tlotd.block.custom.WitchingTableBlock.*;
 
 public class WitchingTableBlockEntity extends BlockEntity implements ExtendedScreenHandlerFactory, ImplementedInventory {
 
@@ -201,7 +197,7 @@ public class WitchingTableBlockEntity extends BlockEntity implements ExtendedScr
         }
 
         if (isOutputSlotEmptyOrReceivable()) {
-            if (hasRecipe() && (!ModConfigs.WITCHING_TABLE_NEEDS_BLOOD || hasEnoughFluid()) && (!ModConfigs.WITCHING_TABLE_NEEDS_SOULS || state.get(CHARGES) > 0)) {
+            if (hasRecipe() && (!ModConfigs.WITCHING_TABLE_NEEDS_BLOOD || hasEnoughFluid()) && (!ModConfigs.WITCHING_TABLE_NEEDS_SOULS || (state.get(SOUL_CHARGES)+state.get(CURSED_SOUL_CHARGES)+state.get(ABYSSAL_SOUL_CHARGES)) > 0)) {
                 increaseCraftProgress();
                 markDirty(world, pos, state);
                 if (hasCraftingFinished()) {
@@ -210,9 +206,9 @@ public class WitchingTableBlockEntity extends BlockEntity implements ExtendedScr
                         extractFluid();
                     }
                     if (ModConfigs.WITCHING_TABLE_NEEDS_SOULS) {
-                        world.setBlockState(pos,state.with(CHARGES, state.get(CHARGES)-1));
+                        consumeSoul(world,pos,state);
                     }
-                    if (WitchingTableBase()){
+                    if (witchingTableBase()){
                         world.setBlockState(pos.add(-1,-1,-1), ModBlocks.RITUALISTIC_FANCY_CHARRED_PLANKS.getDefaultState().with(STATE,0));
                         world.setBlockState(pos.add(0,-1,-1), ModBlocks.RITUALISTIC_FANCY_CHARRED_PLANKS.getDefaultState().with(STATE,1));
                         world.setBlockState(pos.add(1,-1,-1), ModBlocks.RITUALISTIC_FANCY_CHARRED_PLANKS.getDefaultState().with(STATE,2));
@@ -222,7 +218,7 @@ public class WitchingTableBlockEntity extends BlockEntity implements ExtendedScr
                         world.setBlockState(pos.add(-1,-1,1), ModBlocks.RITUALISTIC_FANCY_CHARRED_PLANKS.getDefaultState().with(STATE,6));
                         world.setBlockState(pos.add(0,-1,1), ModBlocks.RITUALISTIC_FANCY_CHARRED_PLANKS.getDefaultState().with(STATE,7));
                         world.setBlockState(pos.add(1,-1,1), ModBlocks.RITUALISTIC_FANCY_CHARRED_PLANKS.getDefaultState().with(STATE,8));
-                        if (Candles()) {
+                        if (candles()) {
                             world.setBlockState(pos.add(-1,0,-1), world.getBlockState(pos.add(-1,0,-1)).with(LIT,false));
                             world.setBlockState(pos.add(1,0,-1), world.getBlockState(pos.add(1,0,-1)).with(LIT,false));
                             world.setBlockState(pos.add(-1,0,1), world.getBlockState(pos.add(-1,0,1)).with(LIT,false));
@@ -240,7 +236,7 @@ public class WitchingTableBlockEntity extends BlockEntity implements ExtendedScr
             markDirty(world, pos, state);
         }
 
-        if(SpaceForFluid()) {
+        if(spaceForFluid()) {
             if(hasFluidBottleInSlot()) {
                 transferFluidBottleToStorage();
                 sendFluidPacket();
@@ -250,44 +246,50 @@ public class WitchingTableBlockEntity extends BlockEntity implements ExtendedScr
             }
         }
 
-        if(CanBottleOrBucketBeFilled()) {
-            if(CanBucketBeFilled()) {
+        if(canBottleOrBucketBeFilled()) {
+            if(canBucketBeFilled()) {
                 fillBucket();
                 sendFluidPacket();
-            } else if (CanBottleBeFilled()) {
+            } else if (canBottleBeFilled()) {
                 fillBottle();
                 sendFluidPacket();
             }
         }
     }
 
-    private boolean WitchingTableBase() {
+    private void consumeSoul(World world, BlockPos pos, BlockState state) {
+        if (state.get(SOUL_CHARGES) > 0) { world.setBlockState(pos,state.with(SOUL_CHARGES, state.get(SOUL_CHARGES)-1));}
+        else if (state.get(CURSED_SOUL_CHARGES) > 0) { world.setBlockState(pos,state.with(CURSED_SOUL_CHARGES, state.get(CURSED_SOUL_CHARGES)-1));}
+        else { world.setBlockState(pos,state.with(ABYSSAL_SOUL_CHARGES, state.get(ABYSSAL_SOUL_CHARGES)-1));}
+    }
+
+    private boolean witchingTableBase() {
         return (world.getBlockState(pos.add(-1,-1,-1)).isIn(ModTags.Blocks.WITCHING_TABLE_BASE_BLOCKS) && world.getBlockState(pos.add(0,-1,-1)).isIn(ModTags.Blocks.WITCHING_TABLE_BASE_BLOCKS) && world.getBlockState(pos.add(1,-1,-1)).isIn(ModTags.Blocks.WITCHING_TABLE_BASE_BLOCKS)
         && world.getBlockState(pos.add(-1,-1,0)).isIn(ModTags.Blocks.WITCHING_TABLE_BASE_BLOCKS) && world.getBlockState(pos.add(0,-1,0)).isIn(ModTags.Blocks.WITCHING_TABLE_BASE_BLOCKS) && world.getBlockState(pos.add(1,-1,0)).isIn(ModTags.Blocks.WITCHING_TABLE_BASE_BLOCKS)
         && world.getBlockState(pos.add(-1,-1,1)).isIn(ModTags.Blocks.WITCHING_TABLE_BASE_BLOCKS) && world.getBlockState(pos.add(0,-1,1)).isIn(ModTags.Blocks.WITCHING_TABLE_BASE_BLOCKS) && world.getBlockState(pos.add(1,-1,1)).isIn(ModTags.Blocks.WITCHING_TABLE_BASE_BLOCKS));
     }
 
-    private boolean Candles() {
+    private boolean candles() {
         return (world.getBlockState(pos.add(-1,0,-1)).isIn(BlockTags.CANDLES) && world.getBlockState(pos.add(1,0,-1)).isIn(BlockTags.CANDLES) && world.getBlockState(pos.add(-1,0,1)).isIn(BlockTags.CANDLES) && world.getBlockState(pos.add(1,0,1)).isIn(BlockTags.CANDLES) &&
         world.getBlockState(pos.add(-1,0,-1)).get(LIT) && world.getBlockState(pos.add(1,0,-1)).get(LIT) && world.getBlockState(pos.add(-1,0,1)).get(LIT) && world.getBlockState(pos.add(1,0,1)).get(LIT));
     }
 
-    private boolean SpaceForFluid() {
+    private boolean spaceForFluid() {
         return this.fluidStorage.amount <= FluidConstants.BUCKET * 7;
     }
 
-    private boolean CanBottleOrBucketBeFilled() {
+    private boolean canBottleOrBucketBeFilled() {
         return (this.fluidStorage.amount >= FluidConstants.BOTTLE && this.getStack(10).getCount() == 1 &&
                 (this.getStack(10).getItem() == Items.GLASS_BOTTLE || this.getStack(10).getItem() == Items.BUCKET));
     }
 
-    private boolean CanBucketBeFilled() {
+    private boolean canBucketBeFilled() {
         return (this.fluidStorage.amount >= FluidConstants.BUCKET &&
                 this.getStack(10).getItem() == Items.BUCKET &&
                 this.getStack(10).getCount() == 1);
     }
 
-    private boolean CanBottleBeFilled() {
+    private boolean canBottleBeFilled() {
         return (this.fluidStorage.amount >= FluidConstants.BOTTLE &&
                 this.getStack(10).getItem() == Items.GLASS_BOTTLE &&
                 this.getStack(10).getCount() == 1);

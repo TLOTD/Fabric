@@ -34,6 +34,13 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.FRAMED_GLASS_TILED);
         addDrop(ModBlocks.FRAMED_GLASS_TILED_PANE);
 
+        addDrop(ModBlocks.WHITE_PUMPKIN);
+        addDrop(ModBlocks.CARVED_WHITE_PUMPKIN);
+        addDrop(ModBlocks.WHITE_JACK_O_LANTERN);
+
+        addDrop(ModBlocks.SULFUR_TORCH, drops(ModItems.SULFUR_TORCH));
+        addDrop(ModBlocks.SULFUR_WALL_TORCH, drops(ModItems.SULFUR_TORCH));
+
         addDrop(ModBlocks.BW_STICKER);
         addDrop(ModBlocks.TLOTD_STICKER);
 
@@ -220,8 +227,12 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
 
         addDrop(ModBlocks.ROSE);
         addPottedPlantDrops(ModBlocks.POTTED_ROSE);
+        addDrop(ModBlocks.IRIS);
+        addPottedPlantDrops(ModBlocks.POTTED_IRIS);
         addDrop(ModBlocks.EDELWEISS);
         addPottedPlantDrops(ModBlocks.POTTED_EDELWEISS);
+        addDrop(ModBlocks.ATHELAS);
+        addPottedPlantDrops(ModBlocks.POTTED_ATHELAS);
 
         addDrop(ModBlocks.GLASS_TRAPDOOR);
         addDrop(ModBlocks.GLASS_DOOR, doorDrops(ModBlocks.GLASS_DOOR));

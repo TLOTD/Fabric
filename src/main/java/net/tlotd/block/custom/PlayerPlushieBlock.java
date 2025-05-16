@@ -35,7 +35,7 @@ public class PlayerPlushieBlock extends HumanPlushieBlock {
                 case "212aa6f5-69a9-47d9-9ad5-19b359744edf" -> skin = 1;
                 case "67148bd0-1a00-4bca-9d9e-ec246afbcf51" -> skin = 2;
                 case "53c68d22-726b-4a37-b92d-8d7c4670a87d" -> skin = 3;
-                case "660605b0-a3ac-404c-8f85-039cfddf36de" -> {if (ModConfigs.FORMER_TLOTD_REWARDS) {skin = 4;}}
+                case "660605b0-a3ac-404c-8f85-039cfddf36de" -> {if (ModConfigs.FORMER_TLOTD_REWARDS) {skin = 4;}} //AliaSophie
                 case "0b026440-781b-40c3-bfee-78a2ee71f042" -> {if (ModConfigs.FORMER_TLOTD_REWARDS) {skin = 5;}} //Teneba
                 case "d9ffb72a-f473-4ebc-936f-6f7d5d694145" -> skin = 6;
                 case "ebcc701d-5e03-4e57-9279-1dd595f6a4d4" -> {if (ModConfigs.FORMER_TLOTD_REWARDS) {skin = 7;}} //ISSO_21_
@@ -97,8 +97,8 @@ public class PlayerPlushieBlock extends HumanPlushieBlock {
             tooltip.add(Text.literal("\uE000").setStyle(style.withFont(PLAYERS_FONT_ID)).append(Text.literal(" TLOTD").setStyle(style.withFont(DEFAULT_FONT_ID))));
             tooltip.add(Text.literal("\uE001").setStyle(style.withFont(PLAYERS_FONT_ID)).append(Text.literal(" Isla_Nublar").setStyle(style.withFont(DEFAULT_FONT_ID))));
             tooltip.add(Text.literal("\uE002").setStyle(style.withFont(PLAYERS_FONT_ID)).append(Text.literal(" EinsDarki").setStyle(style.withFont(DEFAULT_FONT_ID))));
-            tooltip.add(Text.literal("\uE003").setStyle(style.withFont(PLAYERS_FONT_ID)).append(Text.literal(" AliaSophie").setStyle(style.withFont(DEFAULT_FONT_ID))));
             if (ModConfigs.FORMER_TLOTD_REWARDS) {
+                tooltip.add(Text.literal("\uE003").setStyle(style.withFont(PLAYERS_FONT_ID)).append(Text.literal(" AliaSophie").setStyle(style.withFont(DEFAULT_FONT_ID))));
                 tooltip.add(Text.literal("\uE004").setStyle(style.withFont(PLAYERS_FONT_ID)).append(Text.literal(" Teneba").setStyle(style.withFont(DEFAULT_FONT_ID))));
             }
             tooltip.add(Text.literal("\uE005").setStyle(style.withFont(PLAYERS_FONT_ID)).append(Text.literal(" Alex1666").setStyle(style.withFont(DEFAULT_FONT_ID))));

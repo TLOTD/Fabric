@@ -30,6 +30,7 @@ import net.tlotd.util.ModTags;
 import net.tlotd.util.ModTrades;
 import net.tlotd.villager.ModVillagers;
 import net.tlotd.world.gen.ModWorldGeneration;
+import net.tlotd.world.village.ModVillageAdditions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -112,21 +113,25 @@ public class TLOTD implements ModInitializer {
 		ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModItems.MINEWOOD_BARK, 0.3f);
 		ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModItems.SORTINGWOOD_BARK, 0.3f);
 
-		ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModBlocks.GINKGO_LEAVES, 0.3f);
-		ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModBlocks.GINKGO_SAPLING, 0.3f);
+		ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModBlocks.GINKGO_LEAVES.asItem(), 0.3f);
+		ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModBlocks.GINKGO_SAPLING.asItem(), 0.3f);
 
 		ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModItems.STRAWBERRY, 0.5f);
 		ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModItems.ORANGE, 0.5f);
 
 		ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModItems.MISTLETOE, 0.65f);
 
-		ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModBlocks.ROSE, 0.65f);
-		ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModBlocks.EDELWEISS, 0.65f);
+		ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModBlocks.ROSE.asItem(), 0.65f);
+		ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModBlocks.IRIS.asItem(), 0.65f);
+		ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModBlocks.EDELWEISS.asItem(), 0.65f);
+		ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModBlocks.ATHELAS.asItem(), 0.65f);
 		ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModItems.EDELWEISS_PETALS, 0.65f);
+		ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModBlocks.WHITE_PUMPKIN.asItem(), 0.65f);
+		ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModBlocks.CARVED_WHITE_PUMPKIN.asItem(), 0.65f);
 
 		ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModItems.CHOCOLATE_STRAWBERRY, 0.85f);
-		ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModBlocks.STRAWBERRY_CAKE, 1f);
-		ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModBlocks.ORANGE_CAKE, 1f);
+		ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModBlocks.STRAWBERRY_CAKE.asItem(), 1f);
+		ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModBlocks.ORANGE_CAKE.asItem(), 1f);
 
 		StrippableBlockRegistry.register(ModBlocks.GINKGO_LOG, ModBlocks.STRIPPED_GINKGO_LOG);
 		StrippableBlockRegistry.register(ModBlocks.GINKGO_WOOD, ModBlocks.STRIPPED_GINKGO_WOOD);
@@ -142,6 +147,9 @@ public class TLOTD implements ModInitializer {
 
 		FabricDefaultAttributeRegistry.register(ModEntities.TREX, TRexEntity.createTRexAttributes());
 		FabricDefaultAttributeRegistry.register(ModEntities.INFECTED_TREX, InfectedTRexEntity.createInfectedTRexAttributes());
+
+		ModVillageAdditions.registerNewVillageStructures();
+
 		ModWorldGeneration.generateModWorldGen();
 
 		CustomPortalBuilder.beginPortal()
