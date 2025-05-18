@@ -1,9 +1,8 @@
-// 1.20.1	2025-04-13T16:02:59.1368633	TLOTD/Tags for minecraft:item
-2fe38d93a2882ca9fad98cc3a53f007392f03b6f data\tlotd\tags\items\wooden_bark.json
-ad509b20d0aad5c15ec43e523770f9e3ee16d7c8 data\minecraft\tags\items\coals.json
+// 1.20.1	2025-05-18T21:56:49.4209873	TLOTD/Tags for minecraft:item
+f0ede8599432b0c872f8763c56d1bbe4a38d00dd data\tlotd\tags\items\wooden_bark.json
 b1eb9ea2b24d0caa6ac9a228a5fa56ed4ed3f691 data\minecraft\tags\items\boats.json
-dfa81b9b31bdeff01ee896846ee0decdb3bb8fc2 data\c\tags\items\palladium_ores.json
-9646de19f4fcb1b1b981af58227f44a75977a4a8 data\c\tags\items\cinnabar_ores.json
+feb0d508187f59ff4a142035f8e962baf0fda1f4 data\c\tags\items\palladium_ores.json
+394763adb049569e2ef3abdfb5c1818cf8e94cb4 data\c\tags\items\cinnabar_ores.json
 00c07511481d6c873145a351473dd5211e03bd3d data\tlotd\tags\items\raw_meat.json
 f593f3f492babea36ae9fe97807dd4c0d1443bc6 data\minecraft\tags\items\beacon_payment_items.json
 95bca9fa33e28b23f37a4dec9c25756f8ca33fb4 data\tlotd\tags\items\stick_effigies.json
@@ -15,6 +14,7 @@ ada78d00eb6cf659408535f8aae829f8824cd23d data\c\tags\items\pickaxes.json
 32e0b52e5e58790e8d9e5d2afc8ccacf16a6eb9b data\tlotd\tags\items\music_discs.json
 55ac21b38bfd92763d48816e8cb78096c1634bf0 data\minecraft\tags\items\saplings.json
 1d2285dd802acf44e3c08d6f34ff697813442c64 data\c\tags\items\axes.json
+02fc039e97287a30c1ea3fe8dfc0ef0478bb319c data\c\tags\items\raw_uranium.json
 3285b47465a2cd3feb438afb3185258e7f188b8a data\c\tags\items\shears.json
 e79a9df823a446e76d1e7c3506c382d20f0a0b70 data\c\tags\items\copper_ores.json
 c4d72bb7e5a0ba373cc501039f47b61377cd781c data\c\tags\items\lead_blocks.json
@@ -22,8 +22,9 @@ ac9428b9abf9d5e9cd5fcd568f48366d1c70da7b data\c\tags\items\gold_ores.json
 cc4765bb77f2ac676be6f7e63cd4f5d9cd28e560 data\c\tags\items\milks.json
 5a97b9283e132810d736c252fadbb2ce6d84514d data\c\tags\items\steel_blocks.json
 de22676a8696eda167c0df83521ff3ce0b276a3e data\c\tags\items\oil_buckets.json
-83e5533c5dffcc2de2f4085dd9e2670f7b693caa data\tlotd\tags\items\radiation_protection.json
+8f111ed07cb3b439f022efaa8889a110150f2b27 data\tlotd\tags\items\radiation_protection.json
 f8755b6cc51081032e066b70de3af24303536b28 data\c\tags\items\emerald_ores.json
+ad509b20d0aad5c15ec43e523770f9e3ee16d7c8 data\c\tags\items\sulfur_dusts.json
 32e0b52e5e58790e8d9e5d2afc8ccacf16a6eb9b data\minecraft\tags\items\music_discs.json
 4a09641a0e5aa43ca093fa51dfd1bc3d4c710e14 data\c\tags\items\lead_nuggets.json
 363454af66ab7ef45fe440676e94c86f13ce1df2 data\minecraft\tags\items\wooden_pressure_plates.json
@@ -35,7 +36,7 @@ ce77d854b47aab9f3023576ef5bd8bfbeffce7b1 data\tlotd\tags\items\extraction_ii_pic
 0b8eb8dda18b4fd12f0326a03f7714a77f0a2436 data\c\tags\items\lead_ores.json
 7719faedd1aed99059af06d49999b24f786ccdc3 data\c\tags\items\mithril_nuggets.json
 5721f739997768a547a4f341237bd31ac9273bf3 data\c\tags\items\uranium_nuggets.json
-afd9b3d8014dd380634c145be4a2d5020b9d4e61 data\minecraft\tags\items\small_flowers.json
+30d0117625358213d425dea5513475175d03032a data\minecraft\tags\items\small_flowers.json
 d384ecdf0e5c6f9dbb0256357be03a6d7bca89c9 data\c\tags\items\raw_lead_blocks.json
 9f73b651b18f3c8e0a72fdbfe9336caea308e033 data\c\tags\items\raw_mithril_blocks.json
 1c071e5b6725351d88b04f357b38a2d5c512ce78 data\c\tags\items\eggs.json
@@ -45,20 +46,21 @@ d7d49a08a4d512df18e069c300a20a9ed9b49d17 data\c\tags\items\seeds.json
 a39089542be36b83e49ee7d898b70abb9a6c783e data\c\tags\items\uranium_ingots.json
 526918a408421e2aa73bdc34af217b2844d53e48 data\c\tags\items\steel_nuggets.json
 18883460b9eeb334f7e176947a39cb16f8ed0520 data\c\tags\items\sulfur_ores.json
-e55067ab25750a13fe374a434effe79a005774b2 data\tlotd\tags\items\extraction_iii_pickaxes.json
+e4b99db36ad4f0cbd53960824ce173b64b9f7964 data\tlotd\tags\items\extraction_iii_pickaxes.json
 f01dec22b31b88e15261a6db63b60d817ef5ba03 data\c\tags\items\lead_ingots.json
-02fc039e97287a30c1ea3fe8dfc0ef0478bb319c data\c\tags\items\uranium_raw_materials.json
 89bca729f85f19d97662908295d91b01d761e750 data\minecraft\tags\items\chest_boats.json
 43203ca0db01f8eda65ccf7d05a28ea90423c4ab data\c\tags\items\mithril_ingots.json
 68d1dcfc8cf331477f3e36e6e854c8ea7f77a813 data\minecraft\tags\items\bookshelf_books.json
 3285b47465a2cd3feb438afb3185258e7f188b8a data\tlotd\tags\items\sickles.json
 8ab1414552e837f706fdd7cbb10d704e02b763bc data\c\tags\items\colorless_glass.json
 6562d405b908c4ebecccc6cea30044c8a63c0187 data\c\tags\items\steel_raw_materials.json
+83e5533c5dffcc2de2f4085dd9e2670f7b693caa data\tlotd\tags\items\radiation_protection_without_helmet.json
 e6419e3192a137b488c7b9db6a4f661ccc537ed6 data\c\tags\items\lead_raw_materials.json
 1ef6c3cc57007275c6583f8d5d91c039a52a2039 data\minecraft\tags\items\wool_carpets.json
+5f90432b58027d3c9b0f6ed7cff8ce21562ead9f data\c\tags\items\bones.json
 7d77952901b90c559700b638994055ebe05c0597 data\minecraft\tags\items\wool.json
 1b77f157114f83d85c266784b0ea765a65606037 data\c\tags\items\raw_uranium_blocks.json
-5d7e50d7ccf8a8b3178424502ca3d0d83c1c4c6a data\c\tags\items\foods.json
+7ae4451db030ae9ab3026a2f5440d00d756bbe22 data\c\tags\items\foods.json
 a85610e1267124159d0a1b472aed91a128ca8ba5 data\c\tags\items\mithril_raw_materials.json
 2d88bc8df3e36b1750226f5b0860259b87d0efc5 data\tlotd\tags\items\ginkgo_logs.json
 d7b71eadabba2a98af5216e28cddf12aee66c126 data\minecraft\tags\items\piglin_loved.json
@@ -67,8 +69,10 @@ d7b71eadabba2a98af5216e28cddf12aee66c126 data\minecraft\tags\items\piglin_loved.
 e2e415a10fad8f230473c3a8c008785c33802ee8 data\c\tags\items\uranium_blocks.json
 d521ed3f69fb4b313ec16770179bcc1c1fd0ffd3 data\c\tags\items\flour.json
 2442dcaeed2e57b18ba7a425d774da0abb67c4aa data\tlotd\tags\items\wooden_liquid_steins.json
+52aa97235cb016139f4067af22223699d2f042d3 data\tlotd\tags\items\mouth_of_the_abyss.json
 cea66d677721d1028a7dd5256b2b6eb70170f69a data\minecraft\tags\items\trimmable_armor.json
 e3a258d8cfa0abf6dc3b5f89c1fe5e670d9d3161 data\minecraft\tags\items\wooden_buttons.json
+02fc039e97287a30c1ea3fe8dfc0ef0478bb319c data\forge\tags\items\raw_materials\uranium.json
 b15928e4c40a54d5124f64ea892fc1e7764405b3 data\tlotd\tags\items\hypoxia_protection.json
 5c0c73e1d328426a87c7d623705cd3f743203d15 data\c\tags\items\lapis_ores.json
 b59d4fea98d1395cba4d13cd8650aba67122a688 data\tlotd\tags\items\vhs_cassettes.json

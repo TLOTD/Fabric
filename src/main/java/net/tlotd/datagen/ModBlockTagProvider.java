@@ -410,6 +410,8 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
                 .addOptional(Identifier.tryParse("aether:skyroot_log"))
                 .addOptional(Identifier.tryParse("aether:skyroot_wood"))
+                .addOptional(Identifier.tryParse("aether:golden_oak_log"))
+                .addOptional(Identifier.tryParse("aether:golden_oak_wood"))
 
                 .addOptional(Identifier.tryParse("alexscaves:pewen_log"))
                 .addOptional(Identifier.tryParse("alexscaves:pewen_wood"))

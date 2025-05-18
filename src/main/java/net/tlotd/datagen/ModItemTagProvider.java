@@ -251,10 +251,24 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModItems.VHS_CASSETTE_BROKEN)
         ;
 
+        getOrCreateTagBuilder(ModTags.Items.RADIATION_PROTECTION_WITHOUT_HELMET)
+                .add(ModItems.HEV_SUIT_CHESTPLATE)
+                .add(ModItems.HEV_SUIT_LEGGINGS)
+                .add(ModItems.HEV_SUIT_BOOTS)
+        ;
+
         getOrCreateTagBuilder(ModTags.Items.RADIATION_PROTECTION)
                 .add(ModItems.HEV_SUIT_CHESTPLATE)
                 .add(ModItems.HEV_SUIT_LEGGINGS)
                 .add(ModItems.HEV_SUIT_BOOTS)
+                .addOptional(Identifier.tryParse("alexscaves:hazmat_mask"))
+                .addOptional(Identifier.tryParse("alexscaves:hazmat_chestplate"))
+                .addOptional(Identifier.tryParse("alexscaves:hazmat_leggings"))
+                .addOptional(Identifier.tryParse("alexscaves:hazmat_boots"))
+                .addOptional(Identifier.tryParse("mekanism:hazmat_mask"))
+                .addOptional(Identifier.tryParse("mekanism:hazmat_gown"))
+                .addOptional(Identifier.tryParse("mekanism:hazmat_pants"))
+                .addOptional(Identifier.tryParse("mekanism:hazmat_boots"))
         ;
 
         getOrCreateTagBuilder(ModTags.Items.HYPOXIA_PROTECTION)

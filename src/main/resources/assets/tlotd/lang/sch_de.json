@@ -177,6 +177,8 @@
   "item.tlotd.orange_juice_bottle": "Oroschnsaftflaschn",
   "item.tlotd.spezi_bottle": "Spezi-Flaschn",
 
+  "block.tlotd.blue_berry_jam_jar": "Blaubeermarmeladnglas",
+  "item.tlotd.blue_berry_jam_toast": "Blaubeermarmeladntoscht",
   "block.tlotd.ancient_soulberry_jam_jar": "Uralts Seelenbeermarmeladnglas",
   "item.tlotd.ancient_soulberry_jam_toast": "Uralts Seelenbeermarmeladntoscht",
 
@@ -293,6 +295,7 @@
   "item.tlotd.glow_berry_jam_bucket": "Leichtbeermarmeladnoimr",
   "item.tlotd.strawberry_jam_bucket": "Erdbeermarmeladnoimr",
   "item.tlotd.orange_marmelade_bucket": "Orangemarmeladnoimr",
+  "item.tlotd.blue_berry_jam_bucket": "Blaubeermarmeladnoimr",
   "item.tlotd.ancient_soulberry_jam_bucket": "Uraltr Seelenbeermarmeladnoimr",
 
   "item.tlotd.copper_sickle": "Kupfrsichl",

@@ -28,6 +28,14 @@
       "required": false
     },
     {
+      "id": "aether:golden_oak_log",
+      "required": false
+    },
+    {
+      "id": "aether:golden_oak_wood",
+      "required": false
+    },
+    {
       "id": "alexscaves:pewen_log",
       "required": false
     },

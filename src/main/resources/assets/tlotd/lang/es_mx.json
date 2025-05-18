@@ -47,7 +47,7 @@
   "entity.minecraft.villager.cultist": "Cultista",
   "entity.minecraft.villager.engineer": "Ingeniero",
   "entity.tlotd.t-rex": "T-Rex",
-  "entity.tlotd.infected_t-rex": "T-Rex Infectado",
+  "entity.tlotd.infected_t-rex": "T-Rex infectado",
 
   "sounds.tlotd.entity_t-rex_idle": "T-Rex respira",
   "sounds.tlotd.entity_t-rex_hurt": "T-Rex está herido",
@@ -179,8 +179,8 @@
 
   "block.tlotd.blue_berry_jam_jar": "Tarro de mermelada de bayas azules",
   "item.tlotd.blue_berry_jam_toast": "Tostadas con mermelada de arándanos",
-  "block.tlotd.ancient_soulberry_jam_jar": "Tarro de mermelada de bayas Ancient Soul",
-  "item.tlotd.ancient_soulberry_jam_toast": "Tostada con mermelada de bayas Ancient Soul",
+  "block.tlotd.ancient_soulberry_jam_jar": "Tarro de mermelada de bayas alma antigua",
+  "item.tlotd.ancient_soulberry_jam_toast": "Tostada con mermelada de bayas alma antigua",
 
   "item.tlotd.irradiated.tooltip": "☢ Irradiado (00:03)",
   "item.tlotd.radiaton_proof_armor.tooltip": "Cuando el conjunto completo:",
@@ -536,7 +536,7 @@
   "item.tlotd.eldritch_pickaxe": "§4Devorador del Más Allá",
 
   "item.tlotd.t-rex_spawn_egg": "Generar T-Rex",
-  "item.tlotd.infected_t-rex_spawn_egg": "Generar T-Rex Infectado",
+  "item.tlotd.infected_t-rex_spawn_egg": "T-Rex infectado",
 
   "block.tlotd.t-rex_egg": "Huevo de T-Rex",
 
@@ -584,8 +584,8 @@
   "block.tlotd.orange_marmelade_block": "Mermelada de naranja",
   "block.tlotd.blue_berry_jam": "Mermelada de bayas azules",
   "block.tlotd.blue_berry_jam_block": "Mermelada de bayas azules",
-  "block.tlotd.ancient_soulberry_jam": "Mermelada de bayas Ancient Soul",
-  "block.tlotd.ancient_soulberry_jam_block": "Mermelada de bayas Ancient Soul",
+  "block.tlotd.ancient_soulberry_jam": "Mermelada de bayas alma antigua",
+  "block.tlotd.ancient_soulberry_jam_block": "Mermelada de bayas alma antigua",
 
   "block.tlotd.gravestone": "Lápida",
   "block.tlotd.mossy_gravestone": "Lápida musgosa",
@@ -778,7 +778,7 @@
   "block.tlotd.raw_nebular_block": "Bloque de nebular en bruto",
   "block.tlotd.nebular_block": "Bloque de nebular",
 
-  "block.tlotd.bedrock_mithril_ore": "Mineral de mithril de pizarra profunda",
+  "block.tlotd.bedrock_mithril_ore": "Mineral de mithril de piedra madre",
   "block.tlotd.raw_mithril_block": "Bloque de mithril en bruto",
   "block.tlotd.mithril_block": "Bloque de mithril",
 
@@ -940,36 +940,36 @@
   "item.tlotd.pale_oak_bark": "Corteza de roble pálido",
   "item.tlotd.ginkgo_bark": "Corteza de ginkgo",
 
-  "item.tlotd.skyroot_bark": "Corteza de Skyroot",
+  "item.tlotd.skyroot_bark": "Corteza de raicielo",
 
-  "item.tlotd.pewen_bark": "Corteza de Pewen",
-  "item.tlotd.thornwood_bark": "Corteza de Thornwood",
+  "item.tlotd.pewen_bark": "Corteza de pehúen",
+  "item.tlotd.thornwood_bark": "Corteza de pinchoárbol",
 
-  "item.tlotd.fir_bark": "Corteza de Fir",
-  "item.tlotd.redwood_bark": "Corteza de Redwood",
-  "item.tlotd.mahogany_bark": "Corteza de Mahogany",
-  "item.tlotd.jacaranda_bark": "Corteza de Jacaranda",
-  "item.tlotd.palm_bark": "Corteza de Palm",
-  "item.tlotd.willow_bark": "Corteza de Willow",
-  "item.tlotd.dead_bark": "Corteza de Dead",
-  "item.tlotd.magic_bark": "Corteza de Magic",
-  "item.tlotd.umbran_bark": "Corteza de Umbran",
-  "item.tlotd.hellbark_bark": "Corteza de Hellbark",
+  "item.tlotd.fir_bark": "Corteza de abeto blanco",
+  "item.tlotd.redwood_bark": "Corteza de secoya",
+  "item.tlotd.mahogany_bark": "Corteza de caoba",
+  "item.tlotd.jacaranda_bark": "Corteza de jacarandá",
+  "item.tlotd.palm_bark": "Corteza de palmera",
+  "item.tlotd.willow_bark": "Corteza de sauce",
+  "item.tlotd.dead_bark": "Corteza de muerta",
+  "item.tlotd.magic_bark": "Corteza de mágico",
+  "item.tlotd.umbran_bark": "Corteza de sombrío",
+  "item.tlotd.hellbark_bark": "Corteza de corteza infernal",
 
-  "item.tlotd.ashen_bark": "Corteza de Ashen",
-  "item.tlotd.azalea_bark": "Corteza de Azalea",
-  "item.tlotd.trumpet_bark": "Corteza de Trumpet",
+  "item.tlotd.ashen_bark": "Corteza de fresno",
+  "item.tlotd.azalea_bark": "Corteza de azalea",
+  "item.tlotd.trumpet_bark": "Corteza de floral",
 
-  "item.tlotd.rubberwood_bark": "Corteza de Rubberwood",
+  "item.tlotd.rubberwood_bark": "Corteza de caucho",
 
-  "item.tlotd.twilight_oak_bark": "Corteza de Twilight Oak",
-  "item.tlotd.canopy_tree_bark": "Corteza de Canopy Tree",
-  "item.tlotd.twilight_mangrove_bark": "Corteza de Mangrove",
-  "item.tlotd.darkwood_bark": "Corteza de Darkwood",
-  "item.tlotd.timewood_bark": "Corteza de Timewood",
-  "item.tlotd.transwood_bark": "Corteza de Transwood",
-  "item.tlotd.minewood_bark": "Corteza de Minewood",
-  "item.tlotd.sortingwood_bark": "Corteza de Sortingwood",
+  "item.tlotd.twilight_oak_bark": "Corteza de roble crepuscular",
+  "item.tlotd.canopy_tree_bark": "Corteza de dosel arbóreo",
+  "item.tlotd.twilight_mangrove_bark": "Corteza de manglar",
+  "item.tlotd.darkwood_bark": "Corteza de madera oscura",
+  "item.tlotd.timewood_bark": "Corteza de árbol del tiempo",
+  "item.tlotd.transwood_bark": "Corteza de árbol de transformación",
+  "item.tlotd.minewood_bark": "Corteza de árbol de minero",
+  "item.tlotd.sortingwood_bark": "Corteza de árbol de clasificación",
 
   "item.tlotd.flour": "Harina",
   "item.tlotd.breadcrumbs": "Migas de pan",

@@ -102,6 +102,9 @@ public class ModTags {
         public static final TagKey<Item> RADIATION_PROTECTION =
                 createTag("radiation_protection");
 
+        public static final TagKey<Item> RADIATION_PROTECTION_WITHOUT_HELMET =
+                createTag("radiation_protection_without_helmet");
+
         public static final TagKey<Item> HYPOXIA_PROTECTION =
                 createTag("hypoxia_protection");
 

@@ -177,6 +177,8 @@
   "item.tlotd.orange_juice_bottle": "Orangensaftflasche",
   "item.tlotd.spezi_bottle": "Spezi-Flasche",
 
+  "block.tlotd.blue_berry_jam_jar": "Blaubeermarmeladenglas",
+  "item.tlotd.blue_berry_jam_toast": "Blaubeermarmeladentoast",
   "block.tlotd.ancient_soulberry_jam_jar": "Uraltes Seelenbeermarmeladenglas",
   "item.tlotd.ancient_soulberry_jam_toast": "Uraltes Seelenbeermarmeladentoast",
 
@@ -293,6 +295,7 @@
   "item.tlotd.glow_berry_jam_bucket": "Leuchtbeermarmeladeneimer",
   "item.tlotd.strawberry_jam_bucket": "Erdbeermarmeladeneimer",
   "item.tlotd.orange_marmelade_bucket": "Orangenmarmeladeneimer",
+  "item.tlotd.blue_berry_jam_bucket": "Blaubeermarmeladeneimer",
   "item.tlotd.ancient_soulberry_jam_bucket": "Uralter Seelenbeermarmeladeneimer",
 
   "item.tlotd.copper_sickle": "Kupfersichel",
@@ -723,7 +726,6 @@
   "block.tlotd.red_deepslate_jurassoline_ore": "Rotes-Tiefenschiefer-Jurassolinerz",
   "block.tlotd.red_deepslate_cinnabar_ore": "Rotes-Tiefenschiefer-Zinnobererz",
   "block.tlotd.red_deepslate_nebular_ore": "Rotes-Tiefenschiefer-Nebularerz",
-
 
   "block.tlotd.prehistoric_debris": "Prähistorischer Schrott",
 

@@ -41,13 +41,12 @@ public abstract class WoodStrippingItemDrop {
                 bark = ModItems.CHERRY_BARK.getDefaultStack();
             } else if (block == ModBlocks.GINKGO_LOG || block == ModBlocks.GINKGO_WOOD) {
                 bark = ModItems.GINKGO_BARK.getDefaultStack();
-            } else if (name.contains("aether") && name.contains("skyroot")) { //modded logs
+            } else if (name.contains("aether") && (name.contains("skyroot") || name.contains("golden_oak"))) { //modded logs
                 bark = ModItems.SKYROOT_BARK.getDefaultStack();
             } else if (name.contains("alexscaves") && name.contains("pewen")) {
                 bark = ModItems.PEWEN_BARK.getDefaultStack();
             } else if (name.contains("alexscaves") && name.contains("thornwood")) {
                 bark = ModItems.THORNWOOD_BARK.getDefaultStack();
-
             } else if (name.contains("biomesoplenty") && name.contains("fir")) {
                 bark = ModItems.FIR_BARK.getDefaultStack();
             } else if (name.contains("biomesoplenty") && name.contains("redwood")) {

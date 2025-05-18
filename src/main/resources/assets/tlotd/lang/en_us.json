@@ -76,7 +76,7 @@
   "advancements.tlotd.alloy_allies.desc": "Create an Ingot of Heliorite or Endurium Alloy",
   "advancements.tlotd.next_level": "Next Level!",
   "advancements.tlotd.next_level.desc": "Aquire a Palladium or Jurassoline Ingot",
-  "advancements.tlotd.rich_in_ingots": "Rich in Ingots!",
+  "advancements.tlotd.rich_in_ingots": "Rich in Ingots",
   "advancements.tlotd.rich_in_ingots.desc": "Aquire a Cinnabar or Nebular Ingot",
   "advancements.tlotd.extraction": "Careful Extraction",
   "advancements.tlotd.extraction.desc": "Obtain an Extraction Pickaxe",
@@ -117,7 +117,7 @@
   "advancements.tlotd.futuristic_circuitry.desc": "Get ahold of a Futuristic Circuit Board",
 
   "advancements.tlotd.jurassic": "Jurassic",
-  "advancements.tlotd.jurassic.desc": "Jurassic times, call for jurassic Measures",
+  "advancements.tlotd.jurassic.desc": "Jurassic times, call for jurassic measures",
   "advancements.tlotd.kill_a_t-rex": "Shoud've stayed extinct!",
   "advancements.tlotd.kill_a_t-rex.desc": "Fight and successfully best a T-Rex in combat",
 
@@ -185,7 +185,6 @@
 
   "block.tlotd.blue_berry_jam_jar": "Blue Berry Jam Jar",
   "item.tlotd.blue_berry_jam_toast": "Blue Berry Jam Toast",
-
   "block.tlotd.ancient_soulberry_jam_jar": "Ancient Soul Berry Jam Jar",
   "item.tlotd.ancient_soulberry_jam_toast": "Ancient Soul Berry Jam Toast",
 
@@ -815,7 +814,7 @@
   "block.tlotd.cursed_carpet": "Cursed Carpet",
   "block.tlotd.cursed_carpet.tooltip": "All that work",
   "block.tlotd.cursed_carpet.tooltip_2": "and no play makes",
-  "block.tlotd.cursed_carpet.tooltip_3": "jack a dull boy",
+  "block.tlotd.cursed_carpet.tooltip_3": "Jack a dull boy",
 
   "block.tlotd.rose": "Rose",
   "block.tlotd.iris": "Iris",

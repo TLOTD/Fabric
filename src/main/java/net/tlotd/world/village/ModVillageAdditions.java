@@ -10,27 +10,27 @@ public class ModVillageAdditions {
         FabricStructurePoolRegistry.registerSimple(
                 new Identifier("minecraft:village/plains/houses"),
                 new Identifier(TLOTD.MOD_ID, "plains_castle_forge"),
-                150
+                10
         );
         FabricStructurePoolRegistry.registerSimple(
                 new Identifier("minecraft:village/taiga/houses"),
                 new Identifier(TLOTD.MOD_ID, "taiga_castle_forge"),
-                150
+                10
         );
         FabricStructurePoolRegistry.registerSimple(
                 new Identifier("minecraft:village/savanna/houses"),
                 new Identifier(TLOTD.MOD_ID, "savanna_castle_forge"),
-                150
+                10
         );
         FabricStructurePoolRegistry.registerSimple(
                 new Identifier("minecraft:village/desert/houses"),
                 new Identifier(TLOTD.MOD_ID, "desert_castle_forge"),
-                150
+                10
         );
         FabricStructurePoolRegistry.registerSimple(
                 new Identifier("minecraft:village/snowy/houses"),
                 new Identifier(TLOTD.MOD_ID, "taiga_castle_forge"),
-                150
+                10
         );
     }
 }
