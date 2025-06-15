@@ -12,6 +12,7 @@ import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.DirectionProperty;
 import net.minecraft.state.property.IntProperty;
 import net.minecraft.state.property.Properties;
+import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.BlockRotation;
 import net.minecraft.util.Hand;
@@ -24,11 +25,13 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 import net.tlotd.block.ModBlocks;
+import net.tlotd.item.ModItems;
 import net.tlotd.sound.ModSounds;
+import net.tlotd.util.ModTags;
 
 public class ComputerBlock extends Block {
 
-    public static final IntProperty SCREEN = IntProperty.of("screen", 0, 1);
+    public static final IntProperty SCREEN = IntProperty.of("screen", 0, 7);
 
     public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
 
@@ -107,23 +110,32 @@ public class ComputerBlock extends Block {
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         if (player.isSneaking()) {
-            if (state.getBlock().equals(ModBlocks.COMPUTER)) {
-                world.setBlockState(pos, ModBlocks.COMPUTER_ON.getStateWithProperties(state));
-            } else {
-                world.setBlockState(pos, ModBlocks.COMPUTER.getStateWithProperties(state));
-            }
-            world.playSound(null, pos, ModSounds.BLOCK_COMPUTER_INTERACT, SoundCategory.BLOCKS, 1.0f, 1.0f);
-            return ActionResult.SUCCESS;
-        } else {
-            if (state.getBlock().equals(ModBlocks.COMPUTER_ON)) {
-                if (state.get(SCREEN) == 1) {
-                    world.setBlockState(pos, ModBlocks.COMPUTER_ON.getStateWithProperties(state).with(SCREEN, 0));
+            if (!world.isClient) {
+                if (state.getBlock().equals(ModBlocks.COMPUTER)) {
+                    world.setBlockState(pos, ModBlocks.COMPUTER_ON.getStateWithProperties(state));
                 } else {
-                    world.setBlockState(pos, ModBlocks.COMPUTER_ON.getStateWithProperties(state).with(SCREEN, state.get(SCREEN)+1));
+                    world.setBlockState(pos, ModBlocks.COMPUTER.getStateWithProperties(state).with(SCREEN, 0));
                 }
                 world.playSound(null, pos, ModSounds.BLOCK_COMPUTER_INTERACT, SoundCategory.BLOCKS, 1.0f, 1.0f);
-                return ActionResult.SUCCESS;
             }
+            return ActionResult.SUCCESS;
+        } else if (state.getBlock().equals(ModBlocks.COMPUTER_ON)) {
+            if (!world.isClient) {
+                ItemStack stack = player.getStackInHand(hand);
+                int x = 0;
+                if (stack.isIn(ModTags.Items.GAME_CARTRIDGES)) {
+                    if(stack.isOf(ModItems.GAME_CARTRIDGE_1)) {x = 2;}
+                    else if(stack.isOf(ModItems.GAME_CARTRIDGE_2)) {x = 4;}
+                    else if(stack.isOf(ModItems.GAME_CARTRIDGE_3)) {x = 6;}
+                } else if (state.get(SCREEN) == 0 || state.get(SCREEN) == 2 || state.get(SCREEN) == 4 || state.get(SCREEN) == 6) {
+                    x = state.get(SCREEN) + 1;
+                } else {
+                    x = state.get(SCREEN) - 1;
+                }
+                world.setBlockState(pos, ModBlocks.COMPUTER_ON.getStateWithProperties(state).with(SCREEN, x));
+                world.playSound(null, pos, ModSounds.BLOCK_COMPUTER_INTERACT, SoundCategory.BLOCKS, 1.0f, 1.0f);
+            }
+            return ActionResult.SUCCESS;
         }
         return ActionResult.FAIL;
     }

@@ -87,12 +87,12 @@ public class ModFluids {
         STILL_HOT_MILK = Registry.register(Registries.FLUID, new Identifier(TLOTD.MOD_ID, "hot_milk"), new HotMilkFluid.Still());
         FLOWING_HOT_MILK = Registry.register(Registries.FLUID, new Identifier(TLOTD.MOD_ID, "flowing_hot_milk"), new HotMilkFluid.Flowing());
         HOT_MILK_BLOCK = Registry.register(Registries.BLOCK, new Identifier(TLOTD.MOD_ID, "hot_milk_block"), new FluidBlock(ModFluids.STILL_HOT_MILK, FabricBlockSettings.copyOf(Blocks.WATER)){});
-        HOT_MILK_BUCKET = Registry.register(Registries.ITEM, new Identifier(TLOTD.MOD_ID, "hot_milk_bucket"), new CreateBucketItem(ModFluids.STILL_HOT_MILK, new FabricItemSettings().recipeRemainder(Items.BUCKET).maxCount(1)));
+        HOT_MILK_BUCKET = Registry.register(Registries.ITEM, new Identifier(TLOTD.MOD_ID, "hot_milk_bucket"), new BucketItem(ModFluids.STILL_HOT_MILK, new FabricItemSettings().recipeRemainder(Items.BUCKET).maxCount(1)));
 
         STILL_HOT_CHOCOLATE = Registry.register(Registries.FLUID, new Identifier(TLOTD.MOD_ID, "hot_chocolate"), new HotChocolateFluid.Still());
         FLOWING_HOT_CHOCOLATE = Registry.register(Registries.FLUID, new Identifier(TLOTD.MOD_ID, "flowing_hot_chocolate"), new HotChocolateFluid.Flowing());
         HOT_CHOCOLATE_BLOCK = Registry.register(Registries.BLOCK, new Identifier(TLOTD.MOD_ID, "hot_chocolate_block"), new FluidBlock(ModFluids.STILL_HOT_CHOCOLATE, FabricBlockSettings.copyOf(Blocks.WATER)){});
-        HOT_CHOCOLATE_BUCKET = Registry.register(Registries.ITEM, new Identifier(TLOTD.MOD_ID, "hot_chocolate_bucket"), new CreateBucketItem(ModFluids.STILL_HOT_CHOCOLATE, new FabricItemSettings().recipeRemainder(Items.BUCKET).maxCount(1)));
+        HOT_CHOCOLATE_BUCKET = Registry.register(Registries.ITEM, new Identifier(TLOTD.MOD_ID, "hot_chocolate_bucket"), new BucketItem(ModFluids.STILL_HOT_CHOCOLATE, new FabricItemSettings().recipeRemainder(Items.BUCKET).maxCount(1)));
 
         STILL_OIL = Registry.register(Registries.FLUID, new Identifier(TLOTD.MOD_ID, "oil"), new OilFluid.Still());
         FLOWING_OIL = Registry.register(Registries.FLUID, new Identifier(TLOTD.MOD_ID, "flowing_oil"), new OilFluid.Flowing());

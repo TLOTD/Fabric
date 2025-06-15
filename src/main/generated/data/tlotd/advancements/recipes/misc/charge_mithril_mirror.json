@@ -1,0 +1,48 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_foggy_mithril_mirror": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "tlotd:foggy_mithril_mirror"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_soul_flask_of_the_abyss": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "tlotd:soul_flask_of_the_abyss"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:charge_mithril_mirror"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_foggy_mithril_mirror",
+      "has_soul_flask_of_the_abyss",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:charge_mithril_mirror"
+    ]
+  },
+  "sends_telemetry_event": false
+}

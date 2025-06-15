@@ -1,0 +1,29 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "alexscaves"
+      ]
+    }
+  ],
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "c:sulfur_dusts"
+    },
+    {
+      "tag": "c:sulfur_dusts"
+    },
+    {
+      "item": "minecraft:porkchop"
+    },
+    {
+      "item": "minecraft:bone_meal"
+    }
+  ],
+  "result": {
+    "item": "alexscaves:slam",
+    "count": 1
+  }
+}

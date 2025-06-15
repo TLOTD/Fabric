@@ -13,6 +13,7 @@ public class ModSounds {
     public static final SoundEvent ENTITY_TREX_DEATH = registerSoundEvent("entity_t-rex_death");
 
     public static final SoundEvent ITEM_PICKAXE_EXTRACT = registerSoundEvent("item_pickaxe_extract");
+    public static final SoundEvent ITEM_MITHRIL_MIRROR = registerSoundEvent("item_mithril_mirror");
 
     public static final SoundEvent BLOCK_ELEVATOR_PLING = registerSoundEvent("block_elevator_pling");
     public static final SoundEvent BLOCK_RADIO_SWITCH_FREQUENCY = registerSoundEvent("block_radio_switch_frequency");

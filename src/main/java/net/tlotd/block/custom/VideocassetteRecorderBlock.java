@@ -114,9 +114,9 @@ public class VideocassetteRecorderBlock extends Block {
 
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        if (player.getMainHandStack().isIn(ModTags.Items.VHS_CASSETTES) && world.getBlockState(pos.up()).isOf(ModBlocks.TELEVISION_ON)) {
+        ItemStack stack = player.getStackInHand(hand);
+        if (stack.isIn(ModTags.Items.VHS_CASSETTES) && world.getBlockState(pos.up()).isOf(ModBlocks.TELEVISION_ON)) {
             if (!world.isClient) {
-                ItemStack stack = player.getStackInHand(hand);
                 BlockState upstate = world.getBlockState(pos.up());
                 if(stack.isOf(ModItems.VHS_CASSETTE_BROKEN)){world.setBlockState(pos.up(),upstate.with(CHANNEL,0));}
                 else if(stack.isOf(ModItems.VHS_CASSETTE_1)){world.setBlockState(pos.up(),upstate.with(CHANNEL,1));}

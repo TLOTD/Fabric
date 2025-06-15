@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "tlotd:game_cartridge",
+    "tlotd:game_cartridge_1",
+    "tlotd:game_cartridge_2",
+    "tlotd:game_cartridge_3"
+  ]
+}

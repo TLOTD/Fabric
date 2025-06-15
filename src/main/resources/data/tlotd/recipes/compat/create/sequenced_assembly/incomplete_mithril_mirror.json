@@ -1,0 +1,86 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "create"
+      ]
+    }
+  ],
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "item": "tlotd:soul_mirror"
+  },
+  "loops": 2,
+  "results": [
+    {
+      "item": "tlotd:mithril_mirror"
+    }
+  ],
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "tlotd:incomplete_mithril_mirror"
+        },
+        {
+          "item": "tlotd:mithril_ingot"
+        }
+      ],
+      "results": [
+        {
+          "item": "tlotd:incomplete_mithril_mirror"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "tlotd:incomplete_mithril_mirror"
+        },
+        {
+          "tag": "c:gold_ingots"
+        }
+      ],
+      "results": [
+        {
+          "item": "tlotd:incomplete_mithril_mirror"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "tlotd:incomplete_mithril_mirror"
+        },
+        {
+          "item": "tlotd:mithril_ingot"
+        }
+      ],
+      "results": [
+        {
+          "item": "tlotd:incomplete_mithril_mirror"
+        }
+      ]
+    },
+    {
+      "type": "create:pressing",
+      "ingredients": [
+        {
+          "item": "tlotd:incomplete_mithril_mirror"
+        }
+      ],
+      "results": [
+        {
+          "item": "tlotd:incomplete_mithril_mirror"
+        }
+      ]
+    }
+  ],
+  "transitionalItem": {
+    "item": "tlotd:incomplete_mithril_mirror"
+  }
+}

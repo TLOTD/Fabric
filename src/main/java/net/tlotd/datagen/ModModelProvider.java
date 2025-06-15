@@ -154,7 +154,6 @@ public class ModModelProvider extends FabricModelProvider {
         ginkgoPool.family(ModBlocks.GINKGO_FAMILY);
 
         blockStateModelGenerator.registerDoor(ModBlocks.GINKGO_DOOR);
-        blockStateModelGenerator.registerTrapdoor(ModBlocks.GINKGO_TRAPDOOR);
 
         blockStateModelGenerator.registerDoor(ModBlocks.GLASS_DOOR);
 
@@ -377,6 +376,9 @@ public class ModModelProvider extends FabricModelProvider {
 
         itemModelGenerator.register(ModItems.FOSSILIZED_BONE, Models.HANDHELD);
         itemModelGenerator.register(ModItems.FOSSIL_AND_STEEL, Models.GENERATED);
+        itemModelGenerator.register(ModItems.SOUL_MIRROR, Models.GENERATED);
+        itemModelGenerator.register(ModItems.MITHRIL_MIRROR, Models.GENERATED);
+        itemModelGenerator.register(ModItems.FOGGY_MITHRIL_MIRROR, Models.GENERATED);
 
         itemModelGenerator.register(ModItems.SULFUR, Models.GENERATED);
 
@@ -557,6 +559,8 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.SQUID, Models.GENERATED);
         itemModelGenerator.register(ModItems.CALAMARI, Models.GENERATED);
         itemModelGenerator.register(ModItems.FRIED_CALAMARI, Models.GENERATED);
+
+        itemModelGenerator.register(ModItems.PORRIDGE, Models.GENERATED);
 
         itemModelGenerator.register(ModItems.MAULTASCHE, Models.GENERATED);
         itemModelGenerator.register(ModItems.MAULTASCHEN_BROTH, Models.GENERATED);

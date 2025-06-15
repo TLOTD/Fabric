@@ -9,6 +9,10 @@
   ],
   "replace": false,
   "values": [
-    "tlotd:wooden_hot_chocolate_stein"
+    "tlotd:wooden_hot_chocolate_stein",
+    "tlotd:hot_chocolate_bucket",
+    "tlotd:wooden_beer_stein",
+    "tlotd:beer_goat_horn",
+    "tlotd:beer_bucket"
   ]
 }

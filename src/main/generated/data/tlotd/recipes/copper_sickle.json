@@ -3,10 +3,10 @@
   "category": "misc",
   "key": {
     "#": {
-      "item": "minecraft:copper_ingot"
+      "tag": "c:copper_ingots"
     },
     "I": {
-      "item": "minecraft:stick"
+      "tag": "c:wooden_rods"
     }
   },
   "pattern": [

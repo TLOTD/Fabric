@@ -1,0 +1,44 @@
+{
+  "fabric:load_conditions": [
+     {
+       "condition": "fabric:not",
+       "value": {
+         "condition": "fabric:all_mods_loaded",
+         "values": [
+           "create"
+         ]
+       }
+     }
+   ],
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "A": {
+      "item": "tlotd:advanced_circuit_board"
+    },
+    "C": {
+      "tag": "c:copper_ingots"
+    },
+    "J": {
+      "item": "minecraft:jukebox"
+    },
+    "P": {
+      "tag": "minecraft:planks"
+    },
+    "V": {
+      "item": "tlotd:videocassette_recorder"
+    },
+    "W": {
+      "item": "tlotd:gold_wire"
+    }
+  },
+  "pattern": [
+    "CWC",
+    "AVA",
+    "PJP"
+  ],
+  "result": {
+    "item": "tlotd:signal_transmitter"
+  },
+  "show_notification": true
+}

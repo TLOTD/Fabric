@@ -1,6 +1,0 @@
-{
-	"parent": "tlotd:block/template_computer",
-	"textures": {
-		"4": "tlotd:block/computer_desktop"
-	}
-}

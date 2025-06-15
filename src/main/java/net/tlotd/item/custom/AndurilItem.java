@@ -5,6 +5,7 @@ import net.minecraft.client.item.TooltipContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.SwordItem;
 import net.minecraft.item.ToolMaterial;
+import net.minecraft.text.Style;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
@@ -27,9 +28,10 @@ public class AndurilItem extends SwordItem {
             tooltip.add(Text.translatable("item.tlotd.anduril.tooltip_2").formatted(Formatting.GRAY));
             tooltip.add(Text.translatable("item.tlotd.anduril.tooltip_3").formatted(Formatting.GRAY).append(" ").append(Text.translatable("item.tlotd.narsil").formatted(Formatting.YELLOW)).append(Text.translatable("item.tlotd.anduril.tooltip_4").formatted(Formatting.GRAY)));
         } else {
-            tooltip.add(Text.translatable("item.tlotd.anduril.tooltip_quenya").setStyle(this.getName().getStyle().withFont(TENGWAR_FONT_ID).withColor(Formatting.GRAY)));
-            tooltip.add(Text.translatable("item.tlotd.anduril.tooltip_quenya_2").setStyle(this.getName().getStyle().withFont(TENGWAR_FONT_ID).withColor(Formatting.GRAY)));
-            tooltip.add(Text.translatable("item.tlotd.anduril.tooltip_quenya_3").setStyle(this.getName().getStyle().withFont(TENGWAR_FONT_ID).withColor(Formatting.GRAY)).append(" ").append(Text.translatable("item.tlotd.narsil_quenya").setStyle(this.getName().getStyle().withFont(TENGWAR_FONT_ID).withColor(Formatting.YELLOW))).append(Text.translatable("item.tlotd.anduril.tooltip_quenya_4").setStyle(this.getName().getStyle().withFont(TENGWAR_FONT_ID).withColor(Formatting.GRAY))));
+            Style style = getName().getStyle();
+            tooltip.add(Text.translatable("item.tlotd.anduril.tooltip_quenya").setStyle(style.withFont(TENGWAR_FONT_ID).withColor(Formatting.GRAY)));
+            tooltip.add(Text.translatable("item.tlotd.anduril.tooltip_quenya_2").setStyle(style.withFont(TENGWAR_FONT_ID).withColor(Formatting.GRAY)));
+            tooltip.add(Text.translatable("item.tlotd.anduril.tooltip_quenya_3").setStyle(style.withFont(TENGWAR_FONT_ID).withColor(Formatting.GRAY)).append(" ").append(Text.translatable("item.tlotd.narsil_quenya").setStyle(style.withFont(TENGWAR_FONT_ID).withColor(Formatting.YELLOW))).append(Text.translatable("item.tlotd.anduril.tooltip_quenya_4").setStyle(style.withFont(TENGWAR_FONT_ID).withColor(Formatting.GRAY))));
         }
         super.appendTooltip(stack, world, tooltip, context);
     }

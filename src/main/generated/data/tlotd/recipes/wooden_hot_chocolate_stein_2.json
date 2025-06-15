@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "Block{tlotd:wooden_stein}",
+  "ingredients": [
+    {
+      "tag": "tlotd:hot_milk_container"
+    },
+    {
+      "item": "minecraft:cocoa_beans"
+    },
+    {
+      "item": "tlotd:wooden_stein"
+    }
+  ],
+  "result": {
+    "item": "tlotd:wooden_hot_chocolate_stein"
+  }
+}

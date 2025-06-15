@@ -6,7 +6,7 @@
       "tag": "c:colorless_glass_panes"
     },
     "I": {
-      "item": "minecraft:iron_nugget"
+      "tag": "c:iron_nuggets"
     }
   },
   "pattern": [

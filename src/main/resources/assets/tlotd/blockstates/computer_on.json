@@ -1,13 +1,43 @@
 {
   "variants": {
-    "facing=south,screen=0":{"model":"tlotd:block/computer_files"},
-    "facing=west,screen=0":{"model":"tlotd:block/computer_files","y":90},
-    "facing=north,screen=0":{"model":"tlotd:block/computer_files","y":180},
-    "facing=east,screen=0":{"model":"tlotd:block/computer_files","y":270},
+    "facing=south,screen=0":{"model":"tlotd:block/computer_screen0"},
+    "facing=west,screen=0":{"model":"tlotd:block/computer_screen0","y":90},
+    "facing=north,screen=0":{"model":"tlotd:block/computer_screen0","y":180},
+    "facing=east,screen=0":{"model":"tlotd:block/computer_screen0","y":270},
 
-    "facing=south,screen=1":{"model":"tlotd:block/computer_start_menu"},
-    "facing=west,screen=1":{"model":"tlotd:block/computer_start_menu","y":90},
-    "facing=north,screen=1":{"model":"tlotd:block/computer_start_menu","y":180},
-    "facing=east,screen=1":{"model":"tlotd:block/computer_start_menu","y":270}
+    "facing=south,screen=1":{"model":"tlotd:block/computer_screen1"},
+    "facing=west,screen=1":{"model":"tlotd:block/computer_screen1","y":90},
+    "facing=north,screen=1":{"model":"tlotd:block/computer_screen1","y":180},
+    "facing=east,screen=1":{"model":"tlotd:block/computer_screen1","y":270},
+
+    "facing=south,screen=2":{"model":"tlotd:block/computer_screen2"},
+    "facing=west,screen=2":{"model":"tlotd:block/computer_screen2","y":90},
+    "facing=north,screen=2":{"model":"tlotd:block/computer_screen2","y":180},
+    "facing=east,screen=2":{"model":"tlotd:block/computer_screen2","y":270},
+
+    "facing=south,screen=3":{"model":"tlotd:block/computer_screen3"},
+    "facing=west,screen=3":{"model":"tlotd:block/computer_screen3","y":90},
+    "facing=north,screen=3":{"model":"tlotd:block/computer_screen3","y":180},
+    "facing=east,screen=3":{"model":"tlotd:block/computer_screen3","y":270},
+
+    "facing=south,screen=4":{"model":"tlotd:block/computer_screen4"},
+    "facing=west,screen=4":{"model":"tlotd:block/computer_screen4","y":90},
+    "facing=north,screen=4":{"model":"tlotd:block/computer_screen4","y":180},
+    "facing=east,screen=4":{"model":"tlotd:block/computer_screen4","y":270},
+
+    "facing=south,screen=5":{"model":"tlotd:block/computer_screen5"},
+    "facing=west,screen=5":{"model":"tlotd:block/computer_screen5","y":90},
+    "facing=north,screen=5":{"model":"tlotd:block/computer_screen5","y":180},
+    "facing=east,screen=5":{"model":"tlotd:block/computer_screen5","y":270},
+
+    "facing=south,screen=6":{"model":"tlotd:block/computer_screen6"},
+    "facing=west,screen=6":{"model":"tlotd:block/computer_screen6","y":90},
+    "facing=north,screen=6":{"model":"tlotd:block/computer_screen6","y":180},
+    "facing=east,screen=6":{"model":"tlotd:block/computer_screen6","y":270},
+
+    "facing=south,screen=7":{"model":"tlotd:block/computer_screen7"},
+    "facing=west,screen=7":{"model":"tlotd:block/computer_screen7","y":90},
+    "facing=north,screen=7":{"model":"tlotd:block/computer_screen7","y":180},
+    "facing=east,screen=7":{"model":"tlotd:block/computer_screen7","y":270}
   }
 }

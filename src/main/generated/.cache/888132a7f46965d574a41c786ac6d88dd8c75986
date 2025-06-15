@@ -1,4 +1,4 @@
-// 1.20.1	2025-05-18T21:56:49.42199	TLOTD/Block Loot Tables
+// 1.20.1	2025-06-15T20:59:05.255069	TLOTD/Block Loot Tables
 065c8df00f620de96b8a68f2f3c1419c98812efe data\tlotd\loot_tables\blocks\fancy_bamboo_planks.json
 086cc46163a83a89316fdbf152f160f82958d363 data\tlotd\loot_tables\blocks\cobbled_red_deepslate.json
 24933d84b3a1d8f15634bb910ef1533735175b98 data\tlotd\loot_tables\blocks\wooden_orange_milkshake_stein.json
@@ -12,8 +12,8 @@ dd89444d64afd8164c5dd8b31f61a00ede9dd88e data\tlotd\loot_tables\blocks\fancy_che
 153bb2285c18ce697662a49ddbf6fde91fd66830 data\tlotd\loot_tables\blocks\cracked_cobbled_red_deepslate_bricks.json
 4ad0a3d4c0e5c8dd309f2d37aa4360ad9d10387d data\tlotd\loot_tables\blocks\fancy_charred_slab.json
 c42584f887b066db4908520000e2a6bc14b9bfd7 data\tlotd\loot_tables\blocks\blue_berry_jam_jar.json
-ddcfe54a13095fb315d235a16ac5fcc1a5cac676 data\tlotd\loot_tables\blocks\fancy_warped_stairs.json
 968ee432e7f297af2eab710033bcd2da06ff58c5 data\tlotd\loot_tables\blocks\fancy_spruce_trapdoor.json
+ddcfe54a13095fb315d235a16ac5fcc1a5cac676 data\tlotd\loot_tables\blocks\fancy_warped_stairs.json
 0093b1e0365d5a4adfb1f9566d378dd68a472f87 data\tlotd\loot_tables\blocks\oxygen_collector.json
 4d04fd9ecc746b7742410b3509db1d76f0cdd9cc data\tlotd\loot_tables\blocks\radio_on.json
 c03427dd36fba39ca7a06c63fe8519809a49bfb3 data\tlotd\loot_tables\blocks\framed_glass_split.json
@@ -195,8 +195,8 @@ a47d6bf48ed5a6d6d920eddd42bdaa39767a89f5 data\tlotd\loot_tables\blocks\fancy_man
 6276d0ba22f9593b4f3e8688865dcfc49e45ec08 data\tlotd\loot_tables\blocks\cobbled_red_deepslate_slab.json
 9462b5fe4b60a924bd76f2afa71e5db5b4cde367 data\tlotd\loot_tables\blocks\raw_mithril_block.json
 3eb2e2c0cd7c02166f8f67247021ac7b3e69d8b3 data\tlotd\loot_tables\blocks\palladium_block.json
-14e4fd9427c997a0dde96fe9463c51ea690b5aac data\tlotd\loot_tables\blocks\fancy_charred_trapdoor.json
 fdf50636dd0d93ffe5b7e8338de3968142f6fd35 data\tlotd\loot_tables\blocks\ginkgo_planks.json
+14e4fd9427c997a0dde96fe9463c51ea690b5aac data\tlotd\loot_tables\blocks\fancy_charred_trapdoor.json
 93549c154b950d9613e7f44fb371c0b2d98b5d51 data\tlotd\loot_tables\blocks\raw_uranium_block.json
 550bc7cceb9c91879b1c52695925b67fec3c5411 data\tlotd\loot_tables\blocks\fancy_mangrove_trapdoor.json
 5bb84b22aeb367254323b41ce1f5aa265b8e9ca6 data\tlotd\loot_tables\blocks\carved_white_pumpkin.json

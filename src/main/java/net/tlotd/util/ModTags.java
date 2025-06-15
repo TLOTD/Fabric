@@ -99,6 +99,9 @@ public class ModTags {
         public static final TagKey<Item> BEER_CONTAINER =
                 createTag("beer_container");
 
+        public static final TagKey<Item> HOT_MILK_CONTAINER =
+                createTag("hot_milk_container");
+
         public static final TagKey<Item> RADIATION_PROTECTION =
                 createTag("radiation_protection");
 
@@ -116,6 +119,9 @@ public class ModTags {
 
         public static final TagKey<Item> MUSIC_DISCS =
                 createTag("music_discs");
+
+        public static final TagKey<Item> GAME_CARTRIDGES =
+                createTag("game_cartridges");
 
         private static TagKey<Item> createTag(String name) {
             return TagKey.of(RegistryKeys.ITEM, new Identifier(TLOTD.MOD_ID, name));

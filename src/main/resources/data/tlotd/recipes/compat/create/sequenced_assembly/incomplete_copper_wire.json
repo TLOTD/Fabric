@@ -9,7 +9,7 @@
   ],
   "type": "create:sequenced_assembly",
   "ingredient": {
-    "item": "minecraft:stick"
+    "tag": "minecraft:wooden_pressure_plates"
   },
   "loops": 1,
   "results": [
@@ -25,7 +25,7 @@
           "item": "tlotd:incomplete_copper_wire"
         },
         {
-          "tag": "minecraft:wooden_pressure_plates"
+          "tag": "c:copper_ingots"
         }
       ],
       "results": [
@@ -41,7 +41,7 @@
           "item": "tlotd:incomplete_copper_wire"
         },
         {
-          "tag": "c:copper_ingots"
+          "tag": "c:wooden_rods"
         }
       ],
       "results": [

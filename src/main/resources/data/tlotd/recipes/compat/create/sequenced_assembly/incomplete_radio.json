@@ -1,0 +1,166 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "create"
+      ]
+    }
+  ],
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "item": "minecraft:jukebox"
+  },
+  "loops": 1,
+  "results": [
+    {
+      "item": "tlotd:radio"
+    }
+  ],
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "tlotd:incomplete_radio"
+        },
+        {
+          "item": "tlotd:circuit_board"
+        }
+      ],
+      "results": [
+        {
+          "item": "tlotd:incomplete_radio"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "tlotd:incomplete_radio"
+        },
+        {
+          "tag": "minecraft:logs"
+        }
+      ],
+      "results": [
+        {
+          "item": "tlotd:incomplete_radio"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "tlotd:incomplete_radio"
+        },
+        {
+          "tag": "minecraft:logs"
+        }
+      ],
+      "results": [
+        {
+          "item": "tlotd:incomplete_radio"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "tlotd:incomplete_radio"
+        },
+        {
+          "tag": "minecraft:buttons"
+        }
+      ],
+      "results": [
+        {
+          "item": "tlotd:incomplete_radio"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "tlotd:incomplete_radio"
+        },
+        {
+          "tag": "minecraft:logs"
+        }
+      ],
+      "results": [
+        {
+          "item": "tlotd:incomplete_radio"
+        }
+      ]
+    },
+    {
+      "type": "create:pressing",
+      "ingredients": [
+        {
+          "item": "tlotd:incomplete_radio"
+        }
+      ],
+      "results": [
+        {
+          "item": "tlotd:incomplete_radio"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "tlotd:incomplete_radio"
+        },
+        {
+          "item": "tlotd:copper_wire"
+        }
+      ],
+      "results": [
+        {
+          "item": "tlotd:incomplete_radio"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "tlotd:incomplete_radio"
+        },
+        {
+          "tag": "c:iron_nuggets"
+        }
+      ],
+      "results": [
+        {
+          "item": "tlotd:incomplete_radio"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "tlotd:incomplete_radio"
+        },
+        {
+          "tag": "c:iron_nuggets"
+        }
+      ],
+      "results": [
+        {
+          "item": "tlotd:incomplete_radio"
+        }
+      ]
+    }
+  ],
+  "transitionalItem": {
+    "item": "tlotd:incomplete_radio"
+  }
+}

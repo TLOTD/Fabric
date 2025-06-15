@@ -23,6 +23,7 @@ public class ModBanners {
 
     public static final BannerPattern GONDOR = registerBanner("gondor", new BannerPattern("gondor"));
     public static final BannerPattern ROHAN = registerBanner("rohan", new BannerPattern("rohan"));
+    public static final BannerPattern ELVEN = registerBanner("elven", new BannerPattern("elven"));
     public static final BannerPattern MORDOR = registerBanner("mordor", new BannerPattern("mordor"));
     public static final BannerPattern ISENGARD = registerBanner("isengard", new BannerPattern("isengard"));
     public static final BannerPattern ANGMAR = registerBanner("angmar", new BannerPattern("angmar"));

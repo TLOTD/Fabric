@@ -88,7 +88,6 @@ public class WoodenSteinBlock extends Block {
             player.getHungerManager().add(1,0.1f);
             if (this.equals(ModBlocks.WOODEN_BEER_STEIN)) {
                 player.addStatusEffect(new StatusEffectInstance(ModEffects.DRUNK, 600));
-                player.addStatusEffect(new StatusEffectInstance(StatusEffects.NAUSEA, 200));
             } else if (this.equals(ModBlocks.WOODEN_MILK_STEIN)) {
                 player.clearStatusEffects();
             } else if (this.equals(ModBlocks.WOODEN_STRAWBERRY_MILKSHAKE_STEIN) || this.equals(ModBlocks.WOODEN_ORANGE_MILKSHAKE_STEIN) || this.equals(ModBlocks.WOODEN_CHOCOLATE_MILKSHAKE_STEIN)) {

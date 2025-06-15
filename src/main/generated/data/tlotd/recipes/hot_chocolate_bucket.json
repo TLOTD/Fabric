@@ -1,10 +1,10 @@
 {
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
-  "group": "Block{tlotd:wooden_stein}",
+  "group": "hot_chocolate_bucket",
   "ingredients": [
     {
-      "item": "tlotd:hot_milk_bucket"
+      "tag": "tlotd:hot_milk_container"
     },
     {
       "item": "minecraft:cocoa_beans"

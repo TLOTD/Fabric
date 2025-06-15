@@ -32,7 +32,9 @@ public class EmptyFlaskItem extends Item {
         if (!context.getWorld().isClient) {
             if (block.isIn(BlockTags.SOUL_FIRE_BASE_BLOCKS)) {
                 context.getStack().decrement(1);
-                player.giveItemStack(ModItems.SOUL_FLASK.getDefaultStack());
+                if (player.getInventory().getEmptySlot() == -1) {
+                    player.dropItem(ModItems.SOUL_FLASK);
+                } else player.giveItemStack(ModItems.SOUL_FLASK.getDefaultStack());
                 context.getWorld().breakBlock(context.getBlockPos(),false);
                 player.incrementStat(Stats.USED.getOrCreateStat(this));
                 context.getWorld().playSound(null, BlockPos.ofFloored(player.getPos()), SoundEvents.ITEM_BOTTLE_FILL, SoundCategory.PLAYERS, 1.0f, 1.0f);
@@ -41,13 +43,22 @@ public class EmptyFlaskItem extends Item {
                 context.getStack().decrement(1);
                 if (block.get(ABYSSAL_SOUL_CHARGES)>0) {
                     context.getWorld().setBlockState(context.getBlockPos(), block.with(ABYSSAL_SOUL_CHARGES, block.get(ABYSSAL_SOUL_CHARGES)-1), 2);
-                    player.giveItemStack(ModItems.SOUL_FLASK_OF_THE_ABYSS.getDefaultStack());}
+                    if (player.getInventory().getEmptySlot() == -1) {
+                        player.dropItem(ModItems.SOUL_FLASK_OF_THE_ABYSS);
+                    } else player.giveItemStack(ModItems.SOUL_FLASK_OF_THE_ABYSS.getDefaultStack());
+                }
                 else if (block.get(CURSED_SOUL_CHARGES)>0) {
                     context.getWorld().setBlockState(context.getBlockPos(), block.with(CURSED_SOUL_CHARGES, block.get(CURSED_SOUL_CHARGES)-1), 2);
-                    player.giveItemStack(ModItems.CURSED_SOUL_FLASK.getDefaultStack());}
+                    if (player.getInventory().getEmptySlot() == -1) {
+                        player.dropItem(ModItems.CURSED_SOUL_FLASK);
+                    } else player.giveItemStack(ModItems.CURSED_SOUL_FLASK.getDefaultStack());
+                }
                 else {
                     context.getWorld().setBlockState(context.getBlockPos(), block.with(SOUL_CHARGES, block.get(SOUL_CHARGES)-1), 2);
-                    player.giveItemStack(ModItems.SOUL_FLASK.getDefaultStack());}
+                    if (player.getInventory().getEmptySlot() == -1) {
+                        player.dropItem(ModItems.SOUL_FLASK);
+                    } else player.giveItemStack(ModItems.SOUL_FLASK.getDefaultStack());
+                }
                 player.incrementStat(Stats.USED.getOrCreateStat(this));
                 context.getWorld().playSound(null, BlockPos.ofFloored(player.getPos()), SoundEvents.ITEM_BOTTLE_FILL, SoundCategory.PLAYERS, 1.0f, 1.0f);
                 return ActionResult.SUCCESS;

@@ -9,6 +9,7 @@
   ],
   "replace": false,
   "values": [
-    "tlotd:hot_wooden_milk_stein"
+    "tlotd:hot_wooden_milk_stein",
+    "tlotd:hot_milk_bucket"
   ]
 }

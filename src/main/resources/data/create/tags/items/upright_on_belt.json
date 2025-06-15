@@ -21,6 +21,9 @@
     "tlotd:cursed_soul_flask",
     "tlotd:soul_flask_of_the_abyss",
 
+    "tlotd:hot_milk_bucket",
+    "tlotd:hot_chocolate_bucket",
+
     "tlotd:preserves_jar",
     "tlotd:sweet_berry_jam_jar",
     "tlotd:sweet_berry_jam_bucket",
@@ -30,10 +33,17 @@
     "tlotd:strawberry_jam_bucket",
     "tlotd:orange_marmelade_jar",
     "tlotd:orange_marmelade_bucket",
+    "tlotd:blue_berry_jam_jar",
+    "tlotd:blue_berry_jam_bucket",
     "tlotd:ancient_soulberry_jam_jar",
     "tlotd:ancient_soulberry_jam_bucket",
 
     "tlotd:strawberry_cake",
-    "tlotd:orange_cake"
+    "tlotd:orange_cake",
+
+    "tlotd:incomplete_copper_wire",
+    "tlotd:copper_wire",
+    "tlotd:incomplete_gold_wire",
+    "tlotd:gold_wire"
   ]
 }

@@ -1,0 +1,38 @@
+{
+  "fabric:load_conditions": [
+     {
+       "condition": "fabric:not",
+       "value": {
+         "condition": "fabric:all_mods_loaded",
+         "values": [
+           "create"
+         ]
+       }
+     }
+   ],
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "minecraft:black_dye"
+    },
+    "C": {
+      "item": "tlotd:circuit_board"
+    },
+    "G": {
+      "item": "tlotd:gold_wire"
+    },
+    "I": {
+      "tag": "c:iron_ingots"
+    }
+  },
+  "pattern": [
+    "BIG",
+    "CCC",
+    "IGB"
+  ],
+  "result": {
+    "item": "tlotd:advanced_circuit_board"
+  },
+  "show_notification": true
+}

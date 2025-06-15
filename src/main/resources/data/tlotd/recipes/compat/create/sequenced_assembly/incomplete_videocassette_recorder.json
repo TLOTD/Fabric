@@ -1,0 +1,179 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "create"
+      ]
+    }
+  ],
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "tag": "tlotd:vhs_cassettes"
+  },
+  "loops": 1,
+  "results": [
+    {
+      "item": "tlotd:videocassette_recorder"
+    }
+  ],
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "tlotd:incomplete_videocassette_recorder"
+        },
+        {
+          "item": "tlotd:circuit_board"
+        }
+      ],
+      "results": [
+        {
+          "item": "tlotd:incomplete_videocassette_recorder"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "tlotd:incomplete_videocassette_recorder"
+        },
+        {
+          "tag": "c:steel_ingots"
+        }
+      ],
+      "results": [
+        {
+          "item": "tlotd:incomplete_videocassette_recorder"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "tlotd:incomplete_videocassette_recorder"
+        },
+        {
+          "tag": "minecraft:buttons"
+        }
+      ],
+      "results": [
+        {
+          "item": "tlotd:incomplete_videocassette_recorder"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "tlotd:incomplete_videocassette_recorder"
+        },
+        {
+          "tag": "minecraft:logs"
+        }
+      ],
+      "results": [
+        {
+          "item": "tlotd:incomplete_videocassette_recorder"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "tlotd:incomplete_videocassette_recorder"
+        },
+        {
+          "tag": "c:quartz_blocks"
+        }
+      ],
+      "results": [
+        {
+          "item": "tlotd:incomplete_videocassette_recorder"
+        }
+      ]
+    },
+    {
+      "type": "create:pressing",
+      "ingredients": [
+        {
+          "item": "tlotd:incomplete_videocassette_recorder"
+        }
+      ],
+      "results": [
+        {
+          "item": "tlotd:incomplete_videocassette_recorder"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "tlotd:incomplete_videocassette_recorder"
+        },
+        {
+          "tag": "minecraft:buttons"
+        }
+      ],
+      "results": [
+        {
+          "item": "tlotd:incomplete_videocassette_recorder"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "tlotd:incomplete_videocassette_recorder"
+        },
+        {
+          "tag": "minecraft:logs"
+        }
+      ],
+      "results": [
+        {
+          "item": "tlotd:incomplete_videocassette_recorder"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "tlotd:incomplete_videocassette_recorder"
+        },
+        {
+          "tag": "c:quartz_blocks"
+        }
+      ],
+      "results": [
+        {
+          "item": "tlotd:incomplete_videocassette_recorder"
+        }
+      ]
+    },
+    {
+      "type": "create:pressing",
+      "ingredients": [
+        {
+          "item": "tlotd:incomplete_videocassette_recorder"
+        }
+      ],
+      "results": [
+        {
+          "item": "tlotd:incomplete_videocassette_recorder"
+        }
+      ]
+    }
+  ],
+  "transitionalItem": {
+    "item": "tlotd:incomplete_videocassette_recorder"
+  }
+}

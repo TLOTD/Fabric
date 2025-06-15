@@ -13,6 +13,10 @@
     {
       "id": "pamhc2trees:orangeitem",
       "required": false
+    },
+    {
+      "id": "atmospheric:orange",
+      "required": false
     }
   ]
 }

@@ -38,7 +38,9 @@ public class ExtractionPickaxeItem extends PickaxeItem {
             BlockState state = context.getWorld().getBlockState(positionClicked);
             String name = state.getBlock().getTranslationKey();
             int damage = 1;
-            if (state.isIn(ModTags.Blocks.EXTRACTABLE_BLOCKS) || (ModConfigs.EXTRACTION_ORE_EXPERIMENTAL_COMPAT && name.contains("_ore"))) {
+            if (context.getStack().isIn(ModTags.Items.MOUTH_OF_THE_ABYSS)) {
+                context.getWorld().breakBlock(positionClicked, true);
+            } else if (state.isIn(ModTags.Blocks.EXTRACTABLE_BLOCKS) || (ModConfigs.EXTRACTION_ORE_EXPERIMENTAL_COMPAT && name.contains("_ore"))) {
                 context.getWorld().breakBlock(positionClicked, true);
                 if (state.isIn(ModTags.Blocks.STONE_EXTRACTABLE_BLOCKS)) {
                     context.getWorld().setBlockState(positionClicked, Blocks.STONE.getDefaultState());
@@ -81,10 +83,9 @@ public class ExtractionPickaxeItem extends PickaxeItem {
                 int extraction_damage = damage*20;
                 if (context.getStack().isIn(ModTags.Items.EXTRACTION_II_PICKAXES)) {
                     extraction_damage = damage*10;
-                } else if (context.getStack().isIn(ModTags.Items.EXTRACTION_III_PICKAXES)) {
+                }
+                if (context.getStack().isIn(ModTags.Items.EXTRACTION_III_PICKAXES)) {
                     extraction_damage = damage;
-                } else if (context.getStack().isIn(ModTags.Items.MOUTH_OF_THE_ABYSS)) {
-                    extraction_damage = 0;
                 }
                 context.getStack().damage(extraction_damage, player, playerEntity -> playerEntity.sendToolBreakStatus(playerEntity.getActiveHand()));
                 if (player instanceof ServerPlayerEntity serverPlayerEntity) {

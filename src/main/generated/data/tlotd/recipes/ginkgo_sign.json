@@ -7,7 +7,7 @@
       "item": "tlotd:ginkgo_planks"
     },
     "I": {
-      "item": "minecraft:stick"
+      "tag": "c:wooden_rods"
     }
   },
   "pattern": [

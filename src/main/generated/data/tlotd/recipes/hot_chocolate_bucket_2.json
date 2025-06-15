@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "hot_chocolate_bucket",
+  "ingredients": [
+    {
+      "item": "tlotd:wooden_hot_chocolate_stein"
+    },
+    {
+      "item": "minecraft:bucket"
+    }
+  ],
+  "result": {
+    "item": "tlotd:hot_chocolate_bucket"
+  }
+}

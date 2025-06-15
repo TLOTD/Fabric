@@ -1,0 +1,35 @@
+{
+  "fabric:load_conditions": [
+     {
+       "condition": "fabric:not",
+       "value": {
+         "condition": "fabric:all_mods_loaded",
+         "values": [
+           "create"
+         ]
+       }
+     }
+   ],
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "minecraft:black_dye"
+    },
+    "C": {
+      "item": "tlotd:copper_wire"
+    },
+    "I": {
+      "tag": "c:iron_nuggets"
+    }
+  },
+  "pattern": [
+    "IBI",
+    "ICI",
+    "IBI"
+  ],
+  "result": {
+    "item": "tlotd:integrated_circuit"
+  },
+  "show_notification": true
+}

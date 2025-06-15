@@ -29,6 +29,8 @@ public class ModItemGroups {
 
                         entries.add(ModFluids.BEER_BUCKET);
                         entries.add(ModFluids.OIL_BUCKET);
+                        entries.add(ModFluids.HOT_MILK_BUCKET);
+                        entries.add(ModFluids.HOT_CHOCOLATE_BUCKET);
                         entries.add(ModFluids.BLOOD_BUCKET);
                         entries.add(ModFluids.CHEMICAL_WASTE_BUCKET);
 
@@ -103,6 +105,8 @@ public class ModItemGroups {
                         entries.add(ModItems.STAR_FRAGMENT);
                         entries.add(ModItems.LUNAR_CALLAINUS_LUMP);
 
+                        entries.add(ModItems.SOUL_MIRROR);
+
                         entries.add(ModItems.DAYBREAK_DOMAIN_FRAGMENTS);
                         entries.add(ModItems.SOMBER_BLOOD_ORBS);
                         entries.add(ModItems.OTHERWORLDLY_WHISPERS);
@@ -170,6 +174,8 @@ public class ModItemGroups {
 
                         entries.add(ModItems.MAULTASCHE);
                         entries.add(ModItems.MAULTASCHEN_BROTH);
+
+                        entries.add(ModItems.PORRIDGE);
 
                         entries.add(ModItems.MUSIC_DISC_1);
                         entries.add(ModItems.MUSIC_DISC_2);
@@ -364,6 +370,7 @@ public class ModItemGroups {
                         entries.add(ModItems.MITHRIL_SICKLE);
                         entries.add(ModItems.MITHRIL_FORGING_HAMMER);
                         entries.add(ModItems.MITHRIL_STAR_CATCHER);
+                        entries.add(ModItems.MITHRIL_MIRROR);
 
                         entries.add(ModItems.MITHRIL_HELMET);
                         entries.add(ModItems.MITHRIL_CHESTPLATE);
@@ -720,11 +727,17 @@ public class ModItemGroups {
             FabricItemGroup.builder().displayName(Text.translatable("itemgroup.tlotd.compat"))
                     .icon(() -> new ItemStack(ModBlocks.INFECTED_TREX_HEAD)).entries((displayContext, entries) -> {
                         entries.add(ModItems.INCOMPLETE_COPPER_WIRE);
+                        entries.add(ModItems.INCOMPLETE_GOLD_WIRE);
                         entries.add(ModItems.INCOMPLETE_INTEGRATED_CIRCUIT);
                         entries.add(ModItems.INCOMPLETE_CIRCUIT_BOARD);
                         entries.add(ModItems.INCOMPLETE_ADVANCED_CIRCUIT_BOARD);
-                        entries.add(ModFluids.HOT_MILK_BUCKET);
-                        entries.add(ModFluids.HOT_CHOCOLATE_BUCKET);
+                        entries.add(ModItems.INCOMPLETE_RADIO);
+                        entries.add(ModItems.INCOMPLETE_TELEVISION);
+                        entries.add(ModItems.INCOMPLETE_VIDEOCASSETTE_RECORDER);
+                        entries.add(ModItems.INCOMPLETE_SIGNAL_TRANSMITTER);
+                        entries.add(ModItems.INCOMPLETE_COMPUTER);
+                        entries.add(ModItems.INCOMPLETE_OXYGEN_COLLECTOR);
+                        entries.add(ModItems.INCOMPLETE_MITHRIL_MIRROR);
                         entries.add(ModFluids.SWEET_BERRY_JAM_BUCKET);
                         entries.add(ModFluids.GLOW_BERRY_JAM_BUCKET);
                         entries.add(ModFluids.STRAWBERRY_JAM_BUCKET);

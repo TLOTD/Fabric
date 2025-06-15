@@ -1,0 +1,24 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "create"
+      ]
+    }
+  ],
+  "type": "create:deploying",
+  "ingredients": [
+    {
+      "item": "tlotd:foggy_mithril_mirror"
+    },
+    {
+      "item": "tlotd:soul_flask_of_the_abyss"
+    }
+  ],
+  "results": [
+    {
+      "item": "tlotd:mithril_mirror"
+    }
+  ]
+}

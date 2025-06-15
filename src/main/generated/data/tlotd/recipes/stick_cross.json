@@ -3,7 +3,7 @@
   "category": "misc",
   "key": {
     "I": {
-      "item": "minecraft:stick"
+      "tag": "c:wooden_rods"
     }
   },
   "pattern": [

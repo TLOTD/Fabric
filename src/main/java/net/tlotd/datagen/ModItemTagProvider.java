@@ -203,15 +203,25 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModBlocks.WOODEN_BEER_STEIN.asItem())
         ;
 
+        getOrCreateTagBuilder(ModTags.Items.HOT_MILK_CONTAINER)
+                .add(ModFluids.HOT_MILK_BUCKET)
+                .add(ModBlocks.HOT_WOODEN_MILK_STEIN.asItem())
+        ;
+
         getOrCreateTagBuilder(ModTags.Items.EXTRACTION_PICKAXES)
                 .add(ModItems.CINNABAR_PICKAXE)
                 .add(ModItems.NEBULAR_PICKAXE)
                 .add(ModItems.MITHRIL_PICKAXE)
                 .add(ModItems.ASTRAL_PICKAXE)
+                .add(ModItems.DIVINE_PICKAXE)
+                .add(ModItems.CATACLYSMIC_PICKAXE)
         ;
 
         getOrCreateTagBuilder(ModTags.Items.EXTRACTION_II_PICKAXES)
                 .add(ModItems.MITHRIL_PICKAXE)
+                .add(ModItems.ASTRAL_PICKAXE)
+                .add(ModItems.DIVINE_PICKAXE)
+                .add(ModItems.CATACLYSMIC_PICKAXE)
         ;
 
         getOrCreateTagBuilder(ModTags.Items.EXTRACTION_III_PICKAXES)
@@ -249,6 +259,13 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModItems.VHS_CASSETTE_8)
                 .add(ModItems.VHS_CASSETTE_9)
                 .add(ModItems.VHS_CASSETTE_BROKEN)
+        ;
+
+        getOrCreateTagBuilder(ModTags.Items.GAME_CARTRIDGES)
+                .add(ModItems.GAME_CARTRIDGE)
+                .add(ModItems.GAME_CARTRIDGE_1)
+                .add(ModItems.GAME_CARTRIDGE_2)
+                .add(ModItems.GAME_CARTRIDGE_3)
         ;
 
         getOrCreateTagBuilder(ModTags.Items.RADIATION_PROTECTION_WITHOUT_HELMET)
@@ -495,6 +512,30 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModBlocks.URANIUM_BLOCK.asItem())
         ;
 
+        getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "wooden_rods")))
+                .add(Items.STICK)
+        ;
+
+        getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "copper_ingots")))
+                .add(Items.COPPER_INGOT)
+        ;
+
+        getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "iron_nuggets")))
+                .add(Items.IRON_NUGGET)
+        ;
+
+        getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "iron_ingots")))
+                .add(Items.IRON_INGOT)
+        ;
+
+        getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "gold_nuggets")))
+                .add(Items.GOLD_NUGGET)
+        ;
+
+        getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "gold_ingots")))
+                .add(Items.GOLD_INGOT)
+        ;
+
         getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "steel_raw_materials")))
                 .add(ModItems.STEEL_INGREDIENTS)
         ;
@@ -585,6 +626,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModItems.COOKED_DINOSAUR_MEAT)
                 .add(ModItems.CURED_MEAT)
                 .add(ModItems.COOKED_MEAT)
+                .add(ModItems.PORRIDGE)
         ;
     }
 }

@@ -6,7 +6,7 @@
       "tag": "c:steel_ingots"
     },
     "I": {
-      "item": "minecraft:gold_ingot"
+      "tag": "c:gold_ingots"
     }
   },
   "pattern": [

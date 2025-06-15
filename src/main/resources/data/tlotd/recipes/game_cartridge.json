@@ -1,0 +1,34 @@
+{
+  "fabric:load_conditions": [
+     {
+       "condition": "fabric:not",
+       "value": {
+         "condition": "fabric:all_mods_loaded",
+         "values": [
+           "create"
+         ]
+       }
+     }
+   ],
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "I": {
+      "tag": "c:iron_ingots"
+    },
+    "B": {
+      "item": "minecraft:black_dye"
+    },
+    "C": {
+      "item": "tlotd:circuit_board"
+    }
+  },
+  "pattern": [
+    "IB",
+    "BC"
+  ],
+  "result": {
+    "item": "tlotd:game_cartridge"
+  },
+  "show_notification": true
+}

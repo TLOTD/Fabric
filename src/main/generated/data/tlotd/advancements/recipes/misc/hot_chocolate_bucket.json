@@ -25,12 +25,12 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_hot_milk_bucket": {
+    "has_hot_wooden_milk_stein": {
       "conditions": {
         "items": [
           {
             "items": [
-              "tlotd:hot_milk_bucket"
+              "tlotd:hot_wooden_milk_stein"
             ]
           }
         ]
@@ -46,7 +46,7 @@
   },
   "requirements": [
     [
-      "has_hot_milk_bucket",
+      "has_hot_wooden_milk_stein",
       "has_cocoa_beans",
       "has_bucket",
       "has_the_recipe"

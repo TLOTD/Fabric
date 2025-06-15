@@ -35,8 +35,6 @@ public class ModItems {
 
     public static final Item SULFUR_TORCH = registerItem("sulfur_torch", new VerticallyAttachableBlockItem(ModBlocks.SULFUR_TORCH, ModBlocks.SULFUR_WALL_TORCH, new FabricItemSettings(), Direction.DOWN));
 
-
-
     public static final Item OAK_BARK = registerItem("oak_bark", new Item(new FabricItemSettings()));
     public static final Item SPRUCE_BARK = registerItem("spruce_bark", new Item(new FabricItemSettings()));
     public static final Item BIRCH_BARK = registerItem("birch_bark", new Item(new FabricItemSettings()));
@@ -152,9 +150,18 @@ public class ModItems {
     public static final Item HOLOGRAPHIC_PROJECTOR = registerItem("holographic_projector", new Item(new FabricItemSettings().rarity(Rarity.UNCOMMON)));
 
     public static final Item INCOMPLETE_COPPER_WIRE = registerItem("incomplete_copper_wire", new SequencedAssemblyItem(new FabricItemSettings().maxCount(1)));
+    public static final Item INCOMPLETE_GOLD_WIRE = registerItem("incomplete_gold_wire", new SequencedAssemblyItem(new FabricItemSettings().maxCount(1)));
     public static final Item INCOMPLETE_INTEGRATED_CIRCUIT = registerItem("incomplete_integrated_circuit", new SequencedAssemblyItem(new FabricItemSettings().maxCount(1)));
     public static final Item INCOMPLETE_CIRCUIT_BOARD = registerItem("incomplete_circuit_board", new SequencedAssemblyItem(new FabricItemSettings().maxCount(1)));
     public static final Item INCOMPLETE_ADVANCED_CIRCUIT_BOARD = registerItem("incomplete_advanced_circuit_board", new SequencedAssemblyItem(new FabricItemSettings().maxCount(1)));
+
+    public static final Item INCOMPLETE_RADIO = registerItem("incomplete_radio", new SequencedAssemblyItem(new FabricItemSettings().maxCount(1)));
+    public static final Item INCOMPLETE_TELEVISION = registerItem("incomplete_television", new SequencedAssemblyItem(new FabricItemSettings().maxCount(1)));
+    public static final Item INCOMPLETE_VIDEOCASSETTE_RECORDER = registerItem("incomplete_videocassette_recorder", new SequencedAssemblyItem(new FabricItemSettings().maxCount(1)));
+    public static final Item INCOMPLETE_SIGNAL_TRANSMITTER = registerItem("incomplete_signal_transmitter", new SequencedAssemblyItem(new FabricItemSettings().maxCount(1)));
+    public static final Item INCOMPLETE_COMPUTER = registerItem("incomplete_computer", new SequencedAssemblyItem(new FabricItemSettings().maxCount(1)));
+    public static final Item INCOMPLETE_OXYGEN_COLLECTOR = registerItem("incomplete_oxygen_collector", new SequencedAssemblyItem(new FabricItemSettings().maxCount(1)));
+    public static final Item INCOMPLETE_MITHRIL_MIRROR = registerItem("incomplete_mithril_mirror", new SequencedAssemblyItem(new FabricItemSettings().maxCount(1).rarity(Rarity.UNCOMMON)));
 
     public static final Item COPPER_SICKLE = registerItem("copper_sickle", new SickleItem(new FabricItemSettings().maxDamage(117)));
     public static final Item GOLDEN_SICKLE = registerItem("golden_sickle", new SickleItem(new FabricItemSettings().maxDamage(53)));
@@ -322,6 +329,9 @@ public class ModItems {
     public static final Item MITHRIL_SICKLE = registerItem("mithril_sickle", new SickleItem(new FabricItemSettings().maxDamage(3077).rarity(Rarity.UNCOMMON).fireproof()));
     public static final Item MITHRIL_FORGING_HAMMER = registerItem("mithril_forging_hammer", new ForgingHammerItem(new FabricItemSettings().rarity(Rarity.UNCOMMON).maxDamage(30).fireproof()));
     public static final Item MITHRIL_STAR_CATCHER = registerItem("mithril_star_catcher", new StarCatcherItem(new FabricItemSettings().rarity(Rarity.UNCOMMON).maxDamage(30).fireproof()));
+    public static final Item SOUL_MIRROR = registerItem("soul_mirror", new Item(new FabricItemSettings().rarity(Rarity.RARE).maxCount(1)));
+    public static final Item MITHRIL_MIRROR = registerItem("mithril_mirror", new MithrilMirrorItem(new FabricItemSettings().rarity(Rarity.UNCOMMON).maxCount(1)));
+    public static final Item FOGGY_MITHRIL_MIRROR = registerItem("foggy_mithril_mirror", new Item(new FabricItemSettings().rarity(Rarity.UNCOMMON).maxCount(1)));
 
     public static final Item MITHRIL_HELMET = registerItem("mithril_helmet", new ArmorItem(ModArmorMaterial.MITHRIL, ArmorItem.Type.HELMET, new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof()));
     public static final Item MITHRIL_CHESTPLATE = registerItem("mithril_chestplate", new ArmorItem(ModArmorMaterial.MITHRIL, ArmorItem.Type.CHESTPLATE, new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof()));
@@ -365,6 +375,8 @@ public class ModItems {
     public static final Item DINOSAUR_HIDE = registerItem("dinosaur_hide", new Item(new FabricItemSettings()));
     public static final Item DINOSAUR_MEAT = registerItem("dinosaur_meat", new Item(new FabricItemSettings().food(ModFoodComponents.DINOSAUR_MEAT)));
     public static final Item COOKED_DINOSAUR_MEAT = registerItem("cooked_dinosaur_meat", new Item(new FabricItemSettings().food(ModFoodComponents.DINOSAUR_MEAT_COOKED)));
+
+    public static final Item PORRIDGE = registerItem("porridge", new StewItem(new FabricItemSettings().maxCount(1).food(ModFoodComponents.PORRIDGE).recipeRemainder(Items.BOWL)));
 
     public static final Item FLOUR = registerItem("flour", new Item(new FabricItemSettings()));
     public static final Item BREADCRUMBS = registerItem("breadcrumbs", new Item(new FabricItemSettings()));

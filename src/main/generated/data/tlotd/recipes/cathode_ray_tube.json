@@ -3,13 +3,13 @@
   "category": "misc",
   "key": {
     "C": {
-      "item": "minecraft:copper_ingot"
+      "tag": "c:copper_ingots"
     },
     "G": {
       "tag": "c:colorless_glass_panes"
     },
     "I": {
-      "item": "minecraft:iron_ingot"
+      "tag": "c:iron_ingots"
     },
     "R": {
       "item": "minecraft:redstone_lamp"

@@ -1,0 +1,41 @@
+{
+  "fabric:load_conditions": [
+     {
+       "condition": "fabric:not",
+       "value": {
+         "condition": "fabric:all_mods_loaded",
+         "values": [
+           "create"
+         ]
+       }
+     }
+   ],
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "C": {
+      "item": "tlotd:integrated_circuit"
+    },
+    "D": {
+      "item": "minecraft:green_dye"
+    },
+    "G": {
+      "item": "tlotd:gold_wire"
+    },
+    "I": {
+      "tag": "c:iron_ingots"
+    },
+    "W": {
+      "item": "tlotd:copper_wire"
+    }
+  },
+  "pattern": [
+    "DWW",
+    "CCG",
+    "GID"
+  ],
+  "result": {
+    "item": "tlotd:circuit_board"
+  },
+  "show_notification": true
+}

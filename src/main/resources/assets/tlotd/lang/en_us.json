@@ -62,6 +62,7 @@
   "sounds.tlotd.entity_t-rex_hurt": "T-Rex is hurt",
   "sounds.tlotd.entity_t-rex_death": "T-Rex dies",
   "sounds.tlotd.item_pickaxe_extract": "Pickaxe extracts",
+  "sounds.tlotd.item_mithril_mirror": "Mithril Mirror used",
   "sounds.tlotd.block_elevator_pling": "Elevator used",
   "sounds.tlotd.block_radio_switch_frequency": "Radio frequency switched",
   "sounds.tlotd.block_television_switch_channel": "Television channel switched",
@@ -82,6 +83,8 @@
   "advancements.tlotd.extraction.desc": "Obtain an Extraction Pickaxe",
   "advancements.tlotd.mithril": "Purest of Metals",
   "advancements.tlotd.mithril.desc": "Aquire an Ingot of Silver-Steel, better known as Mithril",
+  "advancements.tlotd.mithril_mirror": "Home is behind",
+  "advancements.tlotd.mithril_mirror.desc": "The world ahead",
   "advancements.tlotd.astral": "Starforge",
   "advancements.tlotd.astral.desc": "Forge an Astral Ingot",
   "advancements.tlotd.anduril": "Flame of the West",
@@ -285,9 +288,17 @@
   "item.tlotd.holographic_projector": "Holographic Projector",
 
   "item.tlotd.incomplete_copper_wire": "Incomplete Copper Wire",
+  "item.tlotd.incomplete_gold_wire": "Incomplete Gold Wire",
   "item.tlotd.incomplete_integrated_circuit": "Incomplete Integrated Circuit",
   "item.tlotd.incomplete_circuit_board": "Incomplete Circuit Board",
   "item.tlotd.incomplete_advanced_circuit_board": "Incomplete Advanced Circuit Board",
+  "item.tlotd.incomplete_radio": "Incomplete Radio",
+  "item.tlotd.incomplete_television": "Incomplete Television",
+  "item.tlotd.incomplete_videocassette_recorder": "Incomplete Videocassette Recorder",
+  "item.tlotd.incomplete_signal_transmitter": "Incomplete Signal Transmitter",
+  "item.tlotd.incomplete_computer": "Incomplete Computer",
+  "item.tlotd.incomplete_oxygen_collector": "Incomplete Oxygen Collector",
+  "item.tlotd.incomplete_mithril_mirror": "Incomplete Mithril Mirror",
 
   "item.tlotd.blood_bottle": "Blood Bottle",
 
@@ -510,6 +521,11 @@
   "item.tlotd.mithril_boots": "Mithril Boots",
 
   "item.tlotd.mithril_horse_armor": "Mithril Horse Armor",
+  "item.tlotd.mithril_mirror": "Mithril Mirror",
+  "item.tlotd.mithril_mirror.tooltip": "Takes you home.",
+  "item.tlotd.mithril_mirror.tooltip_quenya": "\uE080\uE246 \u0016\uE15F \uE028\uE1A0\uE061",
+  "item.tlotd.foggy_mithril_mirror": "Foggy Mithril Mirror",
+  "item.tlotd.soul_mirror": "Soul Mirror",
 
   "item.tlotd.narsil_handle": "Narsil Handle",
   "item.tlotd.anduril": "Andúril",
@@ -992,6 +1008,8 @@
   "item.tlotd.maultaschen_broth": "Maultaschen Broth",
   "item.tlotd.suspicious_maultaschen_broth": "Maultaschen Broth",
 
+  "item.tlotd.porridge": "Porridge",
+
   "item.tlotd.beer_bottle": "Beer Bottle",
   "item.tlotd.beer_goat_horn": "Beer Goat Horn",
 
@@ -1192,6 +1210,23 @@
   "block.minecraft.banner.tlotd.rohan.red": "Red Horse of Rohan",
   "block.minecraft.banner.tlotd.rohan.white": "White Horse of Rohan",
   "block.minecraft.banner.tlotd.rohan.yellow": "Yellow Horse of Rohan",
+
+  "block.minecraft.banner.tlotd.elven.black": "Black Evenstar",
+  "block.minecraft.banner.tlotd.elven.blue": "Blue Evenstar",
+  "block.minecraft.banner.tlotd.elven.brown": "Brown Evenstar",
+  "block.minecraft.banner.tlotd.elven.cyan": "Cyan Evenstar",
+  "block.minecraft.banner.tlotd.elven.gray": "Gray Evenstar",
+  "block.minecraft.banner.tlotd.elven.green": "Green Evenstar",
+  "block.minecraft.banner.tlotd.elven.light_blue": "Light Blue Evenstar",
+  "block.minecraft.banner.tlotd.elven.light_gray": "Light Gray Evenstar",
+  "block.minecraft.banner.tlotd.elven.lime": "Lime Evenstar",
+  "block.minecraft.banner.tlotd.elven.magenta": "Magenta Evenstar",
+  "block.minecraft.banner.tlotd.elven.orange": "Orange Evenstar",
+  "block.minecraft.banner.tlotd.elven.pink": "Pink Evenstar",
+  "block.minecraft.banner.tlotd.elven.purple": "Purple Evenstar",
+  "block.minecraft.banner.tlotd.elven.red": "Red Evenstar",
+  "block.minecraft.banner.tlotd.elven.white": "White Evenstar",
+  "block.minecraft.banner.tlotd.elven.yellow": "Yellow Evenstar",
 
   "block.minecraft.banner.tlotd.mordor.black": "Black Eye of Mordor",
   "block.minecraft.banner.tlotd.mordor.blue": "Blue Eye of Mordor",

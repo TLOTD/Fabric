@@ -3,7 +3,7 @@
   "category": "misc",
   "key": {
     "#": {
-      "item": "minecraft:iron_nugget"
+      "tag": "c:iron_nuggets"
     },
     "I": {
       "item": "tlotd:sulfur_torch"

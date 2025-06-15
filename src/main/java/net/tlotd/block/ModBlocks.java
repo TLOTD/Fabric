@@ -348,7 +348,7 @@ public class ModBlocks {
             new WoodenSteinBlock(FabricBlockSettings.create().mapColor(MapColor.BROWN).strength(2.0F, 2.0F).sounds(BlockSoundGroup.WOOD).pistonBehavior(PistonBehavior.DESTROY).nonOpaque()));
     public static final Block WOODEN_ORANGE_MILKSHAKE_STEIN = registerDrinkableWoodenSteinBlock("wooden_orange_milkshake_stein",
             new WoodenSteinBlock(FabricBlockSettings.create().mapColor(MapColor.BROWN).strength(2.0F, 2.0F).sounds(BlockSoundGroup.WOOD).pistonBehavior(PistonBehavior.DESTROY).nonOpaque()));
-    public static final Block HOT_WOODEN_MILK_STEIN = registerDrinkableWoodenSteinBlock("hot_wooden_milk_stein",
+    public static final Block HOT_WOODEN_MILK_STEIN = registerBeerSteinBlock("hot_wooden_milk_stein",
             new WoodenSteinBlock(FabricBlockSettings.create().mapColor(MapColor.BROWN).strength(2.0F, 2.0F).sounds(BlockSoundGroup.WOOD).pistonBehavior(PistonBehavior.DESTROY).nonOpaque()));
     public static final Block WOODEN_HOT_CHOCOLATE_STEIN = registerDrinkableWoodenSteinBlock("wooden_hot_chocolate_stein",
             new WoodenSteinBlock(FabricBlockSettings.create().mapColor(MapColor.BROWN).strength(2.0F, 2.0F).sounds(BlockSoundGroup.WOOD).pistonBehavior(PistonBehavior.DESTROY).nonOpaque()));

@@ -1,0 +1,31 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "create"
+      ]
+    }
+  ],
+  "type": "create:compacting",
+  "ingredients": [
+    {
+      "item": "tlotd:circuit_board"
+    },
+    {
+      "item": "minecraft:black_dye"
+    },
+    {
+      "item": "minecraft:black_dye"
+    },
+    {
+      "tag": "c:iron_ingots"
+    }
+  ],
+  "results": [
+    {
+      "item": "tlotd:game_cartridge"
+    }
+  ],
+  "heatRequirement": "none"
+}

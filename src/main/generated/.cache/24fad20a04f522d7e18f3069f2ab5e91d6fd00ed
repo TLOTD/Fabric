@@ -1,4 +1,4 @@
-// 1.20.1	2025-05-18T21:56:49.393988	TLOTD/Tags for minecraft:block
+// 1.20.1	2025-06-15T20:59:05.2272057	TLOTD/Tags for minecraft:block
 73eb76ab8f187096a778402fbd37fcfc3e2c3523 data\fabric\tags\blocks\needs_tool_level_5.json
 1aa38db4e6420b76b410075b910e734a02000e8c data\minecraft\tags\blocks\small_flowers.json
 67e04e0d4704f5e9971818062bd3123e46d48ce7 data\tlotd\tags\blocks\diorite_extractable_blocks.json
@@ -56,16 +56,16 @@ bb79f42690865240990333ce9cbb858cb8551251 data\minecraft\tags\blocks\mineable\sho
 08c68720aa5ba245f5ed77d9dbc48327c7799a2a data\minecraft\tags\blocks\wolves_spawnable_on.json
 7bc75d7fa5826eb1def12f763778fad0c636d265 data\minecraft\tags\blocks\wooden_stairs.json
 4b14d79ba33277152e128b0f18d47ce8f617a7fc data\minecraft\tags\blocks\enchantment_power_provider.json
-1f972557027c192545de82f55f8604fc16a7d79f data\tlotd\tags\blocks\granite_extractable_blocks.json
 08c68720aa5ba245f5ed77d9dbc48327c7799a2a data\minecraft\tags\blocks\parrots_spawnable_on.json
+1f972557027c192545de82f55f8604fc16a7d79f data\tlotd\tags\blocks\granite_extractable_blocks.json
 1eda8ab4cd49b3834467c66ad6569cf9d3bd5b16 data\minecraft\tags\blocks\needs_iron_tool.json
 8f73258fcc8737ce877a5f2d75a059c439d47c57 data\tlotd\tags\blocks\calcite_extractable_blocks.json
 f0a3a3a15ad11ee1237dd0ef78675cf95257c6ed data\minecraft\tags\blocks\needs_stone_tool.json
 d78d455730d2536f5a703ad961bd2ba1829760e2 data\minecraft\tags\blocks\flower_pots.json
 5e6c902616a8b7dc79db61e2d1c6b5ba49a7aed9 data\minecraft\tags\blocks\stone_buttons.json
 08c68720aa5ba245f5ed77d9dbc48327c7799a2a data\minecraft\tags\blocks\rabbits_spawnable_on.json
-129907ab19368437b774ef7bb3589c2de16ccaff data\tlotd\tags\blocks\netherrack_extractable_blocks.json
 08c68720aa5ba245f5ed77d9dbc48327c7799a2a data\minecraft\tags\blocks\animals_spawnable_on.json
+129907ab19368437b774ef7bb3589c2de16ccaff data\tlotd\tags\blocks\netherrack_extractable_blocks.json
 a77b87d2b15b12ff7ec5aa92311162deded0ac31 data\tlotd\tags\blocks\bedrock_extractable_blocks.json
 3d18a372d2005bdb34ff5b32df3e2ca124e3050b data\minecraft\tags\blocks\ceiling_hanging_signs.json
 70f38cf9fa625ebd712738b3b148ca25c54e444f data\minecraft\tags\blocks\sniffer_diggable_block.json

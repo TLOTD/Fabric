@@ -52,9 +52,8 @@
   "sounds.tlotd.entity_t-rex_idle": "T-Rex respira",
   "sounds.tlotd.entity_t-rex_hurt": "T-Rex está herido",
   "sounds.tlotd.entity_t-rex_death": "T-Rex muere",
-
   "sounds.tlotd.item_pickaxe_extract": "Extractos de piqueta",
-
+  "sounds.tlotd.item_mithril_mirror": "Espejo de mithril utilizado",
   "sounds.tlotd.block_elevator_pling": "Ascensor utilizado",
   "sounds.tlotd.block_radio_switch_frequency": "Conmutación por radiofrecuencia",
   "sounds.tlotd.block_television_switch_channel": "Canal de televisión conmutado",
@@ -76,6 +75,8 @@
   "advancements.tlotd.extraction.desc": "Obtener un pico de extracción",
   "advancements.tlotd.mithril": "El más puro de los metales",
   "advancements.tlotd.mithril.desc": "Consigue un lingote de acero plateado, más conocido como Mithril",
+  "advancements.tlotd.mithril_mirror": "El hogar está detrás",
+  "advancements.tlotd.mithril_mirror.desc": "El mundo por delante",
   "advancements.tlotd.astral": "La forja estelar",
   "advancements.tlotd.astral.desc": "Forjar un lingote astral",
   "advancements.tlotd.anduril": "Llama del Oeste",
@@ -279,9 +280,17 @@
   "item.tlotd.holographic_projector": "Proyector holográfico",
 
   "item.tlotd.incomplete_copper_wire": "Alambre de cobre incompleto",
+  "item.tlotd.incomplete_gold_wire": "Alambre de oro incompleto",
   "item.tlotd.incomplete_integrated_circuit": "Circuitos integrados incompleto",
   "item.tlotd.incomplete_circuit_board": "Placa de circuito incompleto",
   "item.tlotd.incomplete_advanced_circuit_board": "Placa de circuito avanzada incompleto",
+  "item.tlotd.incomplete_radio": "Radio incompleto",
+  "item.tlotd.incomplete_television": "Televisión incompleto",
+  "item.tlotd.incomplete_videocassette_recorder": "Videograbadora incompleto",
+  "item.tlotd.incomplete_signal_transmitter": "Transmisor de señales incompleto",
+  "item.tlotd.incomplete_computer": "Ordenador incompleto",
+  "item.tlotd.incomplete_oxygen_collector": "Colector de oxígeno incompleto",
+  "item.tlotd.incomplete_mithril_mirror": "Espejo de mithril incompleto",
 
   "item.tlotd.blood_bottle": "Botella de sangre",
 
@@ -504,6 +513,10 @@
   "item.tlotd.mithril_boots": "Botas de mithril",
 
   "item.tlotd.mithril_horse_armor": "Armadura de mithril para caballo",
+  "item.tlotd.mithril_mirror": "Espejo de mithril",
+  "item.tlotd.mithril_mirror.tooltip": "Te Ileva a tu casa.",
+  "item.tlotd.foggy_mithril_mirror": "Espejo de mithril empañado",
+  "item.tlotd.soul_mirror": "Espejo del alma",
 
   "item.tlotd.narsil_handle": "Mango narsil",
   "item.tlotd.anduril": "Andúril",
@@ -984,6 +997,8 @@
   "item.tlotd.maultaschen_broth": "Caldo de Maultasche",
   "item.tlotd.suspicious_maultaschen_broth": "Caldo de Maultasche",
 
+  "item.tlotd.porridge": "Gachas",
+
   "item.tlotd.beer_bottle": "Botella de cerveza",
   "item.tlotd.beer_goat_horn": "Cuerno de cabra a la cerveza",
 
@@ -1184,6 +1199,23 @@
   "block.minecraft.banner.tlotd.rohan.red": "Caballo rojo de Rohan",
   "block.minecraft.banner.tlotd.rohan.white": "Caballo blanco de Rohan",
   "block.minecraft.banner.tlotd.rohan.yellow": "Caballo amarillo de Rohan",
+
+  "block.minecraft.banner.tlotd.elven.black": "Lucero de la tarde negra",
+  "block.minecraft.banner.tlotd.elven.blue": "Lucero de la tarde azul",
+  "block.minecraft.banner.tlotd.elven.brown": "Lucero de la tarde café",
+  "block.minecraft.banner.tlotd.elven.cyan": "Lucero de la tarde cian",
+  "block.minecraft.banner.tlotd.elven.gray": "Lucero de la tarde gris",
+  "block.minecraft.banner.tlotd.elven.green": "Lucero de la tarde verde",
+  "block.minecraft.banner.tlotd.elven.light_blue": "Lucero de la tarde azul claro",
+  "block.minecraft.banner.tlotd.elven.light_gray": "Lucero de la tarde gris claro",
+  "block.minecraft.banner.tlotd.elven.lime": "Lucero de la tarde lima",
+  "block.minecraft.banner.tlotd.elven.magenta": "Lucero de la tarde magenta",
+  "block.minecraft.banner.tlotd.elven.orange": "Lucero de la tarde naranja",
+  "block.minecraft.banner.tlotd.elven.pink": "Lucero de la tarde rosa",
+  "block.minecraft.banner.tlotd.elven.purple": "Lucero de la tarde morado",
+  "block.minecraft.banner.tlotd.elven.red": "Lucero de la tarde roja",
+  "block.minecraft.banner.tlotd.elven.white": "Lucero de la tarde blanca",
+  "block.minecraft.banner.tlotd.elven.yellow": "Lucero de la tarde amarilla",
 
   "block.minecraft.banner.tlotd.mordor.black": "Ojo negro de Mordor",
   "block.minecraft.banner.tlotd.mordor.blue": "Ojo azul de Mordor",

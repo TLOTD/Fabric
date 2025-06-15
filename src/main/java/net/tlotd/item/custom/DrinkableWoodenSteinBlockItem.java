@@ -2,6 +2,7 @@ package net.tlotd.item.custom;
 
 import net.minecraft.advancement.criterion.Criteria;
 import net.minecraft.block.Block;
+import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
@@ -11,12 +12,18 @@ import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.stat.Stats;
+import net.minecraft.text.Text;
+import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.UseAction;
 import net.minecraft.world.World;
 import net.tlotd.block.ModBlocks;
 import net.tlotd.effect.ModEffects;
+import net.tlotd.item.ModItems;
+import org.jetbrains.annotations.Nullable;
+
+import java.util.List;
 
 public class DrinkableWoodenSteinBlockItem extends BlockItem {
 
@@ -27,7 +34,6 @@ public class DrinkableWoodenSteinBlockItem extends BlockItem {
     public ItemStack finishUsing(ItemStack stack, World world, LivingEntity user) {
         if (stack.getItem() == ModBlocks.WOODEN_BEER_STEIN.asItem()) {
             user.addStatusEffect(new StatusEffectInstance(ModEffects.DRUNK, 600));
-            user.addStatusEffect(new StatusEffectInstance(StatusEffects.NAUSEA, 200));
         } else if (stack.getItem() == ModBlocks.WOODEN_MILK_STEIN.asItem()) {
             user.clearStatusEffects();
         } else if (stack.getItem() == ModBlocks.WOODEN_STRAWBERRY_MILKSHAKE_STEIN.asItem() || stack.getItem() == ModBlocks.WOODEN_ORANGE_MILKSHAKE_STEIN.asItem() || stack.getItem() == ModBlocks.WOODEN_CHOCOLATE_MILKSHAKE_STEIN.asItem()) {
@@ -76,5 +82,13 @@ public class DrinkableWoodenSteinBlockItem extends BlockItem {
 
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         return ItemUsage.consumeHeldItem(world, user, hand);
+    }
+
+    @Override
+    public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
+        if (stack.getItem() == ModBlocks.WOODEN_BEER_STEIN.asItem()) {
+            tooltip.add(Text.translatable("effect.tlotd.drunk").append(Text.literal(" (00:30)")).formatted(Formatting.RED));
+        }
+        super.appendTooltip(stack, world, tooltip, context);
     }
 }
