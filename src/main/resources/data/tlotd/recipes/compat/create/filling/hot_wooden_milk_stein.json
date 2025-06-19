@@ -3,6 +3,7 @@
     {
       "condition": "fabric:all_mods_loaded",
       "values": [
+        "fabric",
         "create"
       ]
     }
@@ -13,8 +14,8 @@
       "item": "tlotd:wooden_stein"
     },
     {
-      "amount": 81000,
-      "fluid": "tlotd:hot_milk"
+      "fluid": "tlotd:hot_milk",
+      "amount": 81000
     }
   ],
   "results": [

@@ -479,6 +479,8 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
         getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE)
 
+                .add(ModBlocks.SULFUR_LANTERN)
+
                 .add(ModBlocks.APPARATUS)
 
                 .add(ModBlocks.GLOBUS_CRUCIGER)
@@ -793,6 +795,10 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
         getOrCreateTagBuilder(BlockTags.WOOL_CARPETS)
                 .add(ModBlocks.CURSED_CARPET)
+        ;
+
+        getOrCreateTagBuilder(BlockTags.WALL_POST_OVERRIDE)
+                .add(ModBlocks.SULFUR_TORCH)
         ;
 
         getOrCreateTagBuilder(BlockTags.DRAGON_IMMUNE)

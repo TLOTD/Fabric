@@ -1,0 +1,31 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "create"
+      ]
+    }
+  ],
+  "type": "create:mixing",
+  "ingredients": [
+    {
+      "item": "tlotd:preserves_jar"
+    },
+    {
+      "tag": "c:oranges"
+    },
+    {
+      "tag": "c:oranges"
+    },
+    {
+      "tag": "c:sugar"
+    }
+  ],
+  "results": [
+    {
+      "item": "tlotd:orange_marmelade_jar"
+    }
+  ],
+  "heatRequirement": "heated"
+}

@@ -1,0 +1,32 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:not",
+      "value": {
+        "condition": "fabric:all_mods_loaded",
+        "values": [
+          "farmersdelight"
+        ]
+      }
+    }
+  ],
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "tlotd:maultasche"
+    },
+    {
+      "item": "tlotd:maultasche"
+    },
+    {
+      "item": "tlotd:maultasche"
+    },
+    {
+      "item": "minecraft:bowl"
+    }
+  ],
+  "result": {
+    "item": "tlotd:maultaschen_broth"
+  }
+}

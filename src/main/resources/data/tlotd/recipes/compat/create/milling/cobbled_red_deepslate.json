@@ -7,17 +7,16 @@
       ]
     }
   ],
-    "type": "create:milling",
-    "ingredients": [
-      {
-        "item": "tlotd:cobbled_red_deepslate"
-      }
-    ],
-    "results": [
-      {
-        "item": "tlotd:red_gravel",
-        "count": 1
-      }
-    ],
-    "processingTime": 250
-  }
+  "type": "create:milling",
+  "ingredients": [
+    {
+      "item": "tlotd:cobbled_red_deepslate"
+    }
+  ],
+  "results": [
+    {
+      "item": "tlotd:red_gravel"
+    }
+  ],
+  "processingTime": 250
+}

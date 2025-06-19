@@ -69,6 +69,10 @@ public class TLOTD implements ModInitializer {
 
 		FuelRegistry.INSTANCE.add(ModTags.Items.WOODEN_BARK, 200);
 
+		FuelRegistry.INSTANCE.add(ModBlocks.ARCHAEOLOGY_TABLE, 300);
+		FuelRegistry.INSTANCE.add(ModBlocks.RADIO, 800);
+		FuelRegistry.INSTANCE.add(ModBlocks.WOODEN_STEIN, 1000);
+
 		ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModItems.STRAWBERRY_SEEDS, 0.3f);
 		ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModItems.ORANGE_SEEDS, 0.3f);
 
@@ -140,10 +144,12 @@ public class TLOTD implements ModInitializer {
 		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.STRIPPED_GINKGO_LOG, 5, 5);
 		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.GINKGO_WOOD, 5, 5);
 		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.STRIPPED_GINKGO_WOOD, 5, 5);
-
 		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.GINKGO_LEAVES, 30, 60);
-
 		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.GINKGO_PLANKS, 5, 20);
+		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.GINKGO_STAIRS, 5, 20);
+		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.GINKGO_SLAB, 5, 20);
+		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.GINKGO_FENCE, 5, 20);
+		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.GINKGO_FENCE_GATE, 5, 20);
 
 		FabricDefaultAttributeRegistry.register(ModEntities.TREX, TRexEntity.createTRexAttributes());
 		FabricDefaultAttributeRegistry.register(ModEntities.INFECTED_TREX, InfectedTRexEntity.createInfectedTRexAttributes());

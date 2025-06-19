@@ -1,0 +1,16 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "palegarden"
+      ]
+    }
+  ],
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "palegarden:pale_plank"
+  },
+  "result": "tlotd:fancy_pale_oak_planks"
+}

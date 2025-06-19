@@ -1,0 +1,32 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "create",
+        "aether"
+      ]
+    }
+  ],
+  "type": "create:mixing",
+  "ingredients": [
+    {
+      "item": "tlotd:preserves_jar"
+    },
+    {
+      "item": "aether:blue_berry"
+    },
+    {
+      "item": "aether:blue_berry"
+    },
+    {
+      "tag": "c:sugar"
+    }
+  ],
+  "results": [
+    {
+      "item": "tlotd:blue_berry_jam_jar"
+    }
+  ],
+  "heatRequirement": "heated"
+}

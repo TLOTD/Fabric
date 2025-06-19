@@ -1041,6 +1041,13 @@
   "block.tlotd.infected_t-rex_head": "Infected T-Rex Head",
   "block.tlotd.sickened_t-rex_head": "Sickened T-Rex Head",
 
+  "block.tlotd.gondor_banner": "Banner of Gondor",
+  "block.tlotd.rohan_banner": "Banner of Rohan",
+  "block.tlotd.elven_banner": "Elven Banner",
+  "block.tlotd.mordor_banner": "Banner of Mordor",
+  "block.tlotd.isengard_banner": "Banner of Isengard",
+  "block.tlotd.angmar_banner": "Banner of Angmar",
+
   "block.minecraft.banner.tlotd.europa.black": "Black Ring of Stars",
   "block.minecraft.banner.tlotd.europa.blue": "Blue Ring of Stars",
   "block.minecraft.banner.tlotd.europa.brown": "Brown Ring of Stars",

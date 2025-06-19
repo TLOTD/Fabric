@@ -3,6 +3,7 @@
     {
       "condition": "fabric:all_mods_loaded",
       "values": [
+        "fabric",
         "create"
       ]
     }
@@ -11,14 +12,14 @@
   "heatRequirement": "heated",
   "ingredients": [
     {
-      "amount": 81000,
-      "fluidTag": "c:milk"
+      "fluidTag": "c:milk",
+      "amount": 81000
     }
   ],
   "results": [
     {
-      "amount": 81000,
-      "fluid": "tlotd:hot_milk"
+      "fluid": "tlotd:hot_milk",
+      "amount": 81000
     }
   ]
 }

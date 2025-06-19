@@ -1,17 +1,30 @@
 package net.tlotd.item;
 
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.ItemStack;
+import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.minecraft.block.entity.BannerPattern;
+import net.minecraft.block.entity.BannerPatterns;
+import net.minecraft.block.entity.BlockEntityType;
+import net.minecraft.item.*;
+import net.minecraft.nbt.NbtCompound;
+import net.minecraft.nbt.NbtElement;
+import net.minecraft.nbt.NbtInt;
+import net.minecraft.nbt.NbtList;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.text.Text;
+import net.minecraft.util.DyeColor;
+import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
+import net.minecraft.village.raid.Raid;
 import net.tlotd.TLOTD;
+import net.tlotd.banner.ModBanners;
 import net.tlotd.block.ModBlocks;
 import net.tlotd.fluid.ModFluids;
 
 public class ModItemGroups {
+
     public static final ItemGroup TLOTD_1_MATERIALS_GROUP = Registry.register(Registries.ITEM_GROUP,
             new Identifier(TLOTD.MOD_ID, "1_materials"),
             FabricItemGroup.builder().displayName(Text.translatable("itemgroup.tlotd.materials"))
@@ -625,12 +638,12 @@ public class ModItemGroups {
 
                         entries.add(ModBlocks.GINKGO_STAIRS);
                         entries.add(ModBlocks.GINKGO_SLAB);
-                        entries.add(ModBlocks.GINKGO_BUTTON);
-                        entries.add(ModBlocks.GINKGO_PRESSURE_PLATE);
                         entries.add(ModBlocks.GINKGO_FENCE);
                         entries.add(ModBlocks.GINKGO_FENCE_GATE);
                         entries.add(ModBlocks.GINKGO_DOOR);
                         entries.add(ModBlocks.GINKGO_TRAPDOOR);
+                        entries.add(ModBlocks.GINKGO_PRESSURE_PLATE);
+                        entries.add(ModBlocks.GINKGO_BUTTON);
 
                         entries.add(ModItems.GINKGO_SIGN);
                         entries.add(ModItems.HANGING_GINKGO_SIGN);
@@ -777,7 +790,195 @@ public class ModItemGroups {
                         entries.add(ModItems.SORTINGWOOD_BARK);
                     }).build());
 
+    public static ItemStack addBanner(String patternName, Item baseBanner, int color) {
+        ItemStack itemStack = new ItemStack(baseBanner);
+        NbtCompound nbtCompound = new NbtCompound();
+        NbtCompound pattern = new NbtCompound();
+        pattern.putString("Pattern", patternName);
+        pattern.putInt("Color", color);
+        NbtList nbtList = new NbtList();
+        nbtList.add(pattern);
+        nbtCompound.put("Patterns", nbtList);
+        BlockItem.setBlockEntityNbt(itemStack, BlockEntityType.BANNER, nbtCompound);
+        itemStack.addHideFlag(ItemStack.TooltipSection.ADDITIONAL);
+        itemStack.setCustomName(Text.translatable("block.tlotd." + patternName + "_banner").formatted(Formatting.GOLD));
+        return itemStack;
+    }
+
     public static void registerItemGroups(){
+
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.BUILDING_BLOCKS).register(content -> {
+            content.addAfter(Items.CHERRY_BUTTON, ModBlocks.GINKGO_LOG);
+            content.addAfter(ModBlocks.GINKGO_LOG, ModBlocks.GINKGO_WOOD);
+            content.addAfter(ModBlocks.GINKGO_WOOD, ModBlocks.STRIPPED_GINKGO_LOG);
+            content.addAfter(ModBlocks.STRIPPED_GINKGO_LOG, ModBlocks.STRIPPED_GINKGO_WOOD);
+            content.addAfter(ModBlocks.STRIPPED_GINKGO_WOOD, ModBlocks.GINKGO_PLANKS);
+            content.addAfter(ModBlocks.GINKGO_PLANKS, ModBlocks.GINKGO_STAIRS);
+            content.addAfter(ModBlocks.GINKGO_STAIRS, ModBlocks.GINKGO_SLAB);
+            content.addAfter(ModBlocks.GINKGO_SLAB, ModBlocks.GINKGO_FENCE);
+            content.addAfter(ModBlocks.GINKGO_FENCE, ModBlocks.GINKGO_FENCE_GATE);
+            content.addAfter(ModBlocks.GINKGO_FENCE_GATE, ModBlocks.GINKGO_DOOR);
+            content.addAfter(ModBlocks.GINKGO_DOOR, ModBlocks.GINKGO_TRAPDOOR);
+            content.addAfter(ModBlocks.GINKGO_TRAPDOOR, ModBlocks.GINKGO_PRESSURE_PLATE);
+            content.addAfter(ModBlocks.GINKGO_PRESSURE_PLATE, ModBlocks.GINKGO_BUTTON);
+        });
+
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.NATURAL).register(content -> {
+            content.addAfter(Items.END_STONE, ModBlocks.END_ENDURIUM_ORE);
+            content.addAfter(Items.DEEPSLATE_DIAMOND_ORE, ModBlocks.LEAD_ORE);
+            content.addAfter(ModBlocks.LEAD_ORE, ModBlocks.DEEPSLATE_URANIUM_ORE);
+            content.addAfter(ModBlocks.DEEPSLATE_URANIUM_ORE, ModBlocks.DEEPSLATE_FOSSIL);
+            content.addAfter(ModBlocks.DEEPSLATE_FOSSIL, ModBlocks.DEEPSLATE_HELIORITE_ORE);
+            content.addAfter(ModBlocks.DEEPSLATE_HELIORITE_ORE, ModBlocks.DEEPSLATE_PALLADIUM_ORE);
+            content.addAfter(ModBlocks.DEEPSLATE_PALLADIUM_ORE, ModBlocks.DEEPSLATE_JURASSOLINE_ORE);
+            content.addAfter(ModBlocks.DEEPSLATE_JURASSOLINE_ORE, ModBlocks.DEEPSLATE_CINNABAR_ORE);
+            content.addAfter(ModBlocks.DEEPSLATE_CINNABAR_ORE, ModBlocks.DEEPSLATE_NEBULAR_ORE);
+            content.addAfter(ModBlocks.DEEPSLATE_NEBULAR_ORE, ModBlocks.BEDROCK_MITHRIL_ORE);
+            content.addAfter(Items.NETHER_GOLD_ORE, ModBlocks.NETHER_SULFUR_ORE);
+            content.addAfter(Items.CHERRY_LOG, ModBlocks.GINKGO_LOG);
+            content.addAfter(Items.CHERRY_LEAVES, ModBlocks.GINKGO_LEAVES);
+            content.addAfter(Items.CHERRY_SAPLING, ModBlocks.GINKGO_SAPLING);
+            content.addAfter(Items.LILY_OF_THE_VALLEY, ModBlocks.ROSE);
+            content.addAfter(ModBlocks.ROSE, ModBlocks.IRIS);
+            content.addAfter(ModBlocks.IRIS, ModBlocks.EDELWEISS);
+            content.addAfter(ModBlocks.EDELWEISS, ModBlocks.ATHELAS);
+            content.addAfter(Items.SNIFFER_EGG, ModBlocks.TREX_EGG);
+            content.addAfter(Items.MELON_SEEDS, ModItems.STRAWBERRY_SEEDS);
+            content.addAfter(ModItems.STRAWBERRY_SEEDS, ModItems.ORANGE_SEEDS);
+            content.addAfter(Items.JACK_O_LANTERN, ModBlocks.WHITE_PUMPKIN);
+            content.addAfter(ModBlocks.WHITE_PUMPKIN, ModBlocks.CARVED_WHITE_PUMPKIN);
+            content.addAfter(ModBlocks.CARVED_WHITE_PUMPKIN, ModBlocks.WHITE_JACK_O_LANTERN);
+        });
+
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.FUNCTIONAL).register(content -> {
+            content.addAfter(Items.SOUL_TORCH, ModItems.SULFUR_TORCH);
+            content.addAfter(Items.SOUL_LANTERN, ModBlocks.SULFUR_LANTERN);
+            content.addAfter(Items.CARTOGRAPHY_TABLE, ModBlocks.ARCHAEOLOGY_TABLE);
+            content.addAfter(Items.DAMAGED_ANVIL, ModBlocks.MITHRIL_ANVIL);
+            content.addAfter(Items.ENCHANTING_TABLE, ModBlocks.WITCHING_TABLE);
+            content.addAfter(Items.CHERRY_HANGING_SIGN, ModItems.GINKGO_SIGN);
+            content.addAfter(ModItems.GINKGO_SIGN, ModItems.HANGING_GINKGO_SIGN);
+            content.addAfter(Raid.getOminousBanner(), addBanner("gondor", Items.BLACK_BANNER, 0));
+            content.addAfter(addBanner("gondor", Items.BLACK_BANNER, 0), addBanner("rohan", Items.GREEN_BANNER, 0));
+            content.addAfter(addBanner("rohan", Items.GREEN_BANNER, 0), addBanner("elven", Items.BLUE_BANNER, 0));
+            content.addAfter(addBanner("elven", Items.BLUE_BANNER, 0), addBanner("mordor", Items.BLACK_BANNER, 14));
+            content.addAfter(addBanner("mordor", Items.BLACK_BANNER, 14), addBanner("isengard", Items.BLACK_BANNER, 0));
+            content.addAfter(addBanner("isengard", Items.BLACK_BANNER, 0), addBanner("angmar", Items.RED_BANNER, 15));
+
+        });
+
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register(content -> {
+            content.addBefore(Items.IRON_SHOVEL, ModItems.COPPER_SICKLE);
+            content.addAfter(Items.GOLDEN_HOE, ModItems.GOLDEN_SICKLE);
+            content.addAfter(Items.NETHERITE_HOE, ModItems.NETHERITE_SICKLE);
+            content.addAfter(ModItems.NETHERITE_SICKLE, ModItems.NETHERITE_FORGING_HAMMER);
+            content.addAfter(Items.FLINT_AND_STEEL, ModItems.FOSSIL_AND_STEEL);
+            content.addAfter(Items.MILK_BUCKET, ModFluids.BEER_BUCKET);
+            content.addAfter(ModFluids.BEER_BUCKET, ModFluids.OIL_BUCKET);
+            content.addAfter(ModFluids.OIL_BUCKET, ModFluids.HOT_MILK_BUCKET);
+            content.addAfter(ModFluids.HOT_MILK_BUCKET, ModFluids.HOT_CHOCOLATE_BUCKET);
+            content.addAfter(ModFluids.HOT_CHOCOLATE_BUCKET, ModFluids.BLOOD_BUCKET);
+            content.addAfter(ModFluids.BLOOD_BUCKET, ModFluids.CHEMICAL_WASTE_BUCKET);
+            content.addAfter(Items.CHERRY_CHEST_BOAT, ModItems.GINKGO_BOAT);
+            content.addAfter(ModItems.GINKGO_BOAT, ModItems.GINKGO_CHEST_BOAT);
+            content.addAfter(Items.MUSIC_DISC_OTHERSIDE, ModItems.MUSIC_DISC_1);
+            content.addAfter(ModItems.MUSIC_DISC_1, ModItems.MUSIC_DISC_2);
+            content.addAfter(ModItems.MUSIC_DISC_2, ModItems.MUSIC_DISC_3);
+            content.addAfter(ModItems.MUSIC_DISC_3, ModItems.MUSIC_DISC_4);
+        });
+
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register(content -> {
+            content.addAfter(Items.TURTLE_HELMET, ModItems.EMPERORS_CROWN);
+            content.addAfter(Items.DIAMOND_HORSE_ARMOR, ModItems.MITHRIL_HORSE_ARMOR);
+        });
+
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.FOOD_AND_DRINK).register(content -> {
+            content.addAfter(Items.GLOW_BERRIES, ModItems.STRAWBERRY);
+            content.addAfter(ModItems.STRAWBERRY, ModItems.ORANGE);
+            content.addAfter(Items.COOKED_MUTTON, ModItems.CURED_MEAT);
+            content.addAfter(ModItems.CURED_MEAT, ModItems.COOKED_MEAT);
+            content.addAfter(ModItems.COOKED_MEAT, ModItems.DINOSAUR_MEAT);
+            content.addAfter(ModItems.COOKED_MEAT, ModItems.COOKED_DINOSAUR_MEAT);
+            content.addAfter(ModItems.COOKED_DINOSAUR_MEAT, ModItems.RAW_SCHNITZEL);
+            content.addAfter(ModItems.RAW_SCHNITZEL, ModItems.SCHNITZEL);
+            content.addAfter(ModItems.SCHNITZEL, ModItems.CALAMARI);
+            content.addAfter(ModItems.CALAMARI, ModItems.FRIED_CALAMARI);
+            content.addBefore(Items.BREAD, ModItems.MAULTASCHE);
+            content.addAfter(Items.BREAD, ModItems.TOAST);
+            content.addAfter(ModItems.TOAST, ModItems.SWEET_BERRY_JAM_TOAST);
+            content.addAfter(ModItems.SWEET_BERRY_JAM_TOAST, ModItems.GLOW_BERRY_JAM_TOAST);
+            content.addAfter(ModItems.GLOW_BERRY_JAM_TOAST, ModItems.STRAWBERRY_JAM_TOAST);
+            content.addAfter(ModItems.STRAWBERRY_JAM_TOAST, ModItems.ORANGE_MARMELADE_TOAST);
+            content.addAfter(ModItems.ORANGE_MARMELADE_TOAST, ModItems.BLUE_BERRY_JAM_TOAST);
+            content.addAfter(ModItems.BLUE_BERRY_JAM_TOAST, ModItems.ANCIENT_SOULBERRY_JAM_TOAST);
+            content.addAfter(Items.COOKIE, ModItems.CHOCOLATE_STRAWBERRY);
+            content.addAfter(Items.CAKE, ModBlocks.STRAWBERRY_CAKE);
+            content.addAfter(ModBlocks.STRAWBERRY_CAKE, ModBlocks.ORANGE_CAKE);
+            content.addAfter(Items.RABBIT_STEW, ModItems.PORRIDGE);
+            content.addAfter(ModItems.PORRIDGE, ModItems.MAULTASCHEN_BROTH);
+            content.addAfter(Items.MILK_BUCKET, ModBlocks.WOODEN_WATER_STEIN);
+            content.addAfter(ModBlocks.WOODEN_WATER_STEIN, ModBlocks.WOODEN_APPLE_JUICE_STEIN);
+            content.addAfter(ModBlocks.WOODEN_APPLE_JUICE_STEIN, ModBlocks.WOODEN_ORANGE_JUICE_STEIN);
+            content.addAfter(ModBlocks.WOODEN_ORANGE_JUICE_STEIN, ModBlocks.WOODEN_BEER_STEIN);
+            content.addAfter(ModBlocks.WOODEN_BEER_STEIN, ModBlocks.WOODEN_MILK_STEIN);
+            content.addAfter(ModBlocks.WOODEN_MILK_STEIN, ModBlocks.WOODEN_CHOCOLATE_MILKSHAKE_STEIN);
+            content.addAfter(ModBlocks.WOODEN_CHOCOLATE_MILKSHAKE_STEIN, ModBlocks.WOODEN_STRAWBERRY_MILKSHAKE_STEIN);
+            content.addAfter(ModBlocks.WOODEN_STRAWBERRY_MILKSHAKE_STEIN, ModBlocks.WOODEN_ORANGE_MILKSHAKE_STEIN);
+            content.addAfter(ModBlocks.WOODEN_ORANGE_MILKSHAKE_STEIN, ModBlocks.HOT_WOODEN_MILK_STEIN);
+            content.addAfter(ModBlocks.HOT_WOODEN_MILK_STEIN, ModBlocks.WOODEN_HOT_CHOCOLATE_STEIN);
+            content.addAfter(Items.HONEY_BOTTLE, ModItems.APPLE_JUICE_BOTTLE);
+            content.addAfter(ModItems.APPLE_JUICE_BOTTLE, ModItems.ORANGE_JUICE_BOTTLE);
+            content.addAfter(ModItems.ORANGE_JUICE_BOTTLE, ModItems.SPEZI_BOTTLE);
+            content.addAfter(ModItems.SPEZI_BOTTLE, ModItems.BEER_BOTTLE);
+            content.addAfter(ModItems.BEER_BOTTLE, ModItems.BEER_GOAT_HORN);
+            content.addAfter(ModItems.BEER_BOTTLE, ModItems.BEER_GOAT_HORN);
+        });
+
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(content -> {
+            content.addAfter(Items.RAW_GOLD, ModItems.RAW_LEAD);
+            content.addAfter(ModItems.RAW_LEAD, ModItems.RAW_PALLADIUM);
+            content.addAfter(ModItems.RAW_PALLADIUM, ModItems.RAW_MITHRIL);
+            content.addAfter(Items.DIAMOND, ModItems.URANIUM);
+            content.addAfter(ModItems.URANIUM, ModItems.HELIORITE_COMB);
+            content.addAfter(ModItems.HELIORITE_COMB, ModItems.ENDURIUM_CRYSTAL);
+            content.addAfter(ModItems.ENDURIUM_CRYSTAL, ModItems.CINNABAR_CRYSTAL);
+            content.addAfter(ModItems.CINNABAR_CRYSTAL, ModItems.NEBULAR_CRYSTAL);
+            content.addAfter(Items.AMETHYST_SHARD, ModItems.XEN_CRYSTAL);
+            content.addAfter(Items.GOLD_NUGGET, ModItems.STEEL_NUGGET);
+            content.addAfter(ModItems.STEEL_NUGGET, ModItems.LEAD_NUGGET);
+            content.addAfter(ModItems.LEAD_NUGGET, ModItems.URANIUM_NUGGET);
+            content.addAfter(ModItems.URANIUM_NUGGET, ModItems.HELIORITE_NUGGET);
+            content.addAfter(ModItems.HELIORITE_NUGGET, ModItems.ENDURIUM_NUGGET);
+            content.addAfter(ModItems.ENDURIUM_NUGGET, ModItems.PALLADIUM_NUGGET);
+            content.addAfter(ModItems.PALLADIUM_NUGGET, ModItems.JURASSOLINE_NUGGET);
+            content.addAfter(ModItems.JURASSOLINE_NUGGET, ModItems.CINNABAR_NUGGET);
+            content.addAfter(ModItems.CINNABAR_NUGGET, ModItems.NEBULAR_NUGGET);
+            content.addAfter(ModItems.NEBULAR_NUGGET, ModItems.MITHRIL_NUGGET);
+            content.addAfter(ModItems.MITHRIL_NUGGET, ModItems.ASTRAL_NUGGET);
+            content.addAfter(Items.GOLD_INGOT, ModItems.STEEL_INGOT);
+            content.addAfter(ModItems.STEEL_INGOT, ModItems.LEAD_INGOT);
+            content.addAfter(ModItems.LEAD_INGOT, ModItems.URANIUM_INGOT);
+            content.addAfter(Items.NETHERITE_INGOT, ModItems.HELIORITE_INGOT);
+            content.addAfter(ModItems.HELIORITE_INGOT, ModItems.ENDURIUM_INGOT);
+            content.addAfter(ModItems.ENDURIUM_INGOT, ModItems.PALLADIUM_INGOT);
+            content.addAfter(ModItems.PALLADIUM_INGOT, ModItems.JURASSOLINE_INGOT);
+            content.addAfter(ModItems.JURASSOLINE_INGOT, ModItems.CINNABAR_INGOT);
+            content.addAfter(ModItems.CINNABAR_INGOT, ModItems.NEBULAR_INGOT);
+            content.addAfter(ModItems.NEBULAR_INGOT, ModItems.MITHRIL_INGOT);
+            content.addAfter(ModItems.MITHRIL_INGOT, ModItems.ASTRAL_INGOT);
+            content.addAfter(Items.STICK, ModItems.STEEL_ROD);
+            content.addAfter(ModItems.STEEL_ROD, ModItems.REINFORCED_TOOL_ROD);
+            content.addAfter(ModItems.REINFORCED_TOOL_ROD, ModItems.FANCY_TOOL_ROD);
+            content.addAfter(Items.BONE, ModItems.FOSSILIZED_BONE);
+            content.addAfter(Items.GLOWSTONE_DUST, ModItems.SULFUR);
+            content.addAfter(Items.PIGLIN_BANNER_PATTERN, ModItems.DRAGON_BANNER_PATTERN);
+            content.addAfter(ModItems.DRAGON_BANNER_PATTERN, ModItems.LOTR_BANNER_PATTERN);
+        });
+
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.SPAWN_EGGS).register(content -> {
+            content.addBefore(Items.TADPOLE_SPAWN_EGG, ModItems.TREX_SPAWN_EGG);
+        });
+
         TLOTD.LOGGER.info("Registering Item Groups for " + TLOTD.MOD_ID);
     }
 

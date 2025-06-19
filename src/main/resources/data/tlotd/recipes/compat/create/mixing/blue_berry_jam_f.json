@@ -1,0 +1,30 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "forge",
+        "create",
+        "aether"
+      ]
+    }
+  ],
+  "type": "create:mixing",
+  "ingredients": [
+    {
+      "item": "aether:blue_berry"
+    },
+    {
+      "item": "aether:blue_berry"
+    },
+    {
+      "item": "minecraft:sugar"
+    }
+  ],
+  "results": [
+    {
+      "fluid": "tlotd:blue_berry_jam",
+      "amount": 1000
+    }
+  ]
+}

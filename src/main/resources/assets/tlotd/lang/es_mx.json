@@ -1030,6 +1030,13 @@
   "block.tlotd.infected_t-rex_head": "Cabeza de T-Rex infectada",
   "block.tlotd.sickened_t-rex_head": "Cabeza de T-Rex enferma",
 
+  "block.tlotd.gondor_banner": "Estandarte de Gondor",
+  "block.tlotd.rohan_banner": "Estandarte de Rohan",
+  "block.tlotd.elven_banner": "Estandarte élfico",
+  "block.tlotd.mordor_banner": "Estandarte de Mordor",
+  "block.tlotd.isengard_banner": "Estandarte de Isengard",
+  "block.tlotd.angmar_banner": "Estandarte de Angmar",
+
   "block.minecraft.banner.tlotd.europa.black": "Anillo negro de estrellas",
   "block.minecraft.banner.tlotd.europa.blue": "Anillo azul de estrellas",
   "block.minecraft.banner.tlotd.europa.brown": "Anillo café de estrellas",

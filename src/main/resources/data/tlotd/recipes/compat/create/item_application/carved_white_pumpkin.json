@@ -1,0 +1,28 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "create"
+      ]
+    }
+  ],
+  "type": "create:item_application",
+  "ingredients": [
+    {
+      "item": "tlotd:white_pumpkin"
+    },
+    {
+      "tag": "c:shears"
+    }
+  ],
+  "results": [
+    {
+      "item": "tlotd:carved_white_pumpkin"
+    },
+    {
+      "item": "minecraft:pumpkin_seeds",
+      "count": 4
+    }
+  ]
+}

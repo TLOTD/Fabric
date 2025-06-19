@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
+    "tlotd:sulfur_lantern",
     "tlotd:apparatus",
     "tlotd:globus_cruciger",
     "tlotd:garbage_can",

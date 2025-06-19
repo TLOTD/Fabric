@@ -1,0 +1,26 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "forge",
+        "create"
+      ]
+    }
+  ],
+  "type": "create:filling",
+  "ingredients": [
+    {
+      "item": "tlotd:toast"
+    },
+    {
+      "fluid": "tlotd:orange_marmelade",
+      "amount": 333
+    }
+  ],
+  "results": [
+    {
+      "item": "tlotd:orange_marmelade_toast"
+    }
+  ]
+}

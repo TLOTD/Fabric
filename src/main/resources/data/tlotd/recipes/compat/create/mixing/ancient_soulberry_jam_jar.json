@@ -1,0 +1,32 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "create",
+        "allthemodium"
+      ]
+    }
+  ],
+  "type": "create:mixing",
+  "ingredients": [
+    {
+      "item": "tlotd:preserves_jar"
+    },
+    {
+      "item": "allthemodium:ancient_soulberries"
+    },
+    {
+      "item": "allthemodium:ancient_soulberries"
+    },
+    {
+      "tag": "c:sugar"
+    }
+  ],
+  "results": [
+    {
+      "item": "tlotd:ancient_soulberry_jam_jar"
+    }
+  ],
+  "heatRequirement": "heated"
+}

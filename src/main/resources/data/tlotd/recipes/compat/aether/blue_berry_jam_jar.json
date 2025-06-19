@@ -1,9 +1,24 @@
 {
   "fabric:load_conditions": [
     {
-      "condition": "fabric:all_mods_loaded",
+      "condition": "fabric:and",
       "values": [
-        "aether"
+        {
+          "condition": "fabric:all_mods_loaded",
+          "values": [
+            "aether"
+          ]
+        },
+        {
+          "condition": "fabric:not",
+          "value": {
+            "condition": "fabric:any_mod_loaded",
+            "values": [
+              "create",
+              "farmersdelight"
+            ]
+          }
+        }
       ]
     }
   ],
@@ -20,7 +35,7 @@
       "item": "aether:blue_berry"
     },
     {
-      "item": "minecraft:sugar"
+      "tag": "c:sugar"
     }
   ],
   "result": {

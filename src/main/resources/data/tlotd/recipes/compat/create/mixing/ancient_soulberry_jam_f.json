@@ -1,0 +1,30 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "forge",
+        "create",
+        "allthemodium"
+      ]
+    }
+  ],
+  "type": "create:mixing",
+  "ingredients": [
+    {
+      "item": "allthemodium:ancient_soulberries"
+    },
+    {
+      "item": "allthemodium:ancient_soulberries"
+    },
+    {
+      "item": "minecraft:sugar"
+    }
+  ],
+  "results": [
+    {
+      "fluid": "tlotd:ancient_soulberry_jam",
+      "amount": 1000
+    }
+  ]
+}
