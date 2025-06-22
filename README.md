@@ -18,7 +18,7 @@
 [![Forgified Fabric API Button](https://tlotd.net/minecraft/mod/forgified_fabric_api.svg)](https://modrinth.com/mod/forgified-fabric-api)
 With [Sinytra Connector](https://modrinth.com/mod/connector)
 
-## How you can Help
+## How you can help
 - If you have a bit of coding knowledge you can have a crack at the Just Enough Items Integration or the T-Rex walking animation (I currently have no Idea how to fix them :/)
 - If you are able to speak more than one language you could help by providing translations for you language.
 
@@ -38,4 +38,4 @@ Also I made a wiki thingy for the mod, come check it out if you want to:
 - [Modrinth](https://modrinth.com/mod/tlotd)
 - [CurseForge](https://www.curseforge.com/minecraft/mc-mods/tlotd)
   
-***I WILL ONLY UPLOAD RELEASES THERE, DO NOT DOWNLOAD FROM ANY OTHER SITE!*** *thy ^^*
+***I WILL ONLY UPLOAD RELEASES THERE, DO NOT DOWNLOAD FROM ANY OTHER SITE!*** *I cannot guarantee, that the files have not been tempered with on other sites, thy ^^*
