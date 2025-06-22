@@ -55,6 +55,7 @@
     "tlotd:red_deepslate_brick_wall",
     "tlotd:mossy_red_deepslate_bricks",
     "tlotd:cracked_red_deepslate_bricks",
+    "tlotd:red_deepslate_pressure_plate",
     "tlotd:cobbled_red_deepslate",
     "tlotd:cobbled_red_deepslate_stairs",
     "tlotd:cobbled_red_deepslate_slab",
@@ -131,6 +132,7 @@
     "tlotd:bedrock_mithril_ore",
     "tlotd:raw_mithril_block",
     "tlotd:mithril_block",
-    "tlotd:mithril_anvil"
+    "tlotd:mithril_anvil",
+    "tlotd:mithril_bars"
   ]
 }

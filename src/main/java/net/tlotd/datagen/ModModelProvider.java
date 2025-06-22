@@ -159,13 +159,6 @@ public class ModModelProvider extends FabricModelProvider {
 
         blockStateModelGenerator.registerWoolAndCarpet(ModBlocks.CURSED_WOOL, ModBlocks.CURSED_CARPET);
 
-        blockStateModelGenerator.registerGlassPane(ModBlocks.FRAMED_GLASS, ModBlocks.FRAMED_GLASS_PANE);
-        blockStateModelGenerator.registerGlassPane(ModBlocks.FRAMED_GLASS_TOP, ModBlocks.FRAMED_GLASS_TOP_PANE);
-        blockStateModelGenerator.registerGlassPane(ModBlocks.FRAMED_GLASS_MIDDLE, ModBlocks.FRAMED_GLASS_MIDDLE_PANE);
-        blockStateModelGenerator.registerGlassPane(ModBlocks.FRAMED_GLASS_BOTTOM, ModBlocks.FRAMED_GLASS_BOTTOM_PANE);
-        blockStateModelGenerator.registerGlassPane(ModBlocks.FRAMED_GLASS_SPLIT, ModBlocks.FRAMED_GLASS_SPLIT_PANE);
-        blockStateModelGenerator.registerGlassPane(ModBlocks.FRAMED_GLASS_TILED, ModBlocks.FRAMED_GLASS_TILED_PANE);
-
         BlockStateModelGenerator.BlockTexturePool fancyOakPool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.FANCY_OAK_PLANKS);
         fancyOakPool.stairs(ModBlocks.FANCY_OAK_STAIRS);
         fancyOakPool.slab(ModBlocks.FANCY_OAK_SLAB);
@@ -317,7 +310,6 @@ public class ModModelProvider extends FabricModelProvider {
 
         itemModelGenerator.register(ModItems.BLOOD_BOTTLE, Models.GENERATED);
 
-        itemModelGenerator.register(ModItems.STICK_CROSS, Models.GENERATED);
         itemModelGenerator.register(ModItems.STICK_EFFIGY, Models.GENERATED);
         itemModelGenerator.register(ModItems.STICK_FIGURE, Models.GENERATED);
 
@@ -375,6 +367,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.STEEL_SICKLE, Models.HANDHELD);
 
         itemModelGenerator.register(ModItems.FOSSILIZED_BONE, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.PLANT_FOSSIL, Models.GENERATED);
         itemModelGenerator.register(ModItems.FOSSIL_AND_STEEL, Models.GENERATED);
         itemModelGenerator.register(ModItems.SOUL_MIRROR, Models.GENERATED);
         itemModelGenerator.register(ModItems.MITHRIL_MIRROR, Models.GENERATED);

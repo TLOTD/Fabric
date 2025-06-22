@@ -3,7 +3,9 @@
   "values": [
     "#minecraft:saplings",
     "#minecraft:small_flowers",
+    "#minecraft:flower_pots",
     "minecraft:fern",
-    "minecraft:grass"
+    "minecraft:grass",
+    "minecraft:pink_petals"
   ]
 }

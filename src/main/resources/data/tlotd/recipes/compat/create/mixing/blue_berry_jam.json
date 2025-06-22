@@ -26,5 +26,6 @@
       "fluid": "tlotd:blue_berry_jam",
       "amount": 81000
     }
-  ]
+  ],
+  "heatRequirement": "heated"
 }

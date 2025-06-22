@@ -9,6 +9,7 @@
   "gui.tlotd.mithril_smithing": "Mithrilschmiede",
   "gui.tlotd.witching": "Hexentisch",
   "gui.tlotd.tooltip.liquid_amount_with_capacity": "§f%s§7: %smB/%smB",
+  "gui.tlotd.oxygen_collector": "Sauerstoffbetanker",
 
   "generic.tlotd.text.click_me": "[Hier Klicken]",
   "generic.tlotd.text.wiki_link": "um die Mod Wiki zu öffnen.",
@@ -192,7 +193,7 @@
   "item.tlotd.star_catcher.tooltip": "Wenn Nachts genutzt in:",
   "item.tlotd.star_catcher.tooltip_2": "Blocken höhe",
 
-  "item.tlotd.stick_cross": "Stockkreuz",
+  "block.tlotd.stick_cross": "Stockkreuz",
   "item.tlotd.stick_effigy": "Stockbildnis",
   "item.tlotd.stick_figure": "Stockfigur",
 
@@ -319,6 +320,7 @@
   "item.tlotd.steel_sickle": "Stahlsichel",
 
   "item.tlotd.fossilized_bone": "Versteinerter Knochen",
+  "item.tlotd.plant_fossil": "Versteinerte Pflanze",
   "item.tlotd.fossil_and_steel": "Fossilfeuerzeug",
 
   "item.tlotd.sulfur": "Schwefel",
@@ -796,6 +798,7 @@
   "block.tlotd.mithril_block": "Mithrilblock",
 
   "block.tlotd.mithril_anvil": "Mithrilamboss",
+  "block.tlotd.mithril_bars": "Mithrilgitter",
 
   "block.tlotd.mithril_anvil.tooltip": "Schmiedet unter:",
   "block.tlotd.mithril_anvil.tooltip_2": "Direktem Sternenlicht",
@@ -1007,6 +1010,9 @@
 
   "block.tlotd.artisan_table": "Handwerkertisch",
   "block.tlotd.archaeology_table": "Archäologietisch",
+  "block.tlotd.archaeology_table.tooltip": "Wenn mit Pflanzenfossil interagiert:",
+  "block.tlotd.archaeology_table.tooltip_2": "Extrahiert Samen,",
+  "block.tlotd.archaeology_table.tooltip_3": "Blumen & Setzlinge",
 
   "block.tlotd.wooden_stein": "Holzkrug",
   "block.tlotd.wooden_water_stein": "Wasserholzkrug",
@@ -1016,6 +1022,7 @@
   "block.tlotd.wooden_milk_stein": "Milchholzkrug",
   "block.tlotd.wooden_strawberry_milkshake_stein": "Erdbeermilchshakeholzkrug",
   "block.tlotd.wooden_orange_milkshake_stein": "Orangenmilchshakeholzkrug",
+  "block.tlotd.wooden_blue_berry_milkshake_stein": "Blaubeermilchshakeholzkrug",
   "block.tlotd.wooden_chocolate_milkshake_stein": "Schokoladenmilchshakeholzkrug",
   "block.tlotd.hot_wooden_milk_stein": "Heisser Milchholzkrug",
   "block.tlotd.wooden_hot_chocolate_stein": "Heisser Schokoladenholzkrug",

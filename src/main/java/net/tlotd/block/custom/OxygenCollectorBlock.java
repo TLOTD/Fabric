@@ -1,24 +1,22 @@
 package net.tlotd.block.custom;
 
 import net.minecraft.block.*;
+import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.block.entity.BlockEntityTicker;
+import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NbtCompound;
-import net.minecraft.registry.tag.BlockTags;
-import net.minecraft.registry.tag.ItemTags;
+import net.minecraft.screen.NamedScreenHandlerFactory;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.DirectionProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.text.Text;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.BlockRotation;
-import net.minecraft.util.Formatting;
-import net.minecraft.util.Hand;
+import net.minecraft.util.*;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
@@ -28,13 +26,15 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 import net.minecraft.world.WorldView;
-import net.tlotd.item.ModItems;
+import net.tlotd.block.entity.MithrilAnvilBlockEntity;
+import net.tlotd.block.entity.ModBlockEntities;
+import net.tlotd.block.entity.OxygenCollectorBlockEntity;
 import net.tlotd.util.ModTags;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class OxygenCollectorBlock extends Block {
+public class OxygenCollectorBlock extends BlockWithEntity implements BlockEntityProvider {
 
     public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
 
@@ -42,7 +42,7 @@ public class OxygenCollectorBlock extends Block {
 
     @Override
     public boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
-        return (world.getBlockState(pos.add(0,-1,0)).isIn(ModTags.Blocks.OXYGEN_PROVIDERS));
+        return (world.getBlockState(pos.add(0,-1,0)).isIn(ModTags.Blocks.OXYGEN_PROVIDERS) && !world.getBlockState(pos.add(0,-1,0)).isOf(Blocks.FLOWER_POT));
     }
 
     @Override
@@ -83,18 +83,30 @@ public class OxygenCollectorBlock extends Block {
 
     private static final VoxelShape BASE_SHAPE = Block.createCuboidShape(0,-16,0,16,4,16);
 
-    public static final VoxelShape X_SHAPE = VoxelShapes.union(
-            Block.createCuboidShape(4.0, 4.0, 0.0, 12.0, 16.0, 16.0),
-            BASE_SHAPE);
-    public static final VoxelShape Z_SHAPE = VoxelShapes.union(
+    public static final VoxelShape EAST_SHAPE = VoxelShapes.union(
             Block.createCuboidShape(0.0, 4.0, 4.0, 16.0, 16.0, 12.0),
+            Block.createCuboidShape(7.0, 4.0, 1.0, 13.0, 11.0, 15.0),
+            BASE_SHAPE);
+    public static final VoxelShape SOUTH_SHAPE = VoxelShapes.union(
+            Block.createCuboidShape(4.0, 4.0, 0.0, 12.0, 16.0, 16.0),
+            Block.createCuboidShape(1.0, 4.0, 7.0, 15.0, 11.0, 13.0),
+            BASE_SHAPE);
+    public static final VoxelShape WEST_SHAPE = VoxelShapes.union(
+            Block.createCuboidShape(0.0, 4.0, 4.0, 16.0, 16.0, 12.0),
+            Block.createCuboidShape(3.0, 4.0, 1.0, 9.0, 11.0, 15.0),
+            BASE_SHAPE);
+    public static final VoxelShape NORTH_SHAPE = VoxelShapes.union(
+            Block.createCuboidShape(4.0, 4.0, 0.0, 12.0, 16.0, 16.0),
+            Block.createCuboidShape(1.0, 4.0, 3.0, 15.0, 11.0, 9.0),
             BASE_SHAPE);
 
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
         return switch (state.get(FACING)) {
-            case EAST, WEST -> Z_SHAPE;
-            default -> X_SHAPE;
+            case EAST -> EAST_SHAPE;
+            case SOUTH -> SOUTH_SHAPE;
+            case WEST -> WEST_SHAPE;
+            default -> NORTH_SHAPE;
         };
     }
 
@@ -107,24 +119,41 @@ public class OxygenCollectorBlock extends Block {
     public void appendTooltip(ItemStack stack, @Nullable BlockView world, List<Text> tooltip, TooltipContext options) {
         tooltip.add(Text.literal(""));
         tooltip.add(Text.translatable("block.tlotd.oxygen_collector.tooltip").formatted(Formatting.GRAY));
-        tooltip.add(Text.literal(" ").append(Text.translatable("block.tlotd.oxygen_collector.tooltip_2").formatted(Formatting.BLUE)));
+        tooltip.add(Text.literal(" ").append(Text.translatable("block.tlotd.oxygen_collector.tooltip_2")).formatted(Formatting.BLUE));
         super.appendTooltip(stack, world, tooltip, options);
     }
 
     @Override
+    public @Nullable BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
+        return new OxygenCollectorBlockEntity(pos, state);
+    }
+
+    @Override
+    public void onStateReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean moved) {
+        if (state.getBlock() != newState.getBlock()) {
+            BlockEntity blockEntity = world.getBlockEntity(pos);
+            if (blockEntity instanceof OxygenCollectorBlockEntity) {
+                ItemScatterer.spawn(world, pos, (OxygenCollectorBlockEntity)blockEntity);
+                world.updateComparators(pos, this);
+            }
+            super.onStateReplaced(state, world, pos, newState, moved);
+        }
+    }
+
+    @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        if (!world.isClient() && player.getInventory().getArmorStack(2).isIn(ModTags.Items.HYPOXIA_PROTECTION)) {
-            if ((player.getInventory().getArmorStack(2).hasNbt() && player.getInventory().getArmorStack(2).getNbt().getInt("tlotd:oxygen") < 1000)|| !player.getInventory().getArmorStack(2).hasNbt()) {
-                NbtCompound nbtData = new NbtCompound();
-                int next = 0;
-                if (player.getInventory().getArmorStack(2).hasNbt()) {
-                    next = player.getInventory().getArmorStack(2).getNbt().getInt("tlotd:oxygen");
-                }
-                nbtData.putInt("tlotd:oxygen", Math.min(next+10, 1000));
-                player.getInventory().getArmorStack(2).setNbt(nbtData);
-                return ActionResult.SUCCESS;
+        if (!world.isClient) {
+            NamedScreenHandlerFactory screenHandlerFactory = ((OxygenCollectorBlockEntity) world.getBlockEntity(pos));
+            if (screenHandlerFactory != null) {
+                player.openHandledScreen(screenHandlerFactory);
             }
         }
-        return ActionResult.FAIL;
+        return ActionResult.SUCCESS;
+    }
+
+    @Override
+    public @Nullable <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
+        return checkType(type, ModBlockEntities.OXYGEN_COLLECTOR_BLOCK_ENTITY,
+                (world1, pos, state1, blockEntity) -> blockEntity.tick(world1, pos, state1));
     }
 }

@@ -68,8 +68,10 @@ public class TLOTD implements ModInitializer {
 		FuelRegistry.INSTANCE.add(ModFluids.OIL_BUCKET, 16000);
 
 		FuelRegistry.INSTANCE.add(ModTags.Items.WOODEN_BARK, 200);
+		FuelRegistry.INSTANCE.add(ModTags.Items.STICK_EFFIGIES, 200);
 
 		FuelRegistry.INSTANCE.add(ModBlocks.ARCHAEOLOGY_TABLE, 300);
+		FuelRegistry.INSTANCE.add(ModBlocks.EFFIGIES, 300);
 		FuelRegistry.INSTANCE.add(ModBlocks.RADIO, 800);
 		FuelRegistry.INSTANCE.add(ModBlocks.WOODEN_STEIN, 1000);
 

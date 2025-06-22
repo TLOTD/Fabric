@@ -20,6 +20,11 @@ public class ModBlockEntities {
                     FabricBlockEntityTypeBuilder.create(WitchingTableBlockEntity::new,
                             ModBlocks.WITCHING_TABLE).build());
 
+    public static final BlockEntityType<OxygenCollectorBlockEntity> OXYGEN_COLLECTOR_BLOCK_ENTITY =
+            Registry.register(Registries.BLOCK_ENTITY_TYPE, new Identifier(TLOTD.MOD_ID, "oxygen_collector_block_entity"),
+                    FabricBlockEntityTypeBuilder.create(OxygenCollectorBlockEntity::new,
+                            ModBlocks.OXYGEN_COLLECTOR).build());
+
     public static void registerBlockEntities() {
         FluidStorage.SIDED.registerForBlockEntity((blockEntity, direction) -> blockEntity.fluidStorage, WITCHING_TABLE_BLOCK_ENTITY);
 

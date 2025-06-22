@@ -1,0 +1,30 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "fabric",
+        "create"
+      ]
+    }
+  ],
+  "type": "create:mixing",
+  "ingredients": [
+    {
+      "item": "minecraft:bowl"
+    },
+    {
+      "item": "minecraft:wheat"
+    },
+    {
+      "fluidTag": "c:milk",
+      "amount": 81000
+    }
+  ],
+  "results": [
+    {
+      "item": "tlotd:porridge"
+    }
+  ],
+  "heatRequirement": "heated"
+}

@@ -66,6 +66,7 @@ public class ModItemGroups {
                         entries.add(ModItems.FANCY_TOOL_ROD);
 
                         entries.add(ModItems.FOSSILIZED_BONE);
+                        entries.add(ModItems.PLANT_FOSSIL);
 
                         entries.add(ModItems.SULFUR);
 
@@ -126,7 +127,7 @@ public class ModItemGroups {
 
                         entries.add(ModItems.BLOOD_BOTTLE);
 
-                        entries.add(ModItems.STICK_CROSS);
+                        entries.add(ModBlocks.STICK_CROSS);
                         entries.add(ModItems.STICK_EFFIGY);
                         entries.add(ModItems.STICK_FIGURE);
 
@@ -444,15 +445,17 @@ public class ModItemGroups {
 
                         entries.add(ModBlocks.GARBAGE_CAN);
 
-                        entries.add(ModBlocks.SIGNAL_TRANSMITTER_ANTENNA);
-                        entries.add(ModBlocks.SIGNAL_TRANSMITTER);
-
                         entries.add(ModBlocks.RADIO);
-                        entries.add(ModBlocks.INTERDIMENSIONAL_RECEIVER);
                         entries.add(ModBlocks.TELEVISION);
                         entries.add(ModBlocks.VIDEOCASSETTE_RECORDER);
                         entries.add(ModBlocks.COMPUTER);
                         entries.add(ModBlocks.OXYGEN_COLLECTOR);
+
+                        entries.add(ModBlocks.SIGNAL_TRANSMITTER);
+                        entries.add(ModBlocks.SIGNAL_TRANSMITTER_ANTENNA);
+                        entries.add(Items.LIGHTNING_ROD);
+
+                        entries.add(ModBlocks.INTERDIMENSIONAL_RECEIVER);
 
                         entries.add(ModBlocks.CREEPER_PLUSHIE);
                         entries.add(ModBlocks.ZOMBIE_PLUSHIE);
@@ -475,6 +478,7 @@ public class ModItemGroups {
                         entries.add(ModBlocks.WOODEN_CHOCOLATE_MILKSHAKE_STEIN);
                         entries.add(ModBlocks.WOODEN_STRAWBERRY_MILKSHAKE_STEIN);
                         entries.add(ModBlocks.WOODEN_ORANGE_MILKSHAKE_STEIN);
+                        entries.add(ModBlocks.WOODEN_BLUE_BERRY_MILKSHAKE_STEIN);
                         entries.add(ModBlocks.HOT_WOODEN_MILK_STEIN);
                         entries.add(ModBlocks.WOODEN_HOT_CHOCOLATE_STEIN);
 
@@ -613,6 +617,7 @@ public class ModItemGroups {
                         entries.add(ModBlocks.MITHRIL_BLOCK);
 
                         entries.add(ModBlocks.MITHRIL_ANVIL);
+                        entries.add(ModBlocks.MITHRIL_BARS);
 
                         entries.add(ModBlocks.CURSED_WOOL);
                         entries.add(ModBlocks.CURSED_CARPET);
@@ -924,7 +929,8 @@ public class ModItemGroups {
             content.addAfter(ModBlocks.WOODEN_MILK_STEIN, ModBlocks.WOODEN_CHOCOLATE_MILKSHAKE_STEIN);
             content.addAfter(ModBlocks.WOODEN_CHOCOLATE_MILKSHAKE_STEIN, ModBlocks.WOODEN_STRAWBERRY_MILKSHAKE_STEIN);
             content.addAfter(ModBlocks.WOODEN_STRAWBERRY_MILKSHAKE_STEIN, ModBlocks.WOODEN_ORANGE_MILKSHAKE_STEIN);
-            content.addAfter(ModBlocks.WOODEN_ORANGE_MILKSHAKE_STEIN, ModBlocks.HOT_WOODEN_MILK_STEIN);
+            content.addAfter(ModBlocks.WOODEN_ORANGE_MILKSHAKE_STEIN, ModBlocks.WOODEN_BLUE_BERRY_MILKSHAKE_STEIN);
+            content.addAfter(ModBlocks.WOODEN_BLUE_BERRY_MILKSHAKE_STEIN, ModBlocks.HOT_WOODEN_MILK_STEIN);
             content.addAfter(ModBlocks.HOT_WOODEN_MILK_STEIN, ModBlocks.WOODEN_HOT_CHOCOLATE_STEIN);
             content.addAfter(Items.HONEY_BOTTLE, ModItems.APPLE_JUICE_BOTTLE);
             content.addAfter(ModItems.APPLE_JUICE_BOTTLE, ModItems.ORANGE_JUICE_BOTTLE);

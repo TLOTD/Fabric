@@ -15,6 +15,7 @@ import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.WorldAccess;
+import net.tlotd.block.ModBlocks;
 
 public class GravestoneBlock extends Block {
 
@@ -58,15 +59,36 @@ public class GravestoneBlock extends Block {
         this.setDefaultState(this.stateManager.getDefaultState().with(FACING, Direction.NORTH).with(WATERLOGGED, false));
     }
 
-    public static final VoxelShape Z_SHAPE = Block.createCuboidShape(5.0, 0.0, 0.0, 11.0, 16.0, 16.0);
-    public static final VoxelShape X_SHAPE = Block.createCuboidShape(0.0, 0.0, 5.0, 16.0, 16.0, 11.0);
+    public static final VoxelShape Z_SHAPE = Block.createCuboidShape(5, 0, 0, 11, 16, 16);
+    public static final VoxelShape X_SHAPE = Block.createCuboidShape(0, 0, 5, 16, 16, 11);
+
+    public static final VoxelShape PILLAR = Block.createCuboidShape(6, 0, 6, 10, 16, 10);
+
+    public static final VoxelShape Z_CROSS_SHAPE = VoxelShapes.union(
+            PILLAR,
+            Block.createCuboidShape(5, 0, 0, 11, 2, 16),
+            Block.createCuboidShape(6, 8, 2, 10, 12, 14)
+    );
+
+    public static final VoxelShape X_CROSS_SHAPE = VoxelShapes.union(
+            PILLAR,
+            Block.createCuboidShape(0, 0, 5, 16, 2, 11),
+            Block.createCuboidShape(2, 8, 6, 14, 12, 10)
+    );
 
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        return switch (state.get(FACING)) {
-            case EAST, WEST -> Z_SHAPE;
-            default -> X_SHAPE;
-        };
+        if (state.isOf(ModBlocks.GRAVESTONE_CROSS) || state.isOf(ModBlocks.MOSSY_GRAVESTONE_CROSS)) {
+            return switch (state.get(FACING)) {
+                case EAST, WEST -> Z_CROSS_SHAPE;
+                default -> X_CROSS_SHAPE;
+            };
+        } else {
+            return switch (state.get(FACING)) {
+                case EAST, WEST -> Z_SHAPE;
+                default -> X_SHAPE;
+            };
+        }
     }
 
     @Override

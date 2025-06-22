@@ -299,6 +299,12 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.GINKGO_PRESSURE_PLATE)
         ;
 
+        getOrCreateTagBuilder(BlockTags.STONE_PRESSURE_PLATES)
+                .add(ModBlocks.RED_DEEPSLATE_PRESSURE_PLATE)
+                .add(ModBlocks.LIMESTONE_PRESSURE_PLATE)
+                .add(ModBlocks.MARBLE_PRESSURE_PLATE)
+        ;
+
         getOrCreateTagBuilder(BlockTags.WOODEN_SLABS)
                 .add(ModBlocks.GINKGO_SLAB)
                 .add(ModBlocks.FANCY_OAK_SLAB)
@@ -383,6 +389,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.WOODEN_ORANGE_JUICE_STEIN)
                 .add(ModBlocks.WOODEN_STRAWBERRY_MILKSHAKE_STEIN)
                 .add(ModBlocks.WOODEN_ORANGE_MILKSHAKE_STEIN)
+                .add(ModBlocks.WOODEN_BLUE_BERRY_MILKSHAKE_STEIN)
                 .add(ModBlocks.WOODEN_CHOCOLATE_MILKSHAKE_STEIN)
                 .add(ModBlocks.HOT_WOODEN_MILK_STEIN)
                 .add(ModBlocks.WOODEN_HOT_CHOCOLATE_STEIN)
@@ -545,6 +552,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.RED_DEEPSLATE_BRICK_WALL)
                 .add(ModBlocks.MOSSY_RED_DEEPSLATE_BRICKS)
                 .add(ModBlocks.CRACKED_RED_DEEPSLATE_BRICKS)
+                .add(ModBlocks.RED_DEEPSLATE_PRESSURE_PLATE)
 
                 .add(ModBlocks.COBBLED_RED_DEEPSLATE)
                 .add(ModBlocks.COBBLED_RED_DEEPSLATE_STAIRS)
@@ -643,6 +651,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.MITHRIL_BLOCK)
 
                 .add(ModBlocks.MITHRIL_ANVIL)
+                .add(ModBlocks.MITHRIL_BARS)
         ;
 
         getOrCreateTagBuilder(BlockTags.HOE_MINEABLE)
@@ -807,6 +816,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.RAW_MITHRIL_BLOCK)
                 .add(ModBlocks.MITHRIL_BLOCK)
                 .add(ModBlocks.MITHRIL_ANVIL)
+                .add(ModBlocks.MITHRIL_BARS)
                 .add(ModBlocks.END_ENDURIUM_ORE)
                 .add(ModBlocks.RAW_ENDURIUM_BLOCK)
                 .add(ModBlocks.ENDURIUM_BLOCK)
@@ -819,6 +829,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.RAW_MITHRIL_BLOCK)
                 .add(ModBlocks.MITHRIL_BLOCK)
                 .add(ModBlocks.MITHRIL_ANVIL)
+                .add(ModBlocks.MITHRIL_BARS)
                 .add(ModBlocks.REINFORCED_RED_DEEPSLATE)
         ;
 
@@ -864,6 +875,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.RAW_MITHRIL_BLOCK)
                 .add(ModBlocks.MITHRIL_BLOCK)
                 .add(ModBlocks.MITHRIL_ANVIL)
+                .add(ModBlocks.MITHRIL_BARS)
         ;
 
         getOrCreateTagBuilder(TagKey.of(RegistryKeys.BLOCK, new Identifier("fabric", "needs_tool_level_8")))

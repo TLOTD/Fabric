@@ -69,6 +69,19 @@ public class ModTags {
     }
 
     public static class Items {
+
+        public static final TagKey<Item> FORGING_HAMMERS =
+                createTag("forging_hammers");
+
+        public static final TagKey<Item> FORGING_HAMMERS_TIER1 =
+                createTag("forging_hammers_tier1");
+
+        public static final TagKey<Item> FORGING_HAMMERS_TIER2 =
+                createTag("forging_hammers_tier2");
+
+        public static final TagKey<Item> FORGING_HAMMERS_TIER3 =
+                createTag("forging_hammers_tier3");
+
         public static final TagKey<Item> WOODEN_BARK =
                 createTag("wooden_bark");
 
@@ -107,6 +120,9 @@ public class ModTags {
 
         public static final TagKey<Item> RADIATION_PROTECTION_WITHOUT_HELMET =
                 createTag("radiation_protection_without_helmet");
+
+        public static final TagKey<Item> OXYGEN_CHARGABLE =
+                createTag("oxygen_chargable");
 
         public static final TagKey<Item> HYPOXIA_PROTECTION =
                 createTag("hypoxia_protection");

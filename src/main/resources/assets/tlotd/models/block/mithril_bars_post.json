@@ -1,0 +1,7 @@
+{
+	"parent": "tlotd:block/framed_glass_pane_post",
+	"textures": {
+		"particle": "tlotd:block/mithril_bars_frame",
+		"texture": "tlotd:block/mithril_bars_frame"
+	}
+}

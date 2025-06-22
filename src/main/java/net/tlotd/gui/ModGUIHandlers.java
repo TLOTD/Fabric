@@ -16,6 +16,10 @@ public class ModGUIHandlers {
             Registry.register(Registries.SCREEN_HANDLER, new Identifier(TLOTD.MOD_ID, "witching_table"),
                     new ExtendedScreenHandlerType<>(WitchingTableGUIHandler::new));
 
+    public static final ScreenHandlerType<OxygenCollectorGUIHandler> OXYGEN_COLLECTOR_GUI_HANDLER =
+            Registry.register(Registries.SCREEN_HANDLER, new Identifier(TLOTD.MOD_ID, "oxygen_collector"),
+                    new ExtendedScreenHandlerType<>(OxygenCollectorGUIHandler::new));
+
     public static void registerGUIHandlers() {
         TLOTD.LOGGER.info("Registering Screen Handlers for " + TLOTD.MOD_ID);
     }

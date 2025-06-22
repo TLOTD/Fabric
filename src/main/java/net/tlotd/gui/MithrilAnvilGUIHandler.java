@@ -11,7 +11,6 @@ import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.screen.slot.Slot;
 import net.tlotd.block.entity.MithrilAnvilBlockEntity;
-import net.tlotd.item.ModItems;
 import net.tlotd.util.ModTags;
 
 public class MithrilAnvilGUIHandler extends ScreenHandler {
@@ -25,15 +24,15 @@ public class MithrilAnvilGUIHandler extends ScreenHandler {
                 new ArrayPropertyDelegate(2));
     }
 
-    public MithrilAnvilGUIHandler(int syncId, PlayerInventory playerInventory, BlockEntity blockEntity, PropertyDelegate arrayPropertyDelegate) {
+    public MithrilAnvilGUIHandler(int syncId, PlayerInventory playerInventory, BlockEntity blockEntity, PropertyDelegate propertyDelegate) {
         super(ModGUIHandlers.MITHRIL_ANVIL_GUI_HANDLER, syncId);
         checkSize(((Inventory) blockEntity),7);
         this.inventory = ((Inventory) blockEntity);
         inventory.onOpen(playerInventory.player);
-        this.propertyDelegate = arrayPropertyDelegate;
+        this.propertyDelegate = propertyDelegate;
         this.blockEntity = ((MithrilAnvilBlockEntity) blockEntity);
 
-        this.addSlot(new Slot(inventory, 0, 86, 18));
+        this.addSlot(new RestrictedSlot(inventory, 0, 86, 18, ModTags.Items.FORGING_HAMMERS));
         this.addSlot(new Slot(inventory, 1, 104, 27));
 
         this.addSlot(new Slot(inventory, 2, 32, 27));
@@ -46,7 +45,7 @@ public class MithrilAnvilGUIHandler extends ScreenHandler {
         addPlayerInventory(playerInventory);
         addPlayerHotbar(playerInventory);
 
-        addProperties(arrayPropertyDelegate);
+        addProperties(propertyDelegate);
     }
 
     public boolean isCrafting() {

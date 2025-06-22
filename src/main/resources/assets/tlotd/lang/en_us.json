@@ -18,6 +18,7 @@
   "gui.tlotd.mithril_smithing": "Mithril Smithing",
   "gui.tlotd.witching": "Witching",
   "gui.tlotd.tooltip.liquid_amount_with_capacity": "§f%s§7: %smB/%smB",
+  "gui.tlotd.oxygen_collector": "Oxygen Fueling",
 
   "generic.tlotd.text.click_me": "[CLICK HERE]",
   "generic.tlotd.text.wiki_link": "to open the Mod Wiki.",
@@ -200,7 +201,7 @@
   "item.tlotd.star_catcher.tooltip": "When Used at Night at:",
   "item.tlotd.star_catcher.tooltip_2": "Blocks in the Air",
 
-  "item.tlotd.stick_cross": "Stick Cross",
+  "block.tlotd.stick_cross": "Stick Cross",
   "item.tlotd.stick_effigy": "Stick Effigy",
   "item.tlotd.stick_figure": "Stick Figure",
 
@@ -327,6 +328,7 @@
   "item.tlotd.steel_sickle": "Steel Sickle",
 
   "item.tlotd.fossilized_bone": "Fossilized Bone",
+  "item.tlotd.plant_fossil": "Plant Fossil",
   "item.tlotd.fossil_and_steel": "Fossil and Steel",
 
   "item.tlotd.sulfur": "Sulfur",
@@ -807,6 +809,7 @@
   "block.tlotd.mithril_block": "Block of Mithril",
 
   "block.tlotd.mithril_anvil": "Mithril Anvil",
+  "block.tlotd.mithril_bars": "Mithril Bars",
 
   "block.tlotd.mithril_anvil.tooltip": "Forges only under:",
   "block.tlotd.mithril_anvil.tooltip_2": "Direct Starlight",
@@ -1018,6 +1021,9 @@
 
   "block.tlotd.artisan_table": "Artisan Table",
   "block.tlotd.archaeology_table": "Archaeology Table",
+  "block.tlotd.archaeology_table.tooltip": "When given plant fossils:",
+  "block.tlotd.archaeology_table.tooltip_2": "Extracts Seeds,",
+  "block.tlotd.archaeology_table.tooltip_3": "Flowers & Saplings",
 
   "block.tlotd.wooden_stein": "Wooden Stein",
   "block.tlotd.wooden_water_stein": "Wooden Water Stein",
@@ -1027,6 +1033,7 @@
   "block.tlotd.wooden_milk_stein": "Wooden Milk Stein",
   "block.tlotd.wooden_strawberry_milkshake_stein": "Wooden Strawberry Milkshake Stein",
   "block.tlotd.wooden_orange_milkshake_stein": "Wooden Orange Milkshake Stein",
+  "block.tlotd.wooden_blue_berry_milkshake_stein": "Wooden Blue Berry Milkshake Stein",
   "block.tlotd.wooden_chocolate_milkshake_stein": "Wooden Chocolate Milkshake Stein",
   "block.tlotd.hot_wooden_milk_stein": "Hot Wooden Milk Stein",
   "block.tlotd.wooden_hot_chocolate_stein": "Wooden Hot Chocolate Stein",

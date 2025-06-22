@@ -24,6 +24,24 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
     @Override
     protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
 
+        getOrCreateTagBuilder(ModTags.Items.FORGING_HAMMERS)
+                .addTag(ModTags.Items.FORGING_HAMMERS_TIER1)
+        ;
+
+        getOrCreateTagBuilder(ModTags.Items.FORGING_HAMMERS_TIER1)
+                .addTag(ModTags.Items.FORGING_HAMMERS_TIER2)
+                .add(ModItems.NETHERITE_FORGING_HAMMER)
+        ;
+
+        getOrCreateTagBuilder(ModTags.Items.FORGING_HAMMERS_TIER2)
+                .addTag(ModTags.Items.FORGING_HAMMERS_TIER3)
+                .add(ModItems.MITHRIL_FORGING_HAMMER)
+        ;
+
+        getOrCreateTagBuilder(ModTags.Items.FORGING_HAMMERS_TIER3)
+                .add(ModItems.ASTRAL_FORGING_HAMMER)
+        ;
+
         getOrCreateTagBuilder(ModTags.Items.WOODEN_BARK)
                 .add(ModItems.OAK_BARK)
                 .add(ModItems.SPRUCE_BARK)
@@ -259,7 +277,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
         ;
 
         getOrCreateTagBuilder(ModTags.Items.STICK_EFFIGIES)
-                .add(ModItems.STICK_CROSS)
+                .add(ModBlocks.STICK_CROSS.asItem())
                 .add(ModItems.STICK_EFFIGY)
                 .add(ModItems.STICK_FIGURE)
         ;
@@ -310,6 +328,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModBlocks.WOODEN_CHOCOLATE_MILKSHAKE_STEIN.asItem())
                 .add(ModBlocks.WOODEN_STRAWBERRY_MILKSHAKE_STEIN.asItem())
                 .add(ModBlocks.WOODEN_ORANGE_MILKSHAKE_STEIN.asItem())
+                .add(ModBlocks.WOODEN_BLUE_BERRY_MILKSHAKE_STEIN.asItem())
                 .add(ModBlocks.HOT_WOODEN_MILK_STEIN.asItem())
                 .add(ModBlocks.WOODEN_HOT_CHOCOLATE_STEIN.asItem())
         ;
@@ -355,11 +374,21 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .addOptional(Identifier.tryParse("mekanism:hazmat_boots"))
         ;
 
+        getOrCreateTagBuilder(ModTags.Items.OXYGEN_CHARGABLE)
+                .add(ModItems.OXYGEN_TANK)
+                .add(ModItems.SPACE_SUIT_CHESTPLATE)
+                .addOptional(Identifier.tryParse("ad_astra:space_suit"))
+        ;
+
         getOrCreateTagBuilder(ModTags.Items.HYPOXIA_PROTECTION)
                 .add(ModItems.ASTRONAUT_HELMET)
                 .add(ModItems.SPACE_SUIT_CHESTPLATE)
                 .add(ModItems.SPACE_SUIT_LEGGINGS)
                 .add(ModItems.SPACE_SUIT_BOOTS)
+                .addOptional(Identifier.tryParse("ad_astra:space_helmet"))
+                .addOptional(Identifier.tryParse("ad_astra:space_suit"))
+                .addOptional(Identifier.tryParse("ad_astra:space_pants"))
+                .addOptional(Identifier.tryParse("ad_astra:space_boots"))
         ;
 
         getOrCreateTagBuilder(ModTags.Items.SICKLES)
@@ -652,6 +681,11 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModFluids.OIL_BUCKET)
         ;
 
+        getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "fossils")))
+                .add(ModItems.FOSSILIZED_BONE)
+                .add(ModItems.PLANT_FOSSIL)
+        ;
+
         getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "shears")))
                 .add(ModItems.COPPER_SICKLE)
                 .add(ModItems.GOLDEN_SICKLE)
@@ -675,6 +709,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModBlocks.WOODEN_ORANGE_JUICE_STEIN.asItem())
                 .add(ModBlocks.WOODEN_STRAWBERRY_MILKSHAKE_STEIN.asItem())
                 .add(ModBlocks.WOODEN_ORANGE_MILKSHAKE_STEIN.asItem())
+                .add(ModBlocks.WOODEN_BLUE_BERRY_MILKSHAKE_STEIN.asItem())
                 .add(ModBlocks.WOODEN_CHOCOLATE_MILKSHAKE_STEIN.asItem())
                 .add(ModBlocks.HOT_WOODEN_MILK_STEIN.asItem())
                 .add(ModBlocks.WOODEN_HOT_CHOCOLATE_STEIN.asItem())

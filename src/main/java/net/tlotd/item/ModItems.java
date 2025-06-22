@@ -15,15 +15,9 @@ import net.tlotd.banner.ModBanners;
 import net.tlotd.block.ModBlocks;
 import net.tlotd.entity.ModBoats;
 import net.tlotd.entity.ModEntities;
-import net.tlotd.item.compat.aether.AetherItem;
-import net.tlotd.item.compat.alexscaves.AlexsCavesItem;
-import net.tlotd.item.compat.allthemods.AtmItem;
-import net.tlotd.item.compat.biomesoplenty.BiomesOPlentyItem;
+import net.tlotd.item.compat.CompatItem;
 import net.tlotd.item.compat.create.SequencedAssemblyItem;
-import net.tlotd.item.compat.quark.QuarkItem;
 import net.tlotd.item.compat.spore.CalamitySpawnItem;
-import net.tlotd.item.compat.thermal.ThermalItem;
-import net.tlotd.item.compat.twilightforest.TwilightForestItem;
 import net.tlotd.item.custom.*;
 import net.tlotd.sound.ModSounds;
 
@@ -45,36 +39,36 @@ public class ModItems {
     public static final Item CHERRY_BARK = registerItem("cherry_bark", new Item(new FabricItemSettings()));
     public static final Item GINKGO_BARK = registerItem("ginkgo_bark", new Item(new FabricItemSettings()));
 
-    public static final Item SKYROOT_BARK = registerItem("skyroot_bark", new AetherItem(new FabricItemSettings()));
+    public static final Item SKYROOT_BARK = registerItem("skyroot_bark", new CompatItem(new FabricItemSettings(),"aet"));
 
-    public static final Item PEWEN_BARK = registerItem("pewen_bark", new AlexsCavesItem(new FabricItemSettings()));
-    public static final Item THORNWOOD_BARK = registerItem("thornwood_bark", new AlexsCavesItem(new FabricItemSettings()));
+    public static final Item PEWEN_BARK = registerItem("pewen_bark", new CompatItem(new FabricItemSettings(),"axc"));
+    public static final Item THORNWOOD_BARK = registerItem("thornwood_bark", new CompatItem(new FabricItemSettings(),"axc"));
 
-    public static final Item FIR_BARK = registerItem("fir_bark", new BiomesOPlentyItem(new FabricItemSettings()));
-    public static final Item REDWOOD_BARK = registerItem("redwood_bark", new BiomesOPlentyItem(new FabricItemSettings()));
-    public static final Item MAHOGANY_BARK = registerItem("mahogany_bark", new BiomesOPlentyItem(new FabricItemSettings()));
-    public static final Item JACARANCA_BARK = registerItem("jacaranda_bark", new BiomesOPlentyItem(new FabricItemSettings()));
-    public static final Item PALM_BARK = registerItem("palm_bark", new BiomesOPlentyItem(new FabricItemSettings()));
-    public static final Item WILLOW_BARK = registerItem("willow_bark", new BiomesOPlentyItem(new FabricItemSettings()));
-    public static final Item DEAD_BARK = registerItem("dead_bark", new BiomesOPlentyItem(new FabricItemSettings()));
-    public static final Item MAGIC_BARK = registerItem("magic_bark", new BiomesOPlentyItem(new FabricItemSettings()));
-    public static final Item UMBRAN_BARK = registerItem("umbran_bark", new BiomesOPlentyItem(new FabricItemSettings()));
-    public static final Item HELLBARK_BARK = registerItem("hellbark_bark", new BiomesOPlentyItem(new FabricItemSettings()));
+    public static final Item FIR_BARK = registerItem("fir_bark", new CompatItem(new FabricItemSettings(),"bop"));
+    public static final Item REDWOOD_BARK = registerItem("redwood_bark", new CompatItem(new FabricItemSettings(),"bop"));
+    public static final Item MAHOGANY_BARK = registerItem("mahogany_bark", new CompatItem(new FabricItemSettings(),"bop"));
+    public static final Item JACARANCA_BARK = registerItem("jacaranda_bark", new CompatItem(new FabricItemSettings(),"bop"));
+    public static final Item PALM_BARK = registerItem("palm_bark", new CompatItem(new FabricItemSettings(),"bop"));
+    public static final Item WILLOW_BARK = registerItem("willow_bark", new CompatItem(new FabricItemSettings(),"bop"));
+    public static final Item DEAD_BARK = registerItem("dead_bark", new CompatItem(new FabricItemSettings(),"bop"));
+    public static final Item MAGIC_BARK = registerItem("magic_bark", new CompatItem(new FabricItemSettings(),"bop"));
+    public static final Item UMBRAN_BARK = registerItem("umbran_bark", new CompatItem(new FabricItemSettings(),"bop"));
+    public static final Item HELLBARK_BARK = registerItem("hellbark_bark", new CompatItem(new FabricItemSettings(),"bop"));
 
-    public static final Item ASHEN_BARK = registerItem("ashen_bark", new QuarkItem(new FabricItemSettings()));
-    public static final Item AZALEA_BARK = registerItem("azalea_bark", new QuarkItem(new FabricItemSettings()));
-    public static final Item TRUMPET_BARK = registerItem("trumpet_bark", new QuarkItem(new FabricItemSettings()));
+    public static final Item ASHEN_BARK = registerItem("ashen_bark", new CompatItem(new FabricItemSettings(),"qrk"));
+    public static final Item AZALEA_BARK = registerItem("azalea_bark", new CompatItem(new FabricItemSettings(),"qrk"));
+    public static final Item TRUMPET_BARK = registerItem("trumpet_bark", new CompatItem(new FabricItemSettings(),"qrk"));
 
-    public static final Item RUBBERWOOD_BARK = registerItem("rubberwood_bark", new ThermalItem(new FabricItemSettings()));
+    public static final Item RUBBERWOOD_BARK = registerItem("rubberwood_bark", new CompatItem(new FabricItemSettings(),"thr"));
 
-    public static final Item TWILIGHT_OAK_BARK = registerItem("twilight_oak_bark", new TwilightForestItem(new FabricItemSettings()));
-    public static final Item CANOPY_TREE_BARK = registerItem("canopy_tree_bark", new TwilightForestItem(new FabricItemSettings()));
-    public static final Item TWILIGHT_MANGROVE_BARK = registerItem("twilight_mangrove_bark", new TwilightForestItem(new FabricItemSettings()));
-    public static final Item DARKWOOD_BARK = registerItem("darkwood_bark", new TwilightForestItem(new FabricItemSettings()));
-    public static final Item TIMEWOOD_BARK = registerItem("timewood_bark", new TwilightForestItem(new FabricItemSettings()));
-    public static final Item TRANSWOOD_BARK = registerItem("transwood_bark", new TwilightForestItem(new FabricItemSettings()));
-    public static final Item MINEWOOD_BARK = registerItem("minewood_bark", new TwilightForestItem(new FabricItemSettings()));
-    public static final Item SORTINGWOOD_BARK = registerItem("sortingwood_bark", new TwilightForestItem(new FabricItemSettings()));
+    public static final Item TWILIGHT_OAK_BARK = registerItem("twilight_oak_bark", new CompatItem(new FabricItemSettings(),"tlf"));
+    public static final Item CANOPY_TREE_BARK = registerItem("canopy_tree_bark", new CompatItem(new FabricItemSettings(),"tlf"));
+    public static final Item TWILIGHT_MANGROVE_BARK = registerItem("twilight_mangrove_bark", new CompatItem(new FabricItemSettings(),"tlf"));
+    public static final Item DARKWOOD_BARK = registerItem("darkwood_bark", new CompatItem(new FabricItemSettings(),"tlf"));
+    public static final Item TIMEWOOD_BARK = registerItem("timewood_bark", new CompatItem(new FabricItemSettings(),"tlf"));
+    public static final Item TRANSWOOD_BARK = registerItem("transwood_bark", new CompatItem(new FabricItemSettings(),"tlf"));
+    public static final Item MINEWOOD_BARK = registerItem("minewood_bark", new CompatItem(new FabricItemSettings(),"tlf"));
+    public static final Item SORTINGWOOD_BARK = registerItem("sortingwood_bark", new CompatItem(new FabricItemSettings(),"tlf"));
 
     public static final Item IRRADIATED_ICON = registerItem("irradiated_icon", new Item(new FabricItemSettings()));
 
@@ -96,12 +90,11 @@ public class ModItems {
     public static final Item ORANGE_JUICE_BOTTLE = registerItem("orange_juice_bottle", new DrinkableBottle(new FabricItemSettings().food(ModFoodComponents.WOODEN_LIQUID_STEIN).maxCount(16).recipeRemainder(Items.GLASS_BOTTLE)));
     public static final Item SPEZI_BOTTLE = registerItem("spezi_bottle", new DrinkableBottle(new FabricItemSettings().food(ModFoodComponents.WOODEN_LIQUID_STEIN).maxCount(16).recipeRemainder(Items.GLASS_BOTTLE)));
 
-    public static final Item BLUE_BERRY_JAM_TOAST = registerItem("blue_berry_jam_toast", new AetherItem(new FabricItemSettings().food(ModFoodComponents.JAM_TOAST)));
-    public static final Item ANCIENT_SOULBERRY_JAM_TOAST = registerItem("ancient_soulberry_jam_toast", new AtmItem(new FabricItemSettings().food(ModFoodComponents.ANCIENT_SOULBERRY_JAM_TOAST)));
+    public static final Item BLUE_BERRY_JAM_TOAST = registerItem("blue_berry_jam_toast", new CompatItem(new FabricItemSettings().food(ModFoodComponents.JAM_TOAST),"aether"));
+    public static final Item ANCIENT_SOULBERRY_JAM_TOAST = registerItem("ancient_soulberry_jam_toast", new CompatItem(new FabricItemSettings().food(ModFoodComponents.ANCIENT_SOULBERRY_JAM_TOAST),"atm"));
 
     public static final Item BLOOD_BOTTLE = registerItem("blood_bottle", new Item(new FabricItemSettings().recipeRemainder(Items.GLASS_BOTTLE).maxCount(1)));
 
-    public static final Item STICK_CROSS = registerItem("stick_cross", new Item(new FabricItemSettings()));
     public static final Item STICK_EFFIGY = registerItem("stick_effigy", new Item(new FabricItemSettings()));
     public static final Item STICK_FIGURE = registerItem("stick_figure", new Item(new FabricItemSettings()));
     public static final Item EDELWEISS_PETALS = registerItem("edelweiss_petals", new Item(new FabricItemSettings()));
@@ -182,6 +175,7 @@ public class ModItems {
     public static final Item LUNAR_CALLAINUS_LUMP = registerItem("lunar_callainus_lump", new Item(new FabricItemSettings().fireproof()));
 
     public static final Item FOSSILIZED_BONE = registerItem("fossilized_bone", new Item(new FabricItemSettings()));
+    public static final Item PLANT_FOSSIL = registerItem("plant_fossil", new Item(new FabricItemSettings()));
 
     public static final Item FOSSIL_AND_STEEL = registerItem("fossil_and_steel", new Item(new FabricItemSettings().maxDamage(64)));
 
@@ -411,7 +405,7 @@ public class ModItems {
     public static final Item IMPERIAL_GERMAN_UNIFORM_PANTS = registerItem("imperial_german_uniform_pants", new ArmorItem(ModArmorMaterial.IMPERIAL_GERMAN_UNIFORM, ArmorItem.Type.LEGGINGS, new FabricItemSettings()));
     public static final Item IMPERIAL_GERMAN_UNIFORM_BOOTS = registerItem("imperial_german_uniform_boots", new ArmorItem(ModArmorMaterial.IMPERIAL_GERMAN_UNIFORM, ArmorItem.Type.BOOTS, new FabricItemSettings()));
 
-    public static final Item OXYGEN_TANK = registerItem("oxygen_tank", new Item(new FabricItemSettings().maxCount(16)));
+    public static final Item OXYGEN_TANK = registerItem("oxygen_tank", new OxygenTankItem(new FabricItemSettings().maxCount(1)));
     public static final Item ASTRONAUT_HELMET = registerItem("astronaut_helmet", new HypoxiaProofArmorItem(ModArmorMaterial.ASTRONAUT, ArmorItem.Type.HELMET, new FabricItemSettings()));
     public static final Item SPACE_SUIT_CHESTPLATE = registerItem("space_suit_chestplate", new SpaceSuitArmorItem(ModArmorMaterial.SPACE_SUIT, ArmorItem.Type.CHESTPLATE, new FabricItemSettings()));
     public static final Item SPACE_SUIT_LEGGINGS = registerItem("space_suit_leggings", new HypoxiaProofArmorItem(ModArmorMaterial.SPACE_SUIT, ArmorItem.Type.LEGGINGS, new FabricItemSettings()));

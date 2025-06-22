@@ -9,6 +9,7 @@
   "gui.tlotd.mithril_smithing": "Herrería de Mithril",
   "gui.tlotd.witching": "Brujas",
   "gui.tlotd.tooltip.liquid_amount_with_capacity": "§f%s§7: %smB/%smB",
+  "gui.tlotd.oxygen_collector": "Tanque de oxígeno",
 
   "generic.tlotd.text.click_me": "[HAGA CLIC AQUÍ]",
   "generic.tlotd.text.wiki_link": "para abrir el Mod Wiki.",
@@ -192,7 +193,7 @@
   "item.tlotd.star_catcher.tooltip": "Cuando se utiliza por la noche en:",
   "item.tlotd.star_catcher.tooltip_2": "bloques en el aire",
 
-  "item.tlotd.stick_cross": "Cruz de palo",
+  "block.tlotd.stick_cross": "Cruz de palo",
   "item.tlotd.stick_effigy": "Efigie de palo",
   "item.tlotd.stick_figure": "Figura de palo",
 
@@ -319,6 +320,7 @@
   "item.tlotd.steel_sickle": "Hoz de acero",
 
   "item.tlotd.fossilized_bone": "Hueso fosilizado",
+  "item.tlotd.plant_fossil": "Fósil vegetal",
   "item.tlotd.fossil_and_steel": "Fósiles y acero",
 
   "item.tlotd.sulfur": "Azufre",
@@ -796,6 +798,7 @@
   "block.tlotd.mithril_block": "Bloque de mithril",
 
   "block.tlotd.mithril_anvil": "Yunque de mithril",
+  "block.tlotd.mithril_bars": "Barras de mithril",
 
   "block.tlotd.mithril_anvil.tooltip": "Forja sólo bajo:",
   "block.tlotd.mithril_anvil.tooltip_2": "Luz directa de las estrellas",
@@ -1007,6 +1010,9 @@
 
   "block.tlotd.artisan_table": "Mesa artesanal",
   "block.tlotd.archaeology_table": "Mesa de arqueología",
+  "block.tlotd.archaeology_table.tooltip": "Cuando se dan fósiles de plantas:",
+  "block.tlotd.archaeology_table.tooltip_2": "Extrae Semillas,",
+  "block.tlotd.archaeology_table.tooltip_3": "Flores y Plantones",
 
   "block.tlotd.wooden_stein": "Jarra de madera",
   "block.tlotd.wooden_water_stein": "Jarra de madera con agua",
@@ -1016,6 +1022,7 @@
   "block.tlotd.wooden_milk_stein": "Jarra de madera con leche",
   "block.tlotd.wooden_strawberry_milkshake_stein": "Jarra de madera con batido de fresa",
   "block.tlotd.wooden_orange_milkshake_stein": "Jarra de madera con batido de naranja",
+  "block.tlotd.wooden_blue_berry_milkshake_stein": "Jarra de madera con batido de bayas azules",
   "block.tlotd.wooden_chocolate_milkshake_stein": "Jarra de madera con batido de chocolate",
   "block.tlotd.hot_wooden_milk_stein": "Jarra de madera con leche caliente",
   "block.tlotd.wooden_hot_chocolate_stein": "Jarra de madera con chocolate caliente",

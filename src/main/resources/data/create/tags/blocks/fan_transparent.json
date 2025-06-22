@@ -9,6 +9,7 @@
   ],
   "replace": false,
   "values": [
+    "tlotd:mithril_bars",
     "tlotd:mining_elevator_controller",
     "tlotd:mining_elevator_base"
   ]

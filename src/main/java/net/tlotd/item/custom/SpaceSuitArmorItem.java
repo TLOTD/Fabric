@@ -6,7 +6,6 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ArmorMaterial;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NbtCompound;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import net.minecraft.world.World;
@@ -23,7 +22,7 @@ public class SpaceSuitArmorItem extends ArmorItem {
     public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
         if (!world.isClient() && entity.isPlayer()) {
             if (stack == ((PlayerEntity) entity).getInventory().getArmorStack(2)) {
-                String oxygen = "0%";
+                String oxygen = "0.0%";
                 Float oxygenPercentage;
                 if(stack.hasNbt()) {
                     oxygenPercentage = stack.getNbt().getInt("tlotd:oxygen")/10.0F;
@@ -37,7 +36,7 @@ public class SpaceSuitArmorItem extends ArmorItem {
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
         super.appendTooltip(stack, world, tooltip, context);
-        String oxygen = "0%";
+        String oxygen = "0.0%";
         Float oxygenPercentage;
         if(stack.hasNbt()) {
             oxygenPercentage = stack.getNbt().getInt("tlotd:oxygen")/10.0F;

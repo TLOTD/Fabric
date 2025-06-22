@@ -23,5 +23,6 @@
       "fluid": "tlotd:sweet_berry_jam",
       "amount": 1000
     }
-  ]
+  ],
+  "heatRequirement": "heated"
 }

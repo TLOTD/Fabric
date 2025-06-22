@@ -1,5 +1,6 @@
 package net.tlotd.item.custom;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
@@ -33,7 +34,7 @@ public class EmptyFlaskItem extends Item {
             if (block.isIn(BlockTags.SOUL_FIRE_BASE_BLOCKS)) {
                 context.getStack().decrement(1);
                 if (player.getInventory().getEmptySlot() == -1) {
-                    player.dropItem(ModItems.SOUL_FLASK);
+                    Block.dropStack(context.getWorld(), context.getBlockPos(), ModItems.SOUL_FLASK.getDefaultStack());
                 } else player.giveItemStack(ModItems.SOUL_FLASK.getDefaultStack());
                 context.getWorld().breakBlock(context.getBlockPos(),false);
                 player.incrementStat(Stats.USED.getOrCreateStat(this));
@@ -44,19 +45,19 @@ public class EmptyFlaskItem extends Item {
                 if (block.get(ABYSSAL_SOUL_CHARGES)>0) {
                     context.getWorld().setBlockState(context.getBlockPos(), block.with(ABYSSAL_SOUL_CHARGES, block.get(ABYSSAL_SOUL_CHARGES)-1), 2);
                     if (player.getInventory().getEmptySlot() == -1) {
-                        player.dropItem(ModItems.SOUL_FLASK_OF_THE_ABYSS);
+                        Block.dropStack(context.getWorld(), context.getBlockPos().up(), ModItems.SOUL_FLASK_OF_THE_ABYSS.getDefaultStack());
                     } else player.giveItemStack(ModItems.SOUL_FLASK_OF_THE_ABYSS.getDefaultStack());
                 }
                 else if (block.get(CURSED_SOUL_CHARGES)>0) {
                     context.getWorld().setBlockState(context.getBlockPos(), block.with(CURSED_SOUL_CHARGES, block.get(CURSED_SOUL_CHARGES)-1), 2);
                     if (player.getInventory().getEmptySlot() == -1) {
-                        player.dropItem(ModItems.CURSED_SOUL_FLASK);
+                        Block.dropStack(context.getWorld(), context.getBlockPos().up(), ModItems.CURSED_SOUL_FLASK.getDefaultStack());
                     } else player.giveItemStack(ModItems.CURSED_SOUL_FLASK.getDefaultStack());
                 }
                 else {
                     context.getWorld().setBlockState(context.getBlockPos(), block.with(SOUL_CHARGES, block.get(SOUL_CHARGES)-1), 2);
                     if (player.getInventory().getEmptySlot() == -1) {
-                        player.dropItem(ModItems.SOUL_FLASK);
+                        Block.dropStack(context.getWorld(), context.getBlockPos().up(), ModItems.SOUL_FLASK.getDefaultStack());
                     } else player.giveItemStack(ModItems.SOUL_FLASK.getDefaultStack());
                 }
                 player.incrementStat(Stats.USED.getOrCreateStat(this));

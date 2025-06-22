@@ -25,5 +25,6 @@
       "fluid": "tlotd:orange_marmelade",
       "amount": 1000
     }
-  ]
+  ],
+  "heatRequirement": "heated"
 }

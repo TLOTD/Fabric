@@ -25,5 +25,6 @@
       "fluid": "tlotd:strawberry_jam",
       "amount": 81000
     }
-  ]
+  ],
+  "heatRequirement": "heated"
 }

@@ -447,13 +447,13 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Items.STICK), conditionsFromItem(Items.STICK))
                 .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.EFFIGIES)));
 
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.STICK_CROSS)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.STICK_CROSS)
                 .pattern(" I ")
                 .pattern("III")
                 .pattern(" I ")
                 .input('I', TagKey.of(RegistryKeys.ITEM, new Identifier("c", "wooden_rods")))
                 .criterion(hasItem(Items.STICK), conditionsFromItem(Items.STICK))
-                .offerTo(exporter, new Identifier(getRecipeName(ModItems.STICK_CROSS)));
+                .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.STICK_CROSS)));
 
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.STICK_EFFIGY)
                 .pattern("III")
@@ -796,7 +796,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .pattern("II")
                 .pattern("##")
                 .pattern("##")
-                .input('I', ModItems.FOSSILIZED_BONE)
+                .input('I', TagKey.of(RegistryKeys.ITEM, new Identifier("c", "fossils")))
                 .input('#', ItemTags.PLANKS)
                 .criterion(hasItem(ModItems.FOSSILIZED_BONE), conditionsFromItem(ModItems.FOSSILIZED_BONE))
                 .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.ARCHAEOLOGY_TABLE)));
@@ -1543,9 +1543,9 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.GLOBUS_CRUCIGER)
                 .input(Items.ENCHANTED_GOLDEN_APPLE)
-                .input(ModItems.STICK_CROSS)
+                .input(ModBlocks.STICK_CROSS)
                 .criterion(hasItem(Items.ENCHANTED_GOLDEN_APPLE), conditionsFromItem(Items.ENCHANTED_GOLDEN_APPLE))
-                .criterion(hasItem(ModItems.STICK_CROSS), conditionsFromItem(ModItems.STICK_CROSS))
+                .criterion(hasItem(ModBlocks.STICK_CROSS), conditionsFromItem(ModBlocks.STICK_CROSS))
                 .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.GLOBUS_CRUCIGER)));
 
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.EMPERORS_CROWN)
@@ -2803,6 +2803,13 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(ModBlocks.MITHRIL_BLOCK), conditionsFromItem(ModBlocks.MITHRIL_BLOCK))
                 .criterion(hasItem(ModItems.MITHRIL_INGOT), conditionsFromItem(ModItems.MITHRIL_INGOT))
                 .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.MITHRIL_ANVIL)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.MITHRIL_BARS,16)
+                .pattern("###")
+                .pattern("###")
+                .input('#', ModItems.MITHRIL_INGOT)
+                .criterion(hasItem(ModBlocks.MITHRIL_BLOCK), conditionsFromItem(ModBlocks.MITHRIL_BLOCK))
+                .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.MITHRIL_BARS)));
 
         ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModItems.GAME_CARTRIDGE_1)
                 .pattern("N")

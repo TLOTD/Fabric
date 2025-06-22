@@ -144,8 +144,6 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.RAW_URANIUM_BLOCK);
         addDrop(ModBlocks.URANIUM_BLOCK);
 
-        addDrop(ModBlocks.DEEPSLATE_FOSSIL, drops(ModBlocks.DEEPSLATE_FOSSIL, ModItems.FOSSILIZED_BONE));
-
         addDrop(ModBlocks.DEEPSLATE_HELIORITE_ORE, drops(ModBlocks.DEEPSLATE_HELIORITE_ORE, ModItems.HELIORITE_COMB));
         addDrop(ModBlocks.HELIORITE_COMB_BLOCK);
         addDrop(ModBlocks.HELIORITE_BLOCK);
@@ -175,6 +173,7 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.MITHRIL_BLOCK);
 
         addDrop(ModBlocks.MITHRIL_ANVIL);
+        addDrop(ModBlocks.MITHRIL_BARS);
 
         addDrop(ModBlocks.WOODEN_STEIN);
         addDrop(ModBlocks.WOODEN_WATER_STEIN);
@@ -184,6 +183,7 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.WOODEN_MILK_STEIN);
         addDrop(ModBlocks.WOODEN_STRAWBERRY_MILKSHAKE_STEIN);
         addDrop(ModBlocks.WOODEN_ORANGE_MILKSHAKE_STEIN);
+        addDrop(ModBlocks.WOODEN_BLUE_BERRY_MILKSHAKE_STEIN);
         addDrop(ModBlocks.WOODEN_CHOCOLATE_MILKSHAKE_STEIN);
         addDrop(ModBlocks.HOT_WOODEN_MILK_STEIN);
         addDrop(ModBlocks.WOODEN_HOT_CHOCOLATE_STEIN);

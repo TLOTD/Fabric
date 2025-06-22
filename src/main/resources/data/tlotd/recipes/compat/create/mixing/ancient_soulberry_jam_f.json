@@ -26,5 +26,6 @@
       "fluid": "tlotd:ancient_soulberry_jam",
       "amount": 1000
     }
-  ]
+  ],
+  "heatRequirement": "heated"
 }

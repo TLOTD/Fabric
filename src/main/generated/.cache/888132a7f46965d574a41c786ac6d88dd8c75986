@@ -1,4 +1,4 @@
-// 1.20.1	2025-06-18T22:23:46.3874997	TLOTD/Block Loot Tables
+// 1.20.1	2025-06-22T17:50:01.9954045	TLOTD/Block Loot Tables
 065c8df00f620de96b8a68f2f3c1419c98812efe data\tlotd\loot_tables\blocks\fancy_bamboo_planks.json
 086cc46163a83a89316fdbf152f160f82958d363 data\tlotd\loot_tables\blocks\cobbled_red_deepslate.json
 24933d84b3a1d8f15634bb910ef1533735175b98 data\tlotd\loot_tables\blocks\wooden_orange_milkshake_stein.json
@@ -66,6 +66,7 @@ cce034059e60223fd18c1711be7a02f41720104e data\tlotd\loot_tables\blocks\heliorite
 b8d6b790f92ca5477f73c25b2820cd37e2a598a3 data\tlotd\loot_tables\blocks\fancy_bamboo_trapdoor.json
 05929b534a3c5733eb108bd4ec28d5062d06be15 data\tlotd\loot_tables\blocks\fancy_spruce_planks.json
 9ff32b50e81e7454b1d7f941a9e536f500b6f627 data\tlotd\loot_tables\blocks\quartz_elevator_base.json
+2ab8c9af239476502a2a4e8a5ce10c00673a8c2a data\tlotd\loot_tables\blocks\wooden_blue_berry_milkshake_stein.json
 02a70f78d9a0812733a7ca9ea0fe05dee35e17a5 data\tlotd\loot_tables\blocks\strawberry_jam_jar.json
 1d037446aaaed1b26a6da06fdc45b831c4d39ec5 data\tlotd\loot_tables\blocks\effigies.json
 5167e2a4117c3875a0cc0e2792cc2e4e22a93877 data\tlotd\loot_tables\blocks\globus_cruciger.json
@@ -191,7 +192,6 @@ a47d6bf48ed5a6d6d920eddd42bdaa39767a89f5 data\tlotd\loot_tables\blocks\fancy_man
 045c0ca1f0138838254ab922d0ce82f96de48c8f data\tlotd\loot_tables\blocks\fancy_acacia_planks.json
 6d799fb546f2f4a87d1a4b1d746058546c28cc9d data\tlotd\loot_tables\blocks\wooden_milk_stein.json
 1d18bad1fe140ac8e5fd9ee575554e9954e744b7 data\tlotd\loot_tables\blocks\cobbled_red_deepslate_bricks.json
-79b0f7fe75655a4688ec417fb11f95197ae4919f data\tlotd\loot_tables\blocks\deepslate_fossil.json
 6276d0ba22f9593b4f3e8688865dcfc49e45ec08 data\tlotd\loot_tables\blocks\cobbled_red_deepslate_slab.json
 9462b5fe4b60a924bd76f2afa71e5db5b4cde367 data\tlotd\loot_tables\blocks\raw_mithril_block.json
 3eb2e2c0cd7c02166f8f67247021ac7b3e69d8b3 data\tlotd\loot_tables\blocks\palladium_block.json
@@ -238,6 +238,7 @@ f4f7db9c7ecad9e7b8dfd75133caa194d6aa7614 data\tlotd\loot_tables\blocks\fancy_pal
 2b9fe8749f57b526924531e3cd2798bfc4d9edad data\tlotd\loot_tables\blocks\wooden_stein.json
 70a8c83cd0c5d6d726572e350453cdc37523e2ed data\tlotd\loot_tables\blocks\glass_elevator_controller.json
 5887b0b602b0cb53a4a188ee6eb33a9944c460d2 data\tlotd\loot_tables\blocks\fancy_warped_slab.json
+849659fc9530522743901f9957f1b26623dacb2f data\tlotd\loot_tables\blocks\mithril_bars.json
 3f1c6ad53e5835398572e4338d3c28bce3555f47 data\tlotd\loot_tables\blocks\red_deepslate_bricks.json
 496e1f2f51a94a000f3983ec0500ca9b03c11583 data\tlotd\loot_tables\blocks\fancy_cherry_stairs.json
 ca663568a04fe356a955520e40c318c79bba00ad data\tlotd\loot_tables\blocks\wooden_elevator_controller.json

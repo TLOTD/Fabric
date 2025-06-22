@@ -1,4 +1,4 @@
-// 1.20.1	2025-06-18T22:23:46.3764462	TLOTD/Recipes
+// 1.20.1	2025-06-22T17:50:01.9873543	TLOTD/Recipes
 252637333792c4f65fb0627554b914bec260a31a data\tlotd\advancements\recipes\misc\jurassoline_axe2.json
 6de59cd72495202b44dff1adfad36fedead1aac7 data\tlotd\advancements\recipes\misc\fossil_and_steel.json
 fb4236ac2962716eeca3cc21c73b1b9cd1827c41 data\tlotd\recipes\cobbled_red_deepslate_brick_slab.json
@@ -216,7 +216,7 @@ fe6f678ec885bdcce2bc7f75a0c8c622de5ada8d data\tlotd\recipes\red_deepslate_button
 36275457b1d3eb7da37e9b7a1bc1b692dfd390a0 data\tlotd\recipes\edelweiss_petals.json
 fb62516e0fdbdabc828b21c801ae8eb4f6e21e17 data\tlotd\advancements\recipes\misc\bamboo_pickaxe.json
 fcfca73f15bb176a2b6e789020d28ce60bc5535a data\tlotd\advancements\recipes\misc\jurassoline_chestplate.json
-c0fc0c3360bb8d7ee69db6f3326c10ef1e38c677 data\tlotd\recipes\archaeology_table.json
+f4eb5997ccf5daee4105da6c776c93240c2b468e data\tlotd\recipes\archaeology_table.json
 872163e4ed817e0dcb41d84f9f42b65a33b8d4c3 data\tlotd\advancements\recipes\misc\spruce_log.json
 ee0833aa5a579ea2a08009a447944f225751f9c5 data\tlotd\advancements\recipes\redstone\fancy_pale_oak_trapdoor.json
 cc46410c8e303df2c0543abb6bf41b5c21e2b8bc data\tlotd\advancements\recipes\misc\nebular_ingot_from_blasting_red_deepslate_nebular_ore.json
@@ -341,8 +341,8 @@ aab932835b523912984c9d020b32c7651735ccbe data\tlotd\advancements\recipes\misc\ju
 880a70685d782699e3d85941179d3067e960d0b3 data\tlotd\recipes\endurium_ingot_from_blasting_endurium_crystal.json
 a737baf0971728ebd7fcfa814c9edae8ba85841b data\tlotd\recipes\pumpkin_seeds.json
 2af3bef72d41645bba4d890268f0342e36e9721b data\tlotd\advancements\recipes\building_blocks\limestone_slab_from_limestone_stonecutting.json
-3fae2837557b93c6f0475692e483cc3296bdd3dc data\tlotd\advancements\recipes\misc\endurium_boots.json
 f6fc4a5052bfb525d5afb64ad0374e0c9bb5da9b data\tlotd\advancements\recipes\misc\sulfur_torch.json
+3fae2837557b93c6f0475692e483cc3296bdd3dc data\tlotd\advancements\recipes\misc\endurium_boots.json
 3b9413726620b2e67bff94850a5f41616c7c9bfb data\tlotd\advancements\recipes\misc\bamboo_axe2.json
 4ba7fc98aee3c42ebbfc98c2a463a9771ffbc031 data\tlotd\recipes\heliorite_nugget.json
 62e4014dd5b8feabacf76d79dd874b5f4c5d38eb data\tlotd\advancements\recipes\misc\steel_ingredients.json
@@ -565,6 +565,7 @@ f1967b36df4337bbb28a8e43c1886855ecfe0fdf data\tlotd\recipes\heliorite_boots.json
 285a912c3161affe72715c45329e4cf03b5920fa data\tlotd\advancements\recipes\misc\bamboo_hoe.json
 5dd59dd7c80842b5b5f318272ba903d091dfca44 data\tlotd\recipes\red_deepslate_stairs_from_red_deepslate_stonecutting.json
 24c57cb12199fbd7bf509f2debafdeb9d94a7239 data\tlotd\recipes\fancy_oak_trapdoor.json
+99aa41eeb36dfacf6dad9c9ef05cd033dc1b4d09 data\tlotd\recipes\mithril_bars.json
 f33e66e264196b5ec9274b03c2fb71e89f6d66b0 data\tlotd\recipes\lead_ingot.json
 f1088ecc0b4c6a63c783eb3aebfe614b7feb07e2 data\tlotd\advancements\recipes\building_blocks\fancy_charred_slab.json
 4a5e463e190cea23aed715484fc183ed282997d4 data\tlotd\recipes\hot_milk_bucket_from_campfire.json
@@ -969,6 +970,7 @@ b2d718eecbecd15bd2281c12b40282692868f6e7 data\tlotd\recipes\purple_dye_from_iris
 d0ba98e496431b7ef442190a8d2816c3aff7a67d data\tlotd\recipes\mangrove_wood.json
 bf2a2e78277746a0eea243226b638377121d8363 data\tlotd\recipes\jurassoline_axe.json
 794cb43e7c06d2c91b666d4c955cbebe2503e0f5 data\tlotd\recipes\cinnabar_chestplate.json
+95d029b40e8aa7d33810c907ba818a99aa67d321 data\tlotd\advancements\recipes\misc\mithril_bars.json
 6ba13c7526e0fe7c1ad79b0e11b6195001b907cc data\tlotd\advancements\recipes\misc\uranium_ingot.json
 e4186a0cdbe87016a4da1eb3dc8a582bbf0b5474 data\tlotd\advancements\recipes\misc\ginkgo_boat.json
 db7389df0faae4b349ac5d9d32346d2f5c82af46 data\tlotd\recipes\red_deepslate_wall.json

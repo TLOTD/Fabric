@@ -12,11 +12,9 @@ import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.stat.Stats;
+import net.minecraft.text.Style;
 import net.minecraft.text.Text;
-import net.minecraft.util.Formatting;
-import net.minecraft.util.Hand;
-import net.minecraft.util.TypedActionResult;
-import net.minecraft.util.UseAction;
+import net.minecraft.util.*;
 import net.minecraft.world.World;
 import net.tlotd.block.ModBlocks;
 import net.tlotd.effect.ModEffects;
@@ -27,8 +25,11 @@ import java.util.List;
 
 public class DrinkableWoodenSteinBlockItem extends BlockItem {
 
-    public DrinkableWoodenSteinBlockItem(Block block, Settings settings) {
+    private final String compat;
+
+    public DrinkableWoodenSteinBlockItem(Block block, Settings settings, String compat) {
         super(block, settings);
+        this.compat = compat;
     }
 
     public ItemStack finishUsing(ItemStack stack, World world, LivingEntity user) {
@@ -84,10 +85,19 @@ public class DrinkableWoodenSteinBlockItem extends BlockItem {
         return ItemUsage.consumeHeldItem(world, user, hand);
     }
 
+    public static final Identifier DEFAULT_FONT_ID = new Identifier("minecraft", "default");
+    public static final Identifier MODS_FONT_ID = new Identifier("tlotd", "mods");
+
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
         if (stack.getItem() == ModBlocks.WOODEN_BEER_STEIN.asItem()) {
             tooltip.add(Text.translatable("effect.tlotd.drunk").append(Text.literal(" (00:30)")).formatted(Formatting.RED));
+        }
+        if (context.isCreative() && !compat.isEmpty()){
+            Style style = this.getName().getStyle();
+            if (compat.contains("aet")) {
+                tooltip.add(Text.literal("\uE008 ").setStyle(style.withFont(MODS_FONT_ID)).append(Text.translatable("mod.aether.name").setStyle(style.withFont(DEFAULT_FONT_ID).withFormatting(Formatting.GRAY))));
+            }
         }
         super.appendTooltip(stack, world, tooltip, context);
     }

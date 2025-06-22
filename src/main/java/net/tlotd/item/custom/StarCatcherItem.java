@@ -55,9 +55,9 @@ public class StarCatcherItem extends Item {
                 int randomItem = ThreadLocalRandom.current().nextInt(1, 5);
                 ItemStack itemStack = new ItemStack(ModItems.XEN_CRYSTAL);
                 switch (randomItem) {
-                    case 2 -> {itemStack = ModItems.METEORITE_CHUNK.getDefaultStack();}
-                    case 3 -> {itemStack = ModItems.STAR_FRAGMENT.getDefaultStack();}
-                    case 4 -> {itemStack = ModItems.LUNAR_CALLAINUS_LUMP.getDefaultStack();}
+                    case 2 -> itemStack = ModItems.METEORITE_CHUNK.getDefaultStack();
+                    case 3 -> itemStack = ModItems.STAR_FRAGMENT.getDefaultStack();
+                    case 4 -> itemStack = ModItems.LUNAR_CALLAINUS_LUMP.getDefaultStack();
                 }
                 user.giveItemStack(itemStack);
                 world.playSound(null, BlockPos.ofFloored(user.getPos()), SoundEvents.ENTITY_PLAYER_ATTACK_SWEEP, SoundCategory.PLAYERS, 1.0f, 1.0f);
