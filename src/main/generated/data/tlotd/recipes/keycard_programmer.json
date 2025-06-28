@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "tag": "c:quartz_blocks"
+    },
+    "B": {
+      "tag": "minecraft:buttons"
+    },
+    "C": {
+      "item": "tlotd:circuit_board"
+    },
+    "G": {
+      "tag": "c:glass_panes"
+    },
+    "K": {
+      "item": "tlotd:keycard"
+    },
+    "P": {
+      "item": "minecraft:stone_pressure_plate"
+    },
+    "T": {
+      "item": "tlotd:cathode_ray_tube"
+    }
+  },
+  "pattern": [
+    "GTK",
+    "BCP",
+    "###"
+  ],
+  "result": {
+    "item": "tlotd:keycard_programmer"
+  },
+  "show_notification": true
+}

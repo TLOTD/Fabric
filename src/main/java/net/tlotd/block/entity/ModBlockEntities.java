@@ -25,6 +25,11 @@ public class ModBlockEntities {
                     FabricBlockEntityTypeBuilder.create(OxygenCollectorBlockEntity::new,
                             ModBlocks.OXYGEN_COLLECTOR).build());
 
+    public static final BlockEntityType<KeycardReaderBlockEntity> KEYCARD_READER_BLOCK_ENTITY =
+            Registry.register(Registries.BLOCK_ENTITY_TYPE, new Identifier(TLOTD.MOD_ID, "keycard_reader_block_entity"),
+                    FabricBlockEntityTypeBuilder.create(KeycardReaderBlockEntity::new,
+                            ModBlocks.KEYCARD_READER).build());
+
     public static void registerBlockEntities() {
         FluidStorage.SIDED.registerForBlockEntity((blockEntity, direction) -> blockEntity.fluidStorage, WITCHING_TABLE_BLOCK_ENTITY);
 

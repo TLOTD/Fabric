@@ -1,0 +1,6 @@
+{
+    "parent": "tlotd:block/keycard_programmer",
+    "textures": {
+        "0": "tlotd:block/keycard_programmer_on"
+    }
+}

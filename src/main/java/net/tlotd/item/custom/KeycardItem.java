@@ -10,20 +10,16 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class SpellBookItem extends Item {
-
-    public SpellBookItem(Settings settings) {
+public class KeycardItem extends Item {
+    public KeycardItem(Settings settings) {
         super(settings);
     }
 
     @Override
-    public boolean hasGlint(ItemStack stack) {
-        return true;
-    }
-
-    @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        tooltip.add(Text.translatable("item.tlotd.spell_book.tooltip").formatted(Formatting.GRAY));
+        if (!stack.hasNbt()) {
+            tooltip.add(Text.translatable("item.tlotd.keycard.no_password").formatted(Formatting.GRAY));
+        }
         super.appendTooltip(stack, world, tooltip, context);
     }
 }

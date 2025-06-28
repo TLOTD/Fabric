@@ -390,6 +390,11 @@ public class ModBlocks {
     public static final Block COMPUTER_ON = registerBlockWithoutItem("computer_on",
             new ComputerBlock(FabricBlockSettings.create().mapColor(MapColor.WHITE).requiresTool().strength(2.0F, 2.0F).luminance(10)));
 
+    public static final Block KEYCARD_PROGRAMMER = registerBlock("keycard_programmer",
+            new KeycardProgrammerBlock(FabricBlockSettings.create().mapColor(MapColor.WHITE).requiresTool().strength(2.0F, 2.0F)));
+    public static final Block KEYCARD_READER = registerBlock("keycard_reader",
+            new KeycardReaderBlock(FabricBlockSettings.create().requiresTool().strength(0.5f,0.5f).pistonBehavior(PistonBehavior.DESTROY),BlockSetType.IRON,100,false));
+
     public static final Block INTERDIMENSIONAL_RECEIVER = registerBlock("interdimensional_receiver",
             new InterdimensionalReceiverBlock(FabricBlockSettings.create().mapColor(MapColor.GRAY).requiresTool().strength(2.0F, 2.0F).pistonBehavior(PistonBehavior.DESTROY).luminance(4)));
 

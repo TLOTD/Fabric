@@ -357,6 +357,8 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.STAR_FRAGMENT, Models.GENERATED);
         itemModelGenerator.register(ModItems.LUNAR_CALLAINUS_LUMP, Models.GENERATED);
 
+        itemModelGenerator.register(ModItems.KEYCARD, Models.GENERATED);
+
         itemModelGenerator.register(ModItems.STEEL_INGREDIENTS, Models.GENERATED);
         itemModelGenerator.register(ModItems.STEEL_NUGGET, Models.GENERATED);
         itemModelGenerator.register(ModItems.STEEL_INGOT, Models.GENERATED);

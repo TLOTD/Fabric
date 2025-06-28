@@ -1,28 +1,55 @@
 {
   "variants": {
-    "facing=west": {
+    "face=wall,facing=west": {
       "model": "tlotd:block/bw_sticker",
       "x": 90,
       "y": 90
     },
-    "facing=north": {
+    "face=wall,facing=north": {
       "model": "tlotd:block/bw_sticker",
       "x": 90,
       "y": 180
     },
-    "facing=east": {
+    "face=wall,facing=east": {
       "model": "tlotd:block/bw_sticker",
       "x": 90,
       "y": 270
     },
-    "facing=south": {
+    "face=wall,facing=south": {
       "model": "tlotd:block/bw_sticker",
       "x": 90
     },
-    "facing=down": {
+    "face=floor,facing=west": {
+      "model": "tlotd:block/bw_sticker",
+      "y": 90
+    },
+    "face=floor,facing=north": {
+      "model": "tlotd:block/bw_sticker",
+      "y": 180
+    },
+    "face=floor,facing=east": {
+      "model": "tlotd:block/bw_sticker",
+      "y": 270
+    },
+    "face=floor,facing=south": {
       "model": "tlotd:block/bw_sticker"
     },
-    "facing=up": {
+    "face=ceiling,facing=west": {
+      "model": "tlotd:block/bw_sticker",
+      "x": 180,
+      "y": 90
+    },
+    "face=ceiling,facing=north": {
+      "model": "tlotd:block/bw_sticker",
+      "x": 180,
+      "y": 180
+    },
+    "face=ceiling,facing=east": {
+      "model": "tlotd:block/bw_sticker",
+      "x": 180,
+      "y": 270
+    },
+    "face=ceiling,facing=south": {
       "model": "tlotd:block/bw_sticker",
       "x": 180
     }

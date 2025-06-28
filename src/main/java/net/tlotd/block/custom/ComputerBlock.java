@@ -29,6 +29,8 @@ import net.tlotd.item.ModItems;
 import net.tlotd.sound.ModSounds;
 import net.tlotd.util.ModTags;
 
+import static net.tlotd.block.custom.KeycardProgrammerBlock.ON;
+
 public class ComputerBlock extends Block {
 
     public static final IntProperty SCREEN = IntProperty.of("screen", 0, 7);
@@ -107,14 +109,42 @@ public class ComputerBlock extends Block {
         return ModBlocks.COMPUTER.asItem().getDefaultStack();
     }
 
+    private void TurnOffBlocks(World world, BlockPos pos) {
+        if (world.getBlockState(pos.north()).getBlock().equals(ModBlocks.KEYCARD_PROGRAMMER)) {
+            world.setBlockState(pos.north(), ModBlocks.KEYCARD_PROGRAMMER.getStateWithProperties(world.getBlockState(pos.north())).with(ON, false));
+        }
+        if (world.getBlockState(pos.east()).getBlock().equals(ModBlocks.KEYCARD_PROGRAMMER)) {
+            world.setBlockState(pos.east(), ModBlocks.KEYCARD_PROGRAMMER.getStateWithProperties(world.getBlockState(pos.east())).with(ON, false));
+        }
+        if (world.getBlockState(pos.south()).getBlock().equals(ModBlocks.KEYCARD_PROGRAMMER)) {
+            world.setBlockState(pos.south(), ModBlocks.KEYCARD_PROGRAMMER.getStateWithProperties(world.getBlockState(pos.south())).with(ON, false));
+        }
+        if (world.getBlockState(pos.west()).getBlock().equals(ModBlocks.KEYCARD_PROGRAMMER)) {
+            world.setBlockState(pos.west(), ModBlocks.KEYCARD_PROGRAMMER.getStateWithProperties(world.getBlockState(pos.west())).with(ON, false));
+        }
+    }
+
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         if (player.isSneaking()) {
             if (!world.isClient) {
                 if (state.getBlock().equals(ModBlocks.COMPUTER)) {
                     world.setBlockState(pos, ModBlocks.COMPUTER_ON.getStateWithProperties(state));
+                    if (world.getBlockState(pos.north()).getBlock().equals(ModBlocks.KEYCARD_PROGRAMMER)) {
+                        world.setBlockState(pos.north(), ModBlocks.KEYCARD_PROGRAMMER.getStateWithProperties(world.getBlockState(pos.north())).with(ON, true));
+                    }
+                    if (world.getBlockState(pos.east()).getBlock().equals(ModBlocks.KEYCARD_PROGRAMMER)) {
+                        world.setBlockState(pos.east(), ModBlocks.KEYCARD_PROGRAMMER.getStateWithProperties(world.getBlockState(pos.east())).with(ON, true));
+                    }
+                    if (world.getBlockState(pos.south()).getBlock().equals(ModBlocks.KEYCARD_PROGRAMMER)) {
+                        world.setBlockState(pos.south(), ModBlocks.KEYCARD_PROGRAMMER.getStateWithProperties(world.getBlockState(pos.south())).with(ON, true));
+                    }
+                    if (world.getBlockState(pos.west()).getBlock().equals(ModBlocks.KEYCARD_PROGRAMMER)) {
+                        world.setBlockState(pos.west(), ModBlocks.KEYCARD_PROGRAMMER.getStateWithProperties(world.getBlockState(pos.west())).with(ON, true));
+                    }
                 } else {
                     world.setBlockState(pos, ModBlocks.COMPUTER.getStateWithProperties(state).with(SCREEN, 0));
+                    TurnOffBlocks(world, pos);
                 }
                 world.playSound(null, pos, ModSounds.BLOCK_COMPUTER_INTERACT, SoundCategory.BLOCKS, 1.0f, 1.0f);
             }
@@ -138,5 +168,11 @@ public class ComputerBlock extends Block {
             return ActionResult.SUCCESS;
         }
         return ActionResult.FAIL;
+    }
+
+    @Override
+    public void onBroken(WorldAccess world, BlockPos pos, BlockState state) {
+        super.onBroken(world, pos, state);
+        TurnOffBlocks((World) world, pos);
     }
 }

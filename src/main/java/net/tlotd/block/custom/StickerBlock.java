@@ -1,6 +1,7 @@
 package net.tlotd.block.custom;
 
 import net.minecraft.block.*;
+import net.minecraft.block.enums.WallMountLocation;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.fluid.FluidState;
@@ -10,6 +11,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.DirectionProperty;
+import net.minecraft.state.property.EnumProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.text.Style;
 import net.minecraft.text.Text;
@@ -27,15 +29,19 @@ import java.util.List;
 
 public class StickerBlock extends Block {
 
+    public static final EnumProperty<WallMountLocation> FACE = Properties.WALL_MOUNT_LOCATION;
+    public static final DirectionProperty FACING = Properties.FACING;
     public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
-
-    public static final DirectionProperty FACING = FacingBlock.FACING;
 
     @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {
-        return this.getDefaultState()
-                .with(FACING, ctx.getPlayerLookDirection())
-                .with(WATERLOGGED, ctx.getWorld().getFluidState(ctx.getBlockPos()).isOf(Fluids.WATER));
+
+        for (Direction direction : ctx.getPlacementDirections()) {
+            BlockState blockState = direction.getAxis() == Direction.Axis.Y ? this.getDefaultState().with(FACE, direction == Direction.UP ? WallMountLocation.CEILING : WallMountLocation.FLOOR).with(FACING, ctx.getHorizontalPlayerFacing()).with(WATERLOGGED, ctx.getWorld().getFluidState(ctx.getBlockPos()).isOf(Fluids.WATER)) : this.getDefaultState().with(FACE, WallMountLocation.WALL).with(FACING, direction).with(WATERLOGGED, ctx.getWorld().getFluidState(ctx.getBlockPos()).isOf(Fluids.WATER));
+            if (!blockState.canPlaceAt(ctx.getWorld(), ctx.getBlockPos())) continue;
+            return blockState;
+        }
+        return null;
     }
 
     @Override
@@ -59,31 +65,55 @@ public class StickerBlock extends Block {
 
     @Override
     public void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        builder.add(FACING, WATERLOGGED);
+        builder.add(FACE, FACING, WATERLOGGED);
     }
 
     public StickerBlock(Settings settings) {
         super(settings);
-        this.setDefaultState(this.stateManager.getDefaultState().with(FACING, Direction.NORTH).with(WATERLOGGED, false));
+        this.setDefaultState(this.stateManager.getDefaultState().with(FACE, WallMountLocation.WALL).with(FACING, Direction.NORTH).with(WATERLOGGED, false));
     }
 
     public static final VoxelShape NORTH_SHAPE = Block.createCuboidShape(1.0, 4.0, 0.0, 15.0, 12.0, 0.1);
     public static final VoxelShape EAST_SHAPE = Block.createCuboidShape(15.9, 4.0, 1.0, 16.0, 12.0, 15.0);
     public static final VoxelShape SOUTH_SHAPE = Block.createCuboidShape(1.0, 4.0, 15.9, 15.0, 12.0, 16.0);
     public static final VoxelShape WEST_SHAPE = Block.createCuboidShape(0.0, 4.0, 1.0, 0.1, 12.0, 15.0);
-    public static final VoxelShape DOWN_SHAPE = Block.createCuboidShape(1.0, 0.0, 4.0, 15.0, 0.1, 12.0);
-    public static final VoxelShape UP_SHAPE = Block.createCuboidShape(1.0, 15.9, 4.0, 15.0, 16.0, 12.0);
+    public static final VoxelShape DOWN_SHAPE = Block.createCuboidShape(4.0, 0.0, 1.0, 12.0, 0.1, 15.0);
+    public static final VoxelShape DOWN_SHAPE_2 = Block.createCuboidShape(1.0, 0.0, 4.0, 15.0, 0.1, 12.0);
+    public static final VoxelShape UP_SHAPE = Block.createCuboidShape(4.0, 15.9, 1.0, 12.0, 16.0, 15.0);
+    public static final VoxelShape UP_SHAPE_2 = Block.createCuboidShape(1.0, 15.9, 4.0, 15.0, 16.0, 12.0);
 
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        return switch (state.get(FACING)) {
-            case NORTH -> NORTH_SHAPE;
-            case SOUTH -> SOUTH_SHAPE;
-            case EAST -> EAST_SHAPE;
-            case WEST -> WEST_SHAPE;
-            case UP -> UP_SHAPE;
-            case DOWN -> DOWN_SHAPE;
-        };
+        switch (state.get(FACE)) {
+            case FLOOR: {
+                switch (state.get(FACING).getAxis()) {
+                    case X: {
+                        return DOWN_SHAPE;
+                    }
+                }
+                return DOWN_SHAPE_2;
+            }
+            case WALL: {
+                switch (state.get(FACING)) {
+                    case EAST: {
+                        return EAST_SHAPE;
+                    }
+                    case WEST: {
+                        return WEST_SHAPE;
+                    }
+                    case SOUTH: {
+                        return SOUTH_SHAPE;
+                    }
+                }
+                return NORTH_SHAPE;
+            }
+        }
+        switch (state.get(FACING).getAxis()) {
+            case X: {
+                return UP_SHAPE;
+            }
+        }
+        return UP_SHAPE_2;
     }
 
     @Override

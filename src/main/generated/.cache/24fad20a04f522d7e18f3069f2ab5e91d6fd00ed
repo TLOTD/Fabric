@@ -1,4 +1,4 @@
-// 1.20.1	2025-06-22T17:50:01.970836	TLOTD/Tags for minecraft:block
+// 1.20.1	2025-06-28T16:57:26.7945114	TLOTD/Tags for minecraft:block
 73eb76ab8f187096a778402fbd37fcfc3e2c3523 data\fabric\tags\blocks\needs_tool_level_5.json
 1aa38db4e6420b76b410075b910e734a02000e8c data\minecraft\tags\blocks\small_flowers.json
 67e04e0d4704f5e9971818062bd3123e46d48ce7 data\tlotd\tags\blocks\diorite_extractable_blocks.json
@@ -11,10 +11,10 @@ ae2abce07d3ae2cdcb41ffd54000d69069314a98 data\tlotd\tags\blocks\elevator_control
 642e20aa0e994b597bffb04549842b678cf4d28c data\tlotd\tags\blocks\televisions.json
 e3a258d8cfa0abf6dc3b5f89c1fe5e670d9d3161 data\minecraft\tags\blocks\buttons.json
 f87b6fe6efac99ae04b9e6fbf7b5170f1a655e74 data\minecraft\tags\blocks\wall_post_override.json
-e3a258d8cfa0abf6dc3b5f89c1fe5e670d9d3161 data\minecraft\tags\blocks\wooden_buttons.json
 5280ceda7f02a98b28f1c3396614c34dfa336e9b data\minecraft\tags\blocks\wooden_fences.json
-60319a4b31fcdc216dafe9d29948432b6d43e175 data\minecraft\tags\blocks\wall_hanging_signs.json
+e3a258d8cfa0abf6dc3b5f89c1fe5e670d9d3161 data\minecraft\tags\blocks\wooden_buttons.json
 144c4aa4f6cac081e5d2f903fc4be47654269e77 data\minecraft\tags\blocks\planks.json
+60319a4b31fcdc216dafe9d29948432b6d43e175 data\minecraft\tags\blocks\wall_hanging_signs.json
 1199e945a26f9fe928bed6eae27ee7d8381ae8f9 data\tlotd\tags\blocks\witching_table_base_blocks.json
 ec9e8110a30cd07e5283a34474ccaa1cbadeb42f data\tlotd\tags\blocks\deepslate_extractable_blocks.json
 b54c7299ccbfa5f037aab3df96f649b5289c94b9 data\minecraft\tags\blocks\cauldrons.json

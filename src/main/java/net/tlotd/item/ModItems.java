@@ -161,6 +161,8 @@ public class ModItems {
     public static final Item NETHERITE_SICKLE = registerItem("netherite_sickle", new SickleItem(new FabricItemSettings().maxDamage(2025).fireproof()));
     public static final Item NETHERITE_FORGING_HAMMER = registerItem("netherite_forging_hammer", new ForgingHammerItem(new FabricItemSettings().maxDamage(10).fireproof()));
 
+    public static final Item KEYCARD = registerItem("keycard", new KeycardItem(new FabricItemSettings().maxCount(1)));
+
     public static final Item STEEL_INGREDIENTS = registerItem("steel_ingredients", new Item(new FabricItemSettings()));
     public static final Item STEEL_NUGGET = registerItem("steel_nugget", new Item(new FabricItemSettings()));
     public static final Item STEEL_INGOT = registerItem("steel_ingot", new Item(new FabricItemSettings()));

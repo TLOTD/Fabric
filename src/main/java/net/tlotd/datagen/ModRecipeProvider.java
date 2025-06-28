@@ -1555,6 +1555,50 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(ModBlocks.GLOBUS_CRUCIGER), conditionsFromItem(ModBlocks.GLOBUS_CRUCIGER))
                 .offerTo(exporter, new Identifier(getRecipeName(ModItems.EMPERORS_CROWN)));
 
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.KEYCARD)
+                .input(ModItems.CIRCUIT_BOARD)
+                .input(Items.PAPER)
+                .input(Items.BLACK_DYE)
+                .input(Items.RED_DYE)
+                .criterion(hasItem(ModItems.CIRCUIT_BOARD), conditionsFromItem(ModItems.CIRCUIT_BOARD))
+                .criterion(hasItem(Items.PAPER), conditionsFromItem(Items.PAPER))
+                .criterion(hasItem(Items.BLACK_DYE), conditionsFromItem(Items.BLACK_DYE))
+                .criterion(hasItem(Items.RED_DYE), conditionsFromItem(Items.RED_DYE))
+                .offerTo(exporter, new Identifier(getRecipeName(ModItems.KEYCARD)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.KEYCARD_READER)
+                .pattern("IPI")
+                .pattern("#C#")
+                .pattern("###")
+                .input('#', ItemTags.BUTTONS)
+                .input('I', TagKey.of(RegistryKeys.ITEM, new Identifier("c", "iron_ingots")))
+                .input('P', ModItems.LIQUID_CRYSTAL_DISPLAY_PANEL)
+                .input('C', ModItems.CIRCUIT_BOARD)
+                .criterion(hasItem(ModItems.LIQUID_CRYSTAL_DISPLAY_PANEL), conditionsFromItem(ModItems.LIQUID_CRYSTAL_DISPLAY_PANEL))
+                .criterion(hasItem(ModItems.CIRCUIT_BOARD), conditionsFromItem(ModItems.CIRCUIT_BOARD))
+                .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.KEYCARD_READER)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.KEYCARD_PROGRAMMER)
+                .pattern("GTK")
+                .pattern("BCP")
+                .pattern("###")
+                .input('#', TagKey.of(RegistryKeys.ITEM, new Identifier("c", "quartz_blocks")))
+                .input('G', TagKey.of(RegistryKeys.ITEM, new Identifier("c", "glass_panes")))
+                .input('T', ModItems.CATHODE_RAY_TUBE)
+                .input('K', ModItems.KEYCARD)
+                .input('B', ItemTags.BUTTONS)
+                .input('C', ModItems.CIRCUIT_BOARD)
+                .input('P', Items.STONE_PRESSURE_PLATE)
+                .criterion(hasItem(ModItems.CATHODE_RAY_TUBE), conditionsFromItem(ModItems.CATHODE_RAY_TUBE))
+                .criterion(hasItem(ModItems.KEYCARD), conditionsFromItem(ModItems.KEYCARD))
+                .criterion(hasItem(ModItems.CIRCUIT_BOARD), conditionsFromItem(ModItems.CIRCUIT_BOARD))
+                .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.KEYCARD_PROGRAMMER)));
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.KEYCARD)
+                .input(ModItems.KEYCARD)
+                .criterion(hasItem(ModItems.KEYCARD), conditionsFromItem(ModItems.KEYCARD))
+                .offerTo(exporter, new Identifier(getRecipeName(ModItems.KEYCARD) + "_cleared"));
+
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, Items.FLINT_AND_STEEL)
                 .input(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "steel_ingots")))
                 .input(Items.FLINT)

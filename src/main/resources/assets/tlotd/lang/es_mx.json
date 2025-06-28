@@ -280,6 +280,9 @@
   "item.tlotd.liquid_crystal_display_panel": "Pantalla de cristal líquido",
   "item.tlotd.holographic_projector": "Proyector holográfico",
 
+  "item.tlotd.keycard": "Tarjeta",
+  "item.tlotd.keycard.no_password": "Sin contraseña",
+
   "item.tlotd.incomplete_copper_wire": "Alambre de cobre incompleto",
   "item.tlotd.incomplete_gold_wire": "Alambre de oro incompleto",
   "item.tlotd.incomplete_integrated_circuit": "Circuitos integrados incompleto",
@@ -637,6 +640,15 @@
   "block.tlotd.garbage_can": "Cubo de basura",
 
   "block.tlotd.flagpole": "Asta de bandera",
+
+  "block.tlotd.keycard_programmer": "Programador de tarjetas",
+  "block.tlotd.keycard_programmer.tooltip": "Desarrollado por:",
+  "block.tlotd.keycard_programmer.tooltip_2": "Interactúa con una tarjeta para",
+  "block.tlotd.keycard_programmer.tooltip_3": "establecer como contraseña un ",
+  "block.tlotd.keycard_programmer.tooltip_4": "objeto que no esté en la mano.",
+  "block.tlotd.keycard_reader": "Lector de tarjetas",
+  "block.tlotd.keycard_reader.no_password": "Su Keycard no tiene contraseña",
+  "block.tlotd.keycard_reader.password_set": "La contraseña de su tarjeta se ha establecido como la nueva contraseña del lector de tarjetas.",
 
   "block.tlotd.radio": "Radio",
   "block.tlotd.radio_on": "Radio",

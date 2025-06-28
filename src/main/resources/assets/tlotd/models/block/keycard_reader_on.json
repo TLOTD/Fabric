@@ -1,0 +1,6 @@
+{
+	"parent": "tlotd:block/keycard_reader",
+	"textures": {
+		"1": "tlotd:block/keycard_accepted"
+	}
+}

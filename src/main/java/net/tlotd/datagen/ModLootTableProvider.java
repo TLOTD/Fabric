@@ -206,6 +206,9 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.VIDEOCASSETTE_RECORDER);
         addDrop(ModBlocks.OXYGEN_COLLECTOR);
 
+        addDrop(ModBlocks.KEYCARD_PROGRAMMER);
+        addDrop(ModBlocks.KEYCARD_READER);
+
         addDrop(ModBlocks.SIGNAL_TRANSMITTER_ANTENNA);
         addDrop(ModBlocks.SIGNAL_TRANSMITTER);
 

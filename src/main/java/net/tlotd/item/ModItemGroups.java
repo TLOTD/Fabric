@@ -58,6 +58,8 @@ public class ModItemGroups {
                         entries.add(ModItems.LIQUID_CRYSTAL_DISPLAY_PANEL);
                         entries.add(ModItems.HOLOGRAPHIC_PROJECTOR);
 
+                        entries.add(ModItems.KEYCARD);
+
                         entries.add(ModItems.STEEL_INGREDIENTS);
                         entries.add(ModItems.STEEL_NUGGET);
                         entries.add(ModItems.STEEL_INGOT);
@@ -454,6 +456,9 @@ public class ModItemGroups {
                         entries.add(ModBlocks.SIGNAL_TRANSMITTER);
                         entries.add(ModBlocks.SIGNAL_TRANSMITTER_ANTENNA);
                         entries.add(Items.LIGHTNING_ROD);
+
+                        entries.add(ModBlocks.KEYCARD_PROGRAMMER);
+                        entries.add(ModBlocks.KEYCARD_READER);
 
                         entries.add(ModBlocks.INTERDIMENSIONAL_RECEIVER);
 

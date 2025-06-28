@@ -1,0 +1,61 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_cathode_ray_tube": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "tlotd:cathode_ray_tube"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_circuit_board": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "tlotd:circuit_board"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_keycard": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "tlotd:keycard"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:keycard_programmer"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_cathode_ray_tube",
+      "has_keycard",
+      "has_circuit_board",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:keycard_programmer"
+    ]
+  },
+  "sends_telemetry_event": false
+}

@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "tag": "minecraft:buttons"
+    },
+    "C": {
+      "item": "tlotd:circuit_board"
+    },
+    "I": {
+      "tag": "c:iron_ingots"
+    },
+    "P": {
+      "item": "tlotd:liquid_crystal_display_panel"
+    }
+  },
+  "pattern": [
+    "IPI",
+    "#C#",
+    "###"
+  ],
+  "result": {
+    "item": "tlotd:keycard_reader"
+  },
+  "show_notification": true
+}

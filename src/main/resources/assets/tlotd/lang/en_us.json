@@ -288,6 +288,9 @@
   "item.tlotd.liquid_crystal_display_panel": "Liquid Crystal Display Panel",
   "item.tlotd.holographic_projector": "Holographic Projector",
 
+  "item.tlotd.keycard": "Keycard",
+  "item.tlotd.keycard.no_password": "No password set",
+
   "item.tlotd.incomplete_copper_wire": "Incomplete Copper Wire",
   "item.tlotd.incomplete_gold_wire": "Incomplete Gold Wire",
   "item.tlotd.incomplete_integrated_circuit": "Incomplete Integrated Circuit",
@@ -648,6 +651,15 @@
   "block.tlotd.garbage_can": "Garbage Can",
 
   "block.tlotd.flagpole": "Flagpole",
+
+  "block.tlotd.keycard_programmer": "Keycard Programmer",
+  "block.tlotd.keycard_programmer.tooltip": "Powered by:",
+  "block.tlotd.keycard_programmer.tooltip_2": "Interact whilst holding",
+  "block.tlotd.keycard_programmer.tooltip_3": "a keycard, to set Off-hand",
+  "block.tlotd.keycard_programmer.tooltip_4": "item as its password.",
+  "block.tlotd.keycard_reader": "Keycard Reader",
+  "block.tlotd.keycard_reader.no_password": "There is no password on your Keycard",
+  "block.tlotd.keycard_reader.password_set": "The password from your Keycard has been set as the new Keycard Reader password",
 
   "block.tlotd.radio": "Radio",
   "block.tlotd.radio_on": "Radio",

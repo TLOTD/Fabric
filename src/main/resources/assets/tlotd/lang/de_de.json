@@ -280,6 +280,9 @@
   "item.tlotd.liquid_crystal_display_panel": "Flüssigkristallanzeigefeld",
   "item.tlotd.holographic_projector": "Holografischer Projektor",
 
+  "item.tlotd.keycard": "Schlüsselkarte",
+  "item.tlotd.keycard.no_password": "Kein Password gesetzt",
+
   "item.tlotd.incomplete_copper_wire": "Unvollendetes Kupferkabel",
   "item.tlotd.incomplete_gold_wire": "Unvollendetes Goldkabel",
   "item.tlotd.incomplete_integrated_circuit": "Unvollendeter Integrierter Schaltkreis",
@@ -637,6 +640,15 @@
   "block.tlotd.garbage_can": "Mülleimer",
 
   "block.tlotd.flagpole": "Flaggenmast",
+
+  "block.tlotd.keycard_programmer": "Kartenprogrammierer",
+  "block.tlotd.keycard_programmer.tooltip": "Betreibbar durch:",
+  "block.tlotd.keycard_programmer.tooltip_2": "Um den Gegenstand aus der Zweithand",
+  "block.tlotd.keycard_programmer.tooltip_3": "als Passwort festzulegen muss mit",
+  "block.tlotd.keycard_programmer.tooltip_4": "einer Schlüsselkarte interagiert werden.",
+  "block.tlotd.keycard_reader": "Kartenleser",
+  "block.tlotd.keycard_reader.no_password": "Auf Ihrer Schlüsselkarte ist kein Passwort vorhanden",
+  "block.tlotd.keycard_reader.password_set": "Das Passwort Ihrer Schlüsselkarte wurde als neues Passwort für den Kartenleser festgelegt",
 
   "block.tlotd.radio": "Radio",
   "block.tlotd.radio_on": "Radio",

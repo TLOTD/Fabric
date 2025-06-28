@@ -1,0 +1,34 @@
+{
+  "variants": {
+    "facing=north,on=false": {
+      "model": "tlotd:block/keycard_programmer",
+      "y": 180
+    },
+    "facing=east,on=false": {
+      "model": "tlotd:block/keycard_programmer",
+      "y": 270
+    },
+    "facing=south,on=false": {
+      "model": "tlotd:block/keycard_programmer"
+    },
+    "facing=west,on=false": {
+      "model": "tlotd:block/keycard_programmer",
+      "y": 90
+    },
+    "facing=north,on=true": {
+      "model": "tlotd:block/keycard_programmer_on",
+      "y": 180
+    },
+    "facing=east,on=true": {
+      "model": "tlotd:block/keycard_programmer_on",
+      "y": 270
+    },
+    "facing=south,on=true": {
+      "model": "tlotd:block/keycard_programmer_on"
+    },
+    "facing=west,on=true": {
+      "model": "tlotd:block/keycard_programmer_on",
+      "y": 90
+    }
+  }
+}
