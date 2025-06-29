@@ -74,6 +74,8 @@ public class ModItems {
 
     public static final Item APPLE_JUICE_BOTTLE = registerItem("apple_juice_bottle", new DrinkableBottle(new FabricItemSettings().food(ModFoodComponents.WOODEN_LIQUID_STEIN).maxCount(16).recipeRemainder(Items.GLASS_BOTTLE)));
 
+    public static final Item CANNABIS_COOKIE = registerItem("cannabis_cookie", new CannabisCookieItem(new FabricItemSettings().food(ModFoodComponents.CANNABIS_COOKIE)));
+
     public static final Item TOAST = registerItem("toast", new Item(new FabricItemSettings().food(ModFoodComponents.TOAST)));
 
     public static final Item SWEET_BERRY_JAM_TOAST = registerItem("sweet_berry_jam_toast", new Item(new FabricItemSettings().food(ModFoodComponents.JAM_TOAST)));
@@ -89,6 +91,9 @@ public class ModItems {
     public static final Item ORANGE_MARMELADE_TOAST = registerItem("orange_marmelade_toast", new Item(new FabricItemSettings().food(ModFoodComponents.JAM_TOAST)));
     public static final Item ORANGE_JUICE_BOTTLE = registerItem("orange_juice_bottle", new DrinkableBottle(new FabricItemSettings().food(ModFoodComponents.WOODEN_LIQUID_STEIN).maxCount(16).recipeRemainder(Items.GLASS_BOTTLE)));
     public static final Item SPEZI_BOTTLE = registerItem("spezi_bottle", new DrinkableBottle(new FabricItemSettings().food(ModFoodComponents.WOODEN_LIQUID_STEIN).maxCount(16).recipeRemainder(Items.GLASS_BOTTLE)));
+
+    public static final Item CANNABIS_SEEDS = registerItem("cannabis_seeds", new AliasedBlockItem(ModBlocks.CANNABIS_PLANT, new FabricItemSettings()));
+    public static final Item CANNABIS = registerItem("cannabis", new Item(new FabricItemSettings()));
 
     public static final Item BLUE_BERRY_JAM_TOAST = registerItem("blue_berry_jam_toast", new CompatItem(new FabricItemSettings().food(ModFoodComponents.JAM_TOAST),"aether"));
     public static final Item ANCIENT_SOULBERRY_JAM_TOAST = registerItem("ancient_soulberry_jam_toast", new CompatItem(new FabricItemSettings().food(ModFoodComponents.ANCIENT_SOULBERRY_JAM_TOAST),"atm"));

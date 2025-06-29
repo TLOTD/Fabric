@@ -21,6 +21,10 @@ public class ModTrades {
                             new ItemStack(Items.EMERALD, 3),
                             new ItemStack(ModItems.ORANGE_SEEDS, 1),
                             6, 5, 0.1f));
+                    factories.add((entity, random) -> new TradeOffer(
+                            new ItemStack(Items.EMERALD, 5),
+                            new ItemStack(ModItems.CANNABIS_SEEDS, 1),
+                            6, 5, 0.1f));
                 });
 
         TradeOfferHelper.registerVillagerOffers(ModVillagers.ARCHAEOLOGIST, 1,

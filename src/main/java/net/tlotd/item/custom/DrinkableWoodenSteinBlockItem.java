@@ -37,9 +37,13 @@ public class DrinkableWoodenSteinBlockItem extends BlockItem {
             user.addStatusEffect(new StatusEffectInstance(ModEffects.DRUNK, 600));
         } else if (stack.getItem() == ModBlocks.WOODEN_MILK_STEIN.asItem()) {
             user.clearStatusEffects();
-        } else if (stack.getItem() == ModBlocks.WOODEN_STRAWBERRY_MILKSHAKE_STEIN.asItem() || stack.getItem() == ModBlocks.WOODEN_ORANGE_MILKSHAKE_STEIN.asItem() || stack.getItem() == ModBlocks.WOODEN_CHOCOLATE_MILKSHAKE_STEIN.asItem()) {
+        } else if (stack.getItem() == ModBlocks.WOODEN_STRAWBERRY_MILKSHAKE_STEIN.asItem() || stack.getItem() == ModBlocks.WOODEN_ORANGE_MILKSHAKE_STEIN.asItem() || stack.getItem() == ModBlocks.WOODEN_CHOCOLATE_MILKSHAKE_STEIN.asItem() || stack.getItem() == ModBlocks.WOODEN_BLUE_BERRY_MILKSHAKE_STEIN.asItem()) {
             user.clearStatusEffects();
             user.addStatusEffect(new StatusEffectInstance(StatusEffects.RESISTANCE, 10, 0));
+        } else if (stack.getItem() == ModBlocks.WOODEN_STRAWBERRY_MILKSHAKE_STEIN.asItem()) {
+            user.clearStatusEffects();
+            user.addStatusEffect(new StatusEffectInstance(StatusEffects.RESISTANCE, 10, 0));
+            user.addStatusEffect(new StatusEffectInstance(StatusEffects.GLOWING, 10, 0));
         } else if (stack.getItem() == ModBlocks.HOT_WOODEN_MILK_STEIN.asItem() || stack.getItem() == ModBlocks.WOODEN_HOT_CHOCOLATE_STEIN.asItem()) {
             user.clearStatusEffects();
             user.addStatusEffect(new StatusEffectInstance(StatusEffects.REGENERATION, 1, 3));
@@ -97,6 +101,9 @@ public class DrinkableWoodenSteinBlockItem extends BlockItem {
             Style style = this.getName().getStyle();
             if (compat.contains("aet")) {
                 tooltip.add(Text.literal("\uE008 ").setStyle(style.withFont(MODS_FONT_ID)).append(Text.translatable("mod.aether.name").setStyle(style.withFont(DEFAULT_FONT_ID).withFormatting(Formatting.GRAY))));
+            }
+            if (compat.contains("tlf")) {
+                tooltip.add(Text.literal("\uE009 ").setStyle(style.withFont(MODS_FONT_ID)).append(Text.translatable("mod.twilightforest.name").setStyle(style.withFont(DEFAULT_FONT_ID).withFormatting(Formatting.GRAY))));
             }
         }
         super.appendTooltip(stack, world, tooltip, context);

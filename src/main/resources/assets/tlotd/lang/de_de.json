@@ -36,6 +36,7 @@
   "messages.tlotd.radio.frequency.4": "Frequenz: 99.4 MHz",
 
   "effect.tlotd.drunk": "Betrunken",
+  "effect.tlotd.stoned": "Bekifft",
   "effect.tlotd.irradiated": "§eVerstrahlt§r",
   "effect.tlotd.hypoxia": "Hypoxia",
 
@@ -158,6 +159,8 @@
   "item.tlotd.lotr_banner_pattern": "Bannervorlage",
   "item.tlotd.lotr_banner_pattern.desc": "Der Herr der Ringe",
 
+  "item.tlotd.cannabis_cookie": "Hanfkeks",
+
   "item.tlotd.apple_juice_bottle": "Apfelsaftflasche",
   "block.tlotd.preserves_jar": "Einmachglas",
   "item.tlotd.toast": "Toast",
@@ -178,6 +181,9 @@
   "item.tlotd.orange_marmelade_toast": "Orangenmarmeladentoast",
   "item.tlotd.orange_juice_bottle": "Orangensaftflasche",
   "item.tlotd.spezi_bottle": "Spezi-Flasche",
+
+  "item.tlotd.cannabis_seeds": "Hanfsamen",
+  "item.tlotd.cannabis": "Hanf",
 
   "block.tlotd.blue_berry_jam_jar": "Blaubeermarmeladenglas",
   "item.tlotd.blue_berry_jam_toast": "Blaubeermarmeladentoast",
@@ -566,6 +572,8 @@
   "block.tlotd.orange_tree": "Orangenbaum",
   "block.tlotd.orange_cake": "Orangenkuchen",
 
+  "block.tlotd.cannabis_plant": "Hanfpflanze",
+
   "block.tlotd.bw_sticker": "Sticker",
   "block.tlotd.bw_sticker.tooltip": "Nett hier.",
   "block.tlotd.bw_sticker.tooltip_2": "Aber waren sie schonmal",
@@ -770,6 +778,7 @@
   "block.tlotd.sulfur_block": "Schwefelblock",
   "block.tlotd.sulfur_torch": "Schwefelfackel",
   "block.tlotd.sulfur_lantern": "Schwefellaterne",
+  "block.tlotd.sulfur_campfire": "Schwefellagerfeuer",
 
   "block.tlotd.lead_ore": "Bleierz",
   "block.tlotd.raw_lead_block": "Rohbleiblock",
@@ -1035,6 +1044,7 @@
   "block.tlotd.wooden_strawberry_milkshake_stein": "Erdbeermilchshakeholzkrug",
   "block.tlotd.wooden_orange_milkshake_stein": "Orangenmilchshakeholzkrug",
   "block.tlotd.wooden_blue_berry_milkshake_stein": "Blaubeermilchshakeholzkrug",
+  "block.tlotd.wooden_torchberry_milkshake_stein": "Fackelbeermilchshakeholzkrug",
   "block.tlotd.wooden_chocolate_milkshake_stein": "Schokoladenmilchshakeholzkrug",
   "block.tlotd.hot_wooden_milk_stein": "Heisser Milchholzkrug",
   "block.tlotd.wooden_hot_chocolate_stein": "Heisser Schokoladenholzkrug",
@@ -1309,5 +1319,7 @@
   "block.minecraft.banner.tlotd.blind_eye.purple": "Violettes Blindes Auge",
   "block.minecraft.banner.tlotd.blind_eye.red": "Rotes Blindes Auge",
   "block.minecraft.banner.tlotd.blind_eye.white": "Weißes Blindes Auge",
-  "block.minecraft.banner.tlotd.blind_eye.yellow": "Gelbes Blindes Auge"
+  "block.minecraft.banner.tlotd.blind_eye.yellow": "Gelbes Blindes Auge",
+
+  "trim_material.tlotd.mithril": "Mithril"
 }

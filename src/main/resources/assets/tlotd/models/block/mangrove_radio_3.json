@@ -3,7 +3,6 @@
 	"textures": {
 		"0": "minecraft:block/mangrove_log",
 		"1": "minecraft:block/stripped_mangrove_log",
-		"2": "tlotd:block/radio_front",
 		"3": "tlotd:block/radio/frequency3",
 		"particle": "minecraft:block/mangrove_log"
 	}

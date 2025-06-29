@@ -33,7 +33,7 @@ public class ArchaeologyTableBlock extends Block {
         if (!world.isClient) {
             if (itemStack.isOf(ModItems.PLANT_FOSSIL)) {
                 itemStack.decrement(1);
-                int itemInt = ThreadLocalRandom.current().nextInt(1, 8);
+                int itemInt = ThreadLocalRandom.current().nextInt(1, 9);
                 ItemStack randomItem = new ItemStack(ModBlocks.ROSE);
                 switch (itemInt) {
                     case 2 -> randomItem = ModBlocks.IRIS.asItem().getDefaultStack();
@@ -42,6 +42,7 @@ public class ArchaeologyTableBlock extends Block {
                     case 5 -> randomItem = ModBlocks.GINKGO_SAPLING.asItem().getDefaultStack();
                     case 6 -> randomItem = ModItems.STRAWBERRY_SEEDS.getDefaultStack();
                     case 7 -> randomItem = ModItems.ORANGE_SEEDS.getDefaultStack();
+                    case 8 -> randomItem = ModItems.CANNABIS_SEEDS.getDefaultStack();
                 }
                 Block.dropStack(world, pos.up(), randomItem);
                 world.playSound(null, pos, SoundEvents.BLOCK_GRINDSTONE_USE, SoundCategory.BLOCKS, 1.0f, 1.0f);

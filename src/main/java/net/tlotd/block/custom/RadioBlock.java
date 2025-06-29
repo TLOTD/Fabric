@@ -6,7 +6,6 @@ import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.registry.tag.ItemTags;
@@ -31,6 +30,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 import net.tlotd.block.ModBlocks;
 import net.tlotd.config.ModConfigs;
+import net.tlotd.item.ModItems;
 import net.tlotd.sound.ModSounds;
 import net.tlotd.util.ModTags;
 import org.jetbrains.annotations.Nullable;
@@ -43,11 +43,9 @@ import static net.tlotd.block.custom.DataSaverBlock.FREQUENCY_4;
 public class RadioBlock extends Block {
 
     public static final IntProperty FREQUENCY = IntProperty.of("frequency", 0, 4);
-
-    public static final IntProperty WOOD_TYPE = IntProperty.of("wood_type", 1, 13);
-
+    public static final IntProperty WOOD_TYPE = IntProperty.of("wood_type", 1, 15);
+    public static final BooleanProperty MODDED = BooleanProperty.of("modded");
     public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
-
     public static final DirectionProperty FACING = FacingBlock.FACING;
 
     @Override
@@ -56,7 +54,8 @@ public class RadioBlock extends Block {
                 .with(FACING, ctx.getHorizontalPlayerFacing())
                 .with(WATERLOGGED, ctx.getWorld().getFluidState(ctx.getBlockPos()).isOf(Fluids.WATER))
                 .with(FREQUENCY, 0)
-                .with(WOOD_TYPE, 1);
+                .with(WOOD_TYPE, 1)
+                .with(MODDED, false);
     }
 
     @Override
@@ -80,12 +79,12 @@ public class RadioBlock extends Block {
 
     @Override
     public void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        builder.add(FACING, WATERLOGGED, FREQUENCY, WOOD_TYPE);
+        builder.add(FACING, WATERLOGGED, FREQUENCY, WOOD_TYPE, MODDED);
     }
 
     public RadioBlock(Settings settings) {
         super(settings);
-        this.setDefaultState(this.stateManager.getDefaultState().with(FACING, Direction.NORTH).with(WATERLOGGED, false).with(FREQUENCY, 0).with(WOOD_TYPE, 1));
+        this.setDefaultState(this.stateManager.getDefaultState().with(FACING, Direction.NORTH).with(WATERLOGGED, false).with(FREQUENCY, 0).with(WOOD_TYPE, 1).with(MODDED, false));
     }
 
     public static final VoxelShape Z_SHAPE = Block.createCuboidShape(4.0, 0.0, 0.0, 12.0, 11.0, 16.0);
@@ -177,30 +176,61 @@ public class RadioBlock extends Block {
         } else {
             if (player.getMainHandStack().isIn(ItemTags.LOGS) || player.getMainHandStack().isIn(ItemTags.BAMBOO_BLOCKS) || player.getMainHandStack().isIn(ModTags.Items.GINKGO_LOGS)){
                 if (!world.isClient) {
+                    String name = player.getMainHandStack().getTranslationKey();
                     if (player.getMainHandStack().isIn(ItemTags.OAK_LOGS)) {
-                        world.setBlockState(pos, world.getBlockState(pos).with(WOOD_TYPE, 1));
+                        updateWood(world,pos,1,false);
                     } else if (player.getMainHandStack().isIn(ItemTags.SPRUCE_LOGS)) {
-                        world.setBlockState(pos, world.getBlockState(pos).with(WOOD_TYPE, 2));
+                        updateWood(world,pos,2,false);
                     } else if (player.getMainHandStack().isIn(ItemTags.BIRCH_LOGS)) {
-                        world.setBlockState(pos, world.getBlockState(pos).with(WOOD_TYPE, 3));
+                        updateWood(world,pos,3,false);
                     } else if (player.getMainHandStack().isIn(ItemTags.JUNGLE_LOGS)) {
-                        world.setBlockState(pos, world.getBlockState(pos).with(WOOD_TYPE, 4));
+                        updateWood(world,pos,4,false);
                     } else if (player.getMainHandStack().isIn(ItemTags.ACACIA_LOGS)) {
-                        world.setBlockState(pos, world.getBlockState(pos).with(WOOD_TYPE, 5));
+                        updateWood(world,pos,5,false);
                     } else if (player.getMainHandStack().isIn(ItemTags.DARK_OAK_LOGS)) {
-                        world.setBlockState(pos, world.getBlockState(pos).with(WOOD_TYPE, 6));
+                        updateWood(world,pos,6,false);
                     } else if (player.getMainHandStack().isIn(ItemTags.MANGROVE_LOGS)) {
-                        world.setBlockState(pos, world.getBlockState(pos).with(WOOD_TYPE, 7));
+                        updateWood(world,pos,7,false);
                     } else if (player.getMainHandStack().isIn(ItemTags.CHERRY_LOGS)) {
-                        world.setBlockState(pos, world.getBlockState(pos).with(WOOD_TYPE, 8));
+                        updateWood(world,pos,8,false);
                     } else if (player.getMainHandStack().isIn(ModTags.Items.GINKGO_LOGS)) {
-                        world.setBlockState(pos, world.getBlockState(pos).with(WOOD_TYPE, 10));
+                        updateWood(world,pos,10,false);
                     } else if (player.getMainHandStack().isIn(ItemTags.BAMBOO_BLOCKS)) {
-                        world.setBlockState(pos, world.getBlockState(pos).with(WOOD_TYPE, 11));
+                        updateWood(world,pos,11,false);
                     } else if (player.getMainHandStack().isIn(ItemTags.CRIMSON_STEMS)) {
-                        world.setBlockState(pos, world.getBlockState(pos).with(WOOD_TYPE, 12));
+                        updateWood(world,pos,12,false);
                     } else if (player.getMainHandStack().isIn(ItemTags.WARPED_STEMS)) {
-                        world.setBlockState(pos, world.getBlockState(pos).with(WOOD_TYPE, 13));
+                        updateWood(world,pos,13,false);
+                    } else if (name.contains("aether") && (name.contains("skyroot") || name.contains("golden_oak"))) { //modded logs
+                        updateWood(world,pos,1,true);
+                    } else if (name.contains("twilightforest") && name.contains("twilight_oak")) {
+                        updateWood(world,pos,2,true);
+                    } else if (name.contains("twilightforest") && name.contains("canopy")) {
+                        updateWood(world,pos,3,true);
+                    } else if (name.contains("twilightforest") && name.contains("mangrove")) {
+                        updateWood(world,pos,4,true);
+                    } else if (name.contains("twilightforest") && name.contains("dark")) {
+                        updateWood(world,pos,5,true);
+                    } else if (name.contains("twilightforest") && name.contains("time")) {
+                        updateWood(world,pos,6,true);
+                    } else if (name.contains("twilightforest") && name.contains("transformation")) {
+                        updateWood(world,pos,7,true);
+                    } else if (name.contains("twilightforest") && name.contains("mining")) {
+                        updateWood(world,pos,8,true);
+                    } else if (name.contains("twilightforest") && name.contains("sorting")) {
+                        updateWood(world,pos,9,true);
+                    } else if (name.contains("thermal") && name.contains("rubberwood")) {
+                        updateWood(world,pos,10,true);
+                    } else if (name.contains("quark") && name.contains("ancient")) {
+                        updateWood(world,pos,11,true);
+                    } else if (name.contains("quark") && name.contains("azalea")) {
+                        updateWood(world,pos,12,true);
+                    } else if (name.contains("quark") && name.contains("blossom")) {
+                        updateWood(world,pos,13,true);
+                    } else if (name.contains("alexscaves") && name.contains("pewen")) {
+                        updateWood(world,pos,14,true);
+                    } else if (name.contains("alexscaves") && name.contains("thornwood")) {
+                        updateWood(world,pos,15,true);
                     }
                 }
                 world.playSound(null, pos, SoundEvents.BLOCK_WOOD_PLACE, SoundCategory.BLOCKS, 1.0f, 1.0f);
@@ -257,6 +287,10 @@ public class RadioBlock extends Block {
             }
         }
         return ActionResult.FAIL;
+    }
+
+    public void updateWood(World world, BlockPos pos, int type, boolean modded) {
+        world.setBlockState(pos, world.getBlockState(pos).with(WOOD_TYPE, type).with(MODDED, modded));
     }
 
     @Override

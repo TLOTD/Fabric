@@ -85,6 +85,10 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModItems.SORTINGWOOD_BARK)
         ;
 
+        getOrCreateTagBuilder(ItemTags.LOGS_THAT_BURN)
+                .addTag(ModTags.Items.GINKGO_LOGS)
+        ;
+
         getOrCreateTagBuilder(ModTags.Items.GINKGO_LOGS)
                 .add(ModBlocks.GINKGO_LOG.asItem())
                 .add(ModBlocks.GINKGO_WOOD.asItem())
@@ -98,6 +102,11 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
 
         getOrCreateTagBuilder(ItemTags.SAPLINGS)
                 .add(ModBlocks.GINKGO_SAPLING.asItem())
+        ;
+
+        getOrCreateTagBuilder(ItemTags.PLANKS)
+                .add(ModBlocks.GINKGO_PLANKS.asItem())
+                .addOptionalTag(Identifier.tryParse("c:fancy_planks"))
         ;
 
         getOrCreateTagBuilder(ItemTags.WOODEN_STAIRS)
@@ -219,6 +228,20 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModBlocks.RED_DEEPSLATE_BUTTON.asItem())
         ;
 
+        getOrCreateTagBuilder(ItemTags.STONE_CRAFTING_MATERIALS)
+                .add(ModBlocks.MARBLE.asItem())
+                .add(ModBlocks.LIMESTONE.asItem())
+                .add(ModBlocks.RED_DEEPSLATE.asItem())
+                .add(ModBlocks.COBBLED_RED_DEEPSLATE.asItem())
+        ;
+
+        getOrCreateTagBuilder(ItemTags.STONE_TOOL_MATERIALS)
+                .add(ModBlocks.MARBLE.asItem())
+                .add(ModBlocks.LIMESTONE.asItem())
+                .add(ModBlocks.RED_DEEPSLATE.asItem())
+                .add(ModBlocks.COBBLED_RED_DEEPSLATE.asItem())
+        ;
+
         getOrCreateTagBuilder(ItemTags.BEACON_PAYMENT_ITEMS)
                 .add(ModItems.HELIORITE_INGOT)
                 .add(ModItems.ENDURIUM_INGOT)
@@ -329,6 +352,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModBlocks.WOODEN_STRAWBERRY_MILKSHAKE_STEIN.asItem())
                 .add(ModBlocks.WOODEN_ORANGE_MILKSHAKE_STEIN.asItem())
                 .add(ModBlocks.WOODEN_BLUE_BERRY_MILKSHAKE_STEIN.asItem())
+                .add(ModBlocks.WOODEN_TORCHBERRY_MILKSHAKE_STEIN.asItem())
                 .add(ModBlocks.HOT_WOODEN_MILK_STEIN.asItem())
                 .add(ModBlocks.WOODEN_HOT_CHOCOLATE_STEIN.asItem())
         ;
@@ -488,6 +512,17 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
         getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "seeds")))
                 .add(ModItems.STRAWBERRY_SEEDS)
                 .add(ModItems.ORANGE_SEEDS)
+                .add(ModItems.CANNABIS_SEEDS)
+        ;
+
+        getOrCreateTagBuilder(ItemTags.TRIM_MATERIALS)
+                .add(ModItems.MITHRIL_INGOT)
+        ;
+
+        getOrCreateTagBuilder(ItemTags.VILLAGER_PLANTABLE_SEEDS)
+                .add(ModItems.STRAWBERRY_SEEDS)
+                .add(ModItems.ORANGE_SEEDS)
+                .add(ModItems.CANNABIS_SEEDS)
         ;
 
         getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "flour")))
@@ -710,12 +745,14 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModBlocks.WOODEN_STRAWBERRY_MILKSHAKE_STEIN.asItem())
                 .add(ModBlocks.WOODEN_ORANGE_MILKSHAKE_STEIN.asItem())
                 .add(ModBlocks.WOODEN_BLUE_BERRY_MILKSHAKE_STEIN.asItem())
+                .add(ModBlocks.WOODEN_TORCHBERRY_MILKSHAKE_STEIN.asItem())
                 .add(ModBlocks.WOODEN_CHOCOLATE_MILKSHAKE_STEIN.asItem())
                 .add(ModBlocks.HOT_WOODEN_MILK_STEIN.asItem())
                 .add(ModBlocks.WOODEN_HOT_CHOCOLATE_STEIN.asItem())
                 .add(ModItems.STRAWBERRY)
                 .add(ModItems.CHOCOLATE_STRAWBERRY)
                 .add(ModItems.ORANGE)
+                .add(ModItems.CANNABIS_COOKIE)
                 .add(ModItems.TOAST)
                 .add(ModItems.STRAWBERRY_JAM_TOAST)
                 .add(ModItems.ORANGE_MARMELADE_TOAST)

@@ -5,6 +5,7 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.minecraft.registry.RegistryBuilder;
 import net.minecraft.registry.RegistryKeys;
 import net.tlotd.datagen.*;
+import net.tlotd.trim.ModTrimMaterials;
 import net.tlotd.world.ModConfiguredFeatures;
 import net.tlotd.world.ModPlacedFeatures;
 import net.tlotd.world.biome.ModBiomes;
@@ -22,6 +23,7 @@ public class TLOTDDataGenerator implements DataGeneratorEntrypoint {
 		pack.addProvider(ModRecipeProvider::new);
 		pack.addProvider(ModWorldGenerator::new);
 		pack.addProvider(ModPoiTagProvider::new);
+		pack.addProvider(ModRegistryDataGenerator::new);
 	}
 
 	@Override
@@ -30,5 +32,6 @@ public class TLOTDDataGenerator implements DataGeneratorEntrypoint {
 		registryBuilder.addRegistry(RegistryKeys.PLACED_FEATURE, ModPlacedFeatures::bootstrap);
 		registryBuilder.addRegistry(RegistryKeys.BIOME, ModBiomes::bootstrap);
 		registryBuilder.addRegistry(RegistryKeys.DIMENSION_TYPE, ModDimensions::bootstrapType);
+		registryBuilder.addRegistry(RegistryKeys.TRIM_MATERIAL, ModTrimMaterials::bootstrap);
 	}
 }

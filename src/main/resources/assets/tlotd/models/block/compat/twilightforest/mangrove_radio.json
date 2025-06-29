@@ -1,0 +1,9 @@
+{
+	"parent": "tlotd:block/template_radio",
+	"textures": {
+		"0": "twilightforest:block/mangrove_log",
+		"1": "twilightforest:block/stripped_mangrove_log",
+		"3": "tlotd:block/radio/frequency1",
+		"particle": "twilightforest:block/mangrove_log"
+	}
+}

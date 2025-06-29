@@ -1,6 +1,7 @@
 package net.tlotd.block.custom;
 
 import net.minecraft.block.*;
+import net.minecraft.block.enums.WallMountLocation;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
@@ -9,6 +10,7 @@ import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.DirectionProperty;
+import net.minecraft.state.property.EnumProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.BlockRotation;
 import net.minecraft.util.math.BlockPos;
@@ -19,15 +21,19 @@ import net.minecraft.world.WorldAccess;
 
 public class GoatHeadBlock extends Block implements Equipment {
 
+    public static final EnumProperty<WallMountLocation> FACE = Properties.WALL_MOUNT_LOCATION;
+    public static final DirectionProperty FACING = Properties.FACING;
     public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
-
-    public static final DirectionProperty FACING = FacingBlock.FACING;
 
     @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {
-        return this.getDefaultState()
-                .with(FACING, ctx.getHorizontalPlayerFacing())
-                .with(WATERLOGGED, ctx.getWorld().getFluidState(ctx.getBlockPos()).isOf(Fluids.WATER));
+
+        for (Direction direction : ctx.getPlacementDirections()) {
+            BlockState blockState = direction.getAxis() == Direction.Axis.Y ? this.getDefaultState().with(FACE, direction == Direction.UP ? WallMountLocation.CEILING : WallMountLocation.FLOOR).with(FACING, ctx.getHorizontalPlayerFacing()).with(WATERLOGGED, ctx.getWorld().getFluidState(ctx.getBlockPos()).isOf(Fluids.WATER)) : this.getDefaultState().with(FACE, WallMountLocation.WALL).with(FACING, direction).with(WATERLOGGED, ctx.getWorld().getFluidState(ctx.getBlockPos()).isOf(Fluids.WATER));
+            if (!blockState.canPlaceAt(ctx.getWorld(), ctx.getBlockPos())) continue;
+            return blockState;
+        }
+        return null;
     }
 
     @Override
@@ -51,23 +57,55 @@ public class GoatHeadBlock extends Block implements Equipment {
 
     @Override
     public void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        builder.add(FACING, WATERLOGGED);
+        builder.add(FACE, FACING, WATERLOGGED);
     }
 
     public GoatHeadBlock(Settings settings) {
         super(settings);
-        this.setDefaultState(this.stateManager.getDefaultState().with(FACING, Direction.NORTH).with(WATERLOGGED, false));
+        this.setDefaultState(this.stateManager.getDefaultState().with(FACE, WallMountLocation.WALL).with(FACING, Direction.NORTH).with(WATERLOGGED, false));
     }
 
-    public static final VoxelShape X_SHAPE = Block.createCuboidShape(5.5, 0.0, 3.0, 10.5, 6.0, 13.0);
-    public static final VoxelShape Z_SHAPE = Block.createCuboidShape(3.0, 0.0, 5.5, 13.0, 6.0, 10.5);
+    public static final VoxelShape NORTH_SHAPE = Block.createCuboidShape(5.5, 3, 0, 10.5, 13, 6);
+    public static final VoxelShape EAST_SHAPE = Block.createCuboidShape(10, 3, 5.5, 16, 13, 10.5);
+    public static final VoxelShape SOUTH_SHAPE = Block.createCuboidShape(5.5, 3, 10, 10.5, 13, 16);
+    public static final VoxelShape WEST_SHAPE = Block.createCuboidShape(0, 3, 5.5, 6, 13, 10.5);
+    public static final VoxelShape DOWN_SHAPE = Block.createCuboidShape(3, 0, 5.5, 13, 6, 10.5);
+    public static final VoxelShape DOWN_SHAPE_2 = Block.createCuboidShape(5.5, 0, 3, 10.5, 6, 13);
+    public static final VoxelShape UP_SHAPE = Block.createCuboidShape(3, 10, 5.5, 13, 16, 10.5);
+    public static final VoxelShape UP_SHAPE_2 = Block.createCuboidShape(5.5, 10, 3, 10.5, 16, 13);
 
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        return switch (state.get(FACING)) {
-            case EAST, WEST -> Z_SHAPE;
-            default -> X_SHAPE;
-        };
+        switch (state.get(FACE)) {
+            case FLOOR: {
+                switch (state.get(FACING).getAxis()) {
+                    case X: {
+                        return DOWN_SHAPE;
+                    }
+                }
+                return DOWN_SHAPE_2;
+            }
+            case WALL: {
+                switch (state.get(FACING)) {
+                    case EAST: {
+                        return EAST_SHAPE;
+                    }
+                    case WEST: {
+                        return WEST_SHAPE;
+                    }
+                    case SOUTH: {
+                        return SOUTH_SHAPE;
+                    }
+                }
+                return NORTH_SHAPE;
+            }
+        }
+        switch (state.get(FACING).getAxis()) {
+            case X: {
+                return UP_SHAPE;
+            }
+        }
+        return UP_SHAPE_2;
     }
 
     @Override

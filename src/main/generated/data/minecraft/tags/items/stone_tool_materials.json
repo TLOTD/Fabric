@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "tlotd:marble",
+    "tlotd:limestone",
+    "tlotd:red_deepslate",
+    "tlotd:cobbled_red_deepslate"
+  ]
+}

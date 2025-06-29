@@ -1,0 +1,9 @@
+{
+	"parent": "tlotd:block/template_radio_on",
+	"textures": {
+		"0": "quark:block/ancient_log",
+		"1": "quark:block/stripped_ancient_log",
+		"3": "tlotd:block/radio/frequency4",
+		"particle": "quark:block/ancient_log"
+	}
+}

@@ -155,6 +155,10 @@ public class ModItemGroups {
                         entries.add(ModItems.ORANGE_JUICE_BOTTLE);
                         entries.add(ModBlocks.ORANGE_CAKE);
 
+                        entries.add(ModItems.CANNABIS_SEEDS);
+                        entries.add(ModItems.CANNABIS);
+                        entries.add(ModItems.CANNABIS_COOKIE);
+
                         entries.add(ModBlocks.PRESERVES_JAR);
                         entries.add(ModBlocks.SWEET_BERRY_JAM_JAR);
                         entries.add(ModBlocks.GLOW_BERRY_JAM_JAR);
@@ -484,6 +488,7 @@ public class ModItemGroups {
                         entries.add(ModBlocks.WOODEN_STRAWBERRY_MILKSHAKE_STEIN);
                         entries.add(ModBlocks.WOODEN_ORANGE_MILKSHAKE_STEIN);
                         entries.add(ModBlocks.WOODEN_BLUE_BERRY_MILKSHAKE_STEIN);
+                        entries.add(ModBlocks.WOODEN_TORCHBERRY_MILKSHAKE_STEIN);
                         entries.add(ModBlocks.HOT_WOODEN_MILK_STEIN);
                         entries.add(ModBlocks.WOODEN_HOT_CHOCOLATE_STEIN);
 
@@ -582,6 +587,7 @@ public class ModItemGroups {
                         entries.add(ModBlocks.SULFUR_BLOCK);
                         entries.add(ModItems.SULFUR_TORCH);
                         entries.add(ModBlocks.SULFUR_LANTERN);
+                        entries.add(ModBlocks.SULFUR_CAMPFIRE);
 
                         entries.add(ModBlocks.LEAD_ORE);
                         entries.add(ModBlocks.RAW_LEAD_BLOCK);
@@ -855,6 +861,7 @@ public class ModItemGroups {
             content.addAfter(Items.SNIFFER_EGG, ModBlocks.TREX_EGG);
             content.addAfter(Items.MELON_SEEDS, ModItems.STRAWBERRY_SEEDS);
             content.addAfter(ModItems.STRAWBERRY_SEEDS, ModItems.ORANGE_SEEDS);
+            content.addAfter(ModItems.ORANGE_SEEDS, ModItems.CANNABIS_SEEDS);
             content.addAfter(Items.JACK_O_LANTERN, ModBlocks.WHITE_PUMPKIN);
             content.addAfter(ModBlocks.WHITE_PUMPKIN, ModBlocks.CARVED_WHITE_PUMPKIN);
             content.addAfter(ModBlocks.CARVED_WHITE_PUMPKIN, ModBlocks.WHITE_JACK_O_LANTERN);
@@ -864,6 +871,7 @@ public class ModItemGroups {
             content.addAfter(Items.SOUL_TORCH, ModItems.SULFUR_TORCH);
             content.addAfter(Items.SOUL_LANTERN, ModBlocks.SULFUR_LANTERN);
             content.addAfter(Items.CARTOGRAPHY_TABLE, ModBlocks.ARCHAEOLOGY_TABLE);
+            content.addAfter(Items.SOUL_CAMPFIRE, ModBlocks.SULFUR_CAMPFIRE);
             content.addAfter(Items.DAMAGED_ANVIL, ModBlocks.MITHRIL_ANVIL);
             content.addAfter(Items.ENCHANTING_TABLE, ModBlocks.WITCHING_TABLE);
             content.addAfter(Items.CHERRY_HANGING_SIGN, ModItems.GINKGO_SIGN);
@@ -921,7 +929,8 @@ public class ModItemGroups {
             content.addAfter(ModItems.STRAWBERRY_JAM_TOAST, ModItems.ORANGE_MARMELADE_TOAST);
             content.addAfter(ModItems.ORANGE_MARMELADE_TOAST, ModItems.BLUE_BERRY_JAM_TOAST);
             content.addAfter(ModItems.BLUE_BERRY_JAM_TOAST, ModItems.ANCIENT_SOULBERRY_JAM_TOAST);
-            content.addAfter(Items.COOKIE, ModItems.CHOCOLATE_STRAWBERRY);
+            content.addAfter(Items.COOKIE, ModItems.CANNABIS_COOKIE);
+            content.addAfter(ModItems.CANNABIS_COOKIE, ModItems.CHOCOLATE_STRAWBERRY);
             content.addAfter(Items.CAKE, ModBlocks.STRAWBERRY_CAKE);
             content.addAfter(ModBlocks.STRAWBERRY_CAKE, ModBlocks.ORANGE_CAKE);
             content.addAfter(Items.RABBIT_STEW, ModItems.PORRIDGE);
@@ -935,7 +944,8 @@ public class ModItemGroups {
             content.addAfter(ModBlocks.WOODEN_CHOCOLATE_MILKSHAKE_STEIN, ModBlocks.WOODEN_STRAWBERRY_MILKSHAKE_STEIN);
             content.addAfter(ModBlocks.WOODEN_STRAWBERRY_MILKSHAKE_STEIN, ModBlocks.WOODEN_ORANGE_MILKSHAKE_STEIN);
             content.addAfter(ModBlocks.WOODEN_ORANGE_MILKSHAKE_STEIN, ModBlocks.WOODEN_BLUE_BERRY_MILKSHAKE_STEIN);
-            content.addAfter(ModBlocks.WOODEN_BLUE_BERRY_MILKSHAKE_STEIN, ModBlocks.HOT_WOODEN_MILK_STEIN);
+            content.addAfter(ModBlocks.WOODEN_BLUE_BERRY_MILKSHAKE_STEIN, ModBlocks.WOODEN_TORCHBERRY_MILKSHAKE_STEIN);
+            content.addAfter(ModBlocks.WOODEN_TORCHBERRY_MILKSHAKE_STEIN, ModBlocks.HOT_WOODEN_MILK_STEIN);
             content.addAfter(ModBlocks.HOT_WOODEN_MILK_STEIN, ModBlocks.WOODEN_HOT_CHOCOLATE_STEIN);
             content.addAfter(Items.HONEY_BOTTLE, ModItems.APPLE_JUICE_BOTTLE);
             content.addAfter(ModItems.APPLE_JUICE_BOTTLE, ModItems.ORANGE_JUICE_BOTTLE);

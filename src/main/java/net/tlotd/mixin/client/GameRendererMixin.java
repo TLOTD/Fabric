@@ -28,9 +28,10 @@ public abstract class GameRendererMixin {
             return false;
         }
         if (entity instanceof PlayerEntity player && player.hasStatusEffect(ModEffects.DRUNK)) {
-            client.execute(() -> {
-                this.loadPostProcessor(Identifier.of("minecraft","shaders/post/phosphor.json"));
-            });
+            client.execute(() -> this.loadPostProcessor(Identifier.of("minecraft","shaders/post/phosphor.json")));
+        }
+        if (entity instanceof PlayerEntity player && player.hasStatusEffect(ModEffects.STONED)) {
+            client.execute(() -> this.loadPostProcessor(Identifier.of("minecraft","shaders/post/blobs2.json")));
         }
         return false;
     }

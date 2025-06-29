@@ -356,6 +356,10 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.FANCY_GINKGO_TRAPDOOR)
         ;
 
+        getOrCreateTagBuilder(BlockTags.LOGS_THAT_BURN)
+                .addTag(ModTags.Blocks.GINKGO_LOGS)
+        ;
+
         getOrCreateTagBuilder(ModTags.Blocks.GINKGO_LOGS)
                 .add(ModBlocks.GINKGO_LOG)
                 .add(ModBlocks.GINKGO_WOOD)
@@ -390,6 +394,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.WOODEN_STRAWBERRY_MILKSHAKE_STEIN)
                 .add(ModBlocks.WOODEN_ORANGE_MILKSHAKE_STEIN)
                 .add(ModBlocks.WOODEN_BLUE_BERRY_MILKSHAKE_STEIN)
+                .add(ModBlocks.WOODEN_TORCHBERRY_MILKSHAKE_STEIN)
                 .add(ModBlocks.WOODEN_CHOCOLATE_MILKSHAKE_STEIN)
                 .add(ModBlocks.HOT_WOODEN_MILK_STEIN)
                 .add(ModBlocks.WOODEN_HOT_CHOCOLATE_STEIN)
@@ -474,6 +479,28 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .addOptional(Identifier.tryParse("twilightforest:sorting_wood"))
         ;
 
+        getOrCreateTagBuilder(BlockTags.CROPS)
+                .add(ModBlocks.STRAWBERRY_BUSH)
+                .add(ModBlocks.ORANGE_TREE)
+                .add(ModBlocks.CANNABIS_PLANT)
+        ;
+
+        getOrCreateTagBuilder(BlockTags.MAINTAINS_FARMLAND)
+                .add(ModBlocks.STRAWBERRY_BUSH)
+                .add(ModBlocks.ORANGE_TREE)
+                .add(ModBlocks.CANNABIS_PLANT)
+        ;
+
+        getOrCreateTagBuilder(BlockTags.CAMPFIRES)
+                .add(ModBlocks.SULFUR_CAMPFIRE)
+        ;
+
+        getOrCreateTagBuilder(BlockTags.SWORD_EFFICIENT)
+                .add(ModBlocks.WHITE_PUMPKIN)
+                .add(ModBlocks.CARVED_WHITE_PUMPKIN)
+                .add(ModBlocks.WHITE_JACK_O_LANTERN)
+        ;
+
         getOrCreateTagBuilder(BlockTags.SHOVEL_MINEABLE)
                 .add(ModBlocks.RICH_GRASS_BLOCK)
                 .add(ModBlocks.RICH_DIRT)
@@ -482,6 +509,26 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
                 .add(ModBlocks.RED_SANDY_DEEPSLATE)
                 .add(ModBlocks.RED_GRAVEL)
+        ;
+
+        getOrCreateTagBuilder(BlockTags.AXE_MINEABLE)
+                .addTag(ModTags.Blocks.WOODEN_STEINS)
+                .add(ModBlocks.SULFUR_CAMPFIRE)
+                .add(ModBlocks.STICK_CROSS)
+                .add(ModBlocks.EFFIGIES)
+                .add(ModBlocks.WITCHING_TABLE)
+                .add(ModBlocks.RADIO)
+                .add(ModBlocks.RADIO_ON)
+                .add(ModBlocks.ARCHAEOLOGY_TABLE)
+                .add(ModBlocks.FANCY_CHARRED_PLANKS)
+                .add(ModBlocks.FANCY_CHARRED_STAIRS)
+                .add(ModBlocks.FANCY_CHARRED_SLAB)
+                .add(ModBlocks.FANCY_CHARRED_TRAPDOOR)
+                .add(ModBlocks.RITUALISTIC_FANCY_CHARRED_PLANKS)
+                .add(ModBlocks.VIDEOCASSETTE_RECORDER_BOOKSHELF)
+                .add(ModBlocks.WHITE_PUMPKIN)
+                .add(ModBlocks.CARVED_WHITE_PUMPKIN)
+                .add(ModBlocks.WHITE_JACK_O_LANTERN)
         ;
 
         getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE)
@@ -513,6 +560,9 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.INTERDIMENSIONAL_RECEIVER)
                 .add(ModBlocks.VIDEOCASSETTE_RECORDER)
                 .add(ModBlocks.OXYGEN_COLLECTOR)
+
+                .add(ModBlocks.KEYCARD_PROGRAMMER)
+                .add(ModBlocks.KEYCARD_READER)
 
                 .add(ModBlocks.SIGNAL_TRANSMITTER_ANTENNA)
                 .add(ModBlocks.SIGNAL_TRANSMITTER)

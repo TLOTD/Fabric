@@ -1,0 +1,10 @@
+{
+	"parent": "tlotd:block/template_radio_on",
+	"textures": {
+		"0": "alexscaves:block/thornwood/thornwood_log",
+		"1": "alexscaves:block/thornwood/stripped_thornwood_log",
+		"3": "tlotd:block/radio/frequency4",
+		"4": "alexscaves:block/thornwood/thornwood_log_spines",
+		"particle": "alexscaves:block/thornwood/thornwood_log"
+	}
+}

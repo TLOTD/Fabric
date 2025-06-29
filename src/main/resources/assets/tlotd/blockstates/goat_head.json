@@ -1,19 +1,57 @@
 {
   "variants": {
-    "facing=north": {
+    "face=wall,facing=west": {
+      "model": "tlotd:block/goat_head",
+      "x": 90,
+      "y": 90
+    },
+    "face=wall,facing=north": {
+      "model": "tlotd:block/goat_head",
+      "x": 90,
+      "y": 180
+    },
+    "face=wall,facing=east": {
+      "model": "tlotd:block/goat_head",
+      "x": 90,
+      "y": 270
+    },
+    "face=wall,facing=south": {
+      "model": "tlotd:block/goat_head",
+      "x": 90
+    },
+    "face=floor,facing=west": {
+      "model": "tlotd:block/goat_head",
+      "y": 90
+    },
+    "face=floor,facing=north": {
       "model": "tlotd:block/goat_head",
       "y": 180
     },
-    "facing=east": {
+    "face=floor,facing=east": {
       "model": "tlotd:block/goat_head",
       "y": 270
     },
-    "facing=south": {
+    "face=floor,facing=south": {
       "model": "tlotd:block/goat_head"
     },
-    "facing=west": {
+    "face=ceiling,facing=west": {
       "model": "tlotd:block/goat_head",
+      "x": 180,
       "y": 90
+    },
+    "face=ceiling,facing=north": {
+      "model": "tlotd:block/goat_head",
+      "x": 180,
+      "y": 180
+    },
+    "face=ceiling,facing=east": {
+      "model": "tlotd:block/goat_head",
+      "x": 180,
+      "y": 270
+    },
+    "face=ceiling,facing=south": {
+      "model": "tlotd:block/goat_head",
+      "x": 180
     }
   }
 }

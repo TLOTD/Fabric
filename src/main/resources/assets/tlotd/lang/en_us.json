@@ -45,6 +45,7 @@
   "messages.tlotd.radio.frequency.4": "Frequency: 99.4 MHz",
 
   "effect.tlotd.drunk": "Drunk",
+  "effect.tlotd.stoned": "Stoned",
   "effect.tlotd.irradiated": "§eIrradiated§r",
   "effect.tlotd.hypoxia": "Hypoxia",
 
@@ -166,6 +167,8 @@
   "item.tlotd.lotr_banner_pattern": "Banner Pattern",
   "item.tlotd.lotr_banner_pattern.desc": "The Lord of the Rings",
 
+  "item.tlotd.cannabis_cookie": "Cannabis Cookie",
+
   "item.tlotd.apple_juice_bottle": "Apple Juice Bottle",
   "block.tlotd.preserves_jar": "Preserves Jar",
   "item.tlotd.toast": "Toast",
@@ -186,6 +189,9 @@
   "item.tlotd.orange_marmelade_toast": "Orange Marmelade Toast",
   "item.tlotd.orange_juice_bottle": "Orange Juice Bottle",
   "item.tlotd.spezi_bottle": "Spezi Bottle",
+
+  "item.tlotd.cannabis_seeds": "Cannabis Seeds",
+  "item.tlotd.cannabis": "Cannabis",
 
   "block.tlotd.blue_berry_jam_jar": "Blue Berry Jam Jar",
   "item.tlotd.blue_berry_jam_toast": "Blue Berry Jam Toast",
@@ -575,6 +581,8 @@
   "block.tlotd.orange_tree": "Orange Tree",
   "block.tlotd.orange_cake": "Orange Cake",
 
+  "block.tlotd.cannabis_plant": "Cannabis Plant",
+
   "block.tlotd.bw_sticker": "Sticker",
   "block.tlotd.bw_sticker.tooltip": "Nett hier.",
   "block.tlotd.bw_sticker.tooltip_2": "Aber waren sie schonmal",
@@ -781,6 +789,7 @@
   "block.tlotd.sulfur_block": "Sulfur Block",
   "block.tlotd.sulfur_torch": "Sulfur Torch",
   "block.tlotd.sulfur_lantern": "Sulfur Lantern",
+  "block.tlotd.sulfur_campfire": "Sulfur Campfire",
 
   "block.tlotd.lead_ore": "Lead Ore",
   "block.tlotd.raw_lead_block": "Raw Lead Block",
@@ -1046,6 +1055,7 @@
   "block.tlotd.wooden_strawberry_milkshake_stein": "Wooden Strawberry Milkshake Stein",
   "block.tlotd.wooden_orange_milkshake_stein": "Wooden Orange Milkshake Stein",
   "block.tlotd.wooden_blue_berry_milkshake_stein": "Wooden Blue Berry Milkshake Stein",
+  "block.tlotd.wooden_torchberry_milkshake_stein": "Wooden Torchberry Milkshake Stein",
   "block.tlotd.wooden_chocolate_milkshake_stein": "Wooden Chocolate Milkshake Stein",
   "block.tlotd.hot_wooden_milk_stein": "Hot Wooden Milk Stein",
   "block.tlotd.wooden_hot_chocolate_stein": "Wooden Hot Chocolate Stein",
@@ -1320,5 +1330,7 @@
   "block.minecraft.banner.tlotd.blind_eye.purple": "Purple Blind Eye",
   "block.minecraft.banner.tlotd.blind_eye.red": "Red Blind Eye",
   "block.minecraft.banner.tlotd.blind_eye.white": "White Blind Eye",
-  "block.minecraft.banner.tlotd.blind_eye.yellow": "Yellow Blind Eye"
+  "block.minecraft.banner.tlotd.blind_eye.yellow": "Yellow Blind Eye",
+
+  "trim_material.tlotd.mithril": "Mithril Material"
 }

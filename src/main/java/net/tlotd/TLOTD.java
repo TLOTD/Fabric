@@ -26,6 +26,7 @@ import net.tlotd.networking.ModMessages;
 import net.tlotd.painting.ModPaintings;
 import net.tlotd.recipe.ModRecipies;
 import net.tlotd.sound.ModSounds;
+import net.tlotd.trim.ModTrimMaterials;
 import net.tlotd.util.ModTags;
 import net.tlotd.util.ModTrades;
 import net.tlotd.villager.ModVillagers;
@@ -60,7 +61,6 @@ public class TLOTD implements ModInitializer {
 		ModEffects.registerEffects();
 		ModMessages.registerC2SPackets();
 
-
 		LOGGER.info("TLOTD INITIALIZED!");
 
 		FuelRegistry.INSTANCE.add(ModItems.SULFUR, 1600);
@@ -77,6 +77,7 @@ public class TLOTD implements ModInitializer {
 
 		ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModItems.STRAWBERRY_SEEDS, 0.3f);
 		ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModItems.ORANGE_SEEDS, 0.3f);
+		ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModItems.CANNABIS_SEEDS, 0.3f);
 
 		ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModItems.OAK_BARK, 0.3f);
 		ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModItems.SPRUCE_BARK, 0.3f);

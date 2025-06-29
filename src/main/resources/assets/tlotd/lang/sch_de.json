@@ -36,6 +36,7 @@
   "messages.tlotd.radio.frequency.4": "Frequenz: 99.4 MHz",
 
   "effect.tlotd.drunk": "Bsoffe",
+  "effect.tlotd.stoned": "Bekifft",
   "effect.tlotd.irradiated": "§eVrschdrahld§r",
   "effect.tlotd.hypoxia": "Hypoxia",
 
@@ -158,6 +159,8 @@
   "item.tlotd.lotr_banner_pattern": "Bannervorlagn",
   "item.tlotd.lotr_banner_pattern.desc": "Dr Herr der Ringe",
 
+  "item.tlotd.cannabis_cookie": "Hanfkeks",
+
   "item.tlotd.apple_juice_bottle": "Apfelsaftflaschn",
   "block.tlotd.preserves_jar": "Oimachglas",
   "item.tlotd.toast": "Toscht",
@@ -172,12 +175,15 @@
   "block.tlotd.strawberry_jam_jar": "Erdbearmarmeladnglas",
   "item.tlotd.strawberry_jam_toast": "Erdbearmarmeladentoscht",
 
-  "item.tlotd.orange_seeds": "Oroschnsamen",
+  "item.tlotd.orange_seeds": "Oroschnsamn",
   "item.tlotd.orange": "Orange",
   "block.tlotd.orange_marmelade_jar": "Orangemarmeladnglas",
   "item.tlotd.orange_marmelade_toast": "Orangemarmeladntoscht",
   "item.tlotd.orange_juice_bottle": "Oroschnsaftflaschn",
   "item.tlotd.spezi_bottle": "Spezi-Flaschn",
+
+  "item.tlotd.cannabis_seeds": "Hanfsamn",
+  "item.tlotd.cannabis": "Hanf",
 
   "block.tlotd.blue_berry_jam_jar": "Blaubeermarmeladnglas",
   "item.tlotd.blue_berry_jam_toast": "Blaubeermarmeladntoscht",
@@ -566,6 +572,8 @@
   "block.tlotd.orange_tree": "Orangebeimle",
   "block.tlotd.orange_cake": "Orangekuacha",
 
+  "block.tlotd.cannabis_plant": "Hanfpflanzn",
+
   "block.tlotd.bw_sticker": "Schtigger",
   "block.tlotd.bw_sticker.tooltip": "Nett hier.",
   "block.tlotd.bw_sticker.tooltip_2": "Aber wared sie schoamol",
@@ -771,6 +779,7 @@
   "block.tlotd.sulfur_block": "Schweflblogg",
   "block.tlotd.sulfur_torch": "Schweflfaggl",
   "block.tlotd.sulfur_lantern": "Schwefllatern",
+  "block.tlotd.sulfur_campfire": "Schwefellagerfeuer",
 
   "block.tlotd.lead_ore": "Bleierz",
   "block.tlotd.raw_lead_block": "Rohbleiblogg",
@@ -1036,6 +1045,7 @@
   "block.tlotd.wooden_strawberry_milkshake_stein": "Erdbearmilchshakeholzkrug",
   "block.tlotd.wooden_orange_milkshake_stein": "Orangemilchshakeholzkrug",
   "block.tlotd.wooden_blue_berry_milkshake_stein": "Blaubeermilchshakeholzkrug",
+  "block.tlotd.wooden_torchberry_milkshake_stein": "Fackelbeermilchshakeholzkrug",
   "block.tlotd.wooden_chocolate_milkshake_stein": "Schokoladamilchshakeholzkrug",
   "block.tlotd.hot_wooden_milk_stein": "Heisser Milchholzkrug",
   "block.tlotd.wooden_hot_chocolate_stein": "Heisser Schokoladaholzkrug",
@@ -1310,5 +1320,7 @@
   "block.minecraft.banner.tlotd.blind_eye.purple": "Lila Blinds Aug",
   "block.minecraft.banner.tlotd.blind_eye.red": "Rods Blinds Aug",
   "block.minecraft.banner.tlotd.blind_eye.white": "Weißs Blinds Aug",
-  "block.minecraft.banner.tlotd.blind_eye.yellow": "Geals Blinds Aug"
+  "block.minecraft.banner.tlotd.blind_eye.yellow": "Geals Blinds Aug",
+
+  "trim_material.tlotd.mithril": "Mithril"
 }

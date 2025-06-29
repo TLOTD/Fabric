@@ -9,11 +9,15 @@ import net.tlotd.TLOTD;
 
 public class ModEffects {
     public static StatusEffect DRUNK;
+    public static StatusEffect STONED;
     public static StatusEffect IRRADIATED;
     public static StatusEffect HYPOXIA;
 
     public static StatusEffect registerDrunkEffect(String name) {
         return Registry.register(Registries.STATUS_EFFECT, new Identifier(TLOTD.MOD_ID, name), new DrunkEffect(StatusEffectCategory.HARMFUL, 0xebba34));
+    }
+    public static StatusEffect registerStonedEffect(String name) {
+        return Registry.register(Registries.STATUS_EFFECT, new Identifier(TLOTD.MOD_ID, name), new StonedEffect(StatusEffectCategory.HARMFUL, 0x5b754f));
     }
     public static StatusEffect registerIrradiatedEffect(String name) {
         return Registry.register(Registries.STATUS_EFFECT, new Identifier(TLOTD.MOD_ID, name), new IrradiatedEffect(StatusEffectCategory.HARMFUL, 0x00ff8c));
@@ -24,6 +28,7 @@ public class ModEffects {
 
     public static void registerEffects() {
         DRUNK = registerDrunkEffect("drunk");
+        STONED = registerStonedEffect("stoned");
         IRRADIATED = registerIrradiatedEffect("irradiated");
         HYPOXIA = registerHypoxiaEffect("hypoxia");
     }

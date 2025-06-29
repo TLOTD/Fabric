@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "age=0":{"model":"tlotd:block/cannabis_plant_0"},
+    "age=1":{"model":"tlotd:block/cannabis_plant_1"},
+    "age=2":{"model":"tlotd:block/cannabis_plant_2"},
+    "age=3":{"model":"tlotd:block/cannabis_plant_3"},
+    "age=4,upper=false":{"model":"tlotd:block/cannabis_plant_4"},
+    "age=5,upper=false":{"model":"tlotd:block/cannabis_plant_5"},
+    "age=6,upper=false":{"model":"tlotd:block/cannabis_plant_6"},
+    "age=7,upper=false":{"model":"tlotd:block/cannabis_plant_7"},
+    "age=4,upper=true":{"model":"tlotd:block/cannabis_plant_4_top"},
+    "age=5,upper=true":{"model":"tlotd:block/cannabis_plant_5_top"},
+    "age=6,upper=true":{"model":"tlotd:block/cannabis_plant_6_top"},
+    "age=7,upper=true":{"model":"tlotd:block/cannabis_plant_7_top"}
+  }
+}

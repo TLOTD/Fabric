@@ -36,6 +36,7 @@
   "messages.tlotd.radio.frequency.4": "Frecuencia: 99.4 MHz",
 
   "effect.tlotd.drunk": "Borracho",
+  "effect.tlotd.stoned": "Apedreado",
   "effect.tlotd.irradiated": "§eIrradiado§r",
   "effect.tlotd.hypoxia": "Hipoxia",
 
@@ -158,6 +159,8 @@
   "item.tlotd.lotr_banner_pattern": "Diseño de estandarte",
   "item.tlotd.lotr_banner_pattern.desc": "El Señor de los Anillos",
 
+  "item.tlotd.cannabis_cookie": "Galleta de cannabis",
+
   "item.tlotd.apple_juice_bottle": "Botella de zumo de manzana",
   "block.tlotd.preserves_jar": "Tarro de conservas",
   "item.tlotd.toast": "Tostadas",
@@ -178,6 +181,9 @@
   "item.tlotd.orange_marmelade_toast": "Tostada de mermelada de naranja",
   "item.tlotd.orange_juice_bottle": "Botella de zumo de naranja",
   "item.tlotd.spezi_bottle": "Botella Spezi",
+
+  "item.tlotd.cannabis_seeds": "Semillas de cannabis",
+  "item.tlotd.cannabis": "Cannabis",
 
   "block.tlotd.blue_berry_jam_jar": "Tarro de mermelada de bayas azules",
   "item.tlotd.blue_berry_jam_toast": "Tostadas con mermelada de arándanos",
@@ -564,6 +570,8 @@
   "block.tlotd.orange_tree": "Árbol de naranjos",
   "block.tlotd.orange_cake": "Pastel de naranja",
 
+  "block.tlotd.cannabis_plant": "Planta de cannabis",
+
   "block.tlotd.bw_sticker": "Pegatina",
   "block.tlotd.bw_sticker.tooltip": "Bonito aquí.",
   "block.tlotd.bw_sticker.tooltip_2": "¿Pero has estado en",
@@ -770,6 +778,7 @@
   "block.tlotd.sulfur_block": "Bloque de azufre",
   "block.tlotd.sulfur_torch": "Antorcha de azufre",
   "block.tlotd.sulfur_lantern": "Farol de azufre",
+  "block.tlotd.sulfur_campfire": "Hoguera de azufre",
 
   "block.tlotd.lead_ore": "Lead Ore",
   "block.tlotd.raw_lead_block": "Bloque de plomo en bruto",
@@ -1035,6 +1044,7 @@
   "block.tlotd.wooden_strawberry_milkshake_stein": "Jarra de madera con batido de fresa",
   "block.tlotd.wooden_orange_milkshake_stein": "Jarra de madera con batido de naranja",
   "block.tlotd.wooden_blue_berry_milkshake_stein": "Jarra de madera con batido de bayas azules",
+  "block.tlotd.wooden_torchberry_milkshake_stein": "Jarra de madera con batido de bayas de antorcha",
   "block.tlotd.wooden_chocolate_milkshake_stein": "Jarra de madera con batido de chocolate",
   "block.tlotd.hot_wooden_milk_stein": "Jarra de madera con leche caliente",
   "block.tlotd.wooden_hot_chocolate_stein": "Jarra de madera con chocolate caliente",
@@ -1309,5 +1319,7 @@
   "block.minecraft.banner.tlotd.blind_eye.purple": "Ojo morado rojo",
   "block.minecraft.banner.tlotd.blind_eye.red": "Ojo rojo rojo",
   "block.minecraft.banner.tlotd.blind_eye.white": "Ojo blanco rojo",
-  "block.minecraft.banner.tlotd.blind_eye.yellow": "Ojo amarillo rojo"
+  "block.minecraft.banner.tlotd.blind_eye.yellow": "Ojo amarillo rojo",
+
+  "trim_material.tlotd.mithril": "Material de mithril"
 }

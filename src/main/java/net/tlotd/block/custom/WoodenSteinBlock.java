@@ -93,6 +93,10 @@ public class WoodenSteinBlock extends Block {
             } else if (this.equals(ModBlocks.WOODEN_STRAWBERRY_MILKSHAKE_STEIN) || this.equals(ModBlocks.WOODEN_ORANGE_MILKSHAKE_STEIN) || this.equals(ModBlocks.WOODEN_CHOCOLATE_MILKSHAKE_STEIN) || this.equals(ModBlocks.WOODEN_BLUE_BERRY_MILKSHAKE_STEIN)) {
                 player.clearStatusEffects();
                 player.addStatusEffect(new StatusEffectInstance(StatusEffects.RESISTANCE, 10, 0));
+            } else if (this.equals(ModBlocks.WOODEN_TORCHBERRY_MILKSHAKE_STEIN)) {
+                player.clearStatusEffects();
+                player.addStatusEffect(new StatusEffectInstance(StatusEffects.RESISTANCE, 10, 0));
+                player.addStatusEffect(new StatusEffectInstance(StatusEffects.GLOWING, 10, 0));
             } else if (this.equals(ModBlocks.HOT_WOODEN_MILK_STEIN) || this.equals(ModBlocks.WOODEN_HOT_CHOCOLATE_STEIN)) {
                 player.clearStatusEffects();
                 player.addStatusEffect(new StatusEffectInstance(StatusEffects.REGENERATION, 1, 3));

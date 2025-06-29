@@ -3,8 +3,7 @@
 	"textures": {
 		"0": "minecraft:block/acacia_log",
 		"1": "minecraft:block/stripped_acacia_log",
-		"2": "tlotd:block/radio_front",
-		"3": "tlotd:block/radio/frequency1",
+		"3": "tlotd:block/radio/frequency2",
 		"particle": "minecraft:block/acacia_log"
 	}
 }

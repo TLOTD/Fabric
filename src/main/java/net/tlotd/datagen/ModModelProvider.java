@@ -265,6 +265,8 @@ public class ModModelProvider extends FabricModelProvider {
 
         itemModelGenerator.register(ModItems.OXYGEN_TANK, Models.GENERATED);
 
+        itemModelGenerator.register(ModItems.CANNABIS_COOKIE, Models.GENERATED);
+
         itemModelGenerator.register(ModItems.TOAST, Models.GENERATED);
         itemModelGenerator.register(ModItems.SWEET_BERRY_JAM_TOAST, Models.GENERATED);
         itemModelGenerator.register(ModItems.GLOW_BERRY_JAM_TOAST, Models.GENERATED);
@@ -279,6 +281,9 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.ORANGE_JUICE_BOTTLE, Models.GENERATED);
         itemModelGenerator.register(ModItems.ORANGE_MARMELADE_TOAST, Models.GENERATED);
         itemModelGenerator.register(ModItems.SPEZI_BOTTLE, Models.GENERATED);
+
+        itemModelGenerator.register(ModItems.CANNABIS_SEEDS, Models.GENERATED);
+        itemModelGenerator.register(ModItems.CANNABIS, Models.GENERATED);
 
         itemModelGenerator.register(ModItems.BLUE_BERRY_JAM_TOAST, Models.GENERATED);
         itemModelGenerator.register(ModItems.ANCIENT_SOULBERRY_JAM_TOAST, Models.GENERATED);

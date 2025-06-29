@@ -1,4 +1,4 @@
-// 1.20.1	2025-06-28T16:57:26.8185445	TLOTD/Tags for minecraft:item
+// 1.20.1	2025-06-29T22:35:33.0248191	TLOTD/Tags for minecraft:item
 f0ede8599432b0c872f8763c56d1bbe4a38d00dd data\tlotd\tags\items\wooden_bark.json
 813942275850249af46b5acb7476d008f1ce0fde data\minecraft\tags\items\wooden_trapdoors.json
 394763adb049569e2ef3abdfb5c1818cf8e94cb4 data\c\tags\items\cinnabar_ores.json
@@ -23,7 +23,7 @@ c202c0c75e6ee7f053cae96588b462313379ca8e data\c\tags\items\hoes.json
 130d8c7c83d2ad16a5aa7dad9b00984c53da2619 data\tlotd\tags\items\forging_hammers_tier3.json
 5721f739997768a547a4f341237bd31ac9273bf3 data\c\tags\items\uranium_nuggets.json
 9f73b651b18f3c8e0a72fdbfe9336caea308e033 data\c\tags\items\raw_mithril_blocks.json
-d7d49a08a4d512df18e069c300a20a9ed9b49d17 data\c\tags\items\seeds.json
+78152c9d615f96cfd10a5c74c9b32b01fd1741f1 data\c\tags\items\seeds.json
 526918a408421e2aa73bdc34af217b2844d53e48 data\c\tags\items\steel_nuggets.json
 e4b99db36ad4f0cbd53960824ce173b64b9f7964 data\tlotd\tags\items\extraction_iii_pickaxes.json
 f01dec22b31b88e15261a6db63b60d817ef5ba03 data\c\tags\items\lead_ingots.json
@@ -32,13 +32,15 @@ f01dec22b31b88e15261a6db63b60d817ef5ba03 data\c\tags\items\lead_ingots.json
 68d1dcfc8cf331477f3e36e6e854c8ea7f77a813 data\minecraft\tags\items\bookshelf_books.json
 989b799a247e595b14e76a145d6ff3566337b58f data\c\tags\items\iron_nuggets.json
 6562d405b908c4ebecccc6cea30044c8a63c0187 data\c\tags\items\steel_raw_materials.json
+5a6f6bbc4571af1f7b3e4ea13b44d9cf577798e3 data\minecraft\tags\items\planks.json
 83e5533c5dffcc2de2f4085dd9e2670f7b693caa data\tlotd\tags\items\radiation_protection_without_helmet.json
 5f90432b58027d3c9b0f6ed7cff8ce21562ead9f data\c\tags\items\bones.json
-845794afc97e4f06ae9f64969c6321a7f1cdec0d data\c\tags\items\foods.json
+898f8cb0d7a103ddabd12ffb44c1c7e81416a201 data\c\tags\items\foods.json
 a85610e1267124159d0a1b472aed91a128ca8ba5 data\c\tags\items\mithril_raw_materials.json
 2d88bc8df3e36b1750226f5b0860259b87d0efc5 data\tlotd\tags\items\ginkgo_logs.json
 d7b71eadabba2a98af5216e28cddf12aee66c126 data\minecraft\tags\items\piglin_loved.json
 5cc292987cf3d3a1821a4940cf225388e09a0395 data\c\tags\items\swords.json
+3f210ba82db9d81555180310b2e96bbf92121f94 data\minecraft\tags\items\stone_tool_materials.json
 5e6c902616a8b7dc79db61e2d1c6b5ba49a7aed9 data\minecraft\tags\items\stone_buttons.json
 e2e415a10fad8f230473c3a8c008785c33802ee8 data\c\tags\items\uranium_blocks.json
 acb4bfe64edcc6f243f94a58587f56891fd19d9c data\c\tags\items\gold_nuggets.json
@@ -54,8 +56,10 @@ e3a258d8cfa0abf6dc3b5f89c1fe5e670d9d3161 data\minecraft\tags\items\wooden_button
 e9134e1417b195867052230bcb6d5d36f9a2079d data\c\tags\items\shovels.json
 434369340d5ae2fb780caf4d89d54f056e7e93bc data\minecraft\tags\items\signs.json
 170dcdbad1db273c0be198f558c1ee5cd92f9179 data\tlotd\tags\items\beer_container.json
+78152c9d615f96cfd10a5c74c9b32b01fd1741f1 data\minecraft\tags\items\villager_plantable_seeds.json
 b1eb9ea2b24d0caa6ac9a228a5fa56ed4ed3f691 data\minecraft\tags\items\boats.json
 feb0d508187f59ff4a142035f8e962baf0fda1f4 data\c\tags\items\palladium_ores.json
+43203ca0db01f8eda65ccf7d05a28ea90423c4ab data\minecraft\tags\items\trim_materials.json
 f5602d5a993d18bd66dbef2fd518048def12a98d data\tlotd\tags\items\forging_hammers.json
 95bca9fa33e28b23f37a4dec9c25756f8ca33fb4 data\tlotd\tags\items\stick_effigies.json
 ada78d00eb6cf659408535f8aae829f8824cd23d data\c\tags\items\pickaxes.json
@@ -70,6 +74,7 @@ e79a9df823a446e76d1e7c3506c382d20f0a0b70 data\c\tags\items\copper_ores.json
 c4d72bb7e5a0ba373cc501039f47b61377cd781c data\c\tags\items\lead_blocks.json
 de22676a8696eda167c0df83521ff3ce0b276a3e data\c\tags\items\oil_buckets.json
 f8755b6cc51081032e066b70de3af24303536b28 data\c\tags\items\emerald_ores.json
+3f210ba82db9d81555180310b2e96bbf92121f94 data\minecraft\tags\items\stone_crafting_materials.json
 4a09641a0e5aa43ca093fa51dfd1bc3d4c710e14 data\c\tags\items\lead_nuggets.json
 363454af66ab7ef45fe440676e94c86f13ce1df2 data\minecraft\tags\items\wooden_pressure_plates.json
 f6fa02ac7f345efebafbea5253779dd566229103 data\c\tags\items\coal_ores.json
@@ -95,8 +100,9 @@ e6419e3192a137b488c7b9db6a4f661ccc537ed6 data\c\tags\items\lead_raw_materials.js
 1b77f157114f83d85c266784b0ea765a65606037 data\c\tags\items\raw_uranium_blocks.json
 c0d2664d2a780c47c25abb879cac9f96349d4666 data\c\tags\items\fossils.json
 9df615375a506da588850ea7791fb16386bbbd14 data\tlotd\tags\items\forging_hammers_tier1.json
+db18915388306a696ea13e09ed8b1e98844c85e4 data\minecraft\tags\items\logs_that_burn.json
 d521ed3f69fb4b313ec16770179bcc1c1fd0ffd3 data\c\tags\items\flour.json
-5a01d26adf6a68b6d4a0170db6b35843e6024f00 data\tlotd\tags\items\wooden_liquid_steins.json
+dc271f74f46cf9c599f4953d30f3e9c7260eb9c1 data\tlotd\tags\items\wooden_liquid_steins.json
 02fc039e97287a30c1ea3fe8dfc0ef0478bb319c data\forge\tags\items\raw_materials\uranium.json
 b59d4fea98d1395cba4d13cd8650aba67122a688 data\tlotd\tags\items\vhs_cassettes.json
 d61afce3d8de64a7e3ebd2ce3d82141b401d34ba data\c\tags\items\steel_rods.json

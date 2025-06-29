@@ -3,7 +3,6 @@
 	"textures": {
 		"0": "minecraft:block/crimson_stem",
 		"1": "minecraft:block/stripped_crimson_stem",
-		"2": "tlotd:block/radio_front",
 		"3": "tlotd:block/radio/frequency4",
 		"particle": "minecraft:block/crimson_stem"
 	}

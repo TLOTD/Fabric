@@ -184,6 +184,7 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.WOODEN_STRAWBERRY_MILKSHAKE_STEIN);
         addDrop(ModBlocks.WOODEN_ORANGE_MILKSHAKE_STEIN);
         addDrop(ModBlocks.WOODEN_BLUE_BERRY_MILKSHAKE_STEIN);
+        addDrop(ModBlocks.WOODEN_TORCHBERRY_MILKSHAKE_STEIN);
         addDrop(ModBlocks.WOODEN_CHOCOLATE_MILKSHAKE_STEIN);
         addDrop(ModBlocks.HOT_WOODEN_MILK_STEIN);
         addDrop(ModBlocks.WOODEN_HOT_CHOCOLATE_STEIN);

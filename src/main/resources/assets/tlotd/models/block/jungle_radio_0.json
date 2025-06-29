@@ -3,7 +3,6 @@
 	"textures": {
 		"0": "minecraft:block/jungle_log",
 		"1": "minecraft:block/stripped_jungle_log",
-		"2": "tlotd:block/radio_front",
 		"3": "tlotd:block/radio/frequency0",
 		"particle": "minecraft:block/jungle_log"
 	}

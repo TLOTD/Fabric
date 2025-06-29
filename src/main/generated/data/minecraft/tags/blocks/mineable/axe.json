@@ -1,0 +1,22 @@
+{
+  "replace": false,
+  "values": [
+    "#tlotd:wooden_steins",
+    "tlotd:sulfur_campfire",
+    "tlotd:stick_cross",
+    "tlotd:effigies",
+    "tlotd:witching_table",
+    "tlotd:radio",
+    "tlotd:radio_on",
+    "tlotd:archaeology_table",
+    "tlotd:fancy_charred_planks",
+    "tlotd:fancy_charred_stairs",
+    "tlotd:fancy_charred_slab",
+    "tlotd:fancy_charred_trapdoor",
+    "tlotd:ritualistic_fancy_charred_planks",
+    "tlotd:videocassette_recorder_bookshelf",
+    "tlotd:white_pumpkin",
+    "tlotd:carved_white_pumpkin",
+    "tlotd:white_jack_o_lantern"
+  ]
+}

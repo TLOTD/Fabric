@@ -62,6 +62,17 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(ModItems.SULFUR_TORCH), conditionsFromItem(ModItems.SULFUR_TORCH))
                 .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.SULFUR_LANTERN)));
 
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.SULFUR_CAMPFIRE)
+                .pattern(" I ")
+                .pattern("ISI")
+                .pattern("###")
+                .input('I', TagKey.of(RegistryKeys.ITEM, new Identifier("c", "wooden_rods")))
+                .input('S', TagKey.of(RegistryKeys.ITEM, new Identifier("c", "sulfur_dusts")))
+                .input('#', ItemTags.LOGS_THAT_BURN)
+                .criterion(hasItem(Items.OAK_LOG), conditionsFromItem(Items.OAK_LOG))
+                .criterion(hasItem(ModItems.SULFUR), conditionsFromItem(ModItems.SULFUR))
+                .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.SULFUR_CAMPFIRE)));
+
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.WHITE_PUMPKIN)
                 .pattern(" W ")
                 .pattern("W#W")
@@ -251,6 +262,14 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Items.IRON_BARS), conditionsFromItem(Items.IRON_BARS))
                 .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.GARBAGE_CAN)));
 
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.CANNABIS_COOKIE, 8)
+                .pattern("#C#")
+                .input('#', Items.WHEAT)
+                .input('C', ModItems.CANNABIS)
+                .criterion(hasItem(Items.WHEAT), conditionsFromItem(Items.WHEAT))
+                .criterion(hasItem(ModItems.CANNABIS), conditionsFromItem(ModItems.CANNABIS))
+                .offerTo(exporter, new Identifier(getRecipeName(ModItems.CANNABIS_COOKIE)));
+
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.PRESERVES_JAR, 3)
                 .pattern("# #")
                 .pattern("###")
@@ -369,6 +388,11 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Items.WHEAT), conditionsFromItem(Items.WHEAT))
                 .criterion(hasItem(Items.EGG), conditionsFromItem(Items.EGG))
                 .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.ORANGE_CAKE)));
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.CANNABIS_SEEDS)
+                .input(ModItems.CANNABIS)
+                .criterion(hasItem(ModItems.CANNABIS), conditionsFromItem(ModItems.CANNABIS))
+                .offerTo(exporter, new Identifier(getRecipeName(ModItems.CANNABIS_SEEDS)));
 
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.BW_STICKER)
                 .input(Items.PAPER)

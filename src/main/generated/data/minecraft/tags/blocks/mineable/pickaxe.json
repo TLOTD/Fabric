@@ -21,6 +21,8 @@
     "tlotd:interdimensional_receiver",
     "tlotd:videocassette_recorder",
     "tlotd:oxygen_collector",
+    "tlotd:keycard_programmer",
+    "tlotd:keycard_reader",
     "tlotd:signal_transmitter_antenna",
     "tlotd:signal_transmitter",
     "tlotd:mining_elevator_controller",

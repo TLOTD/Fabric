@@ -44,6 +44,8 @@ public class ModBlocks {
 
     public static final Block SULFUR_LANTERN = registerBlock("sulfur_lantern", new LanternBlock(FabricBlockSettings.create().mapColor(MapColor.IRON_GRAY).solid().requiresTool().strength(3.5F).sounds(BlockSoundGroup.LANTERN).luminance(14).nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
 
+    public static final Block SULFUR_CAMPFIRE = registerBlock("sulfur_campfire", new CampfireBlock(false, 2, FabricBlockSettings.create().mapColor(MapColor.SPRUCE_BROWN).instrument(Instrument.BASS).strength(2.0f).sounds(BlockSoundGroup.WOOD).luminance(Blocks.createLightLevelFromLitBlockState(14)).nonOpaque().burnable()));
+
     public static final Block PRESERVES_JAR = registerSmallStackableBlock("preserves_jar",
             new PreservesJarBlock(FabricBlockSettings.create().mapColor(MapColor.WHITE).strength(0.3f, 0.3f).sounds(BlockSoundGroup.GLASS).nonOpaque()));
 
@@ -85,6 +87,8 @@ public class ModBlocks {
             new StrawberryBushBlock(FabricBlockSettings.create().mapColor(MapColor.DARK_GREEN).noCollision().ticksRandomly().breakInstantly().sounds(BlockSoundGroup.CROP).pistonBehavior(PistonBehavior.DESTROY)));
     public static final Block ORANGE_TREE = registerBlockWithoutItem("orange_tree",
             new OrangeTreeBlock(FabricBlockSettings.create().mapColor(MapColor.DARK_GREEN).noCollision().ticksRandomly().breakInstantly().sounds(BlockSoundGroup.CROP).pistonBehavior(PistonBehavior.DESTROY)));
+    public static final Block CANNABIS_PLANT = registerBlockWithoutItem("cannabis_plant",
+            new CannabisPlantBlock(FabricBlockSettings.create().mapColor(MapColor.DARK_GREEN).noCollision().ticksRandomly().breakInstantly().sounds(BlockSoundGroup.CROP).pistonBehavior(PistonBehavior.DESTROY)));
 
     public static final Block STRAWBERRY_CAKE = registerBlock("strawberry_cake", new CakeBlock(FabricBlockSettings.copyOf(Blocks.CAKE)));
     public static final Block ORANGE_CAKE = registerBlock("orange_cake", new CakeBlock(FabricBlockSettings.copyOf(Blocks.CAKE)));
@@ -353,7 +357,9 @@ public class ModBlocks {
     public static final Block WOODEN_ORANGE_MILKSHAKE_STEIN = registerDrinkableWoodenSteinBlock("wooden_orange_milkshake_stein",
             new WoodenSteinBlock(FabricBlockSettings.create().mapColor(MapColor.BROWN).strength(2.0F, 2.0F).sounds(BlockSoundGroup.WOOD).pistonBehavior(PistonBehavior.DESTROY).nonOpaque()),"");
     public static final Block WOODEN_BLUE_BERRY_MILKSHAKE_STEIN = registerDrinkableWoodenSteinBlock("wooden_blue_berry_milkshake_stein",
-            new WoodenSteinBlock(FabricBlockSettings.create().mapColor(MapColor.BROWN).strength(2.0F, 2.0F).sounds(BlockSoundGroup.WOOD).pistonBehavior(PistonBehavior.DESTROY).nonOpaque()),"aether");
+            new WoodenSteinBlock(FabricBlockSettings.create().mapColor(MapColor.BROWN).strength(2.0F, 2.0F).sounds(BlockSoundGroup.WOOD).pistonBehavior(PistonBehavior.DESTROY).nonOpaque()),"aet");
+    public static final Block WOODEN_TORCHBERRY_MILKSHAKE_STEIN = registerDrinkableWoodenSteinBlock("wooden_torchberry_milkshake_stein",
+            new WoodenSteinBlock(FabricBlockSettings.create().mapColor(MapColor.BROWN).strength(2.0F, 2.0F).sounds(BlockSoundGroup.WOOD).pistonBehavior(PistonBehavior.DESTROY).nonOpaque()),"tlf");
     public static final Block HOT_WOODEN_MILK_STEIN = registerRemainderSteinBlock("hot_wooden_milk_stein",
             new WoodenSteinBlock(FabricBlockSettings.create().mapColor(MapColor.BROWN).strength(2.0F, 2.0F).sounds(BlockSoundGroup.WOOD).pistonBehavior(PistonBehavior.DESTROY).nonOpaque()),"");
     public static final Block WOODEN_HOT_CHOCOLATE_STEIN = registerDrinkableWoodenSteinBlock("wooden_hot_chocolate_stein",

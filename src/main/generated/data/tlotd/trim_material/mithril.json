@@ -1,0 +1,9 @@
+{
+  "asset_name": "mithril",
+  "description": {
+    "color": "#F6F6F6",
+    "translate": "trim_material.tlotd.mithril"
+  },
+  "ingredient": "tlotd:mithril_ingot",
+  "item_model_index": 0.1
+}
