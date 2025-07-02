@@ -1,8 +1,0 @@
-{
-	"parent": "tlotd:block/template_human_plushie",
-	"textures": {
-		"0": "tlotd:block/human_plushies/nighthawk241199",
-		"1": "tlotd:block/empty",
-		"particle": "tlotd:block/human_plushies/nighthawk241199"
-	}
-}

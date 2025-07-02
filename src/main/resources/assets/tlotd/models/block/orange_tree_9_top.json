@@ -1,7 +1,0 @@
-{
-  "parent": "tlotd:block/template_crop_cross",
-  "textures": {
-    "0": "tlotd:block/orange_tree_9_top",
-    "particle": "tlotd:block/orange_tree_9_top"
-  }
-}

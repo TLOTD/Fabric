@@ -1,8 +1,0 @@
-{
-  "variants": {
-    "facing=south":{"model":"tlotd:block/glass_elevator_base","y":0},
-    "facing=west":{"model":"tlotd:block/glass_elevator_base","y":90},
-    "facing=north":{"model":"tlotd:block/glass_elevator_base","y":180},
-    "facing=east":{"model":"tlotd:block/glass_elevator_base","y":270}
-  }
-}

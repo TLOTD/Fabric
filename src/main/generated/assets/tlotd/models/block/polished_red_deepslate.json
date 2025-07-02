@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/cube_all",
-  "textures": {
-    "all": "tlotd:block/polished_red_deepslate"
-  }
-}

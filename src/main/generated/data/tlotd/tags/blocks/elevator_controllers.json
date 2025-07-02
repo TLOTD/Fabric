@@ -1,9 +1,0 @@
-{
-  "replace": false,
-  "values": [
-    "tlotd:mining_elevator_controller",
-    "tlotd:wooden_elevator_controller",
-    "tlotd:quartz_elevator_controller",
-    "tlotd:glass_elevator_controller"
-  ]
-}

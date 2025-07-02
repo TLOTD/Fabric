@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/orientable",
-  "textures": {
-    "front": "tlotd:block/white_jack_o_lantern",
-    "side": "tlotd:block/white_pumpkin_side",
-    "top": "tlotd:block/white_pumpkin_top"
-  }
-}

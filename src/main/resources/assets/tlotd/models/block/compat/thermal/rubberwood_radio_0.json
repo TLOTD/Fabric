@@ -1,9 +1,0 @@
-{
-	"parent": "tlotd:block/template_radio_on",
-	"textures": {
-		"0": "thermal:block/rubberwood_log",
-		"1": "thermal:block/stripped_rubberwood_log",
-		"3": "tlotd:block/radio/frequency0",
-		"particle": "thermal:block/rubberwood_log"
-	}
-}

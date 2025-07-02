@@ -1,8 +1,0 @@
-{
-  "parent": "tlotd:block/template_bush",
-  "textures": {
-    "particle": "tlotd:block/strawberry_bush_5",
-    "0": "tlotd:block/strawberry_bush_stem",
-    "1": "tlotd:block/strawberry_bush_5"
-  }
-}

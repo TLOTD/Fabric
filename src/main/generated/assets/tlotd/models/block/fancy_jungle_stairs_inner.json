@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/inner_stairs",
-  "textures": {
-    "bottom": "tlotd:block/fancy_jungle_planks",
-    "side": "tlotd:block/fancy_jungle_planks",
-    "top": "tlotd:block/fancy_jungle_planks"
-  }
-}

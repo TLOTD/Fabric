@@ -1,9 +1,9 @@
 {
-	"schemaVersion": 1,
+  "schemaVersion": 1,
 	"id": "tlotd",
 	"version": "${version}",
 	"name": "TLOTD",
-	"description": "The 1.20.1 Fabric Port - This Mod adds new Dimensions and progression after the normal Diamond tier. Additionally this mod provides feats in Engineering and Technology!",
+	"description": "The Better Than Adventure Babric Port - This Mod adds new Dimensions and progression after the normal Diamond tier. Additionally this mod provides feats in Engineering and Technology!",
 	"authors": [
 		"TLOTD",
 		"Isla_Nublar"
@@ -14,34 +14,35 @@
 	},
 	"license": "CC-BY-NC-SA-4.0",
 	"icon": "assets/tlotd/icon.png",
-	"environment": "*",
-	"entrypoints": {
-		"main": [
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+			"net.tlotd.TLOTD"
+    ],
+		"beforeGameStart": [
 			"net.tlotd.TLOTD"
 		],
-		"client": [
-			"net.tlotd.TLOTDClient"
+		"afterGameStart": [
+			"net.tlotd.TLOTD"
 		],
-		"fabric-datagen": [
-			"net.tlotd.TLOTDDataGenerator"
+		"recipesReady": [
+			"net.tlotd.TLOTD"
 		],
-		"rei_client": [
-			"net.tlotd.compat.TLOTDREIClientPlugin"
+		"recipesReady": [
+			"net.tlotd.datagen.ModRecipeProvider"
 		],
-		"modmenu": [
-			"net.tlotd.compat.modmenu.TLOTDModMenuIntegration"
+		"initModels": [
+			"net.tlotd.datagen.ModModelProvider"
 		]
 	},
-	"mixins": [
-		"tlotd.mixins.json"
-	],
-	"depends": {
-		"fabricloader": ">=0.16.9",
-		"minecraft": "~1.20.1",
-		"java": ">=17",
-		"fabric-api": "*"
-	},
-	"suggests": {
-		"another-mod": "*"
-	}
+  "mixins": [
+    "tlotd.mixins.json"
+  ],
+
+  "depends": {
+		"minecraft": "*",
+    "fabricloader": ">=0.15.5"
+  },
+  "suggests": {
+  }
 }

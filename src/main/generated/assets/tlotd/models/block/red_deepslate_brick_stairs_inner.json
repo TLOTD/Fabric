@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/inner_stairs",
-  "textures": {
-    "bottom": "tlotd:block/red_deepslate_bricks",
-    "side": "tlotd:block/red_deepslate_bricks",
-    "top": "tlotd:block/red_deepslate_bricks"
-  }
-}

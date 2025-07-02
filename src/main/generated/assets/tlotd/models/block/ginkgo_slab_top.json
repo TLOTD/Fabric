@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab_top",
-  "textures": {
-    "bottom": "tlotd:block/ginkgo_planks",
-    "side": "tlotd:block/ginkgo_planks",
-    "top": "tlotd:block/ginkgo_planks"
-  }
-}

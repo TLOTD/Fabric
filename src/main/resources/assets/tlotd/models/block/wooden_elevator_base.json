@@ -1,8 +1,0 @@
-{
-	"parent": "tlotd:block/template_elevator_base",
-	"textures": {
-		"0": "tlotd:block/wooden_elevator_base",
-		"1": "minecraft:block/dark_oak_planks",
-		"particle": "tlotd:block/wooden_elevator_base"
-	}
-}

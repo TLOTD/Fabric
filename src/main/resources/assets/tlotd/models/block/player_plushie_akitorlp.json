@@ -1,8 +1,0 @@
-{
-	"parent": "tlotd:block/template_human_plushie",
-	"textures": {
-		"0": "tlotd:block/human_plushies/akitorlp",
-		"1": "tlotd:block/human_plushies/cape_migrator",
-		"particle": "tlotd:block/human_plushies/akitorlp"
-	}
-}

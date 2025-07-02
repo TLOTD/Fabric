@@ -1,9 +1,0 @@
-{
-  "replace": false,
-  "values": [
-    "#c:steel_nuggets",
-    "#c:lead_nuggets",
-    "#c:uranium_nuggets",
-    "#c:mithril_nuggets"
-  ]
-}

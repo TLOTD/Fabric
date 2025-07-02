@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/stairs",
-  "textures": {
-    "bottom": "tlotd:block/fancy_spruce_planks",
-    "side": "tlotd:block/fancy_spruce_planks",
-    "top": "tlotd:block/fancy_spruce_planks"
-  }
-}

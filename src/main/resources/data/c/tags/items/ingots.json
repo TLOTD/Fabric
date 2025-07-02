@@ -1,9 +1,0 @@
-{
-  "replace": false,
-  "values": [
-    "#c:steel_ingots",
-    "#c:lead_ingots",
-    "#c:uranium_ingots",
-    "#c:mithril_ingots"
-  ]
-}

@@ -1,8 +1,0 @@
-{
-	"parent": "tlotd:block/template_human_plushie_slim",
-	"textures": {
-		"0": "tlotd:block/human_plushies/salsafox_alternative",
-		"1": "tlotd:block/human_plushies/cape_cherry",
-		"particle": "tlotd:block/human_plushies/salsafox_alternative"
-	}
-}

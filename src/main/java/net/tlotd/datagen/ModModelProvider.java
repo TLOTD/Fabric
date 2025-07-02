@@ -1,597 +1,998 @@
 package net.tlotd.datagen;
 
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
-import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
-import net.minecraft.data.client.BlockStateModelGenerator;
-import net.minecraft.data.client.ItemModelGenerator;
-import net.minecraft.data.client.Model;
-import net.minecraft.data.client.Models;
-import net.minecraft.item.ArmorItem;
-import net.minecraft.util.Identifier;
+import net.minecraft.client.render.EntityRenderDispatcher;
+import net.minecraft.client.render.TileEntityRenderDispatcher;
+import net.minecraft.client.render.block.color.BlockColorDispatcher;
+import net.minecraft.client.render.block.model.BlockModelDispatcher;
+import net.minecraft.client.render.block.model.BlockModelStandard;
+import net.minecraft.client.render.item.model.ItemModelDispatcher;
+import net.minecraft.client.render.item.model.ItemModelStandard;
+import net.minecraft.client.render.texture.stitcher.TextureRegistry;
+import net.minecraft.core.util.helper.Side;
+import net.tlotd.TLOTD;
 import net.tlotd.block.ModBlocks;
 import net.tlotd.item.ModItems;
-
-import java.util.Optional;
-
-public class ModModelProvider extends FabricModelProvider {
-    public ModModelProvider(FabricDataOutput output) {
-        super(output);
-    }
-
-    @Override
-    public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
-
-        BlockStateModelGenerator.BlockTexturePool marblePool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.MARBLE);
-        marblePool.stairs(ModBlocks.MARBLE_STAIRS);
-        marblePool.slab(ModBlocks.MARBLE_SLAB);
-        marblePool.wall(ModBlocks.MARBLE_WALL);
-        marblePool.button(ModBlocks.MARBLE_BUTTON);
-        marblePool.pressurePlate(ModBlocks.MARBLE_PRESSURE_PLATE);
-
-        BlockStateModelGenerator.BlockTexturePool limestonePool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.LIMESTONE);
-        limestonePool.stairs(ModBlocks.LIMESTONE_STAIRS);
-        limestonePool.slab(ModBlocks.LIMESTONE_SLAB);
-        limestonePool.wall(ModBlocks.LIMESTONE_WALL);
-        limestonePool.button(ModBlocks.LIMESTONE_BUTTON);
-        limestonePool.pressurePlate(ModBlocks.LIMESTONE_PRESSURE_PLATE);
-
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RICH_DIRT);
-
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RED_GRAVEL);
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RED_SANDY_DEEPSLATE);
-
-        BlockStateModelGenerator.BlockTexturePool redDeepslatePool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.RED_DEEPSLATE);
-        redDeepslatePool.stairs(ModBlocks.RED_DEEPSLATE_STAIRS);
-        redDeepslatePool.slab(ModBlocks.RED_DEEPSLATE_SLAB);
-        redDeepslatePool.wall(ModBlocks.RED_DEEPSLATE_WALL);
-        redDeepslatePool.button(ModBlocks.RED_DEEPSLATE_BUTTON);
-        redDeepslatePool.pressurePlate(ModBlocks.RED_DEEPSLATE_PRESSURE_PLATE);
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.POLISHED_RED_DEEPSLATE);
-        BlockStateModelGenerator.BlockTexturePool redDeepslateBrickPool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.RED_DEEPSLATE_BRICKS);
-        redDeepslateBrickPool.stairs(ModBlocks.RED_DEEPSLATE_BRICK_STAIRS);
-        redDeepslateBrickPool.slab(ModBlocks.RED_DEEPSLATE_BRICK_SLAB);
-        redDeepslateBrickPool.wall(ModBlocks.RED_DEEPSLATE_BRICK_WALL);
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.MOSSY_RED_DEEPSLATE_BRICKS);
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.CRACKED_RED_DEEPSLATE_BRICKS);
-
-        BlockStateModelGenerator.BlockTexturePool cobbledRedDeepslatePool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.COBBLED_RED_DEEPSLATE);
-        cobbledRedDeepslatePool.stairs(ModBlocks.COBBLED_RED_DEEPSLATE_STAIRS);
-        cobbledRedDeepslatePool.slab(ModBlocks.COBBLED_RED_DEEPSLATE_SLAB);
-        cobbledRedDeepslatePool.wall(ModBlocks.COBBLED_RED_DEEPSLATE_WALL);
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.POLISHED_COBBLED_RED_DEEPSLATE);
-        BlockStateModelGenerator.BlockTexturePool cobbledRedDeepslateBrickPool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.COBBLED_RED_DEEPSLATE_BRICKS);
-        cobbledRedDeepslateBrickPool.stairs(ModBlocks.COBBLED_RED_DEEPSLATE_BRICK_STAIRS);
-        cobbledRedDeepslateBrickPool.slab(ModBlocks.COBBLED_RED_DEEPSLATE_BRICK_SLAB);
-        cobbledRedDeepslateBrickPool.wall(ModBlocks.COBBLED_RED_DEEPSLATE_BRICK_WALL);
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.MOSSY_COBBLED_RED_DEEPSLATE_BRICKS);
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.CRACKED_COBBLED_RED_DEEPSLATE_BRICKS);
-
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RED_DEEPSLATE_IRON_ORE);
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RED_DEEPSLATE_COPPER_ORE);
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RED_DEEPSLATE_GOLD_ORE);
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RED_DEEPSLATE_REDSTONE_ORE);
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RED_DEEPSLATE_EMERALD_ORE);
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RED_DEEPSLATE_LAPIS_ORE);
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RED_DEEPSLATE_DIAMOND_ORE);
-
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RED_DEEPSLATE_SULFUR_ORE);
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RED_DEEPSLATE_LEAD_ORE);
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RED_DEEPSLATE_URANIUM_ORE);
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RED_DEEPSLATE_HELIORITE_ORE);
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RED_DEEPSLATE_PALLADIUM_ORE);
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RED_DEEPSLATE_JURASSOLINE_ORE);
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RED_DEEPSLATE_CINNABAR_ORE);
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RED_DEEPSLATE_NEBULAR_ORE);
-
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.XEN_CRYSTAL_BLOCK);
-
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.MOON_ROCK);
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.MOON_ROCK_COAL_ORE);
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.MOON_ROCK_IRON_ORE);
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.MOON_ROCK_LUNAR_CALLAINUS_ORE);
-
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.STEEL_BLOCK);
-
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.NETHER_SULFUR_ORE);
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SULFUR_BLOCK);
-
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.LEAD_ORE);
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RAW_LEAD_BLOCK);
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.LEAD_BLOCK);
-
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DEEPSLATE_URANIUM_ORE);
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RAW_URANIUM_BLOCK);
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.URANIUM_BLOCK);
-
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DEEPSLATE_FOSSIL);
-
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DEEPSLATE_HELIORITE_ORE);
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.HELIORITE_COMB_BLOCK);
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.HELIORITE_BLOCK);
-
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.END_ENDURIUM_ORE);
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RAW_ENDURIUM_BLOCK);
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.ENDURIUM_BLOCK);
-
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DEEPSLATE_PALLADIUM_ORE);
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RAW_PALLADIUM_BLOCK);
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.PALLADIUM_BLOCK);
-
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DEEPSLATE_JURASSOLINE_ORE);
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.JURASSOLINE_CRYSTAL_BLOCK);
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.JURASSOLINE_BLOCK);
-
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DEEPSLATE_CINNABAR_ORE);
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.CINNABAR_CRYSTAL_BLOCK);
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.CINNABAR_BLOCK);
-
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DEEPSLATE_NEBULAR_ORE);
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RAW_NEBULAR_BLOCK);
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.NEBULAR_BLOCK);
-
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.BEDROCK_MITHRIL_ORE);
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RAW_MITHRIL_BLOCK);
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.MITHRIL_BLOCK);
-
-        blockStateModelGenerator.registerFlowerPotPlant(ModBlocks.ROSE, ModBlocks.POTTED_ROSE, BlockStateModelGenerator.TintType.NOT_TINTED);
-        blockStateModelGenerator.registerFlowerPotPlant(ModBlocks.IRIS, ModBlocks.POTTED_IRIS, BlockStateModelGenerator.TintType.NOT_TINTED);
-        blockStateModelGenerator.registerFlowerPotPlant(ModBlocks.EDELWEISS, ModBlocks.POTTED_EDELWEISS, BlockStateModelGenerator.TintType.NOT_TINTED);
-
-        blockStateModelGenerator.registerFlowerPotPlant(ModBlocks.GINKGO_SAPLING, ModBlocks.POTTED_GINKGO_SAPLING, BlockStateModelGenerator.TintType.NOT_TINTED);
-
-        blockStateModelGenerator.registerLog(ModBlocks.GINKGO_LOG).log(ModBlocks.GINKGO_LOG).wood(ModBlocks.GINKGO_WOOD);
-        blockStateModelGenerator.registerLog(ModBlocks.STRIPPED_GINKGO_LOG).log(ModBlocks.STRIPPED_GINKGO_LOG).wood(ModBlocks.STRIPPED_GINKGO_WOOD);
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.GINKGO_LEAVES);
-
-        BlockStateModelGenerator.BlockTexturePool ginkgoPool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.GINKGO_PLANKS);
-
-        ginkgoPool.stairs(ModBlocks.GINKGO_STAIRS);
-        ginkgoPool.slab(ModBlocks.GINKGO_SLAB);
-        ginkgoPool.button(ModBlocks.GINKGO_BUTTON);
-        ginkgoPool.pressurePlate(ModBlocks.GINKGO_PRESSURE_PLATE);
-        ginkgoPool.fence(ModBlocks.GINKGO_FENCE);
-        ginkgoPool.fenceGate(ModBlocks.GINKGO_FENCE_GATE);
-        ginkgoPool.family(ModBlocks.GINKGO_FAMILY);
-
-        blockStateModelGenerator.registerDoor(ModBlocks.GINKGO_DOOR);
-
-        blockStateModelGenerator.registerDoor(ModBlocks.GLASS_DOOR);
-
-        blockStateModelGenerator.registerWoolAndCarpet(ModBlocks.CURSED_WOOL, ModBlocks.CURSED_CARPET);
-
-        BlockStateModelGenerator.BlockTexturePool fancyOakPool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.FANCY_OAK_PLANKS);
-        fancyOakPool.stairs(ModBlocks.FANCY_OAK_STAIRS);
-        fancyOakPool.slab(ModBlocks.FANCY_OAK_SLAB);
-
-        BlockStateModelGenerator.BlockTexturePool fancySprucePool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.FANCY_SPRUCE_PLANKS);
-        fancySprucePool.stairs(ModBlocks.FANCY_SPRUCE_STAIRS);
-        fancySprucePool.slab(ModBlocks.FANCY_SPRUCE_SLAB);
-
-        BlockStateModelGenerator.BlockTexturePool fancyBirchPool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.FANCY_BIRCH_PLANKS);
-        fancyBirchPool.stairs(ModBlocks.FANCY_BIRCH_STAIRS);
-        fancyBirchPool.slab(ModBlocks.FANCY_BIRCH_SLAB);
-
-        BlockStateModelGenerator.BlockTexturePool fancyJunglePool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.FANCY_JUNGLE_PLANKS);
-        fancyJunglePool.stairs(ModBlocks.FANCY_JUNGLE_STAIRS);
-        fancyJunglePool.slab(ModBlocks.FANCY_JUNGLE_SLAB);
-
-        BlockStateModelGenerator.BlockTexturePool fancyAcaciaPool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.FANCY_ACACIA_PLANKS);
-        fancyAcaciaPool.stairs(ModBlocks.FANCY_ACACIA_STAIRS);
-        fancyAcaciaPool.slab(ModBlocks.FANCY_ACACIA_SLAB);
-
-        BlockStateModelGenerator.BlockTexturePool fancyDarkOakPool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.FANCY_DARK_OAK_PLANKS);
-        fancyDarkOakPool.stairs(ModBlocks.FANCY_DARK_OAK_STAIRS);
-        fancyDarkOakPool.slab(ModBlocks.FANCY_DARK_OAK_SLAB);
-
-        BlockStateModelGenerator.BlockTexturePool fancyMangrovePool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.FANCY_MANGROVE_PLANKS);
-        fancyMangrovePool.stairs(ModBlocks.FANCY_MANGROVE_STAIRS);
-        fancyMangrovePool.slab(ModBlocks.FANCY_MANGROVE_SLAB);
-
-        BlockStateModelGenerator.BlockTexturePool fancyCherryPool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.FANCY_CHERRY_PLANKS);
-        fancyCherryPool.stairs(ModBlocks.FANCY_CHERRY_STAIRS);
-        fancyCherryPool.slab(ModBlocks.FANCY_CHERRY_SLAB);
-
-        BlockStateModelGenerator.BlockTexturePool fancyPaleOakPool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.FANCY_PALE_OAK_PLANKS);
-        fancyPaleOakPool.stairs(ModBlocks.FANCY_PALE_OAK_STAIRS);
-        fancyPaleOakPool.slab(ModBlocks.FANCY_PALE_OAK_SLAB);
-
-        BlockStateModelGenerator.BlockTexturePool fancyBambooPool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.FANCY_BAMBOO_PLANKS);
-        fancyBambooPool.stairs(ModBlocks.FANCY_BAMBOO_STAIRS);
-        fancyBambooPool.slab(ModBlocks.FANCY_BAMBOO_SLAB);
-
-        BlockStateModelGenerator.BlockTexturePool fancyCrimsonPool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.FANCY_CRIMSON_PLANKS);
-        fancyCrimsonPool.stairs(ModBlocks.FANCY_CRIMSON_STAIRS);
-        fancyCrimsonPool.slab(ModBlocks.FANCY_CRIMSON_SLAB);
-
-        BlockStateModelGenerator.BlockTexturePool fancyWarpedPool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.FANCY_WARPED_PLANKS);
-        fancyWarpedPool.stairs(ModBlocks.FANCY_WARPED_STAIRS);
-        fancyWarpedPool.slab(ModBlocks.FANCY_WARPED_SLAB);
-
-        BlockStateModelGenerator.BlockTexturePool fancyGinkgoPool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.FANCY_GINKGO_PLANKS);
-        fancyGinkgoPool.stairs(ModBlocks.FANCY_GINKGO_STAIRS);
-        fancyGinkgoPool.slab(ModBlocks.FANCY_GINKGO_SLAB);
-
-        BlockStateModelGenerator.BlockTexturePool fancyCharredPool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.FANCY_CHARRED_PLANKS);
-        fancyCharredPool.stairs(ModBlocks.FANCY_CHARRED_STAIRS);
-        fancyCharredPool.slab(ModBlocks.FANCY_CHARRED_SLAB);
-    }
-
-    @Override
-    public void generateItemModels(ItemModelGenerator itemModelGenerator) {
-        itemModelGenerator.register(ModItems.IRRADIATED_ICON, Models.GENERATED);
-
-        itemModelGenerator.register(ModItems.OAK_BARK, Models.GENERATED);
-        itemModelGenerator.register(ModItems.SPRUCE_BARK, Models.GENERATED);
-        itemModelGenerator.register(ModItems.BIRCH_BARK, Models.GENERATED);
-        itemModelGenerator.register(ModItems.JUNGLE_BARK, Models.GENERATED);
-        itemModelGenerator.register(ModItems.ACACIA_BARK, Models.GENERATED);
-        itemModelGenerator.register(ModItems.DARK_OAK_BARK, Models.GENERATED);
-        itemModelGenerator.register(ModItems.MANGROVE_BARK, Models.GENERATED);
-        itemModelGenerator.register(ModItems.CHERRY_BARK, Models.GENERATED);
-        itemModelGenerator.register(ModItems.GINKGO_BARK, Models.GENERATED);
-
-        itemModelGenerator.register(ModItems.SKYROOT_BARK, Models.GENERATED);
-
-        itemModelGenerator.register(ModItems.PEWEN_BARK, Models.GENERATED);
-        itemModelGenerator.register(ModItems.THORNWOOD_BARK, Models.GENERATED);
-
-        itemModelGenerator.register(ModItems.FIR_BARK, Models.GENERATED);
-        itemModelGenerator.register(ModItems.REDWOOD_BARK, Models.GENERATED);
-        itemModelGenerator.register(ModItems.MAHOGANY_BARK, Models.GENERATED);
-        itemModelGenerator.register(ModItems.JACARANCA_BARK, Models.GENERATED);
-        itemModelGenerator.register(ModItems.PALM_BARK, Models.GENERATED);
-        itemModelGenerator.register(ModItems.WILLOW_BARK, Models.GENERATED);
-        itemModelGenerator.register(ModItems.DEAD_BARK, Models.GENERATED);
-        itemModelGenerator.register(ModItems.MAGIC_BARK, Models.GENERATED);
-        itemModelGenerator.register(ModItems.UMBRAN_BARK, Models.GENERATED);
-        itemModelGenerator.register(ModItems.HELLBARK_BARK, Models.GENERATED);
-
-        itemModelGenerator.register(ModItems.ASHEN_BARK, Models.GENERATED);
-        itemModelGenerator.register(ModItems.AZALEA_BARK, Models.GENERATED);
-        itemModelGenerator.register(ModItems.TRUMPET_BARK, Models.GENERATED);
-
-        itemModelGenerator.register(ModItems.RUBBERWOOD_BARK, Models.GENERATED);
-
-        itemModelGenerator.register(ModItems.TWILIGHT_OAK_BARK, Models.GENERATED);
-        itemModelGenerator.register(ModItems.CANOPY_TREE_BARK, Models.GENERATED);
-        itemModelGenerator.register(ModItems.TWILIGHT_MANGROVE_BARK, Models.GENERATED);
-        itemModelGenerator.register(ModItems.DARKWOOD_BARK, Models.GENERATED);
-        itemModelGenerator.register(ModItems.TIMEWOOD_BARK, Models.GENERATED);
-        itemModelGenerator.register(ModItems.TRANSWOOD_BARK, Models.GENERATED);
-        itemModelGenerator.register(ModItems.MINEWOOD_BARK, Models.GENERATED);
-        itemModelGenerator.register(ModItems.SORTINGWOOD_BARK, Models.GENERATED);
-
-        itemModelGenerator.register(ModItems.APPLE_JUICE_BOTTLE, Models.GENERATED);
-
-        itemModelGenerator.register(ModItems.OXYGEN_TANK, Models.GENERATED);
-
-        itemModelGenerator.register(ModItems.CANNABIS_COOKIE, Models.GENERATED);
-
-        itemModelGenerator.register(ModItems.TOAST, Models.GENERATED);
-        itemModelGenerator.register(ModItems.SWEET_BERRY_JAM_TOAST, Models.GENERATED);
-        itemModelGenerator.register(ModItems.GLOW_BERRY_JAM_TOAST, Models.GENERATED);
-
-        itemModelGenerator.register(ModItems.STRAWBERRY_SEEDS, Models.GENERATED);
-        itemModelGenerator.register(ModItems.STRAWBERRY, Models.GENERATED);
-        itemModelGenerator.register(ModItems.CHOCOLATE_STRAWBERRY, Models.GENERATED);
-        itemModelGenerator.register(ModItems.STRAWBERRY_JAM_TOAST, Models.GENERATED);
-
-        itemModelGenerator.register(ModItems.ORANGE_SEEDS, Models.GENERATED);
-        itemModelGenerator.register(ModItems.ORANGE, Models.GENERATED);
-        itemModelGenerator.register(ModItems.ORANGE_JUICE_BOTTLE, Models.GENERATED);
-        itemModelGenerator.register(ModItems.ORANGE_MARMELADE_TOAST, Models.GENERATED);
-        itemModelGenerator.register(ModItems.SPEZI_BOTTLE, Models.GENERATED);
-
-        itemModelGenerator.register(ModItems.CANNABIS_SEEDS, Models.GENERATED);
-        itemModelGenerator.register(ModItems.CANNABIS, Models.GENERATED);
-
-        itemModelGenerator.register(ModItems.BLUE_BERRY_JAM_TOAST, Models.GENERATED);
-        itemModelGenerator.register(ModItems.ANCIENT_SOULBERRY_JAM_TOAST, Models.GENERATED);
-
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.MONOCLE));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.VICTORIAN_SUIT));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.VICTORIAN_PANTS));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.VICTORIAN_BOOTS));
-
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.PICKELHAUBE));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.IMPERIAL_GERMAN_UNIFORM_MANTLE));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.IMPERIAL_GERMAN_UNIFORM_PANTS));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.IMPERIAL_GERMAN_UNIFORM_BOOTS));
-
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.ASTRONAUT_HELMET));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.SPACE_SUIT_CHESTPLATE));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.SPACE_SUIT_LEGGINGS));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.SPACE_SUIT_BOOTS));
-
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.CTHONAUT_HELMET));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.DEPTH_SUIT_CHESTPLATE));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.DEPTH_SUIT_LEGGINGS));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.DEPTH_SUIT_BOOTS));
-
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.SCIENTIST_GLASSES));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.HEV_SUIT_CHESTPLATE));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.HEV_SUIT_LEGGINGS));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.HEV_SUIT_BOOTS));
-
-        itemModelGenerator.register(ModItems.BLOOD_BOTTLE, Models.GENERATED);
-
-        itemModelGenerator.register(ModItems.STICK_EFFIGY, Models.GENERATED);
-        itemModelGenerator.register(ModItems.STICK_FIGURE, Models.GENERATED);
-
-        itemModelGenerator.register(ModItems.EDELWEISS_PETALS, Models.GENERATED);
-        itemModelGenerator.register(ModItems.MISTLETOE, Models.GENERATED);
-        itemModelGenerator.register(ModItems.CURED_MEAT, Models.GENERATED);
-        itemModelGenerator.register(ModItems.COOKED_MEAT, Models.GENERATED);
-
-        itemModelGenerator.register(ModItems.TINTED_GLASS_FLASK, Models.GENERATED);
-        itemModelGenerator.register(ModItems.SOUL_FLASK, Models.GENERATED);
-        itemModelGenerator.register(ModItems.CURSED_SOUL_FLASK, Models.GENERATED);
-        itemModelGenerator.register(ModItems.SOUL_FLASK_OF_THE_ABYSS, Models.GENERATED);
-
-        itemModelGenerator.register(ModItems.GUIDEBOOK, Models.GENERATED);
-        itemModelGenerator.register(ModItems.SPELL_BOOK, Models.GENERATED);
-        itemModelGenerator.register(ModItems.FORBIDDEN_SPELL_BOOK, Models.GENERATED);
-
-        itemModelGenerator.register(ModItems.PLANCHETTE, Models.GENERATED);
-
-        itemModelGenerator.register(ModItems.COPPER_SICKLE, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.GOLDEN_SICKLE, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.NETHERITE_SICKLE, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.NETHERITE_FORGING_HAMMER, Models.HANDHELD);
-
-        itemModelGenerator.register(ModItems.COPPER_WIRE, Models.GENERATED);
-        itemModelGenerator.register(ModItems.GOLD_WIRE, Models.GENERATED);
-        itemModelGenerator.register(ModItems.SUPERCONDUCTING_WIRE, Models.GENERATED);
-        itemModelGenerator.register(ModItems.INTEGRATED_CIRCUIT, Models.GENERATED);
-        itemModelGenerator.register(ModItems.ADVANCED_CIRCUIT_BOARD, Models.GENERATED);
-        itemModelGenerator.register(ModItems.FUTURISTIC_CIRCUIT_BOARD, Models.GENERATED);
-        itemModelGenerator.register(ModItems.CIRCUIT_BOARD, Models.GENERATED);
-        itemModelGenerator.register(ModItems.CATHODE_RAY_TUBE, Models.GENERATED);
-        itemModelGenerator.register(ModItems.LIQUID_CRYSTAL_DISPLAY_PANEL, Models.GENERATED);
-        itemModelGenerator.register(ModItems.HOLOGRAPHIC_PROJECTOR, Models.GENERATED);
-
-        itemModelGenerator.register(ModItems.RAW_LEAD, Models.GENERATED);
-        itemModelGenerator.register(ModItems.LEAD_NUGGET, Models.GENERATED);
-        itemModelGenerator.register(ModItems.LEAD_INGOT, Models.GENERATED);
-        itemModelGenerator.register(ModItems.URANIUM, Models.GENERATED);
-        itemModelGenerator.register(ModItems.URANIUM_NUGGET, Models.GENERATED);
-        itemModelGenerator.register(ModItems.URANIUM_INGOT, Models.GENERATED);
-
-        itemModelGenerator.register(ModItems.XEN_CRYSTAL, Models.GENERATED);
-        itemModelGenerator.register(ModItems.METEORITE_CHUNK, Models.GENERATED);
-        itemModelGenerator.register(ModItems.STAR_FRAGMENT, Models.GENERATED);
-        itemModelGenerator.register(ModItems.LUNAR_CALLAINUS_LUMP, Models.GENERATED);
-
-        itemModelGenerator.register(ModItems.KEYCARD, Models.GENERATED);
-
-        itemModelGenerator.register(ModItems.STEEL_INGREDIENTS, Models.GENERATED);
-        itemModelGenerator.register(ModItems.STEEL_NUGGET, Models.GENERATED);
-        itemModelGenerator.register(ModItems.STEEL_INGOT, Models.GENERATED);
-        itemModelGenerator.register(ModItems.STEEL_ROD, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.REINFORCED_TOOL_ROD, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.FANCY_TOOL_ROD, Models.HANDHELD);
-
-        itemModelGenerator.register(ModItems.STEEL_SICKLE, Models.HANDHELD);
-
-        itemModelGenerator.register(ModItems.FOSSILIZED_BONE, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.PLANT_FOSSIL, Models.GENERATED);
-        itemModelGenerator.register(ModItems.FOSSIL_AND_STEEL, Models.GENERATED);
-        itemModelGenerator.register(ModItems.SOUL_MIRROR, Models.GENERATED);
-        itemModelGenerator.register(ModItems.MITHRIL_MIRROR, Models.GENERATED);
-        itemModelGenerator.register(ModItems.FOGGY_MITHRIL_MIRROR, Models.GENERATED);
-
-        itemModelGenerator.register(ModItems.SULFUR, Models.GENERATED);
-
-        itemModelGenerator.register(ModItems.BAMBOO_SWORD, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.BAMBOO_PICKAXE, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.BAMBOO_AXE, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.BAMBOO_SHOVEL, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.BAMBOO_HOE, Models.HANDHELD);
-
-        itemModelGenerator.register(ModItems.HELIORITE_COMB, Models.GENERATED);
-        itemModelGenerator.register(ModItems.HELIORITE_NUGGET, Models.GENERATED);
-        itemModelGenerator.register(ModItems.HELIORITE_INGOT, Models.GENERATED);
-
-        itemModelGenerator.register(ModItems.HELIORITE_UPGRADE_SMITHING_TEMPLATE, Models.GENERATED);
-        itemModelGenerator.register(ModItems.HELIORITE_PICKAXE_HEAD, Models.GENERATED);
-
-        itemModelGenerator.register(ModItems.HELIORITE_SWORD, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.HELIORITE_PICKAXE, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.HELIORITE_AXE, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.HELIORITE_SHOVEL, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.HELIORITE_HOE, Models.HANDHELD);
-
-        itemModelGenerator.register(ModItems.HELIORITE_SICKLE, Models.HANDHELD);
-
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.HELIORITE_HELMET));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.HELIORITE_CHESTPLATE));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.HELIORITE_LEGGINGS));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.HELIORITE_BOOTS));
-
-        itemModelGenerator.register(ModItems.ENDURIUM_CRYSTAL, Models.GENERATED);
-        itemModelGenerator.register(ModItems.ENDURIUM_NUGGET, Models.GENERATED);
-        itemModelGenerator.register(ModItems.ENDURIUM_INGOT, Models.GENERATED);
-
-        itemModelGenerator.register(ModItems.ENDURIUM_UPGRADE_SMITHING_TEMPLATE, Models.GENERATED);
-        itemModelGenerator.register(ModItems.ENDURIUM_PICKAXE_HEAD, Models.GENERATED);
-
-        itemModelGenerator.register(ModItems.ENDURIUM_SWORD, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.ENDURIUM_PICKAXE, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.ENDURIUM_AXE, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.ENDURIUM_SHOVEL, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.ENDURIUM_HOE, Models.HANDHELD);
-
-        itemModelGenerator.register(ModItems.ENDURIUM_SICKLE, Models.HANDHELD);
-
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.ENDURIUM_HELMET));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.ENDURIUM_CHESTPLATE));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.ENDURIUM_LEGGINGS));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.ENDURIUM_BOOTS));
-
-        itemModelGenerator.register(ModItems.RAW_PALLADIUM, Models.GENERATED);
-        itemModelGenerator.register(ModItems.PALLADIUM_NUGGET, Models.GENERATED);
-        itemModelGenerator.register(ModItems.PALLADIUM_INGOT, Models.GENERATED);
-
-        itemModelGenerator.register(ModItems.PALLADIUM_SWORD, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.PALLADIUM_PICKAXE, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.PALLADIUM_AXE, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.PALLADIUM_SHOVEL, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.PALLADIUM_HOE, Models.HANDHELD);
-
-        itemModelGenerator.register(ModItems.PALLADIUM_SICKLE, Models.HANDHELD);
-
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.PALLADIUM_HELMET));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.PALLADIUM_CHESTPLATE));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.PALLADIUM_LEGGINGS));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.PALLADIUM_BOOTS));
-
-        itemModelGenerator.register(ModItems.JURASSOLINE_CRYSTAL, Models.GENERATED);
-        itemModelGenerator.register(ModItems.JURASSOLINE_NUGGET, Models.GENERATED);
-        itemModelGenerator.register(ModItems.JURASSOLINE_INGOT, Models.GENERATED);
-
-        itemModelGenerator.register(ModItems.JURASSOLINE_SWORD, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.JURASSOLINE_PICKAXE, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.JURASSOLINE_AXE, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.JURASSOLINE_SHOVEL, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.JURASSOLINE_HOE, Models.HANDHELD);
-
-        itemModelGenerator.register(ModItems.JURASSOLINE_SICKLE, Models.HANDHELD);
-
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.JURASSOLINE_HELMET));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.JURASSOLINE_CHESTPLATE));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.JURASSOLINE_LEGGINGS));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.JURASSOLINE_BOOTS));
-
-        itemModelGenerator.register(ModItems.CINNABAR_CRYSTAL, Models.GENERATED);
-        itemModelGenerator.register(ModItems.CINNABAR_NUGGET, Models.GENERATED);
-        itemModelGenerator.register(ModItems.CINNABAR_INGOT, Models.GENERATED);
-
-        itemModelGenerator.register(ModItems.CINNABAR_SWORD, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.CINNABAR_PICKAXE, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.CINNABAR_AXE, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.CINNABAR_SHOVEL, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.CINNABAR_HOE, Models.HANDHELD);
-
-        itemModelGenerator.register(ModItems.CINNABAR_SICKLE, Models.HANDHELD);
-
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.CINNABAR_HELMET));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.CINNABAR_CHESTPLATE));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.CINNABAR_LEGGINGS));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.CINNABAR_BOOTS));
-
-        itemModelGenerator.register(ModItems.NEBULAR_CRYSTAL, Models.GENERATED);
-        itemModelGenerator.register(ModItems.NEBULAR_NUGGET, Models.GENERATED);
-        itemModelGenerator.register(ModItems.NEBULAR_INGOT, Models.GENERATED);
-
-        itemModelGenerator.register(ModItems.NEBULAR_SWORD, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.NEBULAR_PICKAXE, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.NEBULAR_AXE, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.NEBULAR_SHOVEL, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.NEBULAR_HOE, Models.HANDHELD);
-
-        itemModelGenerator.register(ModItems.NEBULAR_SICKLE, Models.HANDHELD);
-
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.NEBULAR_HELMET));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.NEBULAR_CHESTPLATE));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.NEBULAR_LEGGINGS));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.NEBULAR_BOOTS));
-
-        itemModelGenerator.register(ModItems.RAW_MITHRIL, Models.GENERATED);
-        itemModelGenerator.register(ModItems.MITHRIL_NUGGET, Models.GENERATED);
-        itemModelGenerator.register(ModItems.MITHRIL_INGOT, Models.GENERATED);
-
-        itemModelGenerator.register(ModItems.MITHRIL_SWORD, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.MITHRIL_PICKAXE, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.MITHRIL_AXE, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.MITHRIL_SHOVEL, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.MITHRIL_HOE, Models.HANDHELD);
-
-        itemModelGenerator.register(ModItems.MITHRIL_SICKLE, Models.HANDHELD);
-
-        itemModelGenerator.register(ModItems.MITHRIL_FORGING_HAMMER, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.MITHRIL_STAR_CATCHER, Models.HANDHELD);
-
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.MITHRIL_HELMET));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.MITHRIL_CHESTPLATE));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.MITHRIL_LEGGINGS));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.MITHRIL_BOOTS));
-
-        itemModelGenerator.register(ModItems.MITHRIL_HORSE_ARMOR, Models.GENERATED);
-
-        itemModelGenerator.register(ModItems.NARSIL_HANDLE, Models.HANDHELD);
-
-        itemModelGenerator.register(ModItems.ASTRAL_NUGGET, Models.GENERATED);
-        itemModelGenerator.register(ModItems.ASTRAL_INGOT, Models.GENERATED);
-
-        itemModelGenerator.register(ModItems.ASTRAL_SWORD, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.ASTRAL_PICKAXE, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.ASTRAL_AXE, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.ASTRAL_SHOVEL, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.ASTRAL_HOE, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.ASTRAL_SICKLE, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.ASTRAL_FORGING_HAMMER, Models.HANDHELD);
-
-        itemModelGenerator.register(ModItems.DAYBREAK_DOMAIN_FRAGMENTS, Models.GENERATED);
-        itemModelGenerator.register(ModItems.SOMBER_BLOOD_ORBS, Models.GENERATED);
-        itemModelGenerator.register(ModItems.OTHERWORLDLY_WHISPERS, Models.GENERATED);
-
-        itemModelGenerator.register(ModItems.DIVINE_PICKAXE, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.CATACLYSMIC_PICKAXE, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.ELDRITCH_PICKAXE, Models.HANDHELD);
-
-        itemModelGenerator.register(ModItems.HANGING_GINKGO_SIGN, Models.GENERATED);
-
-        itemModelGenerator.register(ModItems.GINKGO_BOAT, Models.GENERATED);
-        itemModelGenerator.register(ModItems.GINKGO_CHEST_BOAT, Models.GENERATED);
-
-        itemModelGenerator.register(ModItems.TREX_SPAWN_EGG,
-                new Model(Optional.of(new Identifier("item/template_spawn_egg")), Optional.empty()));
-
-        itemModelGenerator.register(ModItems.DINOSAUR_HIDE, Models.GENERATED);
-        itemModelGenerator.register(ModItems.DINOSAUR_MEAT, Models.GENERATED);
-        itemModelGenerator.register(ModItems.COOKED_DINOSAUR_MEAT, Models.GENERATED);
-
-        itemModelGenerator.register(ModItems.FLOUR, Models.GENERATED);
-        itemModelGenerator.register(ModItems.BREADCRUMBS, Models.GENERATED);
-        itemModelGenerator.register(ModItems.RAW_SCHNITZEL, Models.GENERATED);
-        itemModelGenerator.register(ModItems.SCHNITZEL, Models.GENERATED);
-
-        itemModelGenerator.register(ModItems.SQUID, Models.GENERATED);
-        itemModelGenerator.register(ModItems.CALAMARI, Models.GENERATED);
-        itemModelGenerator.register(ModItems.FRIED_CALAMARI, Models.GENERATED);
-
-        itemModelGenerator.register(ModItems.PORRIDGE, Models.GENERATED);
-
-        itemModelGenerator.register(ModItems.MAULTASCHE, Models.GENERATED);
-        itemModelGenerator.register(ModItems.MAULTASCHEN_BROTH, Models.GENERATED);
-        itemModelGenerator.register(ModItems.SUSPICIOUS_MAULTASCHEN_BROTH, Models.GENERATED);
-
-        itemModelGenerator.register(ModItems.BEER_BOTTLE, Models.GENERATED);
-        itemModelGenerator.register(ModItems.BEER_GOAT_HORN, Models.GENERATED);
-
-        itemModelGenerator.register(ModItems.DRAGON_BANNER_PATTERN, Models.GENERATED);
-        itemModelGenerator.register(ModItems.LOTR_BANNER_PATTERN, Models.GENERATED);
-
-        itemModelGenerator.register(ModItems.MUSIC_DISC_1, Models.GENERATED);
-        itemModelGenerator.register(ModItems.MUSIC_DISC_2, Models.GENERATED);
-        itemModelGenerator.register(ModItems.MUSIC_DISC_3, Models.GENERATED);
-        itemModelGenerator.register(ModItems.MUSIC_DISC_4, Models.GENERATED);
-
-        itemModelGenerator.register(ModItems.VHS_CASSETTE, Models.GENERATED);
-        itemModelGenerator.register(ModItems.VHS_CASSETTE_1, Models.GENERATED);
-        itemModelGenerator.register(ModItems.VHS_CASSETTE_2, Models.GENERATED);
-        itemModelGenerator.register(ModItems.VHS_CASSETTE_3, Models.GENERATED);
-        itemModelGenerator.register(ModItems.VHS_CASSETTE_4, Models.GENERATED);
-        itemModelGenerator.register(ModItems.VHS_CASSETTE_5, Models.GENERATED);
-        itemModelGenerator.register(ModItems.VHS_CASSETTE_6, Models.GENERATED);
-        itemModelGenerator.register(ModItems.VHS_CASSETTE_7, Models.GENERATED);
-        itemModelGenerator.register(ModItems.VHS_CASSETTE_8, Models.GENERATED);
-        itemModelGenerator.register(ModItems.VHS_CASSETTE_9, Models.GENERATED);
-        itemModelGenerator.register(ModItems.VHS_CASSETTE_BROKEN, Models.GENERATED);
-
-        itemModelGenerator.register(ModItems.GAME_CARTRIDGE, Models.GENERATED);
-        itemModelGenerator.register(ModItems.GAME_CARTRIDGE_1, Models.GENERATED);
-        itemModelGenerator.register(ModItems.GAME_CARTRIDGE_2, Models.GENERATED);
-        itemModelGenerator.register(ModItems.GAME_CARTRIDGE_3, Models.GENERATED);
-    }
+import turniplabs.halplibe.helper.ModelHelper;
+import turniplabs.halplibe.util.ModelEntrypoint;
+
+public class ModModelProvider implements ModelEntrypoint {
+	@Override
+	public void initBlockModels(BlockModelDispatcher blockModelDispatcher) {
+		ModelHelper.setBlockModel(
+			ModBlocks.STONE_FOSSIL,
+			() -> new BlockModelStandard<>(ModBlocks.STONE_FOSSIL)
+				.setTex(0, "tlotd:block/stone_fossil", Side.sides)
+		);
+		ModelHelper.setBlockModel(
+			ModBlocks.BASALT_FOSSIL,
+			() -> new BlockModelStandard<>(ModBlocks.BASALT_FOSSIL)
+				.setTex(0, "tlotd:block/basalt_fossil", Side.sides)
+		);
+		ModelHelper.setBlockModel(
+			ModBlocks.LIMESTONE_FOSSIL,
+			() -> new BlockModelStandard<>(ModBlocks.LIMESTONE_FOSSIL)
+				.setTex(0, "tlotd:block/limestone_fossil", Side.sides)
+		);
+		ModelHelper.setBlockModel(
+			ModBlocks.GRANITE_FOSSIL,
+			() -> new BlockModelStandard<>(ModBlocks.GRANITE_FOSSIL)
+				.setTex(0, "tlotd:block/granite_fossil", Side.sides)
+		);
+		ModelHelper.setBlockModel(
+			ModBlocks.PERMAFROST_FOSSIL,
+			() -> new BlockModelStandard<>(ModBlocks.PERMAFROST_FOSSIL)
+				.setTex(0, "tlotd:block/permafrost_fossil", Side.sides)
+		);
+
+		ModelHelper.setBlockModel(
+			ModBlocks.HELIORITE_STONE_ORE,
+			() -> new BlockModelStandard<>(ModBlocks.HELIORITE_STONE_ORE)
+				.setTex(0, "tlotd:block/heliorite_stone_ore", Side.sides)
+		);
+		ModelHelper.setBlockModel(
+			ModBlocks.HELIORITE_BASALT_ORE,
+			() -> new BlockModelStandard<>(ModBlocks.HELIORITE_BASALT_ORE)
+				.setTex(0, "tlotd:block/heliorite_basalt_ore", Side.sides)
+		);
+		ModelHelper.setBlockModel(
+			ModBlocks.HELIORITE_LIMESTONE_ORE,
+			() -> new BlockModelStandard<>(ModBlocks.HELIORITE_LIMESTONE_ORE)
+				.setTex(0, "tlotd:block/heliorite_limestone_ore", Side.sides)
+		);
+		ModelHelper.setBlockModel(
+			ModBlocks.HELIORITE_GRANITE_ORE,
+			() -> new BlockModelStandard<>(ModBlocks.HELIORITE_GRANITE_ORE)
+				.setTex(0, "tlotd:block/heliorite_granite_ore", Side.sides)
+		);
+		ModelHelper.setBlockModel(
+			ModBlocks.HELIORITE_PERMAFROST_ORE,
+			() -> new BlockModelStandard<>(ModBlocks.HELIORITE_PERMAFROST_ORE)
+				.setTex(0, "tlotd:block/heliorite_permafrost_ore", Side.sides)
+		);
+		ModelHelper.setBlockModel(
+			ModBlocks.HELIORITE_COMB_BLOCK,
+			() -> new BlockModelStandard<>(ModBlocks.HELIORITE_COMB_BLOCK)
+				.setTex(0, "tlotd:block/heliorite_comb_block", Side.sides)
+		);
+		ModelHelper.setBlockModel(
+			ModBlocks.HELIORITE_BLOCK,
+			() -> new BlockModelStandard<>(ModBlocks.HELIORITE_BLOCK)
+				.setTex(0, "tlotd:block/heliorite_block", Side.sides)
+		);
+
+		ModelHelper.setBlockModel(
+			ModBlocks.ENDURIUM_STONE_ORE,
+			() -> new BlockModelStandard<>(ModBlocks.ENDURIUM_STONE_ORE)
+				.setTex(0, "tlotd:block/endurium_stone_ore", Side.sides)
+		);
+		ModelHelper.setBlockModel(
+			ModBlocks.ENDURIUM_BASALT_ORE,
+			() -> new BlockModelStandard<>(ModBlocks.ENDURIUM_BASALT_ORE)
+				.setTex(0, "tlotd:block/endurium_basalt_ore", Side.sides)
+		);
+		ModelHelper.setBlockModel(
+			ModBlocks.ENDURIUM_LIMESTONE_ORE,
+			() -> new BlockModelStandard<>(ModBlocks.ENDURIUM_LIMESTONE_ORE)
+				.setTex(0, "tlotd:block/endurium_limestone_ore", Side.sides)
+		);
+		ModelHelper.setBlockModel(
+			ModBlocks.ENDURIUM_GRANITE_ORE,
+			() -> new BlockModelStandard<>(ModBlocks.ENDURIUM_GRANITE_ORE)
+				.setTex(0, "tlotd:block/endurium_granite_ore", Side.sides)
+		);
+		ModelHelper.setBlockModel(
+			ModBlocks.ENDURIUM_PERMAFROST_ORE,
+			() -> new BlockModelStandard<>(ModBlocks.ENDURIUM_PERMAFROST_ORE)
+				.setTex(0, "tlotd:block/endurium_permafrost_ore", Side.sides)
+		);
+		ModelHelper.setBlockModel(
+			ModBlocks.RAW_ENDURIUM_BLOCK,
+			() -> new BlockModelStandard<>(ModBlocks.RAW_ENDURIUM_BLOCK)
+				.setTex(0, "tlotd:block/raw_endurium_block", Side.sides)
+		);
+		ModelHelper.setBlockModel(
+			ModBlocks.ENDURIUM_BLOCK,
+			() -> new BlockModelStandard<>(ModBlocks.ENDURIUM_BLOCK)
+				.setTex(0, "tlotd:block/endurium_block", Side.sides)
+		);
+
+		ModelHelper.setBlockModel(
+			ModBlocks.PALLADIUM_STONE_ORE,
+			() -> new BlockModelStandard<>(ModBlocks.PALLADIUM_STONE_ORE)
+				.setTex(0, "tlotd:block/palladium_stone_ore", Side.sides)
+		);
+		ModelHelper.setBlockModel(
+			ModBlocks.PALLADIUM_BASALT_ORE,
+			() -> new BlockModelStandard<>(ModBlocks.PALLADIUM_BASALT_ORE)
+				.setTex(0, "tlotd:block/palladium_basalt_ore", Side.sides)
+		);
+		ModelHelper.setBlockModel(
+			ModBlocks.PALLADIUM_LIMESTONE_ORE,
+			() -> new BlockModelStandard<>(ModBlocks.PALLADIUM_LIMESTONE_ORE)
+				.setTex(0, "tlotd:block/palladium_limestone_ore", Side.sides)
+		);
+		ModelHelper.setBlockModel(
+			ModBlocks.PALLADIUM_GRANITE_ORE,
+			() -> new BlockModelStandard<>(ModBlocks.PALLADIUM_GRANITE_ORE)
+				.setTex(0, "tlotd:block/palladium_granite_ore", Side.sides)
+		);
+		ModelHelper.setBlockModel(
+			ModBlocks.PALLADIUM_PERMAFROST_ORE,
+			() -> new BlockModelStandard<>(ModBlocks.PALLADIUM_PERMAFROST_ORE)
+				.setTex(0, "tlotd:block/palladium_permafrost_ore", Side.sides)
+		);
+		ModelHelper.setBlockModel(
+			ModBlocks.RAW_PALLADIUM_BLOCK,
+			() -> new BlockModelStandard<>(ModBlocks.RAW_PALLADIUM_BLOCK)
+				.setTex(0, "tlotd:block/raw_palladium_block", Side.sides)
+		);
+		ModelHelper.setBlockModel(
+			ModBlocks.PALLADIUM_BLOCK,
+			() -> new BlockModelStandard<>(ModBlocks.PALLADIUM_BLOCK)
+				.setTex(0, "tlotd:block/palladium_block", Side.sides)
+		);
+
+		ModelHelper.setBlockModel(
+			ModBlocks.JURASSOLINE_STONE_ORE,
+			() -> new BlockModelStandard<>(ModBlocks.JURASSOLINE_STONE_ORE)
+				.setTex(0, "tlotd:block/jurassoline_stone_ore", Side.sides)
+		);
+		ModelHelper.setBlockModel(
+			ModBlocks.JURASSOLINE_BASALT_ORE,
+			() -> new BlockModelStandard<>(ModBlocks.JURASSOLINE_BASALT_ORE)
+				.setTex(0, "tlotd:block/jurassoline_basalt_ore", Side.sides)
+		);
+		ModelHelper.setBlockModel(
+			ModBlocks.JURASSOLINE_LIMESTONE_ORE,
+			() -> new BlockModelStandard<>(ModBlocks.JURASSOLINE_LIMESTONE_ORE)
+				.setTex(0, "tlotd:block/jurassoline_limestone_ore", Side.sides)
+		);
+		ModelHelper.setBlockModel(
+			ModBlocks.JURASSOLINE_GRANITE_ORE,
+			() -> new BlockModelStandard<>(ModBlocks.JURASSOLINE_GRANITE_ORE)
+				.setTex(0, "tlotd:block/jurassoline_granite_ore", Side.sides)
+		);
+		ModelHelper.setBlockModel(
+			ModBlocks.JURASSOLINE_PERMAFROST_ORE,
+			() -> new BlockModelStandard<>(ModBlocks.JURASSOLINE_PERMAFROST_ORE)
+				.setTex(0, "tlotd:block/jurassoline_permafrost_ore", Side.sides)
+		);
+		ModelHelper.setBlockModel(
+			ModBlocks.JURASSOLINE_CRYSTAL_BLOCK,
+			() -> new BlockModelStandard<>(ModBlocks.JURASSOLINE_CRYSTAL_BLOCK)
+				.setTex(0, "tlotd:block/jurassoline_crystal_block", Side.sides)
+		);
+		ModelHelper.setBlockModel(
+			ModBlocks.JURASSOLINE_BLOCK,
+			() -> new BlockModelStandard<>(ModBlocks.JURASSOLINE_BLOCK)
+				.setTex(0, "tlotd:block/jurassoline_block", Side.sides)
+		);
+
+		ModelHelper.setBlockModel(
+			ModBlocks.CINNABAR_STONE_ORE,
+			() -> new BlockModelStandard<>(ModBlocks.CINNABAR_STONE_ORE)
+				.setTex(0, "tlotd:block/cinnabar_stone_ore", Side.sides)
+		);
+		ModelHelper.setBlockModel(
+			ModBlocks.CINNABAR_BASALT_ORE,
+			() -> new BlockModelStandard<>(ModBlocks.CINNABAR_BASALT_ORE)
+				.setTex(0, "tlotd:block/cinnabar_basalt_ore", Side.sides)
+		);
+		ModelHelper.setBlockModel(
+			ModBlocks.CINNABAR_LIMESTONE_ORE,
+			() -> new BlockModelStandard<>(ModBlocks.CINNABAR_LIMESTONE_ORE)
+				.setTex(0, "tlotd:block/cinnabar_limestone_ore", Side.sides)
+		);
+		ModelHelper.setBlockModel(
+			ModBlocks.CINNABAR_GRANITE_ORE,
+			() -> new BlockModelStandard<>(ModBlocks.CINNABAR_GRANITE_ORE)
+				.setTex(0, "tlotd:block/cinnabar_granite_ore", Side.sides)
+		);
+		ModelHelper.setBlockModel(
+			ModBlocks.CINNABAR_PERMAFROST_ORE,
+			() -> new BlockModelStandard<>(ModBlocks.CINNABAR_PERMAFROST_ORE)
+				.setTex(0, "tlotd:block/cinnabar_permafrost_ore", Side.sides)
+		);
+		ModelHelper.setBlockModel(
+			ModBlocks.CINNABAR_CRYSTAL_BLOCK,
+			() -> new BlockModelStandard<>(ModBlocks.CINNABAR_CRYSTAL_BLOCK)
+				.setTex(0, "tlotd:block/cinnabar_crystal_block", Side.sides)
+		);
+		ModelHelper.setBlockModel(
+			ModBlocks.CINNABAR_BLOCK,
+			() -> new BlockModelStandard<>(ModBlocks.CINNABAR_BLOCK)
+				.setTex(0, "tlotd:block/cinnabar_block", Side.sides)
+		);
+
+		ModelHelper.setBlockModel(
+			ModBlocks.NEBULAR_STONE_ORE,
+			() -> new BlockModelStandard<>(ModBlocks.NEBULAR_STONE_ORE)
+				.setTex(0, "tlotd:block/nebular_stone_ore", Side.sides)
+		);
+		ModelHelper.setBlockModel(
+			ModBlocks.NEBULAR_BASALT_ORE,
+			() -> new BlockModelStandard<>(ModBlocks.NEBULAR_BASALT_ORE)
+				.setTex(0, "tlotd:block/nebular_basalt_ore", Side.sides)
+		);
+		ModelHelper.setBlockModel(
+			ModBlocks.NEBULAR_LIMESTONE_ORE,
+			() -> new BlockModelStandard<>(ModBlocks.NEBULAR_LIMESTONE_ORE)
+				.setTex(0, "tlotd:block/nebular_limestone_ore", Side.sides)
+		);
+		ModelHelper.setBlockModel(
+			ModBlocks.NEBULAR_GRANITE_ORE,
+			() -> new BlockModelStandard<>(ModBlocks.NEBULAR_GRANITE_ORE)
+				.setTex(0, "tlotd:block/nebular_granite_ore", Side.sides)
+		);
+		ModelHelper.setBlockModel(
+			ModBlocks.NEBULAR_PERMAFROST_ORE,
+			() -> new BlockModelStandard<>(ModBlocks.NEBULAR_PERMAFROST_ORE)
+				.setTex(0, "tlotd:block/nebular_permafrost_ore", Side.sides)
+		);
+		ModelHelper.setBlockModel(
+			ModBlocks.RAW_NEBULAR_BLOCK,
+			() -> new BlockModelStandard<>(ModBlocks.RAW_NEBULAR_BLOCK)
+				.setTex(0, "tlotd:block/raw_nebular_block", Side.sides)
+		);
+		ModelHelper.setBlockModel(
+			ModBlocks.NEBULAR_BLOCK,
+			() -> new BlockModelStandard<>(ModBlocks.NEBULAR_BLOCK)
+				.setTex(0, "tlotd:block/nebular_block", Side.sides)
+		);
+
+		ModelHelper.setBlockModel(
+			ModBlocks.MITHRIL_STONE_ORE,
+			() -> new BlockModelStandard<>(ModBlocks.MITHRIL_STONE_ORE)
+				.setTex(0, "tlotd:block/mithril_stone_ore", Side.sides)
+		);
+		ModelHelper.setBlockModel(
+			ModBlocks.MITHRIL_BASALT_ORE,
+			() -> new BlockModelStandard<>(ModBlocks.MITHRIL_BASALT_ORE)
+				.setTex(0, "tlotd:block/mithril_basalt_ore", Side.sides)
+		);
+		ModelHelper.setBlockModel(
+			ModBlocks.MITHRIL_LIMESTONE_ORE,
+			() -> new BlockModelStandard<>(ModBlocks.MITHRIL_LIMESTONE_ORE)
+				.setTex(0, "tlotd:block/mithril_limestone_ore", Side.sides)
+		);
+		ModelHelper.setBlockModel(
+			ModBlocks.MITHRIL_GRANITE_ORE,
+			() -> new BlockModelStandard<>(ModBlocks.MITHRIL_GRANITE_ORE)
+				.setTex(0, "tlotd:block/mithril_granite_ore", Side.sides)
+		);
+		ModelHelper.setBlockModel(
+			ModBlocks.MITHRIL_PERMAFROST_ORE,
+			() -> new BlockModelStandard<>(ModBlocks.MITHRIL_PERMAFROST_ORE)
+				.setTex(0, "tlotd:block/mithril_permafrost_ore", Side.sides)
+		);
+		ModelHelper.setBlockModel(
+			ModBlocks.MITHRIL_BEDROCK_ORE,
+			() -> new BlockModelStandard<>(ModBlocks.MITHRIL_BEDROCK_ORE)
+				.setTex(0, "tlotd:block/mithril_bedrock_ore", Side.sides)
+		);
+		ModelHelper.setBlockModel(
+			ModBlocks.RAW_MITHRIL_BLOCK,
+			() -> new BlockModelStandard<>(ModBlocks.RAW_MITHRIL_BLOCK)
+				.setTex(0, "tlotd:block/raw_mithril_block", Side.sides)
+		);
+		ModelHelper.setBlockModel(
+			ModBlocks.MITHRIL_BLOCK,
+			() -> new BlockModelStandard<>(ModBlocks.MITHRIL_BLOCK)
+				.setTex(0, "tlotd:block/mithril_block", Side.sides)
+		);
+	}
+
+	@Override
+	public void initItemModels(ItemModelDispatcher itemModelDispatcher) {
+
+		ModelHelper.setItemModel(
+			ModItems.STEEL_ROD, () -> {
+				ItemModelStandard model = new ItemModelStandard(ModItems.STEEL_ROD, TLOTD.MOD_ID).setFull3D();
+				model.icon = TextureRegistry.getTexture(ModItems.STEEL_ROD.namespaceID);
+				return model;
+			}
+		);
+		ModelHelper.setItemModel(
+			ModItems.FOSSILIZED_BONE, () -> {
+				ItemModelStandard model = new ItemModelStandard(ModItems.FOSSILIZED_BONE, TLOTD.MOD_ID).setFull3D();
+				model.icon = TextureRegistry.getTexture(ModItems.FOSSILIZED_BONE.namespaceID);
+				return model;
+			}
+		);
+		ModelHelper.setItemModel(
+			ModItems.REINFORCED_TOOL_ROD, () -> {
+				ItemModelStandard model = new ItemModelStandard(ModItems.REINFORCED_TOOL_ROD, TLOTD.MOD_ID).setFull3D();
+				model.icon = TextureRegistry.getTexture(ModItems.REINFORCED_TOOL_ROD.namespaceID);
+				return model;
+			}
+		);
+		ModelHelper.setItemModel(
+			ModItems.FANCY_TOOL_ROD, () -> {
+				ItemModelStandard model = new ItemModelStandard(ModItems.FANCY_TOOL_ROD, TLOTD.MOD_ID).setFull3D();
+				model.icon = TextureRegistry.getTexture(ModItems.FANCY_TOOL_ROD.namespaceID);
+				return model;
+			}
+		);
+		ModelHelper.setItemModel(
+			ModItems.HELIORITE_COMB, () -> {
+				ItemModelStandard model = new ItemModelStandard(ModItems.HELIORITE_COMB, TLOTD.MOD_ID);
+				model.icon = TextureRegistry.getTexture(ModItems.HELIORITE_COMB.namespaceID);
+				return model;
+			}
+		);
+		ModelHelper.setItemModel(
+			ModItems.HELIORITE_NUGGET, () -> {
+				ItemModelStandard model = new ItemModelStandard(ModItems.HELIORITE_NUGGET, TLOTD.MOD_ID);
+				model.icon = TextureRegistry.getTexture(ModItems.HELIORITE_NUGGET.namespaceID);
+				return model;
+			}
+		);
+		ModelHelper.setItemModel(
+			ModItems.HELIORITE_INGOT, () -> {
+				ItemModelStandard model = new ItemModelStandard(ModItems.HELIORITE_INGOT, TLOTD.MOD_ID);
+				model.icon = TextureRegistry.getTexture(ModItems.HELIORITE_INGOT.namespaceID);
+				return model;
+			}
+		);
+		ModelHelper.setItemModel(
+			ModItems.HELIORITE_SWORD, () -> {
+				ItemModelStandard model = new ItemModelStandard(ModItems.HELIORITE_SWORD, TLOTD.MOD_ID).setFull3D();
+				model.icon = TextureRegistry.getTexture(ModItems.HELIORITE_SWORD.namespaceID);
+				return model;
+			}
+		);
+		ModelHelper.setItemModel(
+			ModItems.HELIORITE_PICKAXE, () -> {
+				ItemModelStandard model = new ItemModelStandard(ModItems.HELIORITE_PICKAXE, TLOTD.MOD_ID).setFull3D();
+				model.icon = TextureRegistry.getTexture(ModItems.HELIORITE_PICKAXE.namespaceID);
+				return model;
+			}
+		);
+		ModelHelper.setItemModel(
+			ModItems.HELIORITE_AXE, () -> {
+				ItemModelStandard model = new ItemModelStandard(ModItems.HELIORITE_AXE, TLOTD.MOD_ID).setFull3D();
+				model.icon = TextureRegistry.getTexture(ModItems.HELIORITE_AXE.namespaceID);
+				return model;
+			}
+		);
+		ModelHelper.setItemModel(
+			ModItems.HELIORITE_SHOVEL, () -> {
+				ItemModelStandard model = new ItemModelStandard(ModItems.HELIORITE_SHOVEL, TLOTD.MOD_ID).setFull3D();
+				model.icon = TextureRegistry.getTexture(ModItems.HELIORITE_SHOVEL.namespaceID);
+				return model;
+			}
+		);
+		ModelHelper.setItemModel(
+			ModItems.HELIORITE_HOE, () -> {
+				ItemModelStandard model = new ItemModelStandard(ModItems.HELIORITE_HOE, TLOTD.MOD_ID).setFull3D();
+				model.icon = TextureRegistry.getTexture(ModItems.HELIORITE_HOE.namespaceID);
+				return model;
+			}
+		);
+		ModelHelper.setItemModel(
+			ModItems.HELIORITE_HELMET, () -> {
+				ItemModelStandard model = new ItemModelStandard(ModItems.HELIORITE_HELMET, TLOTD.MOD_ID);
+				model.icon = TextureRegistry.getTexture(ModItems.HELIORITE_HELMET.namespaceID);
+				return model;
+			}
+		);
+		ModelHelper.setItemModel(
+			ModItems.HELIORITE_CHESTPLATE, () -> {
+				ItemModelStandard model = new ItemModelStandard(ModItems.HELIORITE_CHESTPLATE, TLOTD.MOD_ID);
+				model.icon = TextureRegistry.getTexture(ModItems.HELIORITE_CHESTPLATE.namespaceID);
+				return model;
+			}
+		);
+		ModelHelper.setItemModel(
+			ModItems.HELIORITE_LEGGINGS, () -> {
+				ItemModelStandard model = new ItemModelStandard(ModItems.HELIORITE_LEGGINGS, TLOTD.MOD_ID);
+				model.icon = TextureRegistry.getTexture(ModItems.HELIORITE_LEGGINGS.namespaceID);
+				return model;
+			}
+		);
+		ModelHelper.setItemModel(
+			ModItems.HELIORITE_BOOTS, () -> {
+				ItemModelStandard model = new ItemModelStandard(ModItems.HELIORITE_BOOTS, TLOTD.MOD_ID);
+				model.icon = TextureRegistry.getTexture(ModItems.HELIORITE_BOOTS.namespaceID);
+				return model;
+			}
+		);
+		ModelHelper.setItemModel(
+			ModItems.ENDURIUM_CRYSTAL, () -> {
+				ItemModelStandard model = new ItemModelStandard(ModItems.ENDURIUM_CRYSTAL, TLOTD.MOD_ID);
+				model.icon = TextureRegistry.getTexture(ModItems.ENDURIUM_CRYSTAL.namespaceID);
+				return model;
+			}
+		);
+		ModelHelper.setItemModel(
+			ModItems.ENDURIUM_NUGGET, () -> {
+				ItemModelStandard model = new ItemModelStandard(ModItems.ENDURIUM_NUGGET, TLOTD.MOD_ID);
+				model.icon = TextureRegistry.getTexture(ModItems.ENDURIUM_NUGGET.namespaceID);
+				return model;
+			}
+		);
+		ModelHelper.setItemModel(
+			ModItems.ENDURIUM_INGOT, () -> {
+				ItemModelStandard model = new ItemModelStandard(ModItems.ENDURIUM_INGOT, TLOTD.MOD_ID);
+				model.icon = TextureRegistry.getTexture(ModItems.ENDURIUM_INGOT.namespaceID);
+				return model;
+			}
+		);
+		ModelHelper.setItemModel(
+			ModItems.ENDURIUM_SWORD, () -> {
+				ItemModelStandard model = new ItemModelStandard(ModItems.ENDURIUM_SWORD, TLOTD.MOD_ID).setFull3D();
+				model.icon = TextureRegistry.getTexture(ModItems.ENDURIUM_SWORD.namespaceID);
+				return model;
+			}
+		);
+		ModelHelper.setItemModel(
+			ModItems.ENDURIUM_PICKAXE, () -> {
+				ItemModelStandard model = new ItemModelStandard(ModItems.ENDURIUM_PICKAXE, TLOTD.MOD_ID).setFull3D();
+				model.icon = TextureRegistry.getTexture(ModItems.ENDURIUM_PICKAXE.namespaceID);
+				return model;
+			}
+		);
+		ModelHelper.setItemModel(
+			ModItems.ENDURIUM_AXE, () -> {
+				ItemModelStandard model = new ItemModelStandard(ModItems.ENDURIUM_AXE, TLOTD.MOD_ID).setFull3D();
+				model.icon = TextureRegistry.getTexture(ModItems.ENDURIUM_AXE.namespaceID);
+				return model;
+			}
+		);
+		ModelHelper.setItemModel(
+			ModItems.ENDURIUM_SHOVEL, () -> {
+				ItemModelStandard model = new ItemModelStandard(ModItems.ENDURIUM_SHOVEL, TLOTD.MOD_ID).setFull3D();
+				model.icon = TextureRegistry.getTexture(ModItems.ENDURIUM_SHOVEL.namespaceID);
+				return model;
+			}
+		);
+		ModelHelper.setItemModel(
+			ModItems.ENDURIUM_HOE, () -> {
+				ItemModelStandard model = new ItemModelStandard(ModItems.ENDURIUM_HOE, TLOTD.MOD_ID).setFull3D();
+				model.icon = TextureRegistry.getTexture(ModItems.ENDURIUM_HOE.namespaceID);
+				return model;
+			}
+		);
+		ModelHelper.setItemModel(
+			ModItems.ENDURIUM_HELMET, () -> {
+				ItemModelStandard model = new ItemModelStandard(ModItems.ENDURIUM_HELMET, TLOTD.MOD_ID);
+				model.icon = TextureRegistry.getTexture(ModItems.ENDURIUM_HELMET.namespaceID);
+				return model;
+			}
+		);
+		ModelHelper.setItemModel(
+			ModItems.ENDURIUM_CHESTPLATE, () -> {
+				ItemModelStandard model = new ItemModelStandard(ModItems.ENDURIUM_CHESTPLATE, TLOTD.MOD_ID);
+				model.icon = TextureRegistry.getTexture(ModItems.ENDURIUM_CHESTPLATE.namespaceID);
+				return model;
+			}
+		);
+		ModelHelper.setItemModel(
+			ModItems.ENDURIUM_LEGGINGS, () -> {
+				ItemModelStandard model = new ItemModelStandard(ModItems.ENDURIUM_LEGGINGS, TLOTD.MOD_ID);
+				model.icon = TextureRegistry.getTexture(ModItems.ENDURIUM_LEGGINGS.namespaceID);
+				return model;
+			}
+		);
+		ModelHelper.setItemModel(
+			ModItems.ENDURIUM_BOOTS, () -> {
+				ItemModelStandard model = new ItemModelStandard(ModItems.ENDURIUM_BOOTS, TLOTD.MOD_ID);
+				model.icon = TextureRegistry.getTexture(ModItems.ENDURIUM_BOOTS.namespaceID);
+				return model;
+			}
+		);
+		ModelHelper.setItemModel(
+			ModItems.RAW_PALLADIUM, () -> {
+				ItemModelStandard model = new ItemModelStandard(ModItems.RAW_PALLADIUM, TLOTD.MOD_ID);
+				model.icon = TextureRegistry.getTexture(ModItems.RAW_PALLADIUM.namespaceID);
+				return model;
+			}
+		);
+		ModelHelper.setItemModel(
+			ModItems.PALLADIUM_NUGGET, () -> {
+				ItemModelStandard model = new ItemModelStandard(ModItems.PALLADIUM_NUGGET, TLOTD.MOD_ID);
+				model.icon = TextureRegistry.getTexture(ModItems.PALLADIUM_NUGGET.namespaceID);
+				return model;
+			}
+		);
+		ModelHelper.setItemModel(
+			ModItems.PALLADIUM_INGOT, () -> {
+				ItemModelStandard model = new ItemModelStandard(ModItems.PALLADIUM_INGOT, TLOTD.MOD_ID);
+				model.icon = TextureRegistry.getTexture(ModItems.PALLADIUM_INGOT.namespaceID);
+				return model;
+			}
+		);
+		ModelHelper.setItemModel(
+			ModItems.PALLADIUM_SWORD, () -> {
+				ItemModelStandard model = new ItemModelStandard(ModItems.PALLADIUM_SWORD, TLOTD.MOD_ID).setFull3D();
+				model.icon = TextureRegistry.getTexture(ModItems.PALLADIUM_SWORD.namespaceID);
+				return model;
+			}
+		);
+		ModelHelper.setItemModel(
+			ModItems.PALLADIUM_PICKAXE, () -> {
+				ItemModelStandard model = new ItemModelStandard(ModItems.PALLADIUM_PICKAXE, TLOTD.MOD_ID).setFull3D();
+				model.icon = TextureRegistry.getTexture(ModItems.PALLADIUM_PICKAXE.namespaceID);
+				return model;
+			}
+		);
+		ModelHelper.setItemModel(
+			ModItems.PALLADIUM_AXE, () -> {
+				ItemModelStandard model = new ItemModelStandard(ModItems.PALLADIUM_AXE, TLOTD.MOD_ID).setFull3D();
+				model.icon = TextureRegistry.getTexture(ModItems.PALLADIUM_AXE.namespaceID);
+				return model;
+			}
+		);
+		ModelHelper.setItemModel(
+			ModItems.PALLADIUM_SHOVEL, () -> {
+				ItemModelStandard model = new ItemModelStandard(ModItems.PALLADIUM_SHOVEL, TLOTD.MOD_ID).setFull3D();
+				model.icon = TextureRegistry.getTexture(ModItems.PALLADIUM_SHOVEL.namespaceID);
+				return model;
+			}
+		);
+		ModelHelper.setItemModel(
+			ModItems.PALLADIUM_HOE, () -> {
+				ItemModelStandard model = new ItemModelStandard(ModItems.PALLADIUM_HOE, TLOTD.MOD_ID).setFull3D();
+				model.icon = TextureRegistry.getTexture(ModItems.PALLADIUM_HOE.namespaceID);
+				return model;
+			}
+		);
+		ModelHelper.setItemModel(
+			ModItems.PALLADIUM_HELMET, () -> {
+				ItemModelStandard model = new ItemModelStandard(ModItems.PALLADIUM_HELMET, TLOTD.MOD_ID);
+				model.icon = TextureRegistry.getTexture(ModItems.PALLADIUM_HELMET.namespaceID);
+				return model;
+			}
+		);
+		ModelHelper.setItemModel(
+			ModItems.PALLADIUM_CHESTPLATE, () -> {
+				ItemModelStandard model = new ItemModelStandard(ModItems.PALLADIUM_CHESTPLATE, TLOTD.MOD_ID);
+				model.icon = TextureRegistry.getTexture(ModItems.PALLADIUM_CHESTPLATE.namespaceID);
+				return model;
+			}
+		);
+		ModelHelper.setItemModel(
+			ModItems.PALLADIUM_LEGGINGS, () -> {
+				ItemModelStandard model = new ItemModelStandard(ModItems.PALLADIUM_LEGGINGS, TLOTD.MOD_ID);
+				model.icon = TextureRegistry.getTexture(ModItems.PALLADIUM_LEGGINGS.namespaceID);
+				return model;
+			}
+		);
+		ModelHelper.setItemModel(
+			ModItems.PALLADIUM_BOOTS, () -> {
+				ItemModelStandard model = new ItemModelStandard(ModItems.PALLADIUM_BOOTS, TLOTD.MOD_ID);
+				model.icon = TextureRegistry.getTexture(ModItems.PALLADIUM_BOOTS.namespaceID);
+				return model;
+			}
+		);
+		ModelHelper.setItemModel(
+			ModItems.JURASSOLINE_CRYSTAL, () -> {
+				ItemModelStandard model = new ItemModelStandard(ModItems.JURASSOLINE_CRYSTAL, TLOTD.MOD_ID);
+				model.icon = TextureRegistry.getTexture(ModItems.JURASSOLINE_CRYSTAL.namespaceID);
+				return model;
+			}
+		);
+		ModelHelper.setItemModel(
+			ModItems.JURASSOLINE_NUGGET, () -> {
+				ItemModelStandard model = new ItemModelStandard(ModItems.JURASSOLINE_NUGGET, TLOTD.MOD_ID);
+				model.icon = TextureRegistry.getTexture(ModItems.JURASSOLINE_NUGGET.namespaceID);
+				return model;
+			}
+		);
+		ModelHelper.setItemModel(
+			ModItems.JURASSOLINE_INGOT, () -> {
+				ItemModelStandard model = new ItemModelStandard(ModItems.JURASSOLINE_INGOT, TLOTD.MOD_ID);
+				model.icon = TextureRegistry.getTexture(ModItems.JURASSOLINE_INGOT.namespaceID);
+				return model;
+			}
+		);
+		ModelHelper.setItemModel(
+			ModItems.JURASSOLINE_SWORD, () -> {
+				ItemModelStandard model = new ItemModelStandard(ModItems.JURASSOLINE_SWORD, TLOTD.MOD_ID).setFull3D();
+				model.icon = TextureRegistry.getTexture(ModItems.JURASSOLINE_SWORD.namespaceID);
+				return model;
+			}
+		);
+		ModelHelper.setItemModel(
+			ModItems.JURASSOLINE_PICKAXE, () -> {
+				ItemModelStandard model = new ItemModelStandard(ModItems.JURASSOLINE_PICKAXE, TLOTD.MOD_ID).setFull3D();
+				model.icon = TextureRegistry.getTexture(ModItems.JURASSOLINE_PICKAXE.namespaceID);
+				return model;
+			}
+		);
+		ModelHelper.setItemModel(
+			ModItems.JURASSOLINE_AXE, () -> {
+				ItemModelStandard model = new ItemModelStandard(ModItems.JURASSOLINE_AXE, TLOTD.MOD_ID).setFull3D();
+				model.icon = TextureRegistry.getTexture(ModItems.JURASSOLINE_AXE.namespaceID);
+				return model;
+			}
+		);
+		ModelHelper.setItemModel(
+			ModItems.JURASSOLINE_SHOVEL, () -> {
+				ItemModelStandard model = new ItemModelStandard(ModItems.JURASSOLINE_SHOVEL, TLOTD.MOD_ID).setFull3D();
+				model.icon = TextureRegistry.getTexture(ModItems.JURASSOLINE_SHOVEL.namespaceID);
+				return model;
+			}
+		);
+		ModelHelper.setItemModel(
+			ModItems.JURASSOLINE_HOE, () -> {
+				ItemModelStandard model = new ItemModelStandard(ModItems.JURASSOLINE_HOE, TLOTD.MOD_ID).setFull3D();
+				model.icon = TextureRegistry.getTexture(ModItems.JURASSOLINE_HOE.namespaceID);
+				return model;
+			}
+		);
+		ModelHelper.setItemModel(
+			ModItems.JURASSOLINE_HELMET, () -> {
+				ItemModelStandard model = new ItemModelStandard(ModItems.JURASSOLINE_HELMET, TLOTD.MOD_ID);
+				model.icon = TextureRegistry.getTexture(ModItems.JURASSOLINE_HELMET.namespaceID);
+				return model;
+			}
+		);
+		ModelHelper.setItemModel(
+			ModItems.JURASSOLINE_CHESTPLATE, () -> {
+				ItemModelStandard model = new ItemModelStandard(ModItems.JURASSOLINE_CHESTPLATE, TLOTD.MOD_ID);
+				model.icon = TextureRegistry.getTexture(ModItems.JURASSOLINE_CHESTPLATE.namespaceID);
+				return model;
+			}
+		);
+		ModelHelper.setItemModel(
+			ModItems.JURASSOLINE_LEGGINGS, () -> {
+				ItemModelStandard model = new ItemModelStandard(ModItems.JURASSOLINE_LEGGINGS, TLOTD.MOD_ID);
+				model.icon = TextureRegistry.getTexture(ModItems.JURASSOLINE_LEGGINGS.namespaceID);
+				return model;
+			}
+		);
+		ModelHelper.setItemModel(
+			ModItems.JURASSOLINE_BOOTS, () -> {
+				ItemModelStandard model = new ItemModelStandard(ModItems.JURASSOLINE_BOOTS, TLOTD.MOD_ID);
+				model.icon = TextureRegistry.getTexture(ModItems.JURASSOLINE_BOOTS.namespaceID);
+				return model;
+			}
+		);
+		ModelHelper.setItemModel(
+			ModItems.CINNABAR_CRYSTAL, () -> {
+				ItemModelStandard model = new ItemModelStandard(ModItems.CINNABAR_CRYSTAL, TLOTD.MOD_ID);
+				model.icon = TextureRegistry.getTexture(ModItems.CINNABAR_CRYSTAL.namespaceID);
+				return model;
+			}
+		);
+		ModelHelper.setItemModel(
+			ModItems.CINNABAR_NUGGET, () -> {
+				ItemModelStandard model = new ItemModelStandard(ModItems.CINNABAR_NUGGET, TLOTD.MOD_ID);
+				model.icon = TextureRegistry.getTexture(ModItems.CINNABAR_NUGGET.namespaceID);
+				return model;
+			}
+		);
+		ModelHelper.setItemModel(
+			ModItems.CINNABAR_INGOT, () -> {
+				ItemModelStandard model = new ItemModelStandard(ModItems.CINNABAR_INGOT, TLOTD.MOD_ID);
+				model.icon = TextureRegistry.getTexture(ModItems.CINNABAR_INGOT.namespaceID);
+				return model;
+			}
+		);
+		ModelHelper.setItemModel(
+			ModItems.CINNABAR_SWORD, () -> {
+				ItemModelStandard model = new ItemModelStandard(ModItems.CINNABAR_SWORD, TLOTD.MOD_ID).setFull3D();
+				model.icon = TextureRegistry.getTexture(ModItems.CINNABAR_SWORD.namespaceID);
+				return model;
+			}
+		);
+		ModelHelper.setItemModel(
+			ModItems.CINNABAR_PICKAXE, () -> {
+				ItemModelStandard model = new ItemModelStandard(ModItems.CINNABAR_PICKAXE, TLOTD.MOD_ID).setFull3D();
+				model.icon = TextureRegistry.getTexture(ModItems.CINNABAR_PICKAXE.namespaceID);
+				return model;
+			}
+		);
+		ModelHelper.setItemModel(
+			ModItems.CINNABAR_AXE, () -> {
+				ItemModelStandard model = new ItemModelStandard(ModItems.CINNABAR_AXE, TLOTD.MOD_ID).setFull3D();
+				model.icon = TextureRegistry.getTexture(ModItems.CINNABAR_AXE.namespaceID);
+				return model;
+			}
+		);
+		ModelHelper.setItemModel(
+			ModItems.CINNABAR_SHOVEL, () -> {
+				ItemModelStandard model = new ItemModelStandard(ModItems.CINNABAR_SHOVEL, TLOTD.MOD_ID).setFull3D();
+				model.icon = TextureRegistry.getTexture(ModItems.CINNABAR_SHOVEL.namespaceID);
+				return model;
+			}
+		);
+		ModelHelper.setItemModel(
+			ModItems.CINNABAR_HOE, () -> {
+				ItemModelStandard model = new ItemModelStandard(ModItems.CINNABAR_HOE, TLOTD.MOD_ID).setFull3D();
+				model.icon = TextureRegistry.getTexture(ModItems.CINNABAR_HOE.namespaceID);
+				return model;
+			}
+		);
+		ModelHelper.setItemModel(
+			ModItems.CINNABAR_HELMET, () -> {
+				ItemModelStandard model = new ItemModelStandard(ModItems.CINNABAR_HELMET, TLOTD.MOD_ID);
+				model.icon = TextureRegistry.getTexture(ModItems.CINNABAR_HELMET.namespaceID);
+				return model;
+			}
+		);
+		ModelHelper.setItemModel(
+			ModItems.CINNABAR_CHESTPLATE, () -> {
+				ItemModelStandard model = new ItemModelStandard(ModItems.CINNABAR_CHESTPLATE, TLOTD.MOD_ID);
+				model.icon = TextureRegistry.getTexture(ModItems.CINNABAR_CHESTPLATE.namespaceID);
+				return model;
+			}
+		);
+		ModelHelper.setItemModel(
+			ModItems.CINNABAR_LEGGINGS, () -> {
+				ItemModelStandard model = new ItemModelStandard(ModItems.CINNABAR_LEGGINGS, TLOTD.MOD_ID);
+				model.icon = TextureRegistry.getTexture(ModItems.CINNABAR_LEGGINGS.namespaceID);
+				return model;
+			}
+		);
+		ModelHelper.setItemModel(
+			ModItems.CINNABAR_BOOTS, () -> {
+				ItemModelStandard model = new ItemModelStandard(ModItems.CINNABAR_BOOTS, TLOTD.MOD_ID);
+				model.icon = TextureRegistry.getTexture(ModItems.CINNABAR_BOOTS.namespaceID);
+				return model;
+			}
+		);
+		ModelHelper.setItemModel(
+			ModItems.NEBULAR_CRYSTAL, () -> {
+				ItemModelStandard model = new ItemModelStandard(ModItems.NEBULAR_CRYSTAL, TLOTD.MOD_ID);
+				model.icon = TextureRegistry.getTexture(ModItems.NEBULAR_CRYSTAL.namespaceID);
+				return model;
+			}
+		);
+		ModelHelper.setItemModel(
+			ModItems.NEBULAR_NUGGET, () -> {
+				ItemModelStandard model = new ItemModelStandard(ModItems.NEBULAR_NUGGET, TLOTD.MOD_ID);
+				model.icon = TextureRegistry.getTexture(ModItems.NEBULAR_NUGGET.namespaceID);
+				return model;
+			}
+		);
+		ModelHelper.setItemModel(
+			ModItems.NEBULAR_INGOT, () -> {
+				ItemModelStandard model = new ItemModelStandard(ModItems.NEBULAR_INGOT, TLOTD.MOD_ID);
+				model.icon = TextureRegistry.getTexture(ModItems.NEBULAR_INGOT.namespaceID);
+				return model;
+			}
+		);
+		ModelHelper.setItemModel(
+			ModItems.NEBULAR_SWORD, () -> {
+				ItemModelStandard model = new ItemModelStandard(ModItems.NEBULAR_SWORD, TLOTD.MOD_ID).setFull3D();
+				model.icon = TextureRegistry.getTexture(ModItems.NEBULAR_SWORD.namespaceID);
+				return model;
+			}
+		);
+		ModelHelper.setItemModel(
+			ModItems.NEBULAR_PICKAXE, () -> {
+				ItemModelStandard model = new ItemModelStandard(ModItems.NEBULAR_PICKAXE, TLOTD.MOD_ID).setFull3D();
+				model.icon = TextureRegistry.getTexture(ModItems.NEBULAR_PICKAXE.namespaceID);
+				return model;
+			}
+		);
+		ModelHelper.setItemModel(
+			ModItems.NEBULAR_AXE, () -> {
+				ItemModelStandard model = new ItemModelStandard(ModItems.NEBULAR_AXE, TLOTD.MOD_ID).setFull3D();
+				model.icon = TextureRegistry.getTexture(ModItems.NEBULAR_AXE.namespaceID);
+				return model;
+			}
+		);
+		ModelHelper.setItemModel(
+			ModItems.NEBULAR_SHOVEL, () -> {
+				ItemModelStandard model = new ItemModelStandard(ModItems.NEBULAR_SHOVEL, TLOTD.MOD_ID).setFull3D();
+				model.icon = TextureRegistry.getTexture(ModItems.NEBULAR_SHOVEL.namespaceID);
+				return model;
+			}
+		);
+		ModelHelper.setItemModel(
+			ModItems.NEBULAR_HOE, () -> {
+				ItemModelStandard model = new ItemModelStandard(ModItems.NEBULAR_HOE, TLOTD.MOD_ID).setFull3D();
+				model.icon = TextureRegistry.getTexture(ModItems.NEBULAR_HOE.namespaceID);
+				return model;
+			}
+		);
+		ModelHelper.setItemModel(
+			ModItems.NEBULAR_HELMET, () -> {
+				ItemModelStandard model = new ItemModelStandard(ModItems.NEBULAR_HELMET, TLOTD.MOD_ID);
+				model.icon = TextureRegistry.getTexture(ModItems.NEBULAR_HELMET.namespaceID);
+				return model;
+			}
+		);
+		ModelHelper.setItemModel(
+			ModItems.NEBULAR_CHESTPLATE, () -> {
+				ItemModelStandard model = new ItemModelStandard(ModItems.NEBULAR_CHESTPLATE, TLOTD.MOD_ID);
+				model.icon = TextureRegistry.getTexture(ModItems.NEBULAR_CHESTPLATE.namespaceID);
+				return model;
+			}
+		);
+		ModelHelper.setItemModel(
+			ModItems.NEBULAR_LEGGINGS, () -> {
+				ItemModelStandard model = new ItemModelStandard(ModItems.NEBULAR_LEGGINGS, TLOTD.MOD_ID);
+				model.icon = TextureRegistry.getTexture(ModItems.NEBULAR_LEGGINGS.namespaceID);
+				return model;
+			}
+		);
+		ModelHelper.setItemModel(
+			ModItems.NEBULAR_BOOTS, () -> {
+				ItemModelStandard model = new ItemModelStandard(ModItems.NEBULAR_BOOTS, TLOTD.MOD_ID);
+				model.icon = TextureRegistry.getTexture(ModItems.NEBULAR_BOOTS.namespaceID);
+				return model;
+			}
+		);
+		ModelHelper.setItemModel(
+			ModItems.RAW_MITHRIL, () -> {
+				ItemModelStandard model = new ItemModelStandard(ModItems.RAW_MITHRIL, TLOTD.MOD_ID);
+				model.icon = TextureRegistry.getTexture(ModItems.RAW_MITHRIL.namespaceID);
+				return model;
+			}
+		);
+		ModelHelper.setItemModel(
+			ModItems.MITHRIL_NUGGET, () -> {
+				ItemModelStandard model = new ItemModelStandard(ModItems.MITHRIL_NUGGET, TLOTD.MOD_ID);
+				model.icon = TextureRegistry.getTexture(ModItems.MITHRIL_NUGGET.namespaceID);
+				return model;
+			}
+		);
+		ModelHelper.setItemModel(
+			ModItems.MITHRIL_INGOT, () -> {
+				ItemModelStandard model = new ItemModelStandard(ModItems.MITHRIL_INGOT, TLOTD.MOD_ID);
+				model.icon = TextureRegistry.getTexture(ModItems.MITHRIL_INGOT.namespaceID);
+				return model;
+			}
+		);
+		ModelHelper.setItemModel(
+			ModItems.MITHRIL_SWORD, () -> {
+				ItemModelStandard model = new ItemModelStandard(ModItems.MITHRIL_SWORD, TLOTD.MOD_ID).setFull3D();
+				model.icon = TextureRegistry.getTexture(ModItems.MITHRIL_SWORD.namespaceID);
+				return model;
+			}
+		);
+		ModelHelper.setItemModel(
+			ModItems.MITHRIL_PICKAXE, () -> {
+				ItemModelStandard model = new ItemModelStandard(ModItems.MITHRIL_PICKAXE, TLOTD.MOD_ID).setFull3D();
+				model.icon = TextureRegistry.getTexture(ModItems.MITHRIL_PICKAXE.namespaceID);
+				return model;
+			}
+		);
+		ModelHelper.setItemModel(
+			ModItems.MITHRIL_AXE, () -> {
+				ItemModelStandard model = new ItemModelStandard(ModItems.MITHRIL_AXE, TLOTD.MOD_ID).setFull3D();
+				model.icon = TextureRegistry.getTexture(ModItems.MITHRIL_AXE.namespaceID);
+				return model;
+			}
+		);
+		ModelHelper.setItemModel(
+			ModItems.MITHRIL_SHOVEL, () -> {
+				ItemModelStandard model = new ItemModelStandard(ModItems.MITHRIL_SHOVEL, TLOTD.MOD_ID).setFull3D();
+				model.icon = TextureRegistry.getTexture(ModItems.MITHRIL_SHOVEL.namespaceID);
+				return model;
+			}
+		);
+		ModelHelper.setItemModel(
+			ModItems.MITHRIL_HOE, () -> {
+				ItemModelStandard model = new ItemModelStandard(ModItems.MITHRIL_HOE, TLOTD.MOD_ID).setFull3D();
+				model.icon = TextureRegistry.getTexture(ModItems.MITHRIL_HOE.namespaceID);
+				return model;
+			}
+		);
+		ModelHelper.setItemModel(
+			ModItems.ANDURIL, () -> {
+				ItemModelStandard model = new ItemModelStandard(ModItems.ANDURIL, TLOTD.MOD_ID).setFull3D();
+				model.icon = TextureRegistry.getTexture(ModItems.ANDURIL.namespaceID);
+				return model;
+			}
+		);
+
+		ModelHelper.setItemModel(
+			ModItems.MITHRIL_HELMET, () -> {
+				ItemModelStandard model = new ItemModelStandard(ModItems.MITHRIL_HELMET, TLOTD.MOD_ID);
+				model.icon = TextureRegistry.getTexture(ModItems.MITHRIL_HELMET.namespaceID);
+				return model;
+			}
+		);
+		ModelHelper.setItemModel(
+			ModItems.MITHRIL_CHESTPLATE, () -> {
+				ItemModelStandard model = new ItemModelStandard(ModItems.MITHRIL_CHESTPLATE, TLOTD.MOD_ID);
+				model.icon = TextureRegistry.getTexture(ModItems.MITHRIL_CHESTPLATE.namespaceID);
+				return model;
+			}
+		);
+		ModelHelper.setItemModel(
+			ModItems.MITHRIL_LEGGINGS, () -> {
+				ItemModelStandard model = new ItemModelStandard(ModItems.MITHRIL_LEGGINGS, TLOTD.MOD_ID);
+				model.icon = TextureRegistry.getTexture(ModItems.MITHRIL_LEGGINGS.namespaceID);
+				return model;
+			}
+		);
+		ModelHelper.setItemModel(
+			ModItems.MITHRIL_BOOTS, () -> {
+				ItemModelStandard model = new ItemModelStandard(ModItems.MITHRIL_BOOTS, TLOTD.MOD_ID);
+				model.icon = TextureRegistry.getTexture(ModItems.MITHRIL_BOOTS.namespaceID);
+				return model;
+			}
+		);
+
+		ModelHelper.setItemModel(
+			ModItems.TOAST, () -> {
+				ItemModelStandard model = new ItemModelStandard(ModItems.TOAST, TLOTD.MOD_ID);
+				model.icon = TextureRegistry.getTexture(ModItems.TOAST.namespaceID);
+				return model;
+			}
+		);
+		ModelHelper.setItemModel(
+			ModItems.FLOUR, () -> {
+				ItemModelStandard model = new ItemModelStandard(ModItems.FLOUR, TLOTD.MOD_ID);
+				model.icon = TextureRegistry.getTexture(ModItems.FLOUR.namespaceID);
+				return model;
+			}
+		);
+		ModelHelper.setItemModel(
+			ModItems.BREADCRUMBS, () -> {
+				ItemModelStandard model = new ItemModelStandard(ModItems.BREADCRUMBS, TLOTD.MOD_ID);
+				model.icon = TextureRegistry.getTexture(ModItems.BREADCRUMBS.namespaceID);
+				return model;
+			}
+		);
+		ModelHelper.setItemModel(
+			ModItems.RAW_SCHNITZEL, () -> {
+				ItemModelStandard model = new ItemModelStandard(ModItems.RAW_SCHNITZEL, TLOTD.MOD_ID);
+				model.icon = TextureRegistry.getTexture(ModItems.RAW_SCHNITZEL.namespaceID);
+				return model;
+			}
+		);
+		ModelHelper.setItemModel(
+			ModItems.SCHNITZEL, () -> {
+				ItemModelStandard model = new ItemModelStandard(ModItems.SCHNITZEL, TLOTD.MOD_ID);
+				model.icon = TextureRegistry.getTexture(ModItems.SCHNITZEL.namespaceID);
+				return model;
+			}
+		);
+		ModelHelper.setItemModel(
+			ModItems.MAULTASCHE, () -> {
+				ItemModelStandard model = new ItemModelStandard(ModItems.MAULTASCHE, TLOTD.MOD_ID);
+				model.icon = TextureRegistry.getTexture(ModItems.MAULTASCHE.namespaceID);
+				return model;
+			}
+		);
+		ModelHelper.setItemModel(
+			ModItems.MAULTASCHEN_BROTH, () -> {
+				ItemModelStandard model = new ItemModelStandard(ModItems.MAULTASCHEN_BROTH, TLOTD.MOD_ID);
+				model.icon = TextureRegistry.getTexture(ModItems.MAULTASCHEN_BROTH.namespaceID);
+				return model;
+			}
+		);
+	}
+
+	@Override
+	public void initEntityModels(EntityRenderDispatcher entityRenderDispatcher) {
+
+	}
+
+	@Override
+	public void initTileEntityModels(TileEntityRenderDispatcher tileEntityRenderDispatcher) {
+
+	}
+
+	@Override
+	public void initBlockColors(BlockColorDispatcher blockColorDispatcher) {
+
+	}
 }

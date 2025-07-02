@@ -1,7 +1,0 @@
-{
-	"parent": "tlotd:block/framed_glass_pane_side",
-	"textures": {
-		"particle": "tlotd:block/framed_glass_tiled",
-		"pane": "tlotd:block/framed_glass_tiled"
-	}
-}

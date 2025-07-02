@@ -1,9 +1,0 @@
-{
-	"parent": "tlotd:block/template_radio_on",
-	"textures": {
-		"0": "alexscaves:block/pewen/pewen_log",
-		"1": "alexscaves:block/pewen/stripped_pewen_log",
-		"3": "tlotd:block/radio/frequency2",
-		"particle": "alexscaves:block/pewen/pewen_log"
-	}
-}

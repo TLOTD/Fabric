@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab_top",
-  "textures": {
-    "bottom": "tlotd:block/fancy_warped_planks",
-    "side": "tlotd:block/fancy_warped_planks",
-    "top": "tlotd:block/fancy_warped_planks"
-  }
-}

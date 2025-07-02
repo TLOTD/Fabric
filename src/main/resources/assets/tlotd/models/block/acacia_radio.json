@@ -1,9 +1,0 @@
-{
-	"parent": "tlotd:block/template_radio",
-	"textures": {
-		"0": "minecraft:block/acacia_log",
-		"1": "minecraft:block/stripped_acacia_log",
-		"3": "tlotd:block/radio/frequency1",
-		"particle": "minecraft:block/acacia_log"
-	}
-}

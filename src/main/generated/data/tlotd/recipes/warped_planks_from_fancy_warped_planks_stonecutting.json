@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "count": 1,
-  "ingredient": {
-    "item": "tlotd:fancy_warped_planks"
-  },
-  "result": "minecraft:warped_planks"
-}

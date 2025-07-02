@@ -1,9 +1,0 @@
-{
-	"parent": "tlotd:block/template_radio_on",
-	"textures": {
-		"0": "minecraft:block/oak_log",
-		"1": "minecraft:block/stripped_oak_log",
-		"3": "tlotd:block/radio/frequency0",
-		"particle": "minecraft:block/oak_log"
-	}
-}

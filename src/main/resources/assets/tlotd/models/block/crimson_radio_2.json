@@ -1,9 +1,0 @@
-{
-	"parent": "tlotd:block/template_radio_on",
-	"textures": {
-		"0": "minecraft:block/crimson_stem",
-		"1": "minecraft:block/stripped_crimson_stem",
-		"3": "tlotd:block/radio/frequency2",
-		"particle": "minecraft:block/crimson_stem"
-	}
-}

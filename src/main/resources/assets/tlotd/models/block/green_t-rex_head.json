@@ -1,7 +1,0 @@
-{
-  "parent": "tlotd:block/template_t-rex_head",
-  "textures": {
-    "0": "tlotd:block/t-rex/green",
-    "particle": "tlotd:block/t-rex/green"
-  }
-}

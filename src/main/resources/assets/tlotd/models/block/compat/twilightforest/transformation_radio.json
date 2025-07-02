@@ -1,9 +1,0 @@
-{
-	"parent": "tlotd:block/template_radio",
-	"textures": {
-		"0": "twilightforest:block/transformation_log",
-		"1": "twilightforest:block/stripped_transformation_log",
-		"3": "tlotd:block/radio/frequency1",
-		"particle": "twilightforest:block/transformation_log"
-	}
-}

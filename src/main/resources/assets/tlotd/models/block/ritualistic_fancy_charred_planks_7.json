@@ -1,7 +1,0 @@
-{
-    "parent": "tlotd:block/ritualistic_fancy_charred_planks_0",
-    "textures": {
-        "top": "tlotd:block/ritualistic_fancy_charred_planks_7",
-        "bottom": "tlotd:block/ritualistic_fancy_charred_planks_1"
-    }
-}

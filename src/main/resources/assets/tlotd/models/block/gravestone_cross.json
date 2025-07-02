@@ -1,7 +1,0 @@
-{
-	"parent": "tlotd:block/template_gravestone_cross",
-	"textures": {
-		"0": "tlotd:block/gravestone_cross",
-		"particle": "tlotd:block/gravestone_cross"
-	}
-}

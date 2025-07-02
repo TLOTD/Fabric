@@ -1,9 +1,0 @@
-{
-	"parent": "tlotd:block/template_radio_on",
-	"textures": {
-		"0": "aether:block/natural/skyroot_log",
-		"1": "aether:block/natural/stripped_skyroot_log",
-		"3": "tlotd:block/radio/frequency1",
-		"particle": "aether:block/natural/skyroot_log"
-	}
-}
