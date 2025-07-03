@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_nebular_sickle": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "tlotd:nebular_sickle"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:nebular_nugget_from_blasting_nebular_sickle"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_nebular_sickle",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:nebular_nugget_from_blasting_nebular_sickle"
+    ]
+  },
+  "sends_telemetry_event": false
+}

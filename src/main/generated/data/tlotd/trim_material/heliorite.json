@@ -1,0 +1,9 @@
+{
+  "asset_name": "heliorite",
+  "description": {
+    "color": "#DB74E4",
+    "translate": "trim_material.tlotd.heliorite"
+  },
+  "ingredient": "tlotd:heliorite_ingot",
+  "item_model_index": 1.0
+}

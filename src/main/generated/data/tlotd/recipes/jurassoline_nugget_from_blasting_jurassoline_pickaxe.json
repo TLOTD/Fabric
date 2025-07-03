@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 400,
+  "experience": 0.7,
+  "group": "jurassoline_nugget",
+  "ingredient": {
+    "item": "tlotd:jurassoline_pickaxe"
+  },
+  "result": "tlotd:jurassoline_nugget"
+}

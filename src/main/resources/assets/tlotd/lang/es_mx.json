@@ -1321,5 +1321,11 @@
   "block.minecraft.banner.tlotd.blind_eye.white": "Ojo blanco rojo",
   "block.minecraft.banner.tlotd.blind_eye.yellow": "Ojo amarillo rojo",
 
+  "trim_material.tlotd.heliorite": "Material de heliorite",
+  "trim_material.tlotd.endurium": "Material de endurium",
+  "trim_material.tlotd.palladium": "Material de palladium",
+  "trim_material.tlotd.jurassoline": "Material de jurassoline",
+  "trim_material.tlotd.cinnabar": "Material de cinnabar",
+  "trim_material.tlotd.nebular": "Material de nebular",
   "trim_material.tlotd.mithril": "Material de mithril"
 }

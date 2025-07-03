@@ -5,7 +5,6 @@ import net.minecraft.block.Blocks;
 import net.minecraft.item.AxeItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
-import net.minecraft.item.Items;
 import net.minecraft.util.ActionResult;
 import net.tlotd.block.ModBlocks;
 import net.tlotd.config.ModConfigs;

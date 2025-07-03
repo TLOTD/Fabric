@@ -1,0 +1,9 @@
+{
+  "asset_name": "endurium",
+  "description": {
+    "color": "#005648",
+    "translate": "trim_material.tlotd.endurium"
+  },
+  "ingredient": "tlotd:endurium_ingot",
+  "item_model_index": 0.9
+}

@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 400,
+  "experience": 0.7,
+  "group": "nebular_nugget",
+  "ingredient": {
+    "item": "tlotd:nebular_sword"
+  },
+  "result": "tlotd:nebular_nugget"
+}

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "#": {
+      "item": "minecraft:cobbled_deepslate"
+    },
+    "C": {
+      "item": "minecraft:raw_copper"
+    }
+  },
+  "pattern": [
+    "#C",
+    "C#"
+  ],
+  "result": {
+    "count": 2,
+    "item": "tlotd:cobbled_red_deepslate"
+  },
+  "show_notification": true
+}

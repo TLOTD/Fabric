@@ -29,6 +29,9 @@ import net.tlotd.world.tree.GinkgoSaplingGenerator;
 
 public class ModBlocks {
 
+    public static final Block BENCH = registerBlock("bench",
+            new BenchBlock(FabricBlockSettings.create().mapColor(MapColor.BROWN).requiresTool().strength(2.0F, 2.0F).nonOpaque()));
+
     public static final Block STICK_CROSS = registerBlock("stick_cross",
             new StickCrossBlock(FabricBlockSettings.create().mapColor(MapColor.BROWN).breakInstantly().sounds(BlockSoundGroup.WOOD).pistonBehavior(PistonBehavior.DESTROY).collidable(false).nonOpaque()));
 

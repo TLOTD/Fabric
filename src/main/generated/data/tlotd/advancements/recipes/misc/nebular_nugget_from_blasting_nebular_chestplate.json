@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_nebular_chestplate": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "tlotd:nebular_chestplate"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:nebular_nugget_from_blasting_nebular_chestplate"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_nebular_chestplate",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:nebular_nugget_from_blasting_nebular_chestplate"
+    ]
+  },
+  "sends_telemetry_event": false
+}

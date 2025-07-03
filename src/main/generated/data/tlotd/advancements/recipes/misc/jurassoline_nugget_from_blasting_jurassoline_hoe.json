@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_jurassoline_hoe": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "tlotd:jurassoline_hoe"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:jurassoline_nugget_from_blasting_jurassoline_hoe"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_jurassoline_hoe",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:jurassoline_nugget_from_blasting_jurassoline_hoe"
+    ]
+  },
+  "sends_telemetry_event": false
+}

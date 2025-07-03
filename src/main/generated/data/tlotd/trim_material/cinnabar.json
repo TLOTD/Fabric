@@ -1,0 +1,9 @@
+{
+  "asset_name": "cinnabar",
+  "description": {
+    "color": "#8A0025",
+    "translate": "trim_material.tlotd.cinnabar"
+  },
+  "ingredient": "tlotd:cinnabar_ingot",
+  "item_model_index": 0.4
+}

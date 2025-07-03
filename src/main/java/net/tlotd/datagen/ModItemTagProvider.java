@@ -516,6 +516,12 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
         ;
 
         getOrCreateTagBuilder(ItemTags.TRIM_MATERIALS)
+                .add(ModItems.HELIORITE_INGOT)
+                .add(ModItems.ENDURIUM_INGOT)
+                .add(ModItems.PALLADIUM_INGOT)
+                .add(ModItems.JURASSOLINE_INGOT)
+                .add(ModItems.CINNABAR_INGOT)
+                .add(ModItems.NEBULAR_INGOT)
                 .add(ModItems.MITHRIL_INGOT)
         ;
 

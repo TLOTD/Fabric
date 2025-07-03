@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_endurium_shovel": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "tlotd:endurium_shovel"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:endurium_nugget_from_blasting_endurium_shovel"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_endurium_shovel",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:endurium_nugget_from_blasting_endurium_shovel"
+    ]
+  },
+  "sends_telemetry_event": false
+}

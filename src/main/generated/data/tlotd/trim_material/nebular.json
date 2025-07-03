@@ -1,0 +1,9 @@
+{
+  "asset_name": "nebular",
+  "description": {
+    "color": "#371D31",
+    "translate": "trim_material.tlotd.nebular"
+  },
+  "ingredient": "tlotd:nebular_ingot",
+  "item_model_index": 0.3
+}

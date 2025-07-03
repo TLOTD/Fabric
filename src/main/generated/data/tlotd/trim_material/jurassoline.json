@@ -1,0 +1,9 @@
+{
+  "asset_name": "jurassoline",
+  "description": {
+    "color": "#70B726",
+    "translate": "trim_material.tlotd.jurassoline"
+  },
+  "ingredient": "tlotd:jurassoline_ingot",
+  "item_model_index": 0.7
+}

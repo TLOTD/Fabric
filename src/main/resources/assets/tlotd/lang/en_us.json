@@ -1332,5 +1332,11 @@
   "block.minecraft.banner.tlotd.blind_eye.white": "White Blind Eye",
   "block.minecraft.banner.tlotd.blind_eye.yellow": "Yellow Blind Eye",
 
+  "trim_material.tlotd.heliorite": "Heliorite Material",
+  "trim_material.tlotd.endurium": "Endurium Material",
+  "trim_material.tlotd.palladium": "Palladium Material",
+  "trim_material.tlotd.jurassoline": "Jurassoline Material",
+  "trim_material.tlotd.cinnabar": "Cinnabar Material",
+  "trim_material.tlotd.nebular": "Nebular Material",
   "trim_material.tlotd.mithril": "Mithril Material"
 }

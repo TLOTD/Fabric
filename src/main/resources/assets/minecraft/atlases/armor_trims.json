@@ -53,6 +53,12 @@
         "gold_darker": "trims/color_palettes/gold_darker",
         "diamond_darker": "trims/color_palettes/diamond_darker",
         "netherite_darker": "trims/color_palettes/netherite_darker",
+        "heliorite": "tlotd:trims/color_palettes/heliorite",
+        "endurium": "tlotd:trims/color_palettes/endurium",
+        "palladium": "tlotd:trims/color_palettes/palladium",
+        "jurassoline": "tlotd:trims/color_palettes/jurassoline",
+        "cinnabar": "tlotd:trims/color_palettes/cinnabar",
+        "nebular": "tlotd:trims/color_palettes/nebular",
         "mithril": "tlotd:trims/color_palettes/mithril"
       }
     }

@@ -169,6 +169,8 @@ public class TLOTDClient implements ClientModInitializer {
         EntityRendererRegistry.register(ModEntities.INFECTED_TREX, InfectedTRexRenderer::new);
         EntityModelLayerRegistry.registerModelLayer(ModModelLayers.INFECTED_TREX, InfectedTRexModel::getTexturedModelData);
 
+        EntityRendererRegistry.register(ModEntities.SEAT, SeatRenderer::new);
+
         SpriteIdentifierRegistry.INSTANCE.addIdentifier(new SpriteIdentifier(TexturedRenderLayers.SIGNS_ATLAS_TEXTURE, ModBlocks.GINKGO_SIGN_TEXTURE));
         SpriteIdentifierRegistry.INSTANCE.addIdentifier(new SpriteIdentifier(TexturedRenderLayers.SIGNS_ATLAS_TEXTURE, ModBlocks.GINKGO_HANGING_SIGN_TEXTURE));
 

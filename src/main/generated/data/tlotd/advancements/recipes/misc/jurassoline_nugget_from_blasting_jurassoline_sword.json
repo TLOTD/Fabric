@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_jurassoline_sword": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "tlotd:jurassoline_sword"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:jurassoline_nugget_from_blasting_jurassoline_sword"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_jurassoline_sword",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:jurassoline_nugget_from_blasting_jurassoline_sword"
+    ]
+  },
+  "sends_telemetry_event": false
+}

@@ -899,6 +899,23 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(ModBlocks.LIMESTONE), conditionsFromItem(ModBlocks.LIMESTONE))
                 .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.LIMESTONE_PRESSURE_PLATE)));
 
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModBlocks.RED_DEEPSLATE, 2)
+                .pattern("#C")
+                .pattern("C#")
+                .input('#', Items.DEEPSLATE)
+                .input('C', Items.RAW_COPPER)
+                .criterion(hasItem(Items.DEEPSLATE), conditionsFromItem(Items.DEEPSLATE))
+                .criterion(hasItem(Items.RAW_COPPER), conditionsFromItem(Items.RAW_COPPER))
+                .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.RED_DEEPSLATE)));
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModBlocks.COBBLED_RED_DEEPSLATE, 2)
+                .pattern("#C")
+                .pattern("C#")
+                .input('#', Items.COBBLED_DEEPSLATE)
+                .input('C', Items.RAW_COPPER)
+                .criterion(hasItem(Items.COBBLED_DEEPSLATE), conditionsFromItem(Items.COBBLED_DEEPSLATE))
+                .criterion(hasItem(Items.RAW_COPPER), conditionsFromItem(Items.RAW_COPPER))
+                .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.COBBLED_RED_DEEPSLATE)));
+
         createStairsRecipe(ModBlocks.COBBLED_RED_DEEPSLATE_STAIRS, Ingredient.ofItems(ModBlocks.COBBLED_RED_DEEPSLATE))
                 .criterion(hasItem(ModBlocks.COBBLED_RED_DEEPSLATE), conditionsFromItem(ModBlocks.COBBLED_RED_DEEPSLATE))
                 .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.COBBLED_RED_DEEPSLATE_STAIRS)));
@@ -1966,6 +1983,8 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         offerReversibleNuggetCompactingRecipes(exporter, RecipeCategory.MISC, ModItems.HELIORITE_NUGGET, RecipeCategory.MISC, ModItems.HELIORITE_INGOT);
         offerReversibleCompactingRecipes(exporter, RecipeCategory.MISC, ModItems.HELIORITE_INGOT, RecipeCategory.BUILDING_BLOCKS, ModBlocks.HELIORITE_BLOCK);
 
+        offerBlasting(exporter, List.of(ModItems.HELIORITE_SWORD, ModItems.HELIORITE_PICKAXE, ModItems.HELIORITE_AXE, ModItems.HELIORITE_SHOVEL, ModItems.HELIORITE_HOE, ModItems.HELIORITE_SICKLE, ModItems.HELIORITE_HELMET, ModItems.HELIORITE_CHESTPLATE, ModItems.HELIORITE_LEGGINGS, ModItems.HELIORITE_BOOTS), RecipeCategory.MISC, ModItems.HELIORITE_NUGGET, 0.7f, 400, "heliorite_nugget");
+
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.HELIORITE_UPGRADE_SMITHING_TEMPLATE)
                 .pattern("#S#")
                 .pattern("#R#")
@@ -2092,6 +2111,8 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         offerReversibleCompactingRecipes(exporter, RecipeCategory.MISC, ModItems.ENDURIUM_CRYSTAL, RecipeCategory.BUILDING_BLOCKS, ModBlocks.RAW_ENDURIUM_BLOCK);
         offerReversibleNuggetCompactingRecipes(exporter, RecipeCategory.MISC, ModItems.ENDURIUM_NUGGET, RecipeCategory.MISC, ModItems.ENDURIUM_INGOT);
         offerReversibleCompactingRecipes(exporter, RecipeCategory.MISC, ModItems.ENDURIUM_INGOT, RecipeCategory.BUILDING_BLOCKS, ModBlocks.ENDURIUM_BLOCK);
+
+        offerBlasting(exporter, List.of(ModItems.ENDURIUM_SWORD, ModItems.ENDURIUM_PICKAXE, ModItems.ENDURIUM_AXE, ModItems.ENDURIUM_SHOVEL, ModItems.ENDURIUM_HOE, ModItems.ENDURIUM_SICKLE, ModItems.ENDURIUM_HELMET, ModItems.ENDURIUM_CHESTPLATE, ModItems.ENDURIUM_LEGGINGS, ModItems.ENDURIUM_BOOTS), RecipeCategory.MISC, ModItems.ENDURIUM_NUGGET, 0.7f, 400, "endurium_nugget");
 
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.ENDURIUM_UPGRADE_SMITHING_TEMPLATE)
                 .pattern("#S#")
@@ -2220,6 +2241,8 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         offerReversibleNuggetCompactingRecipes(exporter, RecipeCategory.MISC, ModItems.PALLADIUM_NUGGET, RecipeCategory.MISC, ModItems.PALLADIUM_INGOT);
         offerReversibleCompactingRecipes(exporter, RecipeCategory.MISC, ModItems.PALLADIUM_INGOT, RecipeCategory.BUILDING_BLOCKS, ModBlocks.PALLADIUM_BLOCK);
 
+        offerBlasting(exporter, List.of(ModItems.PALLADIUM_SWORD, ModItems.PALLADIUM_PICKAXE, ModItems.PALLADIUM_AXE, ModItems.PALLADIUM_SHOVEL, ModItems.PALLADIUM_HOE, ModItems.PALLADIUM_SICKLE, ModItems.PALLADIUM_HELMET, ModItems.PALLADIUM_CHESTPLATE, ModItems.PALLADIUM_LEGGINGS, ModItems.PALLADIUM_BOOTS), RecipeCategory.MISC, ModItems.PALLADIUM_NUGGET, 0.7f, 400, "palladium_nugget");
+
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.PALLADIUM_SWORD)
                 .pattern("#")
                 .pattern("#")
@@ -2338,6 +2361,8 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         offerReversibleCompactingRecipes(exporter, RecipeCategory.MISC, ModItems.JURASSOLINE_CRYSTAL, RecipeCategory.BUILDING_BLOCKS, ModBlocks.JURASSOLINE_CRYSTAL_BLOCK);
         offerReversibleNuggetCompactingRecipes(exporter, RecipeCategory.MISC, ModItems.JURASSOLINE_NUGGET, RecipeCategory.MISC, ModItems.JURASSOLINE_INGOT);
         offerReversibleCompactingRecipes(exporter, RecipeCategory.MISC, ModItems.JURASSOLINE_INGOT, RecipeCategory.BUILDING_BLOCKS, ModBlocks.JURASSOLINE_BLOCK);
+
+        offerBlasting(exporter, List.of(ModItems.JURASSOLINE_SWORD, ModItems.JURASSOLINE_PICKAXE, ModItems.JURASSOLINE_AXE, ModItems.JURASSOLINE_SHOVEL, ModItems.JURASSOLINE_HOE, ModItems.JURASSOLINE_SICKLE, ModItems.JURASSOLINE_HELMET, ModItems.JURASSOLINE_CHESTPLATE, ModItems.JURASSOLINE_LEGGINGS, ModItems.JURASSOLINE_BOOTS), RecipeCategory.MISC, ModItems.JURASSOLINE_NUGGET, 0.7f, 400, "jurassoline_nugget");
 
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.JURASSOLINE_SWORD)
                 .pattern("#")
@@ -2458,6 +2483,8 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         offerReversibleNuggetCompactingRecipes(exporter, RecipeCategory.MISC, ModItems.CINNABAR_NUGGET, RecipeCategory.MISC, ModItems.CINNABAR_INGOT);
         offerReversibleCompactingRecipes(exporter, RecipeCategory.MISC, ModItems.CINNABAR_INGOT, RecipeCategory.BUILDING_BLOCKS, ModBlocks.CINNABAR_BLOCK);
 
+        offerBlasting(exporter, List.of(ModItems.CINNABAR_SWORD, ModItems.CINNABAR_PICKAXE, ModItems.CINNABAR_AXE, ModItems.CINNABAR_SHOVEL, ModItems.CINNABAR_HOE, ModItems.CINNABAR_SICKLE, ModItems.CINNABAR_HELMET, ModItems.CINNABAR_CHESTPLATE, ModItems.CINNABAR_LEGGINGS, ModItems.CINNABAR_BOOTS), RecipeCategory.MISC, ModItems.CINNABAR_NUGGET, 0.7f, 400, "cinnabar_nugget");
+
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.CINNABAR_SWORD)
                 .pattern("#")
                 .pattern("#")
@@ -2576,6 +2603,8 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         offerReversibleCompactingRecipes(exporter, RecipeCategory.MISC, ModItems.NEBULAR_CRYSTAL, RecipeCategory.BUILDING_BLOCKS, ModBlocks.RAW_NEBULAR_BLOCK);
         offerReversibleNuggetCompactingRecipes(exporter, RecipeCategory.MISC, ModItems.NEBULAR_NUGGET, RecipeCategory.MISC, ModItems.NEBULAR_INGOT);
         offerReversibleCompactingRecipes(exporter, RecipeCategory.MISC, ModItems.NEBULAR_INGOT, RecipeCategory.BUILDING_BLOCKS, ModBlocks.NEBULAR_BLOCK);
+
+        offerBlasting(exporter, List.of(ModItems.NEBULAR_SWORD, ModItems.NEBULAR_PICKAXE, ModItems.NEBULAR_AXE, ModItems.NEBULAR_SHOVEL, ModItems.NEBULAR_HOE, ModItems.NEBULAR_SICKLE, ModItems.NEBULAR_HELMET, ModItems.NEBULAR_CHESTPLATE, ModItems.NEBULAR_LEGGINGS, ModItems.NEBULAR_BOOTS), RecipeCategory.MISC, ModItems.NEBULAR_NUGGET, 0.7f, 400, "nebular_nugget");
 
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.NEBULAR_SWORD)
                 .pattern("#")
@@ -2712,6 +2741,8 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         offerReversibleCompactingRecipes(exporter, RecipeCategory.MISC, ModItems.RAW_MITHRIL, RecipeCategory.BUILDING_BLOCKS, ModBlocks.RAW_MITHRIL_BLOCK);
         offerReversibleNuggetCompactingRecipes(exporter, RecipeCategory.MISC, ModItems.MITHRIL_NUGGET, RecipeCategory.MISC, ModItems.MITHRIL_INGOT);
         offerReversibleCompactingRecipes(exporter, RecipeCategory.MISC, ModItems.MITHRIL_INGOT, RecipeCategory.BUILDING_BLOCKS, ModBlocks.MITHRIL_BLOCK);
+
+        offerBlasting(exporter, List.of(ModItems.MITHRIL_SWORD, ModItems.MITHRIL_PICKAXE, ModItems.MITHRIL_AXE, ModItems.MITHRIL_SHOVEL, ModItems.MITHRIL_HOE, ModItems.MITHRIL_SICKLE, ModItems.MITHRIL_FORGING_HAMMER, ModItems.MITHRIL_HELMET, ModItems.MITHRIL_CHESTPLATE, ModItems.MITHRIL_LEGGINGS, ModItems.MITHRIL_BOOTS), RecipeCategory.MISC, ModItems.MITHRIL_NUGGET, 0.7f, 400, "mithril_nugget");
 
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.MITHRIL_SWORD)
                 .pattern("#")

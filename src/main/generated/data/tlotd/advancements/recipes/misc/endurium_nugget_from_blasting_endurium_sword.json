@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_endurium_sword": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "tlotd:endurium_sword"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:endurium_nugget_from_blasting_endurium_sword"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_endurium_sword",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:endurium_nugget_from_blasting_endurium_sword"
+    ]
+  },
+  "sends_telemetry_event": false
+}
