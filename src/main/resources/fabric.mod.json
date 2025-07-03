@@ -2,11 +2,12 @@
   "schemaVersion": 1,
 	"id": "tlotd",
 	"version": "${version}",
-	"name": "TLOTD",
-	"description": "The Better Than Adventure Babric Port - This Mod adds new Dimensions and progression after the normal Diamond tier. Additionally this mod provides feats in Engineering and Technology!",
+	"name": "TLOTD BTA!",
+	"description": "The Better Than Adventure Babric Port - This mod adds new progression after the normal diamond tier. Additional food items included!",
 	"authors": [
 		"TLOTD",
-		"Isla_Nublar"
+		"Isla_Nublar",
+		"Salsafox"
 	],
 	"contact": {
 		"homepage": "https://tlotd.net/",

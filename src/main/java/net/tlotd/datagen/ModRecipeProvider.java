@@ -712,6 +712,17 @@ public class ModRecipeProvider implements RecipeEntrypoint {
 			.addInput('#', ModItems.MITHRIL_INGOT)
 			.create("mithril_boots", new ItemStack(ModItems.MITHRIL_BOOTS));
 
+		RecipeBuilder.Shaped(TLOTD.MOD_ID)
+			.setShape("PR", "RP")
+			.addInput('P', Items.AMMO_PEBBLE)
+			.addInput('R', Items.DUST_REDSTONE)
+			.create("cobbled_red_deepslate", new ItemStack(ModBlocks.COBBLED_RED_DEEPSLATE,2));
+		RecipeBuilder.Shaped(TLOTD.MOD_ID)
+			.setShape("RP", "PR")
+			.addInput('P', Items.AMMO_PEBBLE)
+			.addInput('R', Items.DUST_REDSTONE)
+			.create("cobbled_red_deepslate_alt", new ItemStack(ModBlocks.COBBLED_RED_DEEPSLATE,2));
+
 		RecipeBuilder.Furnace(TLOTD.MOD_ID)
 			.setInput(ModBlocks.COBBLED_RED_DEEPSLATE)
 			.create("red_deepslate", new ItemStack(ModBlocks.RED_DEEPSLATE));
