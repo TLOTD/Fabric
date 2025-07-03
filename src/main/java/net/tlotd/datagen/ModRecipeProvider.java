@@ -712,6 +712,21 @@ public class ModRecipeProvider implements RecipeEntrypoint {
 			.addInput('#', ModItems.MITHRIL_INGOT)
 			.create("mithril_boots", new ItemStack(ModItems.MITHRIL_BOOTS));
 
+		RecipeBuilder.Furnace(TLOTD.MOD_ID)
+			.setInput(ModBlocks.COBBLED_RED_DEEPSLATE)
+			.create("red_deepslate", new ItemStack(ModBlocks.RED_DEEPSLATE));
+		RecipeBuilder.Shaped(TLOTD.MOD_ID)
+			.setShape("##", "##")
+			.addInput('#', ModBlocks.RED_DEEPSLATE)
+			.create("red_deepslate_bricks", new ItemStack(ModBlocks.RED_DEEPSLATE_BRICKS));
+		RecipeBuilder.Furnace(TLOTD.MOD_ID)
+			.setInput(ModBlocks.COBBLED_RED_DEEPSLATE_BRICKS)
+			.create("red_deepslate_bricks_from_smelting", new ItemStack(ModBlocks.RED_DEEPSLATE_BRICKS));
+		RecipeBuilder.Shaped(TLOTD.MOD_ID)
+			.setShape("##", "##")
+			.addInput('#', ModBlocks.COBBLED_RED_DEEPSLATE)
+			.create("cobbled_red_deepslate_bricks", new ItemStack(ModBlocks.COBBLED_RED_DEEPSLATE_BRICKS));
+
 		RecipeBuilder.Shapeless(TLOTD.MOD_ID)
 			.addInput(Items.WHEAT)
 			.create("flour", new ItemStack(ModItems.FLOUR, 3));
@@ -721,17 +736,31 @@ public class ModRecipeProvider implements RecipeEntrypoint {
 		RecipeBuilder.Shapeless(TLOTD.MOD_ID)
 			.addInput(ModItems.TOAST)
 			.create("breadcrumbs", new ItemStack(ModItems.BREADCRUMBS, 3));
+		RecipeBuilder.Shaped(TLOTD.MOD_ID)
+			.setShape("# #", "###")
+			.addInput('#', Blocks.GLASS)
+			.create("preserves_jar", new ItemStack(ModItems.PRESERVES_JAR));
+		RecipeBuilder.Shapeless(TLOTD.MOD_ID)
+			.addInput(ModItems.PRESERVES_JAR)
+			.addInput(Items.FOOD_CHERRY)
+			.addInput(Items.FOOD_CHERRY)
+			.addInput(Items.FOOD_CHERRY)
+			.create("cherry_jam_jar", new ItemStack(ModItems.CHERRY_JAM_JAR));
+		RecipeBuilder.Shapeless(TLOTD.MOD_ID)
+			.addInput(ModItems.CHERRY_JAM_JAR)
+			.addInput(ModItems.TOAST)
+			.addInput(ModItems.TOAST)
+			.addInput(ModItems.TOAST)
+			.create("cherry_jam_toast", new ItemStack(ModItems.CHERRY_JAM_TOAST, 3));
 		RecipeBuilder.Shapeless(TLOTD.MOD_ID)
 			.addInput(Items.FOOD_PORKCHOP_RAW)
 			.addInput(ModItems.BREADCRUMBS)
 			.addInput(ModItems.FLOUR)
 			.addInput(Items.EGG_CHICKEN)
 			.create("raw_schnitzel", new ItemStack(ModItems.RAW_SCHNITZEL));
-
 		RecipeBuilder.Furnace(TLOTD.MOD_ID)
 			.setInput(ModItems.RAW_SCHNITZEL)
 			.create("schnitzel", new ItemStack(ModItems.SCHNITZEL));
-
 		RecipeBuilder.Shapeless(TLOTD.MOD_ID)
 			.addInput(Items.FOOD_PORKCHOP_RAW)
 			.addInput(Items.WHEAT)

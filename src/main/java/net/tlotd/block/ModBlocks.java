@@ -75,7 +75,13 @@ public class ModBlocks {
 	public static Block<?> RAW_MITHRIL_BLOCK;
 	public static Block<?> MITHRIL_BLOCK;
 
+	public static Block<?> RED_DEEPSLATE;
+	public static Block<?> RED_DEEPSLATE_BRICKS;
+	public static Block<?> COBBLED_RED_DEEPSLATE;
+	public static Block<?> COBBLED_RED_DEEPSLATE_BRICKS;
+
 	public void registerBlocks() {
+
 		STONE_FOSSIL = fullBlock
 			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
 			.setHardness(3f)
@@ -303,5 +309,22 @@ public class ModBlocks {
 			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
 			.setHardness(3f)
 			.build("mithril_block", blockId++, b -> new BlockLogicOreBlock(b)).withBlastResistance(5.0F);
+
+		RED_DEEPSLATE = fullBlock
+			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
+			.setHardness(3f)
+			.build("red_deepslate", blockId++, b -> new BlockLogicRedDeepslate(b)).withBlastResistance(5.0F);
+		RED_DEEPSLATE_BRICKS = fullBlock
+			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
+			.setHardness(3f)
+			.build("red_deepslate_bricks", blockId++, b -> new BlockLogicOreBlock(b)).withBlastResistance(5.0F);
+		COBBLED_RED_DEEPSLATE = fullBlock
+			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
+			.setHardness(3f)
+			.build("cobbled_red_deepslate", blockId++, b -> new BlockLogicOreBlock(b)).withBlastResistance(5.0F);
+		COBBLED_RED_DEEPSLATE_BRICKS = fullBlock
+			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
+			.setHardness(3f)
+			.build("cobbled_red_deepslate_bricks", blockId++, b -> new BlockLogicOreBlock(b)).withBlastResistance(5.0F);
 	}
 }

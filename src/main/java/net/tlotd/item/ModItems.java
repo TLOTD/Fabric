@@ -112,15 +112,21 @@ public class ModItems {
 	public static Item MITHRIL_LEGGINGS;
 	public static Item MITHRIL_BOOTS;
 
+	public static Item NARSIL_HANDLE;
 	public static Item ANDURIL;
 
-	public static Item TOAST;
 	public static Item FLOUR;
 	public static Item BREADCRUMBS;
 	public static Item RAW_SCHNITZEL;
 	public static Item SCHNITZEL;
 	public static Item MAULTASCHE;
 	public static Item MAULTASCHEN_BROTH;
+
+	public static Item PRESERVES_JAR;
+	public static Item CHERRY_JAM_JAR;
+
+	public static Item TOAST;
+	public static Item CHERRY_JAM_TOAST;
 
 	public static ToolMaterial HELIORITE = (new ToolMaterial()).setDurability(2324).setEfficiency(16.0F, 64.0F).setMiningLevel(4).setDamage(6).setBlockHitDelay(4);
 	public static ArmorMaterial HELIORITE_ARMOR = ArmorHelper.createArmorMaterial(TLOTD.MOD_ID, "heliorite_layer", 2324, 90f, 50f, 55f, 60f);
@@ -235,14 +241,20 @@ public class ModItems {
 		MITHRIL_LEGGINGS = new ItemBuilder(TLOTD.MOD_ID).build(new ItemArmor("mithril_leggings", "tlotd:item/mithril_leggings", itemId++, MITHRIL_ARMOR, 1));
 		MITHRIL_BOOTS = new ItemBuilder(TLOTD.MOD_ID).build(new ItemArmor("mithril_boots", "tlotd:item/mithril_boots", itemId++, MITHRIL_ARMOR, 0));
 
+		NARSIL_HANDLE = new ItemBuilder(TLOTD.MOD_ID).build(new ItemToolSword("narsil_handle", "tlotd:item/narsil_handle", itemId++, MITHRIL));
 		ANDURIL = new ItemBuilder(TLOTD.MOD_ID).build(new ItemToolSword("anduril", "tlotd:item/anduril", itemId++, MITHRIL));
 
-		TOAST = new ItemBuilder(TLOTD.MOD_ID).build(new ItemFood("toast", "tlotd:item/toast", itemId++, 2, 12, false, 16));
 		FLOUR = new ItemBuilder(TLOTD.MOD_ID).build(new Item("flour", "tlotd:item/flour", itemId++));
 		BREADCRUMBS = new ItemBuilder(TLOTD.MOD_ID).build(new Item("breadcrumbs", "tlotd:item/breadcrumbs", itemId++));
 		RAW_SCHNITZEL = new ItemBuilder(TLOTD.MOD_ID).build(new ItemFood("raw_schnitzel", "tlotd:item/raw_schnitzel", itemId++,4, 16, true, 8));
 		SCHNITZEL = new ItemBuilder(TLOTD.MOD_ID).build(new ItemFood("schnitzel", "tlotd:item/schnitzel", itemId++, 10, 16, true, 8));
 		MAULTASCHE = new ItemBuilder(TLOTD.MOD_ID).build(new ItemFood("maultasche", "tlotd:item/maultasche", itemId++, 4, 16, true, 9));
 		MAULTASCHEN_BROTH = new ItemBuilder(TLOTD.MOD_ID).build(new ItemSoup("maultaschen_broth", "tlotd:item/maultaschen_broth", itemId++,16,16));
+
+		PRESERVES_JAR = new ItemBuilder(TLOTD.MOD_ID).build(new Item("preserves_jar", "tlotd:item/preserves_jar", itemId++));
+		CHERRY_JAM_JAR = new ItemBuilder(TLOTD.MOD_ID).build(new Item("cherry_jam_jar", "tlotd:item/cherry_jam_jar", itemId++).setMaxStackSize(1).setContainerItem(PRESERVES_JAR));
+
+		TOAST = new ItemBuilder(TLOTD.MOD_ID).build(new ItemFood("toast", "tlotd:item/toast", itemId++, 2, 12, false, 16));
+		CHERRY_JAM_TOAST = new ItemBuilder(TLOTD.MOD_ID).build(new ItemFood("cherry_jam_toast", "tlotd:item/cherry_jam_toast", itemId++, 4, 12, false, 16));
 	}
 }

@@ -185,11 +185,11 @@ item.tlotd.mithril_leggings.desc=A pair of fancy mithril leggings.
 item.tlotd.mithril_boots.name=§4Mithril Boots§r
 item.tlotd.mithril_boots.desc=A pair of fancy mithril boots.
 
+item.tlotd.narsil_handle.name=§4Narsil Handle§r
+item.tlotd.narsil_handle.desc=The blade of Isildur, shattered in the war of the ring.
 item.tlotd.anduril.name=§4Andúril§r
 item.tlotd.anduril.desc=The Flame of the West, reforged from the shards of Narsil.
 
-item.tlotd.toast.name=Toast
-item.tlotd.toast.desc=Small slice of bread.
 item.tlotd.flour.name=Flour
 item.tlotd.flour.desc=Crushed grains.
 item.tlotd.breadcrumbs.name=Breadcrumbs
@@ -202,6 +202,15 @@ item.tlotd.maultasche.name=Maultasche
 item.tlotd.maultasche.desc=Meat hidden in a coating.
 item.tlotd.maultaschen_broth.name=Maultaschen Broth
 item.tlotd.maultaschen_broth.desc=A warm broth like this could resurrect the dead.
+
+item.tlotd.preserves_jar.name=Preserves Jar
+item.tlotd.preserves_jar.desc=Small glass container.
+item.tlotd.cherry_jam_jar.name=Cherry Jam Jar
+item.tlotd.cherry_jam_jar.desc=A preserves jar, filled with cherry jam.
+item.tlotd.toast.name=Toast
+item.tlotd.toast.desc=Small slice of bread.
+item.tlotd.cherry_jam_toast.name=Cherry Jam Toast
+item.tlotd.cherry_jam_toast.desc=Small slice of bread, topped with cherry jam.
 
 tile.tlotd.stone.fossil.name=Stone Fossil
 tile.tlotd.basalt.fossil.name=Basalt Fossil
@@ -265,3 +274,8 @@ tile.tlotd.mithril.permafrost.ore.name=§4Mithril Permafrost Ore§r
 tile.tlotd.mithril.bedrock.ore.name=§4Mithril Bedrock Ore§r
 tile.tlotd.raw.mithril.block.name=§4Block of Raw Mithril§r
 tile.tlotd.mithril.block.name=§4Block of Mithril§r
+
+tile.tlotd.red.deepslate.name=Red Deepslate
+tile.tlotd.red.deepslate.bricks.name=Red Deepslate Bricks
+tile.tlotd.cobbled.red.deepslate.name=Cobbled Red Deepslate
+tile.tlotd.cobbled.red.deepslate.bricks.name=Cobbled Red Deepslate Bricks

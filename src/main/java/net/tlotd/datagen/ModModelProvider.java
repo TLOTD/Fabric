@@ -300,6 +300,27 @@ public class ModModelProvider implements ModelEntrypoint {
 			() -> new BlockModelStandard<>(ModBlocks.MITHRIL_BLOCK)
 				.setTex(0, "tlotd:block/mithril_block", Side.sides)
 		);
+
+		ModelHelper.setBlockModel(
+			ModBlocks.RED_DEEPSLATE,
+			() -> new BlockModelStandard<>(ModBlocks.RED_DEEPSLATE)
+				.setTex(0, "tlotd:block/red_deepslate", Side.sides)
+		);
+		ModelHelper.setBlockModel(
+			ModBlocks.RED_DEEPSLATE_BRICKS,
+			() -> new BlockModelStandard<>(ModBlocks.RED_DEEPSLATE_BRICKS)
+				.setTex(0, "tlotd:block/red_deepslate_bricks", Side.sides)
+		);
+		ModelHelper.setBlockModel(
+			ModBlocks.COBBLED_RED_DEEPSLATE,
+			() -> new BlockModelStandard<>(ModBlocks.COBBLED_RED_DEEPSLATE)
+				.setTex(0, "tlotd:block/cobbled_red_deepslate", Side.sides)
+		);
+		ModelHelper.setBlockModel(
+			ModBlocks.COBBLED_RED_DEEPSLATE_BRICKS,
+			() -> new BlockModelStandard<>(ModBlocks.COBBLED_RED_DEEPSLATE_BRICKS)
+				.setTex(0, "tlotd:block/cobbled_red_deepslate_bricks", Side.sides)
+		);
 	}
 
 	@Override
@@ -894,6 +915,13 @@ public class ModModelProvider implements ModelEntrypoint {
 			}
 		);
 		ModelHelper.setItemModel(
+			ModItems.NARSIL_HANDLE, () -> {
+				ItemModelStandard model = new ItemModelStandard(ModItems.NARSIL_HANDLE, TLOTD.MOD_ID).setFull3D();
+				model.icon = TextureRegistry.getTexture(ModItems.NARSIL_HANDLE.namespaceID);
+				return model;
+			}
+		);
+		ModelHelper.setItemModel(
 			ModItems.ANDURIL, () -> {
 				ItemModelStandard model = new ItemModelStandard(ModItems.ANDURIL, TLOTD.MOD_ID).setFull3D();
 				model.icon = TextureRegistry.getTexture(ModItems.ANDURIL.namespaceID);
@@ -930,13 +958,6 @@ public class ModModelProvider implements ModelEntrypoint {
 			}
 		);
 
-		ModelHelper.setItemModel(
-			ModItems.TOAST, () -> {
-				ItemModelStandard model = new ItemModelStandard(ModItems.TOAST, TLOTD.MOD_ID);
-				model.icon = TextureRegistry.getTexture(ModItems.TOAST.namespaceID);
-				return model;
-			}
-		);
 		ModelHelper.setItemModel(
 			ModItems.FLOUR, () -> {
 				ItemModelStandard model = new ItemModelStandard(ModItems.FLOUR, TLOTD.MOD_ID);
@@ -976,6 +997,35 @@ public class ModModelProvider implements ModelEntrypoint {
 			ModItems.MAULTASCHEN_BROTH, () -> {
 				ItemModelStandard model = new ItemModelStandard(ModItems.MAULTASCHEN_BROTH, TLOTD.MOD_ID);
 				model.icon = TextureRegistry.getTexture(ModItems.MAULTASCHEN_BROTH.namespaceID);
+				return model;
+			}
+		);
+
+		ModelHelper.setItemModel(
+			ModItems.PRESERVES_JAR, () -> {
+				ItemModelStandard model = new ItemModelStandard(ModItems.PRESERVES_JAR, TLOTD.MOD_ID);
+				model.icon = TextureRegistry.getTexture(ModItems.PRESERVES_JAR.namespaceID);
+				return model;
+			}
+		);
+		ModelHelper.setItemModel(
+			ModItems.CHERRY_JAM_JAR, () -> {
+				ItemModelStandard model = new ItemModelStandard(ModItems.CHERRY_JAM_JAR, TLOTD.MOD_ID);
+				model.icon = TextureRegistry.getTexture(ModItems.CHERRY_JAM_JAR.namespaceID);
+				return model;
+			}
+		);
+		ModelHelper.setItemModel(
+			ModItems.TOAST, () -> {
+				ItemModelStandard model = new ItemModelStandard(ModItems.TOAST, TLOTD.MOD_ID);
+				model.icon = TextureRegistry.getTexture(ModItems.TOAST.namespaceID);
+				return model;
+			}
+		);
+		ModelHelper.setItemModel(
+			ModItems.CHERRY_JAM_TOAST, () -> {
+				ItemModelStandard model = new ItemModelStandard(ModItems.CHERRY_JAM_TOAST, TLOTD.MOD_ID);
+				model.icon = TextureRegistry.getTexture(ModItems.CHERRY_JAM_TOAST.namespaceID);
 				return model;
 			}
 		);
