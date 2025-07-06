@@ -15,7 +15,8 @@ import net.tlotd.banner.ModBanners;
 import net.tlotd.block.ModBlocks;
 import net.tlotd.entity.ModBoats;
 import net.tlotd.entity.ModEntities;
-import net.tlotd.item.compat.CompatItem;
+import net.tlotd.item.compat.*;
+import net.tlotd.item.compat.biomancy.BiologicalCircuitBoardItem;
 import net.tlotd.item.compat.create.SequencedAssemblyItem;
 import net.tlotd.item.compat.spore.CalamitySpawnItem;
 import net.tlotd.item.custom.*;
@@ -142,6 +143,7 @@ public class ModItems {
     public static final Item CIRCUIT_BOARD = registerItem("circuit_board", new Item(new FabricItemSettings()));
     public static final Item ADVANCED_CIRCUIT_BOARD = registerItem("advanced_circuit_board", new Item(new FabricItemSettings()));
     public static final Item FUTURISTIC_CIRCUIT_BOARD = registerItem("futuristic_circuit_board", new FuturisticCircuitBoardItem(new FabricItemSettings().rarity(Rarity.UNCOMMON)));
+    public static final Item BIOLOGICAL_CIRCUIT_BOARD = registerItem("biological_circuit_board", new BiologicalCircuitBoardItem(new FabricItemSettings()));
     public static final Item INTEGRATED_CIRCUIT = registerItem("integrated_circuit", new Item(new FabricItemSettings()));
     public static final Item CATHODE_RAY_TUBE = registerItem("cathode_ray_tube", new Item(new FabricItemSettings()));
     public static final Item LIQUID_CRYSTAL_DISPLAY_PANEL = registerItem("liquid_crystal_display_panel", new Item(new FabricItemSettings()));
@@ -152,12 +154,15 @@ public class ModItems {
     public static final Item INCOMPLETE_INTEGRATED_CIRCUIT = registerItem("incomplete_integrated_circuit", new SequencedAssemblyItem(new FabricItemSettings().maxCount(1)));
     public static final Item INCOMPLETE_CIRCUIT_BOARD = registerItem("incomplete_circuit_board", new SequencedAssemblyItem(new FabricItemSettings().maxCount(1)));
     public static final Item INCOMPLETE_ADVANCED_CIRCUIT_BOARD = registerItem("incomplete_advanced_circuit_board", new SequencedAssemblyItem(new FabricItemSettings().maxCount(1)));
+    public static final Item INCOMPLETE_FUTURISTIC_CIRCUIT_BOARD = registerItem("incomplete_futuristic_circuit_board", new SequencedAssemblyItem(new FabricItemSettings().maxCount(1).rarity(Rarity.UNCOMMON)));
 
     public static final Item INCOMPLETE_RADIO = registerItem("incomplete_radio", new SequencedAssemblyItem(new FabricItemSettings().maxCount(1)));
     public static final Item INCOMPLETE_TELEVISION = registerItem("incomplete_television", new SequencedAssemblyItem(new FabricItemSettings().maxCount(1)));
     public static final Item INCOMPLETE_VIDEOCASSETTE_RECORDER = registerItem("incomplete_videocassette_recorder", new SequencedAssemblyItem(new FabricItemSettings().maxCount(1)));
     public static final Item INCOMPLETE_SIGNAL_TRANSMITTER = registerItem("incomplete_signal_transmitter", new SequencedAssemblyItem(new FabricItemSettings().maxCount(1)));
     public static final Item INCOMPLETE_COMPUTER = registerItem("incomplete_computer", new SequencedAssemblyItem(new FabricItemSettings().maxCount(1)));
+    public static final Item INCOMPLETE_KEYCARD_PROGRAMMER = registerItem("incomplete_keycard_programmer", new SequencedAssemblyItem(new FabricItemSettings().maxCount(1)));
+    public static final Item INCOMPLETE_KEYCARD_READER = registerItem("incomplete_keycard_reader", new SequencedAssemblyItem(new FabricItemSettings().maxCount(1)));
     public static final Item INCOMPLETE_OXYGEN_COLLECTOR = registerItem("incomplete_oxygen_collector", new SequencedAssemblyItem(new FabricItemSettings().maxCount(1)));
     public static final Item INCOMPLETE_MITHRIL_MIRROR = registerItem("incomplete_mithril_mirror", new SequencedAssemblyItem(new FabricItemSettings().maxCount(1).rarity(Rarity.UNCOMMON)));
 
@@ -176,10 +181,11 @@ public class ModItems {
 
     public static final Item STEEL_SICKLE = registerItem("steel_sickle", new SickleItem(new FabricItemSettings().maxDamage(512)));
 
-    public static final Item XEN_CRYSTAL = registerItem("xen_crystal", new Item(new FabricItemSettings().fireproof()));
-    public static final Item METEORITE_CHUNK = registerItem("meteorite_chunk", new Item(new FabricItemSettings().fireproof()));
-    public static final Item STAR_FRAGMENT = registerItem("star_fragment", new Item(new FabricItemSettings().fireproof()));
-    public static final Item LUNAR_CALLAINUS_LUMP = registerItem("lunar_callainus_lump", new Item(new FabricItemSettings().fireproof()));
+    public static final Item XEN_CRYSTAL = registerItem("xen_crystal", new Item(new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof()));
+    public static final Item METEORITE_CHUNK = registerItem("meteorite_chunk", new Item(new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof()));
+    public static final Item STAR_FRAGMENT = registerItem("star_fragment", new Item(new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof()));
+    public static final Item LUNAR_CALLAINUS_LUMP = registerItem("lunar_callainus_lump", new Item(new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof()));
+    public static final Item ALIEN_METAL = registerItem("alien_metal", new Item(new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof()));
 
     public static final Item FOSSILIZED_BONE = registerItem("fossilized_bone", new Item(new FabricItemSettings()));
     public static final Item PLANT_FOSSIL = registerItem("plant_fossil", new Item(new FabricItemSettings()));
@@ -188,6 +194,8 @@ public class ModItems {
 
     public static final Item DRAGON_BANNER_PATTERN = registerItem("dragon_banner_pattern", new BannerPatternItem(ModBanners.DRAGON_PATTERN_ITEM, new FabricItemSettings().maxCount(1).rarity(Rarity.UNCOMMON)));
     public static final Item LOTR_BANNER_PATTERN = registerItem("lotr_banner_pattern", new BannerPatternItem(ModBanners.LOTR_PATTERN_ITEM, new FabricItemSettings().maxCount(1).rarity(Rarity.UNCOMMON)));
+
+    public static final Item COPPER_NUGGET = registerItem("copper_nugget", new Item(new FabricItemSettings()));
 
     public static final Item SULFUR = registerItem("sulfur", new Item(new FabricItemSettings()));
 
@@ -341,8 +349,20 @@ public class ModItems {
 
     public static final Item MITHRIL_HORSE_ARMOR = registerItem("mithril_horse_armor", new HorseArmorItem(20,"mithril", new FabricItemSettings().maxCount(1).rarity(Rarity.UNCOMMON).fireproof()));
 
+    public static final Item MITHRIL_COMMAND_BLOCK_SWORD = registerItem("mithril_command_block_sword", new CompatSwordItem(ModToolMaterial.ELDRITCH, 4, -2.4f, new FabricItemSettings().rarity(Rarity.EPIC).fireproof(),"wsm"));
+    public static final Item MITHRIL_COMMAND_BLOCK_PICKAXE = registerItem("mithril_command_block_pickaxe", new CompatPickaxeItem(ModToolMaterial.ELDRITCH, 2, -2.8f, new FabricItemSettings().rarity(Rarity.EPIC).fireproof(),"wsm"));
+    public static final Item MITHRIL_COMMAND_BLOCK_AXE = registerItem("mithril_command_block_axe", new CompatAxeItem(ModToolMaterial.ELDRITCH, 6, -3.0f, new FabricItemSettings().rarity(Rarity.EPIC).fireproof(),"wsm"));
+    public static final Item MITHRIL_COMMAND_BLOCK_SHOVEL = registerItem("mithril_command_block_shovel", new CompatShovelItem(ModToolMaterial.ELDRITCH, 2.5f, -3.0f, new FabricItemSettings().rarity(Rarity.EPIC).fireproof(),"wsm"));
+    public static final Item MITHRIL_COMMAND_BLOCK_HOE = registerItem("mithril_command_block_hoe", new CompatHoeItem(ModToolMaterial.ELDRITCH, -7, 0.0f, new FabricItemSettings().rarity(Rarity.EPIC).fireproof(),"wsm"));
+
     public static final Item NARSIL_HANDLE = registerItem("narsil_handle", new SwordItem(ModToolMaterial.MITHRIL, 0, -2.4f, new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof()));
     public static final Item ANDURIL = registerItem("anduril", new AndurilItem(ModToolMaterial.MITHRIL, 7, -2.4f, new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof()));
+
+    public static final Item GONDORIAN_SHIELD = registerItem("gondorian_shield", new ShieldItem(new FabricItemSettings().maxDamage(2612).rarity(Rarity.UNCOMMON).fireproof()));
+    public static final Item GONDORIAN_TOWER_SHIELD = registerItem("gondorian_tower_shield", new ShieldItem(new FabricItemSettings().maxDamage(2612).rarity(Rarity.UNCOMMON).fireproof()));
+    public static final Item GONDORIAN_KINGS_GUARD_TOWER_SHIELD = registerItem("gondorian_kings_guard_tower_shield", new ShieldItem(new FabricItemSettings().maxDamage(2612).rarity(Rarity.UNCOMMON).fireproof()));
+    public static final Item GONDORIAN_KNIGHT_SHIELD = registerItem("gondorian_knight_shield", new ShieldItem(new FabricItemSettings().maxDamage(3418).rarity(Rarity.UNCOMMON).fireproof()));
+    public static final Item GONDORIAN_ORNAMENTED_KNIGHT_SHIELD = registerItem("gondorian_ornamented_knight_shield", new ShieldItem(new FabricItemSettings().maxDamage(4096).rarity(Rarity.UNCOMMON).fireproof()));
 
     public static final Item ASTRAL_NUGGET = registerItem("astral_nugget", new Item(new FabricItemSettings().rarity(Rarity.EPIC).fireproof()));
     public static final Item ASTRAL_INGOT = registerItem("astral_ingot", new Item(new FabricItemSettings().rarity(Rarity.EPIC).fireproof()));
@@ -358,7 +378,7 @@ public class ModItems {
 
     public static final Item DAYBREAK_DOMAIN_FRAGMENTS = registerItem("daybreak_domain_fragments", new Item(new FabricItemSettings().rarity(Rarity.EPIC).fireproof()));
     public static final Item SOMBER_BLOOD_ORBS = registerItem("somber_blood_orbs", new Item(new FabricItemSettings().rarity(Rarity.EPIC).fireproof()));
-    public static final Item OTHERWORLDLY_WHISPERS = registerItem("otherworldly_whispers", new Item(new FabricItemSettings().rarity(Rarity.EPIC).fireproof()));
+    public static final Item OTHERWORLDLY_WHISPERS = registerItem("otherworldly_whispers", new OtherworldlyWhispersItem(new FabricItemSettings().rarity(Rarity.EPIC).fireproof()));
 
     public static final Item DIVINE_PICKAXE = registerItem("divine_pickaxe", new ExtractionPickaxeItem(ModToolMaterial.DIVINE, 2, -2.8f, new FabricItemSettings().rarity(Rarity.EPIC).fireproof()));
     public static final Item CATACLYSMIC_PICKAXE = registerItem("cataclysmic_pickaxe", new ExtractionPickaxeItem(ModToolMaterial.CATACLYSMIC, 2, -2.8f, new FabricItemSettings().rarity(Rarity.EPIC).fireproof()));

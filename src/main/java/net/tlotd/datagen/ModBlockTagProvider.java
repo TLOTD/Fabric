@@ -517,6 +517,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.STICK_CROSS)
                 .add(ModBlocks.EFFIGIES)
                 .add(ModBlocks.WITCHING_TABLE)
+                .add(ModBlocks.BENCH)
                 .add(ModBlocks.RADIO)
                 .add(ModBlocks.RADIO_ON)
                 .add(ModBlocks.ARCHAEOLOGY_TABLE)
@@ -540,6 +541,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.GLOBUS_CRUCIGER)
 
                 .add(ModBlocks.GARBAGE_CAN)
+                .add(ModBlocks.BENCH)
 
                 .add(ModBlocks.GRAVESTONE)
                 .add(ModBlocks.MOSSY_GRAVESTONE)

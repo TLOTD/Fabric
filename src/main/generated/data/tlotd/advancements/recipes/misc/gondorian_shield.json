@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_gondorian_kings_guard_tower_shield": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "tlotd:gondorian_kings_guard_tower_shield"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:gondorian_shield"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_gondorian_kings_guard_tower_shield",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:gondorian_shield"
+    ]
+  },
+  "sends_telemetry_event": false
+}

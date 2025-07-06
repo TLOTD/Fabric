@@ -53,6 +53,12 @@ public class CompatBlockItem extends BlockItem {
             if (compat.contains("spr")) {
                 tooltip.add(Text.literal("\uE010 ").setStyle(style.withFont(MODS_FONT_ID)).append(Text.translatable("mod.spore.name").setStyle(style.withFont(DEFAULT_FONT_ID).withFormatting(Formatting.GRAY))));
             }
+            if (compat.contains("skh")) {
+                tooltip.add(Text.literal("\uE011 ").setStyle(style.withFont(MODS_FONT_ID)).append(Text.translatable("mod.sculkhorde.name").setStyle(style.withFont(DEFAULT_FONT_ID).withFormatting(Formatting.GRAY))));
+            }
+            if (compat.contains("wsm")) {
+                tooltip.add(Text.literal("\uE012 ").setStyle(style.withFont(MODS_FONT_ID)).append(Text.translatable("mod.witherstormmod.name").setStyle(style.withFont(DEFAULT_FONT_ID).withFormatting(Formatting.GRAY))));
+            }
             super.appendTooltip(stack, world, tooltip, context);
         }
     }

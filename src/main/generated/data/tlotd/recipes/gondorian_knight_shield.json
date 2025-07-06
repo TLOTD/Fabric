@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "#": {
+      "item": "tlotd:gondorian_tower_shield"
+    },
+    "G": {
+      "item": "minecraft:gold_nugget"
+    }
+  },
+  "pattern": [
+    "GGG",
+    "G#G",
+    "GGG"
+  ],
+  "result": {
+    "item": "tlotd:gondorian_knight_shield"
+  },
+  "show_notification": true
+}

@@ -92,7 +92,7 @@ public class MithrilMirrorItem extends Item {
         return stack;
     }
 
-    private final int useTime = 20;
+    private final int useTime = 30;
 
     public int getMaxUseTime(ItemStack stack) {
         return useTime;

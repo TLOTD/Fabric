@@ -29,6 +29,10 @@ public class ModSounds {
 
     public static final SoundEvent BLOCK_COMPUTER_INTERACT = registerSoundEvent("block_computer_interact");
 
+    public static final SoundEvent BLOCK_KEYCARD_READER_PLING = registerSoundEvent("block_keycard_reader_pling");
+
+    public static final SoundEvent BLOCK_GARBAGE_CAN_USED = registerSoundEvent("block_garbage_can_used");
+
     private static SoundEvent registerSoundEvent(String name) {
         Identifier id = new Identifier(TLOTD.MOD_ID, name);
         return Registry.register(Registries.SOUND_EVENT, id, SoundEvent.of(id));

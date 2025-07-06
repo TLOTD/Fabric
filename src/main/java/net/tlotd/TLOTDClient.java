@@ -21,10 +21,7 @@ import net.tlotd.entity.ModBoats;
 import net.tlotd.entity.ModEntities;
 import net.tlotd.entity.client.*;
 import net.tlotd.fluid.ModFluids;
-import net.tlotd.gui.MithrilAnvilGUI;
-import net.tlotd.gui.ModGUIHandlers;
-import net.tlotd.gui.OxygenCollectorGUI;
-import net.tlotd.gui.WitchingTableGUI;
+import net.tlotd.gui.*;
 import net.tlotd.networking.ModMessages;
 
 public class TLOTDClient implements ClientModInitializer {
@@ -107,6 +104,8 @@ public class TLOTDClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.ZOMBIE_PLUSHIE, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.PLAYER_PLUSHIE, RenderLayer.getCutout());
 
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.BENCH, RenderLayer.getCutout());
+
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.GARBAGE_CAN, RenderLayer.getCutout());
 
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.RADIO, RenderLayer.getCutout());
@@ -183,6 +182,8 @@ public class TLOTDClient implements ClientModInitializer {
         BlockEntityRendererFactories.register(ModBlockEntities.WITCHING_TABLE_BLOCK_ENTITY, WitchingTableBlockEntityRenderer::new);
 
         HandledScreens.register(ModGUIHandlers.OXYGEN_COLLECTOR_GUI_HANDLER, OxygenCollectorGUI::new);
+
+        HandledScreens.register(ModGUIHandlers.KEYCARD_PROGRAMMER_GUI_HANDLER, KeycardProgrammerGUI::new);
 
         ModMessages.registerS2CPackets();
     }

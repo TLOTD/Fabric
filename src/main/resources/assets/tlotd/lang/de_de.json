@@ -10,6 +10,7 @@
   "gui.tlotd.witching": "Hexentisch",
   "gui.tlotd.tooltip.liquid_amount_with_capacity": "§f%s§7: %smB/%smB",
   "gui.tlotd.oxygen_collector": "Sauerstoffbetanker",
+  "gui.tlotd.keycard_programmer": "Schlüsselkarte Programmieren",
 
   "generic.tlotd.text.click_me": "[Hier Klicken]",
   "generic.tlotd.text.wiki_link": "um die Mod Wiki zu öffnen.",
@@ -61,8 +62,9 @@
   "sounds.tlotd.block_television_switch_channel": "Fernsehkanal ändert sich",
   "sounds.tlotd.block_television_static_channel": "Fernseher spielt statik",
   "sounds.tlotd.block_computer_interact": "Rechner wird genutzt",
-
   "sounds.tlotd.block_videocassette_recorder": "Videokassettenspieler wird genutzt",
+  "sounds.tlotd.block_keycard_reader_pling": "Kartenleser wird genutzt",
+  "sounds.tlotd.block_garbage_can_used": "Mülleimer wird genutzt",
 
   "advancements.tlotd.radioactive": "§eRadioactiv!§r",
   "advancements.tlotd.radioactive.desc": "Werde von etwas verstrahlt",
@@ -281,6 +283,7 @@
   "item.tlotd.futuristic_circuit_board.tooltip": "Du kannst der Verantwortung",
   "item.tlotd.futuristic_circuit_board.tooltip_2": "von morgen nicht entkommen in",
   "item.tlotd.futuristic_circuit_board.tooltip_3": "dem du ihr Heute ausweichst",
+  "item.tlotd.biological_circuit_board": "Biologische Platine",
   "item.tlotd.integrated_circuit": "Integrierter Schaltkreis",
   "item.tlotd.cathode_ray_tube": "Kathodenstrahlröhre",
   "item.tlotd.liquid_crystal_display_panel": "Flüssigkristallanzeigefeld",
@@ -288,17 +291,21 @@
 
   "item.tlotd.keycard": "Schlüsselkarte",
   "item.tlotd.keycard.no_password": "Kein Password gesetzt",
+  "item.tlotd.keycard.has_password": "Password gesetzt",
 
   "item.tlotd.incomplete_copper_wire": "Unvollendetes Kupferkabel",
   "item.tlotd.incomplete_gold_wire": "Unvollendetes Goldkabel",
   "item.tlotd.incomplete_integrated_circuit": "Unvollendeter Integrierter Schaltkreis",
   "item.tlotd.incomplete_circuit_board": "Unvollendete Platine",
   "item.tlotd.incomplete_advanced_circuit_board": "Unvollendete Verbesserte Platine",
+  "item.tlotd.incomplete_futuristic_circuit_board": "Unvollendete Futuristische Platine",
   "item.tlotd.incomplete_radio": "Unvollendetes Radio",
   "item.tlotd.incomplete_television": "Unvollendeter Fernseher",
   "item.tlotd.incomplete_videocassette_recorder": "Unvollendeter Videokassettenspieler",
   "item.tlotd.incomplete_signal_transmitter": "Unvollendeter Signalgeber",
   "item.tlotd.incomplete_computer": "Unvollendeter Rechner",
+  "item.tlotd.incomplete_keycard_programmer": "Unvollendeter Kartenprogrammierer",
+  "item.tlotd.incomplete_keycard_reader": "Unvollendeter Kartenleser",
   "item.tlotd.incomplete_oxygen_collector": "Unvollendeter Sauerstoffsammler",
   "item.tlotd.incomplete_mithril_mirror": "Unvollendeter Mithrilspiegel",
 
@@ -316,6 +323,8 @@
   "item.tlotd.orange_marmelade_bucket": "Orangenmarmeladeneimer",
   "item.tlotd.blue_berry_jam_bucket": "Blaubeermarmeladeneimer",
   "item.tlotd.ancient_soulberry_jam_bucket": "Uralter Seelenbeermarmeladeneimer",
+
+  "item.tlotd.copper_nugget": "Kupferklumpen",
 
   "item.tlotd.copper_sickle": "Kupfersichel",
   "item.tlotd.golden_sickle": "Goldsichel",
@@ -346,6 +355,7 @@
   "item.tlotd.uranium_nugget": "Uranklumpen",
   "item.tlotd.uranium_ingot": "Uranbarren",
 
+  "item.tlotd.alien_metal": "Außerirdisches Metall",
   "item.tlotd.xen_crystal": "Xen-Kristall",
   "item.tlotd.meteorite_chunk": "Meteoritenbrocken",
   "item.tlotd.star_fragment": "Sternenfragment",
@@ -542,6 +552,12 @@
   "item.tlotd.anduril.tooltip_quenya_4": "\uE061",
   "item.tlotd.narsil_quenya": "\uE090\uE154\uE024\uE166",
 
+  "item.tlotd.gondorian_shield": "Schild Gondors",
+  "item.tlotd.gondorian_tower_shield": "Turmschild Gondors",
+  "item.tlotd.gondorian_kings_guard_tower_shield": "Turmschild der Königsgarde Gondors",
+  "item.tlotd.gondorian_knight_shield": "Ritterschild Gondors",
+  "item.tlotd.gondorian_ornamented_knight_shield": "Verziertes Ritterschild Gondors",
+
   "item.tlotd.astral_nugget": "Astralklumpen",
   "item.tlotd.astral_ingot": "Astralbarren",
 
@@ -560,6 +576,13 @@
   "item.tlotd.divine_pickaxe": "§6Göttliche Spitzhacke",
   "item.tlotd.cataclysmic_pickaxe": "§cKataklysmusspitzhacke",
   "item.tlotd.eldritch_pickaxe": "§4Verschlinger des Jenseits",
+
+  "item.tlotd.mithril_command_block_sword": "Mithrilbefehlsblockschwert",
+  "item.tlotd.mithril_command_block_pickaxe": "Mithrilbefehlsblockspitzhacke",
+  "item.tlotd.mithril_command_block_axe": "Mithrilbefehlsblockaxt",
+  "item.tlotd.mithril_command_block_shovel": "Mithrilbefehlsblockschaufel",
+  "item.tlotd.mithril_command_block_hoe": "Mithrilbefehlsblockhacke",
+  "item.tlotd.mithril_command_block_sickle": "Mithrilbefehlsblocksichel",
 
   "item.tlotd.t-rex_spawn_egg": "T-Rex-Spawn-Ei",
   "item.tlotd.infected_t-rex_spawn_egg": "Infizierter T-Rex",
@@ -646,14 +669,11 @@
   "block.tlotd.player_plushie.tooltip_shift": "Klappt für:",
 
   "block.tlotd.garbage_can": "Mülleimer",
-
+  "block.tlotd.bench": "Bank",
   "block.tlotd.flagpole": "Flaggenmast",
 
   "block.tlotd.keycard_programmer": "Kartenprogrammierer",
   "block.tlotd.keycard_programmer.tooltip": "Betreibbar durch:",
-  "block.tlotd.keycard_programmer.tooltip_2": "Um den Gegenstand aus der Zweithand",
-  "block.tlotd.keycard_programmer.tooltip_3": "als Passwort festzulegen muss mit",
-  "block.tlotd.keycard_programmer.tooltip_4": "einer Schlüsselkarte interagiert werden.",
   "block.tlotd.keycard_reader": "Kartenleser",
   "block.tlotd.keycard_reader.no_password": "Auf Ihrer Schlüsselkarte ist kein Passwort vorhanden",
   "block.tlotd.keycard_reader.password_set": "Das Passwort Ihrer Schlüsselkarte wurde als neues Passwort für den Kartenleser festgelegt",

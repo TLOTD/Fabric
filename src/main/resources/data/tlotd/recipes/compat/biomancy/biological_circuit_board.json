@@ -1,0 +1,38 @@
+{
+    "fabric:load_conditions": [
+      {
+        "condition": "fabric:all_mods_loaded",
+        "values": [
+          "biomancy"
+        ]
+      }
+    ],
+    "type": "biomancy:bio_forging",
+    "bio_forge_tab": "biomancy:components",
+    "ingredients": [
+        {
+            "count": 3,
+            "item": "biomancy:mob_fang"
+        },
+        {
+            "count": 3,
+            "item": "biomancy:tough_fibers"
+        },
+        {
+            "count": 5,
+            "item": "biomancy:flesh_bits"
+        },
+        {
+            "count": 2,
+            "item": "biomancy:living_flesh"
+        },
+        {
+            "count": 4,
+            "item": "biomancy:mineral_fragment"
+        }
+    ],
+    "nutrientsCost": 20,
+    "result": {
+        "item": "tlotd:biological_circuit_board"
+    }
+}

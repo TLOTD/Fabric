@@ -136,8 +136,17 @@ public class ModTags {
         public static final TagKey<Item> MUSIC_DISCS =
                 createTag("music_discs");
 
+        public static final TagKey<Item> CIRCUIT_BOARDS =
+                createTag("circuit_boards");
+
+        public static final TagKey<Item> ADVANCED_CIRCUIT_BOARDS =
+                createTag("advanced_circuit_boards");
+
         public static final TagKey<Item> GAME_CARTRIDGES =
                 createTag("game_cartridges");
+
+        public static final TagKey<Item> KEYCARDS =
+                createTag("keycards");
 
         private static TagKey<Item> createTag(String name) {
             return TagKey.of(RegistryKeys.ITEM, new Identifier(TLOTD.MOD_ID, name));

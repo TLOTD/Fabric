@@ -2,32 +2,28 @@ package net.tlotd.item;
 
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
-import net.minecraft.block.entity.BannerPattern;
-import net.minecraft.block.entity.BannerPatterns;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.item.*;
 import net.minecraft.nbt.NbtCompound;
-import net.minecraft.nbt.NbtElement;
-import net.minecraft.nbt.NbtInt;
 import net.minecraft.nbt.NbtList;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
-import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.text.Text;
-import net.minecraft.util.DyeColor;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
 import net.minecraft.village.raid.Raid;
 import net.tlotd.TLOTD;
-import net.tlotd.banner.ModBanners;
 import net.tlotd.block.ModBlocks;
 import net.tlotd.fluid.ModFluids;
 
 public class ModItemGroups {
 
+    public static final Identifier DEFAULT_FONT_ID = new Identifier("minecraft", "default");
+    public static final Identifier MODS_FONT_ID = new Identifier("tlotd", "mods");
+
     public static final ItemGroup TLOTD_1_MATERIALS_GROUP = Registry.register(Registries.ITEM_GROUP,
             new Identifier(TLOTD.MOD_ID, "1_materials"),
-            FabricItemGroup.builder().displayName(Text.translatable("itemgroup.tlotd.materials"))
+            FabricItemGroup.builder().displayName(Text.literal("\uE000 ").styled(style -> style.withFont(MODS_FONT_ID)).append(Text.translatable("itemgroup.tlotd.materials").styled(style -> style.withFont(DEFAULT_FONT_ID))))
                     .icon(() -> new ItemStack(ModItems.GUIDEBOOK)).entries((displayContext, entries) -> {
                         entries.add(ModItems.GUIDEBOOK);
 
@@ -53,6 +49,7 @@ public class ModItemGroups {
                         entries.add(ModItems.CIRCUIT_BOARD);
                         entries.add(ModItems.ADVANCED_CIRCUIT_BOARD);
                         entries.add(ModItems.FUTURISTIC_CIRCUIT_BOARD);
+                        entries.add(ModItems.BIOLOGICAL_CIRCUIT_BOARD);
                         entries.add(ModItems.INTEGRATED_CIRCUIT);
                         entries.add(ModItems.CATHODE_RAY_TUBE);
                         entries.add(ModItems.LIQUID_CRYSTAL_DISPLAY_PANEL);
@@ -69,6 +66,8 @@ public class ModItemGroups {
 
                         entries.add(ModItems.FOSSILIZED_BONE);
                         entries.add(ModItems.PLANT_FOSSIL);
+
+                        entries.add(ModItems.COPPER_NUGGET);
 
                         entries.add(ModItems.SULFUR);
 
@@ -120,6 +119,7 @@ public class ModItemGroups {
                         entries.add(ModItems.METEORITE_CHUNK);
                         entries.add(ModItems.STAR_FRAGMENT);
                         entries.add(ModItems.LUNAR_CALLAINUS_LUMP);
+                        entries.add(ModItems.ALIEN_METAL);
 
                         entries.add(ModItems.SOUL_MIRROR);
 
@@ -263,7 +263,7 @@ public class ModItemGroups {
 
     public static final ItemGroup TLOTD_2_WEAPONS_TOOLS_UTILITIES_GROUP = Registry.register(Registries.ITEM_GROUP,
             new Identifier(TLOTD.MOD_ID, "2_weapons_tools_and_utilities"),
-            FabricItemGroup.builder().displayName(Text.translatable("itemgroup.tlotd.weapons_tools_and_utilities"))
+            FabricItemGroup.builder().displayName(Text.literal("\uE000 ").styled(style -> style.withFont(MODS_FONT_ID)).append(Text.translatable("itemgroup.tlotd.weapons_tools_and_utilities").styled(style -> style.withFont(DEFAULT_FONT_ID))))
                     .icon(() -> new ItemStack(ModItems.ENDURIUM_PICKAXE)).entries((displayContext, entries) -> {
 
                         entries.add(ModItems.MONOCLE);
@@ -415,6 +415,12 @@ public class ModItemGroups {
                         entries.add(ModItems.NARSIL_HANDLE);
                         entries.add(ModItems.ANDURIL);
 
+                        entries.add(ModItems.GONDORIAN_SHIELD);
+                        entries.add(ModItems.GONDORIAN_TOWER_SHIELD);
+                        entries.add(ModItems.GONDORIAN_KINGS_GUARD_TOWER_SHIELD);
+                        entries.add(ModItems.GONDORIAN_KNIGHT_SHIELD);
+                        entries.add(ModItems.GONDORIAN_ORNAMENTED_KNIGHT_SHIELD);
+
                         entries.add(ModItems.GINKGO_BOAT);
                         entries.add(ModItems.GINKGO_CHEST_BOAT);
 
@@ -428,7 +434,7 @@ public class ModItemGroups {
 
     public static final ItemGroup TLOTD_3_BLOCKS_GROUP = Registry.register(Registries.ITEM_GROUP,
             new Identifier(TLOTD.MOD_ID, "3_blocks"),
-            FabricItemGroup.builder().displayName(Text.translatable("itemgroup.tlotd.blocks"))
+            FabricItemGroup.builder().displayName(Text.literal("\uE000 ").styled(style -> style.withFont(MODS_FONT_ID)).append(Text.translatable("itemgroup.tlotd.blocks").styled(style -> style.withFont(DEFAULT_FONT_ID))))
                     .icon(() -> new ItemStack(ModBlocks.RICH_GRASS_BLOCK)).entries((displayContext, entries) -> {
 
                         entries.add(ModBlocks.BW_STICKER);
@@ -450,19 +456,21 @@ public class ModItemGroups {
                         entries.add(ModBlocks.APPARATUS);
 
                         entries.add(ModBlocks.GARBAGE_CAN);
+                        entries.add(ModBlocks.BENCH);
 
                         entries.add(ModBlocks.RADIO);
                         entries.add(ModBlocks.TELEVISION);
                         entries.add(ModBlocks.VIDEOCASSETTE_RECORDER);
                         entries.add(ModBlocks.COMPUTER);
+
+                        entries.add(ModBlocks.KEYCARD_PROGRAMMER);
+                        entries.add(ModBlocks.KEYCARD_READER);
+
                         entries.add(ModBlocks.OXYGEN_COLLECTOR);
 
                         entries.add(ModBlocks.SIGNAL_TRANSMITTER);
                         entries.add(ModBlocks.SIGNAL_TRANSMITTER_ANTENNA);
                         entries.add(Items.LIGHTNING_ROD);
-
-                        entries.add(ModBlocks.KEYCARD_PROGRAMMER);
-                        entries.add(ModBlocks.KEYCARD_READER);
 
                         entries.add(ModBlocks.INTERDIMENSIONAL_RECEIVER);
 
@@ -474,8 +482,8 @@ public class ModItemGroups {
                         entries.add(ModBlocks.TREX_HEAD);
                         entries.add(ModBlocks.GREEN_TREX_HEAD);
                         entries.add(ModBlocks.GRAY_TREX_HEAD);
-                        entries.add(ModBlocks.SCULK_TREX_HEAD);
                         entries.add(ModBlocks.INFECTED_TREX_HEAD);
+                        entries.add(ModBlocks.SCULK_TREX_HEAD);
                         entries.add(ModBlocks.SICKENED_TREX_HEAD);
 
                         entries.add(ModBlocks.WOODEN_STEIN);
@@ -753,18 +761,21 @@ public class ModItemGroups {
 
     public static final ItemGroup TLOTD_9_COMPAT_GROUP = Registry.register(Registries.ITEM_GROUP,
             new Identifier(TLOTD.MOD_ID, "9_compat"),
-            FabricItemGroup.builder().displayName(Text.translatable("itemgroup.tlotd.compat"))
+            FabricItemGroup.builder().displayName(Text.literal("\uE00A ").styled(style -> style.withFont(MODS_FONT_ID)).append(Text.translatable("itemgroup.tlotd.compat").styled(style -> style.withFont(DEFAULT_FONT_ID))))
                     .icon(() -> new ItemStack(ModBlocks.INFECTED_TREX_HEAD)).entries((displayContext, entries) -> {
                         entries.add(ModItems.INCOMPLETE_COPPER_WIRE);
                         entries.add(ModItems.INCOMPLETE_GOLD_WIRE);
                         entries.add(ModItems.INCOMPLETE_INTEGRATED_CIRCUIT);
                         entries.add(ModItems.INCOMPLETE_CIRCUIT_BOARD);
                         entries.add(ModItems.INCOMPLETE_ADVANCED_CIRCUIT_BOARD);
+                        entries.add(ModItems.INCOMPLETE_FUTURISTIC_CIRCUIT_BOARD);
                         entries.add(ModItems.INCOMPLETE_RADIO);
                         entries.add(ModItems.INCOMPLETE_TELEVISION);
                         entries.add(ModItems.INCOMPLETE_VIDEOCASSETTE_RECORDER);
                         entries.add(ModItems.INCOMPLETE_SIGNAL_TRANSMITTER);
                         entries.add(ModItems.INCOMPLETE_COMPUTER);
+                        entries.add(ModItems.INCOMPLETE_KEYCARD_PROGRAMMER);
+                        entries.add(ModItems.INCOMPLETE_KEYCARD_READER);
                         entries.add(ModItems.INCOMPLETE_OXYGEN_COLLECTOR);
                         entries.add(ModItems.INCOMPLETE_MITHRIL_MIRROR);
                         entries.add(ModFluids.SWEET_BERRY_JAM_BUCKET);
@@ -772,13 +783,23 @@ public class ModItemGroups {
                         entries.add(ModFluids.STRAWBERRY_JAM_BUCKET);
                         entries.add(ModFluids.ORANGE_MARMELADE_BUCKET);
                         entries.add(ModFluids.BLUE_BERRY_JAM_BUCKET);
+                        entries.add(ModBlocks.WOODEN_BLUE_BERRY_MILKSHAKE_STEIN);
+                        entries.add(ModBlocks.WOODEN_TORCHBERRY_MILKSHAKE_STEIN);
                         entries.add(ModBlocks.BLUE_BERRY_JAM_JAR);
                         entries.add(ModItems.BLUE_BERRY_JAM_TOAST);
                         entries.add(ModFluids.ANCIENT_SOULBERRY_JAM_BUCKET);
                         entries.add(ModBlocks.ANCIENT_SOULBERRY_JAM_JAR);
                         entries.add(ModItems.ANCIENT_SOULBERRY_JAM_TOAST);
+                        entries.add(ModItems.BIOLOGICAL_CIRCUIT_BOARD);
                         entries.add(ModItems.INFECTED_TREX_SPAWN_EGG);
                         entries.add(ModBlocks.INFECTED_TREX_HEAD);
+                        entries.add(ModBlocks.SCULK_TREX_HEAD);
+                        entries.add(ModBlocks.SICKENED_TREX_HEAD);
+                        entries.add(ModItems.MITHRIL_COMMAND_BLOCK_SWORD);
+                        entries.add(ModItems.MITHRIL_COMMAND_BLOCK_PICKAXE);
+                        entries.add(ModItems.MITHRIL_COMMAND_BLOCK_AXE);
+                        entries.add(ModItems.MITHRIL_COMMAND_BLOCK_SHOVEL);
+                        entries.add(ModItems.MITHRIL_COMMAND_BLOCK_HOE);
                         entries.add(ModItems.SKYROOT_BARK);
                         entries.add(ModItems.PEWEN_BARK);
                         entries.add(ModItems.THORNWOOD_BARK);
@@ -965,6 +986,7 @@ public class ModItemGroups {
             content.addAfter(ModItems.ENDURIUM_CRYSTAL, ModItems.CINNABAR_CRYSTAL);
             content.addAfter(ModItems.CINNABAR_CRYSTAL, ModItems.NEBULAR_CRYSTAL);
             content.addAfter(Items.AMETHYST_SHARD, ModItems.XEN_CRYSTAL);
+            content.addAfter(Items.IRON_NUGGET, ModItems.COPPER_NUGGET);
             content.addAfter(Items.GOLD_NUGGET, ModItems.STEEL_NUGGET);
             content.addAfter(ModItems.STEEL_NUGGET, ModItems.LEAD_NUGGET);
             content.addAfter(ModItems.LEAD_NUGGET, ModItems.URANIUM_NUGGET);

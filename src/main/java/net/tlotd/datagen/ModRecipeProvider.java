@@ -262,6 +262,16 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Items.IRON_BARS), conditionsFromItem(Items.IRON_BARS))
                 .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.GARBAGE_CAN)));
 
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.BENCH)
+                .pattern("I-I")
+                .pattern("---")
+                .pattern("I-I")
+                .input('I', TagKey.of(RegistryKeys.ITEM, new Identifier("c", "steel_rods")))
+                .input('-', ItemTags.WOODEN_SLABS)
+                .criterion(hasItem(ModItems.STEEL_ROD), conditionsFromItem(ModItems.STEEL_ROD))
+                .criterion(hasItem(Items.OAK_SLAB), conditionsFromItem(Items.OAK_SLAB))
+                .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.BENCH)));
+
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.CANNABIS_COOKIE, 8)
                 .pattern("#C#")
                 .input('#', Items.WHEAT)
@@ -690,7 +700,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .pattern("AXA")
                 .input('G', ModItems.GOLD_WIRE)
                 .input('I', TagKey.of(RegistryKeys.ITEM, new Identifier("c", "iron_ingots")))
-                .input('A', ModItems.ADVANCED_CIRCUIT_BOARD)
+                .input('A', ModTags.Items.ADVANCED_CIRCUIT_BOARDS)
                 .input('X', ModItems.XEN_CRYSTAL)
                 .input('R', Items.REDSTONE_LAMP)
                 .criterion(hasItem(ModItems.GOLD_WIRE), conditionsFromItem(ModItems.GOLD_WIRE))
@@ -815,6 +825,53 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Items.NETHERITE_SCRAP), conditionsFromItem(Items.NETHERITE_SCRAP))
                 .criterion(hasItem(ModItems.REINFORCED_TOOL_ROD), conditionsFromItem(ModItems.REINFORCED_TOOL_ROD))
                 .offerTo(exporter, new Identifier(getRecipeName(ModItems.NARSIL_HANDLE)));
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.GONDORIAN_SHIELD)
+                .input(Items.SHIELD)
+                .input(Items.BLACK_DYE)
+                .input(ItemTags.SAPLINGS)
+                .input(ModItems.MITHRIL_NUGGET)
+                .criterion(hasItem(Items.SHIELD), conditionsFromItem(Items.SHIELD))
+                .criterion(hasItem(Items.BLACK_DYE), conditionsFromItem(Items.BLACK_DYE))
+                .criterion(hasItem(ModItems.MITHRIL_NUGGET), conditionsFromItem(ModItems.MITHRIL_NUGGET))
+                .offerTo(exporter, new Identifier(getRecipeName(ModItems.GONDORIAN_SHIELD))+"_from_shield");
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.GONDORIAN_SHIELD)
+                .input(ModItems.GONDORIAN_KINGS_GUARD_TOWER_SHIELD)
+                .criterion(hasItem(ModItems.GONDORIAN_KINGS_GUARD_TOWER_SHIELD), conditionsFromItem(ModItems.GONDORIAN_KINGS_GUARD_TOWER_SHIELD))
+                .offerTo(exporter, new Identifier(getRecipeName(ModItems.GONDORIAN_SHIELD)));
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.GONDORIAN_TOWER_SHIELD)
+                .input(ModItems.GONDORIAN_SHIELD)
+                .criterion(hasItem(ModItems.GONDORIAN_SHIELD), conditionsFromItem(ModItems.GONDORIAN_SHIELD))
+                .offerTo(exporter, new Identifier(getRecipeName(ModItems.GONDORIAN_TOWER_SHIELD)));
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.GONDORIAN_KINGS_GUARD_TOWER_SHIELD)
+                .input(ModItems.GONDORIAN_TOWER_SHIELD)
+                .criterion(hasItem(ModItems.GONDORIAN_TOWER_SHIELD), conditionsFromItem(ModItems.GONDORIAN_TOWER_SHIELD))
+                .offerTo(exporter, new Identifier(getRecipeName(ModItems.GONDORIAN_KINGS_GUARD_TOWER_SHIELD)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModItems.GONDORIAN_KNIGHT_SHIELD)
+                .pattern("GGG")
+                .pattern("G#G")
+                .pattern("GGG")
+                .input('#', ModItems.GONDORIAN_TOWER_SHIELD)
+                .input('G', Items.GOLD_NUGGET)
+                .criterion(hasItem(ModItems.GONDORIAN_TOWER_SHIELD), conditionsFromItem(ModItems.GONDORIAN_TOWER_SHIELD))
+                .criterion(hasItem(Items.GOLD_NUGGET), conditionsFromItem(Items.GOLD_NUGGET))
+                .offerTo(exporter, new Identifier(getRecipeName(ModItems.GONDORIAN_KNIGHT_SHIELD)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModItems.GONDORIAN_ORNAMENTED_KNIGHT_SHIELD)
+                .pattern("MGM")
+                .pattern("G#G")
+                .pattern("MGM")
+                .input('#', ModItems.GONDORIAN_KNIGHT_SHIELD)
+                .input('G', Items.GREEN_DYE)
+                .input('M', ModItems.MITHRIL_NUGGET)
+                .criterion(hasItem(ModItems.GONDORIAN_KNIGHT_SHIELD), conditionsFromItem(ModItems.GONDORIAN_KNIGHT_SHIELD))
+                .criterion(hasItem(Items.GREEN_DYE), conditionsFromItem(Items.GREEN_DYE))
+                .criterion(hasItem(ModItems.MITHRIL_NUGGET), conditionsFromItem(ModItems.MITHRIL_NUGGET))
+                .offerTo(exporter, new Identifier(getRecipeName(ModItems.GONDORIAN_ORNAMENTED_KNIGHT_SHIELD)));
 
         ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModBlocks.ARCHAEOLOGY_TABLE)
                 .pattern("II")
@@ -1607,34 +1664,6 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Items.RED_DYE), conditionsFromItem(Items.RED_DYE))
                 .offerTo(exporter, new Identifier(getRecipeName(ModItems.KEYCARD)));
 
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.KEYCARD_READER)
-                .pattern("IPI")
-                .pattern("#C#")
-                .pattern("###")
-                .input('#', ItemTags.BUTTONS)
-                .input('I', TagKey.of(RegistryKeys.ITEM, new Identifier("c", "iron_ingots")))
-                .input('P', ModItems.LIQUID_CRYSTAL_DISPLAY_PANEL)
-                .input('C', ModItems.CIRCUIT_BOARD)
-                .criterion(hasItem(ModItems.LIQUID_CRYSTAL_DISPLAY_PANEL), conditionsFromItem(ModItems.LIQUID_CRYSTAL_DISPLAY_PANEL))
-                .criterion(hasItem(ModItems.CIRCUIT_BOARD), conditionsFromItem(ModItems.CIRCUIT_BOARD))
-                .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.KEYCARD_READER)));
-
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.KEYCARD_PROGRAMMER)
-                .pattern("GTK")
-                .pattern("BCP")
-                .pattern("###")
-                .input('#', TagKey.of(RegistryKeys.ITEM, new Identifier("c", "quartz_blocks")))
-                .input('G', TagKey.of(RegistryKeys.ITEM, new Identifier("c", "glass_panes")))
-                .input('T', ModItems.CATHODE_RAY_TUBE)
-                .input('K', ModItems.KEYCARD)
-                .input('B', ItemTags.BUTTONS)
-                .input('C', ModItems.CIRCUIT_BOARD)
-                .input('P', Items.STONE_PRESSURE_PLATE)
-                .criterion(hasItem(ModItems.CATHODE_RAY_TUBE), conditionsFromItem(ModItems.CATHODE_RAY_TUBE))
-                .criterion(hasItem(ModItems.KEYCARD), conditionsFromItem(ModItems.KEYCARD))
-                .criterion(hasItem(ModItems.CIRCUIT_BOARD), conditionsFromItem(ModItems.CIRCUIT_BOARD))
-                .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.KEYCARD_PROGRAMMER)));
-
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.KEYCARD)
                 .input(ModItems.KEYCARD)
                 .criterion(hasItem(ModItems.KEYCARD), conditionsFromItem(ModItems.KEYCARD))
@@ -1660,6 +1689,8 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(ModItems.STEEL_INGOT), conditionsFromItem(ModItems.STEEL_INGOT))
                 .criterion(hasItem(ModItems.FOSSILIZED_BONE), conditionsFromItem(ModItems.FOSSILIZED_BONE))
                 .offerTo(exporter, new Identifier(getRecipeName(ModItems.FOSSIL_AND_STEEL)+"_2"));
+
+        offerReversibleNuggetCompactingRecipes(exporter, RecipeCategory.MISC, ModItems.COPPER_NUGGET, RecipeCategory.MISC, Items.COPPER_INGOT);
 
         offerReversibleCompactingRecipes(exporter, RecipeCategory.MISC, ModItems.RAW_LEAD, RecipeCategory.BUILDING_BLOCKS, ModBlocks.RAW_LEAD_BLOCK);
         offerSmelting(exporter, List.of(ModItems.RAW_LEAD), RecipeCategory.MISC, ModItems.LEAD_INGOT, 0.25f,200, "lead_ingot");

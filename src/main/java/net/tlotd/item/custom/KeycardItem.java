@@ -19,6 +19,8 @@ public class KeycardItem extends Item {
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
         if (!stack.hasNbt()) {
             tooltip.add(Text.translatable("item.tlotd.keycard.no_password").formatted(Formatting.GRAY));
+        } else {
+            tooltip.add(Text.translatable("item.tlotd.keycard.has_password").formatted(Formatting.GRAY));
         }
         super.appendTooltip(stack, world, tooltip, context);
     }

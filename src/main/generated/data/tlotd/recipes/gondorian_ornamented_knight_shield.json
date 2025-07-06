@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "#": {
+      "item": "tlotd:gondorian_knight_shield"
+    },
+    "G": {
+      "item": "minecraft:green_dye"
+    },
+    "M": {
+      "item": "tlotd:mithril_nugget"
+    }
+  },
+  "pattern": [
+    "MGM",
+    "G#G",
+    "MGM"
+  ],
+  "result": {
+    "item": "tlotd:gondorian_ornamented_knight_shield"
+  },
+  "show_notification": true
+}

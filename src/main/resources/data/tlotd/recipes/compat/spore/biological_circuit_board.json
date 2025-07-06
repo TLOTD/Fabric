@@ -1,0 +1,38 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "spore"
+      ]
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "I": {
+      "item": "spore:claw"
+    },
+    "N": {
+      "item": "spore:nerves"
+    },
+    "A": {
+      "item": "spore:armor_fragment"
+    },
+    "C": {
+      "item": "spore:cerebrum"
+    },
+    "H": {
+      "item": "spore:mutated_heart"
+    }
+  },
+  "pattern": [
+    "NHC",
+    "ACA",
+    "IIN"
+  ],
+  "result": {
+    "item": "tlotd:biological_circuit_board"
+  },
+  "show_notification": true
+}

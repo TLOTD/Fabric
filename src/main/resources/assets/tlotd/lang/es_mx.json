@@ -10,6 +10,7 @@
   "gui.tlotd.witching": "Brujas",
   "gui.tlotd.tooltip.liquid_amount_with_capacity": "§f%s§7: %smB/%smB",
   "gui.tlotd.oxygen_collector": "Tanque de oxígeno",
+  "gui.tlotd.keycard_programmer": "Programar una tarjeta",
 
   "generic.tlotd.text.click_me": "[HAGA CLIC AQUÍ]",
   "generic.tlotd.text.wiki_link": "para abrir el Mod Wiki.",
@@ -61,8 +62,9 @@
   "sounds.tlotd.block_television_switch_channel": "Canal de televisión conmutado",
   "sounds.tlotd.block_television_static_channel": "La televisión reproduce estática",
   "sounds.tlotd.block_computer_interact": "Ordenador utilizado",
-
   "sounds.tlotd.block_videocassette_recorder": "Videograbadora utilizada",
+  "sounds.tlotd.block_keycard_reader_pling": "Lector de tarjetas utilizada",
+  "sounds.tlotd.block_garbage_can_used": "Cubo de basura utilizada",
 
   "advancements.tlotd.radioactive": "§eRadioactive!§r",
   "advancements.tlotd.radioactive.desc": "Get irradiated by something",
@@ -282,23 +284,28 @@
   "item.tlotd.futuristic_circuit_board.tooltip": "You cannot escape the",
   "item.tlotd.futuristic_circuit_board.tooltip_2": "responsibility of tomorrow",
   "item.tlotd.futuristic_circuit_board.tooltip_3": "by evading it today",
+  "item.tlotd.biological_circuit_board": "Placa de circuito biológico",
   "item.tlotd.cathode_ray_tube": "Tubo de rayos catódicos",
   "item.tlotd.liquid_crystal_display_panel": "Pantalla de cristal líquido",
   "item.tlotd.holographic_projector": "Proyector holográfico",
 
   "item.tlotd.keycard": "Tarjeta",
   "item.tlotd.keycard.no_password": "Sin contraseña",
+  "item.tlotd.keycard.has_password": "Contraseña",
 
   "item.tlotd.incomplete_copper_wire": "Alambre de cobre incompleto",
   "item.tlotd.incomplete_gold_wire": "Alambre de oro incompleto",
   "item.tlotd.incomplete_integrated_circuit": "Circuitos integrados incompleto",
   "item.tlotd.incomplete_circuit_board": "Placa de circuito incompleto",
   "item.tlotd.incomplete_advanced_circuit_board": "Placa de circuito avanzada incompleto",
+  "item.tlotd.incomplete_futuristic_circuit_board": "Placa de circuito futurista incompleto",
   "item.tlotd.incomplete_radio": "Radio incompleto",
   "item.tlotd.incomplete_television": "Televisión incompleto",
   "item.tlotd.incomplete_videocassette_recorder": "Videograbadora incompleto",
   "item.tlotd.incomplete_signal_transmitter": "Transmisor de señales incompleto",
   "item.tlotd.incomplete_computer": "Ordenador incompleto",
+  "item.tlotd.incomplete_keycard_programmer": "Programador de tarjetas incompleto",
+  "item.tlotd.incomplete_keycard_reader": "Lector de tarjetas incompleto",
   "item.tlotd.incomplete_oxygen_collector": "Colector de oxígeno incompleto",
   "item.tlotd.incomplete_mithril_mirror": "Espejo de mithril incompleto",
 
@@ -316,6 +323,8 @@
   "item.tlotd.orange_marmelade_bucket": "Cubo de mermelada de naranja",
   "item.tlotd.blue_berry_jam_bucket": "Cubo de mermelada de bayas azules",
   "item.tlotd.ancient_soulberry_jam_bucket": "Cubo de mermelada de bayas alma antigua",
+
+  "item.tlotd.copper_nugget": "Pepita de cobre",
 
   "item.tlotd.copper_sickle": "Hoz de cobre",
   "item.tlotd.golden_sickle": "Hoz de oro",
@@ -346,6 +355,7 @@
   "item.tlotd.uranium_nugget": "Pepita de uranio",
   "item.tlotd.uranium_ingot": "Lingote de uranio",
 
+  "item.tlotd.alien_metal": "Metal extraterrestre",
   "item.tlotd.xen_crystal": "Cristal de xen",
   "item.tlotd.meteorite_chunk": "Trozo de meteorito",
   "item.tlotd.star_fragment": "Fragmento de estrella",
@@ -559,6 +569,13 @@
   "item.tlotd.cataclysmic_pickaxe": "§cPico cataclísmico",
   "item.tlotd.eldritch_pickaxe": "§4Devorador del Más Allá",
 
+  "item.tlotd.mithril_command_block_sword": "Espada de comandos de mithril",
+  "item.tlotd.mithril_command_block_pickaxe": "Pico de comandos de mithril",
+  "item.tlotd.mithril_command_block_axe": "Hacha de comandos de mithril",
+  "item.tlotd.mithril_command_block_shovel": "Pala de comandos de mithril",
+  "item.tlotd.mithril_command_block_hoe": "Azada de comandos de mithril",
+  "item.tlotd.mithril_command_block_sickle": "Hoz de comandos de mithril",
+
   "item.tlotd.t-rex_spawn_egg": "Generar T-Rex",
   "item.tlotd.infected_t-rex_spawn_egg": "T-Rex infectado",
 
@@ -646,14 +663,11 @@
   "block.tlotd.player_plushie.tooltip_shift": "Sirve para:",
 
   "block.tlotd.garbage_can": "Cubo de basura",
-
+  "block.tlotd.bench": "Banco",
   "block.tlotd.flagpole": "Asta de bandera",
 
   "block.tlotd.keycard_programmer": "Programador de tarjetas",
   "block.tlotd.keycard_programmer.tooltip": "Desarrollado por:",
-  "block.tlotd.keycard_programmer.tooltip_2": "Interactúa con una tarjeta para",
-  "block.tlotd.keycard_programmer.tooltip_3": "establecer como contraseña un ",
-  "block.tlotd.keycard_programmer.tooltip_4": "objeto que no esté en la mano.",
   "block.tlotd.keycard_reader": "Lector de tarjetas",
   "block.tlotd.keycard_reader.no_password": "Su Keycard no tiene contraseña",
   "block.tlotd.keycard_reader.password_set": "La contraseña de su tarjeta se ha establecido como la nueva contraseña del lector de tarjetas.",

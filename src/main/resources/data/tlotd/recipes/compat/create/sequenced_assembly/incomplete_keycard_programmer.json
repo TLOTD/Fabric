@@ -1,0 +1,166 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "create"
+      ]
+    }
+  ],
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "tag": "c:quartz_blocks"
+  },
+  "loops": 1,
+  "results": [
+    {
+      "item": "tlotd:keycard_programmer"
+    }
+  ],
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "tlotd:incomplete_keycard_programmer"
+        },
+        {
+          "item": "tlotd:keycard"
+        }
+      ],
+      "results": [
+        {
+          "item": "tlotd:incomplete_keycard_programmer"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "tlotd:incomplete_keycard_programmer"
+        },
+        {
+          "item": "minecraft:stone_pressure_plate"
+        }
+      ],
+      "results": [
+        {
+          "item": "tlotd:incomplete_keycard_programmer"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "tlotd:incomplete_keycard_programmer"
+        },
+        {
+          "item": "tlotd:circuit_board"
+        }
+      ],
+      "results": [
+        {
+          "item": "tlotd:incomplete_keycard_programmer"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "tlotd:incomplete_keycard_programmer"
+        },
+        {
+          "tag": "c:quartz_blocks"
+        }
+      ],
+      "results": [
+        {
+          "item": "tlotd:incomplete_keycard_programmer"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "tlotd:incomplete_keycard_programmer"
+        },
+        {
+          "item": "tlotd:cathode_ray_tube"
+        }
+      ],
+      "results": [
+        {
+          "item": "tlotd:incomplete_keycard_programmer"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "tlotd:incomplete_keycard_programmer"
+        },
+        {
+          "tag": "c:colorless_glass_panes"
+        }
+      ],
+      "results": [
+        {
+          "item": "tlotd:incomplete_keycard_programmer"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "tlotd:incomplete_keycard_programmer"
+        },
+        {
+          "tag": "c:quartz_blocks"
+        }
+      ],
+      "results": [
+        {
+          "item": "tlotd:incomplete_keycard_programmer"
+        }
+      ]
+    },
+    {
+      "type": "create:pressing",
+      "ingredients": [
+        {
+          "item": "tlotd:incomplete_keycard_programmer"
+        }
+      ],
+      "results": [
+        {
+          "item": "tlotd:incomplete_keycard_programmer"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "tlotd:incomplete_keycard_programmer"
+        },
+        {
+          "tag": "minecraft:buttons"
+        }
+      ],
+      "results": [
+        {
+          "item": "tlotd:incomplete_keycard_programmer"
+        }
+      ]
+    }
+  ],
+  "transitionalItem": {
+    "item": "tlotd:incomplete_keycard_programmer"
+  }
+}

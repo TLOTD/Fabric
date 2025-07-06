@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "tlotd:item/compat/witherstormmod/mithril_command_block_shovel"
+  }
+}

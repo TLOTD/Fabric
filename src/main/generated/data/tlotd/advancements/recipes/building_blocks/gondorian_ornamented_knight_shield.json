@@ -1,0 +1,61 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_gondorian_knight_shield": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "tlotd:gondorian_knight_shield"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_green_dye": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:green_dye"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_mithril_nugget": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "tlotd:mithril_nugget"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:gondorian_ornamented_knight_shield"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_gondorian_knight_shield",
+      "has_green_dye",
+      "has_mithril_nugget",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:gondorian_ornamented_knight_shield"
+    ]
+  },
+  "sends_telemetry_event": false
+}

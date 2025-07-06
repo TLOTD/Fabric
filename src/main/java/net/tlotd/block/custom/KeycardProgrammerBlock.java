@@ -1,25 +1,22 @@
 package net.tlotd.block.custom;
 
 import net.minecraft.block.*;
+import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.block.entity.BlockEntityTicker;
+import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NbtCompound;
-import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvents;
-import net.minecraft.stat.Stats;
+import net.minecraft.screen.NamedScreenHandlerFactory;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.DirectionProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.text.Text;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.BlockRotation;
-import net.minecraft.util.Formatting;
-import net.minecraft.util.Hand;
+import net.minecraft.util.*;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
@@ -27,18 +24,13 @@ import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
-import net.tlotd.block.ModBlocks;
-import net.tlotd.config.ModConfigs;
-import net.tlotd.item.ModItems;
-import net.tlotd.sound.ModSounds;
-import net.tlotd.util.ModTags;
+import net.tlotd.block.entity.KeycardProgrammerBlockEntity;
+import net.tlotd.block.entity.ModBlockEntities;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-import static net.tlotd.block.custom.TelevisionBlock.CHANNEL;
-
-public class KeycardProgrammerBlock extends Block {
+public class KeycardProgrammerBlock extends BlockWithEntity implements BlockEntityProvider {
 
     public static final BooleanProperty ON = BooleanProperty.of("on");
     public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
@@ -105,25 +97,43 @@ public class KeycardProgrammerBlock extends Block {
         tooltip.add(Text.literal(""));
         tooltip.add(Text.translatable("block.tlotd.keycard_programmer.tooltip").formatted(Formatting.GRAY));
         tooltip.add(Text.literal(" ").append(Text.translatable("block.tlotd.computer").formatted(Formatting.BLUE)));
-        tooltip.add(Text.literal(""));
-        tooltip.add(Text.translatable("block.tlotd.keycard_programmer.tooltip_2").formatted(Formatting.GRAY));
-        tooltip.add(Text.translatable("block.tlotd.keycard_programmer.tooltip_3").formatted(Formatting.GRAY));
-        tooltip.add(Text.translatable("block.tlotd.keycard_programmer.tooltip_4").formatted(Formatting.GRAY));
         super.appendTooltip(stack, world, tooltip, options);
     }
 
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        ItemStack stack = player.getStackInHand(hand);
-        ItemStack stack2 = player.getOffHandStack();
-        if (stack.isOf(ModItems.KEYCARD) && !stack.hasNbt() && !stack2.isEmpty()) {
+        if (state.get(ON)) {
             if (!world.isClient) {
-                NbtCompound nbt = new NbtCompound();
-                nbt.putString("password", stack2.toString());
-                stack.setNbt(nbt);
+                NamedScreenHandlerFactory screenHandlerFactory = ((KeycardProgrammerBlockEntity) world.getBlockEntity(pos));
+                if (screenHandlerFactory != null) {
+                    player.openHandledScreen(screenHandlerFactory);
+                }
             }
             return ActionResult.SUCCESS;
         }
         return ActionResult.FAIL;
+    }
+
+    @Override
+    public @Nullable BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
+        return new KeycardProgrammerBlockEntity(pos, state);
+    }
+
+    @Override
+    public void onStateReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean moved) {
+        if (state.getBlock() != newState.getBlock()) {
+            BlockEntity blockEntity = world.getBlockEntity(pos);
+            if (blockEntity instanceof KeycardProgrammerBlockEntity) {
+                ItemScatterer.spawn(world, pos, (KeycardProgrammerBlockEntity)blockEntity);
+                world.updateComparators(pos, this);
+            }
+            super.onStateReplaced(state, world, pos, newState, moved);
+        }
+    }
+
+    @Override
+    public @Nullable <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
+        return checkType(type, ModBlockEntities.KEYCARD_PROGRAMMER_BLOCK_ENTITY,
+                (world1, pos, state1, blockEntity) -> blockEntity.tick(world1, pos, state1));
     }
 }

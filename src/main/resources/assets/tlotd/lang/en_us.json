@@ -7,18 +7,22 @@
   "mod.aether.name": "The Aether",
   "mod.alexscaves.name": "Alex's Caves",
   "mod.allthemodium.name": "AllTheModium",
+  "mod.biomancy.name": "Biomancy",
   "mod.biomesoplenty.name": "Biomes O' Plenty",
   "mod.create.name": "Create",
   "mod.quark.name": "Quark",
   "mod.spore.name": "Spore",
+  "mod.sculkhorde.name": "Sculk Horde",
   "mod.spore.calamity": "Calamity",
   "mod.thermal.name": "Thermal Series",
   "mod.twilightforest.name": "The Twilight Forest",
+  "mod.witherstormmod.name": "Cracker's Wither Storm Mod",
 
   "gui.tlotd.mithril_smithing": "Mithril Smithing",
   "gui.tlotd.witching": "Witching",
   "gui.tlotd.tooltip.liquid_amount_with_capacity": "§f%s§7: %smB/%smB",
   "gui.tlotd.oxygen_collector": "Oxygen Fueling",
+  "gui.tlotd.keycard_programmer": "Programm Keycard",
 
   "generic.tlotd.text.click_me": "[CLICK HERE]",
   "generic.tlotd.text.wiki_link": "to open the Mod Wiki.",
@@ -71,6 +75,8 @@
   "sounds.tlotd.block_television_static_channel": "Television plays static",
   "sounds.tlotd.block_computer_interact": "Computer used",
   "sounds.tlotd.block_videocassette_recorder": "Videocassette Recorder used",
+  "sounds.tlotd.block_keycard_reader_pling": "Keycard Reader used",
+  "sounds.tlotd.block_garbage_can_used": "Garbage Can used",
 
   "advancements.tlotd.radioactive": "§eRadioactive!§r",
   "advancements.tlotd.radioactive.desc": "Get irradiated by something",
@@ -290,23 +296,31 @@
   "item.tlotd.futuristic_circuit_board.tooltip": "You cannot escape the",
   "item.tlotd.futuristic_circuit_board.tooltip_2": "responsibility of tomorrow",
   "item.tlotd.futuristic_circuit_board.tooltip_3": "by evading it today",
+  "item.tlotd.biological_circuit_board": "Biological Circuit Board",
+  "item.tlotd.biological_circuit_board.tooltip": "A grotesque insult to",
+  "item.tlotd.biological_circuit_board.tooltip_2": "any ethical advancement",
+  "item.tlotd.biological_circuit_board.tooltip_3": "achieved in this field!",
   "item.tlotd.cathode_ray_tube": "Cathode Ray Tube",
   "item.tlotd.liquid_crystal_display_panel": "Liquid Crystal Display Panel",
   "item.tlotd.holographic_projector": "Holographic Projector",
 
   "item.tlotd.keycard": "Keycard",
   "item.tlotd.keycard.no_password": "No password set",
+  "item.tlotd.keycard.has_password": "Password set",
 
   "item.tlotd.incomplete_copper_wire": "Incomplete Copper Wire",
   "item.tlotd.incomplete_gold_wire": "Incomplete Gold Wire",
   "item.tlotd.incomplete_integrated_circuit": "Incomplete Integrated Circuit",
   "item.tlotd.incomplete_circuit_board": "Incomplete Circuit Board",
   "item.tlotd.incomplete_advanced_circuit_board": "Incomplete Advanced Circuit Board",
+  "item.tlotd.incomplete_futuristic_circuit_board": "Incomplete Futuristic Circuit Board",
   "item.tlotd.incomplete_radio": "Incomplete Radio",
   "item.tlotd.incomplete_television": "Incomplete Television",
   "item.tlotd.incomplete_videocassette_recorder": "Incomplete Videocassette Recorder",
   "item.tlotd.incomplete_signal_transmitter": "Incomplete Signal Transmitter",
   "item.tlotd.incomplete_computer": "Incomplete Computer",
+  "item.tlotd.incomplete_keycard_programmer": "Incomplete Keycard Programmer",
+  "item.tlotd.incomplete_keycard_reader": "Incomplete Keycard Reader",
   "item.tlotd.incomplete_oxygen_collector": "Incomplete Oxygen Collector",
   "item.tlotd.incomplete_mithril_mirror": "Incomplete Mithril Mirror",
 
@@ -324,6 +338,8 @@
   "item.tlotd.orange_marmelade_bucket": "Orange Marmelade Bucket",
   "item.tlotd.blue_berry_jam_bucket": "Blue Berry Jam Bucket",
   "item.tlotd.ancient_soulberry_jam_bucket": "Ancient Soul Berry Jam Bucket",
+
+  "item.tlotd.copper_nugget": "Copper Nugget",
 
   "item.tlotd.copper_sickle": "Copper Sickle",
   "item.tlotd.golden_sickle": "Golden Sickle",
@@ -354,6 +370,7 @@
   "item.tlotd.uranium_nugget": "Uranium Nugget",
   "item.tlotd.uranium_ingot": "Uranium Ingot",
 
+  "item.tlotd.alien_metal": "Alien Metal",
   "item.tlotd.xen_crystal": "Xen Crystal",
   "item.tlotd.meteorite_chunk": "Meteorite Chunk",
   "item.tlotd.star_fragment": "Star Fragment",
@@ -551,6 +568,12 @@
   "item.tlotd.anduril.tooltip_quenya_4": "\uE061",
   "item.tlotd.narsil_quenya": "\uE090\uE154\uE024\uE166",
 
+  "item.tlotd.gondorian_shield": "Gondorian Shield",
+  "item.tlotd.gondorian_tower_shield": "Gondorian Tower Shield",
+  "item.tlotd.gondorian_kings_guard_tower_shield": "Gondorian Kings Guard Tower Shield",
+  "item.tlotd.gondorian_knight_shield": "Gondorian Knight Shield",
+  "item.tlotd.gondorian_ornamented_knight_shield": "Gondorian Ornamented Knight Shield",
+
   "item.tlotd.astral_nugget": "Astral Nugget",
   "item.tlotd.astral_ingot": "Astral Ingot",
 
@@ -569,6 +592,13 @@
   "item.tlotd.divine_pickaxe": "§6Divine Pickaxe",
   "item.tlotd.cataclysmic_pickaxe": "§cCataclysmic Pickaxe",
   "item.tlotd.eldritch_pickaxe": "§4Devourer of the Beyond",
+
+  "item.tlotd.mithril_command_block_sword": "Mithril Command Block Sword",
+  "item.tlotd.mithril_command_block_pickaxe": "Mithril Command Block Pickaxe",
+  "item.tlotd.mithril_command_block_axe": "Mithril Command Block Axe",
+  "item.tlotd.mithril_command_block_shovel": "Mithril Command Block Shovel",
+  "item.tlotd.mithril_command_block_hoe": "Mithril Command Block Hoe",
+  "item.tlotd.mithril_command_block_sickle": "Mithril Command Block Sickle",
 
   "item.tlotd.t-rex_spawn_egg": "T-Rex Spawn Egg",
   "item.tlotd.infected_t-rex_spawn_egg": "Infected T-Rex",
@@ -657,14 +687,11 @@
   "block.tlotd.player_plushie.tooltip_shift": "Works for:",
 
   "block.tlotd.garbage_can": "Garbage Can",
-
+  "block.tlotd.bench": "Bench",
   "block.tlotd.flagpole": "Flagpole",
 
   "block.tlotd.keycard_programmer": "Keycard Programmer",
   "block.tlotd.keycard_programmer.tooltip": "Powered by:",
-  "block.tlotd.keycard_programmer.tooltip_2": "Interact whilst holding",
-  "block.tlotd.keycard_programmer.tooltip_3": "a keycard, to set Off-hand",
-  "block.tlotd.keycard_programmer.tooltip_4": "item as its password.",
   "block.tlotd.keycard_reader": "Keycard Reader",
   "block.tlotd.keycard_reader.no_password": "There is no password on your Keycard",
   "block.tlotd.keycard_reader.password_set": "The password from your Keycard has been set as the new Keycard Reader password",

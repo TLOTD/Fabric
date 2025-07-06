@@ -1,0 +1,19 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "witherstormmod"
+      ]
+    }
+  ],
+  "type": "witherstormmod:anvil",
+  "cost": 1,
+  "left": {
+    "item": "tlotd:mithril_pickaxe"
+  },
+  "result": "tlotd:mithril_command_block_pickaxe",
+  "right": {
+    "item": "witherstormmod:command_block_book"
+  }
+}

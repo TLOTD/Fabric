@@ -16,10 +16,10 @@ public enum ModToolMaterial implements ToolMaterial {
     CINNABAR(7, 3418,14.0f, 6.0f,21, () -> Ingredient.ofItems(ModItems.CINNABAR_INGOT)),
     NEBULAR(7, 3418,14.0f, 6.0f,21, () -> Ingredient.ofItems(ModItems.NEBULAR_INGOT)),
     MITHRIL(8, 4096,16.0f, 7.0f,25, () -> Ingredient.ofItems(ModItems.MITHRIL_INGOT)),
-    ASTRAL(9, -1,18.0f, 8.0f,28, () -> Ingredient.ofItems(ModItems.ASTRAL_INGOT)),
-    DIVINE(10, -1,20.0f, 9.0f,32, () -> Ingredient.ofItems(ModItems.ASTRAL_INGOT)),
-    CATACLYSMIC(11, -1,22.0f, 10.0f,36, () -> Ingredient.ofItems(ModItems.ASTRAL_INGOT)),
-    ELDRITCH(12, -1,24.0f, 11.0f,40, () -> Ingredient.ofItems(ModItems.ASTRAL_INGOT))
+    ASTRAL(9, -1,18.0f, 8.0f,28, () -> Ingredient.ofItems()),
+    DIVINE(10, -1,20.0f, 9.0f,32, () -> Ingredient.ofItems()),
+    CATACLYSMIC(11, -1,22.0f, 10.0f,36, () -> Ingredient.ofItems()),
+    ELDRITCH(12, -1,24.0f, 11.0f,40, () -> Ingredient.ofItems())
     ;
 
     private final int miningLevel;

@@ -1,0 +1,18 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "witherstormmod"
+      ]
+    }
+  ],
+  "replace": false,
+  "values": [
+    "tlotd:mithril_command_block_sword",
+    "tlotd:mithril_command_block_pickaxe",
+    "tlotd:mithril_command_block_axe",
+    "tlotd:mithril_command_block_shovel",
+    "tlotd:mithril_command_block_hoe"
+  ]
+}

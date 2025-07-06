@@ -330,6 +330,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModItems.ASTRAL_PICKAXE)
                 .add(ModItems.DIVINE_PICKAXE)
                 .add(ModItems.CATACLYSMIC_PICKAXE)
+                .add(ModItems.MITHRIL_COMMAND_BLOCK_PICKAXE)
         ;
 
         getOrCreateTagBuilder(ModTags.Items.EXTRACTION_III_PICKAXES)
@@ -415,6 +416,21 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .addOptional(Identifier.tryParse("ad_astra:space_boots"))
         ;
 
+        getOrCreateTagBuilder(ModTags.Items.CIRCUIT_BOARDS)
+                .add(ModItems.CIRCUIT_BOARD)
+                .addTag(ModTags.Items.ADVANCED_CIRCUIT_BOARDS)
+        ;
+
+        getOrCreateTagBuilder(ModTags.Items.ADVANCED_CIRCUIT_BOARDS)
+                .add(ModItems.ADVANCED_CIRCUIT_BOARD)
+                .add(ModItems.FUTURISTIC_CIRCUIT_BOARD)
+                .add(ModItems.BIOLOGICAL_CIRCUIT_BOARD)
+        ;
+
+        getOrCreateTagBuilder(ModTags.Items.KEYCARDS)
+                .add(ModItems.KEYCARD)
+        ;
+
         getOrCreateTagBuilder(ModTags.Items.SICKLES)
                 .add(ModItems.COPPER_SICKLE)
                 .add(ModItems.GOLDEN_SICKLE)
@@ -439,6 +455,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModItems.CINNABAR_SWORD)
                 .add(ModItems.NEBULAR_SWORD)
                 .add(ModItems.MITHRIL_SWORD)
+                .add(ModItems.MITHRIL_COMMAND_BLOCK_SWORD)
                 .add(ModItems.ASTRAL_SWORD)
                 .add(ModItems.NARSIL_HANDLE)
                 .add(ModItems.ANDURIL)
@@ -453,7 +470,11 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModItems.CINNABAR_PICKAXE)
                 .add(ModItems.NEBULAR_PICKAXE)
                 .add(ModItems.MITHRIL_PICKAXE)
+                .add(ModItems.MITHRIL_COMMAND_BLOCK_PICKAXE)
                 .add(ModItems.ASTRAL_PICKAXE)
+                .add(ModItems.DIVINE_PICKAXE)
+                .add(ModItems.CATACLYSMIC_PICKAXE)
+                .add(ModItems.ELDRITCH_PICKAXE)
         ;
 
         getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "axes")))
@@ -465,6 +486,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModItems.CINNABAR_AXE)
                 .add(ModItems.NEBULAR_AXE)
                 .add(ModItems.MITHRIL_AXE)
+                .add(ModItems.MITHRIL_COMMAND_BLOCK_AXE)
                 .add(ModItems.ASTRAL_AXE)
         ;
 
@@ -477,6 +499,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModItems.CINNABAR_SHOVEL)
                 .add(ModItems.NEBULAR_SHOVEL)
                 .add(ModItems.MITHRIL_SHOVEL)
+                .add(ModItems.MITHRIL_COMMAND_BLOCK_SHOVEL)
                 .add(ModItems.ASTRAL_SHOVEL)
         ;
 
@@ -489,6 +512,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModItems.CINNABAR_HOE)
                 .add(ModItems.NEBULAR_HOE)
                 .add(ModItems.MITHRIL_HOE)
+                .add(ModItems.MITHRIL_COMMAND_BLOCK_HOE)
                 .add(ModItems.ASTRAL_HOE)
         ;
 
@@ -599,6 +623,10 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
         getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "cinnabar_ores")))
                 .add(ModBlocks.DEEPSLATE_CINNABAR_ORE.asItem())
                 .add(ModBlocks.RED_DEEPSLATE_CINNABAR_ORE.asItem())
+        ;
+
+        getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "copper_nuggets")))
+                .add(ModItems.COPPER_NUGGET)
         ;
 
         getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "lead_raw_materials")))

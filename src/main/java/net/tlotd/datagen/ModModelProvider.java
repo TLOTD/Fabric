@@ -220,6 +220,9 @@ public class ModModelProvider extends FabricModelProvider {
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
         itemModelGenerator.register(ModItems.IRRADIATED_ICON, Models.GENERATED);
 
+        itemModelGenerator.register(ModItems.COPPER_NUGGET, Models.GENERATED);
+        itemModelGenerator.register(ModItems.SULFUR, Models.GENERATED);
+
         itemModelGenerator.register(ModItems.OAK_BARK, Models.GENERATED);
         itemModelGenerator.register(ModItems.SPRUCE_BARK, Models.GENERATED);
         itemModelGenerator.register(ModItems.BIRCH_BARK, Models.GENERATED);
@@ -345,6 +348,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.INTEGRATED_CIRCUIT, Models.GENERATED);
         itemModelGenerator.register(ModItems.ADVANCED_CIRCUIT_BOARD, Models.GENERATED);
         itemModelGenerator.register(ModItems.FUTURISTIC_CIRCUIT_BOARD, Models.GENERATED);
+        itemModelGenerator.register(ModItems.BIOLOGICAL_CIRCUIT_BOARD, Models.GENERATED);
         itemModelGenerator.register(ModItems.CIRCUIT_BOARD, Models.GENERATED);
         itemModelGenerator.register(ModItems.CATHODE_RAY_TUBE, Models.GENERATED);
         itemModelGenerator.register(ModItems.LIQUID_CRYSTAL_DISPLAY_PANEL, Models.GENERATED);
@@ -357,6 +361,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.URANIUM_NUGGET, Models.GENERATED);
         itemModelGenerator.register(ModItems.URANIUM_INGOT, Models.GENERATED);
 
+        itemModelGenerator.register(ModItems.ALIEN_METAL, Models.GENERATED);
         itemModelGenerator.register(ModItems.XEN_CRYSTAL, Models.GENERATED);
         itemModelGenerator.register(ModItems.METEORITE_CHUNK, Models.GENERATED);
         itemModelGenerator.register(ModItems.STAR_FRAGMENT, Models.GENERATED);
@@ -379,8 +384,6 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.SOUL_MIRROR, Models.GENERATED);
         itemModelGenerator.register(ModItems.MITHRIL_MIRROR, Models.GENERATED);
         itemModelGenerator.register(ModItems.FOGGY_MITHRIL_MIRROR, Models.GENERATED);
-
-        itemModelGenerator.register(ModItems.SULFUR, Models.GENERATED);
 
         itemModelGenerator.register(ModItems.BAMBOO_SWORD, Models.HANDHELD);
         itemModelGenerator.register(ModItems.BAMBOO_PICKAXE, Models.HANDHELD);

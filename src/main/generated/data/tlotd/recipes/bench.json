@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "-": {
+      "tag": "minecraft:wooden_slabs"
+    },
+    "I": {
+      "tag": "c:steel_rods"
+    }
+  },
+  "pattern": [
+    "I-I",
+    "---",
+    "I-I"
+  ],
+  "result": {
+    "item": "tlotd:bench"
+  },
+  "show_notification": true
+}

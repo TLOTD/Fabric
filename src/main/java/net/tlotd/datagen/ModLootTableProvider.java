@@ -13,6 +13,11 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
 
     @Override
     public void generate() {
+
+        addDrop(ModBlocks.BENCH);
+
+        addDrop(ModBlocks.STICK_CROSS);
+
         addDrop(ModBlocks.PRESERVES_JAR);
         addDrop(ModBlocks.SWEET_BERRY_JAM_JAR);
         addDrop(ModBlocks.GLOW_BERRY_JAM_JAR);

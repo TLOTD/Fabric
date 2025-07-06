@@ -3,7 +3,7 @@
   "category": "building",
   "key": {
     "A": {
-      "item": "tlotd:advanced_circuit_board"
+      "tag": "tlotd:advanced_circuit_boards"
     },
     "G": {
       "item": "tlotd:gold_wire"

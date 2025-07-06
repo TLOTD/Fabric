@@ -1,0 +1,11 @@
+{
+	"credit": "Made with Blockbench",
+	"parent": "tlotd:item/gondorian_heavy_shield_template",
+	"texture_size": [64, 64],
+	"textures": {
+		"2": "tlotd:item/me/gondorian_ornamented_knight_shield"
+	},
+	"overrides": [
+		{"predicate": {"blocking": 1}, "model": "tlotd:item/gondorian_ornamented_knight_shield_blocking"}
+	]
+}

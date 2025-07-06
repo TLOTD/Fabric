@@ -1,0 +1,166 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "create"
+      ]
+    }
+  ],
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "tag": "c:iron_ingots"
+  },
+  "loops": 1,
+  "results": [
+    {
+      "item": "tlotd:keycard_reader"
+    }
+  ],
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "tlotd:incomplete_keycard_reader"
+        },
+        {
+          "item": "tlotd:circuit_board"
+        }
+      ],
+      "results": [
+        {
+          "item": "tlotd:incomplete_keycard_reader"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "tlotd:incomplete_keycard_reader"
+        },
+        {
+          "item": "tlotd:liquid_crystal_display_panel"
+        }
+      ],
+      "results": [
+        {
+          "item": "tlotd:incomplete_keycard_reader"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "tlotd:incomplete_keycard_reader"
+        },
+        {
+          "tag": "c:iron_ingots"
+        }
+      ],
+      "results": [
+        {
+          "item": "tlotd:incomplete_keycard_reader"
+        }
+      ]
+    },
+    {
+      "type": "create:pressing",
+      "ingredients": [
+        {
+          "item": "tlotd:incomplete_keycard_reader"
+        }
+      ],
+      "results": [
+        {
+          "item": "tlotd:incomplete_keycard_reader"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "tlotd:incomplete_keycard_reader"
+        },
+        {
+          "tag": "minecraft:buttons"
+        }
+      ],
+      "results": [
+        {
+          "item": "tlotd:incomplete_keycard_reader"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "tlotd:incomplete_keycard_reader"
+        },
+        {
+          "tag": "minecraft:buttons"
+        }
+      ],
+      "results": [
+        {
+          "item": "tlotd:incomplete_keycard_reader"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "tlotd:incomplete_keycard_reader"
+        },
+        {
+          "tag": "minecraft:buttons"
+        }
+      ],
+      "results": [
+        {
+          "item": "tlotd:incomplete_keycard_reader"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "tlotd:incomplete_keycard_reader"
+        },
+        {
+          "tag": "minecraft:buttons"
+        }
+      ],
+      "results": [
+        {
+          "item": "tlotd:incomplete_keycard_reader"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "tlotd:incomplete_keycard_reader"
+        },
+        {
+          "tag": "minecraft:buttons"
+        }
+      ],
+      "results": [
+        {
+          "item": "tlotd:incomplete_keycard_reader"
+        }
+      ]
+    }
+  ],
+  "transitionalItem": {
+    "item": "tlotd:incomplete_keycard_reader"
+  }
+}

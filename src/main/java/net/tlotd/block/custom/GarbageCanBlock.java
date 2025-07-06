@@ -1,20 +1,38 @@
 package net.tlotd.block.custom;
 
 import net.minecraft.block.*;
+import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.ItemPlacementContext;
+import net.minecraft.item.ItemStack;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvent;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.Properties;
+import net.minecraft.text.Text;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.Hand;
+import net.minecraft.util.ItemScatterer;
+import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
+import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
+import net.minecraft.world.event.GameEvent;
+import net.tlotd.block.entity.GarbageCanBlockEntity;
+import net.tlotd.block.entity.KeycardReaderBlockEntity;
+import net.tlotd.item.ModItems;
+import net.tlotd.sound.ModSounds;
+import org.jetbrains.annotations.Nullable;
 
-public class GarbageCanBlock extends Block {
+public class GarbageCanBlock extends BlockWithEntity implements BlockEntityProvider {
 
     public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
 
@@ -70,5 +88,48 @@ public class GarbageCanBlock extends Block {
     @Override
     public BlockRenderType getRenderType(BlockState state) {
         return BlockRenderType.MODEL;
+    }
+
+    @Override
+    public @Nullable BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
+        return new GarbageCanBlockEntity(pos, state);
+    }
+
+    @Override
+    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
+        ItemStack stack = player.getStackInHand(hand);
+        BlockEntity blockEntity = world.getBlockEntity(pos);
+        if (!world.isClient && blockEntity instanceof GarbageCanBlockEntity garbageCanBlockEntity) {
+            if (player.isSneaking()) {
+                if (player.getInventory().getEmptySlot() == -1) {
+                    Block.dropStack(world, pos.up(), garbageCanBlockEntity.getStack(0));
+                } else {
+                    player.setStackInHand(hand, garbageCanBlockEntity.getStack(0));
+                }
+                garbageCanBlockEntity.setStack(0, garbageCanBlockEntity.getStack(1));
+                garbageCanBlockEntity.setStack(1, garbageCanBlockEntity.getStack(2));
+                garbageCanBlockEntity.setStack(2, ItemStack.EMPTY);
+                world.playSound(null,pos, ModSounds.BLOCK_GARBAGE_CAN_USED, SoundCategory.BLOCKS, 1.0f, 1.0f);
+            } else if (!stack.isEmpty()) {
+                garbageCanBlockEntity.setStack(2, garbageCanBlockEntity.getStack(1));
+                garbageCanBlockEntity.setStack(1, garbageCanBlockEntity.getStack(0));
+                garbageCanBlockEntity.setStack(0, stack);
+                player.setStackInHand(hand, ItemStack.EMPTY);
+                world.playSound(null,pos, ModSounds.BLOCK_GARBAGE_CAN_USED, SoundCategory.BLOCKS, 1.0f, 1.0f);
+            }
+        }
+        return ActionResult.SUCCESS;
+    }
+
+    @Override
+    public void onStateReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean moved) {
+        if (state.getBlock() != newState.getBlock()) {
+            BlockEntity blockEntity = world.getBlockEntity(pos);
+            if (blockEntity instanceof GarbageCanBlockEntity) {
+                ItemScatterer.spawn(world, pos, (GarbageCanBlockEntity)blockEntity);
+                world.updateComparators(pos, this);
+            }
+            super.onStateReplaced(state, world, pos, newState, moved);
+        }
     }
 }

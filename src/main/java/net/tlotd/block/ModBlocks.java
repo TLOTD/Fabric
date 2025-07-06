@@ -29,9 +29,6 @@ import net.tlotd.world.tree.GinkgoSaplingGenerator;
 
 public class ModBlocks {
 
-    public static final Block BENCH = registerBlock("bench",
-            new BenchBlock(FabricBlockSettings.create().mapColor(MapColor.BROWN).requiresTool().strength(2.0F, 2.0F).nonOpaque()));
-
     public static final Block STICK_CROSS = registerBlock("stick_cross",
             new StickCrossBlock(FabricBlockSettings.create().mapColor(MapColor.BROWN).breakInstantly().sounds(BlockSoundGroup.WOOD).pistonBehavior(PistonBehavior.DESTROY).collidable(false).nonOpaque()));
 
@@ -329,11 +326,11 @@ public class ModBlocks {
             new Block(FabricBlockSettings.create().mapColor(MapColor.DARK_AQUA).requiresTool().strength(16.0F, 1200.0F).sounds(BlockSoundGroup.NETHERITE)));
 
     public static final Block BEDROCK_MITHRIL_ORE = registerUncommonBlock("bedrock_mithril_ore",
-            new Block(FabricBlockSettings.create().mapColor(MapColor.WHITE_GRAY).requiresTool().strength(-1.0F, 3600000.0F)));
+            new MithrilBlock(FabricBlockSettings.create().mapColor(MapColor.WHITE_GRAY).requiresTool().strength(-1.0F, 3600000.0F)));
     public static final Block RAW_MITHRIL_BLOCK = registerUncommonBlock("raw_mithril_block",
-            new Block(FabricBlockSettings.create().mapColor(MapColor.WHITE_GRAY).requiresTool().strength(10.0F, 1200.0F).sounds(BlockSoundGroup.NETHERITE)));
+            new MithrilBlock(FabricBlockSettings.create().mapColor(MapColor.WHITE_GRAY).requiresTool().strength(10.0F, 1200.0F).sounds(BlockSoundGroup.NETHERITE)));
     public static final Block MITHRIL_BLOCK = registerUncommonBlock("mithril_block",
-            new Block(FabricBlockSettings.create().mapColor(MapColor.WHITE_GRAY).requiresTool().strength(10.0F, 1200.0F).sounds(BlockSoundGroup.NETHERITE)));
+            new MithrilBlock(FabricBlockSettings.create().mapColor(MapColor.WHITE_GRAY).requiresTool().strength(10.0F, 1200.0F).sounds(BlockSoundGroup.NETHERITE)));
 
     public static final Block MITHRIL_ANVIL = registerUncommonBlock("mithril_anvil",
             new MithrilAnvilBlock(FabricBlockSettings.create().mapColor(MapColor.WHITE_GRAY).requiresTool().strength(10.0F, 1200.0F).sounds(BlockSoundGroup.ANVIL)));
@@ -378,13 +375,15 @@ public class ModBlocks {
     public static final Block PLAYER_PLUSHIE = registerBlock("player_plushie",
             new PlayerPlushieBlock(FabricBlockSettings.create().strength(0.8F, 0.8F).sounds(BlockSoundGroup.WOOL).pistonBehavior(PistonBehavior.DESTROY).nonOpaque()));
 
-    public static final Block GARBAGE_CAN = registerBlock("garbage_can",
-            new GarbageCanBlock(FabricBlockSettings.create().mapColor(MapColor.GRAY).requiresTool().strength(5.0F, 1200.0F).nonOpaque()));
-
     public static final Block SIGNAL_TRANSMITTER = registerBlock("signal_transmitter",
             new SignalTransmitterBlock(FabricBlockSettings.create().mapColor(MapColor.ORANGE).requiresTool().strength(3.0F, 3.0F).sounds(BlockSoundGroup.METAL)));
     public static final Block SIGNAL_TRANSMITTER_ANTENNA = registerBlock("signal_transmitter_antenna",
             new SignalTransmitterAntennaBlock(FabricBlockSettings.create().mapColor(MapColor.ORANGE).requiresTool().strength(3.0F, 3.0F).sounds(BlockSoundGroup.METAL)));
+
+    public static final Block GARBAGE_CAN = registerBlock("garbage_can",
+            new GarbageCanBlock(FabricBlockSettings.create().mapColor(MapColor.GRAY).requiresTool().strength(5.0F, 1200.0F).nonOpaque()));
+    public static final Block BENCH = registerBlock("bench",
+            new BenchBlock(FabricBlockSettings.create().mapColor(MapColor.BROWN).requiresTool().strength(2.0F, 2.0F).nonOpaque()));
 
     public static final Block RADIO = registerBlock("radio",
             new RadioBlock(FabricBlockSettings.create().mapColor(MapColor.BROWN).requiresTool().strength(2.0F, 2.0F).nonOpaque()));
@@ -440,12 +439,12 @@ public class ModBlocks {
     public static final Block GRAY_TREX_HEAD = registerBlock("gray_t-rex_head",
             new TRexHeadBlock(FabricBlockSettings.create().mapColor(MapColor.BROWN).strength(1.0F, 1.0F).nonOpaque()));
 
-    public static final Block SCULK_TREX_HEAD = registerBlock("sculk_t-rex_head",
-            new TRexHeadBlock(FabricBlockSettings.create().mapColor(MapColor.BROWN).strength(1.0F, 1.0F).nonOpaque()));
     public static final Block INFECTED_TREX_HEAD = registerCompatBlock("infected_t-rex_head",
             new TRexHeadBlock(FabricBlockSettings.create().mapColor(MapColor.BROWN).strength(1.0F, 1.0F).nonOpaque()),"spr");
-    public static final Block SICKENED_TREX_HEAD = registerBlock("sickened_t-rex_head",
-            new TRexHeadBlock(FabricBlockSettings.create().mapColor(MapColor.BROWN).strength(1.0F, 1.0F).nonOpaque()));
+    public static final Block SCULK_TREX_HEAD = registerCompatBlock("sculk_t-rex_head",
+            new TRexHeadBlock(FabricBlockSettings.create().mapColor(MapColor.BROWN).strength(1.0F, 1.0F).nonOpaque()),"skh");
+    public static final Block SICKENED_TREX_HEAD = registerCompatBlock("sickened_t-rex_head",
+            new TRexHeadBlock(FabricBlockSettings.create().mapColor(MapColor.BROWN).strength(1.0F, 1.0F).nonOpaque()),"wsm");
 
     public static final Block ROSE = registerBlock("rose",
             new ModFlowerBlock(StatusEffects.INSTANT_HEALTH, 10, FabricBlockSettings.create().breakInstantly().nonOpaque().sounds(BlockSoundGroup.GRASS).noCollision().pistonBehavior(PistonBehavior.DESTROY)));

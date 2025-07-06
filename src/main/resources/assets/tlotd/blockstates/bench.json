@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "facing=south,bench=0": {"model": "tlotd:block/bench"},
+    "facing=west,bench=0": {"model": "tlotd:block/bench","y": 90},
+    "facing=north,bench=0": {"model": "tlotd:block/bench","y": 180},
+    "facing=east,bench=0": {"model": "tlotd:block/bench","y": 270},
+    "facing=south,bench=1": {"model": "tlotd:block/bench_left"},
+    "facing=west,bench=1": {"model": "tlotd:block/bench_left","y": 90},
+    "facing=north,bench=1": {"model": "tlotd:block/bench_left","y": 180},
+    "facing=east,bench=1": {"model": "tlotd:block/bench_left","y": 270},
+    "facing=south,bench=2": {"model": "tlotd:block/bench_middle"},
+    "facing=west,bench=2": {"model": "tlotd:block/bench_middle","y": 90},
+    "facing=north,bench=2": {"model": "tlotd:block/bench_middle","y": 180},
+    "facing=east,bench=2": {"model": "tlotd:block/bench_middle","y": 270},
+    "facing=south,bench=3": {"model": "tlotd:block/bench_right"},
+    "facing=west,bench=3": {"model": "tlotd:block/bench_right","y": 90},
+    "facing=north,bench=3": {"model": "tlotd:block/bench_right","y": 180},
+    "facing=east,bench=3": {"model": "tlotd:block/bench_right","y": 270}
+  }
+}

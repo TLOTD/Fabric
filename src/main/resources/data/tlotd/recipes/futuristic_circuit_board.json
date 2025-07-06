@@ -1,0 +1,35 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:not",
+      "value": {
+        "condition": "fabric:all_mods_loaded",
+        "values": [
+          "create"
+        ]
+      }
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "tlotd:alien_metal"
+    },
+    "C": {
+      "item": "tlotd:advanced_circuit_board"
+    },
+    "S": {
+      "item": "tlotd:superconducting_wire"
+    }
+  },
+  "pattern": [
+    "SCS",
+    "CSC",
+    "AAS"
+  ],
+  "result": {
+    "item": "tlotd:futuristic_circuit_board"
+  },
+  "show_notification": true
+}

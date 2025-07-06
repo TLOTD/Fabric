@@ -20,6 +20,10 @@ public class ModGUIHandlers {
             Registry.register(Registries.SCREEN_HANDLER, new Identifier(TLOTD.MOD_ID, "oxygen_collector"),
                     new ExtendedScreenHandlerType<>(OxygenCollectorGUIHandler::new));
 
+    public static final ScreenHandlerType<KeycardProgrammerGUIHandler> KEYCARD_PROGRAMMER_GUI_HANDLER =
+            Registry.register(Registries.SCREEN_HANDLER, new Identifier(TLOTD.MOD_ID, "keycard_programmer"),
+                    new ExtendedScreenHandlerType<>(KeycardProgrammerGUIHandler::new));
+
     public static void registerGUIHandlers() {
         TLOTD.LOGGER.info("Registering Screen Handlers for " + TLOTD.MOD_ID);
     }

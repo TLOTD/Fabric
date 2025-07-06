@@ -10,6 +10,7 @@
   "gui.tlotd.witching": "Hexadisch",
   "gui.tlotd.tooltip.liquid_amount_with_capacity": "§f%s§7: %smB/%smB",
   "gui.tlotd.oxygen_collector": "Sauerstoffbetanker",
+  "gui.tlotd.keycard_programmer": "Schlisslkartn Programmiern",
 
   "generic.tlotd.text.click_me": "[Hier Klickn]",
   "generic.tlotd.text.wiki_link": "um die Mod Wiki z effna.",
@@ -61,8 +62,9 @@
   "sounds.tlotd.block_television_switch_channel": "Fernsehkanal ändrd sich",
   "sounds.tlotd.block_television_static_channel": "Fernsehr schpielt schtatik",
   "sounds.tlotd.block_computer_interact": "Rechner wird gnutzt",
-
   "sounds.tlotd.block_videocassette_recorder": "Videokassettaschpielr wird gnutzt",
+  "sounds.tlotd.block_keycard_reader_pling": "Kartnleser wird gnutzt",
+  "sounds.tlotd.block_garbage_can_used": "Mülloimr wird gnutzt",
 
   "advancements.tlotd.radioactive": "§eRadioactiv!§r",
   "advancements.tlotd.radioactive.desc": "Werd von ebbes verschtrahlt",
@@ -281,6 +283,7 @@
   "item.tlotd.futuristic_circuit_board.tooltip": "Du kasch dr Verantwortung",
   "item.tlotd.futuristic_circuit_board.tooltip_2": "von morga net entkomma in ",
   "item.tlotd.futuristic_circuit_board.tooltip_3": "dem du ihr Heid ausweichsch",
+  "item.tlotd.biological_circuit_board": "Biologische Platine",
   "item.tlotd.integrated_circuit": "Integriertr Scheitkreis",
   "item.tlotd.cathode_ray_tube": "Kathodenschtrahlrehre",
   "item.tlotd.liquid_crystal_display_panel": "Flissigkrischtallazeigefeld",
@@ -288,17 +291,21 @@
 
   "item.tlotd.keycard": "Schlisslkartn",
   "item.tlotd.keycard.no_password": "Koi Password gsetzt",
+  "item.tlotd.keycard.has_password": "Password gsetzt",
 
   "item.tlotd.incomplete_copper_wire": "Ovollendets Kupfrkabl",
   "item.tlotd.incomplete_gold_wire": "Ovollendets Goldkabl",
   "item.tlotd.incomplete_integrated_circuit": "Ovollendetr Integriertr Scheitkreis",
   "item.tlotd.incomplete_circuit_board": "Ovollendete Platine",
   "item.tlotd.incomplete_advanced_circuit_board": "Ovollendete Verbessrte Platine",
+  "item.tlotd.incomplete_futuristic_circuit_board": "Ovollendete Futuristische Platine",
   "item.tlotd.incomplete_radio": "Ovollendets Radio",
   "item.tlotd.incomplete_television": "Ovollendetr Fernseha",
   "item.tlotd.incomplete_videocassette_recorder": "Ovollendetr Videokassettaschpielr",
   "item.tlotd.incomplete_signal_transmitter": "Ovollendetr Signalgebr",
   "item.tlotd.incomplete_computer": "Ovollendetr Rechnr",
+  "item.tlotd.incomplete_keycard_programmer": "Ovollendetr Kartnprogrammierer",
+  "item.tlotd.incomplete_keycard_reader": "Ovollendetr Kartnleser",
   "item.tlotd.incomplete_oxygen_collector": "Ovollendetr Sauerstoffsammlr",
   "item.tlotd.incomplete_mithril_mirror": "Ovollendetr Mithrilschpiegl",
 
@@ -316,6 +323,8 @@
   "item.tlotd.orange_marmelade_bucket": "Orangemarmeladnoimr",
   "item.tlotd.blue_berry_jam_bucket": "Blaubeermarmeladnoimr",
   "item.tlotd.ancient_soulberry_jam_bucket": "Uraltr Seelenbeermarmeladnoimr",
+
+  "item.tlotd.copper_nugget": "Kupfrklumba",
 
   "item.tlotd.copper_sickle": "Kupfrsichl",
   "item.tlotd.golden_sickle": "Goldsichl",
@@ -346,6 +355,7 @@
   "item.tlotd.uranium_nugget": "Uranklumpa",
   "item.tlotd.uranium_ingot": "Uranbarrn",
 
+  "item.tlotd.alien_metal": "Außerirdischs Metall",
   "item.tlotd.xen_crystal": "Xen-Krischtall",
   "item.tlotd.meteorite_chunk": "Medeoridabrocka",
   "item.tlotd.star_fragment": "Sternafragment",
@@ -542,6 +552,12 @@
   "item.tlotd.anduril.tooltip_quenya_4": "\uE061",
   "item.tlotd.narsil_quenya": "\uE090\uE154\uE024\uE166",
 
+  "item.tlotd.gondorian_shield": "Schild Gondors",
+  "item.tlotd.gondorian_tower_shield": "Turmschild Gondors",
+  "item.tlotd.gondorian_kings_guard_tower_shield": "Turmschild der Königsgardn Gondors",
+  "item.tlotd.gondorian_knight_shield": "Ritterschild Gondors",
+  "item.tlotd.gondorian_ornamented_knight_shield": "Verzierts Ritterschild Gondors",
+
   "item.tlotd.astral_nugget": "Aschtralklumba",
   "item.tlotd.astral_ingot": "Aschtralbarrn",
 
@@ -560,6 +576,13 @@
   "item.tlotd.divine_pickaxe": "§6Göttliche Spitzhacke",
   "item.tlotd.cataclysmic_pickaxe": "§cKataklysmusspitzhacke",
   "item.tlotd.eldritch_pickaxe": "§4Verschlinger des Jenseits",
+
+  "item.tlotd.mithril_command_block_sword": "Mithrilbefehlsblockschwert",
+  "item.tlotd.mithril_command_block_pickaxe": "Mithrilbefehlsblockspitzhacke",
+  "item.tlotd.mithril_command_block_axe": "Mithrilbefehlsblockaxt",
+  "item.tlotd.mithril_command_block_shovel": "Mithrilbefehlsblockschaufel",
+  "item.tlotd.mithril_command_block_hoe": "Mithrilbefehlsblockhacke",
+  "item.tlotd.mithril_command_block_sickle": "Mithrilbefehlsblocksichel",
 
   "item.tlotd.t-rex_spawn_egg": "Tireggs-Spawn-Oi",
   "item.tlotd.infected_t-rex_spawn_egg": "Infizierdr Tireggs",
@@ -646,14 +669,11 @@
   "block.tlotd.player_plushie.tooltip_shift": "Klappt fir:",
 
   "block.tlotd.garbage_can": "Mülloimr",
-
+  "block.tlotd.bench": "Bank",
   "block.tlotd.flagpole": "Flaggnmascht",
 
   "block.tlotd.keycard_programmer": "Kartnprogrammierer",
   "block.tlotd.keycard_programmer.tooltip": "Betreibbar durch:",
-  "block.tlotd.keycard_programmer.tooltip_2": "Um dr Geganschtand aus dr Zweithand",
-  "block.tlotd.keycard_programmer.tooltip_3": "als Passwort festzlegn muss mit",
-  "block.tlotd.keycard_programmer.tooltip_4": "ra Schlüsselkartn interagiert wera.",
   "block.tlotd.keycard_reader": "Kartnleser",
   "block.tlotd.keycard_reader.no_password": "Uff Ihrer Schlisslkartn isch koi Passwort vorhandn",
   "block.tlotd.keycard_reader.password_set": "'s Passwort Ihrer Schlisslkartn wurd als neies Passwort fir den Kartnleser festglegt",

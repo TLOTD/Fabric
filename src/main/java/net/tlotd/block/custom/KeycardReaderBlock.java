@@ -19,6 +19,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.event.GameEvent;
 import net.tlotd.block.entity.KeycardReaderBlockEntity;
 import net.tlotd.item.ModItems;
+import net.tlotd.sound.ModSounds;
 import org.jetbrains.annotations.Nullable;
 
 public class KeycardReaderBlock extends ButtonBlock implements BlockEntityProvider {
@@ -42,7 +43,7 @@ public class KeycardReaderBlock extends ButtonBlock implements BlockEntityProvid
         BlockEntity blockEntity = world.getBlockEntity(pos);
         if (!world.isClient && stack.isOf(ModItems.KEYCARD) && blockEntity instanceof KeycardReaderBlockEntity keycardReaderBlockEntity) {
             if (!stack.hasNbt()) {
-                player.sendMessage(Text.translatable("block.tlotd.keycard_reader.no_password"));
+                player.sendMessage(Text.translatable("block.tlotd.keycard_reader.no_password"), true);
                 world.playSound(null, pos, SoundEvents.ENTITY_VILLAGER_NO, SoundCategory.BLOCKS, 1.0f, 1.0f);
                 return ActionResult.SUCCESS;
             }
@@ -50,8 +51,8 @@ public class KeycardReaderBlock extends ButtonBlock implements BlockEntityProvid
                 if (keycardReaderBlockEntity.password.isEmpty()) {
                     keycardReaderBlockEntity.password = stack.getNbt().getString("password");
                     keycardReaderBlockEntity.markDirty();
-                    world.playSound(null, pos, SoundEvents.BLOCK_STONE_BUTTON_CLICK_ON, SoundCategory.BLOCKS, 1.0f, 1.0f);
-                    player.sendMessage(Text.translatable("block.tlotd.keycard_reader.password_set"));
+                    world.playSound(null, pos, ModSounds.BLOCK_KEYCARD_READER_PLING, SoundCategory.BLOCKS, 1.0f, 1.0f);
+                    player.sendMessage(Text.translatable("block.tlotd.keycard_reader.password_set"), true);
                     return ActionResult.SUCCESS;
                 }
                 else {
@@ -62,7 +63,7 @@ public class KeycardReaderBlock extends ButtonBlock implements BlockEntityProvid
                         this.powerOn(state, world, pos);
                         this.playClickSound(player, world, pos, true);
                         world.emitGameEvent(player, GameEvent.BLOCK_ACTIVATE, pos);
-                        world.playSound(null, pos, SoundEvents.BLOCK_STONE_BUTTON_CLICK_ON, SoundCategory.BLOCKS, 1.0f, 1.0f);
+                        world.playSound(null, pos, ModSounds.BLOCK_KEYCARD_READER_PLING, SoundCategory.BLOCKS, 1.0f, 1.0f);
                         return ActionResult.SUCCESS;
                     } else {
                         world.playSound(null, pos, SoundEvents.ENTITY_VILLAGER_NO, SoundCategory.BLOCKS, 1.0f, 1.0f);

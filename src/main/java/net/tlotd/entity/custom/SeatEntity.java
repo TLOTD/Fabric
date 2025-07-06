@@ -30,4 +30,8 @@ public class SeatEntity extends Entity {
         super.removePassenger(passenger);
         this.kill();
     }
+
+    public double getMountedHeightOffset() {
+        return 0.3F;
+    }
 }
