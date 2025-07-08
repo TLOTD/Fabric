@@ -22,7 +22,7 @@
       "type": "create:deploying",
       "ingredients": [
         {
-          "item": "tlotd:incomplete_circuit_board"
+          "item": "tlotd:incomplete_advanced_circuit_board"
         },
         {
           "item": "minecraft:black_dye"
@@ -30,7 +30,7 @@
       ],
       "results": [
         {
-          "item": "tlotd:incomplete_circuit_board"
+          "item": "tlotd:incomplete_advanced_circuit_board"
         }
       ]
     },
@@ -38,7 +38,7 @@
       "type": "create:deploying",
       "ingredients": [
         {
-          "item": "tlotd:incomplete_circuit_board"
+          "item": "tlotd:incomplete_advanced_circuit_board"
         },
         {
           "item": "tlotd:gold_wire"
@@ -46,7 +46,7 @@
       ],
       "results": [
         {
-          "item": "tlotd:incomplete_circuit_board"
+          "item": "tlotd:incomplete_advanced_circuit_board"
         }
       ]
     },
@@ -54,12 +54,12 @@
       "type": "create:pressing",
       "ingredients": [
         {
-          "item": "tlotd:incomplete_circuit_board"
+          "item": "tlotd:incomplete_advanced_circuit_board"
         }
       ],
       "results": [
         {
-          "item": "tlotd:incomplete_circuit_board"
+          "item": "tlotd:incomplete_advanced_circuit_board"
         }
       ]
     },
@@ -67,7 +67,7 @@
       "type": "create:deploying",
       "ingredients": [
         {
-          "item": "tlotd:incomplete_circuit_board"
+          "item": "tlotd:incomplete_advanced_circuit_board"
         },
         {
           "tag": "c:iron_ingots"
@@ -75,7 +75,7 @@
       ],
       "results": [
         {
-          "item": "tlotd:incomplete_circuit_board"
+          "item": "tlotd:incomplete_advanced_circuit_board"
         }
       ]
     },
@@ -83,7 +83,7 @@
       "type": "create:deploying",
       "ingredients": [
         {
-          "item": "tlotd:incomplete_circuit_board"
+          "item": "tlotd:incomplete_advanced_circuit_board"
         },
         {
           "item": "tlotd:integrated_circuit"

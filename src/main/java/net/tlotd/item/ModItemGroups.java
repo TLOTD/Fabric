@@ -769,6 +769,7 @@ public class ModItemGroups {
                         entries.add(ModItems.INCOMPLETE_CIRCUIT_BOARD);
                         entries.add(ModItems.INCOMPLETE_ADVANCED_CIRCUIT_BOARD);
                         entries.add(ModItems.INCOMPLETE_FUTURISTIC_CIRCUIT_BOARD);
+                        entries.add(ModItems.INCOMPLETE_BIOLOGICAL_CIRCUIT_BOARD);
                         entries.add(ModItems.INCOMPLETE_RADIO);
                         entries.add(ModItems.INCOMPLETE_TELEVISION);
                         entries.add(ModItems.INCOMPLETE_VIDEOCASSETTE_RECORDER);

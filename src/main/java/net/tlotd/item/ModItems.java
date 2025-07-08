@@ -155,6 +155,7 @@ public class ModItems {
     public static final Item INCOMPLETE_CIRCUIT_BOARD = registerItem("incomplete_circuit_board", new SequencedAssemblyItem(new FabricItemSettings().maxCount(1)));
     public static final Item INCOMPLETE_ADVANCED_CIRCUIT_BOARD = registerItem("incomplete_advanced_circuit_board", new SequencedAssemblyItem(new FabricItemSettings().maxCount(1)));
     public static final Item INCOMPLETE_FUTURISTIC_CIRCUIT_BOARD = registerItem("incomplete_futuristic_circuit_board", new SequencedAssemblyItem(new FabricItemSettings().maxCount(1).rarity(Rarity.UNCOMMON)));
+    public static final Item INCOMPLETE_BIOLOGICAL_CIRCUIT_BOARD = registerItem("incomplete_biological_circuit_board", new SequencedAssemblyItem(new FabricItemSettings().maxCount(1)));
 
     public static final Item INCOMPLETE_RADIO = registerItem("incomplete_radio", new SequencedAssemblyItem(new FabricItemSettings().maxCount(1)));
     public static final Item INCOMPLETE_TELEVISION = registerItem("incomplete_television", new SequencedAssemblyItem(new FabricItemSettings().maxCount(1)));
