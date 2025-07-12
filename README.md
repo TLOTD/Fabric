@@ -1,4 +1,4 @@
-[![Banner](https://tlotd.net/files/tlotd_mod_banner.png 'Banner')](https://tlotd.net/wiki/guidebook)
+[![Banner](https://tlotd.net/files/minecraft_tlotd.png 'Banner')](https://tlotd.net/wiki/guidebook)
 
 *"Progress further than ever before, upgrade your gear past diamond and experience new types of food & drink."*
 
