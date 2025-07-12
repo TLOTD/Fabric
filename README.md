@@ -1,4 +1,4 @@
-[![Banner](https://tlotd.net/files/tlotd_mod_banner.png 'Banner')](https://tlotd.net/wiki/guidebook)
+[![Banner](https://tlotd.net/files/minecraft_tlotd.png 'Banner')](https://tlotd.net/wiki/guidebook)
 
 *"Explore the ancient times, when dinosaurs ruled the earth, dig deep into the earth to find more valuables or adventure into the unknown depths of space! The sky is the limit!"*
 
