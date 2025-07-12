@@ -1,0 +1,115 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "create"
+      ]
+    }
+  ],
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "item": "tlotd:advanced_circuit_board"
+  },
+  "loops": 2,
+  "results": [
+    {
+      "item": "tlotd:transcendent_circuit_board"
+    }
+  ],
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "tlotd:incomplete_transcendent_circuit_board"
+        },
+        {
+          "item": "tlotd:mithril_ingot"
+        }
+      ],
+      "results": [
+        {
+          "item": "tlotd:incomplete_transcendent_circuit_board"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "tlotd:incomplete_transcendent_circuit_board"
+        },
+        {
+          "item": "minecraft:black_dye"
+        }
+      ],
+      "results": [
+        {
+          "item": "tlotd:incomplete_transcendent_circuit_board"
+        }
+      ]
+    },
+    {
+      "type": "create:pressing",
+      "ingredients": [
+        {
+          "item": "tlotd:incomplete_transcendent_circuit_board"
+        }
+      ],
+      "results": [
+        {
+          "item": "tlotd:incomplete_transcendent_circuit_board"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "tlotd:incomplete_transcendent_circuit_board"
+        },
+        {
+          "item": "tlotd:advanced_circuit_board"
+        }
+      ],
+      "results": [
+        {
+          "item": "tlotd:incomplete_transcendent_circuit_board"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "tlotd:incomplete_transcendent_circuit_board"
+        },
+        {
+          "item": "tlotd:mithril_wire"
+        }
+      ],
+      "results": [
+        {
+          "item": "tlotd:incomplete_transcendent_circuit_board"
+        }
+      ]
+    },
+    {
+      "type": "create:pressing",
+      "ingredients": [
+        {
+          "item": "tlotd:incomplete_transcendent_circuit_board"
+        }
+      ],
+      "results": [
+        {
+          "item": "tlotd:incomplete_transcendent_circuit_board"
+        }
+      ]
+    }
+  ],
+  "transitionalItem": {
+    "item": "tlotd:incomplete_transcendent_circuit_board"
+  }
+}

@@ -100,6 +100,7 @@ public class ExtractionPickaxeItem extends PickaxeItem {
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
         if (stack.isOf(ModItems.ASTRAL_PICKAXE) || stack.isOf(ModItems.DIVINE_PICKAXE) || stack.isOf(ModItems.CATACLYSMIC_PICKAXE) || stack.isOf(ModItems.ELDRITCH_PICKAXE)) {
+            tooltip.add(Text.translatable("info.tlotd.not_yet_implemented").formatted(Formatting.RED));
             tooltip.add(Text.translatable("item.unbreakable").formatted(Formatting.GOLD));
         }
         if (stack.isIn(ModTags.Items.MOUTH_OF_THE_ABYSS)) {

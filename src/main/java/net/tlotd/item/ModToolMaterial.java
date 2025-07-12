@@ -3,7 +3,6 @@ package net.tlotd.item;
 import net.minecraft.item.Items;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.recipe.Ingredient;
-import net.minecraft.registry.tag.ItemTags;
 
 import java.util.function.Supplier;
 

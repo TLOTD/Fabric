@@ -41,7 +41,7 @@
           "item": "tlotd:incomplete_oxygen_collector"
         },
         {
-          "item": "tlotd:circuit_board"
+          "tag": "tlotd:circuit_boards"
         }
       ],
       "results": [

@@ -161,7 +161,7 @@
   "item.tlotd.lotr_banner_pattern": "Diseño de estandarte",
   "item.tlotd.lotr_banner_pattern.desc": "El Señor de los Anillos",
 
-  "item.tlotd.cannabis_cookie": "Galleta de cannabis",
+  "item.tlotd.hemp_cookie": "Galleta de cannabis",
 
   "item.tlotd.apple_juice_bottle": "Botella de zumo de manzana",
   "block.tlotd.preserves_jar": "Tarro de conservas",
@@ -184,8 +184,8 @@
   "item.tlotd.orange_juice_bottle": "Botella de zumo de naranja",
   "item.tlotd.spezi_bottle": "Botella Spezi",
 
-  "item.tlotd.cannabis_seeds": "Semillas de cannabis",
-  "item.tlotd.cannabis": "Cannabis",
+  "item.tlotd.pipe_weed_seeds": "Semillas de hierba para pipa",
+  "item.tlotd.pipe_weed": "Hierba para pipa",
 
   "block.tlotd.blue_berry_jam_jar": "Tarro de mermelada de bayas azules",
   "item.tlotd.blue_berry_jam_toast": "Tostadas con mermelada de arándanos",
@@ -274,20 +274,30 @@
   "item.tlotd.game_cartridge_3": "Cartucho de juego",
   "item.tlotd.game_cartridge_3.desc": "Terraria",
 
+  "item.tlotd.flash_drive": "Lápiz de memoria",
+  "item.tlotd.flash_drive.empty": "Vacío",
+  "item.tlotd.flash_drive.one_entry": "Un expediente:",
+  "item.tlotd.flash_drive.coordinates": "block.pos [%1$s,%2$s,%3$s]",
+
   "item.tlotd.copper_wire": "Alambre de cobre",
   "item.tlotd.gold_wire": "Alambre de oro",
+  "item.tlotd.mithril_wire": "Alambre de mithril",
   "item.tlotd.superconducting_wire": "Alambre superconductor",
   "item.tlotd.circuit_board": "Placa de circuito",
   "item.tlotd.integrated_circuit": "Circuitos integrados",
   "item.tlotd.advanced_circuit_board": "Placa de circuito avanzada",
+  "item.tlotd.transcendent_circuit_board": "Placa de circuito transcendente",
   "item.tlotd.futuristic_circuit_board": "Placa de circuito futurista",
   "item.tlotd.futuristic_circuit_board.tooltip": "You cannot escape the",
   "item.tlotd.futuristic_circuit_board.tooltip_2": "responsibility of tomorrow",
   "item.tlotd.futuristic_circuit_board.tooltip_3": "by evading it today",
+  "item.tlotd.arcane_circuit_board": "Placa de circuito arcano",
   "item.tlotd.biological_circuit_board": "Placa de circuito biológico",
   "item.tlotd.cathode_ray_tube": "Tubo de rayos catódicos",
   "item.tlotd.liquid_crystal_display_panel": "Pantalla de cristal líquido",
   "item.tlotd.holographic_projector": "Proyector holográfico",
+
+  "item.tlotd.fragmented_futuristic_circuit_board": "Placa de circuito futurista fragmentada",
 
   "item.tlotd.keycard": "Tarjeta",
   "item.tlotd.keycard.no_password": "Sin contraseña",
@@ -295,10 +305,13 @@
 
   "item.tlotd.incomplete_copper_wire": "Alambre de cobre incompleto",
   "item.tlotd.incomplete_gold_wire": "Alambre de oro incompleto",
+  "item.tlotd.incomplete_mithril_wire": "Alambre de mithril incompleto",
   "item.tlotd.incomplete_integrated_circuit": "Circuitos integrados incompleto",
   "item.tlotd.incomplete_circuit_board": "Placa de circuito incompleto",
   "item.tlotd.incomplete_advanced_circuit_board": "Placa de circuito avanzada incompleto",
+  "item.tlotd.incomplete_transcendent_circuit_board": "Placa de circuito transcendente incompleto",
   "item.tlotd.incomplete_futuristic_circuit_board": "Placa de circuito futurista incompleto",
+  "item.tlotd.incomplete_arcane_circuit_board": "Placa de circuito arcano incompleto",
   "item.tlotd.incomplete_biological_circuit_board": "Placa de circuito biológico incompleto",
   "item.tlotd.incomplete_radio": "Radio incompleto",
   "item.tlotd.incomplete_television": "Televisión incompleto",
@@ -417,6 +430,7 @@
   "item.tlotd.heliorite_shovel": "Pala de heliorita",
   "item.tlotd.heliorite_hoe": "Azada de heliorita",
   "item.tlotd.heliorite_sickle": "Hoz de heliorita",
+  "item.tlotd.heliorite_forging_hammer": "Martillo de forja de heliorita",
 
   "item.tlotd.heliorite_helmet": "Yelmo de heliorita",
   "item.tlotd.heliorite_chestplate": "Pechera de heliorita",
@@ -441,6 +455,7 @@
   "item.tlotd.endurium_shovel": "Pala de endurium",
   "item.tlotd.endurium_hoe": "Azada de endurium",
   "item.tlotd.endurium_sickle": "Hoz de endurium",
+  "item.tlotd.endurium_forging_hammer": "Martillo de forja de endurium",
 
   "item.tlotd.endurium_helmet": "Yelmo de endurium",
   "item.tlotd.endurium_chestplate": "Pechera de endurium",
@@ -457,6 +472,7 @@
   "item.tlotd.palladium_shovel": "Pala de paladio",
   "item.tlotd.palladium_hoe": "Azada de paladio",
   "item.tlotd.palladium_sickle": "Hoz de paladio",
+  "item.tlotd.palladium_forging_hammer": "Martillo de forja de paladio",
 
   "item.tlotd.palladium_helmet": "Yelmo de paladio",
   "item.tlotd.palladium_chestplate": "Pechera de paladio",
@@ -473,6 +489,7 @@
   "item.tlotd.jurassoline_shovel": "Pala de jurassoline",
   "item.tlotd.jurassoline_hoe": "Azada de jurassoline",
   "item.tlotd.jurassoline_sickle": "Hoz de jurassoline",
+  "item.tlotd.jurassoline_forging_hammer": "Martillo de forja de jurassoline",
 
   "item.tlotd.jurassoline_helmet": "Yelmo de jurassoline",
   "item.tlotd.jurassoline_chestplate": "Pechera de jurassoline",
@@ -491,6 +508,7 @@
   "item.tlotd.cinnabar_shovel": "Pala de cinabrio",
   "item.tlotd.cinnabar_hoe": "Azada de cinabrio",
   "item.tlotd.cinnabar_sickle": "Hoz de cinabrio",
+  "item.tlotd.cinnabar_forging_hammer": "Martillo de forja de cinabrio",
 
   "item.tlotd.cinnabar_helmet": "Yelmo de cinabrio",
   "item.tlotd.cinnabar_chestplate": "Pechera de cinabrio",
@@ -507,6 +525,7 @@
   "item.tlotd.nebular_shovel": "Pala de nebular",
   "item.tlotd.nebular_hoe": "Azada de nebular",
   "item.tlotd.nebular_sickle": "Hoz de nebular",
+  "item.tlotd.nebular_forging_hammer": "Martillo de forja de nebular",
 
   "item.tlotd.nebular_helmet": "Yelmo de nebular",
   "item.tlotd.nebular_chestplate": "Pechera de nebular",
@@ -588,7 +607,7 @@
   "block.tlotd.orange_tree": "Árbol de naranjos",
   "block.tlotd.orange_cake": "Pastel de naranja",
 
-  "block.tlotd.cannabis_plant": "Planta de cannabis",
+  "block.tlotd.pipe_weed_plant": "Planta de hierba para pipa",
 
   "block.tlotd.bw_sticker": "Pegatina",
   "block.tlotd.bw_sticker.tooltip": "Bonito aquí.",
@@ -701,6 +720,15 @@
   "block.tlotd.signal_transmitter.removed": "Se eliminó la señal.",
   "block.tlotd.signal_transmitter.incomplete": "Antena del transmisor de señal ¡Incompleta!",
   "block.tlotd.signal_transmitter_antenna": "Señal Antena transmisora",
+
+  "block.tlotd.teleporter": "Teletransportador",
+  "block.tlotd.teleporter.location_copied": "Ubicación copiada para conducir",
+  "block.tlotd.teleporter.no_destination_on_drive": "No hay destino en la unidad",
+  "block.tlotd.teleporter.destination_same": "El destino no puede ser el mismo que el origen",
+  "block.tlotd.teleporter.connected": "Conectado",
+  "block.tlotd.teleporter.destination_in_use": "Teletransportador de destino ya en uso",
+  "block.tlotd.teleporter.none_at_destination": "No hay teletransportador en el destino",
+  "block.tlotd.teleporter.already_in_use": "Teletransportador ya en uso",
 
   "block.tlotd.mining_elevator_controller": "Controlador de ascensores mineros",
   "block.tlotd.mining_elevator_base": "Base elevadora minera",

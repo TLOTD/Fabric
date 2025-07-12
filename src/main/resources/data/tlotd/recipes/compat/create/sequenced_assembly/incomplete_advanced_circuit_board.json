@@ -41,7 +41,7 @@
           "item": "tlotd:incomplete_advanced_circuit_board"
         },
         {
-          "item": "tlotd:gold_wire"
+          "item": "tlotd:circuit_board"
         }
       ],
       "results": [
@@ -86,7 +86,7 @@
           "item": "tlotd:incomplete_advanced_circuit_board"
         },
         {
-          "item": "tlotd:integrated_circuit"
+          "item": "tlotd:gold_wire"
         }
       ],
       "results": [

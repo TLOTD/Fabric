@@ -1,36 +1,24 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_advanced_circuit_board": {
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "tlotd:advanced_circuit_board"
-            ]
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
-    "has_gold_wire": {
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "tlotd:gold_wire"
-            ]
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
     "has_iron_ingot": {
       "conditions": {
         "items": [
           {
             "items": [
               "minecraft:iron_ingot"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_mithril_wire": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "tlotd:mithril_wire"
             ]
           }
         ]
@@ -55,6 +43,18 @@
       },
       "trigger": "minecraft:recipe_unlocked"
     },
+    "has_transcendent_circuit_board": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "tlotd:transcendent_circuit_board"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
     "has_xen_crystal": {
       "conditions": {
         "items": [
@@ -70,9 +70,9 @@
   },
   "requirements": [
     [
-      "has_gold_wire",
+      "has_mithril_wire",
       "has_iron_ingot",
-      "has_advanced_circuit_board",
+      "has_transcendent_circuit_board",
       "has_xen_crystal",
       "has_redstone_lamp",
       "has_the_recipe"

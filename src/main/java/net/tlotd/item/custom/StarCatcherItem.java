@@ -10,7 +10,6 @@ import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.stat.Stats;
-import net.minecraft.text.ClickEvent;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
@@ -29,14 +28,12 @@ public class StarCatcherItem extends Item {
         super(settings);
     }
 
-    public ClickEvent WIKI = new ClickEvent(ClickEvent.Action.OPEN_URL, "https://tlotd.net/wiki/guidebook");
-
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
         tooltip.add(Text.literal(""));
         tooltip.add(Text.translatable("item.tlotd.star_catcher.tooltip").formatted(Formatting.GRAY));
         if (stack.getItem().equals(ModItems.MITHRIL_STAR_CATCHER)) {
-            tooltip.add(Text.literal(" +1000 ").formatted(Formatting.BLUE).append(Text.translatable("item.tlotd.star_catcher.tooltip_2").formatted(Formatting.BLUE)));
+            tooltip.add(Text.literal(" >1000 ").append(Text.translatable("item.tlotd.star_catcher.tooltip_2")).formatted(Formatting.DARK_GREEN));
         }
         super.appendTooltip(stack, world, tooltip, context);
     }

@@ -1,0 +1,38 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:not",
+      "value": {
+        "condition": "fabric:all_mods_loaded",
+        "values": [
+          "create"
+        ]
+      }
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "minecraft:black_dye"
+    },
+    "A": {
+      "item": "tlotd:advanced_circuit_board"
+    },
+    "M": {
+      "item": "tlotd:mithril_wire"
+    },
+    "I": {
+      "item": "tlotd:mithril_ingot"
+    }
+  },
+  "pattern": [
+    "BIM",
+    "AAA",
+    "IMB"
+  ],
+  "result": {
+    "item": "tlotd:transcendent_circuit_board"
+  },
+  "show_notification": true
+}

@@ -482,13 +482,13 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         getOrCreateTagBuilder(BlockTags.CROPS)
                 .add(ModBlocks.STRAWBERRY_BUSH)
                 .add(ModBlocks.ORANGE_TREE)
-                .add(ModBlocks.CANNABIS_PLANT)
+                .add(ModBlocks.PIPE_WEED_PLANT)
         ;
 
         getOrCreateTagBuilder(BlockTags.MAINTAINS_FARMLAND)
                 .add(ModBlocks.STRAWBERRY_BUSH)
                 .add(ModBlocks.ORANGE_TREE)
-                .add(ModBlocks.CANNABIS_PLANT)
+                .add(ModBlocks.PIPE_WEED_PLANT)
         ;
 
         getOrCreateTagBuilder(BlockTags.CAMPFIRES)
@@ -568,6 +568,8 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
                 .add(ModBlocks.SIGNAL_TRANSMITTER_ANTENNA)
                 .add(ModBlocks.SIGNAL_TRANSMITTER)
+
+                .add(ModBlocks.TELEPORTER)
 
                 .add(ModBlocks.MINING_ELEVATOR_CONTROLLER)
                 .add(ModBlocks.MINING_ELEVATOR_BASE)

@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "tlotd:transcendent_circuit_board",
+    "tlotd:futuristic_circuit_board",
+    "tlotd:arcane_circuit_board",
+    "tlotd:biological_circuit_board"
+  ]
+}

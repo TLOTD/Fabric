@@ -1,27 +1,29 @@
 {
   "variants": {
-    "facing=west": {
-      "model": "tlotd:block/stick_cross",
-      "y": 90
-    },
-    "facing=north": {
-      "model": "tlotd:block/stick_cross",
-      "y": 180
-    },
-    "facing=east": {
-      "model": "tlotd:block/stick_cross",
-      "y": 270
-    },
-    "facing=south": {
-      "model": "tlotd:block/stick_cross"
-    },
-    "facing=down": {
-      "model": "tlotd:block/stick_cross",
-      "x": 270
-    },
-    "facing=up": {
-      "model": "tlotd:block/stick_cross",
-      "x": 90
-    }
+    "face=wall,facing=west,flipped=false": {"model": "tlotd:block/stick_cross","y": 90},
+    "face=wall,facing=north,flipped=false": {"model": "tlotd:block/stick_cross","y": 180},
+    "face=wall,facing=east,flipped=false": {"model": "tlotd:block/stick_cross","y": 270},
+    "face=wall,facing=south,flipped=false": {"model": "tlotd:block/stick_cross"},
+    "face=floor,facing=west,flipped=false": {"model": "tlotd:block/stick_cross","x": -90,"y": 90},
+    "face=floor,facing=north,flipped=false": {"model": "tlotd:block/stick_cross","x": -90,"y": 180},
+    "face=floor,facing=east,flipped=false": {"model": "tlotd:block/stick_cross","x": -90,"y": 270},
+    "face=floor,facing=south,flipped=false": {"model": "tlotd:block/stick_cross","x": -90},
+    "face=ceiling,facing=west,flipped=false": {"model": "tlotd:block/stick_cross","x": 90,"y": 90},
+    "face=ceiling,facing=north,flipped=false": {"model": "tlotd:block/stick_cross","x": 90,"y": 180},
+    "face=ceiling,facing=east,flipped=false": {"model": "tlotd:block/stick_cross","x": 90,"y": 270},
+    "face=ceiling,facing=south,flipped=false": {"model": "tlotd:block/stick_cross","x": 90},
+
+    "face=wall,facing=west,flipped=true": {"model": "tlotd:block/stick_cross","x": 180,"y": 270},
+    "face=wall,facing=north,flipped=true": {"model": "tlotd:block/stick_cross","x": 180},
+    "face=wall,facing=east,flipped=true": {"model": "tlotd:block/stick_cross","x": 180,"y": 90},
+    "face=wall,facing=south,flipped=true": {"model": "tlotd:block/stick_cross","x": 180,"y": 180},
+    "face=floor,facing=west,flipped=true": {"model": "tlotd:block/stick_cross","x": -90,"y": 270},
+    "face=floor,facing=north,flipped=true": {"model": "tlotd:block/stick_cross","x": -90},
+    "face=floor,facing=east,flipped=true": {"model": "tlotd:block/stick_cross","x": -90,"y": 90},
+    "face=floor,facing=south,flipped=true": {"model": "tlotd:block/stick_cross","x": -90,"y": 180},
+    "face=ceiling,facing=west,flipped=true": {"model": "tlotd:block/stick_cross","x": 90,"y": 270},
+    "face=ceiling,facing=north,flipped=true": {"model": "tlotd:block/stick_cross","x": 90},
+    "face=ceiling,facing=east,flipped=true": {"model": "tlotd:block/stick_cross","x": 90,"y": 90},
+    "face=ceiling,facing=south,flipped=true": {"model": "tlotd:block/stick_cross","x": 90,"y": 180}
   }
 }

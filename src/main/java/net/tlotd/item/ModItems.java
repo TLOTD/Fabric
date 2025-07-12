@@ -75,7 +75,7 @@ public class ModItems {
 
     public static final Item APPLE_JUICE_BOTTLE = registerItem("apple_juice_bottle", new DrinkableBottle(new FabricItemSettings().food(ModFoodComponents.WOODEN_LIQUID_STEIN).maxCount(16).recipeRemainder(Items.GLASS_BOTTLE)));
 
-    public static final Item CANNABIS_COOKIE = registerItem("cannabis_cookie", new CannabisCookieItem(new FabricItemSettings().food(ModFoodComponents.CANNABIS_COOKIE)));
+    public static final Item HEMP_COOKIE = registerItem("hemp_cookie", new CannabisCookieItem(new FabricItemSettings().food(ModFoodComponents.HEMP_COOKIE)));
 
     public static final Item TOAST = registerItem("toast", new Item(new FabricItemSettings().food(ModFoodComponents.TOAST)));
 
@@ -93,8 +93,8 @@ public class ModItems {
     public static final Item ORANGE_JUICE_BOTTLE = registerItem("orange_juice_bottle", new DrinkableBottle(new FabricItemSettings().food(ModFoodComponents.WOODEN_LIQUID_STEIN).maxCount(16).recipeRemainder(Items.GLASS_BOTTLE)));
     public static final Item SPEZI_BOTTLE = registerItem("spezi_bottle", new DrinkableBottle(new FabricItemSettings().food(ModFoodComponents.WOODEN_LIQUID_STEIN).maxCount(16).recipeRemainder(Items.GLASS_BOTTLE)));
 
-    public static final Item CANNABIS_SEEDS = registerItem("cannabis_seeds", new AliasedBlockItem(ModBlocks.CANNABIS_PLANT, new FabricItemSettings()));
-    public static final Item CANNABIS = registerItem("cannabis", new Item(new FabricItemSettings()));
+    public static final Item PIPE_WEED_SEEDS = registerItem("pipe_weed_seeds", new AliasedBlockItem(ModBlocks.PIPE_WEED_PLANT, new FabricItemSettings()));
+    public static final Item PIPE_WEED = registerItem("pipe_weed", new Item(new FabricItemSettings()));
 
     public static final Item BLUE_BERRY_JAM_TOAST = registerItem("blue_berry_jam_toast", new CompatItem(new FabricItemSettings().food(ModFoodComponents.JAM_TOAST),"aether"));
     public static final Item ANCIENT_SOULBERRY_JAM_TOAST = registerItem("ancient_soulberry_jam_toast", new CompatItem(new FabricItemSettings().food(ModFoodComponents.ANCIENT_SOULBERRY_JAM_TOAST),"atm"));
@@ -137,24 +137,35 @@ public class ModItems {
     public static final Item GAME_CARTRIDGE_2 = registerItem("game_cartridge_2", new GameCartridgeItem(new FabricItemSettings().rarity(Rarity.RARE).maxCount(1)));
     public static final Item GAME_CARTRIDGE_3 = registerItem("game_cartridge_3", new GameCartridgeItem(new FabricItemSettings().rarity(Rarity.RARE).maxCount(1)));
 
+    public static final Item FLASH_DRIVE = registerItem("flash_drive", new FlashDriveItem(new FabricItemSettings()));
+    public static final Item KEYCARD = registerItem("keycard", new KeycardItem(new FabricItemSettings().maxCount(1)));
+
     public static final Item COPPER_WIRE = registerItem("copper_wire", new Item(new FabricItemSettings()));
     public static final Item GOLD_WIRE = registerItem("gold_wire", new Item(new FabricItemSettings()));
-    public static final Item SUPERCONDUCTING_WIRE = registerItem("superconducting_wire", new Item(new FabricItemSettings().rarity(Rarity.UNCOMMON)));
+    public static final Item MITHRIL_WIRE = registerItem("mithril_wire", new Item(new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof()));
+    public static final Item SUPERCONDUCTING_WIRE = registerItem("superconducting_wire", new Item(new FabricItemSettings().rarity(Rarity.RARE).fireproof()));
     public static final Item CIRCUIT_BOARD = registerItem("circuit_board", new Item(new FabricItemSettings()));
     public static final Item ADVANCED_CIRCUIT_BOARD = registerItem("advanced_circuit_board", new Item(new FabricItemSettings()));
-    public static final Item FUTURISTIC_CIRCUIT_BOARD = registerItem("futuristic_circuit_board", new FuturisticCircuitBoardItem(new FabricItemSettings().rarity(Rarity.UNCOMMON)));
+    public static final Item TRANSCENDENT_CIRCUIT_BOARD = registerItem("transcendent_circuit_board", new Item(new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof()));
+    public static final Item FUTURISTIC_CIRCUIT_BOARD = registerItem("futuristic_circuit_board", new FuturisticCircuitBoardItem(new FabricItemSettings().rarity(Rarity.RARE).fireproof()));
+    public static final Item ARCANE_CIRCUIT_BOARD = registerItem("arcane_circuit_board", new ArcaneCircuitBoardItem(new FabricItemSettings().rarity(Rarity.EPIC).fireproof()));
     public static final Item BIOLOGICAL_CIRCUIT_BOARD = registerItem("biological_circuit_board", new BiologicalCircuitBoardItem(new FabricItemSettings()));
     public static final Item INTEGRATED_CIRCUIT = registerItem("integrated_circuit", new Item(new FabricItemSettings()));
     public static final Item CATHODE_RAY_TUBE = registerItem("cathode_ray_tube", new Item(new FabricItemSettings()));
     public static final Item LIQUID_CRYSTAL_DISPLAY_PANEL = registerItem("liquid_crystal_display_panel", new Item(new FabricItemSettings()));
-    public static final Item HOLOGRAPHIC_PROJECTOR = registerItem("holographic_projector", new Item(new FabricItemSettings().rarity(Rarity.UNCOMMON)));
+    public static final Item HOLOGRAPHIC_PROJECTOR = registerItem("holographic_projector", new Item(new FabricItemSettings().rarity(Rarity.RARE).fireproof()));
+
+    public static final Item FRAGMENTED_FUTURISTIC_CIRCUIT_BOARD = registerItem("fragmented_futuristic_circuit_board", new FuturisticCircuitBoardItem(new FabricItemSettings().rarity(Rarity.RARE).fireproof()));
 
     public static final Item INCOMPLETE_COPPER_WIRE = registerItem("incomplete_copper_wire", new SequencedAssemblyItem(new FabricItemSettings().maxCount(1)));
     public static final Item INCOMPLETE_GOLD_WIRE = registerItem("incomplete_gold_wire", new SequencedAssemblyItem(new FabricItemSettings().maxCount(1)));
+    public static final Item INCOMPLETE_MITHRIL_WIRE = registerItem("incomplete_mithril_wire", new SequencedAssemblyItem(new FabricItemSettings().maxCount(1).rarity(Rarity.UNCOMMON)));
     public static final Item INCOMPLETE_INTEGRATED_CIRCUIT = registerItem("incomplete_integrated_circuit", new SequencedAssemblyItem(new FabricItemSettings().maxCount(1)));
     public static final Item INCOMPLETE_CIRCUIT_BOARD = registerItem("incomplete_circuit_board", new SequencedAssemblyItem(new FabricItemSettings().maxCount(1)));
     public static final Item INCOMPLETE_ADVANCED_CIRCUIT_BOARD = registerItem("incomplete_advanced_circuit_board", new SequencedAssemblyItem(new FabricItemSettings().maxCount(1)));
-    public static final Item INCOMPLETE_FUTURISTIC_CIRCUIT_BOARD = registerItem("incomplete_futuristic_circuit_board", new SequencedAssemblyItem(new FabricItemSettings().maxCount(1).rarity(Rarity.UNCOMMON)));
+    public static final Item INCOMPLETE_TRANSCENDENT_CIRCUIT_BOARD = registerItem("incomplete_transcendent_circuit_board", new SequencedAssemblyItem(new FabricItemSettings().maxCount(1).rarity(Rarity.UNCOMMON).fireproof()));
+    public static final Item INCOMPLETE_FUTURISTIC_CIRCUIT_BOARD = registerItem("incomplete_futuristic_circuit_board", new SequencedAssemblyItem(new FabricItemSettings().maxCount(1).rarity(Rarity.RARE).fireproof()));
+    public static final Item INCOMPLETE_ARCANE_CIRCUIT_BOARD = registerItem("incomplete_arcane_circuit_board", new SequencedAssemblyItem(new FabricItemSettings().maxCount(1).rarity(Rarity.EPIC).fireproof()));
     public static final Item INCOMPLETE_BIOLOGICAL_CIRCUIT_BOARD = registerItem("incomplete_biological_circuit_board", new SequencedAssemblyItem(new FabricItemSettings().maxCount(1)));
 
     public static final Item INCOMPLETE_RADIO = registerItem("incomplete_radio", new SequencedAssemblyItem(new FabricItemSettings().maxCount(1)));
@@ -165,14 +176,12 @@ public class ModItems {
     public static final Item INCOMPLETE_KEYCARD_PROGRAMMER = registerItem("incomplete_keycard_programmer", new SequencedAssemblyItem(new FabricItemSettings().maxCount(1)));
     public static final Item INCOMPLETE_KEYCARD_READER = registerItem("incomplete_keycard_reader", new SequencedAssemblyItem(new FabricItemSettings().maxCount(1)));
     public static final Item INCOMPLETE_OXYGEN_COLLECTOR = registerItem("incomplete_oxygen_collector", new SequencedAssemblyItem(new FabricItemSettings().maxCount(1)));
-    public static final Item INCOMPLETE_MITHRIL_MIRROR = registerItem("incomplete_mithril_mirror", new SequencedAssemblyItem(new FabricItemSettings().maxCount(1).rarity(Rarity.UNCOMMON)));
+    public static final Item INCOMPLETE_MITHRIL_MIRROR = registerItem("incomplete_mithril_mirror", new SequencedAssemblyItem(new FabricItemSettings().maxCount(1).rarity(Rarity.UNCOMMON).fireproof()));
 
     public static final Item COPPER_SICKLE = registerItem("copper_sickle", new SickleItem(new FabricItemSettings().maxDamage(117)));
     public static final Item GOLDEN_SICKLE = registerItem("golden_sickle", new SickleItem(new FabricItemSettings().maxDamage(53)));
     public static final Item NETHERITE_SICKLE = registerItem("netherite_sickle", new SickleItem(new FabricItemSettings().maxDamage(2025).fireproof()));
     public static final Item NETHERITE_FORGING_HAMMER = registerItem("netherite_forging_hammer", new ForgingHammerItem(new FabricItemSettings().maxDamage(10).fireproof()));
-
-    public static final Item KEYCARD = registerItem("keycard", new KeycardItem(new FabricItemSettings().maxCount(1)));
 
     public static final Item STEEL_INGREDIENTS = registerItem("steel_ingredients", new Item(new FabricItemSettings()));
     public static final Item STEEL_NUGGET = registerItem("steel_nugget", new Item(new FabricItemSettings()));
@@ -186,7 +195,7 @@ public class ModItems {
     public static final Item METEORITE_CHUNK = registerItem("meteorite_chunk", new Item(new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof()));
     public static final Item STAR_FRAGMENT = registerItem("star_fragment", new Item(new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof()));
     public static final Item LUNAR_CALLAINUS_LUMP = registerItem("lunar_callainus_lump", new Item(new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof()));
-    public static final Item ALIEN_METAL = registerItem("alien_metal", new Item(new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof()));
+    public static final Item ALIEN_METAL = registerItem("alien_metal", new Item(new FabricItemSettings().rarity(Rarity.RARE).fireproof()));
 
     public static final Item FOSSILIZED_BONE = registerItem("fossilized_bone", new Item(new FabricItemSettings()));
     public static final Item PLANT_FOSSIL = registerItem("plant_fossil", new Item(new FabricItemSettings()));
@@ -229,6 +238,7 @@ public class ModItems {
     public static final Item HELIORITE_HOE = registerItem("heliorite_hoe", new HoeItem(ModToolMaterial.HELIORITE, -4, 0.0f, new FabricItemSettings()));
 
     public static final Item HELIORITE_SICKLE = registerItem("heliorite_sickle", new SickleItem(new FabricItemSettings().maxDamage(2319)));
+    public static final Item HELIORITE_FORGING_HAMMER = registerItem("heliorite_forging_hammer", new ForgingHammerItem(new FabricItemSettings().maxDamage(20)));
 
     public static final Item HELIORITE_HELMET = registerItem("heliorite_helmet", new ArmorItem(ModArmorMaterial.HELIORITE, ArmorItem.Type.HELMET, new FabricItemSettings()));
     public static final Item HELIORITE_CHESTPLATE = registerItem("heliorite_chestplate", new ArmorItem(ModArmorMaterial.HELIORITE, ArmorItem.Type.CHESTPLATE, new FabricItemSettings()));
@@ -250,6 +260,7 @@ public class ModItems {
     public static final Item ENDURIUM_HOE = registerItem("endurium_hoe", new HoeItem(ModToolMaterial.ENDURIUM, -4, 0.0f, new FabricItemSettings()));
 
     public static final Item ENDURIUM_SICKLE = registerItem("endurium_sickle", new SickleItem(new FabricItemSettings().maxDamage(2319)));
+    public static final Item ENDURIUM_FORGING_HAMMER = registerItem("endurium_forging_hammer", new ForgingHammerItem(new FabricItemSettings().maxDamage(20)));
 
     public static final Item ENDURIUM_HELMET = registerItem("endurium_helmet", new ArmorItem(ModArmorMaterial.ENDURIUM, ArmorItem.Type.HELMET, new FabricItemSettings()));
     public static final Item ENDURIUM_CHESTPLATE = registerItem("endurium_chestplate", new ArmorItem(ModArmorMaterial.ENDURIUM, ArmorItem.Type.CHESTPLATE, new FabricItemSettings()));
@@ -267,6 +278,7 @@ public class ModItems {
     public static final Item PALLADIUM_HOE = registerItem("palladium_hoe", new HoeItem(ModToolMaterial.PALLADIUM, -5, 0.0f, new FabricItemSettings()));
 
     public static final Item PALLADIUM_SICKLE = registerItem("palladium_sickle", new SickleItem(new FabricItemSettings().maxDamage(2612)));
+    public static final Item PALLADIUM_FORGING_HAMMER = registerItem("palladium_forging_hammer", new ForgingHammerItem(new FabricItemSettings().maxDamage(30)));
 
     public static final Item PALLADIUM_HELMET = registerItem("palladium_helmet", new ArmorItem(ModArmorMaterial.PALLADIUM, ArmorItem.Type.HELMET, new FabricItemSettings()));
     public static final Item PALLADIUM_CHESTPLATE = registerItem("palladium_chestplate", new ArmorItem(ModArmorMaterial.PALLADIUM, ArmorItem.Type.CHESTPLATE, new FabricItemSettings()));
@@ -284,6 +296,7 @@ public class ModItems {
     public static final Item JURASSOLINE_HOE = registerItem("jurassoline_hoe", new HoeItem(ModToolMaterial.JURASSOLINE, -5, 0.0f, new FabricItemSettings()));
 
     public static final Item JURASSOLINE_SICKLE = registerItem("jurassoline_sickle", new SickleItem(new FabricItemSettings().maxDamage(2612)));
+    public static final Item JURASSOLINE_FORGING_HAMMER = registerItem("jurassoline_forging_hammer", new ForgingHammerItem(new FabricItemSettings().maxDamage(30)));
 
     public static final Item JURASSOLINE_HELMET = registerItem("jurassoline_helmet", new ArmorItem(ModArmorMaterial.JURASSOLINE, ArmorItem.Type.HELMET, new FabricItemSettings()));
     public static final Item JURASSOLINE_CHESTPLATE = registerItem("jurassoline_chestplate", new ArmorItem(ModArmorMaterial.JURASSOLINE, ArmorItem.Type.CHESTPLATE, new FabricItemSettings()));
@@ -301,6 +314,7 @@ public class ModItems {
     public static final Item CINNABAR_HOE = registerItem("cinnabar_hoe", new HoeItem(ModToolMaterial.CINNABAR, -6, 0.0f, new FabricItemSettings()));
 
     public static final Item CINNABAR_SICKLE = registerItem("cinnabar_sickle", new SickleItem(new FabricItemSettings().maxDamage(2612)));
+    public static final Item CINNABAR_FORGING_HAMMER = registerItem("cinnabar_forging_hammer", new ForgingHammerItem(new FabricItemSettings().maxDamage(40)));
 
     public static final Item CINNABAR_HELMET = registerItem("cinnabar_helmet", new ArmorItem(ModArmorMaterial.CINNABAR, ArmorItem.Type.HELMET, new FabricItemSettings()));
     public static final Item CINNABAR_CHESTPLATE = registerItem("cinnabar_chestplate", new ArmorItem(ModArmorMaterial.CINNABAR, ArmorItem.Type.CHESTPLATE, new FabricItemSettings()));
@@ -318,6 +332,7 @@ public class ModItems {
     public static final Item NEBULAR_HOE = registerItem("nebular_hoe", new HoeItem(ModToolMaterial.NEBULAR, -6, 0.0f, new FabricItemSettings()));
 
     public static final Item NEBULAR_SICKLE = registerItem("nebular_sickle", new SickleItem(new FabricItemSettings().maxDamage(2612)));
+    public static final Item NEBULAR_FORGING_HAMMER = registerItem("nebular_forging_hammer", new ForgingHammerItem(new FabricItemSettings().maxDamage(40)));
 
     public static final Item NEBULAR_HELMET = registerItem("nebular_helmet", new ArmorItem(ModArmorMaterial.NEBULAR, ArmorItem.Type.HELMET, new FabricItemSettings()));
     public static final Item NEBULAR_CHESTPLATE = registerItem("nebular_chestplate", new ArmorItem(ModArmorMaterial.NEBULAR, ArmorItem.Type.CHESTPLATE, new FabricItemSettings()));
@@ -337,11 +352,11 @@ public class ModItems {
     public static final Item MITHRIL_HOE = registerItem("mithril_hoe", new HoeItem(ModToolMaterial.MITHRIL, -7, 0.0f, new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof()));
 
     public static final Item MITHRIL_SICKLE = registerItem("mithril_sickle", new SickleItem(new FabricItemSettings().maxDamage(3077).rarity(Rarity.UNCOMMON).fireproof()));
-    public static final Item MITHRIL_FORGING_HAMMER = registerItem("mithril_forging_hammer", new ForgingHammerItem(new FabricItemSettings().rarity(Rarity.UNCOMMON).maxDamage(30).fireproof()));
+    public static final Item MITHRIL_FORGING_HAMMER = registerItem("mithril_forging_hammer", new ForgingHammerItem(new FabricItemSettings().rarity(Rarity.UNCOMMON).maxDamage(50).fireproof()));
     public static final Item MITHRIL_STAR_CATCHER = registerItem("mithril_star_catcher", new StarCatcherItem(new FabricItemSettings().rarity(Rarity.UNCOMMON).maxDamage(30).fireproof()));
     public static final Item SOUL_MIRROR = registerItem("soul_mirror", new Item(new FabricItemSettings().rarity(Rarity.RARE).maxCount(1)));
-    public static final Item MITHRIL_MIRROR = registerItem("mithril_mirror", new MithrilMirrorItem(new FabricItemSettings().rarity(Rarity.UNCOMMON).maxCount(1)));
-    public static final Item FOGGY_MITHRIL_MIRROR = registerItem("foggy_mithril_mirror", new Item(new FabricItemSettings().rarity(Rarity.UNCOMMON).maxCount(1)));
+    public static final Item MITHRIL_MIRROR = registerItem("mithril_mirror", new MithrilMirrorItem(new FabricItemSettings().rarity(Rarity.UNCOMMON).maxCount(1).fireproof()));
+    public static final Item FOGGY_MITHRIL_MIRROR = registerItem("foggy_mithril_mirror", new Item(new FabricItemSettings().rarity(Rarity.UNCOMMON).maxCount(1).fireproof()));
 
     public static final Item MITHRIL_HELMET = registerItem("mithril_helmet", new ArmorItem(ModArmorMaterial.MITHRIL, ArmorItem.Type.HELMET, new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof()));
     public static final Item MITHRIL_CHESTPLATE = registerItem("mithril_chestplate", new ArmorItem(ModArmorMaterial.MITHRIL, ArmorItem.Type.CHESTPLATE, new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof()));
@@ -375,10 +390,10 @@ public class ModItems {
     public static final Item ASTRAL_HOE = registerItem("astral_hoe", new HoeItem(ModToolMaterial.ASTRAL, -8, 0.0f, new FabricItemSettings().rarity(Rarity.EPIC).fireproof()));
 
     public static final Item ASTRAL_SICKLE = registerItem("astral_sickle", new SickleItem(new FabricItemSettings().maxDamage(5018).rarity(Rarity.EPIC).fireproof()));
-    public static final Item ASTRAL_FORGING_HAMMER = registerItem("astral_forging_hammer", new ForgingHammerItem(new FabricItemSettings().rarity(Rarity.EPIC).maxDamage(100).fireproof()));
+    public static final Item ASTRAL_FORGING_HAMMER = registerItem("astral_forging_hammer", new ForgingHammerItem(new FabricItemSettings().rarity(Rarity.EPIC).maxDamage(60).fireproof()));
 
-    public static final Item DAYBREAK_DOMAIN_FRAGMENTS = registerItem("daybreak_domain_fragments", new Item(new FabricItemSettings().rarity(Rarity.EPIC).fireproof()));
-    public static final Item SOMBER_BLOOD_ORBS = registerItem("somber_blood_orbs", new Item(new FabricItemSettings().rarity(Rarity.EPIC).fireproof()));
+    public static final Item DAYBREAK_DOMAIN_FRAGMENTS = registerItem("daybreak_domain_fragments", new NyiItem(new FabricItemSettings().rarity(Rarity.EPIC).fireproof()));
+    public static final Item SOMBER_BLOOD_ORBS = registerItem("somber_blood_orbs", new NyiItem(new FabricItemSettings().rarity(Rarity.EPIC).fireproof()));
     public static final Item OTHERWORLDLY_WHISPERS = registerItem("otherworldly_whispers", new OtherworldlyWhispersItem(new FabricItemSettings().rarity(Rarity.EPIC).fireproof()));
 
     public static final Item DIVINE_PICKAXE = registerItem("divine_pickaxe", new ExtractionPickaxeItem(ModToolMaterial.DIVINE, 2, -2.8f, new FabricItemSettings().rarity(Rarity.EPIC).fireproof()));

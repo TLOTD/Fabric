@@ -42,4 +42,9 @@ public class SoulFlaskItem extends Item {
         }
         return ActionResult.FAIL;
     }
+
+    @Override
+    public boolean hasGlint(ItemStack stack) {
+        return true;
+    }
 }

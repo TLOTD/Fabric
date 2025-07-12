@@ -10,7 +10,7 @@
   "type": "create:compacting",
   "ingredients": [
     {
-      "item": "tlotd:circuit_board"
+      "tag": "tlotd:circuit_boards"
     },
     {
       "item": "minecraft:black_dye"

@@ -1,0 +1,7 @@
+{
+  "parent": "tlotd:block/template_crop_cross",
+  "textures": {
+    "0": "tlotd:block/pipe_weed_plant_7_top",
+    "particle": "tlotd:block/pipe_weed_plant_7_top"
+  }
+}

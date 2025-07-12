@@ -29,6 +29,7 @@ public class BiologicalCircuitBoardItem extends Item {
 
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
+        tooltip.add(Text.translatable("info.tlotd.not_yet_implemented").formatted(Formatting.RED));
         if (Screen.hasShiftDown()) {
             tooltip.add(Text.translatable("item.tlotd.biological_circuit_board.tooltip").formatted(Formatting.GRAY));
             tooltip.add(Text.translatable("item.tlotd.biological_circuit_board.tooltip_2").formatted(Formatting.GRAY));

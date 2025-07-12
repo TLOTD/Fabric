@@ -14,7 +14,7 @@
   "category": "building",
   "key": {
     "C": {
-      "item": "tlotd:circuit_board"
+      "tag": "tlotd:circuit_boards"
     },
     "G": {
       "tag": "c:colorless_glass_panes"

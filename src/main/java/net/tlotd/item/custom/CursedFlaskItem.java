@@ -54,12 +54,12 @@ public class CursedFlaskItem extends Item {
         return ActionResult.FAIL;
     }
 
-    public static final Identifier ILLAGER_FONT_ID = new Identifier("minecraft", "illageralt");
-
     @Override
     public boolean hasGlint(ItemStack stack) {
         return true;
     }
+
+    public static final Identifier ILLAGER_FONT_ID = new Identifier("minecraft", "illageralt");
 
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {

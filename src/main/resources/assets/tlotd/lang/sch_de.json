@@ -161,7 +161,7 @@
   "item.tlotd.lotr_banner_pattern": "Bannervorlagn",
   "item.tlotd.lotr_banner_pattern.desc": "Dr Herr der Ringe",
 
-  "item.tlotd.cannabis_cookie": "Hanfkeks",
+  "item.tlotd.hemp_cookie": "Hanfkeks",
 
   "item.tlotd.apple_juice_bottle": "Apfelsaftflaschn",
   "block.tlotd.preserves_jar": "Oimachglas",
@@ -184,8 +184,8 @@
   "item.tlotd.orange_juice_bottle": "Oroschnsaftflaschn",
   "item.tlotd.spezi_bottle": "Spezi-Flaschn",
 
-  "item.tlotd.cannabis_seeds": "Hanfsamn",
-  "item.tlotd.cannabis": "Hanf",
+  "item.tlotd.pipe_weed_seeds": "Pfeifakrautsamn",
+  "item.tlotd.pipe_weed": "Pfeifakraut",
 
   "block.tlotd.blue_berry_jam_jar": "Blaubeermarmeladnglas",
   "item.tlotd.blue_berry_jam_toast": "Blaubeermarmeladntoscht",
@@ -274,20 +274,30 @@
   "item.tlotd.game_cartridge_3": "Schpielkassettn",
   "item.tlotd.game_cartridge_3.desc": "Terraria",
 
+  "item.tlotd.flash_drive": "Datnträgr",
+  "item.tlotd.flash_drive.empty": "Leer",
+  "item.tlotd.flash_drive.one_entry": "Eine Datei:",
+  "item.tlotd.flash_drive.coordinates": "block.pos [%1$s,%2$s,%3$s]",
+
   "item.tlotd.copper_wire": "Kupfrkabl",
   "item.tlotd.gold_wire": "Goldkabl",
+  "item.tlotd.mithril_wire": "Mithrilkabl",
   "item.tlotd.superconducting_wire": "Supraleitrkabl",
   "item.tlotd.circuit_board": "Platine",
   "item.tlotd.advanced_circuit_board": "Verbessrte Platine",
+  "item.tlotd.transcendent_circuit_board": "Transzendente Platine",
   "item.tlotd.futuristic_circuit_board": "Futuristische Platine",
   "item.tlotd.futuristic_circuit_board.tooltip": "Du kasch dr Verantwortung",
   "item.tlotd.futuristic_circuit_board.tooltip_2": "von morga net entkomma in ",
   "item.tlotd.futuristic_circuit_board.tooltip_3": "dem du ihr Heid ausweichsch",
+  "item.tlotd.arcane_circuit_board": "Arcane Platine",
   "item.tlotd.biological_circuit_board": "Biologische Platine",
   "item.tlotd.integrated_circuit": "Integriertr Scheitkreis",
   "item.tlotd.cathode_ray_tube": "Kathodenschtrahlrehre",
   "item.tlotd.liquid_crystal_display_panel": "Flissigkrischtallazeigefeld",
   "item.tlotd.holographic_projector": "Holografischr Projektor",
+
+  "item.tlotd.fragmented_futuristic_circuit_board": "Futuristischs Platinenfragment",
 
   "item.tlotd.keycard": "Schlisslkartn",
   "item.tlotd.keycard.no_password": "Koi Password gsetzt",
@@ -295,10 +305,13 @@
 
   "item.tlotd.incomplete_copper_wire": "Ovollendets Kupfrkabl",
   "item.tlotd.incomplete_gold_wire": "Ovollendets Goldkabl",
+  "item.tlotd.incomplete_mithril_wire": "Ovollendets Mithrilkabl",
   "item.tlotd.incomplete_integrated_circuit": "Ovollendetr Integriertr Scheitkreis",
   "item.tlotd.incomplete_circuit_board": "Ovollendete Platine",
   "item.tlotd.incomplete_advanced_circuit_board": "Ovollendete Verbessrte Platine",
+  "item.tlotd.incomplete_transcendent_circuit_board": "Ovollendete Transzendente Platine",
   "item.tlotd.incomplete_futuristic_circuit_board": "Ovollendete Futuristische Platine",
+  "item.tlotd.incomplete_arcane_circuit_board": "Ovollendete Arcane Platine",
   "item.tlotd.incomplete_biological_circuit_board": "Ovollendete Biologische Platine",
   "item.tlotd.incomplete_radio": "Ovollendets Radio",
   "item.tlotd.incomplete_television": "Ovollendetr Fernseha",
@@ -417,6 +430,7 @@
   "item.tlotd.heliorite_shovel": "Helioritschpatn",
   "item.tlotd.heliorite_hoe": "Heliorithaggn",
   "item.tlotd.heliorite_sickle": "Helioritsichl",
+  "item.tlotd.heliorite_forging_hammer": "Helioritschmiedehammr",
 
   "item.tlotd.heliorite_helmet": "Heliorithelm",
   "item.tlotd.heliorite_chestplate": "Helioritbruschtblattn",
@@ -441,6 +455,7 @@
   "item.tlotd.endurium_shovel": "Enduriumschpatn",
   "item.tlotd.endurium_hoe": "Enduriumhaggn",
   "item.tlotd.endurium_sickle": "Enduriumsichl",
+  "item.tlotd.endurium_forging_hammer": "Enduriumschmiedehammr",
 
   "item.tlotd.endurium_helmet": "Enduriumhelm",
   "item.tlotd.endurium_chestplate": "Enduriumbruschtblattn",
@@ -457,6 +472,7 @@
   "item.tlotd.palladium_shovel": "Palladiumschpatn",
   "item.tlotd.palladium_hoe": "Palladiumhaggn",
   "item.tlotd.palladium_sickle": "Palladiumsichl",
+  "item.tlotd.palladium_forging_hammer": "Palladiumschmiedehammr",
 
   "item.tlotd.palladium_helmet": "Palladiumhelm",
   "item.tlotd.palladium_chestplate": "Palladiumbruschtblattn",
@@ -473,6 +489,7 @@
   "item.tlotd.jurassoline_shovel": "Jurassolinschpatn",
   "item.tlotd.jurassoline_hoe": "Jurassolinhaggn",
   "item.tlotd.jurassoline_sickle": "Jurassolinsichl",
+  "item.tlotd.jurassoline_forging_hammer": "Jurassolinschmiedehammr",
 
   "item.tlotd.jurassoline_helmet": "Jurassolinhelm",
   "item.tlotd.jurassoline_chestplate": "Jurassolinbruschtblattn",
@@ -491,6 +508,7 @@
   "item.tlotd.cinnabar_shovel": "Zinnobrschpatn",
   "item.tlotd.cinnabar_hoe": "Zinnobrhaggn",
   "item.tlotd.cinnabar_sickle": "Zinnobrsichl",
+  "item.tlotd.cinnabar_forging_hammer": "Zinnobrschmiedehammer",
 
   "item.tlotd.cinnabar_helmet": "Zinnobrhelm",
   "item.tlotd.cinnabar_chestplate": "Zinnobrbruschtblattn",
@@ -507,6 +525,7 @@
   "item.tlotd.nebular_shovel": "Nebularschpatn",
   "item.tlotd.nebular_hoe": "Nebularhaggn",
   "item.tlotd.nebular_sickle": "Nebularsichl",
+  "item.tlotd.nebular_forging_hammer": "Nebularschmiedehammr",
 
   "item.tlotd.nebular_helmet": "Nebularhelm",
   "item.tlotd.nebular_chestplate": "Nebularbruschtblattn",
@@ -596,7 +615,7 @@
   "block.tlotd.orange_tree": "Orangebeimle",
   "block.tlotd.orange_cake": "Orangekuacha",
 
-  "block.tlotd.cannabis_plant": "Hanfpflanzn",
+  "block.tlotd.pipe_weed_plant": "Pfeifakrautpflanzn",
 
   "block.tlotd.bw_sticker": "Schtigger",
   "block.tlotd.bw_sticker.tooltip": "Nett hier.",
@@ -707,6 +726,15 @@
   "block.tlotd.signal_transmitter.removed": "Signal wurd entfernt.",
   "block.tlotd.signal_transmitter.incomplete": "Signalgebrantenne ofollschtändig!",
   "block.tlotd.signal_transmitter_antenna": "Signalgebrantenne",
+
+  "block.tlotd.teleporter": "Teleporter",
+  "block.tlotd.teleporter.location_copied": "Position auf Datenträger kopiert",
+  "block.tlotd.teleporter.no_destination_on_drive": "Koi Ziel auf dem Datnträgr gfundn",
+  "block.tlotd.teleporter.destination_same": "Ziel und Ursprung dirfn net gleich sei",
+  "block.tlotd.teleporter.connected": "Teleporter verbundn",
+  "block.tlotd.teleporter.destination_in_use": "Zielteleporter isch bereits in Benutzung",
+  "block.tlotd.teleporter.none_at_destination": "Koi Teleporter am Ziel gefundn",
+  "block.tlotd.teleporter.already_in_use": "Teleporter isch bereits in Benutzung",
 
   "block.tlotd.mining_elevator_controller": "Bergwergsuffzuagsschteierung",
   "block.tlotd.mining_elevator_base": "Bergwergsuffzuagsbasis",

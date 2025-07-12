@@ -17,7 +17,7 @@
       "tag": "minecraft:buttons"
     },
     "C": {
-      "item": "tlotd:circuit_board"
+      "tag": "tlotd:circuit_boards"
     },
     "I": {
       "tag": "c:iron_ingots"

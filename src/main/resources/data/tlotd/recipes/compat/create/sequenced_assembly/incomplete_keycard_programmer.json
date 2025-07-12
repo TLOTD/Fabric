@@ -57,7 +57,7 @@
           "item": "tlotd:incomplete_keycard_programmer"
         },
         {
-          "item": "tlotd:circuit_board"
+          "tag": "tlotd:circuit_boards"
         }
       ],
       "results": [

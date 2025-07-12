@@ -45,16 +45,22 @@ public class ModItemGroups {
 
                         entries.add(ModItems.COPPER_WIRE);
                         entries.add(ModItems.GOLD_WIRE);
+                        entries.add(ModItems.MITHRIL_WIRE);
                         entries.add(ModItems.SUPERCONDUCTING_WIRE);
                         entries.add(ModItems.CIRCUIT_BOARD);
                         entries.add(ModItems.ADVANCED_CIRCUIT_BOARD);
+                        entries.add(ModItems.TRANSCENDENT_CIRCUIT_BOARD);
                         entries.add(ModItems.FUTURISTIC_CIRCUIT_BOARD);
+                        entries.add(ModItems.ARCANE_CIRCUIT_BOARD);
                         entries.add(ModItems.BIOLOGICAL_CIRCUIT_BOARD);
                         entries.add(ModItems.INTEGRATED_CIRCUIT);
                         entries.add(ModItems.CATHODE_RAY_TUBE);
                         entries.add(ModItems.LIQUID_CRYSTAL_DISPLAY_PANEL);
                         entries.add(ModItems.HOLOGRAPHIC_PROJECTOR);
 
+                        entries.add(ModItems.FRAGMENTED_FUTURISTIC_CIRCUIT_BOARD);
+
+                        entries.add(ModItems.FLASH_DRIVE);
                         entries.add(ModItems.KEYCARD);
 
                         entries.add(ModItems.STEEL_INGREDIENTS);
@@ -155,9 +161,9 @@ public class ModItemGroups {
                         entries.add(ModItems.ORANGE_JUICE_BOTTLE);
                         entries.add(ModBlocks.ORANGE_CAKE);
 
-                        entries.add(ModItems.CANNABIS_SEEDS);
-                        entries.add(ModItems.CANNABIS);
-                        entries.add(ModItems.CANNABIS_COOKIE);
+                        entries.add(ModItems.PIPE_WEED_SEEDS);
+                        entries.add(ModItems.PIPE_WEED);
+                        entries.add(ModItems.HEMP_COOKIE);
 
                         entries.add(ModBlocks.PRESERVES_JAR);
                         entries.add(ModBlocks.SWEET_BERRY_JAM_JAR);
@@ -310,6 +316,7 @@ public class ModItemGroups {
                         entries.add(ModItems.HELIORITE_HOE);
 
                         entries.add(ModItems.HELIORITE_SICKLE);
+                        entries.add(ModItems.HELIORITE_FORGING_HAMMER);
 
                         entries.add(ModItems.HELIORITE_HELMET);
                         entries.add(ModItems.HELIORITE_CHESTPLATE);
@@ -323,6 +330,7 @@ public class ModItemGroups {
                         entries.add(ModItems.ENDURIUM_HOE);
 
                         entries.add(ModItems.ENDURIUM_SICKLE);
+                        entries.add(ModItems.ENDURIUM_FORGING_HAMMER);
 
                         entries.add(ModItems.ENDURIUM_HELMET);
                         entries.add(ModItems.ENDURIUM_CHESTPLATE);
@@ -336,6 +344,7 @@ public class ModItemGroups {
                         entries.add(ModItems.PALLADIUM_HOE);
 
                         entries.add(ModItems.PALLADIUM_SICKLE);
+                        entries.add(ModItems.PALLADIUM_FORGING_HAMMER);
 
                         entries.add(ModItems.PALLADIUM_HELMET);
                         entries.add(ModItems.PALLADIUM_CHESTPLATE);
@@ -349,6 +358,7 @@ public class ModItemGroups {
                         entries.add(ModItems.JURASSOLINE_HOE);
 
                         entries.add(ModItems.JURASSOLINE_SICKLE);
+                        entries.add(ModItems.JURASSOLINE_FORGING_HAMMER);
 
                         entries.add(ModItems.JURASSOLINE_HELMET);
                         entries.add(ModItems.JURASSOLINE_CHESTPLATE);
@@ -362,6 +372,7 @@ public class ModItemGroups {
                         entries.add(ModItems.CINNABAR_HOE);
 
                         entries.add(ModItems.CINNABAR_SICKLE);
+                        entries.add(ModItems.CINNABAR_FORGING_HAMMER);
 
                         entries.add(ModItems.CINNABAR_HELMET);
                         entries.add(ModItems.CINNABAR_CHESTPLATE);
@@ -375,6 +386,7 @@ public class ModItemGroups {
                         entries.add(ModItems.NEBULAR_HOE);
 
                         entries.add(ModItems.NEBULAR_SICKLE);
+                        entries.add(ModItems.NEBULAR_FORGING_HAMMER);
 
                         entries.add(ModItems.NEBULAR_HELMET);
                         entries.add(ModItems.NEBULAR_CHESTPLATE);
@@ -473,6 +485,7 @@ public class ModItemGroups {
                         entries.add(Items.LIGHTNING_ROD);
 
                         entries.add(ModBlocks.INTERDIMENSIONAL_RECEIVER);
+                        entries.add(ModBlocks.TELEPORTER);
 
                         entries.add(ModBlocks.CREEPER_PLUSHIE);
                         entries.add(ModBlocks.ZOMBIE_PLUSHIE);
@@ -765,10 +778,13 @@ public class ModItemGroups {
                     .icon(() -> new ItemStack(ModBlocks.INFECTED_TREX_HEAD)).entries((displayContext, entries) -> {
                         entries.add(ModItems.INCOMPLETE_COPPER_WIRE);
                         entries.add(ModItems.INCOMPLETE_GOLD_WIRE);
+                        entries.add(ModItems.INCOMPLETE_MITHRIL_WIRE);
                         entries.add(ModItems.INCOMPLETE_INTEGRATED_CIRCUIT);
                         entries.add(ModItems.INCOMPLETE_CIRCUIT_BOARD);
                         entries.add(ModItems.INCOMPLETE_ADVANCED_CIRCUIT_BOARD);
+                        entries.add(ModItems.INCOMPLETE_TRANSCENDENT_CIRCUIT_BOARD);
                         entries.add(ModItems.INCOMPLETE_FUTURISTIC_CIRCUIT_BOARD);
+                        entries.add(ModItems.INCOMPLETE_ARCANE_CIRCUIT_BOARD);
                         entries.add(ModItems.INCOMPLETE_BIOLOGICAL_CIRCUIT_BOARD);
                         entries.add(ModItems.INCOMPLETE_RADIO);
                         entries.add(ModItems.INCOMPLETE_TELEVISION);
@@ -785,12 +801,12 @@ public class ModItemGroups {
                         entries.add(ModFluids.ORANGE_MARMELADE_BUCKET);
                         entries.add(ModFluids.BLUE_BERRY_JAM_BUCKET);
                         entries.add(ModBlocks.WOODEN_BLUE_BERRY_MILKSHAKE_STEIN);
-                        entries.add(ModBlocks.WOODEN_TORCHBERRY_MILKSHAKE_STEIN);
                         entries.add(ModBlocks.BLUE_BERRY_JAM_JAR);
                         entries.add(ModItems.BLUE_BERRY_JAM_TOAST);
                         entries.add(ModFluids.ANCIENT_SOULBERRY_JAM_BUCKET);
                         entries.add(ModBlocks.ANCIENT_SOULBERRY_JAM_JAR);
                         entries.add(ModItems.ANCIENT_SOULBERRY_JAM_TOAST);
+                        entries.add(ModBlocks.WOODEN_TORCHBERRY_MILKSHAKE_STEIN);
                         entries.add(ModItems.BIOLOGICAL_CIRCUIT_BOARD);
                         entries.add(ModItems.INFECTED_TREX_SPAWN_EGG);
                         entries.add(ModBlocks.INFECTED_TREX_HEAD);
@@ -883,7 +899,7 @@ public class ModItemGroups {
             content.addAfter(Items.SNIFFER_EGG, ModBlocks.TREX_EGG);
             content.addAfter(Items.MELON_SEEDS, ModItems.STRAWBERRY_SEEDS);
             content.addAfter(ModItems.STRAWBERRY_SEEDS, ModItems.ORANGE_SEEDS);
-            content.addAfter(ModItems.ORANGE_SEEDS, ModItems.CANNABIS_SEEDS);
+            content.addAfter(ModItems.ORANGE_SEEDS, ModItems.PIPE_WEED_SEEDS);
             content.addAfter(Items.JACK_O_LANTERN, ModBlocks.WHITE_PUMPKIN);
             content.addAfter(ModBlocks.WHITE_PUMPKIN, ModBlocks.CARVED_WHITE_PUMPKIN);
             content.addAfter(ModBlocks.CARVED_WHITE_PUMPKIN, ModBlocks.WHITE_JACK_O_LANTERN);
@@ -951,8 +967,8 @@ public class ModItemGroups {
             content.addAfter(ModItems.STRAWBERRY_JAM_TOAST, ModItems.ORANGE_MARMELADE_TOAST);
             content.addAfter(ModItems.ORANGE_MARMELADE_TOAST, ModItems.BLUE_BERRY_JAM_TOAST);
             content.addAfter(ModItems.BLUE_BERRY_JAM_TOAST, ModItems.ANCIENT_SOULBERRY_JAM_TOAST);
-            content.addAfter(Items.COOKIE, ModItems.CANNABIS_COOKIE);
-            content.addAfter(ModItems.CANNABIS_COOKIE, ModItems.CHOCOLATE_STRAWBERRY);
+            content.addAfter(Items.COOKIE, ModItems.HEMP_COOKIE);
+            content.addAfter(ModItems.HEMP_COOKIE, ModItems.CHOCOLATE_STRAWBERRY);
             content.addAfter(Items.CAKE, ModBlocks.STRAWBERRY_CAKE);
             content.addAfter(ModBlocks.STRAWBERRY_CAKE, ModBlocks.ORANGE_CAKE);
             content.addAfter(Items.RABBIT_STEW, ModItems.PORRIDGE);

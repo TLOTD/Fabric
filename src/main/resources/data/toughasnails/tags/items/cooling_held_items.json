@@ -9,5 +9,8 @@
   ],
   "replace": false,
   "values": [
+    "tlotd:soul_flask",
+    "tlotd:soul_flask_of_the_abyss",
+    "tlotd:mithril_mirror"
   ]
 }

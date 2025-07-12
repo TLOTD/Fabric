@@ -6,6 +6,8 @@
 
   "mod.spore.calamity": "Unheil",
 
+  "info.tlotd.not_yet_implemented": "[Dieser Inhalt wurde noch nicht vollständig Hinzugefügt!]",
+
   "gui.tlotd.mithril_smithing": "Mithrilschmiede",
   "gui.tlotd.witching": "Hexentisch",
   "gui.tlotd.tooltip.liquid_amount_with_capacity": "§f%s§7: %smB/%smB",
@@ -161,7 +163,7 @@
   "item.tlotd.lotr_banner_pattern": "Bannervorlage",
   "item.tlotd.lotr_banner_pattern.desc": "Der Herr der Ringe",
 
-  "item.tlotd.cannabis_cookie": "Hanfkeks",
+  "item.tlotd.hemp_cookie": "Hanfkeks",
 
   "item.tlotd.apple_juice_bottle": "Apfelsaftflasche",
   "block.tlotd.preserves_jar": "Einmachglas",
@@ -184,8 +186,8 @@
   "item.tlotd.orange_juice_bottle": "Orangensaftflasche",
   "item.tlotd.spezi_bottle": "Spezi-Flasche",
 
-  "item.tlotd.cannabis_seeds": "Hanfsamen",
-  "item.tlotd.cannabis": "Hanf",
+  "item.tlotd.pipe_weed_seeds": "Pfeifenkrautsamen",
+  "item.tlotd.pipe_weed": "Pfeifenkraut",
 
   "block.tlotd.blue_berry_jam_jar": "Blaubeermarmeladenglas",
   "item.tlotd.blue_berry_jam_toast": "Blaubeermarmeladentoast",
@@ -274,20 +276,30 @@
   "item.tlotd.game_cartridge_3": "Spielkassette",
   "item.tlotd.game_cartridge_3.desc": "Terraria",
 
+  "item.tlotd.flash_drive": "Datenträger",
+  "item.tlotd.flash_drive.empty": "Leer",
+  "item.tlotd.flash_drive.one_entry": "Eine Datei:",
+  "item.tlotd.flash_drive.coordinates": "block.pos [%1$s,%2$s,%3$s]",
+
   "item.tlotd.copper_wire": "Kupferkabel",
   "item.tlotd.gold_wire": "Goldkabel",
+  "item.tlotd.mithril_wire": "Mithrilkabel",
   "item.tlotd.superconducting_wire": "Supraleiterkabel",
   "item.tlotd.circuit_board": "Platine",
   "item.tlotd.advanced_circuit_board": "Verbesserte Platine",
+  "item.tlotd.transcendent_circuit_board": "Transzendente Platine",
   "item.tlotd.futuristic_circuit_board": "Futuristische Platine",
   "item.tlotd.futuristic_circuit_board.tooltip": "Du kannst der Verantwortung",
   "item.tlotd.futuristic_circuit_board.tooltip_2": "von morgen nicht entkommen in",
   "item.tlotd.futuristic_circuit_board.tooltip_3": "dem du ihr Heute ausweichst",
+  "item.tlotd.arcane_circuit_board": "Arcane Platine",
   "item.tlotd.biological_circuit_board": "Biologische Platine",
   "item.tlotd.integrated_circuit": "Integrierter Schaltkreis",
   "item.tlotd.cathode_ray_tube": "Kathodenstrahlröhre",
   "item.tlotd.liquid_crystal_display_panel": "Flüssigkristallanzeigefeld",
   "item.tlotd.holographic_projector": "Holografischer Projektor",
+
+  "item.tlotd.fragmented_futuristic_circuit_board": "Futuristisches Platinenfragment",
 
   "item.tlotd.keycard": "Schlüsselkarte",
   "item.tlotd.keycard.no_password": "Kein Password gesetzt",
@@ -295,10 +307,13 @@
 
   "item.tlotd.incomplete_copper_wire": "Unvollendetes Kupferkabel",
   "item.tlotd.incomplete_gold_wire": "Unvollendetes Goldkabel",
+  "item.tlotd.incomplete_mithril_wire": "Unvollendetes Mithrilkabel",
   "item.tlotd.incomplete_integrated_circuit": "Unvollendeter Integrierter Schaltkreis",
   "item.tlotd.incomplete_circuit_board": "Unvollendete Platine",
   "item.tlotd.incomplete_advanced_circuit_board": "Unvollendete Verbesserte Platine",
+  "item.tlotd.incomplete_transcendent_circuit_board": "Unvollendete Transzendente Platine",
   "item.tlotd.incomplete_futuristic_circuit_board": "Unvollendete Futuristische Platine",
+  "item.tlotd.incomplete_arcane_circuit_board": "Unvollendete Arcane Platine",
   "item.tlotd.incomplete_biological_circuit_board": "Unvollendete Biologische Platine",
   "item.tlotd.incomplete_radio": "Unvollendetes Radio",
   "item.tlotd.incomplete_television": "Unvollendeter Fernseher",
@@ -417,6 +432,7 @@
   "item.tlotd.heliorite_shovel": "Helioritschaufel",
   "item.tlotd.heliorite_hoe": "Heliorithacke",
   "item.tlotd.heliorite_sickle": "Helioritsichel",
+  "item.tlotd.heliorite_forging_hammer": "Helioritschmiedehammer",
 
   "item.tlotd.heliorite_helmet": "Heliorithelm",
   "item.tlotd.heliorite_chestplate": "Helioritbrustplatte",
@@ -441,6 +457,7 @@
   "item.tlotd.endurium_shovel": "Enduriumschaufel",
   "item.tlotd.endurium_hoe": "Enduriumhacke",
   "item.tlotd.endurium_sickle": "Enduriumsichel",
+  "item.tlotd.endurium_forging_hammer": "Enduriumschmiedehammer",
 
   "item.tlotd.endurium_helmet": "Enduriumhelm",
   "item.tlotd.endurium_chestplate": "Enduriumbrustplatte",
@@ -457,6 +474,7 @@
   "item.tlotd.palladium_shovel": "Palladiumschaufel",
   "item.tlotd.palladium_hoe": "Palladiumhacke",
   "item.tlotd.palladium_sickle": "Palladiumsichel",
+  "item.tlotd.palladium_forging_hammer": "Palladiumschmiedehammer",
 
   "item.tlotd.palladium_helmet": "Palladiumhelm",
   "item.tlotd.palladium_chestplate": "Palladiumbrustplatte",
@@ -473,6 +491,7 @@
   "item.tlotd.jurassoline_shovel": "Jurassolinschaufel",
   "item.tlotd.jurassoline_hoe": "Jurassolinhacke",
   "item.tlotd.jurassoline_sickle": "Jurassolinsichel",
+  "item.tlotd.jurassoline_forging_hammer": "Jurassolinschmiedehammer",
 
   "item.tlotd.jurassoline_helmet": "Jurassolinhelm",
   "item.tlotd.jurassoline_chestplate": "Jurassolinbrustplatte",
@@ -491,6 +510,7 @@
   "item.tlotd.cinnabar_shovel": "Zinnoberschaufel",
   "item.tlotd.cinnabar_hoe": "Zinnoberhacke",
   "item.tlotd.cinnabar_sickle": "Zinnobersichel",
+  "item.tlotd.cinnabar_forging_hammer": "Zinnoberschmiedehammer",
 
   "item.tlotd.cinnabar_helmet": "Zinnoberhelm",
   "item.tlotd.cinnabar_chestplate": "Zinnoberbrustplatte",
@@ -507,6 +527,7 @@
   "item.tlotd.nebular_shovel": "Nebularschaufel",
   "item.tlotd.nebular_hoe": "Nebularhacke",
   "item.tlotd.nebular_sickle": "Nebularsichel",
+  "item.tlotd.nebular_forging_hammer": "Nebularschmiedehammer",
 
   "item.tlotd.nebular_helmet": "Nebularhelm",
   "item.tlotd.nebular_chestplate": "Nebularbrustplatte",
@@ -525,8 +546,8 @@
   "item.tlotd.mithril_shovel": "Mithrilschaufel",
   "item.tlotd.mithril_hoe": "Mithrilhacke",
   "item.tlotd.mithril_sickle": "Mithrilsichel",
-
   "item.tlotd.mithril_forging_hammer": "Mithrilschmiedehammer",
+
   "item.tlotd.mithril_star_catcher": "Mithril Sternenfänger",
 
   "item.tlotd.mithril_helmet": "Mithrilhelm",
@@ -596,7 +617,7 @@
   "block.tlotd.orange_tree": "Orangenbaum",
   "block.tlotd.orange_cake": "Orangenkuchen",
 
-  "block.tlotd.cannabis_plant": "Hanfpflanze",
+  "block.tlotd.pipe_weed_plant": "Pfeifenkrautpflanze",
 
   "block.tlotd.bw_sticker": "Sticker",
   "block.tlotd.bw_sticker.tooltip": "Nett hier.",
@@ -707,6 +728,15 @@
   "block.tlotd.signal_transmitter.removed": "Signal wurde entfernt.",
   "block.tlotd.signal_transmitter.incomplete": "Signalgeberantenne unvollständig!",
   "block.tlotd.signal_transmitter_antenna": "Signalgeberantenne",
+
+  "block.tlotd.teleporter": "Teleporter",
+  "block.tlotd.teleporter.location_copied": "Position auf Datenträger kopiert",
+  "block.tlotd.teleporter.no_destination_on_drive": "Kein Ziel auf dem Datenträger gefunden",
+  "block.tlotd.teleporter.destination_same": "Ziel und Ursprung dürfen nicht gleich sein",
+  "block.tlotd.teleporter.connected": "Teleporter verbunden",
+  "block.tlotd.teleporter.destination_in_use": "Zielteleporter ist bereits in Benutzung",
+  "block.tlotd.teleporter.none_at_destination": "Kein Teleporter am Ziel gefunden",
+  "block.tlotd.teleporter.already_in_use": "Teleporter ist bereits in Benutzung",
 
   "block.tlotd.mining_elevator_controller": "Bergwerksaufzugssteuerung",
   "block.tlotd.mining_elevator_base": "Bergwerksaufzugsbasis",

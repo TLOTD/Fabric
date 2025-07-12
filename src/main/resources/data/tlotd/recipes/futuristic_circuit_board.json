@@ -16,16 +16,19 @@
     "A": {
       "item": "tlotd:alien_metal"
     },
-    "C": {
-      "item": "tlotd:advanced_circuit_board"
+    "F": {
+      "item": "tlotd:fragmented_futuristic_circuit_board"
+    },
+    "T": {
+      "item": "tlotd:transcendent_circuit_board"
     },
     "S": {
       "item": "tlotd:superconducting_wire"
     }
   },
   "pattern": [
-    "SCS",
-    "CSC",
+    "TFS",
+    "FTF",
     "AAS"
   ],
   "result": {

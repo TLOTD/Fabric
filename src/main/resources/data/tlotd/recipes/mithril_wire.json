@@ -1,0 +1,36 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:not",
+      "value": {
+        "condition": "fabric:all_mods_loaded",
+        "values": [
+          "create"
+        ]
+      }
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "M": {
+      "item": "tlotd:mithril_ingot"
+    },
+    "I": {
+      "tag": "c:steel_rods"
+    },
+    "S": {
+      "tag": "c:steel_ingots"
+    }
+  },
+  "pattern": [
+    " S ",
+    "MIM",
+    " S "
+  ],
+  "result": {
+    "count": 4,
+    "item": "tlotd:mithril_wire"
+  },
+  "show_notification": true
+}

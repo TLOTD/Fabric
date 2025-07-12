@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_superconducting_wire": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "tlotd:superconducting_wire"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:alien_metal_from_blasting_superconducting_wire"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_superconducting_wire",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:alien_metal_from_blasting_superconducting_wire"
+    ]
+  },
+  "sends_telemetry_event": false
+}

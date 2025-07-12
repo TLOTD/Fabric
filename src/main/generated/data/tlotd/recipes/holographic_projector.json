@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "B": {
+      "item": "minecraft:beacon"
+    },
+    "F": {
+      "item": "tlotd:futuristic_circuit_board"
+    },
+    "S": {
+      "item": "tlotd:superconducting_wire"
+    }
+  },
+  "pattern": [
+    " B ",
+    "SFS"
+  ],
+  "result": {
+    "item": "tlotd:holographic_projector"
+  },
+  "show_notification": true
+}

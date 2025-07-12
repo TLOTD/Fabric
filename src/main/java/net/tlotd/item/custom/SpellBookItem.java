@@ -23,6 +23,7 @@ public class SpellBookItem extends Item {
 
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
+        tooltip.add(Text.translatable("info.tlotd.not_yet_implemented").formatted(Formatting.RED));
         tooltip.add(Text.translatable("item.tlotd.spell_book.tooltip").formatted(Formatting.GRAY));
         super.appendTooltip(stack, world, tooltip, context);
     }

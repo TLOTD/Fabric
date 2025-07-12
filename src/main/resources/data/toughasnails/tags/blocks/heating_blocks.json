@@ -9,5 +9,7 @@
   ],
   "replace": false,
   "values": [
+    "tlotd:sulfur_lantern",
+    "tlotd:sulfur_campfire"
   ]
 }

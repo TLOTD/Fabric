@@ -2,10 +2,8 @@ package net.tlotd.block.custom;
 
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NbtCompound;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
@@ -45,7 +43,6 @@ public class KeycardReaderBlock extends ButtonBlock implements BlockEntityProvid
             if (!stack.hasNbt()) {
                 player.sendMessage(Text.translatable("block.tlotd.keycard_reader.no_password"), true);
                 world.playSound(null, pos, SoundEvents.ENTITY_VILLAGER_NO, SoundCategory.BLOCKS, 1.0f, 1.0f);
-                return ActionResult.SUCCESS;
             }
             else {
                 if (keycardReaderBlockEntity.password.isEmpty()) {
@@ -53,7 +50,6 @@ public class KeycardReaderBlock extends ButtonBlock implements BlockEntityProvid
                     keycardReaderBlockEntity.markDirty();
                     world.playSound(null, pos, ModSounds.BLOCK_KEYCARD_READER_PLING, SoundCategory.BLOCKS, 1.0f, 1.0f);
                     player.sendMessage(Text.translatable("block.tlotd.keycard_reader.password_set"), true);
-                    return ActionResult.SUCCESS;
                 }
                 else {
                     if (keycardReaderBlockEntity.password.equals(stack.getNbt().getString("password"))) {
@@ -64,13 +60,12 @@ public class KeycardReaderBlock extends ButtonBlock implements BlockEntityProvid
                         this.playClickSound(player, world, pos, true);
                         world.emitGameEvent(player, GameEvent.BLOCK_ACTIVATE, pos);
                         world.playSound(null, pos, ModSounds.BLOCK_KEYCARD_READER_PLING, SoundCategory.BLOCKS, 1.0f, 1.0f);
-                        return ActionResult.SUCCESS;
                     } else {
                         world.playSound(null, pos, SoundEvents.ENTITY_VILLAGER_NO, SoundCategory.BLOCKS, 1.0f, 1.0f);
-                        return ActionResult.SUCCESS;
                     }
                 }
             }
+            return ActionResult.SUCCESS;
         }
         return ActionResult.FAIL;
     }

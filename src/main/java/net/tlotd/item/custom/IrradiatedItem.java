@@ -21,6 +21,11 @@ public class IrradiatedItem extends Item {
     }
 
     @Override
+    public Text getName(ItemStack stack) {
+        return Text.translatable(this.getTranslationKey()).styled(style -> style.withColor(0x7AFF2C));
+    }
+
+    @Override
     public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
         if (!world.isClient) {
             if (entity.isPlayer()) {

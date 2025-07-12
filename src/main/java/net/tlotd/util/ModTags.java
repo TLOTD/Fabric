@@ -82,6 +82,24 @@ public class ModTags {
         public static final TagKey<Item> FORGING_HAMMERS_TIER3 =
                 createTag("forging_hammers_tier3");
 
+        public static final TagKey<Item> FORGING_HAMMERS_TIER4 =
+                createTag("forging_hammers_tier4");
+
+        public static final TagKey<Item> FORGING_HAMMERS_TIER5 =
+                createTag("forging_hammers_tier5");
+
+        public static final TagKey<Item> FORGING_HAMMERS_TIER6 =
+                createTag("forging_hammers_tier6");
+
+        public static final TagKey<Item> FORGING_HAMMERS_TIER7 =
+                createTag("forging_hammers_tier7");
+
+        public static final TagKey<Item> FORGING_HAMMERS_TIER8 =
+                createTag("forging_hammers_tier8");
+
+        public static final TagKey<Item> FORGING_HAMMERS_TIER9 =
+                createTag("forging_hammers_tier9");
+
         public static final TagKey<Item> WOODEN_BARK =
                 createTag("wooden_bark");
 
@@ -142,11 +160,17 @@ public class ModTags {
         public static final TagKey<Item> ADVANCED_CIRCUIT_BOARDS =
                 createTag("advanced_circuit_boards");
 
+        public static final TagKey<Item> TRANSCENDENT_CIRCUIT_BOARDS =
+                createTag("transcendent_circuit_boards");
+
         public static final TagKey<Item> GAME_CARTRIDGES =
                 createTag("game_cartridges");
 
         public static final TagKey<Item> KEYCARDS =
                 createTag("keycards");
+
+        public static final TagKey<Item> TREX_HEADS =
+                createTag("t-rex_heads");
 
         private static TagKey<Item> createTag(String name) {
             return TagKey.of(RegistryKeys.ITEM, new Identifier(TLOTD.MOD_ID, name));

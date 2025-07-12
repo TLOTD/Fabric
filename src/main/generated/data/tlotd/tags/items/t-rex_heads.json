@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "tlotd:t-rex_head",
+    "tlotd:green_t-rex_head",
+    "tlotd:gray_t-rex_head",
+    "tlotd:infected_t-rex_head",
+    "tlotd:sculk_t-rex_head",
+    "tlotd:sickened_t-rex_head"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 400,
+  "experience": 0.7,
+  "group": "alien_metal",
+  "ingredient": {
+    "item": "tlotd:superconducting_wire"
+  },
+  "result": "tlotd:alien_metal"
+}

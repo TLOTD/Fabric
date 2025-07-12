@@ -1,0 +1,102 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "create"
+      ]
+    }
+  ],
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "tag": "c:steel_ingots"
+  },
+  "loops": 1,
+  "results": [
+    {
+      "item": "tlotd:mithril_wire"
+    }
+  ],
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "tlotd:incomplete_mithril_wire"
+        },
+        {
+          "item": "tlotd:mithril_ingot"
+        }
+      ],
+      "results": [
+        {
+          "item": "tlotd:incomplete_mithril_wire"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "tlotd:incomplete_mithril_wire"
+        },
+        {
+          "tag": "c:steel_rods"
+        }
+      ],
+      "results": [
+        {
+          "item": "tlotd:incomplete_mithril_wire"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "tlotd:incomplete_mithril_wire"
+        },
+        {
+          "item": "tlotd:mithril_ingot"
+        }
+      ],
+      "results": [
+        {
+          "item": "tlotd:incomplete_mithril_wire"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "tlotd:incomplete_mithril_wire"
+        },
+        {
+          "tag": "c:steel_ingots"
+        }
+      ],
+      "results": [
+        {
+          "item": "tlotd:incomplete_mithril_wire"
+        }
+      ]
+    },
+    {
+      "type": "create:pressing",
+      "ingredients": [
+        {
+          "item": "tlotd:incomplete_mithril_wire"
+        }
+      ],
+      "results": [
+        {
+          "item": "tlotd:incomplete_mithril_wire"
+        }
+      ]
+    }
+  ],
+  "transitionalItem": {
+    "item": "tlotd:incomplete_mithril_wire"
+  }
+}

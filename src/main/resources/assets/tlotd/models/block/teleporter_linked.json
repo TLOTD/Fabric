@@ -1,0 +1,8 @@
+{
+	"parent": "tlotd:block/teleporter",
+	"textures": {
+		"0": "tlotd:block/teleporter_side_linked",
+		"1": "tlotd:block/teleporter_top_linked",
+		"particle": "tlotd:block/teleporter_top_linked"
+	}
+}

@@ -14,7 +14,7 @@
   "category": "building",
   "key": {
     "A": {
-      "item": "tlotd:advanced_circuit_board"
+      "tag": "tlotd:advanced_circuit_boards"
     },
     "C": {
       "tag": "c:copper_ingots"

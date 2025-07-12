@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "linked=false": {
+      "model": "tlotd:block/teleporter"
+    },
+    "linked=true": {
+      "model": "tlotd:block/teleporter_linked"
+    }
+  }
+}

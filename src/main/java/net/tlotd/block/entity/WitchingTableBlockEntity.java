@@ -22,6 +22,7 @@ import net.minecraft.network.PacketByteBuf;
 import net.minecraft.network.listener.ClientPlayPacketListener;
 import net.minecraft.network.packet.Packet;
 import net.minecraft.network.packet.s2c.play.BlockEntityUpdateS2CPacket;
+import net.minecraft.particle.ParticleTypes;
 import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.ScreenHandler;
@@ -47,6 +48,7 @@ import java.util.Optional;
 
 import static net.minecraft.block.CandleBlock.LIT;
 import static net.tlotd.block.custom.RitualisticCircleBlock.STATE;
+import static net.tlotd.block.custom.StickCrossBlock.FLIPPED;
 import static net.tlotd.block.custom.WitchingTableBlock.*;
 
 public class WitchingTableBlockEntity extends BlockEntity implements ExtendedScreenHandlerFactory, ImplementedInventory {
@@ -218,11 +220,19 @@ public class WitchingTableBlockEntity extends BlockEntity implements ExtendedScr
                         world.setBlockState(pos.add(-1,-1,1), ModBlocks.RITUALISTIC_FANCY_CHARRED_PLANKS.getDefaultState().with(STATE,6));
                         world.setBlockState(pos.add(0,-1,1), ModBlocks.RITUALISTIC_FANCY_CHARRED_PLANKS.getDefaultState().with(STATE,7));
                         world.setBlockState(pos.add(1,-1,1), ModBlocks.RITUALISTIC_FANCY_CHARRED_PLANKS.getDefaultState().with(STATE,8));
-                        if (candles()) {
-                            world.setBlockState(pos.add(-1,0,-1), world.getBlockState(pos.add(-1,0,-1)).with(LIT,false));
-                            world.setBlockState(pos.add(1,0,-1), world.getBlockState(pos.add(1,0,-1)).with(LIT,false));
-                            world.setBlockState(pos.add(-1,0,1), world.getBlockState(pos.add(-1,0,1)).with(LIT,false));
-                            world.setBlockState(pos.add(1,0,1), world.getBlockState(pos.add(1,0,1)).with(LIT,false));
+                    }
+                    for (int x = -5; x <= 5; x++) {
+                        for (int y = -5; y <= 5; y++) {
+                            for (int z = -5; z <= 5; z++) {
+                                if (world.getBlockState(pos.add(x,y,z)).isIn(BlockTags.CANDLES)) {
+                                    world.setBlockState(pos.add(x,y,z), world.getBlockState(pos.add(x,y,z)).with(LIT, false));
+                                    world.addParticle(ParticleTypes.SOUL, true, pos.getX()+x+0.5d, pos.getY()+y+0.5d, pos.getZ()+z+0.5d,0,0.15d,0);
+                                }
+                                if (world.getBlockState(pos.add(x,y,z)).isOf(ModBlocks.STICK_CROSS)) {
+                                    world.setBlockState(pos.add(x,y,z), world.getBlockState(pos.add(x,y,z)).with(FLIPPED, true));
+                                    world.addParticle(ParticleTypes.SOUL, true, pos.getX()+x+0.5d, pos.getY()+y+0.5d, pos.getZ()+z+0.5d,0,0.15d,0);
+                                }
+                            }
                         }
                     }
                     resetProgress();
@@ -267,11 +277,6 @@ public class WitchingTableBlockEntity extends BlockEntity implements ExtendedScr
         return (world.getBlockState(pos.add(-1,-1,-1)).isIn(ModTags.Blocks.WITCHING_TABLE_BASE_BLOCKS) && world.getBlockState(pos.add(0,-1,-1)).isIn(ModTags.Blocks.WITCHING_TABLE_BASE_BLOCKS) && world.getBlockState(pos.add(1,-1,-1)).isIn(ModTags.Blocks.WITCHING_TABLE_BASE_BLOCKS)
         && world.getBlockState(pos.add(-1,-1,0)).isIn(ModTags.Blocks.WITCHING_TABLE_BASE_BLOCKS) && world.getBlockState(pos.add(0,-1,0)).isIn(ModTags.Blocks.WITCHING_TABLE_BASE_BLOCKS) && world.getBlockState(pos.add(1,-1,0)).isIn(ModTags.Blocks.WITCHING_TABLE_BASE_BLOCKS)
         && world.getBlockState(pos.add(-1,-1,1)).isIn(ModTags.Blocks.WITCHING_TABLE_BASE_BLOCKS) && world.getBlockState(pos.add(0,-1,1)).isIn(ModTags.Blocks.WITCHING_TABLE_BASE_BLOCKS) && world.getBlockState(pos.add(1,-1,1)).isIn(ModTags.Blocks.WITCHING_TABLE_BASE_BLOCKS));
-    }
-
-    private boolean candles() {
-        return (world.getBlockState(pos.add(-1,0,-1)).isIn(BlockTags.CANDLES) && world.getBlockState(pos.add(1,0,-1)).isIn(BlockTags.CANDLES) && world.getBlockState(pos.add(-1,0,1)).isIn(BlockTags.CANDLES) && world.getBlockState(pos.add(1,0,1)).isIn(BlockTags.CANDLES) &&
-        world.getBlockState(pos.add(-1,0,-1)).get(LIT) && world.getBlockState(pos.add(1,0,-1)).get(LIT) && world.getBlockState(pos.add(-1,0,1)).get(LIT) && world.getBlockState(pos.add(1,0,1)).get(LIT));
     }
 
     private boolean spaceForFluid() {

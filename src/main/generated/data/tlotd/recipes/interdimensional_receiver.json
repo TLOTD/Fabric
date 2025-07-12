@@ -2,26 +2,26 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "key": {
-    "A": {
-      "tag": "tlotd:advanced_circuit_boards"
-    },
-    "G": {
-      "item": "tlotd:gold_wire"
-    },
     "I": {
       "tag": "c:iron_ingots"
     },
+    "M": {
+      "item": "tlotd:mithril_wire"
+    },
     "R": {
       "item": "minecraft:redstone_lamp"
+    },
+    "T": {
+      "tag": "tlotd:transcendent_circuit_boards"
     },
     "X": {
       "item": "tlotd:xen_crystal"
     }
   },
   "pattern": [
-    "G G",
+    "M M",
     "IRI",
-    "AXA"
+    "TXT"
   ],
   "result": {
     "item": "tlotd:interdimensional_receiver"

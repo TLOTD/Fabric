@@ -6,7 +6,7 @@ import net.minecraft.item.FoodComponent;
 
 public class ModFoodComponents {
 
-    public static final FoodComponent CANNABIS_COOKIE = new FoodComponent.Builder().snack().hunger(2).saturationModifier(0.2f).build();
+    public static final FoodComponent HEMP_COOKIE = new FoodComponent.Builder().snack().hunger(2).saturationModifier(0.2f).build();
 
     public static final FoodComponent TOAST = new FoodComponent.Builder().snack().hunger(2).saturationModifier(0.2f).build();
     public static final FoodComponent JAM_TOAST = new FoodComponent.Builder().snack().hunger(5).saturationModifier(0.5f).build();

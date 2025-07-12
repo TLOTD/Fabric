@@ -25,7 +25,7 @@
           "item": "tlotd:incomplete_computer"
         },
         {
-          "item": "tlotd:advanced_circuit_board"
+          "tag": "tlotd:advanced_circuit_boards"
         }
       ],
       "results": [
@@ -57,7 +57,7 @@
           "item": "tlotd:incomplete_computer"
         },
         {
-          "item": "tlotd:advanced_circuit_board"
+          "tag": "tlotd:advanced_circuit_boards"
         }
       ],
       "results": [

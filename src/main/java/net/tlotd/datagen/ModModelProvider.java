@@ -268,7 +268,7 @@ public class ModModelProvider extends FabricModelProvider {
 
         itemModelGenerator.register(ModItems.OXYGEN_TANK, Models.GENERATED);
 
-        itemModelGenerator.register(ModItems.CANNABIS_COOKIE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.HEMP_COOKIE, Models.GENERATED);
 
         itemModelGenerator.register(ModItems.TOAST, Models.GENERATED);
         itemModelGenerator.register(ModItems.SWEET_BERRY_JAM_TOAST, Models.GENERATED);
@@ -285,8 +285,8 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.ORANGE_MARMELADE_TOAST, Models.GENERATED);
         itemModelGenerator.register(ModItems.SPEZI_BOTTLE, Models.GENERATED);
 
-        itemModelGenerator.register(ModItems.CANNABIS_SEEDS, Models.GENERATED);
-        itemModelGenerator.register(ModItems.CANNABIS, Models.GENERATED);
+        itemModelGenerator.register(ModItems.PIPE_WEED_SEEDS, Models.GENERATED);
+        itemModelGenerator.register(ModItems.PIPE_WEED, Models.GENERATED);
 
         itemModelGenerator.register(ModItems.BLUE_BERRY_JAM_TOAST, Models.GENERATED);
         itemModelGenerator.register(ModItems.ANCIENT_SOULBERRY_JAM_TOAST, Models.GENERATED);
@@ -344,15 +344,20 @@ public class ModModelProvider extends FabricModelProvider {
 
         itemModelGenerator.register(ModItems.COPPER_WIRE, Models.GENERATED);
         itemModelGenerator.register(ModItems.GOLD_WIRE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.MITHRIL_WIRE, Models.GENERATED);
         itemModelGenerator.register(ModItems.SUPERCONDUCTING_WIRE, Models.GENERATED);
         itemModelGenerator.register(ModItems.INTEGRATED_CIRCUIT, Models.GENERATED);
         itemModelGenerator.register(ModItems.ADVANCED_CIRCUIT_BOARD, Models.GENERATED);
+        itemModelGenerator.register(ModItems.TRANSCENDENT_CIRCUIT_BOARD, Models.GENERATED);
         itemModelGenerator.register(ModItems.FUTURISTIC_CIRCUIT_BOARD, Models.GENERATED);
+        itemModelGenerator.register(ModItems.ARCANE_CIRCUIT_BOARD, Models.GENERATED);
         itemModelGenerator.register(ModItems.BIOLOGICAL_CIRCUIT_BOARD, Models.GENERATED);
         itemModelGenerator.register(ModItems.CIRCUIT_BOARD, Models.GENERATED);
         itemModelGenerator.register(ModItems.CATHODE_RAY_TUBE, Models.GENERATED);
         itemModelGenerator.register(ModItems.LIQUID_CRYSTAL_DISPLAY_PANEL, Models.GENERATED);
         itemModelGenerator.register(ModItems.HOLOGRAPHIC_PROJECTOR, Models.GENERATED);
+
+        itemModelGenerator.register(ModItems.FRAGMENTED_FUTURISTIC_CIRCUIT_BOARD, Models.GENERATED);
 
         itemModelGenerator.register(ModItems.RAW_LEAD, Models.GENERATED);
         itemModelGenerator.register(ModItems.LEAD_NUGGET, Models.GENERATED);
@@ -405,6 +410,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.HELIORITE_HOE, Models.HANDHELD);
 
         itemModelGenerator.register(ModItems.HELIORITE_SICKLE, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.HELIORITE_FORGING_HAMMER, Models.HANDHELD);
 
         itemModelGenerator.registerArmor(((ArmorItem) ModItems.HELIORITE_HELMET));
         itemModelGenerator.registerArmor(((ArmorItem) ModItems.HELIORITE_CHESTPLATE));
@@ -425,6 +431,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.ENDURIUM_HOE, Models.HANDHELD);
 
         itemModelGenerator.register(ModItems.ENDURIUM_SICKLE, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.ENDURIUM_FORGING_HAMMER, Models.HANDHELD);
 
         itemModelGenerator.registerArmor(((ArmorItem) ModItems.ENDURIUM_HELMET));
         itemModelGenerator.registerArmor(((ArmorItem) ModItems.ENDURIUM_CHESTPLATE));
@@ -442,6 +449,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.PALLADIUM_HOE, Models.HANDHELD);
 
         itemModelGenerator.register(ModItems.PALLADIUM_SICKLE, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.PALLADIUM_FORGING_HAMMER, Models.HANDHELD);
 
         itemModelGenerator.registerArmor(((ArmorItem) ModItems.PALLADIUM_HELMET));
         itemModelGenerator.registerArmor(((ArmorItem) ModItems.PALLADIUM_CHESTPLATE));
@@ -459,6 +467,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.JURASSOLINE_HOE, Models.HANDHELD);
 
         itemModelGenerator.register(ModItems.JURASSOLINE_SICKLE, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.JURASSOLINE_FORGING_HAMMER, Models.HANDHELD);
 
         itemModelGenerator.registerArmor(((ArmorItem) ModItems.JURASSOLINE_HELMET));
         itemModelGenerator.registerArmor(((ArmorItem) ModItems.JURASSOLINE_CHESTPLATE));
@@ -476,6 +485,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.CINNABAR_HOE, Models.HANDHELD);
 
         itemModelGenerator.register(ModItems.CINNABAR_SICKLE, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.CINNABAR_FORGING_HAMMER, Models.HANDHELD);
 
         itemModelGenerator.registerArmor(((ArmorItem) ModItems.CINNABAR_HELMET));
         itemModelGenerator.registerArmor(((ArmorItem) ModItems.CINNABAR_CHESTPLATE));
@@ -493,6 +503,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.NEBULAR_HOE, Models.HANDHELD);
 
         itemModelGenerator.register(ModItems.NEBULAR_SICKLE, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.NEBULAR_FORGING_HAMMER, Models.HANDHELD);
 
         itemModelGenerator.registerArmor(((ArmorItem) ModItems.NEBULAR_HELMET));
         itemModelGenerator.registerArmor(((ArmorItem) ModItems.NEBULAR_CHESTPLATE));
@@ -510,8 +521,8 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.MITHRIL_HOE, Models.HANDHELD);
 
         itemModelGenerator.register(ModItems.MITHRIL_SICKLE, Models.HANDHELD);
-
         itemModelGenerator.register(ModItems.MITHRIL_FORGING_HAMMER, Models.HANDHELD);
+
         itemModelGenerator.register(ModItems.MITHRIL_STAR_CATCHER, Models.HANDHELD);
 
         itemModelGenerator.registerArmor(((ArmorItem) ModItems.MITHRIL_HELMET));
@@ -531,6 +542,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.ASTRAL_AXE, Models.HANDHELD);
         itemModelGenerator.register(ModItems.ASTRAL_SHOVEL, Models.HANDHELD);
         itemModelGenerator.register(ModItems.ASTRAL_HOE, Models.HANDHELD);
+
         itemModelGenerator.register(ModItems.ASTRAL_SICKLE, Models.HANDHELD);
         itemModelGenerator.register(ModItems.ASTRAL_FORGING_HAMMER, Models.HANDHELD);
 
@@ -596,5 +608,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.GAME_CARTRIDGE_1, Models.GENERATED);
         itemModelGenerator.register(ModItems.GAME_CARTRIDGE_2, Models.GENERATED);
         itemModelGenerator.register(ModItems.GAME_CARTRIDGE_3, Models.GENERATED);
+
+        itemModelGenerator.register(ModItems.FLASH_DRIVE, Models.GENERATED);
     }
 }

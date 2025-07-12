@@ -40,6 +40,11 @@ public class ModBlockEntities {
                     FabricBlockEntityTypeBuilder.create(GarbageCanBlockEntity::new,
                             ModBlocks.GARBAGE_CAN).build());
 
+    public static final BlockEntityType<TeleporterBlockEntity> TELEPORTER_BLOCK_ENTITY =
+            Registry.register(Registries.BLOCK_ENTITY_TYPE, new Identifier(TLOTD.MOD_ID, "teleporter_block_entity"),
+                    FabricBlockEntityTypeBuilder.create(TeleporterBlockEntity::new,
+                            ModBlocks.TELEPORTER).build());
+
     public static void registerBlockEntities() {
         FluidStorage.SIDED.registerForBlockEntity((blockEntity, direction) -> blockEntity.fluidStorage, WITCHING_TABLE_BLOCK_ENTITY);
 

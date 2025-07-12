@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "A": {
+      "item": "tlotd:alien_metal"
+    },
+    "F": {
+      "item": "tlotd:futuristic_circuit_board"
+    },
+    "H": {
+      "item": "tlotd:holographic_projector"
+    },
+    "S": {
+      "item": "tlotd:superconducting_wire"
+    },
+    "X": {
+      "item": "tlotd:xen_crystal"
+    }
+  },
+  "pattern": [
+    "HHH",
+    "AXA",
+    "SFS"
+  ],
+  "result": {
+    "item": "tlotd:teleporter"
+  },
+  "show_notification": true
+}

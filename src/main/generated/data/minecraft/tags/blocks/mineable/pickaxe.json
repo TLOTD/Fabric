@@ -26,6 +26,7 @@
     "tlotd:keycard_reader",
     "tlotd:signal_transmitter_antenna",
     "tlotd:signal_transmitter",
+    "tlotd:teleporter",
     "tlotd:mining_elevator_controller",
     "tlotd:mining_elevator_base",
     "tlotd:wooden_elevator_controller",

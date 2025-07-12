@@ -1,0 +1,87 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_alien_metal": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "tlotd:alien_metal"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_futuristic_circuit_board": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "tlotd:futuristic_circuit_board"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_holographic_projector": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "tlotd:holographic_projector"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_superconducting_wire": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "tlotd:superconducting_wire"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:teleporter"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_xen_crystal": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "tlotd:xen_crystal"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_holographic_projector",
+      "has_alien_metal",
+      "has_xen_crystal",
+      "has_superconducting_wire",
+      "has_futuristic_circuit_board",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:teleporter"
+    ]
+  },
+  "sends_telemetry_event": false
+}

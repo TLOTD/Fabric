@@ -25,7 +25,7 @@
           "item": "tlotd:incomplete_television"
         },
         {
-          "item": "tlotd:circuit_board"
+          "tag": "tlotd:circuit_boards"
         }
       ],
       "results": [
@@ -134,7 +134,7 @@
           "item": "tlotd:incomplete_television"
         },
         {
-          "item": "tlotd:circuit_board"
+          "tag": "tlotd:circuit_boards"
         }
       ],
       "results": [

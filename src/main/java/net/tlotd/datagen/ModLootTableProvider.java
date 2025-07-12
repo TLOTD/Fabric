@@ -218,6 +218,8 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.SIGNAL_TRANSMITTER_ANTENNA);
         addDrop(ModBlocks.SIGNAL_TRANSMITTER);
 
+        addDrop(ModBlocks.TELEPORTER);
+
         addDrop(ModBlocks.MINING_ELEVATOR_CONTROLLER);
         addDrop(ModBlocks.MINING_ELEVATOR_BASE);
         addDrop(ModBlocks.WOODEN_ELEVATOR_CONTROLLER);

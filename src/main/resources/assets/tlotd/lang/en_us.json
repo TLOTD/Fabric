@@ -18,6 +18,8 @@
   "mod.twilightforest.name": "The Twilight Forest",
   "mod.witherstormmod.name": "Cracker's Wither Storm Mod",
 
+  "info.tlotd.not_yet_implemented": "[This content is not fully implemented yet!]",
+
   "gui.tlotd.mithril_smithing": "Mithril Smithing",
   "gui.tlotd.witching": "Witching",
   "gui.tlotd.tooltip.liquid_amount_with_capacity": "§f%s§7: %smB/%smB",
@@ -173,7 +175,7 @@
   "item.tlotd.lotr_banner_pattern": "Banner Pattern",
   "item.tlotd.lotr_banner_pattern.desc": "The Lord of the Rings",
 
-  "item.tlotd.cannabis_cookie": "Cannabis Cookie",
+  "item.tlotd.hemp_cookie": "Hemp Cookie",
 
   "item.tlotd.apple_juice_bottle": "Apple Juice Bottle",
   "block.tlotd.preserves_jar": "Preserves Jar",
@@ -196,8 +198,8 @@
   "item.tlotd.orange_juice_bottle": "Orange Juice Bottle",
   "item.tlotd.spezi_bottle": "Spezi Bottle",
 
-  "item.tlotd.cannabis_seeds": "Cannabis Seeds",
-  "item.tlotd.cannabis": "Cannabis",
+  "item.tlotd.pipe_weed_seeds": "Pipe-Weed Seeds",
+  "item.tlotd.pipe_weed": "Pipe-Weed",
 
   "block.tlotd.blue_berry_jam_jar": "Blue Berry Jam Jar",
   "item.tlotd.blue_berry_jam_toast": "Blue Berry Jam Toast",
@@ -286,16 +288,27 @@
   "item.tlotd.game_cartridge_3": "Game Cartridge",
   "item.tlotd.game_cartridge_3.desc": "Terraria",
 
+  "item.tlotd.flash_drive": "Flash Drive",
+  "item.tlotd.flash_drive.empty": "Empty",
+  "item.tlotd.flash_drive.one_entry": "One File:",
+  "item.tlotd.flash_drive.coordinates": "block.pos [%1$s,%2$s,%3$s]",
+
   "item.tlotd.copper_wire": "Copper Wire",
   "item.tlotd.gold_wire": "Gold Wire",
+  "item.tlotd.mithril_wire": "Mithril Wire",
   "item.tlotd.superconducting_wire": "Superconducting Wire",
   "item.tlotd.circuit_board": "Circuit Board",
   "item.tlotd.integrated_circuit": "Integrated Circuit",
   "item.tlotd.advanced_circuit_board": "Advanced Circuit Board",
+  "item.tlotd.transcendent_circuit_board": "Transcendent Circuit Board",
   "item.tlotd.futuristic_circuit_board": "Futuristic Circuit Board",
   "item.tlotd.futuristic_circuit_board.tooltip": "You cannot escape the",
   "item.tlotd.futuristic_circuit_board.tooltip_2": "responsibility of tomorrow",
   "item.tlotd.futuristic_circuit_board.tooltip_3": "by evading it today",
+  "item.tlotd.arcane_circuit_board": "Arcane Circuit Board",
+  "item.tlotd.arcane_circuit_board.tooltip": "Channel the powers of the",
+  "item.tlotd.arcane_circuit_board.tooltip_2": "runes of the void into the",
+  "item.tlotd.arcane_circuit_board.tooltip_3": "stone its engraved in.",
   "item.tlotd.biological_circuit_board": "Biological Circuit Board",
   "item.tlotd.biological_circuit_board.tooltip": "A grotesque insult to",
   "item.tlotd.biological_circuit_board.tooltip_2": "any ethical advancement",
@@ -304,16 +317,21 @@
   "item.tlotd.liquid_crystal_display_panel": "Liquid Crystal Display Panel",
   "item.tlotd.holographic_projector": "Holographic Projector",
 
+  "item.tlotd.fragmented_futuristic_circuit_board": "Fragmented Futuristic Circuit Board",
+
   "item.tlotd.keycard": "Keycard",
   "item.tlotd.keycard.no_password": "No password set",
   "item.tlotd.keycard.has_password": "Password set",
 
   "item.tlotd.incomplete_copper_wire": "Incomplete Copper Wire",
   "item.tlotd.incomplete_gold_wire": "Incomplete Gold Wire",
+  "item.tlotd.incomplete_mithril_wire": "Incomplete Mithril Wire",
   "item.tlotd.incomplete_integrated_circuit": "Incomplete Integrated Circuit",
   "item.tlotd.incomplete_circuit_board": "Incomplete Circuit Board",
   "item.tlotd.incomplete_advanced_circuit_board": "Incomplete Advanced Circuit Board",
+  "item.tlotd.incomplete_transcendent_circuit_board": "Incomplete Transcendent Circuit Board",
   "item.tlotd.incomplete_futuristic_circuit_board": "Incomplete Futuristic Circuit Board",
+  "item.tlotd.incomplete_arcane_circuit_board": "Incomplete Arcane Circuit Board",
   "item.tlotd.incomplete_biological_circuit_board": "Incomplete Biological Circuit Board",
   "item.tlotd.incomplete_radio": "Incomplete Radio",
   "item.tlotd.incomplete_television": "Incomplete Television",
@@ -432,6 +450,7 @@
   "item.tlotd.heliorite_shovel": "Heliorite Shovel",
   "item.tlotd.heliorite_hoe": "Heliorite Hoe",
   "item.tlotd.heliorite_sickle": "Heliorite Sickle",
+  "item.tlotd.heliorite_forging_hammer": "Heliorite Forging Hammer",
 
   "item.tlotd.heliorite_helmet": "Heliorite Helmet",
   "item.tlotd.heliorite_chestplate": "Heliorite Chestplate",
@@ -456,6 +475,7 @@
   "item.tlotd.endurium_shovel": "Endurium Shovel",
   "item.tlotd.endurium_hoe": "Endurium Hoe",
   "item.tlotd.endurium_sickle": "Endurium Sickle",
+  "item.tlotd.endurium_forging_hammer": "Endurium Forging Hammer",
 
   "item.tlotd.endurium_helmet": "Endurium Helmet",
   "item.tlotd.endurium_chestplate": "Endurium Chestplate",
@@ -472,6 +492,7 @@
   "item.tlotd.palladium_shovel": "Palladium Shovel",
   "item.tlotd.palladium_hoe": "Palladium Hoe",
   "item.tlotd.palladium_sickle": "Palladium Sickle",
+  "item.tlotd.palladium_forging_hammer": "Palladium Forging Hammer",
 
   "item.tlotd.palladium_helmet": "Palladium Helmet",
   "item.tlotd.palladium_chestplate": "Palladium Chestplate",
@@ -488,6 +509,7 @@
   "item.tlotd.jurassoline_shovel": "Jurassoline Shovel",
   "item.tlotd.jurassoline_hoe": "Jurassoline Hoe",
   "item.tlotd.jurassoline_sickle": "Jurassoline Sickle",
+  "item.tlotd.jurassoline_forging_hammer": "Jurassoline Forging Hammer",
 
   "item.tlotd.jurassoline_helmet": "Jurassoline Helmet",
   "item.tlotd.jurassoline_chestplate": "Jurassoline Chestplate",
@@ -506,6 +528,7 @@
   "item.tlotd.cinnabar_shovel": "Cinnabar Shovel",
   "item.tlotd.cinnabar_hoe": "Cinnabar Hoe",
   "item.tlotd.cinnabar_sickle": "Cinnabar Sickle",
+  "item.tlotd.cinnabar_forging_hammer": "Cinnabar Forging Hammer",
 
   "item.tlotd.cinnabar_helmet": "Cinnabar Helmet",
   "item.tlotd.cinnabar_chestplate": "Cinnabar Chestplate",
@@ -522,6 +545,7 @@
   "item.tlotd.nebular_shovel": "Nebular Shovel",
   "item.tlotd.nebular_hoe": "Nebular Hoe",
   "item.tlotd.nebular_sickle": "Nebular Sickle",
+  "item.tlotd.nebular_forging_hammer": "Nebular Forging Hammer",
 
   "item.tlotd.nebular_helmet": "Nebular Helmet",
   "item.tlotd.nebular_chestplate": "Nebular Chestplate",
@@ -540,8 +564,8 @@
   "item.tlotd.mithril_shovel": "Mithril Shovel",
   "item.tlotd.mithril_hoe": "Mithril Hoe",
   "item.tlotd.mithril_sickle": "Mithril Sickle",
-
   "item.tlotd.mithril_forging_hammer": "Mithril Forging Hammer",
+
   "item.tlotd.mithril_star_catcher": "Mithril Star Catcher",
 
   "item.tlotd.mithril_helmet": "Mithril Helmet",
@@ -612,7 +636,7 @@
   "block.tlotd.orange_tree": "Orange Tree",
   "block.tlotd.orange_cake": "Orange Cake",
 
-  "block.tlotd.cannabis_plant": "Cannabis Plant",
+  "block.tlotd.pipe_weed_plant": "Pipe-Weed Plant",
 
   "block.tlotd.bw_sticker": "Sticker",
   "block.tlotd.bw_sticker.tooltip": "Nett hier.",
@@ -725,6 +749,15 @@
   "block.tlotd.signal_transmitter.removed": "Signal was removed.",
   "block.tlotd.signal_transmitter.incomplete": "Signal Transmitter Antenna Incomplete!",
   "block.tlotd.signal_transmitter_antenna": "Signal Transmitter Antenna",
+
+  "block.tlotd.teleporter": "Teleporter",
+  "block.tlotd.teleporter.location_copied": "Location copied to drive",
+  "block.tlotd.teleporter.no_destination_on_drive": "No destination on drive",
+  "block.tlotd.teleporter.destination_same": "Destination cannot be the same as origin",
+  "block.tlotd.teleporter.connected": "Connected",
+  "block.tlotd.teleporter.destination_in_use": "Destination teleporter already in use",
+  "block.tlotd.teleporter.none_at_destination": "No teleporter at destination",
+  "block.tlotd.teleporter.already_in_use": "Teleporter already in use",
 
   "block.tlotd.mining_elevator_controller": "Mining Elevator Controller",
   "block.tlotd.mining_elevator_base": "Mining Elevator Base",

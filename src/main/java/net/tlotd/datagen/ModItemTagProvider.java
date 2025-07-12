@@ -5,7 +5,6 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.item.Items;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.RegistryWrapper;
-import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.registry.tag.TagKey;
 import net.minecraft.util.Identifier;
@@ -30,15 +29,45 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
 
         getOrCreateTagBuilder(ModTags.Items.FORGING_HAMMERS_TIER1)
                 .addTag(ModTags.Items.FORGING_HAMMERS_TIER2)
-                .add(ModItems.NETHERITE_FORGING_HAMMER)
         ;
 
         getOrCreateTagBuilder(ModTags.Items.FORGING_HAMMERS_TIER2)
                 .addTag(ModTags.Items.FORGING_HAMMERS_TIER3)
-                .add(ModItems.MITHRIL_FORGING_HAMMER)
         ;
 
         getOrCreateTagBuilder(ModTags.Items.FORGING_HAMMERS_TIER3)
+                .addTag(ModTags.Items.FORGING_HAMMERS_TIER4)
+        ;
+
+        getOrCreateTagBuilder(ModTags.Items.FORGING_HAMMERS_TIER4)
+                .add(ModItems.NETHERITE_FORGING_HAMMER)
+                .addTag(ModTags.Items.FORGING_HAMMERS_TIER5)
+        ;
+
+        getOrCreateTagBuilder(ModTags.Items.FORGING_HAMMERS_TIER5)
+                .add(ModItems.HELIORITE_FORGING_HAMMER)
+                .add(ModItems.ENDURIUM_FORGING_HAMMER)
+                .addTag(ModTags.Items.FORGING_HAMMERS_TIER6)
+        ;
+
+        getOrCreateTagBuilder(ModTags.Items.FORGING_HAMMERS_TIER6)
+                .add(ModItems.PALLADIUM_FORGING_HAMMER)
+                .add(ModItems.JURASSOLINE_FORGING_HAMMER)
+                .addTag(ModTags.Items.FORGING_HAMMERS_TIER7)
+        ;
+
+        getOrCreateTagBuilder(ModTags.Items.FORGING_HAMMERS_TIER7)
+                .add(ModItems.CINNABAR_FORGING_HAMMER)
+                .add(ModItems.NEBULAR_FORGING_HAMMER)
+                .addTag(ModTags.Items.FORGING_HAMMERS_TIER8)
+        ;
+
+        getOrCreateTagBuilder(ModTags.Items.FORGING_HAMMERS_TIER8)
+                .add(ModItems.MITHRIL_FORGING_HAMMER)
+                .addTag(ModTags.Items.FORGING_HAMMERS_TIER9)
+        ;
+
+        getOrCreateTagBuilder(ModTags.Items.FORGING_HAMMERS_TIER9)
                 .add(ModItems.ASTRAL_FORGING_HAMMER)
         ;
 
@@ -423,12 +452,28 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
 
         getOrCreateTagBuilder(ModTags.Items.ADVANCED_CIRCUIT_BOARDS)
                 .add(ModItems.ADVANCED_CIRCUIT_BOARD)
+                .addTag(ModTags.Items.TRANSCENDENT_CIRCUIT_BOARDS)
+        ;
+
+        getOrCreateTagBuilder(ModTags.Items.TRANSCENDENT_CIRCUIT_BOARDS)
+                .add(ModItems.TRANSCENDENT_CIRCUIT_BOARD)
                 .add(ModItems.FUTURISTIC_CIRCUIT_BOARD)
+                .add(ModItems.ARCANE_CIRCUIT_BOARD)
                 .add(ModItems.BIOLOGICAL_CIRCUIT_BOARD)
         ;
 
         getOrCreateTagBuilder(ModTags.Items.KEYCARDS)
                 .add(ModItems.KEYCARD)
+        ;
+
+        getOrCreateTagBuilder(ModTags.Items.TREX_HEADS)
+                .add(ModBlocks.TREX_HEAD.asItem())
+                .add(ModBlocks.GREEN_TREX_HEAD.asItem())
+                .add(ModBlocks.GRAY_TREX_HEAD.asItem())
+
+                .add(ModBlocks.INFECTED_TREX_HEAD.asItem())
+                .add(ModBlocks.SCULK_TREX_HEAD.asItem())
+                .add(ModBlocks.SICKENED_TREX_HEAD.asItem())
         ;
 
         getOrCreateTagBuilder(ModTags.Items.SICKLES)
@@ -536,7 +581,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
         getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "seeds")))
                 .add(ModItems.STRAWBERRY_SEEDS)
                 .add(ModItems.ORANGE_SEEDS)
-                .add(ModItems.CANNABIS_SEEDS)
+                .add(ModItems.PIPE_WEED_SEEDS)
         ;
 
         getOrCreateTagBuilder(ItemTags.TRIM_MATERIALS)
@@ -552,7 +597,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
         getOrCreateTagBuilder(ItemTags.VILLAGER_PLANTABLE_SEEDS)
                 .add(ModItems.STRAWBERRY_SEEDS)
                 .add(ModItems.ORANGE_SEEDS)
-                .add(ModItems.CANNABIS_SEEDS)
+                .add(ModItems.PIPE_WEED_SEEDS)
         ;
 
         getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "flour")))
@@ -786,7 +831,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModItems.STRAWBERRY)
                 .add(ModItems.CHOCOLATE_STRAWBERRY)
                 .add(ModItems.ORANGE)
-                .add(ModItems.CANNABIS_COOKIE)
+                .add(ModItems.HEMP_COOKIE)
                 .add(ModItems.TOAST)
                 .add(ModItems.STRAWBERRY_JAM_TOAST)
                 .add(ModItems.ORANGE_MARMELADE_TOAST)

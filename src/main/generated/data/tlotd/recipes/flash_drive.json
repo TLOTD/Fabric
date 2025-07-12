@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "tag": "tlotd:circuit_boards"
+    },
+    "C": {
+      "item": "tlotd:integrated_circuit"
+    },
+    "I": {
+      "tag": "c:iron_ingots"
+    },
+    "W": {
+      "item": "tlotd:copper_wire"
+    }
+  },
+  "pattern": [
+    " CB",
+    "WB ",
+    "I  "
+  ],
+  "result": {
+    "item": "tlotd:flash_drive"
+  },
+  "show_notification": true
+}

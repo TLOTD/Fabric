@@ -42,7 +42,7 @@ public class ArchaeologyTableBlock extends Block {
                     case 5 -> randomItem = ModBlocks.GINKGO_SAPLING.asItem().getDefaultStack();
                     case 6 -> randomItem = ModItems.STRAWBERRY_SEEDS.getDefaultStack();
                     case 7 -> randomItem = ModItems.ORANGE_SEEDS.getDefaultStack();
-                    case 8 -> randomItem = ModItems.CANNABIS_SEEDS.getDefaultStack();
+                    case 8 -> randomItem = ModItems.PIPE_WEED_SEEDS.getDefaultStack();
                 }
                 Block.dropStack(world, pos.up(), randomItem);
                 world.playSound(null, pos, SoundEvents.BLOCK_GRINDSTONE_USE, SoundCategory.BLOCKS, 1.0f, 1.0f);

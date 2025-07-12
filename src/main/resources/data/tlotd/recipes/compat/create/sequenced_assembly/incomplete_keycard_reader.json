@@ -25,7 +25,7 @@
           "item": "tlotd:incomplete_keycard_reader"
         },
         {
-          "item": "tlotd:circuit_board"
+          "tag": "tlotd:circuit_boards"
         }
       ],
       "results": [

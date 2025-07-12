@@ -9,5 +9,8 @@
   ],
   "replace": false,
   "values": [
+    "tlotd:sulfur",
+    "tlotd:sulfur_block",
+    "tlotd:chemical_waste_bucket"
   ]
 }

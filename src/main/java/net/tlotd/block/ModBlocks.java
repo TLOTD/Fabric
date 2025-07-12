@@ -44,7 +44,7 @@ public class ModBlocks {
 
     public static final Block SULFUR_LANTERN = registerBlock("sulfur_lantern", new LanternBlock(FabricBlockSettings.create().mapColor(MapColor.IRON_GRAY).solid().requiresTool().strength(3.5F).sounds(BlockSoundGroup.LANTERN).luminance(14).nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
 
-    public static final Block SULFUR_CAMPFIRE = registerBlock("sulfur_campfire", new CampfireBlock(false, 2, FabricBlockSettings.create().mapColor(MapColor.SPRUCE_BROWN).instrument(Instrument.BASS).strength(2.0f).sounds(BlockSoundGroup.WOOD).luminance(Blocks.createLightLevelFromLitBlockState(14)).nonOpaque().burnable()));
+    public static final Block SULFUR_CAMPFIRE = registerNyiBlock("sulfur_campfire", new CampfireBlock(false, 2, FabricBlockSettings.create().mapColor(MapColor.SPRUCE_BROWN).instrument(Instrument.BASS).strength(2.0f).sounds(BlockSoundGroup.WOOD).luminance(Blocks.createLightLevelFromLitBlockState(14)).nonOpaque().burnable()));
 
     public static final Block PRESERVES_JAR = registerSmallStackableBlock("preserves_jar",
             new PreservesJarBlock(FabricBlockSettings.create().mapColor(MapColor.WHITE).strength(0.3f, 0.3f).sounds(BlockSoundGroup.GLASS).nonOpaque()));
@@ -87,8 +87,8 @@ public class ModBlocks {
             new StrawberryBushBlock(FabricBlockSettings.create().mapColor(MapColor.DARK_GREEN).noCollision().ticksRandomly().breakInstantly().sounds(BlockSoundGroup.CROP).pistonBehavior(PistonBehavior.DESTROY)));
     public static final Block ORANGE_TREE = registerBlockWithoutItem("orange_tree",
             new OrangeTreeBlock(FabricBlockSettings.create().mapColor(MapColor.DARK_GREEN).noCollision().ticksRandomly().breakInstantly().sounds(BlockSoundGroup.CROP).pistonBehavior(PistonBehavior.DESTROY)));
-    public static final Block CANNABIS_PLANT = registerBlockWithoutItem("cannabis_plant",
-            new CannabisPlantBlock(FabricBlockSettings.create().mapColor(MapColor.DARK_GREEN).noCollision().ticksRandomly().breakInstantly().sounds(BlockSoundGroup.CROP).pistonBehavior(PistonBehavior.DESTROY)));
+    public static final Block PIPE_WEED_PLANT = registerBlockWithoutItem("pipe_weed_plant",
+            new PipeWeedPlantBlock(FabricBlockSettings.create().mapColor(MapColor.DARK_GREEN).noCollision().ticksRandomly().breakInstantly().sounds(BlockSoundGroup.CROP).pistonBehavior(PistonBehavior.DESTROY)));
 
     public static final Block STRAWBERRY_CAKE = registerBlock("strawberry_cake", new CakeBlock(FabricBlockSettings.copyOf(Blocks.CAKE)));
     public static final Block ORANGE_CAKE = registerBlock("orange_cake", new CakeBlock(FabricBlockSettings.copyOf(Blocks.CAKE)));
@@ -406,6 +406,9 @@ public class ModBlocks {
     public static final Block INTERDIMENSIONAL_RECEIVER = registerBlock("interdimensional_receiver",
             new InterdimensionalReceiverBlock(FabricBlockSettings.create().mapColor(MapColor.GRAY).requiresTool().strength(2.0F, 2.0F).pistonBehavior(PistonBehavior.DESTROY).luminance(4)));
 
+    public static final Block TELEPORTER = registerRareBlock("teleporter",
+            new TeleporterBlock(FabricBlockSettings.create().mapColor(MapColor.BLACK).requiresTool().strength(2.0F, 2.0F).pistonBehavior(PistonBehavior.BLOCK).luminance(4)));
+
     public static final Block VIDEOCASSETTE_RECORDER = registerVCRBlock("videocassette_recorder",
             new VideocassetteRecorderBlock(FabricBlockSettings.create().mapColor(MapColor.WHITE).strength(2.0F, 2.0F).pistonBehavior(PistonBehavior.DESTROY)));
 
@@ -702,6 +705,16 @@ public class ModBlocks {
         return Registry.register(Registries.BLOCK, new Identifier(TLOTD.MOD_ID, name), block);
     }
 
+    private static Block registerRareBlock(String name, Block block) {
+        registerRareBlockItem(name, block);
+        return Registry.register(Registries.BLOCK, new Identifier(TLOTD.MOD_ID, name), block);
+    }
+
+    private static Block registerEpicBlock(String name, Block block) {
+        registerEpicBlockItem(name, block);
+        return Registry.register(Registries.BLOCK, new Identifier(TLOTD.MOD_ID, name), block);
+    }
+
     private static Block registerSmallStackableBlock(String name, Block block) {
         registerSmallStackBlockItem(name, block);
         return Registry.register(Registries.BLOCK, new Identifier(TLOTD.MOD_ID, name), block);
@@ -737,6 +750,11 @@ public class ModBlocks {
         return Registry.register(Registries.BLOCK, new Identifier(TLOTD.MOD_ID, name), block);
     }
 
+    private static Block registerNyiBlock(String name, Block block) {
+        registerNyiBlockItem(name, block);
+        return Registry.register(Registries.BLOCK, new Identifier(TLOTD.MOD_ID, name), block);
+    }
+
     private static Block registerVCRBlock(String name, Block block) {
         registerVCRBlockItem(name, block);
         return Registry.register(Registries.BLOCK, new Identifier(TLOTD.MOD_ID, name), block);
@@ -759,6 +777,16 @@ public class ModBlocks {
     private static Item registerUncommonBlockItem(String name, Block block) {
         return Registry.register(Registries.ITEM, new Identifier(TLOTD.MOD_ID, name),
                 new BlockItem(block, new FabricItemSettings().rarity(Rarity.UNCOMMON)));
+    }
+
+    private static Item registerRareBlockItem(String name, Block block) {
+        return Registry.register(Registries.ITEM, new Identifier(TLOTD.MOD_ID, name),
+                new BlockItem(block, new FabricItemSettings().rarity(Rarity.RARE)));
+    }
+
+    private static Item registerEpicBlockItem(String name, Block block) {
+        return Registry.register(Registries.ITEM, new Identifier(TLOTD.MOD_ID, name),
+                new BlockItem(block, new FabricItemSettings().rarity(Rarity.EPIC)));
     }
 
     private static Item registerCompatBlockItem(String name, Block block, String compat) {
@@ -804,6 +832,11 @@ public class ModBlocks {
     private static Item registerIrradiatedBlockItem(String name, Block block) {
         return Registry.register(Registries.ITEM, new Identifier(TLOTD.MOD_ID, name),
                 new IrradiatedBlockItem(block, new FabricItemSettings()));
+    }
+
+    private static Item registerNyiBlockItem(String name, Block block) {
+        return Registry.register(Registries.ITEM, new Identifier(TLOTD.MOD_ID, name),
+                new NyiBlockItem(block, new FabricItemSettings()));
     }
 
     public static void registerModBlocks() {

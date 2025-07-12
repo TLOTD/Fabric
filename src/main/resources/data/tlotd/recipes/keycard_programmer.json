@@ -20,7 +20,7 @@
       "tag": "minecraft:buttons"
     },
     "C": {
-      "item": "tlotd:circuit_board"
+      "tag": "tlotd:circuit_boards"
     },
     "G": {
       "tag": "c:glass_panes"

@@ -1,0 +1,26 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "sculkhorde"
+      ]
+    }
+  ],
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "tag": "tlotd:t-rex_heads"
+    },
+    {
+      "item": "sculkhorde:chunk_o_brain"
+    },
+    {
+      "item": "minecraft:sculk_shrieker"
+    }
+  ],
+  "result": {
+    "item": "tlotd:sculk_t-rex_head"
+  }
+}

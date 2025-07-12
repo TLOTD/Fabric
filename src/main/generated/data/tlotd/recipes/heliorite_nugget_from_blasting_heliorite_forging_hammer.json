@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 400,
+  "experience": 0.7,
+  "group": "heliorite_nugget",
+  "ingredient": {
+    "item": "tlotd:heliorite_forging_hammer"
+  },
+  "result": "tlotd:heliorite_nugget"
+}

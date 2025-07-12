@@ -1,12 +1,14 @@
 package net.tlotd.block.custom;
 
 import net.minecraft.block.*;
+import net.minecraft.block.enums.WallMountLocation;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.DirectionProperty;
+import net.minecraft.state.property.EnumProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.BlockRotation;
 import net.minecraft.util.math.BlockPos;
@@ -15,17 +17,27 @@ import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.WorldAccess;
 
+import java.util.Objects;
+
 public class StickCrossBlock extends Block {
 
+    public static final EnumProperty<WallMountLocation> FACE = Properties.WALL_MOUNT_LOCATION;
+    public static final DirectionProperty FACING = Properties.FACING;
     public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
-
-    public static final DirectionProperty FACING = FacingBlock.FACING;
+    public static final BooleanProperty FLIPPED = BooleanProperty.of("flipped");
 
     @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {
-        return this.getDefaultState()
-                .with(FACING, ctx.getPlayerLookDirection())
-                .with(WATERLOGGED, ctx.getWorld().getFluidState(ctx.getBlockPos()).isOf(Fluids.WATER));
+        boolean flipped = false;
+        if (Objects.requireNonNull(ctx.getPlayer()).isSneaking()) {
+            flipped = true;
+        }
+        for (Direction direction : ctx.getPlacementDirections()) {
+            BlockState blockState = direction.getAxis() == Direction.Axis.Y ? this.getDefaultState().with(FACE, direction == Direction.UP ? WallMountLocation.CEILING : WallMountLocation.FLOOR).with(FACING, ctx.getHorizontalPlayerFacing()).with(WATERLOGGED, ctx.getWorld().getFluidState(ctx.getBlockPos()).isOf(Fluids.WATER)).with(FLIPPED, flipped) : this.getDefaultState().with(FACE, WallMountLocation.WALL).with(FACING, direction).with(WATERLOGGED, ctx.getWorld().getFluidState(ctx.getBlockPos()).isOf(Fluids.WATER)).with(FLIPPED, flipped);
+            if (!blockState.canPlaceAt(ctx.getWorld(), ctx.getBlockPos())) continue;
+            return blockState;
+        }
+        return null;
     }
 
     @Override
@@ -49,31 +61,55 @@ public class StickCrossBlock extends Block {
 
     @Override
     public void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        builder.add(FACING, WATERLOGGED);
+        builder.add(FACE, FACING, WATERLOGGED, FLIPPED);
     }
 
     public StickCrossBlock(Settings settings) {
         super(settings);
-        this.setDefaultState(this.stateManager.getDefaultState().with(FACING, Direction.NORTH).with(WATERLOGGED, false));
+        this.setDefaultState(this.stateManager.getDefaultState().with(FACE, WallMountLocation.WALL).with(FACING, Direction.NORTH).with(WATERLOGGED, false).with(FLIPPED, false));
     }
 
     public static final VoxelShape NORTH_SHAPE = Block.createCuboidShape(3, 1, 0, 13, 15, 2);
     public static final VoxelShape EAST_SHAPE = Block.createCuboidShape(14, 1, 3, 16, 15, 13);
     public static final VoxelShape SOUTH_SHAPE = Block.createCuboidShape(3, 1, 14, 13, 15, 16);
     public static final VoxelShape WEST_SHAPE = Block.createCuboidShape(0, 1, 3, 2, 15, 13);
-    public static final VoxelShape DOWN_SHAPE = Block.createCuboidShape(3, 0, 1, 13, 2, 15);
-    public static final VoxelShape UP_SHAPE = Block.createCuboidShape(3, 14, 1, 13, 16, 15);
+    public static final VoxelShape DOWN_SHAPE = Block.createCuboidShape(1, 0, 3, 15, 2, 13);
+    public static final VoxelShape DOWN_SHAPE_2 = Block.createCuboidShape(3, 0, 1, 13, 2, 15);
+    public static final VoxelShape UP_SHAPE = Block.createCuboidShape(1, 14, 3, 15, 16, 13);
+    public static final VoxelShape UP_SHAPE_2 = Block.createCuboidShape(3, 14, 1, 13, 16, 15);
 
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        return switch (state.get(FACING)) {
-            case NORTH -> NORTH_SHAPE;
-            case SOUTH -> SOUTH_SHAPE;
-            case EAST -> EAST_SHAPE;
-            case WEST -> WEST_SHAPE;
-            case UP -> UP_SHAPE;
-            case DOWN -> DOWN_SHAPE;
-        };
+        switch (state.get(FACE)) {
+            case FLOOR: {
+                switch (state.get(FACING).getAxis()) {
+                    case X: {
+                        return DOWN_SHAPE;
+                    }
+                }
+                return DOWN_SHAPE_2;
+            }
+            case WALL: {
+                switch (state.get(FACING)) {
+                    case EAST: {
+                        return EAST_SHAPE;
+                    }
+                    case WEST: {
+                        return WEST_SHAPE;
+                    }
+                    case SOUTH: {
+                        return SOUTH_SHAPE;
+                    }
+                }
+                return NORTH_SHAPE;
+            }
+        }
+        switch (state.get(FACING).getAxis()) {
+            case X: {
+                return UP_SHAPE;
+            }
+        }
+        return UP_SHAPE_2;
     }
 
     @Override
