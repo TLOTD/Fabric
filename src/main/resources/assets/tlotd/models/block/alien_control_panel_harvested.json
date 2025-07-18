@@ -1,0 +1,7 @@
+{
+	"parent": "tlotd:block/alien_control_panel",
+	"textures": {
+		"0": "tlotd:block/alien_control_panel_harvested",
+		"particle": "tlotd:block/alien_control_panel_harvested"
+	}
+}

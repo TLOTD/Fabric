@@ -3,7 +3,7 @@
   "category": "misc",
   "ingredients": [
     {
-      "tag": "c:steel_ingots"
+      "tag": "tlotd:iron_or_steel"
     },
     {
       "item": "minecraft:flint"

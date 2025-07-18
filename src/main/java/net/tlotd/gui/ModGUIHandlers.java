@@ -24,6 +24,10 @@ public class ModGUIHandlers {
             Registry.register(Registries.SCREEN_HANDLER, new Identifier(TLOTD.MOD_ID, "keycard_programmer"),
                     new ExtendedScreenHandlerType<>(KeycardProgrammerGUIHandler::new));
 
+    public static final ScreenHandlerType<IncubatorGUIHandler> INCUBATOR_GUI_HANDLER =
+            Registry.register(Registries.SCREEN_HANDLER, new Identifier(TLOTD.MOD_ID, "incubator"),
+                    new ExtendedScreenHandlerType<>(IncubatorGUIHandler::new));
+
     public static void registerGUIHandlers() {
         TLOTD.LOGGER.info("Registering Screen Handlers for " + TLOTD.MOD_ID);
     }

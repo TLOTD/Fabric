@@ -1,0 +1,32 @@
+{
+  "display": {
+    "icon": {
+      "item": "tlotd:transcendent_circuit_board"
+    },
+    "title": {
+      "translate": "advancements.tlotd.at_the_edge_of_technology"
+    },
+    "description": {
+      "translate": "advancements.tlotd.at_the_edge_of_technology.desc"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "tlotd:transcendent_circuit_board"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "parent": "tlotd:advanced_circuitry"
+}

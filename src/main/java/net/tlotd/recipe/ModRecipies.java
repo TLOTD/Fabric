@@ -16,5 +16,10 @@ public class ModRecipies {
                 WitchingRecipe.Serializer.INSTANCE);
         Registry.register(Registries.RECIPE_TYPE, new Identifier(TLOTD.MOD_ID, WitchingRecipe.Type.ID),
                 WitchingRecipe.Type.INSTANCE);
+
+        Registry.register(Registries.RECIPE_SERIALIZER, new Identifier(TLOTD.MOD_ID, IncubatonRecipe.Serializer.ID),
+                IncubatonRecipe.Serializer.INSTANCE);
+        Registry.register(Registries.RECIPE_TYPE, new Identifier(TLOTD.MOD_ID, IncubatonRecipe.Type.ID),
+                IncubatonRecipe.Type.INSTANCE);
     }
 }

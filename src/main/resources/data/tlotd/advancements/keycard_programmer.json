@@ -1,0 +1,32 @@
+{
+  "display": {
+    "icon": {
+      "item": "tlotd:keycard_programmer"
+    },
+    "title": {
+      "translate": "advancements.tlotd.keycard_programmer"
+    },
+    "description": {
+      "translate": "advancements.tlotd.keycard_programmer.desc"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "tlotd:keycard_programmer"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "parent": "tlotd:computer"
+}

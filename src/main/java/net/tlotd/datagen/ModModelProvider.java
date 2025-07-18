@@ -288,6 +288,8 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.PIPE_WEED_SEEDS, Models.GENERATED);
         itemModelGenerator.register(ModItems.PIPE_WEED, Models.GENERATED);
 
+        itemModelGenerator.register(ModItems.PIPE, Models.GENERATED);
+
         itemModelGenerator.register(ModItems.BLUE_BERRY_JAM_TOAST, Models.GENERATED);
         itemModelGenerator.register(ModItems.ANCIENT_SOULBERRY_JAM_TOAST, Models.GENERATED);
 

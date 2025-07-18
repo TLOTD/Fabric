@@ -15,7 +15,7 @@ import net.tlotd.TLOTD;
 import java.util.List;
 
 public class ModPlacedFeatures {
-    public static final RegistryKey<PlacedFeature> MARBLE_PLACED_KEY = registerKey("marble_fossil_placed");
+    public static final RegistryKey<PlacedFeature> MARBLE_PLACED_KEY = registerKey("marble_placed");
     public static final RegistryKey<PlacedFeature> LIMESTONE_PLACED_KEY = registerKey("limestone_placed");
     public static final RegistryKey<PlacedFeature> RED_DEEPSLATE_PLACED_KEY = registerKey("red_deepslate_placed");
 
@@ -33,6 +33,18 @@ public class ModPlacedFeatures {
     public static final RegistryKey<PlacedFeature> NEBULAR_ORE_PLACED_KEY = registerKey("nebular_ore_placed");
 
     public static final RegistryKey<PlacedFeature> MITHRIL_ORE_PLACED_KEY = registerKey("mithril_ore_placed");
+
+    public static final RegistryKey<PlacedFeature> RED_DEEPSLATE_MARBLE_PLACED_KEY = registerKey("red_deepslate_marble_placed");
+    public static final RegistryKey<PlacedFeature> RED_DEEPSLATE_LIMESTONE_PLACED_KEY = registerKey("red_deepslate_limestone_placed");
+
+    public static final RegistryKey<PlacedFeature> RED_DEEPSLATE_SULFUR_ORE_PLACED_KEY = registerKey("red_deepslate_sulfur_ore_placed");
+    public static final RegistryKey<PlacedFeature> RED_DEEPSLATE_IRON_ORE_PLACED_KEY = registerKey("red_deepslate_iron_ore_placed");
+    public static final RegistryKey<PlacedFeature> RED_DEEPSLATE_COPPER_ORE_PLACED_KEY = registerKey("red_deepslate_copper_ore_placed");
+    public static final RegistryKey<PlacedFeature> RED_DEEPSLATE_GOLD_ORE_PLACED_KEY = registerKey("red_deepslate_gold_ore_placed");
+    public static final RegistryKey<PlacedFeature> RED_DEEPSLATE_REDSTONE_ORE_PLACED_KEY = registerKey("red_deepslate_redstone_ore_placed");
+    public static final RegistryKey<PlacedFeature> RED_DEEPSLATE_EMERALD_ORE_PLACED_KEY = registerKey("red_deepslate_emerald_ore_placed");
+    public static final RegistryKey<PlacedFeature> RED_DEEPSLATE_LAPIS_ORE_PLACED_KEY = registerKey("red_deepslate_lapis_ore_placed");
+    public static final RegistryKey<PlacedFeature> RED_DEEPSLATE_DIAMOND_ORE_PLACED_KEY = registerKey("red_deepslate_diamond_ore_placed");
 
     public static void bootstrap(Registerable<PlacedFeature> context) {
         var configuredFeatureRegistryEntryLookup = context.getRegistryLookup(RegistryKeys.CONFIGURED_FEATURE);
@@ -53,6 +65,18 @@ public class ModPlacedFeatures {
         register(context, CINNABAR_ORE_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.CINNABAR_ORE_KEY), ModOrePlacement.modifiersWithCount(2, HeightRangePlacementModifier.uniform(YOffset.fixed(-64), YOffset.fixed(0))));
         register(context, NEBULAR_ORE_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.NEBULAR_ORE_KEY), ModOrePlacement.modifiersWithCount(2, HeightRangePlacementModifier.uniform(YOffset.fixed(-64), YOffset.fixed(0))));
         register(context, MITHRIL_ORE_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.MITHRIL_ORE_KEY), ModOrePlacement.modifiersWithCount(12, HeightRangePlacementModifier.uniform(YOffset.fixed(-64), YOffset.fixed(128))));
+
+        register(context, RED_DEEPSLATE_MARBLE_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.RED_DEEPSLATE_MARBLE_KEY), ModOrePlacement.modifiersWithCount(16, HeightRangePlacementModifier.uniform(YOffset.fixed(-64), YOffset.fixed(320))));
+        register(context, RED_DEEPSLATE_LIMESTONE_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.RED_DEEPSLATE_LIMESTONE_KEY), ModOrePlacement.modifiersWithCount(16, HeightRangePlacementModifier.uniform(YOffset.fixed(-64), YOffset.fixed(320))));
+
+        register(context, RED_DEEPSLATE_SULFUR_ORE_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.RED_DEEPSLATE_SULFUR_ORE_KEY), ModOrePlacement.modifiersWithCount(16, HeightRangePlacementModifier.uniform(YOffset.fixed(-64), YOffset.fixed(320))));
+        register(context, RED_DEEPSLATE_IRON_ORE_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.RED_DEEPSLATE_IRON_ORE_KEY), ModOrePlacement.modifiersWithCount(16, HeightRangePlacementModifier.uniform(YOffset.fixed(-64), YOffset.fixed(320))));
+        register(context, RED_DEEPSLATE_COPPER_ORE_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.RED_DEEPSLATE_COPPER_ORE_KEY), ModOrePlacement.modifiersWithCount(16, HeightRangePlacementModifier.uniform(YOffset.fixed(-64), YOffset.fixed(320))));
+        register(context, RED_DEEPSLATE_GOLD_ORE_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.RED_DEEPSLATE_GOLD_ORE_KEY), ModOrePlacement.modifiersWithCount(16, HeightRangePlacementModifier.uniform(YOffset.fixed(-64), YOffset.fixed(320))));
+        register(context, RED_DEEPSLATE_REDSTONE_ORE_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.RED_DEEPSLATE_REDSTONE_ORE_KEY), ModOrePlacement.modifiersWithCount(16, HeightRangePlacementModifier.uniform(YOffset.fixed(-64), YOffset.fixed(320))));
+        register(context, RED_DEEPSLATE_EMERALD_ORE_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.RED_DEEPSLATE_EMERALD_ORE_KEY), ModOrePlacement.modifiersWithCount(16, HeightRangePlacementModifier.uniform(YOffset.fixed(-64), YOffset.fixed(320))));
+        register(context, RED_DEEPSLATE_LAPIS_ORE_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.RED_DEEPSLATE_LAPIS_ORE_KEY), ModOrePlacement.modifiersWithCount(16, HeightRangePlacementModifier.uniform(YOffset.fixed(-64), YOffset.fixed(320))));
+        register(context, RED_DEEPSLATE_DIAMOND_ORE_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.RED_DEEPSLATE_DIAMOND_ORE_KEY), ModOrePlacement.modifiersWithCount(16, HeightRangePlacementModifier.uniform(YOffset.fixed(-64), YOffset.fixed(320))));
     }
 
     public static RegistryKey<PlacedFeature> registerKey(String name) {

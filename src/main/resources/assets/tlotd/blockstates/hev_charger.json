@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "face=wall,facing=west": {"model": "tlotd:block/hev_charger","y": 90},
+    "face=wall,facing=north": {"model": "tlotd:block/hev_charger","y": 180},
+    "face=wall,facing=east": {"model": "tlotd:block/hev_charger","y": 270},
+    "face=wall,facing=south": {"model": "tlotd:block/hev_charger"},
+    "face=floor,facing=west": {"model": "tlotd:block/hev_charger","x": -90,"y": 90},
+    "face=floor,facing=north": {"model": "tlotd:block/hev_charger","x": -90,"y": 180},
+    "face=floor,facing=east": {"model": "tlotd:block/hev_charger","x": -90,"y": 270},
+    "face=floor,facing=south": {"model": "tlotd:block/hev_charger","x": -90},
+    "face=ceiling,facing=west": {"model": "tlotd:block/hev_charger","x": 90,"y": 90},
+    "face=ceiling,facing=north": {"model": "tlotd:block/hev_charger","x": 90,"y": 180},
+    "face=ceiling,facing=east": {"model": "tlotd:block/hev_charger","x": 90,"y": 270},
+    "face=ceiling,facing=south": {"model": "tlotd:block/hev_charger","x": 90}
+  }
+}

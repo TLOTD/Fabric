@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "H": {
+      "item": "minecraft:hay_block"
+    },
+    "I": {
+      "tag": "c:steel_rods"
+    },
+    "R": {
+      "item": "minecraft:redstone_lamp"
+    },
+    "S": {
+      "tag": "c:steel_ingots"
+    }
+  },
+  "pattern": [
+    "IRI",
+    "IHI",
+    "SSS"
+  ],
+  "result": {
+    "item": "tlotd:incubator"
+  },
+  "show_notification": true
+}

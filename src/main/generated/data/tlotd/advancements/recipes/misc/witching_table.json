@@ -25,6 +25,18 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
+    "has_glass_bottle": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:glass_bottle"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
     "has_the_recipe": {
       "conditions": {
         "recipe": "minecraft:witching_table"
@@ -35,6 +47,7 @@
   "requirements": [
     [
       "has_cinnabar_crystal",
+      "has_glass_bottle",
       "has_fancy_charred_planks",
       "has_the_recipe"
     ]

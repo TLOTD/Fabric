@@ -5,12 +5,16 @@
     "#": {
       "item": "tlotd:fancy_charred_planks"
     },
-    "S": {
-      "item": "tlotd:cinnabar_crystal"
+    "C": {
+      "tag": "tlotd:cinnabar_or_nebular"
+    },
+    "G": {
+      "item": "minecraft:glass_bottle"
     }
   },
   "pattern": [
-    "S#S",
+    "C#C",
+    "GGG",
     "###"
   ],
   "result": {

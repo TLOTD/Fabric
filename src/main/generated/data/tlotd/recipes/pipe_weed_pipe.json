@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "tlotd:pipe"
+    },
+    {
+      "item": "tlotd:pipe_weed"
+    }
+  ],
+  "result": {
+    "item": "tlotd:pipe_weed_pipe"
+  }
+}

@@ -5,6 +5,7 @@ import net.minecraft.item.Item;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.tag.TagKey;
 import net.minecraft.util.Identifier;
+import net.minecraft.world.biome.Biome;
 import net.tlotd.TLOTD;
 
 public class ModTags {
@@ -57,6 +58,9 @@ public class ModTags {
         public static final TagKey<Block> TELEVISIONS =
                 createTag("televisions");
 
+        public static final TagKey<Block> COMPUTER_ACCESSORIES =
+                createTag("computer_accessories");
+
         public static final TagKey<Block> LOGS_WITH_BARK =
                 createTag("logs_with_bark");
 
@@ -69,6 +73,12 @@ public class ModTags {
     }
 
     public static class Items {
+
+        public static final TagKey<Item> EGGS =
+                createTag("eggs");
+
+        public static final TagKey<Item> HATCHABLE_EGGS =
+                createTag("hatchable_eggs");
 
         public static final TagKey<Item> FORGING_HAMMERS =
                 createTag("forging_hammers");
@@ -133,6 +143,9 @@ public class ModTags {
         public static final TagKey<Item> HOT_MILK_CONTAINER =
                 createTag("hot_milk_container");
 
+        public static final TagKey<Item> HEV_CHARGER_CHARGABLE =
+                createTag("hev_charger_chargable");
+
         public static final TagKey<Item> RADIATION_PROTECTION =
                 createTag("radiation_protection");
 
@@ -144,6 +157,12 @@ public class ModTags {
 
         public static final TagKey<Item> HYPOXIA_PROTECTION =
                 createTag("hypoxia_protection");
+
+        public static final TagKey<Item> IRON_OR_STEEL =
+                createTag("iron_or_steel");
+
+        public static final TagKey<Item> CINNABAR_OR_NEBULAR =
+                createTag("cinnabar_or_nebular");
 
         public static final TagKey<Item> SICKLES =
                 createTag("sickles");

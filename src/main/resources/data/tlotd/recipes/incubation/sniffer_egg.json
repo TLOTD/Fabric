@@ -1,0 +1,14 @@
+{
+  "type": "tlotd:incubation",
+  "ingredients": [
+    {
+      "tag": "tlotd:eggs"
+    },
+    {
+      "item": "minecraft:torchflower"
+    }
+  ],
+  "output": {
+    "item": "minecraft:sniffer_egg"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "type": "tlotd:incubation",
+  "ingredients": [
+    {
+      "tag": "tlotd:eggs"
+    },
+    {
+      "tag": "tlotd:t-rex_heads"
+    }
+  ],
+  "output": {
+    "item": "tlotd:t-rex_egg"
+  }
+}

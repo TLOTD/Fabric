@@ -9,6 +9,7 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.World;
+import net.tlotd.fluid.ModFluids;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
@@ -25,6 +26,12 @@ public class CreateBucketItem extends BucketItem {
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
         if (context.isCreative()){
             Style style = this.getName().getStyle();
+            if (stack.isOf(ModFluids.BLUE_BERRY_JAM_BUCKET)) {
+                tooltip.add(Text.literal("\uE008 ").setStyle(Style.EMPTY.withFont(MODS_FONT_ID)).append(Text.translatable("mod.aether.name").setStyle(Style.EMPTY.withFont(DEFAULT_FONT_ID).withFormatting(Formatting.GRAY))));
+            }
+            if (stack.isOf(ModFluids.ANCIENT_SOULBERRY_JAM_BUCKET)) {
+                tooltip.add(Text.literal("\uE00B ").setStyle(Style.EMPTY.withFont(MODS_FONT_ID)).append(Text.translatable("mod.allthemodium.name").setStyle(Style.EMPTY.withFont(DEFAULT_FONT_ID).withFormatting(Formatting.GRAY))));
+            }
             tooltip.add(Text.literal("\uE00A ").setStyle(style.withFont(MODS_FONT_ID)).append(Text.translatable("mod.create.name").setStyle(style.withFont(DEFAULT_FONT_ID).withFormatting(Formatting.GRAY))));
         }
         super.appendTooltip(stack, world, tooltip, context);

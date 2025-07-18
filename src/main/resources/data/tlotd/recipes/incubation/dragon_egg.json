@@ -1,0 +1,14 @@
+{
+  "type": "tlotd:incubation",
+  "ingredients": [
+    {
+      "tag": "tlotd:eggs"
+    },
+    {
+      "item": "minecraft:dragon_head"
+    }
+  ],
+  "output": {
+    "item": "minecraft:dragon_egg"
+  }
+}

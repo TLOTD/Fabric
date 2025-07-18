@@ -384,6 +384,11 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.FANCY_GINKGO_PLANKS)
         ;
 
+        getOrCreateTagBuilder(ModTags.Blocks.COMPUTER_ACCESSORIES)
+                .add(ModBlocks.KEYCARD_PROGRAMMER)
+                .add(ModBlocks.INCUBATOR)
+        ;
+
         getOrCreateTagBuilder(ModTags.Blocks.WOODEN_STEINS)
                 .add(ModBlocks.WOODEN_STEIN)
                 .add(ModBlocks.WOODEN_WATER_STEIN)
@@ -548,6 +553,8 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.GRAVESTONE_CROSS)
                 .add(ModBlocks.MOSSY_GRAVESTONE_CROSS)
 
+                .add(ModBlocks.SMALL_GRAVESTONE)
+
                 .add(ModBlocks.SKELETON)
                 .add(ModBlocks.EMERGING_SKELETON)
 
@@ -562,14 +569,17 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.INTERDIMENSIONAL_RECEIVER)
                 .add(ModBlocks.VIDEOCASSETTE_RECORDER)
                 .add(ModBlocks.OXYGEN_COLLECTOR)
+                .add(ModBlocks.INCUBATOR)
 
                 .add(ModBlocks.KEYCARD_PROGRAMMER)
                 .add(ModBlocks.KEYCARD_READER)
+                .add(ModBlocks.HEV_CHARGER)
 
                 .add(ModBlocks.SIGNAL_TRANSMITTER_ANTENNA)
                 .add(ModBlocks.SIGNAL_TRANSMITTER)
 
                 .add(ModBlocks.TELEPORTER)
+                .add(ModBlocks.ALIEN_CONTROL_PANEL)
 
                 .add(ModBlocks.MINING_ELEVATOR_CONTROLLER)
                 .add(ModBlocks.MINING_ELEVATOR_BASE)
@@ -934,6 +944,8 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
         getOrCreateTagBuilder(TagKey.of(RegistryKeys.BLOCK, new Identifier("fabric", "needs_tool_level_8")))
                 .add(ModBlocks.MOON_ROCK_LUNAR_CALLAINUS_ORE)
+                .add(ModBlocks.TELEPORTER)
+                .add(ModBlocks.ALIEN_CONTROL_PANEL)
         ;
 
         getOrCreateTagBuilder(ModTags.Blocks.ELEVATOR_CONTROLLERS)

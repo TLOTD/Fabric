@@ -132,9 +132,9 @@ public class MithrilAnvilBlockEntity extends BlockEntity implements ExtendedScre
         }
         if (isOutputSlotEmptyOrReceivable() && (!ModConfigs.MITHRIL_ANVIL_NEEDS_DIRECT_MOONLIGHT || (world.isNight() && world.isSkyVisibleAllowingSea(pos)))) {
             if (this.hasRecipe()) {
-                this.increaseCraftProgress();
+                progress++;
                 markDirty(world, pos, state);
-                if (hasCraftingFinished()) {
+                if (progress >= maxProgress) {
                     this.craftItem();
                     this.resetProgress();
                 }
@@ -163,14 +163,6 @@ public class MithrilAnvilBlockEntity extends BlockEntity implements ExtendedScre
         this.setStack(OUTPUT_SLOT, new ItemStack(recipe.get().getOutput(null).getItem(), getStack(OUTPUT_SLOT).getCount() + recipe.get().getOutput(null).getCount()));
 
         world.playSound(null, getPos(), SoundEvents.BLOCK_ANVIL_USE, SoundCategory.BLOCKS, 1.0f, 1.0f);
-    }
-
-    private boolean hasCraftingFinished() {
-        return progress >= maxProgress;
-    }
-
-    private void increaseCraftProgress() {
-        progress++;
     }
 
     private boolean hasRecipe() {

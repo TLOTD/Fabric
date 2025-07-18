@@ -13,6 +13,7 @@
   "gui.tlotd.tooltip.liquid_amount_with_capacity": "§f%s§7: %smB/%smB",
   "gui.tlotd.oxygen_collector": "Sauerstoffbetanker",
   "gui.tlotd.keycard_programmer": "Schlüsselkarte Programmieren",
+  "gui.tlotd.incubator": "Brutkasten",
 
   "generic.tlotd.text.click_me": "[Hier Klicken]",
   "generic.tlotd.text.wiki_link": "um die Mod Wiki zu öffnen.",
@@ -102,6 +103,8 @@
   "advancements.tlotd.television.desc": "Gelange an einen Fernseher",
   "advancements.tlotd.computer": "Nimm dir ein Bit",
   "advancements.tlotd.computer.desc": "Besitze einen Rechner",
+  "advancements.tlotd.keycard_programmer": "Nur für autorisiertes Personal",
+  "advancements.tlotd.keycard_programmer.desc": "Besitze einen Kartenprogrammierer",
   "advancements.tlotd.all_elevators": "Anders Aufgewachsen",
   "advancements.tlotd.all_elevators.desc": "Erlange alle Aufzüge",
   "advancements.tlotd.all_vhs_cassettes": "Habs auf Kassette",
@@ -110,12 +113,16 @@
   "advancements.tlotd.videocassette_recorder.desc": "Gelange an einen Videokassettenspieler",
   "advancements.tlotd.advanced_circuitry": "Verbesserte Schaltung",
   "advancements.tlotd.advanced_circuitry.desc": "Gelange an eine Verbesserte Platine",
+  "advancements.tlotd.at_the_edge_of_technology": "Am Rande der Technologie",
+  "advancements.tlotd.at_the_edge_of_technology.desc": "Gelange an eine Transzendente Platine",
   "advancements.tlotd.interdimensional_receiver": "Interdimensionelles Fernsehen",
   "advancements.tlotd.interdimensional_receiver.desc": "Nutze einen Interdimensionalen Receiver um deinen Fernseher zu verbessern",
   "advancements.tlotd.signal_transmitter": "Wir senden, sie empfangen.",
   "advancements.tlotd.signal_transmitter.desc": "Erlange ein Signalgeber",
   "advancements.tlotd.futuristic_circuitry": "Die Zukunft ist Jetzt!",
   "advancements.tlotd.futuristic_circuitry.desc": "Gelange an eine Futuristische Platine",
+  "advancements.tlotd.teleporter": "Unmittelbares Reisen",
+  "advancements.tlotd.teleporter.desc": "Entwickel einen Teleporter",
 
   "advancements.tlotd.jurassic": "Jura",
   "advancements.tlotd.jurassic.desc": "Jurazeiten erfordern jurassische Maßnahmen",
@@ -188,6 +195,8 @@
 
   "item.tlotd.pipe_weed_seeds": "Pfeifenkrautsamen",
   "item.tlotd.pipe_weed": "Pfeifenkraut",
+  "item.tlotd.pipe": "Pfeife",
+  "item.tlotd.pipe_weed_pipe": "Pfeife mit Pfeifenkraut",
 
   "block.tlotd.blue_berry_jam_jar": "Blaubeermarmeladenglas",
   "item.tlotd.blue_berry_jam_toast": "Blaubeermarmeladentoast",
@@ -195,6 +204,7 @@
   "item.tlotd.ancient_soulberry_jam_toast": "Uraltes Seelenbeermarmeladentoast",
 
   "item.tlotd.irradiated.tooltip": "☢ Verstrahlt (00:03)",
+  "item.tlotd.radiaton_proof_armor.chargable": "Aufladbar via:",
   "item.tlotd.radiaton_proof_armor.tooltip": "Wenn ganzes Set ausgerüsted:",
   "item.tlotd.radiaton_proof_armor.tooltip_2": "Schützt vor Strahlung",
 
@@ -402,9 +412,9 @@
   "item.tlotd.depth_suit_boots": "Tiefenanzugsstiefel",
 
   "item.tlotd.scientist_glasses": "Wissenschaftlerbrille",
-  "item.tlotd.hev_suit_chestplate": "H.E.V. Anzugsbrustplatte",
-  "item.tlotd.hev_suit_leggings": "H.E.V. Anzugshose",
-  "item.tlotd.hev_suit_boots": "H.E.V. Anzugsstiefel",
+  "item.tlotd.hev_suit_chestplate": "HEV Anzugsbrustplatte",
+  "item.tlotd.hev_suit_leggings": "HEV Anzugshose",
+  "item.tlotd.hev_suit_boots": "HEV Anzugsstiefel",
 
   "item.tlotd.bamboo_sword": "Bambusschwert",
   "item.tlotd.bamboo_pickaxe": "Bambusspitzhacke",
@@ -663,6 +673,12 @@
   "block.tlotd.gravestone_cross": "Grabkreuz",
   "block.tlotd.mossy_gravestone_cross": "Bemoostes Grabkreuz",
 
+  "block.tlotd.small_gravestone": "Kleiner Grabstein",
+  "block.tlotd.small_gravestone.special": "In liebevolle Erinnerung",
+  "block.tlotd.small_gravestone.special_2": "an meine geliebte,",
+  "block.tlotd.small_gravestone.special_3": "'meine Schöne' Gisy.",
+  "block.tlotd.small_gravestone.special_4": "Aug. 2012 - 14. July 2025",
+
   "block.tlotd.skeleton": "Skelett",
   "block.tlotd.emerging_skeleton": "Auftauchendes Skelett",
 
@@ -695,7 +711,6 @@
   "block.tlotd.flagpole": "Flaggenmast",
 
   "block.tlotd.keycard_programmer": "Kartenprogrammierer",
-  "block.tlotd.keycard_programmer.tooltip": "Betreibbar durch:",
   "block.tlotd.keycard_reader": "Kartenleser",
   "block.tlotd.keycard_reader.no_password": "Auf Ihrer Schlüsselkarte ist kein Passwort vorhanden",
   "block.tlotd.keycard_reader.password_set": "Das Passwort Ihrer Schlüsselkarte wurde als neues Passwort für den Kartenleser festgelegt",
@@ -712,11 +727,13 @@
   "block.tlotd.videocassette_recorder.tooltip": "Kann plaziert werden in:",
   "block.tlotd.computer": "Rechner",
   "block.tlotd.computer_on": "Rechner",
+  "block.tlotd.powered_by_computer.tooltip": "Betreibbar durch:",
   "block.tlotd.interdimensional_receiver": "Interdimensionaler Receiver",
   "block.tlotd.interdimensional_receiver.tooltip": "Kann plaziert werden auf:",
   "block.tlotd.oxygen_collector": "Sauerstoffsammler",
   "block.tlotd.oxygen_collector.tooltip": "Kann plaziert werden auf:",
   "block.tlotd.oxygen_collector.tooltip_2": "Blumen & Setzlingen",
+  "block.tlotd.incubator": "Brutkasten",
   "block.tlotd.signal_transmitter": "Signalgeber",
   "block.tlotd.signal_transmitter.tooltip": "Kann übertragen:",
   "block.tlotd.signal_transmitter.tooltip_2": "VHS-Kassetten",
@@ -737,6 +754,10 @@
   "block.tlotd.teleporter.destination_in_use": "Zielteleporter ist bereits in Benutzung",
   "block.tlotd.teleporter.none_at_destination": "Kein Teleporter am Ziel gefunden",
   "block.tlotd.teleporter.already_in_use": "Teleporter ist bereits in Benutzung",
+
+  "block.tlotd.alien_control_panel": "Außerirdische Steuereinheit",
+
+  "block.tlotd.hev_charger": "HEV Ladestation",
 
   "block.tlotd.mining_elevator_controller": "Bergwerksaufzugssteuerung",
   "block.tlotd.mining_elevator_base": "Bergwerksaufzugsbasis",
@@ -872,10 +893,11 @@
   "block.tlotd.mithril_anvil": "Mithrilamboss",
   "block.tlotd.mithril_bars": "Mithrilgitter",
 
+  "text.tlotd.recipe.tooltip": "Halte [",
+  "text.tlotd.recipe.tooltip_1": "] gedrückt für Rezepte",
+
   "block.tlotd.mithril_anvil.tooltip": "Schmiedet unter:",
   "block.tlotd.mithril_anvil.tooltip_2": "Direktem Sternenlicht",
-  "block.tlotd.mithril_anvil.tooltip_3": "Halte [",
-  "block.tlotd.mithril_anvil.tooltip_4": "] gedrückt für Rezepte",
 
   "block.tlotd.witching_table": "Hexentisch",
   "block.tlotd.witching_table.tooltip_bs": "Ermöglicht seelengeladene",

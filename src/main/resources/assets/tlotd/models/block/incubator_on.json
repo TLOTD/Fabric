@@ -1,0 +1,7 @@
+{
+	"parent": "tlotd:block/incubator",
+	"textures": {
+		"1": "tlotd:block/incubator_on",
+		"particle": "tlotd:block/incubator_on"
+	}
+}

@@ -110,17 +110,17 @@ public class ComputerBlock extends Block {
     }
 
     private void TurnOffBlocks(World world, BlockPos pos) {
-        if (world.getBlockState(pos.north()).getBlock().equals(ModBlocks.KEYCARD_PROGRAMMER)) {
-            world.setBlockState(pos.north(), ModBlocks.KEYCARD_PROGRAMMER.getStateWithProperties(world.getBlockState(pos.north())).with(ON, false));
+        if (world.getBlockState(pos.north()).isIn(ModTags.Blocks.COMPUTER_ACCESSORIES)) {
+            world.setBlockState(pos.north(), world.getBlockState(pos.north()).with(ON, false));
         }
-        if (world.getBlockState(pos.east()).getBlock().equals(ModBlocks.KEYCARD_PROGRAMMER)) {
-            world.setBlockState(pos.east(), ModBlocks.KEYCARD_PROGRAMMER.getStateWithProperties(world.getBlockState(pos.east())).with(ON, false));
+        if (world.getBlockState(pos.east()).isIn(ModTags.Blocks.COMPUTER_ACCESSORIES)) {
+            world.setBlockState(pos.east(), world.getBlockState(pos.east()).with(ON, false));
         }
-        if (world.getBlockState(pos.south()).getBlock().equals(ModBlocks.KEYCARD_PROGRAMMER)) {
-            world.setBlockState(pos.south(), ModBlocks.KEYCARD_PROGRAMMER.getStateWithProperties(world.getBlockState(pos.south())).with(ON, false));
+        if (world.getBlockState(pos.south()).isIn(ModTags.Blocks.COMPUTER_ACCESSORIES)) {
+            world.setBlockState(pos.south(), world.getBlockState(pos.south()).with(ON, false));
         }
-        if (world.getBlockState(pos.west()).getBlock().equals(ModBlocks.KEYCARD_PROGRAMMER)) {
-            world.setBlockState(pos.west(), ModBlocks.KEYCARD_PROGRAMMER.getStateWithProperties(world.getBlockState(pos.west())).with(ON, false));
+        if (world.getBlockState(pos.west()).isIn(ModTags.Blocks.COMPUTER_ACCESSORIES)) {
+            world.setBlockState(pos.west(), world.getBlockState(pos.west()).with(ON, false));
         }
     }
 
@@ -130,17 +130,17 @@ public class ComputerBlock extends Block {
             if (!world.isClient) {
                 if (state.getBlock().equals(ModBlocks.COMPUTER)) {
                     world.setBlockState(pos, ModBlocks.COMPUTER_ON.getStateWithProperties(state));
-                    if (world.getBlockState(pos.north()).getBlock().equals(ModBlocks.KEYCARD_PROGRAMMER)) {
-                        world.setBlockState(pos.north(), ModBlocks.KEYCARD_PROGRAMMER.getStateWithProperties(world.getBlockState(pos.north())).with(ON, true));
+                    if (world.getBlockState(pos.north()).isIn(ModTags.Blocks.COMPUTER_ACCESSORIES)) {
+                        world.setBlockState(pos.north(), world.getBlockState(pos.north()).with(ON, true));
                     }
-                    if (world.getBlockState(pos.east()).getBlock().equals(ModBlocks.KEYCARD_PROGRAMMER)) {
-                        world.setBlockState(pos.east(), ModBlocks.KEYCARD_PROGRAMMER.getStateWithProperties(world.getBlockState(pos.east())).with(ON, true));
+                    if (world.getBlockState(pos.east()).isIn(ModTags.Blocks.COMPUTER_ACCESSORIES)) {
+                        world.setBlockState(pos.east(), world.getBlockState(pos.east()).with(ON, true));
                     }
-                    if (world.getBlockState(pos.south()).getBlock().equals(ModBlocks.KEYCARD_PROGRAMMER)) {
-                        world.setBlockState(pos.south(), ModBlocks.KEYCARD_PROGRAMMER.getStateWithProperties(world.getBlockState(pos.south())).with(ON, true));
+                    if (world.getBlockState(pos.south()).isIn(ModTags.Blocks.COMPUTER_ACCESSORIES)) {
+                        world.setBlockState(pos.south(), world.getBlockState(pos.south()).with(ON, true));
                     }
-                    if (world.getBlockState(pos.west()).getBlock().equals(ModBlocks.KEYCARD_PROGRAMMER)) {
-                        world.setBlockState(pos.west(), ModBlocks.KEYCARD_PROGRAMMER.getStateWithProperties(world.getBlockState(pos.west())).with(ON, true));
+                    if (world.getBlockState(pos.west()).isIn(ModTags.Blocks.COMPUTER_ACCESSORIES)) {
+                        world.setBlockState(pos.west(), world.getBlockState(pos.west()).with(ON, true));
                     }
                 } else {
                     world.setBlockState(pos, ModBlocks.COMPUTER.getStateWithProperties(state).with(SCREEN, 0));

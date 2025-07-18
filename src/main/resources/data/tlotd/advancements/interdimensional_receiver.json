@@ -9,10 +9,10 @@
     "description": {
       "translate": "advancements.tlotd.interdimensional_receiver.desc"
     },
-    "frame": "challenge",
+    "frame": "goal",
     "show_toast": true,
     "announce_to_chat": true,
-    "hidden": true
+    "hidden": false
   },
   "criteria": {
     "requirement": {
@@ -28,5 +28,5 @@
       }
     }
   },
-  "parent": "tlotd:advanced_circuitry"
+  "parent": "tlotd:transcendent_circuit_board"
 }

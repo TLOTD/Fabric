@@ -5,9 +5,7 @@ import net.minecraft.entity.SpawnGroup;
 import net.minecraft.registry.Registerable;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
-import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.sound.BiomeMoodSound;
-import net.minecraft.sound.MusicSound;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeEffects;
@@ -21,7 +19,7 @@ import net.tlotd.entity.ModEntities;
 
 public class ModBiomes {
     public static final RegistryKey<Biome> PREHISTORIC_JUNGLE = RegistryKey.of(RegistryKeys.BIOME,
-            new Identifier(TLOTD.MOD_ID, "prehistoric_jungle")
+            new Identifier(TLOTD.MOD_ID,"prehistoric_jungle")
             );
 
     public static void bootstrap(Registerable<Biome> context) {
@@ -52,14 +50,14 @@ public class ModBiomes {
         DefaultBiomeFeatures.addDefaultDisks(biomeBuilder);
 
 
-        biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, VegetationPlacedFeatures.TREES_JUNGLE);
+        //biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, VegetationPlacedFeatures.TREES_JUNGLE);
 
         DefaultBiomeFeatures.addDefaultGrass(biomeBuilder);
-        DefaultBiomeFeatures.addForestFlowers(biomeBuilder);
-        DefaultBiomeFeatures.addJungleGrass(biomeBuilder);
+        //DefaultBiomeFeatures.addForestFlowers(biomeBuilder);
+        //DefaultBiomeFeatures.addJungleGrass(biomeBuilder);
 
-        DefaultBiomeFeatures.addDefaultMushrooms(biomeBuilder);
-        DefaultBiomeFeatures.addDefaultVegetation(biomeBuilder);
+        //DefaultBiomeFeatures.addDefaultMushrooms(biomeBuilder);
+        //DefaultBiomeFeatures.addDefaultVegetation(biomeBuilder);
 
         return new Biome.Builder()
                 .precipitation(true)

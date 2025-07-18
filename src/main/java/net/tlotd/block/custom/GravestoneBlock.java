@@ -20,7 +20,6 @@ import net.tlotd.block.ModBlocks;
 public class GravestoneBlock extends Block {
 
     public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
-
     public static final DirectionProperty FACING = FacingBlock.FACING;
 
     @Override

@@ -102,6 +102,9 @@ public class ModBlocks {
     public static final Block MOSSY_GRAVESTONE_CROSS = registerBlock("mossy_gravestone_cross",
             new GravestoneBlock(FabricBlockSettings.create().mapColor(MapColor.STONE_GRAY).requiresTool().strength(2.0F, 3.0F)));
 
+    public static final Block SMALL_GRAVESTONE = registerBlock("small_gravestone",
+            new SmallGravestoneBlock(FabricBlockSettings.create().mapColor(MapColor.STONE_GRAY).requiresTool().strength(2.0F, 3.0F)));
+
     public static final Block SKELETON = registerBlock("skeleton",
             new SkeletonBlock(FabricBlockSettings.create().mapColor(MapColor.WHITE).noCollision().sounds(BlockSoundGroup.BONE).pistonBehavior(PistonBehavior.DESTROY).strength(1.0F, 1.0F)));
     public static final Block EMERGING_SKELETON = registerBlock("emerging_skeleton",
@@ -116,8 +119,8 @@ public class ModBlocks {
     public static final Block OUIJA_BOARD = registerBlock("ouija_board",
             new OuijaBoardBlock(FabricBlockSettings.create().mapColor(MapColor.OAK_TAN).strength(1.0F, 1.0F).sounds(BlockSoundGroup.WOOL).pistonBehavior(PistonBehavior.DESTROY)));
 
-    public static final Block GOAT_HEAD = registerBlock("goat_head",
-            new GoatHeadBlock(FabricBlockSettings.create().mapColor(MapColor.WHITE).strength(2.0F, 3.0F).nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
+    public static final Block GOAT_HEAD = registerRarityBlock("goat_head",
+            new GoatHeadBlock(FabricBlockSettings.create().mapColor(MapColor.WHITE).strength(2.0F, 3.0F).nonOpaque().pistonBehavior(PistonBehavior.DESTROY)), Rarity.UNCOMMON);
 
     public static final Block MARBLE = registerBlock("marble",
             new Block(FabricBlockSettings.create().mapColor(MapColor.WHITE).requiresTool().strength(2.75F, 6.0F)));
@@ -244,10 +247,10 @@ public class ModBlocks {
             new Block(FabricBlockSettings.create().mapColor(MapColor.DARK_RED).requiresTool().strength(16.0F, 1200.0F).sounds(BlockSoundGroup.DEEPSLATE)));
     public static final Block RED_DEEPSLATE_NEBULAR_ORE = registerBlock("red_deepslate_nebular_ore",
             new Block(FabricBlockSettings.create().mapColor(MapColor.DARK_RED).requiresTool().strength(16.0F, 1200.0F).sounds(BlockSoundGroup.DEEPSLATE)));
-    public static final Block XEN_CRYSTAL_CLUSTER = registerBlock("xen_crystal_cluster",
-            new AmethystClusterBlock(7, 3, FabricBlockSettings.create().mapColor(MapColor.ORANGE).requiresTool().strength(1.5F, 1.5F).sounds(BlockSoundGroup.AMETHYST_CLUSTER).nonOpaque()));
-    public static final Block XEN_CRYSTAL_BLOCK = registerBlock("xen_crystal_block",
-            new Block(FabricBlockSettings.create().mapColor(MapColor.ORANGE).requiresTool().strength(1.5F, 1.5F).sounds(BlockSoundGroup.AMETHYST_BLOCK)));
+    public static final Block XEN_CRYSTAL_CLUSTER = registerRarityBlock("xen_crystal_cluster",
+            new AmethystClusterBlock(7, 3, FabricBlockSettings.create().mapColor(MapColor.ORANGE).requiresTool().strength(1.5F, 1.5F).sounds(BlockSoundGroup.AMETHYST_CLUSTER).nonOpaque()),Rarity.UNCOMMON);
+    public static final Block XEN_CRYSTAL_BLOCK = registerRarityBlock("xen_crystal_block",
+            new Block(FabricBlockSettings.create().mapColor(MapColor.ORANGE).requiresTool().strength(1.5F, 1.5F).sounds(BlockSoundGroup.AMETHYST_BLOCK)),Rarity.UNCOMMON);
 
     public static final Block MOON_ROCK = registerBlock("moon_rock",
             new Block(FabricBlockSettings.create().mapColor(MapColor.WHITE).requiresTool().strength(3.0F, 9.0F)));
@@ -325,18 +328,18 @@ public class ModBlocks {
     public static final Block NEBULAR_BLOCK = registerBlock("nebular_block",
             new Block(FabricBlockSettings.create().mapColor(MapColor.DARK_AQUA).requiresTool().strength(16.0F, 1200.0F).sounds(BlockSoundGroup.NETHERITE)));
 
-    public static final Block BEDROCK_MITHRIL_ORE = registerUncommonBlock("bedrock_mithril_ore",
-            new MithrilBlock(FabricBlockSettings.create().mapColor(MapColor.WHITE_GRAY).requiresTool().strength(-1.0F, 3600000.0F)));
-    public static final Block RAW_MITHRIL_BLOCK = registerUncommonBlock("raw_mithril_block",
-            new MithrilBlock(FabricBlockSettings.create().mapColor(MapColor.WHITE_GRAY).requiresTool().strength(10.0F, 1200.0F).sounds(BlockSoundGroup.NETHERITE)));
-    public static final Block MITHRIL_BLOCK = registerUncommonBlock("mithril_block",
-            new MithrilBlock(FabricBlockSettings.create().mapColor(MapColor.WHITE_GRAY).requiresTool().strength(10.0F, 1200.0F).sounds(BlockSoundGroup.NETHERITE)));
+    public static final Block BEDROCK_MITHRIL_ORE = registerRarityBlock("bedrock_mithril_ore",
+            new MithrilBlock(FabricBlockSettings.create().mapColor(MapColor.WHITE_GRAY).requiresTool().strength(-1.0F, 3600000.0F)), Rarity.UNCOMMON);
+    public static final Block RAW_MITHRIL_BLOCK = registerRarityBlock("raw_mithril_block",
+            new MithrilBlock(FabricBlockSettings.create().mapColor(MapColor.WHITE_GRAY).requiresTool().strength(10.0F, 1200.0F).sounds(BlockSoundGroup.NETHERITE)), Rarity.UNCOMMON);
+    public static final Block MITHRIL_BLOCK = registerRarityBlock("mithril_block",
+            new MithrilBlock(FabricBlockSettings.create().mapColor(MapColor.WHITE_GRAY).requiresTool().strength(10.0F, 1200.0F).sounds(BlockSoundGroup.NETHERITE)), Rarity.UNCOMMON);
 
-    public static final Block MITHRIL_ANVIL = registerUncommonBlock("mithril_anvil",
-            new MithrilAnvilBlock(FabricBlockSettings.create().mapColor(MapColor.WHITE_GRAY).requiresTool().strength(10.0F, 1200.0F).sounds(BlockSoundGroup.ANVIL)));
+    public static final Block MITHRIL_ANVIL = registerRarityBlock("mithril_anvil",
+            new MithrilAnvilBlock(FabricBlockSettings.create().mapColor(MapColor.WHITE_GRAY).requiresTool().strength(10.0F, 1200.0F).sounds(BlockSoundGroup.ANVIL)), Rarity.UNCOMMON);
 
-    public static final Block MITHRIL_BARS = registerUncommonBlock("mithril_bars",
-            new PaneBlock(FabricBlockSettings.create().mapColor(MapColor.WHITE_GRAY).requiresTool().strength(10.0F, 1200.0F).sounds(BlockSoundGroup.NETHERITE).nonOpaque()));
+    public static final Block MITHRIL_BARS = registerRarityBlock("mithril_bars",
+            new PaneBlock(FabricBlockSettings.create().mapColor(MapColor.WHITE_GRAY).requiresTool().strength(10.0F, 1200.0F).sounds(BlockSoundGroup.NETHERITE).nonOpaque()), Rarity.UNCOMMON);
 
     public static final Block WOODEN_STEIN = registerWoodenSteinBlock("wooden_stein",
             new WoodenSteinBlock(FabricBlockSettings.create().mapColor(MapColor.BROWN).strength(2.0F, 2.0F).sounds(BlockSoundGroup.WOOD).pistonBehavior(PistonBehavior.DESTROY).nonOpaque()));
@@ -403,11 +406,17 @@ public class ModBlocks {
     public static final Block KEYCARD_READER = registerBlock("keycard_reader",
             new KeycardReaderBlock(FabricBlockSettings.create().requiresTool().strength(0.5f,0.5f).pistonBehavior(PistonBehavior.DESTROY),BlockSetType.IRON,100,false));
 
-    public static final Block INTERDIMENSIONAL_RECEIVER = registerBlock("interdimensional_receiver",
-            new InterdimensionalReceiverBlock(FabricBlockSettings.create().mapColor(MapColor.GRAY).requiresTool().strength(2.0F, 2.0F).pistonBehavior(PistonBehavior.DESTROY).luminance(4)));
+    public static final Block HEV_CHARGER = registerRarityBlock("hev_charger",
+            new HEVChargerBlock(FabricBlockSettings.create().requiresTool().strength(0.5f,0.5f).pistonBehavior(PistonBehavior.DESTROY)), Rarity.UNCOMMON);
 
-    public static final Block TELEPORTER = registerRareBlock("teleporter",
-            new TeleporterBlock(FabricBlockSettings.create().mapColor(MapColor.BLACK).requiresTool().strength(2.0F, 2.0F).pistonBehavior(PistonBehavior.BLOCK).luminance(4)));
+    public static final Block INTERDIMENSIONAL_RECEIVER = registerRarityBlock("interdimensional_receiver",
+            new InterdimensionalReceiverBlock(FabricBlockSettings.create().mapColor(MapColor.GRAY).requiresTool().strength(2.0F, 2.0F).pistonBehavior(PistonBehavior.DESTROY).luminance(4)), Rarity.RARE);
+
+    public static final Block TELEPORTER = registerRarityBlock("teleporter",
+            new TeleporterBlock(FabricBlockSettings.create().mapColor(MapColor.BLACK).requiresTool().strength(3.0F, 9.0F).pistonBehavior(PistonBehavior.BLOCK).luminance(4)), Rarity.RARE);
+
+    public static final Block ALIEN_CONTROL_PANEL = registerRarityBlock("alien_control_panel",
+            new AlienControlPanelBlock(FabricBlockSettings.create().mapColor(MapColor.BLACK).requiresTool().strength(3.0F, 9.0F).pistonBehavior(PistonBehavior.BLOCK).luminance(4)), Rarity.EPIC);
 
     public static final Block VIDEOCASSETTE_RECORDER = registerVCRBlock("videocassette_recorder",
             new VideocassetteRecorderBlock(FabricBlockSettings.create().mapColor(MapColor.WHITE).strength(2.0F, 2.0F).pistonBehavior(PistonBehavior.DESTROY)));
@@ -417,6 +426,9 @@ public class ModBlocks {
 
     public static final Block OXYGEN_COLLECTOR = registerBlock("oxygen_collector",
             new OxygenCollectorBlock(FabricBlockSettings.create().mapColor(MapColor.GRAY).requiresTool().strength(2.0F, 2.0F).pistonBehavior(PistonBehavior.DESTROY).luminance(7)));
+
+    public static final Block INCUBATOR = registerBlock("incubator",
+            new IncubatorBlock(FabricBlockSettings.create().mapColor(MapColor.BLACK).requiresTool().strength(3.0F, 9.0F).pistonBehavior(PistonBehavior.BLOCK).luminance(7)));
 
     public static final Block MINING_ELEVATOR_CONTROLLER = registerBlock("mining_elevator_controller",
             new ElevatorControllerBlock(FabricBlockSettings.create().mapColor(MapColor.BROWN).requiresTool().strength(5.0F, 1200.0F).luminance(15).nonOpaque()));
@@ -435,19 +447,19 @@ public class ModBlocks {
     public static final Block GLASS_ELEVATOR_BASE = registerBlock("glass_elevator_base",
             new ElevatorBaseBlock(FabricBlockSettings.create().mapColor(MapColor.BROWN).requiresTool().strength(5.0F, 1200.0F).nonOpaque()));
 
-    public static final Block TREX_HEAD = registerBlock("t-rex_head",
-            new TRexHeadBlock(FabricBlockSettings.create().mapColor(MapColor.BROWN).strength(1.0F, 1.0F).nonOpaque()));
-    public static final Block GREEN_TREX_HEAD = registerBlock("green_t-rex_head",
-            new TRexHeadBlock(FabricBlockSettings.create().mapColor(MapColor.BROWN).strength(1.0F, 1.0F).nonOpaque()));
-    public static final Block GRAY_TREX_HEAD = registerBlock("gray_t-rex_head",
-            new TRexHeadBlock(FabricBlockSettings.create().mapColor(MapColor.BROWN).strength(1.0F, 1.0F).nonOpaque()));
+    public static final Block TREX_HEAD = registerRarityBlock("t-rex_head",
+            new TRexHeadBlock(FabricBlockSettings.create().mapColor(MapColor.BROWN).strength(1.0F, 1.0F).nonOpaque()), Rarity.UNCOMMON);
+    public static final Block GREEN_TREX_HEAD = registerRarityBlock("green_t-rex_head",
+            new TRexHeadBlock(FabricBlockSettings.create().mapColor(MapColor.BROWN).strength(1.0F, 1.0F).nonOpaque()), Rarity.UNCOMMON);
+    public static final Block GRAY_TREX_HEAD = registerRarityBlock("gray_t-rex_head",
+            new TRexHeadBlock(FabricBlockSettings.create().mapColor(MapColor.BROWN).strength(1.0F, 1.0F).nonOpaque()), Rarity.UNCOMMON);
 
     public static final Block INFECTED_TREX_HEAD = registerCompatBlock("infected_t-rex_head",
-            new TRexHeadBlock(FabricBlockSettings.create().mapColor(MapColor.BROWN).strength(1.0F, 1.0F).nonOpaque()),"spr");
+            new TRexHeadBlock(FabricBlockSettings.create().mapColor(MapColor.BROWN).strength(1.0F, 1.0F).nonOpaque()), Rarity.UNCOMMON, "spr");
     public static final Block SCULK_TREX_HEAD = registerCompatBlock("sculk_t-rex_head",
-            new TRexHeadBlock(FabricBlockSettings.create().mapColor(MapColor.BROWN).strength(1.0F, 1.0F).nonOpaque()),"skh");
+            new TRexHeadBlock(FabricBlockSettings.create().mapColor(MapColor.BROWN).strength(1.0F, 1.0F).nonOpaque()), Rarity.UNCOMMON, "skh");
     public static final Block SICKENED_TREX_HEAD = registerCompatBlock("sickened_t-rex_head",
-            new TRexHeadBlock(FabricBlockSettings.create().mapColor(MapColor.BROWN).strength(1.0F, 1.0F).nonOpaque()),"wsm");
+            new TRexHeadBlock(FabricBlockSettings.create().mapColor(MapColor.BROWN).strength(1.0F, 1.0F).nonOpaque()), Rarity.UNCOMMON, "wsm");
 
     public static final Block ROSE = registerBlock("rose",
             new ModFlowerBlock(StatusEffects.INSTANT_HEALTH, 10, FabricBlockSettings.create().breakInstantly().nonOpaque().sounds(BlockSoundGroup.GRASS).noCollision().pistonBehavior(PistonBehavior.DESTROY)));
@@ -700,18 +712,8 @@ public class ModBlocks {
         return Registry.register(Registries.BLOCK, new Identifier(TLOTD.MOD_ID, name), block);
     }
 
-    private static Block registerUncommonBlock(String name, Block block) {
-        registerUncommonBlockItem(name, block);
-        return Registry.register(Registries.BLOCK, new Identifier(TLOTD.MOD_ID, name), block);
-    }
-
-    private static Block registerRareBlock(String name, Block block) {
-        registerRareBlockItem(name, block);
-        return Registry.register(Registries.BLOCK, new Identifier(TLOTD.MOD_ID, name), block);
-    }
-
-    private static Block registerEpicBlock(String name, Block block) {
-        registerEpicBlockItem(name, block);
+    private static Block registerRarityBlock(String name, Block block, Rarity rarity) {
+        registerRarityBlockItem(name, block, rarity);
         return Registry.register(Registries.BLOCK, new Identifier(TLOTD.MOD_ID, name), block);
     }
 
@@ -764,8 +766,8 @@ public class ModBlocks {
         return Registry.register(Registries.BLOCK, new Identifier(TLOTD.MOD_ID, name), block);
     }
 
-    private static Block registerCompatBlock(String name, Block block, String compat) {
-        registerCompatBlockItem(name, block, compat);
+    private static Block registerCompatBlock(String name, Block block, Rarity rarity, String compat) {
+        registerCompatBlockItem(name, block, rarity, compat);
         return Registry.register(Registries.BLOCK, new Identifier(TLOTD.MOD_ID, name), block);
     }
 
@@ -774,24 +776,14 @@ public class ModBlocks {
                 new BlockItem(block, new FabricItemSettings()));
     }
 
-    private static Item registerUncommonBlockItem(String name, Block block) {
+    private static Item registerRarityBlockItem(String name, Block block, Rarity rarity) {
         return Registry.register(Registries.ITEM, new Identifier(TLOTD.MOD_ID, name),
-                new BlockItem(block, new FabricItemSettings().rarity(Rarity.UNCOMMON)));
+                new BlockItem(block, new FabricItemSettings().rarity(rarity)));
     }
 
-    private static Item registerRareBlockItem(String name, Block block) {
+    private static Item registerCompatBlockItem(String name, Block block, Rarity rarity, String compat) {
         return Registry.register(Registries.ITEM, new Identifier(TLOTD.MOD_ID, name),
-                new BlockItem(block, new FabricItemSettings().rarity(Rarity.RARE)));
-    }
-
-    private static Item registerEpicBlockItem(String name, Block block) {
-        return Registry.register(Registries.ITEM, new Identifier(TLOTD.MOD_ID, name),
-                new BlockItem(block, new FabricItemSettings().rarity(Rarity.EPIC)));
-    }
-
-    private static Item registerCompatBlockItem(String name, Block block, String compat) {
-        return Registry.register(Registries.ITEM, new Identifier(TLOTD.MOD_ID, name),
-                new CompatBlockItem(block, new FabricItemSettings(), compat));
+                new CompatBlockItem(block, new FabricItemSettings().rarity(rarity), compat));
     }
 
     private static Item registerSmallStackBlockItem(String name, Block block) {

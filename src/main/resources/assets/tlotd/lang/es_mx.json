@@ -11,6 +11,7 @@
   "gui.tlotd.tooltip.liquid_amount_with_capacity": "§f%s§7: %smB/%smB",
   "gui.tlotd.oxygen_collector": "Tanque de oxígeno",
   "gui.tlotd.keycard_programmer": "Programar una tarjeta",
+  "gui.tlotd.incubator": "Incubadora",
 
   "generic.tlotd.text.click_me": "[HAGA CLIC AQUÍ]",
   "generic.tlotd.text.wiki_link": "para abrir el Mod Wiki.",
@@ -100,6 +101,8 @@
   "advancements.tlotd.television.desc": "Poseer un televisor",
   "advancements.tlotd.computer": "Captura de un byte",
   "advancements.tlotd.computer.desc": "Poseer un ordenador",
+  "advancements.tlotd.keycard_programmer": "Sólo personal autorizado",
+  "advancements.tlotd.keycard_programmer.desc": "Poseer un programador de tarjetas",
   "advancements.tlotd.all_elevators": "Criados de forma diferente",
   "advancements.tlotd.all_elevators.desc": "Obtener todos los ascensores",
   "advancements.tlotd.all_vhs_cassettes": "Grabado en cinta",
@@ -108,12 +111,16 @@
   "advancements.tlotd.videocassette_recorder.desc": "Adquirir un magnetoscopio",
   "advancements.tlotd.advanced_circuitry": "Circuitos avanzados",
   "advancements.tlotd.advanced_circuitry.desc": "Obtener una placa de circuito avanzada",
+  "advancements.tlotd.at_the_edge_of_technology": "Am Rande der Technologie",
+  "advancements.tlotd.at_the_edge_of_technology.desc": "Obtener una placa de circuito transcendente",
   "advancements.tlotd.interdimensional_receiver": "Televisión interdimensional",
   "advancements.tlotd.interdimensional_receiver.desc": "Usa un receptor interdimensional para mejorar tu televisor",
   "advancements.tlotd.signal_transmitter": "Nosotros enviamos, ellos reciben.",
   "advancements.tlotd.signal_transmitter.desc": "Adquirir un transmisor de señales",
   "advancements.tlotd.futuristic_circuitry": "¡El futuro es ahora!",
   "advancements.tlotd.futuristic_circuitry.desc": "Consiga una placa de circuito futurista",
+  "advancements.tlotd.teleporter": "Desplazamiento instantáneo",
+  "advancements.tlotd.teleporter.desc": "Desarrollar un teletransportador",
 
   "advancements.tlotd.jurassic": "Jurásico",
   "advancements.tlotd.jurassic.desc": "Tiempos jurásicos, exigen medidas jurásicas",
@@ -186,6 +193,8 @@
 
   "item.tlotd.pipe_weed_seeds": "Semillas de hierba para pipa",
   "item.tlotd.pipe_weed": "Hierba para pipa",
+  "item.tlotd.pipe": "Pipa",
+  "item.tlotd.pipe_weed_pipe": "Pipa de Hierba para pipa",
 
   "block.tlotd.blue_berry_jam_jar": "Tarro de mermelada de bayas azules",
   "item.tlotd.blue_berry_jam_toast": "Tostadas con mermelada de arándanos",
@@ -193,6 +202,7 @@
   "item.tlotd.ancient_soulberry_jam_toast": "Tostada con mermelada de bayas alma antigua",
 
   "item.tlotd.irradiated.tooltip": "☢ Irradiado (00:03)",
+  "item.tlotd.radiaton_proof_armor.chargable": "Cargable mediante:",
   "item.tlotd.radiaton_proof_armor.tooltip": "Cuando el conjunto completo:",
   "item.tlotd.radiaton_proof_armor.tooltip_2": "Protección contra la radiación",
 
@@ -400,9 +410,9 @@
   "item.tlotd.depth_suit_boots": "Botas de traje de profundidad",
 
   "item.tlotd.scientist_glasses": "Gafas de científico",
-  "item.tlotd.hev_suit_chestplate": "Pechera del traje H.E.V.",
-  "item.tlotd.hev_suit_leggings": "Grebas de traje H.E.V.",
-  "item.tlotd.hev_suit_boots": "Botas de traje H.E.V.",
+  "item.tlotd.hev_suit_chestplate": "Pechera del traje HEV",
+  "item.tlotd.hev_suit_leggings": "Grebas de traje HEV",
+  "item.tlotd.hev_suit_boots": "Botas de traje HEV",
 
   "item.tlotd.bamboo_sword": "Espada de bambú",
   "item.tlotd.bamboo_pickaxe": "Pico de bambú",
@@ -655,6 +665,12 @@
   "block.tlotd.gravestone_cross": "Cruz lápida",
   "block.tlotd.mossy_gravestone_cross": "Cruz de lápida musgosa",
 
+  "block.tlotd.small_gravestone": "Pequeña lápida",
+  "block.tlotd.small_gravestone.special": "En cariñosa memoria",
+  "block.tlotd.small_gravestone.special_2": "de mi amada, mi hermosa,",
+  "block.tlotd.small_gravestone.special_3": "'meine Schöne' Gisy.",
+  "block.tlotd.small_gravestone.special_4": "Ago. 2012 - 14 Julio 2025",
+
   "block.tlotd.skeleton": "Esqueleto",
   "block.tlotd.emerging_skeleton": "Esqueleto emergente",
 
@@ -687,7 +703,6 @@
   "block.tlotd.flagpole": "Asta de bandera",
 
   "block.tlotd.keycard_programmer": "Programador de tarjetas",
-  "block.tlotd.keycard_programmer.tooltip": "Desarrollado por:",
   "block.tlotd.keycard_reader": "Lector de tarjetas",
   "block.tlotd.keycard_reader.no_password": "Su Keycard no tiene contraseña",
   "block.tlotd.keycard_reader.password_set": "La contraseña de su tarjeta se ha establecido como la nueva contraseña del lector de tarjetas.",
@@ -704,11 +719,13 @@
   "block.tlotd.videocassette_recorder.tooltip": "Puede colocarse en el interior:",
   "block.tlotd.computer": "Ordenador",
   "block.tlotd.computer_on": "Ordenador",
+  "block.tlotd.powered_by_computer.tooltip": "Desarrollado por:",
   "block.tlotd.interdimensional_receiver": "Receptor interdimensional",
   "block.tlotd.interdimensional_receiver.tooltip": "Puede colocarse sobre:",
   "block.tlotd.oxygen_collector": "Colector de oxígeno",
   "block.tlotd.oxygen_collector.tooltip": "Puede colocarse sobre:",
   "block.tlotd.oxygen_collector.tooltip_2": "Flores y arbolitos",
+  "block.tlotd.incubator": "Incubadora",
   "block.tlotd.signal_transmitter": "Transmisor de señales",
   "block.tlotd.signal_transmitter.tooltip": "Puede transmitir:",
   "block.tlotd.signal_transmitter.tooltip_2": "Casetes VHS",
@@ -729,6 +746,10 @@
   "block.tlotd.teleporter.destination_in_use": "Teletransportador de destino ya en uso",
   "block.tlotd.teleporter.none_at_destination": "No hay teletransportador en el destino",
   "block.tlotd.teleporter.already_in_use": "Teletransportador ya en uso",
+
+  "block.tlotd.alien_control_panel": "Panel de control alienígena",
+
+  "block.tlotd.hev_charger": "Cargador HEV",
 
   "block.tlotd.mining_elevator_controller": "Controlador de ascensores mineros",
   "block.tlotd.mining_elevator_base": "Base elevadora minera",
@@ -864,10 +885,11 @@
   "block.tlotd.mithril_anvil": "Yunque de mithril",
   "block.tlotd.mithril_bars": "Barras de mithril",
 
+  "text.tlotd.recipe.tooltip": "Mantén pulsada la tecla [",
+  "text.tlotd.recipe.tooltip_2": "] para las recetas",
+
   "block.tlotd.mithril_anvil.tooltip": "Forja sólo bajo:",
   "block.tlotd.mithril_anvil.tooltip_2": "Luz directa de las estrellas",
-  "block.tlotd.mithril_anvil.tooltip_3": "Mantén pulsada la tecla [",
-  "block.tlotd.mithril_anvil.tooltip_4": "] para las recetas",
 
   "block.tlotd.witching_table": "Mesa Bruja",
   "block.tlotd.witching_table.tooltip_bs": "Permite manipular",

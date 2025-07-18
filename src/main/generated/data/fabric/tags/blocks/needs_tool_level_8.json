@@ -1,6 +1,8 @@
 {
   "replace": false,
   "values": [
-    "tlotd:moon_rock_lunar_callainus_ore"
+    "tlotd:moon_rock_lunar_callainus_ore",
+    "tlotd:teleporter",
+    "tlotd:alien_control_panel"
   ]
 }

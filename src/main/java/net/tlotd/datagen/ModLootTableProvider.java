@@ -57,6 +57,8 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.MOSSY_GRAVESTONE);
         addDrop(ModBlocks.MOSSY_GRAVESTONE_CROSS);
 
+        addDrop(ModBlocks.SMALL_GRAVESTONE);
+
         addDrop(ModBlocks.SKELETON);
         addDrop(ModBlocks.EMERGING_SKELETON);
 
@@ -211,9 +213,12 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.INTERDIMENSIONAL_RECEIVER);
         addDrop(ModBlocks.VIDEOCASSETTE_RECORDER);
         addDrop(ModBlocks.OXYGEN_COLLECTOR);
+        addDrop(ModBlocks.INCUBATOR);
 
         addDrop(ModBlocks.KEYCARD_PROGRAMMER);
         addDrop(ModBlocks.KEYCARD_READER);
+
+        addDrop(ModBlocks.HEV_CHARGER);
 
         addDrop(ModBlocks.SIGNAL_TRANSMITTER_ANTENNA);
         addDrop(ModBlocks.SIGNAL_TRANSMITTER);

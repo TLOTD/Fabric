@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_cobbled_red_deepslate": {
+    "has_polished_cobbled_red_deepslate": {
       "conditions": {
         "items": [
           {
             "items": [
-              "tlotd:cobbled_red_deepslate"
+              "tlotd:polished_cobbled_red_deepslate"
             ]
           }
         ]
@@ -22,7 +22,7 @@
   },
   "requirements": [
     [
-      "has_cobbled_red_deepslate",
+      "has_polished_cobbled_red_deepslate",
       "has_the_recipe"
     ]
   ],

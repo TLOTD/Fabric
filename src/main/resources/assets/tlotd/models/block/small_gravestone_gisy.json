@@ -1,0 +1,7 @@
+{
+	"credit": "In loving memory of my beloved, my beautiful, 'meine Schöne' Gisy. August 2012 - July 14th 2025",
+	"parent": "tlotd:block/small_gravestone",
+	"textures": {
+		"1": "tlotd:block/cat_gisy"
+	}
+}

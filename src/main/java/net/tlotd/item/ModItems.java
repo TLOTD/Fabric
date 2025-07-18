@@ -75,7 +75,7 @@ public class ModItems {
 
     public static final Item APPLE_JUICE_BOTTLE = registerItem("apple_juice_bottle", new DrinkableBottle(new FabricItemSettings().food(ModFoodComponents.WOODEN_LIQUID_STEIN).maxCount(16).recipeRemainder(Items.GLASS_BOTTLE)));
 
-    public static final Item HEMP_COOKIE = registerItem("hemp_cookie", new CannabisCookieItem(new FabricItemSettings().food(ModFoodComponents.HEMP_COOKIE)));
+    public static final Item HEMP_COOKIE = registerItem("hemp_cookie", new HempCookieItem(new FabricItemSettings().food(ModFoodComponents.HEMP_COOKIE)));
 
     public static final Item TOAST = registerItem("toast", new Item(new FabricItemSettings().food(ModFoodComponents.TOAST)));
 
@@ -96,7 +96,10 @@ public class ModItems {
     public static final Item PIPE_WEED_SEEDS = registerItem("pipe_weed_seeds", new AliasedBlockItem(ModBlocks.PIPE_WEED_PLANT, new FabricItemSettings()));
     public static final Item PIPE_WEED = registerItem("pipe_weed", new Item(new FabricItemSettings()));
 
-    public static final Item BLUE_BERRY_JAM_TOAST = registerItem("blue_berry_jam_toast", new CompatItem(new FabricItemSettings().food(ModFoodComponents.JAM_TOAST),"aether"));
+    public static final Item PIPE = registerItem("pipe", new Item(new FabricItemSettings().maxCount(1)));
+    public static final Item PIPE_WEED_PIPE = registerItem("pipe_weed_pipe", new PipeItem(new FabricItemSettings().maxCount(1)));
+
+    public static final Item BLUE_BERRY_JAM_TOAST = registerItem("blue_berry_jam_toast", new CompatItem(new FabricItemSettings().food(ModFoodComponents.JAM_TOAST),"aet"));
     public static final Item ANCIENT_SOULBERRY_JAM_TOAST = registerItem("ancient_soulberry_jam_toast", new CompatItem(new FabricItemSettings().food(ModFoodComponents.ANCIENT_SOULBERRY_JAM_TOAST),"atm"));
 
     public static final Item BLOOD_BOTTLE = registerItem("blood_bottle", new Item(new FabricItemSettings().recipeRemainder(Items.GLASS_BOTTLE).maxCount(1)));
@@ -460,9 +463,9 @@ public class ModItems {
     public static final Item DEPTH_SUIT_BOOTS = registerItem("depth_suit_boots", new ArmorItem(ModArmorMaterial.DEPTH_SUIT, ArmorItem.Type.BOOTS, new FabricItemSettings().fireproof()));
 
     public static final Item SCIENTIST_GLASSES = registerItem("scientist_glasses", new ArmorItem(ModArmorMaterial.SCIENTIST, ArmorItem.Type.HELMET, new FabricItemSettings()));
-    public static final Item HEV_SUIT_CHESTPLATE = registerItem("hev_suit_chestplate", new RadiationProofArmorItem(ModArmorMaterial.HEV_SUIT, ArmorItem.Type.CHESTPLATE, new FabricItemSettings().fireproof()));
-    public static final Item HEV_SUIT_LEGGINGS = registerItem("hev_suit_leggings", new RadiationProofArmorItem(ModArmorMaterial.HEV_SUIT, ArmorItem.Type.LEGGINGS, new FabricItemSettings().fireproof()));
-    public static final Item HEV_SUIT_BOOTS = registerItem("hev_suit_boots", new RadiationProofArmorItem(ModArmorMaterial.HEV_SUIT, ArmorItem.Type.BOOTS, new FabricItemSettings().fireproof()));
+    public static final Item HEV_SUIT_CHESTPLATE = registerItem("hev_suit_chestplate", new HEVArmorItem(ModArmorMaterial.HEV_SUIT, ArmorItem.Type.CHESTPLATE, new FabricItemSettings().fireproof()));
+    public static final Item HEV_SUIT_LEGGINGS = registerItem("hev_suit_leggings", new HEVArmorItem(ModArmorMaterial.HEV_SUIT, ArmorItem.Type.LEGGINGS, new FabricItemSettings().fireproof()));
+    public static final Item HEV_SUIT_BOOTS = registerItem("hev_suit_boots", new HEVArmorItem(ModArmorMaterial.HEV_SUIT, ArmorItem.Type.BOOTS, new FabricItemSettings().fireproof()));
 
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registries.ITEM, new Identifier(TLOTD.MOD_ID, name), item);

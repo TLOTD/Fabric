@@ -3,10 +3,10 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "minecraft:iron_ingot"
+      "tag": "tlotd:iron_or_steel"
     },
     {
-      "item": "tlotd:fossilized_bone"
+      "tag": "c:fossils"
     }
   ],
   "result": {

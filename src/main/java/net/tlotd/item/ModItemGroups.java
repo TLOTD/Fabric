@@ -163,6 +163,8 @@ public class ModItemGroups {
 
                         entries.add(ModItems.PIPE_WEED_SEEDS);
                         entries.add(ModItems.PIPE_WEED);
+                        entries.add(ModItems.PIPE);
+                        entries.add(ModItems.PIPE_WEED_PIPE);
                         entries.add(ModItems.HEMP_COOKIE);
 
                         entries.add(ModBlocks.PRESERVES_JAR);
@@ -452,10 +454,11 @@ public class ModItemGroups {
                         entries.add(ModBlocks.BW_STICKER);
                         entries.add(ModBlocks.TLOTD_STICKER);
 
-                        entries.add(ModBlocks.GRAVESTONE);
-                        entries.add(ModBlocks.MOSSY_GRAVESTONE);
                         entries.add(ModBlocks.GRAVESTONE_CROSS);
                         entries.add(ModBlocks.MOSSY_GRAVESTONE_CROSS);
+                        entries.add(ModBlocks.GRAVESTONE);
+                        entries.add(ModBlocks.MOSSY_GRAVESTONE);
+                        entries.add(ModBlocks.SMALL_GRAVESTONE);
 
                         entries.add(ModBlocks.SKELETON);
                         entries.add(ModBlocks.EMERGING_SKELETON);
@@ -474,9 +477,11 @@ public class ModItemGroups {
                         entries.add(ModBlocks.TELEVISION);
                         entries.add(ModBlocks.VIDEOCASSETTE_RECORDER);
                         entries.add(ModBlocks.COMPUTER);
-
+                        entries.add(ModBlocks.INCUBATOR);
                         entries.add(ModBlocks.KEYCARD_PROGRAMMER);
                         entries.add(ModBlocks.KEYCARD_READER);
+
+                        entries.add(ModBlocks.HEV_CHARGER);
 
                         entries.add(ModBlocks.OXYGEN_COLLECTOR);
 
@@ -486,6 +491,7 @@ public class ModItemGroups {
 
                         entries.add(ModBlocks.INTERDIMENSIONAL_RECEIVER);
                         entries.add(ModBlocks.TELEPORTER);
+                        entries.add(ModBlocks.ALIEN_CONTROL_PANEL);
 
                         entries.add(ModBlocks.CREEPER_PLUSHIE);
                         entries.add(ModBlocks.ZOMBIE_PLUSHIE);

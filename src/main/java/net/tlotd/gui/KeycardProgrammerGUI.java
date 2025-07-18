@@ -33,6 +33,14 @@ public class KeycardProgrammerGUI extends HandledScreen<KeycardProgrammerGUIHand
         int y = (height - backgroundHeight) / 2;
 
         context.drawTexture(TEXTURE, x, y, 0, 0, backgroundWidth, backgroundHeight);
+
+        renderProgressArrow(context, x, y);
+    }
+
+    private void renderProgressArrow(DrawContext context, int x, int y) {
+        if(handler.isCrafting()) {
+            context.drawTexture(TEXTURE,x+98,y+19,176,0, handler.getScaledProgress(), 16);
+        }
     }
 
     @Override

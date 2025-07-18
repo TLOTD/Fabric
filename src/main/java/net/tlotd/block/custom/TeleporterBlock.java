@@ -19,6 +19,7 @@ import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
+import net.minecraft.world.WorldAccess;
 import net.tlotd.block.ModBlocks;
 import net.tlotd.block.entity.TeleporterBlockEntity;
 import net.tlotd.item.ModItems;
@@ -66,7 +67,25 @@ public class TeleporterBlock extends Block implements BlockEntityProvider {
         return new TeleporterBlockEntity(pos, state);
     }
 
-
+    @Override
+    public void onBreak(World world, BlockPos pos, BlockState state, PlayerEntity player) {
+        BlockEntity blockEntity = world.getBlockEntity(pos);
+        if (state.get(LINKED) && blockEntity instanceof TeleporterBlockEntity teleporter) {
+            if (teleporter.destination_y != 2147483647) {
+                BlockPos pos2;
+                if (teleporter.relative) {
+                    pos2 = new BlockPos(pos.getX()+teleporter.destination_x,pos.getY()+teleporter.destination_y,pos.getZ()+teleporter.destination_z);
+                } else {
+                    pos2 = new BlockPos(teleporter.destination_x,teleporter.destination_y,teleporter.destination_z);
+                }
+                if (world.getBlockState(pos2).isOf(ModBlocks.TELEPORTER)) {
+                    world.setBlockState(pos2, ModBlocks.TELEPORTER.getDefaultState());
+                }
+            }
+        }
+        world.addBlockBreakParticles(pos, state);
+        world.playSound(null, pos, SoundEvents.BLOCK_STONE_BREAK, SoundCategory.BLOCKS, 1.0f, 1.0f);
+    }
 
     @Override
     public void onEntityCollision(BlockState state, World world, BlockPos pos, Entity entity) {

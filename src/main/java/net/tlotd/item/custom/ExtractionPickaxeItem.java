@@ -1,6 +1,7 @@
 package net.tlotd.item.custom;
 
 import net.minecraft.advancement.criterion.Criteria;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.client.item.TooltipContext;
@@ -26,6 +27,8 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
+import static net.tlotd.block.custom.AlienControlPanelBlock.HARVESTED;
+
 public class ExtractionPickaxeItem extends PickaxeItem {
     public ExtractionPickaxeItem(ToolMaterial material, int attackDamage, float attackSpeed, Settings settings) {
         super(material, attackDamage, attackSpeed, settings);
@@ -40,8 +43,14 @@ public class ExtractionPickaxeItem extends PickaxeItem {
             int damage = 1;
             if (context.getStack().isIn(ModTags.Items.MOUTH_OF_THE_ABYSS)) {
                 context.getWorld().breakBlock(positionClicked, true);
-            } else if (state.isIn(ModTags.Blocks.EXTRACTABLE_BLOCKS) || (ModConfigs.EXTRACTION_ORE_EXPERIMENTAL_COMPAT && name.contains("_ore"))) {
+            } else if (state.isOf(ModBlocks.ALIEN_CONTROL_PANEL) || state.isIn(ModTags.Blocks.EXTRACTABLE_BLOCKS) || (ModConfigs.EXTRACTION_ORE_EXPERIMENTAL_COMPAT && name.contains("_ore"))) {
                 context.getWorld().breakBlock(positionClicked, true);
+                if (state.isOf(ModBlocks.ALIEN_CONTROL_PANEL) && !state.get(HARVESTED)) {
+                    context.getWorld().setBlockState(positionClicked, state.with(HARVESTED, true));
+                    ItemStack circuit = ModItems.FRAGMENTED_FUTURISTIC_CIRCUIT_BOARD.getDefaultStack();
+                    circuit.setCount(3);
+                    Block.dropStack(context.getWorld(), context.getBlockPos().up(), circuit);
+                }
                 if (state.isIn(ModTags.Blocks.STONE_EXTRACTABLE_BLOCKS)) {
                     context.getWorld().setBlockState(positionClicked, Blocks.STONE.getDefaultState());
                 } else if (state.isIn(ModTags.Blocks.ANDESITE_EXTRACTABLE_BLOCKS) || (ModConfigs.EXTRACTION_ORE_EXPERIMENTAL_COMPAT && name.contains("andesite") && name.contains("ore"))) {

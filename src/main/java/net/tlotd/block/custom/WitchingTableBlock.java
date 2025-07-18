@@ -98,9 +98,11 @@ public class WitchingTableBlock extends BlockWithEntity implements BlockEntityPr
     }
 
     public static final Identifier ILLAGER_FONT_ID = new Identifier("minecraft", "illageralt");
+    public static final Identifier RECIPIES_FONT_ID = new Identifier("tlotd", "recipies");
 
     @Override
     public void appendTooltip(ItemStack stack, @Nullable BlockView world, List<Text> tooltip, TooltipContext options) {
+        Style style = getName().getStyle();
         if (Screen.hasShiftDown()) {
             if (ModConfigs.WITCHING_TABLE_NEEDS_BLOOD && ModConfigs.WITCHING_TABLE_NEEDS_SOULS) {
                 tooltip.add(Text.translatable("block.tlotd.witching_table.tooltip_bs").formatted(Formatting.GRAY));
@@ -118,8 +120,11 @@ public class WitchingTableBlock extends BlockWithEntity implements BlockEntityPr
                 tooltip.add(Text.translatable("block.tlotd.witching_table.tooltip").formatted(Formatting.GRAY));
                 tooltip.add(Text.translatable("block.tlotd.witching_table.tooltip_2").formatted(Formatting.GRAY));
             }
+            tooltip.add(Text.literal(""));
+            tooltip.add(Text.literal("\uE020\uE000\uE022\uE021\uE023").setStyle(style.withFont(RECIPIES_FONT_ID)));
+            tooltip.add(Text.literal("\uE020\uE000\uE026\uE024\uE025\uE027\uE021\uE028").setStyle(style.withFont(RECIPIES_FONT_ID)));
+            tooltip.add(Text.literal("\uE020\uE000\uE029\uE02A\uE023\uE02A\uE021\uE02B").setStyle(style.withFont(RECIPIES_FONT_ID)));
         } else {
-            Style style = getName().getStyle();
             if (ModConfigs.WITCHING_TABLE_NEEDS_BLOOD && ModConfigs.WITCHING_TABLE_NEEDS_SOULS) {
                 tooltip.add(Text.translatable("block.tlotd.witching_table.tooltip_bs").setStyle(style.withFont(ILLAGER_FONT_ID)).formatted(Formatting.GRAY));
                 tooltip.add(Text.translatable("block.tlotd.witching_table.tooltip_bs_2").setStyle(style.withFont(ILLAGER_FONT_ID)).formatted(Formatting.GRAY));
@@ -136,6 +141,8 @@ public class WitchingTableBlock extends BlockWithEntity implements BlockEntityPr
                 tooltip.add(Text.translatable("block.tlotd.witching_table.tooltip").setStyle(style.withFont(ILLAGER_FONT_ID)).formatted(Formatting.GRAY));
                 tooltip.add(Text.translatable("block.tlotd.witching_table.tooltip_2").setStyle(style.withFont(ILLAGER_FONT_ID)).formatted(Formatting.GRAY));
             }
+            tooltip.add(Text.literal(""));
+            tooltip.add(Text.literal("").append(Text.translatable("text.tlotd.recipe.tooltip").formatted(Formatting.DARK_GRAY)).append(Text.translatable("key.keyboard.left.shift").formatted(Formatting.GRAY)).append(Text.translatable("text.tlotd.recipe.tooltip_2").formatted(Formatting.DARK_GRAY)));
         }
         super.appendTooltip(stack, world, tooltip, options);
     }

@@ -35,6 +35,11 @@ public class ModBlockEntities {
                     FabricBlockEntityTypeBuilder.create(KeycardProgrammerBlockEntity::new,
                             ModBlocks.KEYCARD_PROGRAMMER).build());
 
+    public static final BlockEntityType<IncubatorBlockEntity> INCUBATOR_BLOCK_ENTITY =
+            Registry.register(Registries.BLOCK_ENTITY_TYPE, new Identifier(TLOTD.MOD_ID, "incubator_block_entity"),
+                    FabricBlockEntityTypeBuilder.create(IncubatorBlockEntity::new,
+                            ModBlocks.INCUBATOR).build());
+
     public static final BlockEntityType<GarbageCanBlockEntity> GARBAGE_CAN_BLOCK_ENTITY =
             Registry.register(Registries.BLOCK_ENTITY_TYPE, new Identifier(TLOTD.MOD_ID, "garbage_can_block_entity"),
                     FabricBlockEntityTypeBuilder.create(GarbageCanBlockEntity::new,

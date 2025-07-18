@@ -15,6 +15,8 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
+import static net.tlotd.block.custom.AlienControlPanelBlock.HARVESTED;
+
 @Mixin(AxeItem.class)
 public abstract class WoodStrippingItemDrop {
 

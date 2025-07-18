@@ -24,7 +24,8 @@
   "gui.tlotd.witching": "Witching",
   "gui.tlotd.tooltip.liquid_amount_with_capacity": "§f%s§7: %smB/%smB",
   "gui.tlotd.oxygen_collector": "Oxygen Fueling",
-  "gui.tlotd.keycard_programmer": "Programm Keycard",
+  "gui.tlotd.keycard_programmer": "Program Keycard",
+  "gui.tlotd.incubator": "Incubator",
 
   "generic.tlotd.text.click_me": "[CLICK HERE]",
   "generic.tlotd.text.wiki_link": "to open the Mod Wiki.",
@@ -114,6 +115,8 @@
   "advancements.tlotd.television.desc": "Own a Television",
   "advancements.tlotd.computer": "Grabbing a Byte",
   "advancements.tlotd.computer.desc": "Own a Computer",
+  "advancements.tlotd.keycard_programmer": "Authorized Personell Only",
+  "advancements.tlotd.keycard_programmer.desc": "Own a Keycard Programmer",
   "advancements.tlotd.all_elevators": "Raised Differently",
   "advancements.tlotd.all_elevators.desc": "Obtain all elevators",
   "advancements.tlotd.all_vhs_cassettes": "Got it on Tape",
@@ -122,12 +125,16 @@
   "advancements.tlotd.videocassette_recorder.desc": "Aquire a Videocassette Recorder",
   "advancements.tlotd.advanced_circuitry": "Advanced Circuitry",
   "advancements.tlotd.advanced_circuitry.desc": "Obtain a Advanced Circuit Board",
+  "advancements.tlotd.at_the_edge_of_technology": "At the Edge of Technology",
+  "advancements.tlotd.at_the_edge_of_technology.desc": "Obtain a Transcendent Circuit Board",
   "advancements.tlotd.interdimensional_receiver": "Interdimensional Television",
   "advancements.tlotd.interdimensional_receiver.desc": "Use an Interdimensional Receiver to upgrade your Television",
   "advancements.tlotd.signal_transmitter": "We Send, They Recieve.",
   "advancements.tlotd.signal_transmitter.desc": "Aquire a Signal Transmitter",
   "advancements.tlotd.futuristic_circuitry": "The Future Is Now!",
   "advancements.tlotd.futuristic_circuitry.desc": "Get ahold of a Futuristic Circuit Board",
+  "advancements.tlotd.teleporter": "Instantaneous Travel",
+  "advancements.tlotd.teleporter.desc": "Develop a Teleporter",
 
   "advancements.tlotd.jurassic": "Jurassic",
   "advancements.tlotd.jurassic.desc": "Jurassic times, call for jurassic measures",
@@ -200,6 +207,8 @@
 
   "item.tlotd.pipe_weed_seeds": "Pipe-Weed Seeds",
   "item.tlotd.pipe_weed": "Pipe-Weed",
+  "item.tlotd.pipe": "Pipe",
+  "item.tlotd.pipe_weed_pipe": "Pipe-Weed Pipe",
 
   "block.tlotd.blue_berry_jam_jar": "Blue Berry Jam Jar",
   "item.tlotd.blue_berry_jam_toast": "Blue Berry Jam Toast",
@@ -207,6 +216,7 @@
   "item.tlotd.ancient_soulberry_jam_toast": "Ancient Soul Berry Jam Toast",
 
   "item.tlotd.irradiated.tooltip": "☢ Irradiated (00:03)",
+  "item.tlotd.radiaton_proof_armor.chargable": "Chargable via:",
   "item.tlotd.radiaton_proof_armor.tooltip": "When Full Set:",
   "item.tlotd.radiaton_proof_armor.tooltip_2": "Shields from Radiation",
 
@@ -420,9 +430,9 @@
   "item.tlotd.depth_suit_boots": "Depth Suit Boots",
 
   "item.tlotd.scientist_glasses": "Scientist Glasses",
-  "item.tlotd.hev_suit_chestplate": "H.E.V. Suit Chestplate",
-  "item.tlotd.hev_suit_leggings": "H.E.V. Suit Leggings",
-  "item.tlotd.hev_suit_boots": "H.E.V. Suit Boots",
+  "item.tlotd.hev_suit_chestplate": "HEV Suit Chestplate",
+  "item.tlotd.hev_suit_leggings": "HEV Suit Leggings",
+  "item.tlotd.hev_suit_boots": "HEV Suit Boots",
 
   "item.tlotd.bamboo_sword": "Bamboo Sword",
   "item.tlotd.bamboo_pickaxe": "Bamboo Pickaxe",
@@ -684,6 +694,12 @@
   "block.tlotd.gravestone_cross": "Gravestone Cross",
   "block.tlotd.mossy_gravestone_cross": "Mossy Gravestone Cross",
 
+  "block.tlotd.small_gravestone": "Small Gravestone",
+  "block.tlotd.small_gravestone.special": "In loving memory of",
+  "block.tlotd.small_gravestone.special_2": "my beloved, my beautiful,",
+  "block.tlotd.small_gravestone.special_3": "'meine Schöne' Gisy.",
+  "block.tlotd.small_gravestone.special_4": "Aug. 2012 - July 14th 2025",
+
   "block.tlotd.skeleton": "Skeleton",
   "block.tlotd.emerging_skeleton": "Emerging Skeleton",
 
@@ -716,7 +732,6 @@
   "block.tlotd.flagpole": "Flagpole",
 
   "block.tlotd.keycard_programmer": "Keycard Programmer",
-  "block.tlotd.keycard_programmer.tooltip": "Powered by:",
   "block.tlotd.keycard_reader": "Keycard Reader",
   "block.tlotd.keycard_reader.no_password": "There is no password on your Keycard",
   "block.tlotd.keycard_reader.password_set": "The password from your Keycard has been set as the new Keycard Reader password",
@@ -733,11 +748,13 @@
   "block.tlotd.videocassette_recorder.tooltip": "Can be placed inside:",
   "block.tlotd.computer": "Computer",
   "block.tlotd.computer_on": "Computer",
+  "block.tlotd.powered_by_computer.tooltip": "Powered by:",
   "block.tlotd.interdimensional_receiver": "Interdimensional Receiver",
   "block.tlotd.interdimensional_receiver.tooltip": "Can be placed on:",
   "block.tlotd.oxygen_collector": "Oxygen Collector",
   "block.tlotd.oxygen_collector.tooltip": "Can be placed on:",
   "block.tlotd.oxygen_collector.tooltip_2": "Flowers & Saplings",
+  "block.tlotd.incubator": "Incubator",
   "block.tlotd.signal_transmitter": "Signal Transmitter",
   "block.tlotd.signal_transmitter.tooltip": "Can Transmit:",
   "block.tlotd.signal_transmitter.tooltip_2": "VHS Cassettes",
@@ -758,6 +775,10 @@
   "block.tlotd.teleporter.destination_in_use": "Destination teleporter already in use",
   "block.tlotd.teleporter.none_at_destination": "No teleporter at destination",
   "block.tlotd.teleporter.already_in_use": "Teleporter already in use",
+
+  "block.tlotd.alien_control_panel": "Alien Control Panel",
+
+  "block.tlotd.hev_charger": "HEV Charger",
 
   "block.tlotd.mining_elevator_controller": "Mining Elevator Controller",
   "block.tlotd.mining_elevator_base": "Mining Elevator Base",
@@ -893,10 +914,11 @@
   "block.tlotd.mithril_anvil": "Mithril Anvil",
   "block.tlotd.mithril_bars": "Mithril Bars",
 
+  "text.tlotd.recipe.tooltip": "Hold [",
+  "text.tlotd.recipe.tooltip_2": "] for recipies",
+
   "block.tlotd.mithril_anvil.tooltip": "Forges only under:",
   "block.tlotd.mithril_anvil.tooltip_2": "Direct Starlight",
-  "block.tlotd.mithril_anvil.tooltip_3": "Hold [",
-  "block.tlotd.mithril_anvil.tooltip_4": "] for recipies",
 
   "block.tlotd.witching_table": "Witching Table",
   "block.tlotd.witching_table.tooltip_bs": "Enables soul charged",

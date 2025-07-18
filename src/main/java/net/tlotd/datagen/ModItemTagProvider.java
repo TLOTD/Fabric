@@ -23,6 +23,17 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
     @Override
     protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
 
+        getOrCreateTagBuilder(ModTags.Items.EGGS)
+                .addOptionalTag(Identifier.tryParse("c:eggs"))
+        ;
+
+        getOrCreateTagBuilder(ModTags.Items.HATCHABLE_EGGS)
+                .add(Items.TURTLE_EGG)
+                .add(Items.DRAGON_EGG)
+                .add(Items.SNIFFER_EGG)
+                .add(ModBlocks.TREX_EGG.asItem())
+        ;
+
         getOrCreateTagBuilder(ModTags.Items.FORGING_HAMMERS)
                 .addTag(ModTags.Items.FORGING_HAMMERS_TIER1)
         ;
@@ -408,6 +419,12 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModItems.GAME_CARTRIDGE_3)
         ;
 
+        getOrCreateTagBuilder(ModTags.Items.HEV_CHARGER_CHARGABLE)
+                .add(ModItems.HEV_SUIT_CHESTPLATE)
+                .add(ModItems.HEV_SUIT_LEGGINGS)
+                .add(ModItems.HEV_SUIT_BOOTS)
+        ;
+
         getOrCreateTagBuilder(ModTags.Items.RADIATION_PROTECTION_WITHOUT_HELMET)
                 .add(ModItems.HEV_SUIT_CHESTPLATE)
                 .add(ModItems.HEV_SUIT_LEGGINGS)
@@ -443,6 +460,16 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .addOptional(Identifier.tryParse("ad_astra:space_suit"))
                 .addOptional(Identifier.tryParse("ad_astra:space_pants"))
                 .addOptional(Identifier.tryParse("ad_astra:space_boots"))
+        ;
+
+        getOrCreateTagBuilder(ModTags.Items.IRON_OR_STEEL)
+                .addOptionalTag(Identifier.tryParse("c:iron_ingots"))
+                .addOptionalTag(Identifier.tryParse("c:steel_ingots"))
+        ;
+
+        getOrCreateTagBuilder(ModTags.Items.CINNABAR_OR_NEBULAR)
+                .add(ModItems.CINNABAR_CRYSTAL)
+                .add(ModItems.NEBULAR_CRYSTAL)
         ;
 
         getOrCreateTagBuilder(ModTags.Items.CIRCUIT_BOARDS)

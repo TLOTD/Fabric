@@ -1,4 +1,4 @@
-// 1.20.1	2025-07-12T23:10:14.2431775	TLOTD/Block Loot Tables
+// 1.20.1	2025-07-18T17:35:06.3151531	TLOTD/Block Loot Tables
 065c8df00f620de96b8a68f2f3c1419c98812efe data\tlotd\loot_tables\blocks\fancy_bamboo_planks.json
 086cc46163a83a89316fdbf152f160f82958d363 data\tlotd\loot_tables\blocks\cobbled_red_deepslate.json
 24933d84b3a1d8f15634bb910ef1533735175b98 data\tlotd\loot_tables\blocks\wooden_orange_milkshake_stein.json
@@ -87,6 +87,7 @@ e10186b2dc3a26d968c63cb7b796d9a3c900a0c4 data\tlotd\loot_tables\blocks\framed_gl
 3570ce93f4f0990ca0a3ec09c4eb34194f463f4f data\tlotd\loot_tables\blocks\fancy_spruce_stairs.json
 8bd845509acf3a19b9eee22110b9c22e255e6900 data\tlotd\loot_tables\blocks\witching_table.json
 5102438ee3b37467ead27aafbfec9ed7b51baf33 data\tlotd\loot_tables\blocks\red_sandy_deepslate.json
+18eda89c762870bfd79cfaf59603e86d428bee3f data\tlotd\loot_tables\blocks\incubator.json
 e5ead721be1645cae3d3a116f8aaf620eb27503f data\tlotd\loot_tables\blocks\deepslate_palladium_ore.json
 333cd890a101d1a2fef77f4da7856b11a2a82c85 data\tlotd\loot_tables\blocks\red_deepslate_jurassoline_ore.json
 657afa697c9fefe16efdd63cf840b3c66b07cad9 data\tlotd\loot_tables\blocks\polished_red_deepslate.json
@@ -110,6 +111,7 @@ d3a00a0c8c5283bbd9d27dcd24734864560f8efe data\tlotd\loot_tables\blocks\red_deeps
 804216aa79705abbdedfeebe4dc5941b1a780bcc data\tlotd\loot_tables\blocks\red_deepslate_palladium_ore.json
 f48769065683354c0a82dd4029f8e7d5b5d207a0 data\tlotd\loot_tables\blocks\rich_dirt.json
 7f2de15b4aa40af809ba341c100a45ed0fd22b8f data\tlotd\loot_tables\blocks\zombie_plushie.json
+a1ebcf03e6d6b9bcb1fa932097c51b64ab8aa473 data\tlotd\loot_tables\blocks\hev_charger.json
 ddd82a610a071cae6b4e2abfbb83a50ba3237a21 data\tlotd\loot_tables\blocks\moon_rock_iron_ore.json
 7b2527e66d8b9b62988d4b2bdf7316e363660c2d data\tlotd\loot_tables\blocks\ginkgo_slab.json
 b3487ad71f1bf8ae1a9d76d59fa402cf7408c0f1 data\tlotd\loot_tables\blocks\player_plushie.json
@@ -132,6 +134,7 @@ b32146e291f8dee5881fb6c620c498725895550f data\tlotd\loot_tables\blocks\fancy_dar
 3d718827b9a4985d40e84531eaf451a8812c744c data\tlotd\loot_tables\blocks\computer_on.json
 86e0cf2ecbd056657763af71a9e232f403f57418 data\tlotd\loot_tables\blocks\fancy_bamboo_slab.json
 e9dfc3230368cc92201c435ad889b75e95220034 data\tlotd\loot_tables\blocks\fancy_ginkgo_stairs.json
+b6ad2b44898a6d6522e2f3f4aaeb2dabffe040d7 data\tlotd\loot_tables\blocks\small_gravestone.json
 4d137b415ba713766bd90c6eaeaf07ea029fd1a6 data\tlotd\loot_tables\blocks\rich_farmland.json
 e4f4f97543210ddf1d7ba527c8854d195ef8b313 data\tlotd\loot_tables\blocks\fancy_ginkgo_slab.json
 da05744e1a1d9e1433e305f89a03d55e670f4ef8 data\tlotd\loot_tables\blocks\limestone.json

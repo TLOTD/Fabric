@@ -1,0 +1,32 @@
+{
+  "display": {
+    "icon": {
+      "item": "tlotd:teleporter"
+    },
+    "title": {
+      "translate": "advancements.tlotd.teleporter"
+    },
+    "description": {
+      "translate": "advancements.tlotd.teleporter.desc"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "tlotd:teleporter"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "parent": "tlotd:futuristic_circuit_board"
+}

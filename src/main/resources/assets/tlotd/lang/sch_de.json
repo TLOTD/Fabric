@@ -11,6 +11,7 @@
   "gui.tlotd.tooltip.liquid_amount_with_capacity": "§f%s§7: %smB/%smB",
   "gui.tlotd.oxygen_collector": "Sauerstoffbetanker",
   "gui.tlotd.keycard_programmer": "Schlisslkartn Programmiern",
+  "gui.tlotd.incubator": "Brutkaschtn",
 
   "generic.tlotd.text.click_me": "[Hier Klickn]",
   "generic.tlotd.text.wiki_link": "um die Mod Wiki z effna.",
@@ -100,6 +101,8 @@
   "advancements.tlotd.television.desc": "Gelang annena Fernsehar",
   "advancements.tlotd.computer": "Nimm dir a Bit",
   "advancements.tlotd.computer.desc": "Besitz a Rechner",
+  "advancements.tlotd.keycard_programmer": "Nur für autorisiertes Personal",
+  "advancements.tlotd.keycard_programmer.desc": "Besitze einen Kartenprogrammierer",
   "advancements.tlotd.all_elevators": "Andrs Uffgwachsa",
   "advancements.tlotd.all_elevators.desc": "Erlang alle Uffzüge",
   "advancements.tlotd.all_vhs_cassettes": "Habs uff Kassettn",
@@ -108,12 +111,16 @@
   "advancements.tlotd.videocassette_recorder.desc": "Gelange an n Videokassettaschpielr",
   "advancements.tlotd.advanced_circuitry": "Verbesserte Schaitung",
   "advancements.tlotd.advanced_circuitry.desc": "Gelange an a Verbesserte Platine",
+  "advancements.tlotd.at_the_edge_of_technology": "Am Rande der Technologie",
+  "advancements.tlotd.at_the_edge_of_technology.desc": "Gelange an a Transzendente Platine",
   "advancements.tlotd.interdimensional_receiver": "Interdimensionelles Fernseha",
   "advancements.tlotd.interdimensional_receiver.desc": "Nutz a Interdimensionella Receiver um dei Fernseha zu verbessern",
   "advancements.tlotd.signal_transmitter": "Wir senden, sie empfangen.",
   "advancements.tlotd.signal_transmitter.desc": "Erlange n Signalgebr",
   "advancements.tlotd.futuristic_circuitry": "Die Zukunft isch Jetzt!",
   "advancements.tlotd.futuristic_circuitry.desc": "Gelange an ne Futuristische Platine",
+  "advancements.tlotd.teleporter": "Unmittelbares Reisen",
+  "advancements.tlotd.teleporter.desc": "Entwickel einen Teleporter",
 
   "advancements.tlotd.jurassic": "Jura",
   "advancements.tlotd.jurassic.desc": "Jurazeiten erfordern jurassische Maßnahmen",
@@ -184,8 +191,10 @@
   "item.tlotd.orange_juice_bottle": "Oroschnsaftflaschn",
   "item.tlotd.spezi_bottle": "Spezi-Flaschn",
 
-  "item.tlotd.pipe_weed_seeds": "Pfeifakrautsamn",
-  "item.tlotd.pipe_weed": "Pfeifakraut",
+  "item.tlotd.pipe_weed_seeds": "Pfeifnkrautsamn",
+  "item.tlotd.pipe_weed": "Pfeifnkraut",
+  "item.tlotd.pipe": "Pfeifn",
+  "item.tlotd.pipe_weed_pipe": "Pfeifn mit Pfeifnnkraut",
 
   "block.tlotd.blue_berry_jam_jar": "Blaubeermarmeladnglas",
   "item.tlotd.blue_berry_jam_toast": "Blaubeermarmeladntoscht",
@@ -193,6 +202,7 @@
   "item.tlotd.ancient_soulberry_jam_toast": "Uralts Seelenbeermarmeladntoscht",
 
   "item.tlotd.irradiated.tooltip": "☢ Vrschdrahld (00:03)",
+  "item.tlotd.radiaton_proof_armor.chargable": "Aufladbar via:",
   "item.tlotd.radiaton_proof_armor.tooltip": "Wenns ganze Set Ausgrüschted:",
   "item.tlotd.radiaton_proof_armor.tooltip_2": "Bschitzt vor Schtrahlung",
 
@@ -400,9 +410,9 @@
   "item.tlotd.depth_suit_boots": "Tiefenanzugsschtiefl",
 
   "item.tlotd.scientist_glasses": "Wissnschaftlrbrilln",
-  "item.tlotd.hev_suit_chestplate": "H.E.V. Azugsbruschtblattn",
-  "item.tlotd.hev_suit_leggings": "H.E.V. Azugsboischutz",
-  "item.tlotd.hev_suit_boots": "H.E.V. Azugsschtiefl",
+  "item.tlotd.hev_suit_chestplate": "HEV Azugsbruschtblattn",
+  "item.tlotd.hev_suit_leggings": "HEV Azugsboischutz",
+  "item.tlotd.hev_suit_boots": "HEV Azugsschtiefl",
 
   "item.tlotd.bamboo_sword": "Bambusschwerd",
   "item.tlotd.bamboo_pickaxe": "Bambusschpitzhaggn",
@@ -661,6 +671,12 @@
   "block.tlotd.gravestone_cross": "Grabkreiz",
   "block.tlotd.mossy_gravestone_cross": "Bemoosts Grabkreiz",
 
+  "block.tlotd.small_gravestone": "Kleinr Grabschtoi",
+  "block.tlotd.small_gravestone.special": "In liebevolle Erinnerung",
+  "block.tlotd.small_gravestone.special_2": "an meine geliebte,",
+  "block.tlotd.small_gravestone.special_3": "'meine Scheene' Gisy.",
+  "block.tlotd.small_gravestone.special_4": "Aug. 2012 - 14. July 2025",
+
   "block.tlotd.skeleton": "Skelett",
   "block.tlotd.emerging_skeleton": "Uffdaucheds Skelett",
 
@@ -693,7 +709,6 @@
   "block.tlotd.flagpole": "Flaggnmascht",
 
   "block.tlotd.keycard_programmer": "Kartnprogrammierer",
-  "block.tlotd.keycard_programmer.tooltip": "Betreibbar durch:",
   "block.tlotd.keycard_reader": "Kartnleser",
   "block.tlotd.keycard_reader.no_password": "Uff Ihrer Schlisslkartn isch koi Passwort vorhandn",
   "block.tlotd.keycard_reader.password_set": "'s Passwort Ihrer Schlisslkartn wurd als neies Passwort fir den Kartnleser festglegt",
@@ -710,11 +725,13 @@
   "block.tlotd.videocassette_recorder.tooltip": "Ka blazierd werde in:",
   "block.tlotd.computer": "Rechnr",
   "block.tlotd.computer_on": "Rechnr",
+  "block.tlotd.powered_by_computer.tooltip": "Betreibbar durch:",
   "block.tlotd.interdimensional_receiver": "Interdimensionalr Receivr",
   "block.tlotd.interdimensional_receiver.tooltip": "Ka blazierd werde uff:",
   "block.tlotd.oxygen_collector": "Sauerstoffsammlr",
   "block.tlotd.oxygen_collector.tooltip": "Ka blazierd werde uff:",
   "block.tlotd.oxygen_collector.tooltip_2": "Bloama & Setzlinge",
+  "block.tlotd.incubator": "Brutkaschtn",
   "block.tlotd.signal_transmitter": "Signalgebr",
   "block.tlotd.signal_transmitter.tooltip": "Kann ibrtraga:",
   "block.tlotd.signal_transmitter.tooltip_2": "VHS-Kassettn",
@@ -735,6 +752,10 @@
   "block.tlotd.teleporter.destination_in_use": "Zielteleporter isch bereits in Benutzung",
   "block.tlotd.teleporter.none_at_destination": "Koi Teleporter am Ziel gefundn",
   "block.tlotd.teleporter.already_in_use": "Teleporter isch bereits in Benutzung",
+
+  "block.tlotd.alien_control_panel": "Außerirdische Schteiereinheit",
+
+  "block.tlotd.hev_charger": "HEV Ladeschtation",
 
   "block.tlotd.mining_elevator_controller": "Bergwergsuffzuagsschteierung",
   "block.tlotd.mining_elevator_base": "Bergwergsuffzuagsbasis",
@@ -871,10 +892,11 @@
   "block.tlotd.mithril_anvil": "Mithrilamboss",
   "block.tlotd.mithril_bars": "Mithrilgittr",
 
+  "text.tlotd.recipe.tooltip": "Halt [",
+  "text.tlotd.recipe.tooltip_2": "] gedrickt fir Rezepte",
+
   "block.tlotd.mithril_anvil.tooltip": "Schmiedet undr:",
   "block.tlotd.mithril_anvil.tooltip_2": "Direktem Sternelicht",
-  "block.tlotd.mithril_anvil.tooltip_3": "Halt [",
-  "block.tlotd.mithril_anvil.tooltip_4": "] gedrickt fir Rezepte",
 
   "block.tlotd.witching_table": "Hexatisch",
   "block.tlotd.witching_table.tooltip_bs": "Ermeglichd seelageladene",

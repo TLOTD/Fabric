@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "A": {
+      "tag": "tlotd:advanced_circuit_boards"
+    },
+    "D": {
+      "item": "tlotd:liquid_crystal_display_panel"
+    },
+    "S": {
+      "tag": "c:steel_ingots"
+    },
+    "X": {
+      "item": "tlotd:xen_crystal"
+    }
+  },
+  "pattern": [
+    "SXS",
+    "AAD",
+    "SXS"
+  ],
+  "result": {
+    "item": "tlotd:hev_charger"
+  },
+  "show_notification": true
+}

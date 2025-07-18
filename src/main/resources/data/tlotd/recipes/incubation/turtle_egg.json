@@ -1,0 +1,14 @@
+{
+  "type": "tlotd:incubation",
+  "ingredients": [
+    {
+      "tag": "tlotd:eggs"
+    },
+    {
+      "item": "minecraft:scute"
+    }
+  ],
+  "output": {
+    "item": "minecraft:turtle_egg"
+  }
+}

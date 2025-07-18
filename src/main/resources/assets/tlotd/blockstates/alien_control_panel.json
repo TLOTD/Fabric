@@ -1,0 +1,12 @@
+{
+  "variants": {
+    "facing=south,harvested=false": {"model": "tlotd:block/alien_control_panel"},
+    "facing=west,harvested=false": {"model": "tlotd:block/alien_control_panel","y": 90},
+    "facing=north,harvested=false": {"model": "tlotd:block/alien_control_panel","y": 180},
+    "facing=east,harvested=false": {"model": "tlotd:block/alien_control_panel","y": 270},
+    "facing=south,harvested=true": {"model": "tlotd:block/alien_control_panel_harvested"},
+    "facing=west,harvested=true": {"model": "tlotd:block/alien_control_panel_harvested","y": 90},
+    "facing=north,harvested=true": {"model": "tlotd:block/alien_control_panel_harvested","y": 180},
+    "facing=east,harvested=true": {"model": "tlotd:block/alien_control_panel_harvested","y": 270}
+  }
+}
