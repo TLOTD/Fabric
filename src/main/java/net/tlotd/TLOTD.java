@@ -11,6 +11,7 @@ import net.tlotd.block.ModFlammableBlocks;
 import net.tlotd.block.entity.ModBlockEntities;
 import net.tlotd.config.ModConfigs;
 import net.tlotd.effect.ModEffects;
+import net.tlotd.entity.ModArmorProtection;
 import net.tlotd.entity.ModBoats;
 import net.tlotd.entity.ModEntities;
 import net.tlotd.entity.custom.InfectedTRexEntity;
@@ -63,6 +64,7 @@ public class TLOTD implements ModInitializer {
 		ModMessages.registerC2SPackets();
 		ModVillageAdditions.registerNewVillageStructures();
 		ModWorldGeneration.generateModWorldGen();
+		ModArmorProtection.registerAllowedDamages();
 
 		LOGGER.info("TLOTD INITIALIZED!");
 

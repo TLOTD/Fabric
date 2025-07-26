@@ -1,0 +1,14 @@
+{
+  "replace": false,
+  "values": [
+    "#tlotd:bullet_proof_armor_iii",
+    "tlotd:nebular_helmet",
+    "tlotd:nebular_chestplate",
+    "tlotd:nebular_leggings",
+    "tlotd:nebular_boots",
+    "tlotd:cinnabar_helmet",
+    "tlotd:cinnabar_chestplate",
+    "tlotd:cinnabar_leggings",
+    "tlotd:cinnabar_boots"
+  ]
+}

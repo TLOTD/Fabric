@@ -1,4 +1,4 @@
-// 1.20.1	2025-07-18T17:35:06.3151531	TLOTD/Block Loot Tables
+// 1.20.1	2025-07-26T16:18:28.2808061	TLOTD/Block Loot Tables
 065c8df00f620de96b8a68f2f3c1419c98812efe data\tlotd\loot_tables\blocks\fancy_bamboo_planks.json
 086cc46163a83a89316fdbf152f160f82958d363 data\tlotd\loot_tables\blocks\cobbled_red_deepslate.json
 24933d84b3a1d8f15634bb910ef1533735175b98 data\tlotd\loot_tables\blocks\wooden_orange_milkshake_stein.json
@@ -99,8 +99,8 @@ d7f06962bd6d773b219a46d36f6faa9662862cfb data\tlotd\loot_tables\blocks\festive_l
 ba118599375c6855f8836863ea8002f6d0d3479d data\tlotd\loot_tables\blocks\limestone_pressure_plate.json
 4c5956c1556df48c0eb4f64c9e384bb89c80e64d data\tlotd\loot_tables\blocks\potted_rose.json
 d3a00a0c8c5283bbd9d27dcd24734864560f8efe data\tlotd\loot_tables\blocks\red_deepslate_brick_stairs.json
-9298bd5336a72259ce96b35610ccb25d4573dd2b data\tlotd\loot_tables\blocks\fancy_oak_stairs.json
 4a7e05e396eeb9264037e53ac40e38515f2d45e1 data\tlotd\loot_tables\blocks\skeleton.json
+9298bd5336a72259ce96b35610ccb25d4573dd2b data\tlotd\loot_tables\blocks\fancy_oak_stairs.json
 689002b201ce06d8306ab450e2b5ec1999cc08cd data\tlotd\loot_tables\blocks\ginkgo_stairs.json
 04f51700dab94a7907e8b098ef0a657ed4f76477 data\tlotd\loot_tables\blocks\fancy_cherry_trapdoor.json
 5644fd6a3233eec795d64b186ab0dfa8dbf60e81 data\tlotd\loot_tables\blocks\rich_dirt_path.json

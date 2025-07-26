@@ -1,0 +1,14 @@
+{
+  "replace": false,
+  "values": [
+    "#tlotd:bullet_proof_armor_ii",
+    "tlotd:jurassoline_helmet",
+    "tlotd:jurassoline_chestplate",
+    "tlotd:jurassoline_leggings",
+    "tlotd:jurassoline_boots",
+    "tlotd:palladium_helmet",
+    "tlotd:palladium_chestplate",
+    "tlotd:palladium_leggings",
+    "tlotd:palladium_boots"
+  ]
+}

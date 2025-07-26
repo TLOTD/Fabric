@@ -38,9 +38,13 @@
   "messages.tlotd.radio.frequency.4": "Frequenz: 99.4 MHz",
 
   "effect.tlotd.drunk": "Bsoffe",
+  "effect.tlotd.drunk.desc": "Verschmiert dai Sicht.",
   "effect.tlotd.stoned": "Bekifft",
+  "effect.tlotd.stoned.desc": "Verunschärft leicht dai Sicht.",
   "effect.tlotd.irradiated": "§eVrschdrahld§r",
+  "effect.tlotd.irradiated.desc": "Verursacht Schadn für jede Sekund, die ohne geeignete Ausrischtung vrbracht wird.",
   "effect.tlotd.hypoxia": "Hypoxia",
+  "effect.tlotd.hypoxia.desc": "Verursacht Schadn für jede Sekund, die ohne geeignete Ausrischtung vrbracht wird.",
 
   "death.attack.radiation": "%1$s isch an Schtrahlekrankheit verschtorben",
   "death.attack.radiation.player": "%1$s isch im Kampf mit %2$s an Schtrahlekrankheit verschtorben",

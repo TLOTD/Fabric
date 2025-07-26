@@ -1,4 +1,4 @@
-// 1.20.1	2025-07-18T17:35:06.3141519	TLOTD/Tags for minecraft:item
+// 1.20.1	2025-07-26T16:18:28.2798083	TLOTD/Tags for minecraft:item
 f0ede8599432b0c872f8763c56d1bbe4a38d00dd data\tlotd\tags\items\wooden_bark.json
 813942275850249af46b5acb7476d008f1ce0fde data\minecraft\tags\items\wooden_trapdoors.json
 5edfb657ae7c5f8f72cc4aa49e8b2550a7679fa6 data\tlotd\tags\items\circuit_boards.json
@@ -35,6 +35,7 @@ f01dec22b31b88e15261a6db63b60d817ef5ba03 data\c\tags\items\lead_ingots.json
 68d1dcfc8cf331477f3e36e6e854c8ea7f77a813 data\minecraft\tags\items\bookshelf_books.json
 065e5dd2e7f934b77def69f2a2d695a991fb9ad2 data\tlotd\tags\items\hatchable_eggs.json
 989b799a247e595b14e76a145d6ff3566337b58f data\c\tags\items\iron_nuggets.json
+d2b7887e3701611e7812ec98c1ca290ec94f4005 data\tlotd\tags\items\bullet_proof_armor_ii.json
 767dbd9c3f1d7b5e5aa2bd97d95a190756e5981e data\tlotd\tags\items\forging_hammers_tier5.json
 6562d405b908c4ebecccc6cea30044c8a63c0187 data\c\tags\items\steel_raw_materials.json
 5a6f6bbc4571af1f7b3e4ea13b44d9cf577798e3 data\minecraft\tags\items\planks.json
@@ -54,8 +55,9 @@ acb4bfe64edcc6f243f94a58587f56891fd19d9c data\c\tags\items\gold_nuggets.json
 022273f008df81bd1b45ba0f557a4fc707b21b41 data\tlotd\tags\items\advanced_circuit_boards.json
 52aa97235cb016139f4067af22223699d2f042d3 data\tlotd\tags\items\mouth_of_the_abyss.json
 cea66d677721d1028a7dd5256b2b6eb70170f69a data\minecraft\tags\items\trimmable_armor.json
-e3a258d8cfa0abf6dc3b5f89c1fe5e670d9d3161 data\minecraft\tags\items\wooden_buttons.json
 28d423b11737432bbe39a97e5b5e18b713197672 data\minecraft\tags\items\wooden_slabs.json
+e3a258d8cfa0abf6dc3b5f89c1fe5e670d9d3161 data\minecraft\tags\items\wooden_buttons.json
+8133bae999e1c00212e74b1cf3da8b47825c3665 data\tlotd\tags\items\bullet_proof_armor.json
 3b8e48acf1e0e6180d5ad21ee3fdad352ba53e68 data\tlotd\tags\items\hypoxia_protection.json
 5c0c73e1d328426a87c7d623705cd3f743203d15 data\c\tags\items\lapis_ores.json
 26055feb9b30aef9f1579f3d657212869580c84c data\minecraft\tags\items\fence_gates.json
@@ -64,8 +66,8 @@ ab4895d2551abaec58ff96ab67335b961fc8598f data\c\tags\items\shovels.json
 170dcdbad1db273c0be198f558c1ee5cd92f9179 data\tlotd\tags\items\beer_container.json
 0a3fd5ca0b7da0d2178a4ea13fcf2893af0b107f data\minecraft\tags\items\villager_plantable_seeds.json
 b1eb9ea2b24d0caa6ac9a228a5fa56ed4ed3f691 data\minecraft\tags\items\boats.json
-feb0d508187f59ff4a142035f8e962baf0fda1f4 data\c\tags\items\palladium_ores.json
 0fca858da40a8b304dab0c5e6036d9309b0d0f74 data\minecraft\tags\items\trim_materials.json
+feb0d508187f59ff4a142035f8e962baf0fda1f4 data\c\tags\items\palladium_ores.json
 f5602d5a993d18bd66dbef2fd518048def12a98d data\tlotd\tags\items\forging_hammers.json
 130d8c7c83d2ad16a5aa7dad9b00984c53da2619 data\tlotd\tags\items\forging_hammers_tier9.json
 95bca9fa33e28b23f37a4dec9c25756f8ca33fb4 data\tlotd\tags\items\stick_effigies.json
@@ -83,8 +85,8 @@ e79a9df823a446e76d1e7c3506c382d20f0a0b70 data\c\tags\items\copper_ores.json
 c4d72bb7e5a0ba373cc501039f47b61377cd781c data\c\tags\items\lead_blocks.json
 de22676a8696eda167c0df83521ff3ce0b276a3e data\c\tags\items\oil_buckets.json
 42cb0e2eb41b71d891edd141613ecce45b0e3033 data\tlotd\tags\items\iron_or_steel.json
-f8755b6cc51081032e066b70de3af24303536b28 data\c\tags\items\emerald_ores.json
 3f210ba82db9d81555180310b2e96bbf92121f94 data\minecraft\tags\items\stone_crafting_materials.json
+f8755b6cc51081032e066b70de3af24303536b28 data\c\tags\items\emerald_ores.json
 4a09641a0e5aa43ca093fa51dfd1bc3d4c710e14 data\c\tags\items\lead_nuggets.json
 363454af66ab7ef45fe440676e94c86f13ce1df2 data\minecraft\tags\items\wooden_pressure_plates.json
 f6fa02ac7f345efebafbea5253779dd566229103 data\c\tags\items\coal_ores.json
@@ -115,6 +117,7 @@ e6419e3192a137b488c7b9db6a4f661ccc537ed6 data\c\tags\items\lead_raw_materials.js
 c0d2664d2a780c47c25abb879cac9f96349d4666 data\c\tags\items\fossils.json
 29f59c59e79a20e51aed1a608fdf2cdb9508ee45 data\tlotd\tags\items\forging_hammers_tier7.json
 0cf96f2cf8e0798fc57412cef6b706da02c7be1a data\tlotd\tags\items\forging_hammers_tier1.json
+2003b18dd85229aeb2d93527f88fbb8980fe818b data\tlotd\tags\items\bullet_proof_armor_iii.json
 db18915388306a696ea13e09ed8b1e98844c85e4 data\minecraft\tags\items\logs_that_burn.json
 d521ed3f69fb4b313ec16770179bcc1c1fd0ffd3 data\c\tags\items\flour.json
 dc271f74f46cf9c599f4953d30f3e9c7260eb9c1 data\tlotd\tags\items\wooden_liquid_steins.json

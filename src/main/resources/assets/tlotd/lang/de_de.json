@@ -40,9 +40,13 @@
   "messages.tlotd.radio.frequency.4": "Frequenz: 99.4 MHz",
 
   "effect.tlotd.drunk": "Betrunken",
+  "effect.tlotd.drunk.desc": "Verschmiert die Sicht.",
   "effect.tlotd.stoned": "Bekifft",
+  "effect.tlotd.stoned.desc": "Verunschärft leicht die Sicht.",
   "effect.tlotd.irradiated": "§eVerstrahlt§r",
+  "effect.tlotd.irradiated.desc": "Verursacht Schaden für jede Sekunde, die ohne geeignete Ausrüstung verbracht wird.",
   "effect.tlotd.hypoxia": "Hypoxia",
+  "effect.tlotd.hypoxia.desc": "Verursacht Schaden für jede Sekunde, die ohne geeignete Ausrüstung verbracht wird.",
 
   "death.attack.radiation": "%1$s ist an Strahlenkrankheit verstorben",
   "death.attack.radiation.player": "%1$s ist im Kampf mit %2$s an Strahlenkrankheit verstorben",
@@ -894,7 +898,7 @@
   "block.tlotd.mithril_bars": "Mithrilgitter",
 
   "text.tlotd.recipe.tooltip": "Halte [",
-  "text.tlotd.recipe.tooltip_1": "] gedrückt für Rezepte",
+  "text.tlotd.recipe.tooltip_2": "] gedrückt für Rezepte",
 
   "block.tlotd.mithril_anvil.tooltip": "Schmiedet unter:",
   "block.tlotd.mithril_anvil.tooltip_2": "Direktem Sternenlicht",

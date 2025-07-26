@@ -1,4 +1,4 @@
-// 1.20.1	2025-07-18T17:35:06.3041543	TLOTD/Recipes
+// 1.20.1	2025-07-26T16:18:28.2607564	TLOTD/Recipes
 c081bbab6b302be81b2e9af39ed6a98156ef374d data\tlotd\advancements\recipes\misc\palladium_nugget_from_blasting_palladium_sickle.json
 252637333792c4f65fb0627554b914bec260a31a data\tlotd\advancements\recipes\misc\jurassoline_axe2.json
 6de59cd72495202b44dff1adfad36fedead1aac7 data\tlotd\advancements\recipes\misc\fossil_and_steel.json
@@ -480,8 +480,8 @@ cfccfabc3ab5c20c0e8000078f0b4c5ba240972f data\tlotd\recipes\gravestone_cross_fro
 e6dbf6d98e72277de6ef1d9d1368b3d993ef58f6 data\tlotd\recipes\mithril_nugget_from_blasting_mithril_sickle.json
 4fe1dbffd55eba3eb8d0a1d95471a58ae909b472 data\tlotd\advancements\recipes\misc\mithril_sickle.json
 b884ab875ae73410798597dd1638980a5a9a75b3 data\tlotd\advancements\recipes\misc\nebular_helmet.json
-19afd626cc7625c7dfd80f91c747d96739509eee data\tlotd\advancements\recipes\food\hot_wooden_milk_stein_from_furnace.json
 de55eea1785c87a7d17cfbdf58f6adb977550c0d data\tlotd\recipes\apple_juice_bottle.json
+19afd626cc7625c7dfd80f91c747d96739509eee data\tlotd\advancements\recipes\food\hot_wooden_milk_stein_from_furnace.json
 02a6875af51a9d310921c70d20c369d3aded4074 data\tlotd\advancements\recipes\misc\endurium_nugget_from_blasting_endurium_axe.json
 70c652d1f02daf028d29de60140d151e23ab44ce data\tlotd\recipes\effigies.json
 5a34be87bc3494b1a94a1c7b4f0706bd77dd8aca data\tlotd\advancements\recipes\building_blocks\raw_endurium_block.json

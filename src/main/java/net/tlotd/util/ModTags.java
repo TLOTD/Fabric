@@ -74,6 +74,15 @@ public class ModTags {
 
     public static class Items {
 
+        public static final TagKey<Item> BULLET_PROOF_ARMOR =
+                createTag("bullet_proof_armor");
+
+        public static final TagKey<Item> BULLET_PROOF_ARMOR_II =
+                createTag("bullet_proof_armor_ii");
+
+        public static final TagKey<Item> BULLET_PROOF_ARMOR_III =
+                createTag("bullet_proof_armor_iii");
+
         public static final TagKey<Item> EGGS =
                 createTag("eggs");
 

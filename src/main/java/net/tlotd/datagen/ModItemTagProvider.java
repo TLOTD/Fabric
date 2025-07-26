@@ -23,6 +23,37 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
     @Override
     protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
 
+        getOrCreateTagBuilder(ModTags.Items.BULLET_PROOF_ARMOR)
+                .addTag(ModTags.Items.BULLET_PROOF_ARMOR_II)
+                .add(ModItems.JURASSOLINE_HELMET)
+                .add(ModItems.JURASSOLINE_CHESTPLATE)
+                .add(ModItems.JURASSOLINE_LEGGINGS)
+                .add(ModItems.JURASSOLINE_BOOTS)
+                .add(ModItems.PALLADIUM_HELMET)
+                .add(ModItems.PALLADIUM_CHESTPLATE)
+                .add(ModItems.PALLADIUM_LEGGINGS)
+                .add(ModItems.PALLADIUM_BOOTS)
+        ;
+
+        getOrCreateTagBuilder(ModTags.Items.BULLET_PROOF_ARMOR_II)
+                .addTag(ModTags.Items.BULLET_PROOF_ARMOR_III)
+                .add(ModItems.NEBULAR_HELMET)
+                .add(ModItems.NEBULAR_CHESTPLATE)
+                .add(ModItems.NEBULAR_LEGGINGS)
+                .add(ModItems.NEBULAR_BOOTS)
+                .add(ModItems.CINNABAR_HELMET)
+                .add(ModItems.CINNABAR_CHESTPLATE)
+                .add(ModItems.CINNABAR_LEGGINGS)
+                .add(ModItems.CINNABAR_BOOTS)
+        ;
+
+        getOrCreateTagBuilder(ModTags.Items.BULLET_PROOF_ARMOR_III)
+                .add(ModItems.MITHRIL_HELMET)
+                .add(ModItems.MITHRIL_CHESTPLATE)
+                .add(ModItems.MITHRIL_LEGGINGS)
+                .add(ModItems.MITHRIL_BOOTS)
+        ;
+
         getOrCreateTagBuilder(ModTags.Items.EGGS)
                 .addOptionalTag(Identifier.tryParse("c:eggs"))
         ;

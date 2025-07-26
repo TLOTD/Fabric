@@ -1,12 +1,9 @@
 package net.tlotd.effect;
 
-import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectCategory;
-import net.minecraft.entity.player.PlayerEntity;
 import net.tlotd.util.ModDamageTypes;
-import net.tlotd.util.ModTags;
 
 public class IrradiatedEffect extends StatusEffect {
     protected IrradiatedEffect(StatusEffectCategory category, int color) {
@@ -16,18 +13,7 @@ public class IrradiatedEffect extends StatusEffect {
     @Override
     public void applyUpdateEffect(LivingEntity entity, int amplifier) {
         if(!entity.getWorld().isClient()) {
-            if(entity instanceof PlayerEntity player){
-                if (player.getInventory().getArmorStack(0).isIn(ModTags.Items.RADIATION_PROTECTION_WITHOUT_HELMET) && player.getInventory().getArmorStack(1).isIn(ModTags.Items.RADIATION_PROTECTION_WITHOUT_HELMET) && player.getInventory().getArmorStack(2).isIn(ModTags.Items.RADIATION_PROTECTION_WITHOUT_HELMET)) {
-                    player.getInventory().getArmorStack(0).damage(1,player,e -> e.sendEquipmentBreakStatus(EquipmentSlot.FEET));
-                    player.getInventory().getArmorStack(1).damage(1,player,e -> e.sendEquipmentBreakStatus(EquipmentSlot.LEGS));
-                    player.getInventory().getArmorStack(2).damage(1,player,e -> e.sendEquipmentBreakStatus(EquipmentSlot.CHEST));
-                } else if (player.getInventory().getArmorStack(0).isIn(ModTags.Items.RADIATION_PROTECTION) && player.getInventory().getArmorStack(1).isIn(ModTags.Items.RADIATION_PROTECTION) && player.getInventory().getArmorStack(2).isIn(ModTags.Items.RADIATION_PROTECTION) && player.getInventory().getArmorStack(3).isIn(ModTags.Items.RADIATION_PROTECTION)) {
-                    player.getInventory().getArmorStack(0).damage(1,player,e -> e.sendEquipmentBreakStatus(EquipmentSlot.FEET));
-                    player.getInventory().getArmorStack(1).damage(1,player,e -> e.sendEquipmentBreakStatus(EquipmentSlot.LEGS));
-                    player.getInventory().getArmorStack(2).damage(1,player,e -> e.sendEquipmentBreakStatus(EquipmentSlot.CHEST));
-                    player.getInventory().getArmorStack(3).damage(1,player,e -> e.sendEquipmentBreakStatus(EquipmentSlot.HEAD));
-                } else entity.damage(ModDamageTypes.of(entity.getWorld(), ModDamageTypes.RADIATION), 1.0F);
-            } else entity.damage(ModDamageTypes.of(entity.getWorld(), ModDamageTypes.RADIATION), 1.0F);
+            entity.damage(ModDamageTypes.of(entity.getWorld(), ModDamageTypes.RADIATION), 1.0F);
         }
         super.applyUpdateEffect(entity, amplifier);
     }

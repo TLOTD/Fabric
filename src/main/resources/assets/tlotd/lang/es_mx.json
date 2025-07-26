@@ -38,9 +38,13 @@
   "messages.tlotd.radio.frequency.4": "Frecuencia: 99.4 MHz",
 
   "effect.tlotd.drunk": "Borracho",
+  "effect.tlotd.drunk.desc": "Mancha la visión.",
   "effect.tlotd.stoned": "Apedreado",
+  "effect.tlotd.stoned.desc": "Desenfoca ligeramente la visión.",
   "effect.tlotd.irradiated": "§eIrradiado§r",
+  "effect.tlotd.irradiated.desc": "Inflige daño cada segundo que pasas sin el equipo adecuado.",
   "effect.tlotd.hypoxia": "Hipoxia",
+  "effect.tlotd.hypoxia.desc": "Inflige daño cada segundo que pasas sin el equipo adecuado.",
 
   "death.attack.radiation": "%1$s ha muerto de la enfermedad por radiación",
   "death.attack.radiation.player": "%1$s ha muerto por radiación mientras luchaba contra %2$s",

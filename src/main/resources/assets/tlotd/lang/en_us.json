@@ -52,14 +52,21 @@
   "messages.tlotd.radio.frequency.4": "Frequency: 99.4 MHz",
 
   "effect.tlotd.drunk": "Drunk",
+  "effect.tlotd.drunk.desc": "Smears vison.",
   "effect.tlotd.stoned": "Stoned",
+  "effect.tlotd.stoned.desc": "Slightly blurrs vison.",
   "effect.tlotd.irradiated": "§eIrradiated§r",
+  "effect.tlotd.irradiated.desc": "Inflicts damage every second spent without proper gear.",
   "effect.tlotd.hypoxia": "Hypoxia",
+  "effect.tlotd.hypoxia.desc": "Inflicts damage every second spent without proper gear.",
 
   "death.attack.radiation": "%1$s has died from radiation sickness",
   "death.attack.radiation.player": "%1$s has died from radiation sickness whilst fighting %2$s",
   "death.attack.hypoxia": "%1$s has succumbed to hypoxia",
   "death.attack.hypoxia.player": "%1$s has succumbed to hypoxia whilst fighting %2$s",
+
+  "death.attack.bullet": "%1$s was shot",
+  "death.attack.bullet.player": "%1$s was shot by %2$s",
 
   "entity.minecraft.villager.archaeologist": "Archaeologist",
   "entity.minecraft.villager.cultist": "Cultist",
