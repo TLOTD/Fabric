@@ -60,6 +60,9 @@
   "effect.tlotd.hypoxia": "Hypoxia",
   "effect.tlotd.hypoxia.desc": "Inflicts damage every second spent without proper gear.",
 
+  "biome.tlotd.lunar_highlands": "Lunar Highlands",
+  "biome.tlotd.prehistoric_jungle": "Prehistoric Jungle",
+
   "death.attack.radiation": "%1$s has died from radiation sickness",
   "death.attack.radiation.player": "%1$s has died from radiation sickness whilst fighting %2$s",
   "death.attack.hypoxia": "%1$s has succumbed to hypoxia",
@@ -247,10 +250,10 @@
   "item.tlotd.cursed_soul_flask.tooltip": "Evil thenceforth",
   "item.tlotd.cursed_soul_flask.tooltip_2": "became my good",
   "item.tlotd.soul_flask_of_the_abyss": "Soul Flask of the Abyss",
-  "item.tlotd.soul_flask_of_the_abyss.tooltip": "And if you gaze",
-  "item.tlotd.soul_flask_of_the_abyss.tooltip_2": "for long into an",
-  "item.tlotd.soul_flask_of_the_abyss.tooltip_3": "abyss, the abyss",
-  "item.tlotd.soul_flask_of_the_abyss.tooltip_4": "gazes also into you",
+  "item.tlotd.soul_flask_of_the_abyss.tooltip": "And if you gaze long",
+  "item.tlotd.soul_flask_of_the_abyss.tooltip_2": "enough into an abyss,",
+  "item.tlotd.soul_flask_of_the_abyss.tooltip_3": "the abyss will also",
+  "item.tlotd.soul_flask_of_the_abyss.tooltip_4": "gaze back into you.",
 
   "item.tlotd.guidebook": "Guidebook",
   "item.tlotd.guidebook.tooltip": "by %1$s & %2$s",
@@ -854,6 +857,7 @@
   "block.tlotd.red_deepslate_diamond_ore": "Red Deepslate Diamond Ore",
 
   "block.tlotd.red_deepslate_sulfur_ore": "Red Deepslate Sulfur Ore",
+  "block.tlotd.red_deepslate_quartz_ore": "Red Deepslate Quartz Ore",
   "block.tlotd.red_deepslate_lead_ore": "Red Deepslate Lead Ore",
   "block.tlotd.red_deepslate_uranium_ore": "Red Deepslate Uranium Ore",
   "block.tlotd.red_deepslate_heliorite_ore": "Red Deepslate Heliorite Ore",
@@ -862,15 +866,18 @@
   "block.tlotd.red_deepslate_cinnabar_ore": "Red Deepslate Cinnabar Ore",
   "block.tlotd.red_deepslate_nebular_ore": "Red Deepslate Nebular Ore",
 
+  "block.tlotd.red_deepslate_zinc_ore": "Red Deepslate Zinc Ore",
+
   "block.tlotd.prehistoric_debris": "Prehistoric Debris",
 
   "block.tlotd.xen_crystal_cluster": "Xen Cystal Cluster",
   "block.tlotd.xen_crystal_block": "Xen Cystal Block",
 
-  "block.tlotd.moon_rock": "Moon Rock",
-  "block.tlotd.moon_rock_coal_ore": "Moon Rock Coal Ore",
-  "block.tlotd.moon_rock_iron_ore": "Moon Rock Iron Ore",
-  "block.tlotd.moon_rock_lunar_callainus_ore": "Moon Rock Lunar Callainus Ore",
+  "block.tlotd.lunar_regolith": "Lunar Regolith",
+  "block.tlotd.megaregolith": "Megaregolith",
+  "block.tlotd.megaregolith_coal_ore": "Megaregolith Coal Ore",
+  "block.tlotd.megaregolith_iron_ore": "Megaregolith Iron Ore",
+  "block.tlotd.megaregolith_lunar_callainus_ore": "Megaregolith Lunar Callainus Ore",
 
   "block.tlotd.steel_block": "Steel Block",
 

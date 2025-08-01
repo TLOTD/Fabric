@@ -3,20 +3,19 @@ package net.tlotd.entity;
 import net.fabricmc.fabric.api.entity.event.v1.ServerLivingEntityEvents;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.text.Text;
+import net.minecraft.nbt.NbtCompound;
 import net.minecraft.util.math.random.Random;
 import net.tlotd.TLOTD;
 import net.tlotd.util.ModDamageTypes;
 import net.tlotd.util.ModTags;
 
 import java.util.*;
-import java.util.concurrent.ThreadLocalRandom;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class ModArmorProtection {
     public static void registerAllowedDamages() {
-
         final Set<UUID> ignoredDamagePlayers = Collections.newSetFromMap(new WeakHashMap<>());
-
+        AtomicInteger oxygenTick = new AtomicInteger();
         ServerLivingEntityEvents.ALLOW_DAMAGE.register(((livingEntity, damageSource, amount) -> {
             if (!(livingEntity instanceof PlayerEntity player)) return true;
             if (ignoredDamagePlayers.contains(player.getUuid())) return true;
@@ -32,9 +31,6 @@ public class ModArmorProtection {
                         radiationProtection++;
                     }
                 }
-                player.sendMessage(Text.literal("radiationProtectionHelmet: " + radiationProtectionHelmet));
-                player.sendMessage(Text.literal("radiationProtection: " + radiationProtection));
-
                 if ((radiationProtectionHelmet >= 3) || (radiationProtection >= 4)) {
                     int maxSlot;
                     if (radiationProtectionHelmet >= 3) { maxSlot = 3; } else { maxSlot = 4; }
@@ -51,10 +47,27 @@ public class ModArmorProtection {
                     int index = random.nextInt(armorList.size());
                     ItemStack armorPiece = armorList.get(index);
                     armorPiece.damage(1, player, (p) -> {
-                        // Optional: trigger break animation or log info
                     });
                     if (armorPiece.getDamage() >= armorPiece.getMaxDamage()) {
                         player.getInventory().armor.set(slotIndices.get(index), ItemStack.EMPTY);
+                    }
+                    return false;
+                }
+            } else if (damageSource.getType().msgId().contains("hypoxia")) {
+                float hypoxiaProtection = 0f;
+                for (ItemStack armor : player.getArmorItems()) {
+                    if (armor.isIn(ModTags.Items.HYPOXIA_PROTECTION)) {
+                        hypoxiaProtection++;
+                    }
+                }
+                if (hypoxiaProtection >= 4 && player.getInventory().getArmorStack(2).getNbt().getInt("tlotd:oxygen") > 0) {
+                    if (oxygenTick.get() >= 20) {
+                        oxygenTick.set(0);
+                        NbtCompound nbtData = new NbtCompound();
+                        nbtData.putInt("tlotd:oxygen", player.getInventory().getArmorStack(2).getNbt().getInt("tlotd:oxygen")-1);
+                        player.getInventory().getArmorStack(2).setNbt(nbtData);
+                    } else {
+                        oxygenTick.getAndIncrement();
                     }
                     return false;
                 }

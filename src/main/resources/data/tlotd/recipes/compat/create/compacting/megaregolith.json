@@ -1,0 +1,32 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "create"
+      ]
+    }
+  ],
+  "type": "create:compacting",
+  "ingredients": [
+    {
+      "item": "tlotd:lunar_regolith"
+    },
+    {
+      "item": "tlotd:lunar_regolith"
+    },
+    {
+      "item": "tlotd:lunar_regolith"
+    },
+    {
+      "item": "tlotd:lunar_regolith"
+    }
+  ],
+  "results": [
+    {
+      "item": "tlotd:megaregolith",
+      "count": 4
+    }
+  ],
+  "heatRequirement": "heated"
+}

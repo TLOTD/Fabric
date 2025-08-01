@@ -67,6 +67,12 @@ public class ModTags {
         public static final TagKey<Block> OXYGEN_PROVIDERS =
                 createTag("oxygen_providers");
 
+        public static final TagKey<Block> INFINIBURN_PREHISTORIC =
+                createTag("infiniburn_prehistoric");
+
+        public static final TagKey<Block> INFINIBURN_LUNA =
+                createTag("infiniburn_luna");
+
         private static TagKey<Block> createTag(String name) {
             return TagKey.of(RegistryKeys.BLOCK, new Identifier(TLOTD.MOD_ID, name));
         }

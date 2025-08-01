@@ -228,15 +228,20 @@ public class ModBlocks {
     public static final Block RED_DEEPSLATE_DIAMOND_ORE = registerBlock("red_deepslate_diamond_ore",
             new Block(FabricBlockSettings.create().mapColor(MapColor.DIAMOND_BLUE).requiresTool().strength(3.0F, 3.0F).sounds(BlockSoundGroup.DEEPSLATE)));
 
+    public static final Block RED_DEEPSLATE_ZINC_ORE = registerCompatBlock("red_deepslate_zinc_ore",
+            new Block(FabricBlockSettings.create().mapColor(MapColor.LIGHT_GRAY).requiresTool().strength(3.0F, 3.0F).sounds(BlockSoundGroup.DEEPSLATE)),Rarity.COMMON,"cre");
+
     public static final Block PREHISTORIC_DEBRIS = registerBlock("prehistoric_debris",
             new Block(FabricBlockSettings.create().mapColor(MapColor.BROWN).requiresTool().strength(30.0F, 1200.0F).sounds(BlockSoundGroup.DEEPSLATE)));
 
     public static final Block RED_DEEPSLATE_SULFUR_ORE = registerBlock("red_deepslate_sulfur_ore",
             new Block(FabricBlockSettings.create().mapColor(MapColor.PALE_YELLOW).requiresTool().strength(3.0F, 3.0F).sounds(BlockSoundGroup.DEEPSLATE)));
+    public static final Block RED_DEEPSLATE_QUARTZ_ORE = registerBlock("red_deepslate_quartz_ore",
+            new Block(FabricBlockSettings.create().mapColor(MapColor.OFF_WHITE).requiresTool().strength(3.0F, 3.0F).sounds(BlockSoundGroup.DEEPSLATE)));
     public static final Block RED_DEEPSLATE_LEAD_ORE = registerBlock("red_deepslate_lead_ore",
-            new Block(FabricBlockSettings.create().mapColor(MapColor.PALE_YELLOW).requiresTool().strength(3.0F, 3.0F).sounds(BlockSoundGroup.DEEPSLATE)));
+            new Block(FabricBlockSettings.create().mapColor(MapColor.GRAY).requiresTool().strength(3.0F, 3.0F).sounds(BlockSoundGroup.DEEPSLATE)));
     public static final Block RED_DEEPSLATE_URANIUM_ORE = registerIrradiatedBlock("red_deepslate_uranium_ore",
-            new Block(FabricBlockSettings.create().mapColor(MapColor.PALE_YELLOW).requiresTool().strength(3.0F, 3.0F).sounds(BlockSoundGroup.DEEPSLATE)));
+            new Block(FabricBlockSettings.create().mapColor(MapColor.EMERALD_GREEN).requiresTool().strength(3.0F, 3.0F).sounds(BlockSoundGroup.DEEPSLATE)));
     public static final Block RED_DEEPSLATE_HELIORITE_ORE = registerBlock("red_deepslate_heliorite_ore",
             new Block(FabricBlockSettings.create().mapColor(MapColor.MAGENTA).requiresTool().strength(16.0F, 1200.0F).sounds(BlockSoundGroup.DEEPSLATE)));
     public static final Block RED_DEEPSLATE_PALLADIUM_ORE = registerBlock("red_deepslate_palladium_ore",
@@ -252,13 +257,16 @@ public class ModBlocks {
     public static final Block XEN_CRYSTAL_BLOCK = registerRarityBlock("xen_crystal_block",
             new Block(FabricBlockSettings.create().mapColor(MapColor.ORANGE).requiresTool().strength(1.5F, 1.5F).sounds(BlockSoundGroup.AMETHYST_BLOCK)),Rarity.UNCOMMON);
 
-    public static final Block MOON_ROCK = registerBlock("moon_rock",
+    public static final Block LUNAR_REGOLITH = registerBlock("lunar_regolith",
+            new Block(FabricBlockSettings.create().mapColor(MapColor.WHITE).strength(3.0F, 9.0F).sounds(BlockSoundGroup.SAND)));
+
+    public static final Block MEGAREGOLITH = registerBlock("megaregolith",
             new Block(FabricBlockSettings.create().mapColor(MapColor.WHITE).requiresTool().strength(3.0F, 9.0F)));
-    public static final Block MOON_ROCK_COAL_ORE = registerBlock("moon_rock_coal_ore",
+    public static final Block MEGAREGOLITH_COAL_ORE = registerBlock("megaregolith_coal_ore",
             new Block(FabricBlockSettings.create().mapColor(MapColor.WHITE).requiresTool().strength(3.0F, 9.0F)));
-    public static final Block MOON_ROCK_IRON_ORE = registerBlock("moon_rock_iron_ore",
+    public static final Block MEGAREGOLITH_IRON_ORE = registerBlock("megaregolith_iron_ore",
             new Block(FabricBlockSettings.create().mapColor(MapColor.WHITE).requiresTool().strength(3.0F, 9.0F)));
-    public static final Block MOON_ROCK_LUNAR_CALLAINUS_ORE = registerBlock("moon_rock_lunar_callainus_ore",
+    public static final Block MEGAREGOLITH_LUNAR_CALLAINUS_ORE = registerBlock("megaregolith_lunar_callainus_ore",
             new Block(FabricBlockSettings.create().mapColor(MapColor.WHITE).requiresTool().strength(3.0F, 9.0F)));
 
     public static final Block STEEL_BLOCK = registerBlock("steel_block",

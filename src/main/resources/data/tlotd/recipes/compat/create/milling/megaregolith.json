@@ -1,0 +1,22 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "create"
+      ]
+    }
+  ],
+  "type": "create:milling",
+  "ingredients": [
+    {
+      "item": "tlotd:megaregolith"
+    }
+  ],
+  "results": [
+    {
+      "item": "tlotd:lunar_regolith"
+    }
+  ],
+  "processingTime": 250
+}

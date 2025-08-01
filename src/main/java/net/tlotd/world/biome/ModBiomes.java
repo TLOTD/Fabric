@@ -11,9 +11,7 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeEffects;
 import net.minecraft.world.biome.GenerationSettings;
 import net.minecraft.world.biome.SpawnSettings;
-import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.feature.DefaultBiomeFeatures;
-import net.minecraft.world.gen.feature.VegetationPlacedFeatures;
 import net.tlotd.TLOTD;
 import net.tlotd.entity.ModEntities;
 
@@ -21,9 +19,13 @@ public class ModBiomes {
     public static final RegistryKey<Biome> PREHISTORIC_JUNGLE = RegistryKey.of(RegistryKeys.BIOME,
             new Identifier(TLOTD.MOD_ID,"prehistoric_jungle")
             );
+    public static final RegistryKey<Biome> LUNAR_HIGHLANDS = RegistryKey.of(RegistryKeys.BIOME,
+            new Identifier(TLOTD.MOD_ID,"lunar_highlands")
+    );
 
     public static void bootstrap(Registerable<Biome> context) {
         context.register(PREHISTORIC_JUNGLE, prehistoricJungle(context));
+        context.register(LUNAR_HIGHLANDS, lunarHighlands(context));
     }
 
     public static void globalOverworldGeneration(GenerationSettings.LookupBackedBuilder builder) {
@@ -72,6 +74,34 @@ public class ModBiomes {
                         .foliageColor(0x558A2B)
                         .fogColor(0xCCCCFF)
                         .skyColor(0xCCCCFF)
+                        .moodSound(BiomeMoodSound.CAVE)
+                        .music(MusicType.GAME)
+                        .build()
+                ).build();
+    }
+
+    public static Biome lunarHighlands(Registerable<Biome> context) {
+
+        SpawnSettings.Builder spawnBuilder = new SpawnSettings.Builder();
+
+        GenerationSettings.LookupBackedBuilder biomeBuilder = new GenerationSettings.LookupBackedBuilder(context.getRegistryLookup(RegistryKeys.PLACED_FEATURE), context.getRegistryLookup(RegistryKeys.CONFIGURED_CARVER));
+
+        DefaultBiomeFeatures.addLandCarvers(biomeBuilder);
+        DefaultBiomeFeatures.addMineables(biomeBuilder);
+
+        return new Biome.Builder()
+                .precipitation(false)
+                .downfall(0.0f)
+                .temperature(-1.0f)
+                .generationSettings(biomeBuilder.build())
+                .spawnSettings(spawnBuilder.build())
+                .effects((new BiomeEffects.Builder())
+                        .waterColor(0x526675)
+                        .waterFogColor(0x526675)
+                        .grassColor(0x577552)
+                        .foliageColor(0x577552)
+                        .fogColor(0x000000)
+                        .skyColor(0x000000)
                         .moodSound(BiomeMoodSound.CAVE)
                         .music(MusicType.GAME)
                         .build()

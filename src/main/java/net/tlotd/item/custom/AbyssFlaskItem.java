@@ -74,7 +74,7 @@ public class AbyssFlaskItem extends Item {
             tooltip.add(Text.literal("Und wenn du lange in").setStyle(style.withFont(ILLAGER_FONT_ID)).formatted(Formatting.GRAY));
             tooltip.add(Text.literal("einen Abgrund blickst").setStyle(style.withFont(ILLAGER_FONT_ID)).formatted(Formatting.GRAY).append(Text.literal(",").setStyle(style.withFont(DEFAULT_FONT_ID)).formatted(Formatting.GRAY)));
             tooltip.add(Text.literal("blickt der Abgrund").setStyle(style.withFont(ILLAGER_FONT_ID)).formatted(Formatting.GRAY));
-            tooltip.add(Text.literal("auch in dich hinein").setStyle(style.withFont(ILLAGER_FONT_ID)).formatted(Formatting.GRAY));
+            tooltip.add(Text.literal("auch in dich hinein").setStyle(style.withFont(ILLAGER_FONT_ID)).formatted(Formatting.GRAY).append(Text.literal(",").setStyle(style.withFont(DEFAULT_FONT_ID)).formatted(Formatting.GRAY)));
         }
         super.appendTooltip(stack, world, tooltip, context);
     }

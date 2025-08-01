@@ -111,14 +111,6 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
 
         addDrop(ModBlocks.REINFORCED_RED_DEEPSLATE);
 
-        addDrop(ModBlocks.RED_DEEPSLATE_IRON_ORE, drops(ModBlocks.RED_DEEPSLATE_IRON_ORE, Items.RAW_IRON));
-        addDrop(ModBlocks.RED_DEEPSLATE_COPPER_ORE, drops(ModBlocks.RED_DEEPSLATE_COPPER_ORE, Items.RAW_COPPER));
-        addDrop(ModBlocks.RED_DEEPSLATE_GOLD_ORE, drops(ModBlocks.RED_DEEPSLATE_GOLD_ORE, Items.RAW_GOLD));
-        addDrop(ModBlocks.RED_DEEPSLATE_REDSTONE_ORE, drops(ModBlocks.RED_DEEPSLATE_REDSTONE_ORE, Items.REDSTONE));
-        addDrop(ModBlocks.RED_DEEPSLATE_EMERALD_ORE, drops(ModBlocks.RED_DEEPSLATE_EMERALD_ORE, Items.EMERALD));
-        addDrop(ModBlocks.RED_DEEPSLATE_LAPIS_ORE, drops(ModBlocks.RED_DEEPSLATE_LAPIS_ORE, Items.LAPIS_LAZULI));
-        addDrop(ModBlocks.RED_DEEPSLATE_DIAMOND_ORE, drops(ModBlocks.RED_DEEPSLATE_DIAMOND_ORE, Items.DIAMOND));
-
         addDrop(ModBlocks.RED_DEEPSLATE_SULFUR_ORE, drops(ModBlocks.RED_DEEPSLATE_SULFUR_ORE, ModItems.SULFUR));
         addDrop(ModBlocks.RED_DEEPSLATE_LEAD_ORE, drops(ModBlocks.RED_DEEPSLATE_LEAD_ORE, ModItems.RAW_LEAD));
         addDrop(ModBlocks.RED_DEEPSLATE_URANIUM_ORE, drops(ModBlocks.RED_DEEPSLATE_URANIUM_ORE, ModItems.URANIUM));
@@ -133,10 +125,11 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.XEN_CRYSTAL_CLUSTER, drops(ModBlocks.XEN_CRYSTAL_CLUSTER, ModItems.XEN_CRYSTAL));
         addDrop(ModBlocks.XEN_CRYSTAL_BLOCK);
 
-        addDrop(ModBlocks.MOON_ROCK);
-        addDrop(ModBlocks.MOON_ROCK_COAL_ORE, drops(ModBlocks.MOON_ROCK_COAL_ORE, Items.COAL));
-        addDrop(ModBlocks.MOON_ROCK_IRON_ORE, drops(ModBlocks.MOON_ROCK_IRON_ORE, Items.RAW_IRON));
-        addDrop(ModBlocks.MOON_ROCK_LUNAR_CALLAINUS_ORE, drops(ModBlocks.MOON_ROCK_LUNAR_CALLAINUS_ORE, ModItems.LUNAR_CALLAINUS_LUMP));
+        addDrop(ModBlocks.LUNAR_REGOLITH);
+        addDrop(ModBlocks.MEGAREGOLITH);
+        addDrop(ModBlocks.MEGAREGOLITH_COAL_ORE, drops(ModBlocks.MEGAREGOLITH_COAL_ORE, Items.COAL));
+        addDrop(ModBlocks.MEGAREGOLITH_IRON_ORE, drops(ModBlocks.MEGAREGOLITH_IRON_ORE, Items.RAW_IRON));
+        addDrop(ModBlocks.MEGAREGOLITH_LUNAR_CALLAINUS_ORE, drops(ModBlocks.MEGAREGOLITH_LUNAR_CALLAINUS_ORE, ModItems.LUNAR_CALLAINUS_LUMP));
 
         addDrop(ModBlocks.STEEL_BLOCK);
 

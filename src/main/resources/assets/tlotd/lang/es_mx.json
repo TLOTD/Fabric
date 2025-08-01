@@ -46,6 +46,9 @@
   "effect.tlotd.hypoxia": "Hipoxia",
   "effect.tlotd.hypoxia.desc": "Inflige daño cada segundo que pasas sin el equipo adecuado.",
 
+  "biome.tlotd.lunar_highlands": "Tierras Altas Lunares",
+  "biome.tlotd.prehistoric_jungle": "Selva prehistórica",
+
   "death.attack.radiation": "%1$s ha muerto de la enfermedad por radiación",
   "death.attack.radiation.player": "%1$s ha muerto por radiación mientras luchaba contra %2$s",
   "death.attack.hypoxia": "%1$s ha sucumbido a la hipoxia",
@@ -822,6 +825,7 @@
   "block.tlotd.red_deepslate_diamond_ore": "Mineral de diamante de pizarra profunda roja",
 
   "block.tlotd.red_deepslate_sulfur_ore": "Mineral de azufre de pizarra profunda roja",
+  "block.tlotd.red_deepslate_quartz_ore": "Mineral de cuarzo de pizarra profunda roja",
   "block.tlotd.red_deepslate_lead_ore": "Mineral de plomo de pizarra profunda roja",
   "block.tlotd.red_deepslate_uranium_ore": "Mineral de uranio de pizarra profunda roja",
   "block.tlotd.red_deepslate_heliorite_ore": "Mineral de heliorita de pizarra profunda roja",
@@ -830,15 +834,18 @@
   "block.tlotd.red_deepslate_cinnabar_ore": "Mineral de cinabrio de pizarra profunda roja",
   "block.tlotd.red_deepslate_nebular_ore": "Mineral de nebular de pizarra profunda roja",
 
+  "block.tlotd.red_deepslate_zinc_ore": "Mineral de cinc de pizarra profunda roja",
+
   "block.tlotd.prehistoric_debris": "Escombros prehistóricos",
 
   "block.tlotd.xen_crystal_cluster": "Racimo de xen cystal",
   "block.tlotd.xen_crystal_block": "Bloqueo de xen cystal",
 
-  "block.tlotd.moon_rock": "Roca lunar",
-  "block.tlotd.moon_rock_coal_ore": "Roca lunar mineral de carbón",
-  "block.tlotd.moon_rock_iron_ore": "Roca lunar mineral de hierro",
-  "block.tlotd.moon_rock_lunar_callainus_ore": "Roca lunar mineral de lunar callainus",
+  "block.tlotd.lunar_regolith": "Regolito lunar",
+  "block.tlotd.megaregolith": "Megaregolito",
+  "block.tlotd.megaregolith_coal_ore": "Megaregolito mineral de carbón",
+  "block.tlotd.megaregolith_iron_ore": "Megaregolito mineral de hierro",
+  "block.tlotd.megaregolith_lunar_callainus_ore": "Megaregolito mineral de lunar callainus",
 
   "block.tlotd.steel_block": "Bloque de acero",
 

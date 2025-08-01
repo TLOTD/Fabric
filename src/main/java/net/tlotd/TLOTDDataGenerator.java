@@ -32,6 +32,7 @@ public class TLOTDDataGenerator implements DataGeneratorEntrypoint {
 		registryBuilder.addRegistry(RegistryKeys.PLACED_FEATURE, ModPlacedFeatures::bootstrap);
 		registryBuilder.addRegistry(RegistryKeys.BIOME, ModBiomes::bootstrap);
 		registryBuilder.addRegistry(RegistryKeys.DIMENSION_TYPE, ModDimensions::bootstrapType);
+		registryBuilder.addRegistry(RegistryKeys.DIMENSION, ModDimensions::bootstrapDimension);
 		registryBuilder.addRegistry(RegistryKeys.TRIM_MATERIAL, ModTrimMaterials::bootstrap);
 	}
 }

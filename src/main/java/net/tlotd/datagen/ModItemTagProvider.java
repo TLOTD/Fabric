@@ -2,6 +2,7 @@ package net.tlotd.datagen;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
+import net.minecraft.block.Blocks;
 import net.minecraft.item.Items;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.RegistryWrapper;
@@ -304,6 +305,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModBlocks.LIMESTONE.asItem())
                 .add(ModBlocks.RED_DEEPSLATE.asItem())
                 .add(ModBlocks.COBBLED_RED_DEEPSLATE.asItem())
+                .add(ModBlocks.MEGAREGOLITH.asItem())
         ;
 
         getOrCreateTagBuilder(ItemTags.STONE_TOOL_MATERIALS)
@@ -311,6 +313,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModBlocks.LIMESTONE.asItem())
                 .add(ModBlocks.RED_DEEPSLATE.asItem())
                 .add(ModBlocks.COBBLED_RED_DEEPSLATE.asItem())
+                .add(ModBlocks.MEGAREGOLITH.asItem())
         ;
 
         getOrCreateTagBuilder(ItemTags.BEACON_PAYMENT_ITEMS)
@@ -339,6 +342,14 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
 
         getOrCreateTagBuilder(ItemTags.FOX_FOOD)
                 .add(ModItems.STRAWBERRY)
+        ;
+
+        getOrCreateTagBuilder(ItemTags.SAND)
+                .add(ModBlocks.LUNAR_REGOLITH.asItem())
+        ;
+
+        getOrCreateTagBuilder(ItemTags.SMELTS_TO_GLASS)
+                .add(ModBlocks.LUNAR_REGOLITH.asItem())
         ;
 
         getOrCreateTagBuilder(ItemTags.SMALL_FLOWERS)
@@ -680,8 +691,13 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModBlocks.NETHER_SULFUR_ORE.asItem())
         ;
 
+        getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "quartz_ores")))
+                .add(ModBlocks.RED_DEEPSLATE_QUARTZ_ORE.asItem())
+                .add(Blocks.NETHER_QUARTZ_ORE.asItem())
+        ;
+
         getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "coal_ores")))
-                .add(ModBlocks.MOON_ROCK_COAL_ORE.asItem())
+                .add(ModBlocks.MEGAREGOLITH_COAL_ORE.asItem())
         ;
 
         getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "copper_ores")))
@@ -690,7 +706,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
 
         getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "iron_ores")))
                 .add(ModBlocks.RED_DEEPSLATE_IRON_ORE.asItem())
-                .add(ModBlocks.MOON_ROCK_IRON_ORE.asItem())
+                .add(ModBlocks.MEGAREGOLITH_IRON_ORE.asItem())
         ;
 
         getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "gold_ores")))
@@ -726,6 +742,10 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
         getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "cinnabar_ores")))
                 .add(ModBlocks.DEEPSLATE_CINNABAR_ORE.asItem())
                 .add(ModBlocks.RED_DEEPSLATE_CINNABAR_ORE.asItem())
+        ;
+
+        getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "zinc_ores")))
+                .add(ModBlocks.RED_DEEPSLATE_ZINC_ORE.asItem())
         ;
 
         getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "copper_nuggets")))

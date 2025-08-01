@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/cube_all",
-  "textures": {
-    "all": "tlotd:block/moon_rock_lunar_callainus_ore"
-  }
-}

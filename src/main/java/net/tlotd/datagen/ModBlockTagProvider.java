@@ -181,6 +181,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.RED_DEEPSLATE_DIAMOND_ORE)
 
                 .add(ModBlocks.RED_DEEPSLATE_SULFUR_ORE)
+                .add(ModBlocks.RED_DEEPSLATE_QUARTZ_ORE)
                 .add(ModBlocks.RED_DEEPSLATE_LEAD_ORE)
                 .add(ModBlocks.RED_DEEPSLATE_URANIUM_ORE)
                 .add(ModBlocks.RED_DEEPSLATE_HELIORITE_ORE)
@@ -188,6 +189,8 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.RED_DEEPSLATE_JURASSOLINE_ORE)
                 .add(ModBlocks.RED_DEEPSLATE_CINNABAR_ORE)
                 .add(ModBlocks.RED_DEEPSLATE_NEBULAR_ORE)
+
+                .add(ModBlocks.RED_DEEPSLATE_ZINC_ORE)
         ;
         getOrCreateTagBuilder(ModTags.Blocks.BEDROCK_EXTRACTABLE_BLOCKS)
                 .add(ModBlocks.BEDROCK_MITHRIL_ORE)
@@ -214,9 +217,9 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .addOptional(Identifier.tryParse("terramity:end_onyx_ore"))
         ;
         getOrCreateTagBuilder(ModTags.Blocks.MOON_ROCK_EXTRACTABLE_BLOCKS)
-                .add(ModBlocks.MOON_ROCK_COAL_ORE)
-                .add(ModBlocks.MOON_ROCK_IRON_ORE)
-                .add(ModBlocks.MOON_ROCK_LUNAR_CALLAINUS_ORE)
+                .add(ModBlocks.MEGAREGOLITH_COAL_ORE)
+                .add(ModBlocks.MEGAREGOLITH_IRON_ORE)
+                .add(ModBlocks.MEGAREGOLITH_LUNAR_CALLAINUS_ORE)
         ;
         getOrCreateTagBuilder(ModTags.Blocks.NETHERRACK_EXTRACTABLE_BLOCKS)
                 .add(ModBlocks.NETHER_SULFUR_ORE)
@@ -507,6 +510,8 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         ;
 
         getOrCreateTagBuilder(BlockTags.SHOVEL_MINEABLE)
+                .add(ModBlocks.LUNAR_REGOLITH)
+
                 .add(ModBlocks.RICH_GRASS_BLOCK)
                 .add(ModBlocks.RICH_DIRT)
                 .add(ModBlocks.RICH_DIRT_PATH)
@@ -641,6 +646,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.RED_DEEPSLATE_DIAMOND_ORE)
 
                 .add(ModBlocks.RED_DEEPSLATE_SULFUR_ORE)
+                .add(ModBlocks.RED_DEEPSLATE_QUARTZ_ORE)
                 .add(ModBlocks.RED_DEEPSLATE_LEAD_ORE)
                 .add(ModBlocks.RED_DEEPSLATE_URANIUM_ORE)
                 .add(ModBlocks.RED_DEEPSLATE_HELIORITE_ORE)
@@ -649,13 +655,15 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.RED_DEEPSLATE_CINNABAR_ORE)
                 .add(ModBlocks.RED_DEEPSLATE_NEBULAR_ORE)
 
+                .add(ModBlocks.RED_DEEPSLATE_ZINC_ORE)
+
                 .add(ModBlocks.XEN_CRYSTAL_CLUSTER)
                 .add(ModBlocks.XEN_CRYSTAL_BLOCK)
 
-                .add(ModBlocks.MOON_ROCK)
-                .add(ModBlocks.MOON_ROCK_COAL_ORE)
-                .add(ModBlocks.MOON_ROCK_IRON_ORE)
-                .add(ModBlocks.MOON_ROCK_LUNAR_CALLAINUS_ORE)
+                .add(ModBlocks.MEGAREGOLITH)
+                .add(ModBlocks.MEGAREGOLITH_COAL_ORE)
+                .add(ModBlocks.MEGAREGOLITH_IRON_ORE)
+                .add(ModBlocks.MEGAREGOLITH_LUNAR_CALLAINUS_ORE)
 
                 .add(ModBlocks.STEEL_BLOCK)
 
@@ -739,6 +747,10 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
         getOrCreateTagBuilder(BlockTags.WOODEN_BUTTONS)
                 .add(ModBlocks.GINKGO_BUTTON)
+        ;
+
+        getOrCreateTagBuilder(BlockTags.SAND)
+                .add(ModBlocks.LUNAR_REGOLITH)
         ;
 
         getOrCreateTagBuilder(BlockTags.SMALL_FLOWERS)
@@ -835,7 +847,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.RAW_LEAD_BLOCK)
                 .add(ModBlocks.LEAD_BLOCK)
 
-                .add(ModBlocks.MOON_ROCK_IRON_ORE)
+                .add(ModBlocks.MEGAREGOLITH_IRON_ORE)
 
                 .add(ModBlocks.RED_DEEPSLATE_LEAD_ORE)
                 .add(ModBlocks.RED_DEEPSLATE_IRON_ORE)
@@ -856,6 +868,8 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.RED_DEEPSLATE_REDSTONE_ORE)
                 .add(ModBlocks.RED_DEEPSLATE_EMERALD_ORE)
                 .add(ModBlocks.RED_DEEPSLATE_DIAMOND_ORE)
+
+                .add(ModBlocks.RED_DEEPSLATE_ZINC_ORE)
         ;
 
         getOrCreateTagBuilder(BlockTags.NEEDS_DIAMOND_TOOL)
@@ -943,7 +957,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         ;
 
         getOrCreateTagBuilder(TagKey.of(RegistryKeys.BLOCK, new Identifier("fabric", "needs_tool_level_8")))
-                .add(ModBlocks.MOON_ROCK_LUNAR_CALLAINUS_ORE)
+                .add(ModBlocks.MEGAREGOLITH_LUNAR_CALLAINUS_ORE)
                 .add(ModBlocks.TELEPORTER)
                 .add(ModBlocks.ALIEN_CONTROL_PANEL)
         ;
@@ -964,6 +978,13 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         getOrCreateTagBuilder(ModTags.Blocks.TELEVISIONS)
                 .add(ModBlocks.TELEVISION)
                 .add(ModBlocks.TELEVISION_ON)
+        ;
+
+        getOrCreateTagBuilder(ModTags.Blocks.INFINIBURN_PREHISTORIC)
+                .addOptionalTag(Identifier.tryParse("minecraft:infiniburn_overworld"))
+        ;
+
+        getOrCreateTagBuilder(ModTags.Blocks.INFINIBURN_LUNA)
         ;
     }
 }

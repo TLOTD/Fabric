@@ -1538,6 +1538,13 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(ModBlocks.FANCY_CHARRED_PLANKS), conditionsFromItem(ModBlocks.FANCY_CHARRED_PLANKS))
                 .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.FANCY_CHARRED_TRAPDOOR)));
 
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModBlocks.MEGAREGOLITH, 4)
+                .pattern("##")
+                .pattern("##")
+                .input('#', ModBlocks.LUNAR_REGOLITH)
+                .criterion(hasItem(ModBlocks.LUNAR_REGOLITH), conditionsFromItem(ModBlocks.LUNAR_REGOLITH))
+                .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.MEGAREGOLITH)));
+
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModFluids.CHEMICAL_WASTE_BUCKET)
                 .input(Items.LAVA_BUCKET)
                 .input(ModItems.URANIUM)

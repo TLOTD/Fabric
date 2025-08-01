@@ -1,8 +1,8 @@
 {
   "replace": false,
   "values": [
-    "tlotd:moon_rock_coal_ore",
-    "tlotd:moon_rock_iron_ore",
-    "tlotd:moon_rock_lunar_callainus_ore"
+    "tlotd:megaregolith_coal_ore",
+    "tlotd:megaregolith_iron_ore",
+    "tlotd:megaregolith_lunar_callainus_ore"
   ]
 }

@@ -46,6 +46,9 @@
   "effect.tlotd.hypoxia": "Hypoxia",
   "effect.tlotd.hypoxia.desc": "Verursacht Schadn für jede Sekund, die ohne geeignete Ausrischtung vrbracht wird.",
 
+  "biome.tlotd.lunar_highlands": "Mondhochland",
+  "biome.tlotd.prehistoric_jungle": "Prähistorischer Dschungel",
+
   "death.attack.radiation": "%1$s isch an Schtrahlekrankheit verschtorben",
   "death.attack.radiation.player": "%1$s isch im Kampf mit %2$s an Schtrahlekrankheit verschtorben",
   "death.attack.hypoxia": "%1$s isch erschtickt",
@@ -828,6 +831,7 @@
   "block.tlotd.red_deepslate_diamond_ore": "Rods-Tiefnschiefr-Diamanderz",
 
   "block.tlotd.red_deepslate_sulfur_ore": "Rods-Tiefnschiefr-Schweflerz",
+  "block.tlotd.red_deepslate_quartz_ore": "Rods-Tiefnschiefr-Quartzerz",
   "block.tlotd.red_deepslate_lead_ore": "Rods-Tiefnschiefr-Bleierz",
   "block.tlotd.red_deepslate_uranium_ore": "Rods-Tiefnschiefr-Uranerz",
   "block.tlotd.red_deepslate_heliorite_ore": "Rods-Tiefnschiefr-Helioriterz",
@@ -836,16 +840,18 @@
   "block.tlotd.red_deepslate_cinnabar_ore": "Rods-Tiefnschiefr-Zinnobrerz",
   "block.tlotd.red_deepslate_nebular_ore": "Rods-Tiefnschiefr-Nebularerz",
 
+  "block.tlotd.red_deepslate_zinc_ore": "Rods-Tiefnschiefr-Zinkerz",
 
   "block.tlotd.prehistoric_debris": "Prähischtorischer Schrott",
 
   "block.tlotd.xen_crystal_cluster": "Xen-Krischtallhaufn",
   "block.tlotd.xen_crystal_block": "Xen-Krischtallblogg",
 
-  "block.tlotd.moon_rock": "Mondschtoi",
-  "block.tlotd.moon_rock_coal_ore": "Mondschtoi-Schtoikohle",
-  "block.tlotd.moon_rock_iron_ore": "Mondschtoi-Eiseerz",
-  "block.tlotd.moon_rock_lunar_callainus_ore": "Mondschtoi-Lunar-Callainus-Erz",
+  "block.tlotd.lunar_regolith": "Mondregolith",
+  "block.tlotd.megaregolith": "Megaregolith",
+  "block.tlotd.megaregolith_coal_ore": "Megaregolith-Schtoikohle",
+  "block.tlotd.megaregolith_iron_ore": "Megaregolith-Eiseerz",
+  "block.tlotd.megaregolith_lunar_callainus_ore": "Megaregolith-Lunar-Callainus-Erz",
 
   "block.tlotd.steel_block": "Stahlblogg",
 

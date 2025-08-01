@@ -1,13 +1,14 @@
-// 1.20.1	2025-07-26T16:18:28.2389747	TLOTD/Tags for minecraft:block
+// 1.20.1	2025-08-01T14:33:56.7878566	TLOTD/Tags for minecraft:block
 73eb76ab8f187096a778402fbd37fcfc3e2c3523 data\fabric\tags\blocks\needs_tool_level_5.json
 1aa38db4e6420b76b410075b910e734a02000e8c data\minecraft\tags\blocks\small_flowers.json
 67e04e0d4704f5e9971818062bd3123e46d48ce7 data\tlotd\tags\blocks\diorite_extractable_blocks.json
 076ec86ea3f06812a5ed182906e44ee328dcf9fb data\c\tags\blocks\golem_heads.json
 47f1ca42b48eb001fcac151680ef3f26f4f50165 data\minecraft\tags\blocks\beacon_base_blocks.json
+ed07fcfa1a1eb7e9b5b7f186607cf9f64560c295 data\tlotd\tags\blocks\infiniburn_prehistoric.json
 7f45af297f311e3d3a29444bab65230544d1999e data\minecraft\tags\blocks\wooden_doors.json
 ae2abce07d3ae2cdcb41ffd54000d69069314a98 data\tlotd\tags\blocks\elevator_controllers.json
-359b4819ecfd0922e470d0040028f07eadf54608 data\tlotd\tags\blocks\red_deepslate_extractable_blocks.json
 2419a22637da729a1045c0e846fac403bec01893 data\minecraft\tags\blocks\wall_signs.json
+84af087e74d4287532bb54ab8d6cf7187e1f05c9 data\tlotd\tags\blocks\red_deepslate_extractable_blocks.json
 642e20aa0e994b597bffb04549842b678cf4d28c data\tlotd\tags\blocks\televisions.json
 702fb1619f82d3eff0c2a5219618ee34bfd0dbd1 data\minecraft\tags\blocks\sword_efficient.json
 e3a258d8cfa0abf6dc3b5f89c1fe5e670d9d3161 data\minecraft\tags\blocks\buttons.json
@@ -20,8 +21,9 @@ e3a258d8cfa0abf6dc3b5f89c1fe5e670d9d3161 data\minecraft\tags\blocks\wooden_butto
 60319a4b31fcdc216dafe9d29948432b6d43e175 data\minecraft\tags\blocks\wall_hanging_signs.json
 144c4aa4f6cac081e5d2f903fc4be47654269e77 data\minecraft\tags\blocks\planks.json
 1199e945a26f9fe928bed6eae27ee7d8381ae8f9 data\tlotd\tags\blocks\witching_table_base_blocks.json
-ec9e8110a30cd07e5283a34474ccaa1cbadeb42f data\tlotd\tags\blocks\deepslate_extractable_blocks.json
+41ac327f4e579d972f4f5b39ba398af9bc419e0f data\minecraft\tags\blocks\sand.json
 b54c7299ccbfa5f037aab3df96f649b5289c94b9 data\minecraft\tags\blocks\cauldrons.json
+ec9e8110a30cd07e5283a34474ccaa1cbadeb42f data\tlotd\tags\blocks\deepslate_extractable_blocks.json
 a00e8ec79e39c7cbd435e1f0b93ac69246d42215 data\tlotd\tags\blocks\andesite_extractable_blocks.json
 0051a007797be3ff5b67f6af76d59f2c9e6d24b1 data\fabric\tags\blocks\needs_tool_level_4.json
 35033eb08240496dac17b5af3c901973a8fae682 data\tlotd\tags\blocks\elevator_bases.json
@@ -32,7 +34,7 @@ b6e251f5173e5af85b79de844d6dcb6a29519362 data\tlotd\tags\blocks\stone_extractabl
 590ab00b736c4770f91ba4318a28053aa4a503f4 data\minecraft\tags\blocks\standing_signs.json
 54524d1224bd65277d65e368bb2105bcd79ffa9e data\tlotd\tags\blocks\end_stone_extractable_blocks.json
 70f38cf9fa625ebd712738b3b148ca25c54e444f data\minecraft\tags\blocks\dirt.json
-b1015abe4b39dfac7966bc16cd898174da2efed5 data\tlotd\tags\blocks\moon_rock_extractable_blocks.json
+b2de9c8c49197eb34ebc7652a91704bfbe605707 data\tlotd\tags\blocks\moon_rock_extractable_blocks.json
 08c68720aa5ba245f5ed77d9dbc48327c7799a2a data\minecraft\tags\blocks\frogs_spawnable_on.json
 f3052ed19ca76c99dfed2e9e11e0bb89ea8dcc36 data\minecraft\tags\blocks\vibration_resonators.json
 4b14d79ba33277152e128b0f18d47ce8f617a7fc data\c\tags\blocks\bookshelves.json
@@ -52,10 +54,10 @@ ea4d85f448c5b57c4bc9bfb5a4476b51ced1e14d data\minecraft\tags\blocks\wooden_slabs
 d83ea608f3c35a191587a9e0f689aeede61c4505 data\tlotd\tags\blocks\blackstone_extractable_blocks.json
 08c68720aa5ba245f5ed77d9dbc48327c7799a2a data\minecraft\tags\blocks\foxes_spawnable_on.json
 ebe3a4946b1f50b14569dabed5c867de081813c8 data\minecraft\tags\blocks\dragon_immune.json
-f2ceec0defcfe7cdacebf81d5607f55a134fac72 data\fabric\tags\blocks\needs_tool_level_8.json
+1d9e74babefc1d7a27ad4f866122fab7bcd85be9 data\fabric\tags\blocks\needs_tool_level_8.json
 363454af66ab7ef45fe440676e94c86f13ce1df2 data\minecraft\tags\blocks\wooden_pressure_plates.json
 55ac21b38bfd92763d48816e8cb78096c1634bf0 data\minecraft\tags\blocks\saplings.json
-bb79f42690865240990333ce9cbb858cb8551251 data\minecraft\tags\blocks\mineable\shovel.json
+b1a8bcf953a008a3ab27f72bc8ff5f35df2e5cfc data\minecraft\tags\blocks\mineable\shovel.json
 8950760e029178ae68cd47eb14887d49d53a34e5 data\minecraft\tags\blocks\stone_pressure_plates.json
 bc6488b5942edf10dc34397a8477561f5f146ff2 data\minecraft\tags\blocks\campfires.json
 1ef6c3cc57007275c6583f8d5d91c039a52a2039 data\minecraft\tags\blocks\wool_carpets.json
@@ -66,9 +68,9 @@ dfdd5b189005a0266bdfb0b2e32e57b6540d5eff data\fabric\tags\blocks\needs_tool_leve
 4b14d79ba33277152e128b0f18d47ce8f617a7fc data\minecraft\tags\blocks\enchantment_power_provider.json
 1f972557027c192545de82f55f8604fc16a7d79f data\tlotd\tags\blocks\granite_extractable_blocks.json
 08c68720aa5ba245f5ed77d9dbc48327c7799a2a data\minecraft\tags\blocks\parrots_spawnable_on.json
-1eda8ab4cd49b3834467c66ad6569cf9d3bd5b16 data\minecraft\tags\blocks\needs_iron_tool.json
+0f83cd946c322dc87585104d39dd433da2a65bd5 data\minecraft\tags\blocks\needs_iron_tool.json
 8f73258fcc8737ce877a5f2d75a059c439d47c57 data\tlotd\tags\blocks\calcite_extractable_blocks.json
-f0a3a3a15ad11ee1237dd0ef78675cf95257c6ed data\minecraft\tags\blocks\needs_stone_tool.json
+970f425b06598769fba1125c7b5005bbd888056a data\minecraft\tags\blocks\needs_stone_tool.json
 d78d455730d2536f5a703ad961bd2ba1829760e2 data\minecraft\tags\blocks\flower_pots.json
 5e6c902616a8b7dc79db61e2d1c6b5ba49a7aed9 data\minecraft\tags\blocks\stone_buttons.json
 08c68720aa5ba245f5ed77d9dbc48327c7799a2a data\minecraft\tags\blocks\rabbits_spawnable_on.json
@@ -80,6 +82,7 @@ a77b87d2b15b12ff7ec5aa92311162deded0ac31 data\tlotd\tags\blocks\bedrock_extracta
 08c68720aa5ba245f5ed77d9dbc48327c7799a2a data\minecraft\tags\blocks\goats_spawnable_on.json
 d71f2c72ecf35514cd19cb806618ef81556b2fce data\minecraft\tags\blocks\maintains_farmland.json
 37b3cc2b0fe130928775117d920c5605d8e6191f data\minecraft\tags\blocks\mineable\hoe.json
+8a23702b05296c8af5014d6aa6e9265ded85c7d9 data\tlotd\tags\blocks\infiniburn_luna.json
 08c68720aa5ba245f5ed77d9dbc48327c7799a2a data\minecraft\tags\blocks\valid_spawn.json
 d0725d2c55ca425f191cb39df08a52e345ed48dc data\fabric\tags\blocks\needs_tool_level_6.json
-443bb38073a88d1c804dbab11f596c09addf0e07 data\minecraft\tags\blocks\mineable\pickaxe.json
+ecd3c37db0ca5530779970d5331f69e4a1e438f2 data\minecraft\tags\blocks\mineable\pickaxe.json

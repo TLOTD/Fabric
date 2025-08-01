@@ -7,6 +7,7 @@ public class ModConfigs {
     public static SimpleConfig CONFIG;
     private static ModConfigProvider configs;
 
+    public static String CONFIG_VERSION;
     public static boolean EXTRACTION_ORE_EXPERIMENTAL_COMPAT;
     public static boolean AXE_STRIPPING_DROPS_BARK;
     public static int ELEVATOR_MAX_DISTANCE;
@@ -14,6 +15,13 @@ public class ModConfigs {
     public static boolean WITCHING_TABLE_NEEDS_BLOOD;
     public static boolean WITCHING_TABLE_NEEDS_SOULS;
     public static boolean ALL_SIGNALS_UNLOCKED;
+    public static int TERRA_WARP_HEIGHT_THRESHOLD;
+    public static int LUNAR_WARP_HEIGHT_THRESHOLD;
+    public static int TERRA_WARP_DESTINATION_HEIGHT;
+    public static int LUNAR_WARP_DESTINATION_HEIGHT;
+    public static int TERRA_FALL_DISTANCE_RESISTANCE;
+    public static int LUNAR_SEED;
+    public static int PREHISTORIC_SEED;
     public static boolean FORMER_TLOTD_REWARDS;
 
     public static void registerConfigs() {
@@ -26,17 +34,26 @@ public class ModConfigs {
     }
 
     private static void createConfigs() {
-        configs.addKeyValuePair(new Pair<>("extractionOreExperimentalCompat", true), "boolean");
-        configs.addKeyValuePair(new Pair<>("axeStrippingDropsBark", true), "boolean");
-        configs.addKeyValuePair(new Pair<>("elevatorMaxDistance", 100), "int");
-        configs.addKeyValuePair(new Pair<>("mithrilAnvilNeedsDirectMoonlight", true), "boolean");
-        configs.addKeyValuePair(new Pair<>("witchingTableNeedsBlood", true), "boolean");
-        configs.addKeyValuePair(new Pair<>("witchingTableNeedsSouls", true), "boolean");
-        configs.addKeyValuePair(new Pair<>("allSignalsUnlocked", false), "boolean");
-        configs.addKeyValuePair(new Pair<>("formerTlotdRewards", false), "boolean");
+        configs.addKeyValuePair(new Pair<>("configVersion", "0.3.8"), "String [0.3.8] | shows version the config was made in");
+        configs.addKeyValuePair(new Pair<>("extractionOreExperimentalCompat", true), "boolean [true] | looks for the names of any stone variant in any block containing ore");
+        configs.addKeyValuePair(new Pair<>("axeStrippingDropsBark", true), "boolean [true]");
+        configs.addKeyValuePair(new Pair<>("elevatorMaxDistance", 100), "int [100] | max difference between y-levels");
+        configs.addKeyValuePair(new Pair<>("mithrilAnvilNeedsDirectMoonlight", true), "boolean [true]");
+        configs.addKeyValuePair(new Pair<>("witchingTableNeedsBlood", true), "boolean [true]");
+        configs.addKeyValuePair(new Pair<>("witchingTableNeedsSouls", true), "boolean [true]");
+        configs.addKeyValuePair(new Pair<>("allSignalsUnlocked", false), "boolean [false] | enables all signals on the radio or televison out of the box");
+        configs.addKeyValuePair(new Pair<>("terraWarpHeightThreshold", 1000), "int [1000] | y-level to initiate warp in the Overworld");
+        configs.addKeyValuePair(new Pair<>("lunarWarpHeightThreshold", 1000), "int [1000] | y-level to initiate warp on the Moon");
+        configs.addKeyValuePair(new Pair<>("terraWarpDestinationHeight", 300), "int [300] | y-level in the Overworld after warp");
+        configs.addKeyValuePair(new Pair<>("lunarWarpDestinationHeight", 100), "int [100] | y-level on the Moon after warp");
+        configs.addKeyValuePair(new Pair<>("terraFallDistanceResistance", 400), "int [400] | resistence effect time in ticks (0 to disable)");
+        configs.addKeyValuePair(new Pair<>("lunarSeed", 21071969), "int [21071969] | chunk generator seed for the moon");
+        configs.addKeyValuePair(new Pair<>("prehistoricSeed", 18011871), "int [18011871] | chunk generator seed for the prehistoric");
+        configs.addKeyValuePair(new Pair<>("formerTlotdRewards", false), "boolean [false] | effects the skins of the player plushie when placed by them");
     }
 
     private static void assignConfigs() {
+        CONFIG_VERSION = CONFIG.getOrDefault("configVersion", "0.3.8");
         EXTRACTION_ORE_EXPERIMENTAL_COMPAT = CONFIG.getOrDefault("extractionOreExperimentalCompat", true);
         AXE_STRIPPING_DROPS_BARK = CONFIG.getOrDefault("axeStrippingDropsBark", true);
         ELEVATOR_MAX_DISTANCE = CONFIG.getOrDefault("elevatorMaxDistance", 100);
@@ -44,6 +61,13 @@ public class ModConfigs {
         WITCHING_TABLE_NEEDS_BLOOD = CONFIG.getOrDefault("witchingTableNeedsBlood", true);
         WITCHING_TABLE_NEEDS_SOULS = CONFIG.getOrDefault("witchingTableNeedsSouls", true);
         ALL_SIGNALS_UNLOCKED = CONFIG.getOrDefault("allSignalsUnlocked", false);
+        TERRA_WARP_HEIGHT_THRESHOLD = CONFIG.getOrDefault("terraWarpHeightThreshold", 1000);
+        LUNAR_WARP_HEIGHT_THRESHOLD = CONFIG.getOrDefault("lunarWarpHeightThreshold", 1000);
+        TERRA_WARP_DESTINATION_HEIGHT = CONFIG.getOrDefault("terraWarpDestinationHeight", 300);
+        LUNAR_WARP_DESTINATION_HEIGHT = CONFIG.getOrDefault("lunarWarpDestinationHeight", 100);
+        TERRA_FALL_DISTANCE_RESISTANCE = CONFIG.getOrDefault("terraFallDistanceResistance", 400);
+        LUNAR_SEED = CONFIG.getOrDefault("lunarSeed", 21071969);
+        PREHISTORIC_SEED = CONFIG.getOrDefault("prehistoricSeed", 18011871);
         FORMER_TLOTD_REWARDS = CONFIG.getOrDefault("formerTlotdRewards", false);
 
         System.out.println("All " + configs.getConfigsList().size() + " " + TLOTD.MOD_ID + " configs have been set properly");

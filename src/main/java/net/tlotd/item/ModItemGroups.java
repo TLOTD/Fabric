@@ -535,10 +535,11 @@ public class ModItemGroups {
                         entries.add(ModBlocks.CARVED_WHITE_PUMPKIN);
                         entries.add(ModBlocks.WHITE_JACK_O_LANTERN);
 
-                        entries.add(ModBlocks.MOON_ROCK);
-                        entries.add(ModBlocks.MOON_ROCK_COAL_ORE);
-                        entries.add(ModBlocks.MOON_ROCK_IRON_ORE);
-                        entries.add(ModBlocks.MOON_ROCK_LUNAR_CALLAINUS_ORE);
+                        entries.add(ModBlocks.LUNAR_REGOLITH);
+                        entries.add(ModBlocks.MEGAREGOLITH);
+                        entries.add(ModBlocks.MEGAREGOLITH_COAL_ORE);
+                        entries.add(ModBlocks.MEGAREGOLITH_IRON_ORE);
+                        entries.add(ModBlocks.MEGAREGOLITH_LUNAR_CALLAINUS_ORE);
 
                         entries.add(ModBlocks.MARBLE);
                         entries.add(ModBlocks.MARBLE_STAIRS);
@@ -598,6 +599,7 @@ public class ModItemGroups {
                         entries.add(ModBlocks.RED_DEEPSLATE_DIAMOND_ORE);
 
                         entries.add(ModBlocks.RED_DEEPSLATE_SULFUR_ORE);
+                        entries.add(ModBlocks.RED_DEEPSLATE_QUARTZ_ORE);
                         entries.add(ModBlocks.RED_DEEPSLATE_LEAD_ORE);
                         entries.add(ModBlocks.RED_DEEPSLATE_URANIUM_ORE);
                         entries.add(ModBlocks.RED_DEEPSLATE_HELIORITE_ORE);
@@ -782,6 +784,7 @@ public class ModItemGroups {
             new Identifier(TLOTD.MOD_ID, "9_compat"),
             FabricItemGroup.builder().displayName(Text.literal("\uE00A ").styled(style -> style.withFont(MODS_FONT_ID)).append(Text.translatable("itemgroup.tlotd.compat").styled(style -> style.withFont(DEFAULT_FONT_ID))))
                     .icon(() -> new ItemStack(ModBlocks.INFECTED_TREX_HEAD)).entries((displayContext, entries) -> {
+                        entries.add(ModBlocks.RED_DEEPSLATE_ZINC_ORE);
                         entries.add(ModItems.INCOMPLETE_COPPER_WIRE);
                         entries.add(ModItems.INCOMPLETE_GOLD_WIRE);
                         entries.add(ModItems.INCOMPLETE_MITHRIL_WIRE);

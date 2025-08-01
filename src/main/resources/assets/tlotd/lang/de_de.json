@@ -48,6 +48,9 @@
   "effect.tlotd.hypoxia": "Hypoxia",
   "effect.tlotd.hypoxia.desc": "Verursacht Schaden für jede Sekunde, die ohne geeignete Ausrüstung verbracht wird.",
 
+  "biome.tlotd.lunar_highlands": "Mondhochland",
+  "biome.tlotd.prehistoric_jungle": "Prähistorischer Dschungel",
+
   "death.attack.radiation": "%1$s ist an Strahlenkrankheit verstorben",
   "death.attack.radiation.player": "%1$s ist im Kampf mit %2$s an Strahlenkrankheit verstorben",
   "death.attack.hypoxia": "%1$s ist erstickt",
@@ -830,6 +833,7 @@
   "block.tlotd.red_deepslate_diamond_ore": "Rotes-Tiefenschiefer-Diamanterz",
 
   "block.tlotd.red_deepslate_sulfur_ore": "Rotes-Tiefenschiefer-Schwefelerz",
+  "block.tlotd.red_deepslate_quartz_ore": "Rotes-Tiefenschiefer-Quartzerz",
   "block.tlotd.red_deepslate_lead_ore": "Rotes-Tiefenschiefer-Bleierz",
   "block.tlotd.red_deepslate_uranium_ore": "Rotes-Tiefenschiefer-Uranerz",
   "block.tlotd.red_deepslate_heliorite_ore": "Rotes-Tiefenschiefer-Helioriterz",
@@ -838,15 +842,18 @@
   "block.tlotd.red_deepslate_cinnabar_ore": "Rotes-Tiefenschiefer-Zinnobererz",
   "block.tlotd.red_deepslate_nebular_ore": "Rotes-Tiefenschiefer-Nebularerz",
 
+  "block.tlotd.red_deepslate_zinc_ore": "Rotes-Tiefenschiefer-Zinkerz",
+
   "block.tlotd.prehistoric_debris": "Prähistorischer Schrott",
 
   "block.tlotd.xen_crystal_cluster": "Xen-Kristallhaufen",
   "block.tlotd.xen_crystal_block": "Xen-Kristallblock",
 
-  "block.tlotd.moon_rock": "Mondgestein",
-  "block.tlotd.moon_rock_coal_ore": "Mondgestein-Steinkohle",
-  "block.tlotd.moon_rock_iron_ore": "Mondgestein-Eisenerz",
-  "block.tlotd.moon_rock_lunar_callainus_ore": "Mondgestein-Lunar-Callainus-Erz",
+  "block.tlotd.lunar_regolith": "Mondregolith",
+  "block.tlotd.megaregolith": "Megaregolith",
+  "block.tlotd.megaregolith_coal_ore": "Megaregolith-Steinkohle",
+  "block.tlotd.megaregolith_iron_ore": "Megaregolith-Eisenerz",
+  "block.tlotd.megaregolith_lunar_callainus_ore": "Megaregolith-Lunar-Callainus-Erz",
 
   "block.tlotd.steel_block": "Stahlblock",
 

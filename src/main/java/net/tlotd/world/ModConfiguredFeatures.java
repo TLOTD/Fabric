@@ -44,10 +44,12 @@ public class ModConfiguredFeatures {
 
     public static final RegistryKey<ConfiguredFeature<?,?>> GINKGO_KEY = registerKey("ginkgo");
 
+    public static final RegistryKey<ConfiguredFeature<?,?>> RED_GRAVEL_KEY = registerKey("red_gravel");
     public static final RegistryKey<ConfiguredFeature<?,?>> RED_DEEPSLATE_MARBLE_KEY = registerKey("red_deepslate_marble");
     public static final RegistryKey<ConfiguredFeature<?,?>> RED_DEEPSLATE_LIMESTONE_KEY = registerKey("red_deepslate_limestone");
 
     public static final RegistryKey<ConfiguredFeature<?,?>> RED_DEEPSLATE_SULFUR_ORE_KEY = registerKey("red_deepslate_sulfur_ore");
+    public static final RegistryKey<ConfiguredFeature<?,?>> RED_DEEPSLATE_QUARTZ_ORE_KEY = registerKey("red_deepslate_quartz_ore");
     public static final RegistryKey<ConfiguredFeature<?,?>> RED_DEEPSLATE_IRON_ORE_KEY = registerKey("red_deepslate_iron_ore");
     public static final RegistryKey<ConfiguredFeature<?,?>> RED_DEEPSLATE_COPPER_ORE_KEY = registerKey("red_deepslate_copper_ore");
     public static final RegistryKey<ConfiguredFeature<?,?>> RED_DEEPSLATE_GOLD_ORE_KEY = registerKey("red_deepslate_gold_ore");
@@ -55,6 +57,12 @@ public class ModConfiguredFeatures {
     public static final RegistryKey<ConfiguredFeature<?,?>> RED_DEEPSLATE_EMERALD_ORE_KEY = registerKey("red_deepslate_emerald_ore");
     public static final RegistryKey<ConfiguredFeature<?,?>> RED_DEEPSLATE_LAPIS_ORE_KEY = registerKey("red_deepslate_lapis_ore");
     public static final RegistryKey<ConfiguredFeature<?,?>> RED_DEEPSLATE_DIAMOND_ORE_KEY = registerKey("red_deepslate_diamond_ore");
+
+    public static final RegistryKey<ConfiguredFeature<?,?>> RED_DEEPSLATE_ZINC_ORE_KEY = registerKey("red_deepslate_zinc_ore");
+
+    public static final RegistryKey<ConfiguredFeature<?,?>> MOON_ROCK_COAL_ORE_KEY = registerKey("moon_rock_coal_ore");
+    public static final RegistryKey<ConfiguredFeature<?,?>> MOON_ROCK_IRON_ORE_KEY = registerKey("moon_rock_iron_ore");
+    public static final RegistryKey<ConfiguredFeature<?,?>> MOON_ROCK_LUNAR_CALLAINUS_ORE_KEY = registerKey("moon_rock_lunar_callainus_ore");
 
     public static void bootstrap(Registerable<ConfiguredFeature<?,?>> context) {
         RuleTest stoneReplacables = new TagMatchRuleTest(BlockTags.STONE_ORE_REPLACEABLES);
@@ -64,7 +72,10 @@ public class ModConfiguredFeatures {
         RuleTest endReplacables = new BlockMatchRuleTest(Blocks.END_STONE);
 
         RuleTest redDeepslateReplacables = new BlockMatchRuleTest(ModBlocks.RED_DEEPSLATE);
+        RuleTest lunarReplacables = new BlockMatchRuleTest(ModBlocks.MEGAREGOLITH);
 
+        List<OreFeatureConfig.Target> redGravel =
+                List.of(OreFeatureConfig.createTarget(redDeepslateReplacables, ModBlocks.RED_GRAVEL.getDefaultState()));
         List<OreFeatureConfig.Target> redDeepslateMarble =
                 List.of(OreFeatureConfig.createTarget(redDeepslateReplacables, ModBlocks.MARBLE.getDefaultState()));
         List<OreFeatureConfig.Target> redDeepslateLimestone =
@@ -72,6 +83,8 @@ public class ModConfiguredFeatures {
 
         List<OreFeatureConfig.Target> redDeepslateSulfurOre =
                 List.of(OreFeatureConfig.createTarget(redDeepslateReplacables, ModBlocks.RED_DEEPSLATE_SULFUR_ORE.getDefaultState()));
+        List<OreFeatureConfig.Target> redDeepslateQuartzOre =
+                List.of(OreFeatureConfig.createTarget(redDeepslateReplacables, ModBlocks.RED_DEEPSLATE_QUARTZ_ORE.getDefaultState()));
 
         List<OreFeatureConfig.Target> redDeepslateIronOre =
                 List.of(OreFeatureConfig.createTarget(redDeepslateReplacables, ModBlocks.RED_DEEPSLATE_IRON_ORE.getDefaultState()));
@@ -87,6 +100,9 @@ public class ModConfiguredFeatures {
                 List.of(OreFeatureConfig.createTarget(redDeepslateReplacables, ModBlocks.RED_DEEPSLATE_LAPIS_ORE.getDefaultState()));
         List<OreFeatureConfig.Target> redDeepslateDiamondOre =
                 List.of(OreFeatureConfig.createTarget(redDeepslateReplacables, ModBlocks.RED_DEEPSLATE_DIAMOND_ORE.getDefaultState()));
+
+        List<OreFeatureConfig.Target> redDeepslateZincOre =
+                List.of(OreFeatureConfig.createTarget(redDeepslateReplacables, ModBlocks.RED_DEEPSLATE_ZINC_ORE.getDefaultState()));
 
         List<OreFeatureConfig.Target> stoneMarble =
                 List.of(OreFeatureConfig.createTarget(stoneReplacables, ModBlocks.MARBLE.getDefaultState()));
@@ -147,6 +163,13 @@ public class ModConfiguredFeatures {
         List<OreFeatureConfig.Target> bedrockMithrilOres =
                 List.of(OreFeatureConfig.createTarget(bedrockReplacables, ModBlocks.BEDROCK_MITHRIL_ORE.getDefaultState()));
 
+        List<OreFeatureConfig.Target> moonRockCoalOre =
+                List.of(OreFeatureConfig.createTarget(lunarReplacables, ModBlocks.MEGAREGOLITH_COAL_ORE.getDefaultState()));
+        List<OreFeatureConfig.Target> moonRockIronOre =
+                List.of(OreFeatureConfig.createTarget(lunarReplacables, ModBlocks.MEGAREGOLITH_IRON_ORE.getDefaultState()));
+        List<OreFeatureConfig.Target> moonRockLunarCallainusOre =
+                List.of(OreFeatureConfig.createTarget(lunarReplacables, ModBlocks.MEGAREGOLITH_LUNAR_CALLAINUS_ORE.getDefaultState()));
+
         register(context, MARBLE_KEY, Feature.ORE, new OreFeatureConfig(stoneMarble, 32));
         register(context, LIMESTONE_KEY, Feature.ORE, new OreFeatureConfig(deepslateLimestone, 32));
         register(context, RED_DEEPSLATE_KEY, Feature.ORE, new OreFeatureConfig(deepslateRedDeepslate, 32));
@@ -166,10 +189,12 @@ public class ModConfiguredFeatures {
 
         register(context, MITHRIL_ORE_KEY, Feature.ORE, new OreFeatureConfig(bedrockMithrilOres, 8));
 
+        register(context, RED_GRAVEL_KEY, Feature.ORE, new OreFeatureConfig(redGravel, 32));
         register(context, RED_DEEPSLATE_MARBLE_KEY, Feature.ORE, new OreFeatureConfig(redDeepslateMarble, 32));
         register(context, RED_DEEPSLATE_LIMESTONE_KEY, Feature.ORE, new OreFeatureConfig(redDeepslateLimestone, 32));
 
         register(context, RED_DEEPSLATE_SULFUR_ORE_KEY, Feature.ORE, new OreFeatureConfig(redDeepslateSulfurOre, 8));
+        register(context, RED_DEEPSLATE_QUARTZ_ORE_KEY, Feature.ORE, new OreFeatureConfig(redDeepslateQuartzOre, 8));
         register(context, RED_DEEPSLATE_IRON_ORE_KEY, Feature.ORE, new OreFeatureConfig(redDeepslateIronOre, 8));
         register(context, RED_DEEPSLATE_COPPER_ORE_KEY, Feature.ORE, new OreFeatureConfig(redDeepslateCopperOre, 8));
         register(context, RED_DEEPSLATE_GOLD_ORE_KEY, Feature.ORE, new OreFeatureConfig(redDeepslateGoldOre, 8));
@@ -177,6 +202,12 @@ public class ModConfiguredFeatures {
         register(context, RED_DEEPSLATE_EMERALD_ORE_KEY, Feature.ORE, new OreFeatureConfig(redDeepslateEmeraldOre, 8));
         register(context, RED_DEEPSLATE_LAPIS_ORE_KEY, Feature.ORE, new OreFeatureConfig(redDeepslateLapisOre, 8));
         register(context, RED_DEEPSLATE_DIAMOND_ORE_KEY, Feature.ORE, new OreFeatureConfig(redDeepslateDiamondOre, 8));
+
+        register(context, RED_DEEPSLATE_ZINC_ORE_KEY, Feature.ORE, new OreFeatureConfig(redDeepslateZincOre, 8));
+
+        register(context, MOON_ROCK_COAL_ORE_KEY, Feature.ORE, new OreFeatureConfig(moonRockCoalOre, 8));
+        register(context, MOON_ROCK_IRON_ORE_KEY, Feature.ORE, new OreFeatureConfig(moonRockIronOre, 8));
+        register(context, MOON_ROCK_LUNAR_CALLAINUS_ORE_KEY, Feature.ORE, new OreFeatureConfig(moonRockLunarCallainusOre, 4));
 
         register(context, GINKGO_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
                 BlockStateProvider.of(ModBlocks.GINKGO_LOG),

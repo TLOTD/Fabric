@@ -17,6 +17,7 @@ import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.tlotd.item.ModItems;
+import net.tlotd.world.dimension.ModDimensions;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
@@ -33,7 +34,7 @@ public class StarCatcherItem extends Item {
         tooltip.add(Text.literal(""));
         tooltip.add(Text.translatable("item.tlotd.star_catcher.tooltip").formatted(Formatting.GRAY));
         if (stack.getItem().equals(ModItems.MITHRIL_STAR_CATCHER)) {
-            tooltip.add(Text.literal(" >1000 ").append(Text.translatable("item.tlotd.star_catcher.tooltip_2")).formatted(Formatting.DARK_GREEN));
+            tooltip.add(Text.literal(" 800+ ").append(Text.translatable("item.tlotd.star_catcher.tooltip_2")).formatted(Formatting.DARK_GREEN));
         }
         super.appendTooltip(stack, world, tooltip, context);
     }
@@ -42,7 +43,7 @@ public class StarCatcherItem extends Item {
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         ItemStack item = user.getStackInHand(hand);
         if (!world.isClient()) {
-            if (user.getY() >= 1000 && world.isNight()) {
+            if (user.getY() >= 800 && (world.getRegistryKey().equals(ModDimensions.LUNA_LEVEL_KEY) || world.getRegistryKey().equals(World.OVERWORLD) && world.isNight())) {
                 if (hand == Hand.MAIN_HAND) { item.damage(1,user,e -> e.sendEquipmentBreakStatus(EquipmentSlot.MAINHAND));}
                 else { item.damage(1,user,e -> e.sendEquipmentBreakStatus(EquipmentSlot.OFFHAND));}
                 if (user instanceof ServerPlayerEntity serverPlayerEntity) {

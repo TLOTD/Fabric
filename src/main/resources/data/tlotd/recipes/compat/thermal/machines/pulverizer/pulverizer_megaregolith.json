@@ -1,0 +1,20 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "thermal"
+      ]
+    }
+  ],
+  "type": "thermal:pulverizer",
+  "ingredient": {
+    "item": "tlotd:megaregolith"
+  },
+  "result": [
+    {
+      "item": "tlotd:lunar_regolith"
+    }
+  ],
+  "experience": 0
+}

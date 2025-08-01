@@ -1,0 +1,10 @@
+{
+  "type": "tlotd:luna",
+  "generator": {
+    "type": "tlotd:luna",
+    "biome_source": {
+      "type": "minecraft:fixed",
+      "biome": "tlotd:lunar_highlands"
+    }
+  }
+}

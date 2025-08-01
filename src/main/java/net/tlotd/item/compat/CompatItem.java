@@ -34,6 +34,9 @@ public class CompatItem extends Item {
             if (compat.contains("tlf")) {
                 tooltip.add(Text.literal("\uE009 ").setStyle(style.withFont(MODS_FONT_ID)).append(Text.translatable("mod.twilightforest.name").setStyle(style.withFont(DEFAULT_FONT_ID).withFormatting(Formatting.GRAY))));
             }
+            if (compat.contains("cre")) {
+                tooltip.add(Text.literal("\uE00A ").setStyle(style.withFont(MODS_FONT_ID)).append(Text.translatable("mod.create.name").setStyle(style.withFont(DEFAULT_FONT_ID).withFormatting(Formatting.GRAY))));
+            }
             if (compat.contains("atm")) {
                 tooltip.add(Text.literal("\uE00B ").setStyle(style.withFont(MODS_FONT_ID)).append(Text.translatable("mod.allthemodium.name").setStyle(style.withFont(DEFAULT_FONT_ID).withFormatting(Formatting.GRAY))));
             }

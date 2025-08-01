@@ -85,7 +85,7 @@ public class ExtractionPickaxeItem extends PickaxeItem {
                     context.getWorld().setBlockState(positionClicked, Blocks.BLACKSTONE.getDefaultState());
                     damage = 3;
                 } else if (state.isIn(ModTags.Blocks.MOON_ROCK_EXTRACTABLE_BLOCKS)) {
-                    context.getWorld().setBlockState(positionClicked, ModBlocks.MOON_ROCK.getDefaultState());
+                    context.getWorld().setBlockState(positionClicked, ModBlocks.MEGAREGOLITH.getDefaultState());
                     damage = 5;
                 }
                 context.getWorld().playSound(null, positionClicked, ModSounds.ITEM_PICKAXE_EXTRACT, SoundCategory.BLOCKS, 1.0f, 1.0f);

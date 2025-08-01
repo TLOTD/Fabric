@@ -75,6 +75,7 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RED_DEEPSLATE_DIAMOND_ORE);
 
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RED_DEEPSLATE_SULFUR_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RED_DEEPSLATE_QUARTZ_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RED_DEEPSLATE_LEAD_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RED_DEEPSLATE_URANIUM_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RED_DEEPSLATE_HELIORITE_ORE);
@@ -83,12 +84,15 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RED_DEEPSLATE_CINNABAR_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RED_DEEPSLATE_NEBULAR_ORE);
 
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RED_DEEPSLATE_ZINC_ORE);
+
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.XEN_CRYSTAL_BLOCK);
 
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.MOON_ROCK);
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.MOON_ROCK_COAL_ORE);
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.MOON_ROCK_IRON_ORE);
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.MOON_ROCK_LUNAR_CALLAINUS_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.LUNAR_REGOLITH);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.MEGAREGOLITH);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.MEGAREGOLITH_COAL_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.MEGAREGOLITH_IRON_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.MEGAREGOLITH_LUNAR_CALLAINUS_ORE);
 
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.STEEL_BLOCK);
 

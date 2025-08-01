@@ -446,10 +446,10 @@ public class ModItems {
     public static final Item VICTORIAN_PANTS = registerItem("victorian_pants", new ArmorItem(ModArmorMaterial.VICTORIAN, ArmorItem.Type.LEGGINGS, new FabricItemSettings()));
     public static final Item VICTORIAN_BOOTS = registerItem("victorian_boots", new ArmorItem(ModArmorMaterial.VICTORIAN, ArmorItem.Type.BOOTS, new FabricItemSettings()));
 
-    public static final Item PICKELHAUBE = registerItem("pickelhaube", new ArmorItem(ModArmorMaterial.PICKELHAUBE, ArmorItem.Type.HELMET, new FabricItemSettings()));
-    public static final Item IMPERIAL_GERMAN_UNIFORM_MANTLE = registerItem("imperial_german_uniform_mantle", new ArmorItem(ModArmorMaterial.IMPERIAL_GERMAN_UNIFORM, ArmorItem.Type.CHESTPLATE, new FabricItemSettings()));
-    public static final Item IMPERIAL_GERMAN_UNIFORM_PANTS = registerItem("imperial_german_uniform_pants", new ArmorItem(ModArmorMaterial.IMPERIAL_GERMAN_UNIFORM, ArmorItem.Type.LEGGINGS, new FabricItemSettings()));
-    public static final Item IMPERIAL_GERMAN_UNIFORM_BOOTS = registerItem("imperial_german_uniform_boots", new ArmorItem(ModArmorMaterial.IMPERIAL_GERMAN_UNIFORM, ArmorItem.Type.BOOTS, new FabricItemSettings()));
+    public static final Item PICKELHAUBE = registerItem("pickelhaube", new FrakturArmorItem(ModArmorMaterial.PICKELHAUBE, ArmorItem.Type.HELMET, new FabricItemSettings()));
+    public static final Item IMPERIAL_GERMAN_UNIFORM_MANTLE = registerItem("imperial_german_uniform_mantle", new FrakturArmorItem(ModArmorMaterial.IMPERIAL_GERMAN_UNIFORM, ArmorItem.Type.CHESTPLATE, new FabricItemSettings()));
+    public static final Item IMPERIAL_GERMAN_UNIFORM_PANTS = registerItem("imperial_german_uniform_pants", new FrakturArmorItem(ModArmorMaterial.IMPERIAL_GERMAN_UNIFORM, ArmorItem.Type.LEGGINGS, new FabricItemSettings()));
+    public static final Item IMPERIAL_GERMAN_UNIFORM_BOOTS = registerItem("imperial_german_uniform_boots", new FrakturArmorItem(ModArmorMaterial.IMPERIAL_GERMAN_UNIFORM, ArmorItem.Type.BOOTS, new FabricItemSettings()));
 
     public static final Item OXYGEN_TANK = registerItem("oxygen_tank", new OxygenTankItem(new FabricItemSettings().maxCount(1)));
     public static final Item ASTRONAUT_HELMET = registerItem("astronaut_helmet", new HypoxiaProofArmorItem(ModArmorMaterial.ASTRONAUT, ArmorItem.Type.HELMET, new FabricItemSettings()));

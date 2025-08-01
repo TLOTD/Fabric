@@ -5,9 +5,12 @@ import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.fabricmc.fabric.api.registry.StrippableBlockRegistry;
 import net.kyrptonaught.customportalapi.api.CustomPortalBuilder;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import net.tlotd.banner.ModBanners;
 import net.tlotd.block.ModFlammableBlocks;
+import net.tlotd.block.ModUseBlockCallback;
 import net.tlotd.block.entity.ModBlockEntities;
 import net.tlotd.config.ModConfigs;
 import net.tlotd.effect.ModEffects;
@@ -18,17 +21,17 @@ import net.tlotd.entity.custom.InfectedTRexEntity;
 import net.tlotd.entity.custom.TRexEntity;
 import net.tlotd.fluid.ModFluids;
 import net.tlotd.gui.ModGUIHandlers;
-import net.tlotd.item.ModCompostingChances;
-import net.tlotd.item.ModFuels;
-import net.tlotd.item.ModItemGroups;
-import net.tlotd.item.ModItems;
+import net.tlotd.item.*;
 import net.tlotd.block.ModBlocks;
 import net.tlotd.networking.ModMessages;
 import net.tlotd.painting.ModPaintings;
 import net.tlotd.recipe.ModRecipies;
 import net.tlotd.sound.ModSounds;
+import net.tlotd.tick.ModServerTickEvents;
 import net.tlotd.util.ModTrades;
 import net.tlotd.villager.ModVillagers;
+import net.tlotd.world.dimension.LunarChunkGenerator;
+import net.tlotd.world.dimension.PrehistoricChunkGenerator;
 import net.tlotd.world.gen.ModWorldGeneration;
 import net.tlotd.world.village.ModVillageAdditions;
 import org.slf4j.Logger;
@@ -65,6 +68,11 @@ public class TLOTD implements ModInitializer {
 		ModVillageAdditions.registerNewVillageStructures();
 		ModWorldGeneration.generateModWorldGen();
 		ModArmorProtection.registerAllowedDamages();
+		ModServerTickEvents.registerServerTickEvents();
+		ModUseBlockCallback.interceptBlocks();
+
+		Registry.register(Registries.CHUNK_GENERATOR, new Identifier(TLOTD.MOD_ID, "prehistoric"), PrehistoricChunkGenerator.CODEC);
+		Registry.register(Registries.CHUNK_GENERATOR, new Identifier(TLOTD.MOD_ID, "luna"), LunarChunkGenerator.CODEC);
 
 		LOGGER.info("TLOTD INITIALIZED!");
 

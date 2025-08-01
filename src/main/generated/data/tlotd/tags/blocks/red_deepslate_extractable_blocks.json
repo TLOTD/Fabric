@@ -9,12 +9,14 @@
     "tlotd:red_deepslate_lapis_ore",
     "tlotd:red_deepslate_diamond_ore",
     "tlotd:red_deepslate_sulfur_ore",
+    "tlotd:red_deepslate_quartz_ore",
     "tlotd:red_deepslate_lead_ore",
     "tlotd:red_deepslate_uranium_ore",
     "tlotd:red_deepslate_heliorite_ore",
     "tlotd:red_deepslate_palladium_ore",
     "tlotd:red_deepslate_jurassoline_ore",
     "tlotd:red_deepslate_cinnabar_ore",
-    "tlotd:red_deepslate_nebular_ore"
+    "tlotd:red_deepslate_nebular_ore",
+    "tlotd:red_deepslate_zinc_ore"
   ]
 }
