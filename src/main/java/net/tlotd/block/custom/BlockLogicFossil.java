@@ -7,11 +7,15 @@ import net.minecraft.core.block.material.Material;
 import net.minecraft.core.enums.EnumDropCause;
 import net.minecraft.core.item.ItemStack;
 import net.minecraft.core.world.World;
+import net.minecraft.core.world.generate.feature.WorldFeatureOre;
 import net.tlotd.item.ModItems;
 
 public class BlockLogicFossil extends BlockLogic {
-	public BlockLogicFossil(Block block) {
-		super(block, Material.stone);
+	public static WorldFeatureOre.OreMap variantMap = new WorldFeatureOre.OreMap();
+
+	public BlockLogicFossil(Block block, Block parentBlock, Material material) {
+		super(block, material);
+		variantMap.put(parentBlock.id(), block.id());
 	}
 
 	public ItemStack[] getBreakResult(World world, EnumDropCause dropCause, int x, int y, int z, int meta, TileEntity tileEntity) {

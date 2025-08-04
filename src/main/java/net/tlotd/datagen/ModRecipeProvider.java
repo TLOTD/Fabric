@@ -1,5 +1,6 @@
 package net.tlotd.datagen;
 
+import net.minecraft.core.WeightedRandomLootObject;
 import net.minecraft.core.block.Blocks;
 import net.minecraft.core.item.ItemStack;
 import net.minecraft.core.item.Items;
@@ -18,6 +19,10 @@ public class ModRecipeProvider implements RecipeEntrypoint {
 
 	@Override
 	public void onRecipesReady() {
+
+		RecipeBuilder.ModifyTrommel("minecraft", "soul_sand")
+			.addEntry(new WeightedRandomLootObject(ModItems.FOSSILIZED_BONE.getDefaultStack(),1),0.5);
+
 		RecipeBuilder.Shaped(TLOTD.MOD_ID)
 			.setShape("#", "#")
 			.addInput('#', Items.INGOT_STEEL)
@@ -163,7 +168,7 @@ public class ModRecipeProvider implements RecipeEntrypoint {
 			.create("endurium_ingot", new ItemStack(ModItems.ENDURIUM_INGOT));
 		RecipeBuilder.Shapeless(TLOTD.MOD_ID)
 			.addInput(ModBlocks.ENDURIUM_BLOCK)
-			.create("endurium_block_to_ingot", new ItemStack(ModItems.HELIORITE_INGOT,9));
+			.create("endurium_block_to_ingot", new ItemStack(ModItems.ENDURIUM_INGOT,9));
 		RecipeBuilder.Shapeless(TLOTD.MOD_ID)
 			.addInput(ModItems.ENDURIUM_INGOT)
 			.addInput(ModItems.ENDURIUM_INGOT)

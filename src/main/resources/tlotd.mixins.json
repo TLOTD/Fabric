@@ -4,7 +4,8 @@
     "package": "net.tlotd.mixin",
     "compatibilityLevel": "JAVA_8",
     "mixins": [
-      "ModBlockHarvestLevel"
+      "ModBlockHarvestLevel",
+      "ModChunkDecoratorOverworld"
     ],
     "client": [
     ],

@@ -1,7 +1,10 @@
 package net.tlotd.block;
 
 import net.minecraft.core.block.Block;
+import net.minecraft.core.block.Blocks;
+import net.minecraft.core.block.material.Material;
 import net.minecraft.core.block.tag.BlockTags;
+import net.minecraft.core.data.tag.Tag;
 import net.tlotd.TLOTD;
 import net.tlotd.block.custom.*;
 import turniplabs.halplibe.helper.BlockBuilder;
@@ -17,12 +20,14 @@ public class ModBlocks {
 	public static Block<?> LIMESTONE_FOSSIL;
 	public static Block<?> GRANITE_FOSSIL;
 	public static Block<?> PERMAFROST_FOSSIL;
+	public static Block<?> RED_DEEPSLATE_FOSSIL;
 
 	public static Block<?> HELIORITE_STONE_ORE;
 	public static Block<?> HELIORITE_BASALT_ORE;
 	public static Block<?> HELIORITE_LIMESTONE_ORE;
 	public static Block<?> HELIORITE_GRANITE_ORE;
 	public static Block<?> HELIORITE_PERMAFROST_ORE;
+	public static Block<?> HELIORITE_RED_DEEPSLATE_ORE;
 	public static Block<?> HELIORITE_COMB_BLOCK;
 	public static Block<?> HELIORITE_BLOCK;
 
@@ -31,6 +36,7 @@ public class ModBlocks {
 	public static Block<?> ENDURIUM_LIMESTONE_ORE;
 	public static Block<?> ENDURIUM_GRANITE_ORE;
 	public static Block<?> ENDURIUM_PERMAFROST_ORE;
+	public static Block<?> ENDURIUM_RED_DEEPSLATE_ORE;
 	public static Block<?> RAW_ENDURIUM_BLOCK;
 	public static Block<?> ENDURIUM_BLOCK;
 
@@ -39,6 +45,7 @@ public class ModBlocks {
 	public static Block<?> PALLADIUM_LIMESTONE_ORE;
 	public static Block<?> PALLADIUM_GRANITE_ORE;
 	public static Block<?> PALLADIUM_PERMAFROST_ORE;
+	public static Block<?> PALLADIUM_RED_DEEPSLATE_ORE;
 	public static Block<?> RAW_PALLADIUM_BLOCK;
 	public static Block<?> PALLADIUM_BLOCK;
 
@@ -47,6 +54,7 @@ public class ModBlocks {
 	public static Block<?> JURASSOLINE_LIMESTONE_ORE;
 	public static Block<?> JURASSOLINE_GRANITE_ORE;
 	public static Block<?> JURASSOLINE_PERMAFROST_ORE;
+	public static Block<?> JURASSOLINE_RED_DEEPSLATE_ORE;
 	public static Block<?> JURASSOLINE_CRYSTAL_BLOCK;
 	public static Block<?> JURASSOLINE_BLOCK;
 
@@ -55,6 +63,7 @@ public class ModBlocks {
 	public static Block<?> CINNABAR_LIMESTONE_ORE;
 	public static Block<?> CINNABAR_GRANITE_ORE;
 	public static Block<?> CINNABAR_PERMAFROST_ORE;
+	public static Block<?> CINNABAR_RED_DEEPSLATE_ORE;
 	public static Block<?> CINNABAR_CRYSTAL_BLOCK;
 	public static Block<?> CINNABAR_BLOCK;
 
@@ -63,6 +72,7 @@ public class ModBlocks {
 	public static Block<?> NEBULAR_LIMESTONE_ORE;
 	public static Block<?> NEBULAR_GRANITE_ORE;
 	public static Block<?> NEBULAR_PERMAFROST_ORE;
+	public static Block<?> NEBULAR_RED_DEEPSLATE_ORE;
 	public static Block<?> RAW_NEBULAR_BLOCK;
 	public static Block<?> NEBULAR_BLOCK;
 
@@ -71,6 +81,7 @@ public class ModBlocks {
 	public static Block<?> MITHRIL_LIMESTONE_ORE;
 	public static Block<?> MITHRIL_GRANITE_ORE;
 	public static Block<?> MITHRIL_PERMAFROST_ORE;
+	public static Block<?> MITHRIL_RED_DEEPSLATE_ORE;
 	public static Block<?> MITHRIL_BEDROCK_ORE;
 	public static Block<?> RAW_MITHRIL_BLOCK;
 	public static Block<?> MITHRIL_BLOCK;
@@ -85,44 +96,52 @@ public class ModBlocks {
 		STONE_FOSSIL = fullBlock
 			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
 			.setHardness(3f)
-			.build("stone_fossil", blockId++, b -> new BlockLogicFossil(b)).withBlastResistance(5.0F);
+			.build("stone_fossil", blockId++, b -> new BlockLogicFossil(b, Blocks.STONE, Material.stone)).withBlastResistance(5.0F);
 		BASALT_FOSSIL = fullBlock
 			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
 			.setHardness(3f)
-			.build("basalt_fossil", blockId++, b -> new BlockLogicFossil(b)).withBlastResistance(5.0F);
+			.build("basalt_fossil", blockId++, b -> new BlockLogicFossil(b, Blocks.BASALT, Material.basalt)).withBlastResistance(5.0F);
 		LIMESTONE_FOSSIL = fullBlock
 			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
 			.setHardness(3f)
-			.build("limestone_fossil", blockId++, b -> new BlockLogicFossil(b)).withBlastResistance(5.0F);
+			.build("limestone_fossil", blockId++, b -> new BlockLogicFossil(b, Blocks.LIMESTONE, Material.limestone)).withBlastResistance(5.0F);
 		GRANITE_FOSSIL = fullBlock
 			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
 			.setHardness(3f)
-			.build("granite_fossil", blockId++, b -> new BlockLogicFossil(b)).withBlastResistance(5.0F);
+			.build("granite_fossil", blockId++, b -> new BlockLogicFossil(b, Blocks.GRANITE, Material.granite)).withBlastResistance(5.0F);
 		PERMAFROST_FOSSIL = fullBlock
 			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
 			.setHardness(3f)
-			.build("permafrost_fossil", blockId++, b -> new BlockLogicFossil(b)).withBlastResistance(5.0F);
+			.build("permafrost_fossil", blockId++, b -> new BlockLogicFossil(b, Blocks.PERMAFROST, Material.permafrost)).withBlastResistance(5.0F);
+		RED_DEEPSLATE_FOSSIL = fullBlock
+			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
+			.setHardness(3f)
+			.build("red_deepslate_fossil", blockId++, b -> new BlockLogicFossil(b, ModBlocks.RED_DEEPSLATE, Material.slate)).withBlastResistance(5.0F);
 
 		HELIORITE_STONE_ORE = fullBlock
 			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
 			.setHardness(3f)
-			.build("heliorite_stone_ore", blockId++, b -> new BlockLogicHelioriteOre(b)).withBlastResistance(5.0F);
+			.build("heliorite_stone_ore", blockId++, b -> new BlockLogicHelioriteOre(b, Blocks.STONE, Material.stone)).withBlastResistance(5.0F);
 		HELIORITE_BASALT_ORE = fullBlock
 			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
 			.setHardness(3f)
-			.build("heliorite_basalt_ore", blockId++, b -> new BlockLogicHelioriteOre(b)).withBlastResistance(5.0F);
+			.build("heliorite_basalt_ore", blockId++, b -> new BlockLogicHelioriteOre(b, Blocks.BASALT, Material.basalt)).withBlastResistance(5.0F);
 		HELIORITE_LIMESTONE_ORE = fullBlock
 			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
 			.setHardness(3f)
-			.build("heliorite_limestone_ore", blockId++, b -> new BlockLogicHelioriteOre(b)).withBlastResistance(5.0F);
+			.build("heliorite_limestone_ore", blockId++, b -> new BlockLogicHelioriteOre(b, Blocks.LIMESTONE, Material.limestone)).withBlastResistance(5.0F);
 		HELIORITE_GRANITE_ORE = fullBlock
 			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
 			.setHardness(3f)
-			.build("heliorite_granite_ore", blockId++, b -> new BlockLogicHelioriteOre(b)).withBlastResistance(5.0F);
+			.build("heliorite_granite_ore", blockId++, b -> new BlockLogicHelioriteOre(b, Blocks.GRANITE, Material.granite)).withBlastResistance(5.0F);
 		HELIORITE_PERMAFROST_ORE = fullBlock
 			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
 			.setHardness(3f)
-			.build("heliorite_permafrost_ore", blockId++, b -> new BlockLogicHelioriteOre(b)).withBlastResistance(5.0F);
+			.build("heliorite_permafrost_ore", blockId++, b -> new BlockLogicHelioriteOre(b, Blocks.PERMAFROST, Material.permafrost)).withBlastResistance(5.0F);
+		HELIORITE_RED_DEEPSLATE_ORE = fullBlock
+			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
+			.setHardness(3f)
+			.build("heliorite_red_deepslate_ore", blockId++, b -> new BlockLogicHelioriteOre(b, ModBlocks.RED_DEEPSLATE, Material.slate)).withBlastResistance(5.0F);
 		HELIORITE_COMB_BLOCK = fullBlock
 			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
 			.setHardness(3f)
@@ -135,23 +154,27 @@ public class ModBlocks {
 		ENDURIUM_STONE_ORE = fullBlock
 			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
 			.setHardness(3f)
-			.build("endurium_stone_ore", blockId++, b -> new BlockLogicEnduriumOre(b)).withBlastResistance(5.0F);
+			.build("endurium_stone_ore", blockId++, b -> new BlockLogicEnduriumOre(b, Blocks.STONE, Material.stone)).withBlastResistance(5.0F);
 		ENDURIUM_BASALT_ORE = fullBlock
 			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
 			.setHardness(3f)
-			.build("endurium_basalt_ore", blockId++, b -> new BlockLogicEnduriumOre(b)).withBlastResistance(5.0F);
+			.build("endurium_basalt_ore", blockId++, b -> new BlockLogicEnduriumOre(b, Blocks.BASALT, Material.basalt)).withBlastResistance(5.0F);
 		ENDURIUM_LIMESTONE_ORE = fullBlock
 			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
 			.setHardness(3f)
-			.build("endurium_limestone_ore", blockId++, b -> new BlockLogicEnduriumOre(b)).withBlastResistance(5.0F);
+			.build("endurium_limestone_ore", blockId++, b -> new BlockLogicEnduriumOre(b, Blocks.LIMESTONE, Material.limestone)).withBlastResistance(5.0F);
 		ENDURIUM_GRANITE_ORE = fullBlock
 			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
 			.setHardness(3f)
-			.build("endurium_granite_ore", blockId++, b -> new BlockLogicEnduriumOre(b)).withBlastResistance(5.0F);
+			.build("endurium_granite_ore", blockId++, b -> new BlockLogicEnduriumOre(b, Blocks.GRANITE, Material.granite)).withBlastResistance(5.0F);
 		ENDURIUM_PERMAFROST_ORE = fullBlock
 			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
 			.setHardness(3f)
-			.build("endurium_permafrost_ore", blockId++, b -> new BlockLogicEnduriumOre(b)).withBlastResistance(5.0F);
+			.build("endurium_permafrost_ore", blockId++, b -> new BlockLogicEnduriumOre(b, Blocks.PERMAFROST, Material.permafrost)).withBlastResistance(5.0F);
+		ENDURIUM_RED_DEEPSLATE_ORE = fullBlock
+			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
+			.setHardness(3f)
+			.build("endurium_red_deepslate_ore", blockId++, b -> new BlockLogicEnduriumOre(b, ModBlocks.RED_DEEPSLATE, Material.slate)).withBlastResistance(5.0F);
 		RAW_ENDURIUM_BLOCK = fullBlock
 			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
 			.setHardness(3f)
@@ -164,23 +187,27 @@ public class ModBlocks {
 		PALLADIUM_STONE_ORE = fullBlock
 			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
 			.setHardness(3f)
-			.build("palladium_stone_ore", blockId++, b -> new BlockLogicPalladiumOre(b)).withBlastResistance(5.0F);
+			.build("palladium_stone_ore", blockId++, b -> new BlockLogicPalladiumOre(b, Blocks.STONE, Material.stone)).withBlastResistance(5.0F);
 		PALLADIUM_BASALT_ORE = fullBlock
 			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
 			.setHardness(3f)
-			.build("palladium_basalt_ore", blockId++, b -> new BlockLogicPalladiumOre(b)).withBlastResistance(5.0F);
+			.build("palladium_basalt_ore", blockId++, b -> new BlockLogicPalladiumOre(b, Blocks.BASALT, Material.basalt)).withBlastResistance(5.0F);
 		PALLADIUM_LIMESTONE_ORE = fullBlock
 			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
 			.setHardness(3f)
-			.build("palladium_limestone_ore", blockId++, b -> new BlockLogicPalladiumOre(b)).withBlastResistance(5.0F);
+			.build("palladium_limestone_ore", blockId++, b -> new BlockLogicPalladiumOre(b, Blocks.LIMESTONE, Material.limestone)).withBlastResistance(5.0F);
 		PALLADIUM_GRANITE_ORE = fullBlock
 			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
 			.setHardness(3f)
-			.build("palladium_granite_ore", blockId++, b -> new BlockLogicPalladiumOre(b)).withBlastResistance(5.0F);
+			.build("palladium_granite_ore", blockId++, b -> new BlockLogicPalladiumOre(b, Blocks.GRANITE, Material.granite)).withBlastResistance(5.0F);
 		PALLADIUM_PERMAFROST_ORE = fullBlock
 			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
 			.setHardness(3f)
-			.build("palladium_permafrost_ore", blockId++, b -> new BlockLogicPalladiumOre(b)).withBlastResistance(5.0F);
+			.build("palladium_permafrost_ore", blockId++, b -> new BlockLogicPalladiumOre(b, Blocks.PERMAFROST, Material.permafrost)).withBlastResistance(5.0F);
+		PALLADIUM_RED_DEEPSLATE_ORE = fullBlock
+			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
+			.setHardness(3f)
+			.build("palladium_red_deepslate_ore", blockId++, b -> new BlockLogicPalladiumOre(b, ModBlocks.RED_DEEPSLATE, Material.slate)).withBlastResistance(5.0F);
 		RAW_PALLADIUM_BLOCK = fullBlock
 			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
 			.setHardness(3f)
@@ -193,23 +220,27 @@ public class ModBlocks {
 		JURASSOLINE_STONE_ORE = fullBlock
 			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
 			.setHardness(3f)
-			.build("jurassoline_stone_ore", blockId++, b -> new BlockLogicJurassolineOre(b)).withBlastResistance(5.0F);
+			.build("jurassoline_stone_ore", blockId++, b -> new BlockLogicJurassolineOre(b, Blocks.STONE, Material.stone)).withBlastResistance(5.0F);
 		JURASSOLINE_BASALT_ORE = fullBlock
 			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
 			.setHardness(3f)
-			.build("jurassoline_basalt_ore", blockId++, b -> new BlockLogicJurassolineOre(b)).withBlastResistance(5.0F);
+			.build("jurassoline_basalt_ore", blockId++, b -> new BlockLogicJurassolineOre(b, Blocks.BASALT, Material.basalt)).withBlastResistance(5.0F);
 		JURASSOLINE_LIMESTONE_ORE = fullBlock
 			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
 			.setHardness(3f)
-			.build("jurassoline_limestone_ore", blockId++, b -> new BlockLogicJurassolineOre(b)).withBlastResistance(5.0F);
+			.build("jurassoline_limestone_ore", blockId++, b -> new BlockLogicJurassolineOre(b, Blocks.LIMESTONE, Material.limestone)).withBlastResistance(5.0F);
 		JURASSOLINE_GRANITE_ORE = fullBlock
 			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
 			.setHardness(3f)
-			.build("jurassoline_granite_ore", blockId++, b -> new BlockLogicJurassolineOre(b)).withBlastResistance(5.0F);
+			.build("jurassoline_granite_ore", blockId++, b -> new BlockLogicJurassolineOre(b, Blocks.GRANITE, Material.granite)).withBlastResistance(5.0F);
 		JURASSOLINE_PERMAFROST_ORE = fullBlock
 			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
 			.setHardness(3f)
-			.build("jurassoline_permafrost_ore", blockId++, b -> new BlockLogicJurassolineOre(b)).withBlastResistance(5.0F);
+			.build("jurassoline_permafrost_ore", blockId++, b -> new BlockLogicJurassolineOre(b, Blocks.PERMAFROST, Material.permafrost)).withBlastResistance(5.0F);
+		JURASSOLINE_RED_DEEPSLATE_ORE = fullBlock
+			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
+			.setHardness(3f)
+			.build("jurassoline_red_deepslate_ore", blockId++, b -> new BlockLogicJurassolineOre(b, ModBlocks.RED_DEEPSLATE, Material.slate)).withBlastResistance(5.0F);
 		JURASSOLINE_CRYSTAL_BLOCK = fullBlock
 			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
 			.setHardness(3f)
@@ -222,23 +253,27 @@ public class ModBlocks {
 		CINNABAR_STONE_ORE = fullBlock
 			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
 			.setHardness(3f)
-			.build("cinnabar_stone_ore", blockId++, b -> new BlockLogicCinnabarOre(b)).withBlastResistance(5.0F);
+			.build("cinnabar_stone_ore", blockId++, b -> new BlockLogicCinnabarOre(b, Blocks.STONE, Material.stone)).withBlastResistance(5.0F);
 		CINNABAR_BASALT_ORE = fullBlock
 			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
 			.setHardness(3f)
-			.build("cinnabar_basalt_ore", blockId++, b -> new BlockLogicCinnabarOre(b)).withBlastResistance(5.0F);
+			.build("cinnabar_basalt_ore", blockId++, b -> new BlockLogicCinnabarOre(b, Blocks.BASALT, Material.basalt)).withBlastResistance(5.0F);
 		CINNABAR_LIMESTONE_ORE = fullBlock
 			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
 			.setHardness(3f)
-			.build("cinnabar_limestone_ore", blockId++, b -> new BlockLogicCinnabarOre(b)).withBlastResistance(5.0F);
+			.build("cinnabar_limestone_ore", blockId++, b -> new BlockLogicCinnabarOre(b, Blocks.LIMESTONE, Material.limestone)).withBlastResistance(5.0F);
 		CINNABAR_GRANITE_ORE = fullBlock
 			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
 			.setHardness(3f)
-			.build("cinnabar_granite_ore", blockId++, b -> new BlockLogicCinnabarOre(b)).withBlastResistance(5.0F);
+			.build("cinnabar_granite_ore", blockId++, b -> new BlockLogicCinnabarOre(b, Blocks.GRANITE, Material.granite)).withBlastResistance(5.0F);
 		CINNABAR_PERMAFROST_ORE = fullBlock
 			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
 			.setHardness(3f)
-			.build("cinnabar_permafrost_ore", blockId++, b -> new BlockLogicCinnabarOre(b)).withBlastResistance(5.0F);
+			.build("cinnabar_permafrost_ore", blockId++, b -> new BlockLogicCinnabarOre(b, Blocks.PERMAFROST, Material.permafrost)).withBlastResistance(5.0F);
+		CINNABAR_RED_DEEPSLATE_ORE = fullBlock
+			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
+			.setHardness(3f)
+			.build("cinnabar_red_deepslate_ore", blockId++, b -> new BlockLogicCinnabarOre(b, ModBlocks.RED_DEEPSLATE, Material.slate)).withBlastResistance(5.0F);
 		CINNABAR_CRYSTAL_BLOCK = fullBlock
 			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
 			.setHardness(3f)
@@ -251,23 +286,27 @@ public class ModBlocks {
 		NEBULAR_STONE_ORE = fullBlock
 			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
 			.setHardness(3f)
-			.build("nebular_stone_ore", blockId++, b -> new BlockLogicNebularOre(b)).withBlastResistance(5.0F);
+			.build("nebular_stone_ore", blockId++, b -> new BlockLogicNebularOre(b, Blocks.STONE, Material.stone)).withBlastResistance(5.0F);
 		NEBULAR_BASALT_ORE = fullBlock
 			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
 			.setHardness(3f)
-			.build("nebular_basalt_ore", blockId++, b -> new BlockLogicNebularOre(b)).withBlastResistance(5.0F);
+			.build("nebular_basalt_ore", blockId++, b -> new BlockLogicNebularOre(b, Blocks.BASALT, Material.basalt)).withBlastResistance(5.0F);
 		NEBULAR_LIMESTONE_ORE = fullBlock
 			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
 			.setHardness(3f)
-			.build("nebular_limestone_ore", blockId++, b -> new BlockLogicNebularOre(b)).withBlastResistance(5.0F);
+			.build("nebular_limestone_ore", blockId++, b -> new BlockLogicNebularOre(b, Blocks.LIMESTONE, Material.limestone)).withBlastResistance(5.0F);
 		NEBULAR_GRANITE_ORE = fullBlock
 			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
 			.setHardness(3f)
-			.build("nebular_granite_ore", blockId++, b -> new BlockLogicNebularOre(b)).withBlastResistance(5.0F);
+			.build("nebular_granite_ore", blockId++, b -> new BlockLogicNebularOre(b, Blocks.GRANITE, Material.granite)).withBlastResistance(5.0F);
 		NEBULAR_PERMAFROST_ORE = fullBlock
 			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
 			.setHardness(3f)
-			.build("nebular_permafrost_ore", blockId++, b -> new BlockLogicNebularOre(b)).withBlastResistance(5.0F);
+			.build("nebular_permafrost_ore", blockId++, b -> new BlockLogicNebularOre(b, Blocks.PERMAFROST, Material.permafrost)).withBlastResistance(5.0F);
+		NEBULAR_RED_DEEPSLATE_ORE = fullBlock
+			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
+			.setHardness(3f)
+			.build("nebular_red_deepslate_ore", blockId++, b -> new BlockLogicNebularOre(b, ModBlocks.RED_DEEPSLATE, Material.slate)).withBlastResistance(5.0F);
 		RAW_NEBULAR_BLOCK = fullBlock
 			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
 			.setHardness(3f)
@@ -280,27 +319,31 @@ public class ModBlocks {
 		MITHRIL_STONE_ORE = fullBlock
 			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
 			.setHardness(3f)
-			.build("mithril_stone_ore", blockId++, b -> new BlockLogicMithrilOre(b)).withBlastResistance(5.0F);
+			.build("mithril_stone_ore", blockId++, b -> new BlockLogicMithrilOre(b, Blocks.STONE, Material.stone)).withBlastResistance(5.0F);
 		MITHRIL_BASALT_ORE = fullBlock
 			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
 			.setHardness(3f)
-			.build("mithril_basalt_ore", blockId++, b -> new BlockLogicMithrilOre(b)).withBlastResistance(5.0F);
+			.build("mithril_basalt_ore", blockId++, b -> new BlockLogicMithrilOre(b, Blocks.BASALT, Material.basalt)).withBlastResistance(5.0F);
 		MITHRIL_LIMESTONE_ORE = fullBlock
 			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
 			.setHardness(3f)
-			.build("mithril_limestone_ore", blockId++, b -> new BlockLogicMithrilOre(b)).withBlastResistance(5.0F);
+			.build("mithril_limestone_ore", blockId++, b -> new BlockLogicMithrilOre(b, Blocks.LIMESTONE, Material.limestone)).withBlastResistance(5.0F);
 		MITHRIL_GRANITE_ORE = fullBlock
 			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
 			.setHardness(3f)
-			.build("mithril_granite_ore", blockId++, b -> new BlockLogicMithrilOre(b)).withBlastResistance(5.0F);
+			.build("mithril_granite_ore", blockId++, b -> new BlockLogicMithrilOre(b, Blocks.GRANITE, Material.granite)).withBlastResistance(5.0F);
 		MITHRIL_PERMAFROST_ORE = fullBlock
 			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
 			.setHardness(3f)
-			.build("mithril_permafrost_ore", blockId++, b -> new BlockLogicMithrilOre(b)).withBlastResistance(6000000.0F);
+			.build("mithril_permafrost_ore", blockId++, b -> new BlockLogicMithrilOre(b, Blocks.PERMAFROST, Material.permafrost)).withBlastResistance(5.0F);
+		MITHRIL_RED_DEEPSLATE_ORE = fullBlock
+			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
+			.setHardness(3f)
+			.build("mithril_red_deepslate_ore", blockId++, b -> new BlockLogicMithrilOre(b, ModBlocks.RED_DEEPSLATE, Material.slate)).withBlastResistance(5.0F);
 		MITHRIL_BEDROCK_ORE = fullBlock
 			.setTags(BlockTags.PISTON_CRUSHING)
 			.setUnbreakable()
-			.build("mithril_bedrock_ore", blockId++, b -> new BlockLogicMithrilOre(b)).withBlastResistance(5.0F);
+			.build("mithril_bedrock_ore", blockId++, b -> new BlockLogicMithrilOre(b, Blocks.BEDROCK, Material.stone)).withSetUnbreakable().withBlastResistance(6000000.0F).withImmovableFlagSet().withTags(BlockTags.PISTON_CRUSHING);
 		RAW_MITHRIL_BLOCK = fullBlock
 			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
 			.setHardness(3f)

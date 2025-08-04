@@ -43,6 +43,11 @@ public class ModModelProvider implements ModelEntrypoint {
 			() -> new BlockModelStandard<>(ModBlocks.PERMAFROST_FOSSIL)
 				.setTex(0, "tlotd:block/permafrost_fossil", Side.sides)
 		);
+		ModelHelper.setBlockModel(
+			ModBlocks.RED_DEEPSLATE_FOSSIL,
+			() -> new BlockModelStandard<>(ModBlocks.RED_DEEPSLATE_FOSSIL)
+				.setTex(0, "tlotd:block/red_deepslate_fossil", Side.sides)
+		);
 
 		ModelHelper.setBlockModel(
 			ModBlocks.HELIORITE_STONE_ORE,
@@ -68,6 +73,11 @@ public class ModModelProvider implements ModelEntrypoint {
 			ModBlocks.HELIORITE_PERMAFROST_ORE,
 			() -> new BlockModelStandard<>(ModBlocks.HELIORITE_PERMAFROST_ORE)
 				.setTex(0, "tlotd:block/heliorite_permafrost_ore", Side.sides)
+		);
+		ModelHelper.setBlockModel(
+			ModBlocks.HELIORITE_RED_DEEPSLATE_ORE,
+			() -> new BlockModelStandard<>(ModBlocks.HELIORITE_RED_DEEPSLATE_ORE)
+				.setTex(0, "tlotd:block/heliorite_red_deepslate_ore", Side.sides)
 		);
 		ModelHelper.setBlockModel(
 			ModBlocks.HELIORITE_COMB_BLOCK,
@@ -106,6 +116,11 @@ public class ModModelProvider implements ModelEntrypoint {
 				.setTex(0, "tlotd:block/endurium_permafrost_ore", Side.sides)
 		);
 		ModelHelper.setBlockModel(
+			ModBlocks.ENDURIUM_RED_DEEPSLATE_ORE,
+			() -> new BlockModelStandard<>(ModBlocks.ENDURIUM_RED_DEEPSLATE_ORE)
+				.setTex(0, "tlotd:block/endurium_red_deepslate_ore", Side.sides)
+		);
+		ModelHelper.setBlockModel(
 			ModBlocks.RAW_ENDURIUM_BLOCK,
 			() -> new BlockModelStandard<>(ModBlocks.RAW_ENDURIUM_BLOCK)
 				.setTex(0, "tlotd:block/raw_endurium_block", Side.sides)
@@ -140,6 +155,11 @@ public class ModModelProvider implements ModelEntrypoint {
 			ModBlocks.PALLADIUM_PERMAFROST_ORE,
 			() -> new BlockModelStandard<>(ModBlocks.PALLADIUM_PERMAFROST_ORE)
 				.setTex(0, "tlotd:block/palladium_permafrost_ore", Side.sides)
+		);
+		ModelHelper.setBlockModel(
+			ModBlocks.PALLADIUM_RED_DEEPSLATE_ORE,
+			() -> new BlockModelStandard<>(ModBlocks.PALLADIUM_RED_DEEPSLATE_ORE)
+				.setTex(0, "tlotd:block/palladium_red_deepslate_ore", Side.sides)
 		);
 		ModelHelper.setBlockModel(
 			ModBlocks.RAW_PALLADIUM_BLOCK,
@@ -178,6 +198,11 @@ public class ModModelProvider implements ModelEntrypoint {
 				.setTex(0, "tlotd:block/jurassoline_permafrost_ore", Side.sides)
 		);
 		ModelHelper.setBlockModel(
+			ModBlocks.JURASSOLINE_RED_DEEPSLATE_ORE,
+			() -> new BlockModelStandard<>(ModBlocks.JURASSOLINE_RED_DEEPSLATE_ORE)
+				.setTex(0, "tlotd:block/jurassoline_red_deepslate_ore", Side.sides)
+		);
+		ModelHelper.setBlockModel(
 			ModBlocks.JURASSOLINE_CRYSTAL_BLOCK,
 			() -> new BlockModelStandard<>(ModBlocks.JURASSOLINE_CRYSTAL_BLOCK)
 				.setTex(0, "tlotd:block/jurassoline_crystal_block", Side.sides)
@@ -212,6 +237,11 @@ public class ModModelProvider implements ModelEntrypoint {
 			ModBlocks.CINNABAR_PERMAFROST_ORE,
 			() -> new BlockModelStandard<>(ModBlocks.CINNABAR_PERMAFROST_ORE)
 				.setTex(0, "tlotd:block/cinnabar_permafrost_ore", Side.sides)
+		);
+		ModelHelper.setBlockModel(
+			ModBlocks.CINNABAR_RED_DEEPSLATE_ORE,
+			() -> new BlockModelStandard<>(ModBlocks.CINNABAR_RED_DEEPSLATE_ORE)
+				.setTex(0, "tlotd:block/cinnabar_red_deepslate_ore", Side.sides)
 		);
 		ModelHelper.setBlockModel(
 			ModBlocks.CINNABAR_CRYSTAL_BLOCK,
@@ -250,6 +280,11 @@ public class ModModelProvider implements ModelEntrypoint {
 				.setTex(0, "tlotd:block/nebular_permafrost_ore", Side.sides)
 		);
 		ModelHelper.setBlockModel(
+			ModBlocks.NEBULAR_RED_DEEPSLATE_ORE,
+			() -> new BlockModelStandard<>(ModBlocks.NEBULAR_RED_DEEPSLATE_ORE)
+				.setTex(0, "tlotd:block/nebular_red_deepslate_ore", Side.sides)
+		);
+		ModelHelper.setBlockModel(
 			ModBlocks.RAW_NEBULAR_BLOCK,
 			() -> new BlockModelStandard<>(ModBlocks.RAW_NEBULAR_BLOCK)
 				.setTex(0, "tlotd:block/raw_nebular_block", Side.sides)
@@ -284,6 +319,11 @@ public class ModModelProvider implements ModelEntrypoint {
 			ModBlocks.MITHRIL_PERMAFROST_ORE,
 			() -> new BlockModelStandard<>(ModBlocks.MITHRIL_PERMAFROST_ORE)
 				.setTex(0, "tlotd:block/mithril_permafrost_ore", Side.sides)
+		);
+		ModelHelper.setBlockModel(
+			ModBlocks.MITHRIL_RED_DEEPSLATE_ORE,
+			() -> new BlockModelStandard<>(ModBlocks.MITHRIL_RED_DEEPSLATE_ORE)
+				.setTex(0, "tlotd:block/mithril_red_deepslate_ore", Side.sides)
 		);
 		ModelHelper.setBlockModel(
 			ModBlocks.MITHRIL_BEDROCK_ORE,

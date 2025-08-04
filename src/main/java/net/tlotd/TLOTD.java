@@ -14,7 +14,7 @@ public class TLOTD implements ModInitializer, RecipeEntrypoint, GameStartEntrypo
     public static final String MOD_ID = "tlotd";
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
-	private static final Toml TOML = new Toml("1 is enabled, 0 is disabled");
+	private static final Toml TOML = new Toml("IDs can be changed below if you are planning to play with multiple mods! | 1 is enabled, 0 is disabled");
 	public static final TomlConfigHandler CFG;
 	static {
 		TOML.addCategory("IDs")

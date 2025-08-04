@@ -11,7 +11,7 @@ import net.tlotd.block.ModBlocks;
 
 public class BlockLogicRedDeepslate extends BlockLogic {
 	public BlockLogicRedDeepslate(Block block) {
-		super(block, Material.stone);
+		super(block, Material.slate);
 	}
 
 	public ItemStack[] getBreakResult(World world, EnumDropCause dropCause, int x, int y, int z, int meta, TileEntity tileEntity) {
