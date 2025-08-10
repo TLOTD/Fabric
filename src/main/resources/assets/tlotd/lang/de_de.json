@@ -104,6 +104,8 @@
   "advancements.tlotd.simple_circuitry.desc": "Gelange an eine Platine",
   "advancements.tlotd.oxygen_collector": "Sauerstoffsammler",
   "advancements.tlotd.oxygen_collector.desc": "Baue einen Sauerstoffsammler",
+  "advancements.tlotd.lunar_return": "Zum Mond und wieder zurück!",
+  "advancements.tlotd.lunar_return.desc": "Kehre zurück von einer Reise zum Mond.",
   "advancements.tlotd.radio_star": "Radio Star",
   "advancements.tlotd.radio_star.desc": "Höre etwas Musik mittels des Radios",
   "advancements.tlotd.television": "Endlich in Farbe!",
@@ -135,6 +137,11 @@
   "advancements.tlotd.jurassic.desc": "Jurazeiten erfordern jurassische Maßnahmen",
   "advancements.tlotd.kill_a_t-rex": "Hättest aussterben sollen!",
   "advancements.tlotd.kill_a_t-rex.desc": "Bekämpfe und bezwinge einen T-Rex im Kampf",
+
+  "advancements.tlotd.luna": "Luna",
+  "advancements.tlotd.luna.desc": "Zum Mond und wieder zurück?",
+  "advancements.tlotd.lunar_callainus_lump": "Das türkiese Juwel des Mondes",
+  "advancements.tlotd.lunar_callainus_lump.desc": "Gelange an einen Lunar Callainus Klumpen",
 
   "advancements.tlotd.magic": "Magische Entfaltung",
   "advancements.tlotd.magic.desc": "Magie äußert sich in vielen einzigartigen Weisen in dieser Welt",
@@ -345,6 +352,7 @@
   "item.tlotd.blood_bottle": "Blutflasche",
 
   "item.tlotd.beer_bucket": "Biereimer",
+  "item.tlotd.mead_bucket": "Meteimer",
   "item.tlotd.hot_milk_bucket": "Heißer Milcheimer",
   "item.tlotd.hot_chocolate_bucket": "Heißer Schokoladeneimer",
   "item.tlotd.oil_bucket": "Öleimer",
@@ -448,6 +456,7 @@
   "item.tlotd.heliorite_axe": "Helioritaxt",
   "item.tlotd.heliorite_shovel": "Helioritschaufel",
   "item.tlotd.heliorite_hoe": "Heliorithacke",
+  "item.tlotd.heliorite_paxel": "Helioritpaxel",
   "item.tlotd.heliorite_sickle": "Helioritsichel",
   "item.tlotd.heliorite_forging_hammer": "Helioritschmiedehammer",
 
@@ -473,6 +482,7 @@
   "item.tlotd.endurium_axe": "Enduriumaxt",
   "item.tlotd.endurium_shovel": "Enduriumschaufel",
   "item.tlotd.endurium_hoe": "Enduriumhacke",
+  "item.tlotd.endurium_paxel": "Enduriumpaxel",
   "item.tlotd.endurium_sickle": "Enduriumsichel",
   "item.tlotd.endurium_forging_hammer": "Enduriumschmiedehammer",
 
@@ -490,6 +500,7 @@
   "item.tlotd.palladium_axe": "Palladiumaxt",
   "item.tlotd.palladium_shovel": "Palladiumschaufel",
   "item.tlotd.palladium_hoe": "Palladiumhacke",
+  "item.tlotd.palladium_paxel": "Palladiumpaxel",
   "item.tlotd.palladium_sickle": "Palladiumsichel",
   "item.tlotd.palladium_forging_hammer": "Palladiumschmiedehammer",
 
@@ -507,6 +518,7 @@
   "item.tlotd.jurassoline_axe": "Jurassolinaxt",
   "item.tlotd.jurassoline_shovel": "Jurassolinschaufel",
   "item.tlotd.jurassoline_hoe": "Jurassolinhacke",
+  "item.tlotd.jurassoline_paxel": "Jurassolinpaxel",
   "item.tlotd.jurassoline_sickle": "Jurassolinsichel",
   "item.tlotd.jurassoline_forging_hammer": "Jurassolinschmiedehammer",
 
@@ -526,6 +538,7 @@
   "item.tlotd.cinnabar_axe": "Zinnoberaxt",
   "item.tlotd.cinnabar_shovel": "Zinnoberschaufel",
   "item.tlotd.cinnabar_hoe": "Zinnoberhacke",
+  "item.tlotd.cinnabar_paxel": "§bZinnoberpaxel",
   "item.tlotd.cinnabar_sickle": "Zinnobersichel",
   "item.tlotd.cinnabar_forging_hammer": "Zinnoberschmiedehammer",
 
@@ -543,6 +556,7 @@
   "item.tlotd.nebular_axe": "Nebularaxt",
   "item.tlotd.nebular_shovel": "Nebularschaufel",
   "item.tlotd.nebular_hoe": "Nebularhacke",
+  "item.tlotd.nebular_paxel": "§bNebularpaxel",
   "item.tlotd.nebular_sickle": "Nebularsichel",
   "item.tlotd.nebular_forging_hammer": "Nebularschmiedehammer",
 
@@ -562,6 +576,7 @@
   "item.tlotd.mithril_axe": "Mithrilaxt",
   "item.tlotd.mithril_shovel": "Mithrilschaufel",
   "item.tlotd.mithril_hoe": "Mithrilhacke",
+  "item.tlotd.mithril_paxel": "Mithrilpaxel",
   "item.tlotd.mithril_sickle": "Mithrilsichel",
   "item.tlotd.mithril_forging_hammer": "Mithrilschmiedehammer",
 
@@ -654,6 +669,8 @@
   "block.minecraft.empty_block": "Leer",
   "block.tlotd.beer": "Bier",
   "block.tlotd.beer_block": "Bier",
+  "block.tlotd.mead": "Met",
+  "block.tlotd.mead_block": "Met",
   "block.tlotd.hot_milk": "Heiße Milch",
   "block.tlotd.hot_milk_block": "Heiße Milch",
   "block.tlotd.hot_chocolate": "Heiße Schokolade",
@@ -824,6 +841,8 @@
 
   "block.tlotd.reinforced_red_deepslate": "Verstärkter Roter Tiefenschiefer",
 
+  "block.tlotd.red_deepslate_fossil": "Rotes-Tiefenschiefer-Fossil",
+
   "block.tlotd.red_deepslate_iron_ore": "Rotes-Tiefenschiefer-Eisenerz",
   "block.tlotd.red_deepslate_copper_ore": "Rotes-Tiefenschiefer-Kupfererz",
   "block.tlotd.red_deepslate_gold_ore": "Rotes-Tiefenschiefer-Golderz",
@@ -860,19 +879,31 @@
   "block.tlotd.nether_sulfur_ore": "Netherschwefelerz",
   "block.tlotd.sulfur_block": "Schwefelblock",
   "block.tlotd.sulfur_torch": "Schwefelfackel",
+  "block.tlotd.sulfur_wall_torch": "Schwefelwandfackel",
   "block.tlotd.sulfur_lantern": "Schwefellaterne",
   "block.tlotd.sulfur_campfire": "Schwefellagerfeuer",
 
+  "block.tlotd.extinguished_torch": "Erloschene Fackel",
+  "block.tlotd.extinguished_wall_torch": "Erloschene Wandfackel",
+  "block.tlotd.extinguished_soul_torch": "Erloschene Seelenfackel",
+  "block.tlotd.extinguished_soul_wall_torch": "Erloschene Seelenwandfackel",
+  "block.tlotd.extinguished_sulfur_torch": "Erloschene Schwefelfackel",
+  "block.tlotd.extinguished_sulfur_wall_torch": "Erloschene Schwefelwandfackel",
+
   "block.tlotd.lead_ore": "Bleierz",
+  "block.tlotd.deepslate_lead_ore": "Tiefenschiefer-Bleierz",
   "block.tlotd.raw_lead_block": "Rohbleiblock",
   "block.tlotd.lead_block": "Bleiblock",
 
+  "block.tlotd.uranium_ore": "Uranerz",
   "block.tlotd.deepslate_uranium_ore": "Tiefenschiefer-Uranerz",
   "block.tlotd.raw_uranium_block": "Rohuranblock",
   "block.tlotd.uranium_block": "Uranblock",
 
+  "block.tlotd.fossil": "Fossil",
   "block.tlotd.deepslate_fossil": "Tiefenschiefer-Fossil",
 
+  "block.tlotd.heliorite_ore": "Helioriterz",
   "block.tlotd.deepslate_heliorite_ore": "Tiefenschiefer-Helioriterz",
   "block.tlotd.heliorite_comb_block": "Helioritwabenblock",
   "block.tlotd.heliorite_block": "Helioritblock",
@@ -881,18 +912,22 @@
   "block.tlotd.raw_endurium_block": "Rohenduriumblock",
   "block.tlotd.endurium_block": "Enduriumblock",
 
+  "block.tlotd.palladium_ore": "Palladiumerz",
   "block.tlotd.deepslate_palladium_ore": "Tiefenschiefer-Palladiumerz",
   "block.tlotd.raw_palladium_block": "Rohpalladiumblock",
   "block.tlotd.palladium_block": "Palladiumblock",
 
+  "block.tlotd.jurassoline_ore": "Jurassolinerz",
   "block.tlotd.deepslate_jurassoline_ore": "Tiefenschiefer-Jurassolinerz",
   "block.tlotd.jurassoline_crystal_block": "Jurassolinkristallblock",
   "block.tlotd.jurassoline_block": "Jurassolinblock",
 
+  "block.tlotd.cinnabar_ore": "Zinnobererz",
   "block.tlotd.deepslate_cinnabar_ore": "Tiefenschiefer-Zinnobererz",
   "block.tlotd.cinnabar_crystal_block": "Zinnoberkristallblock",
   "block.tlotd.cinnabar_block": "Zinnoberblock",
 
+  "block.tlotd.nebular_ore": "Nebularerz",
   "block.tlotd.deepslate_nebular_ore": "Tiefenschiefer-Nebularerz",
   "block.tlotd.raw_nebular_block": "Rohnebularblock",
   "block.tlotd.nebular_block": "Nebularblock",
@@ -1110,6 +1145,9 @@
   "item.tlotd.beer_bottle": "Bierflasche",
   "item.tlotd.beer_goat_horn": "Bierbockshorn",
 
+  "item.tlotd.mead_bottle": "Metflasche",
+  "item.tlotd.mead_goat_horn": "Metbockshorn",
+
   "item.tlotd.extraction.tooltip": "Ausgrabung",
   "item.tlotd.mouth_of_the_abyss.tooltip": "Schlund des Abgrundes",
 
@@ -1122,6 +1160,7 @@
   "block.tlotd.wooden_stein": "Holzkrug",
   "block.tlotd.wooden_water_stein": "Wasserholzkrug",
   "block.tlotd.wooden_beer_stein": "Bierholzkrug",
+  "block.tlotd.wooden_mead_stein": "Metholzkrug",
   "block.tlotd.wooden_apple_juice_stein": "Apfelsaftholzkrug",
   "block.tlotd.wooden_orange_juice_stein": "Orangensaftholzkrug",
   "block.tlotd.wooden_milk_stein": "Milchholzkrug",

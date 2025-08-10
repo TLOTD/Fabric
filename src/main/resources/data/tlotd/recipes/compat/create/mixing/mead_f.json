@@ -1,0 +1,28 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "forge",
+        "create"
+      ]
+    }
+  ],
+  "type": "create:mixing",
+  "ingredients": [
+    {
+      "fluid": "minecraft:water",
+      "amount": 500
+    },
+    {
+      "fluidTag": "forge:honey",
+      "amount": 500
+    }
+  ],
+  "results": [
+    {
+      "fluid": "tlotd:mead",
+      "amount": 1000
+    }
+  ]
+}

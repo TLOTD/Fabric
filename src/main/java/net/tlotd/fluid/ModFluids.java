@@ -23,6 +23,11 @@ public class ModFluids {
     public static Block BEER_BLOCK;
     public static Item BEER_BUCKET;
 
+    public static FlowableFluid STILL_MEAD;
+    public static FlowableFluid FLOWING_MEAD;
+    public static Block MEAD_BLOCK;
+    public static Item MEAD_BUCKET;
+
     public static FlowableFluid STILL_HOT_MILK;
     public static FlowableFluid FLOWING_HOT_MILK;
     public static Block HOT_MILK_BLOCK;
@@ -83,6 +88,11 @@ public class ModFluids {
         FLOWING_BEER = Registry.register(Registries.FLUID, new Identifier(TLOTD.MOD_ID, "flowing_beer"), new BeerFluid.Flowing());
         BEER_BLOCK = Registry.register(Registries.BLOCK, new Identifier(TLOTD.MOD_ID, "beer_block"), new FluidBlock(ModFluids.STILL_BEER, FabricBlockSettings.copyOf(Blocks.WATER)){});
         BEER_BUCKET = Registry.register(Registries.ITEM, new Identifier(TLOTD.MOD_ID, "beer_bucket"), new BucketItem(ModFluids.STILL_BEER, new FabricItemSettings().recipeRemainder(Items.BUCKET).maxCount(1)));
+
+        STILL_MEAD = Registry.register(Registries.FLUID, new Identifier(TLOTD.MOD_ID, "mead"), new MeadFluid.Still());
+        FLOWING_MEAD = Registry.register(Registries.FLUID, new Identifier(TLOTD.MOD_ID, "flowing_mead"), new MeadFluid.Flowing());
+        MEAD_BLOCK = Registry.register(Registries.BLOCK, new Identifier(TLOTD.MOD_ID, "mead_block"), new FluidBlock(ModFluids.STILL_MEAD, FabricBlockSettings.copyOf(Blocks.WATER)){});
+        MEAD_BUCKET = Registry.register(Registries.ITEM, new Identifier(TLOTD.MOD_ID, "mead_bucket"), new BucketItem(ModFluids.STILL_MEAD, new FabricItemSettings().recipeRemainder(Items.BUCKET).maxCount(1)));
 
         STILL_HOT_MILK = Registry.register(Registries.FLUID, new Identifier(TLOTD.MOD_ID, "hot_milk"), new HotMilkFluid.Still());
         FLOWING_HOT_MILK = Registry.register(Registries.FLUID, new Identifier(TLOTD.MOD_ID, "flowing_hot_milk"), new HotMilkFluid.Flowing());

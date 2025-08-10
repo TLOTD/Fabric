@@ -71,7 +71,7 @@ public class ModArmorProtection {
                     }
                     return false;
                 }
-            } else if (damageSource.getType().msgId().contains("bullet") || damageSource.getType().msgId().contains("ammo") || damageSource.getType().msgId().contains("gunfire")) {
+            } else if (damageSource.getType().msgId().contains("bullet") || damageSource.getType().msgId().contains("ammo") ||damageSource.getType().msgId().contains("round") || damageSource.getType().msgId().contains("gunfire")) {
                 float armorProtection = 0f;
                 for (ItemStack armor : player.getArmorItems()) {
                     if (armor.isIn(ModTags.Items.BULLET_PROOF_ARMOR_III)) {

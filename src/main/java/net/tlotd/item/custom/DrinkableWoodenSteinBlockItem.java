@@ -33,7 +33,7 @@ public class DrinkableWoodenSteinBlockItem extends BlockItem {
     }
 
     public ItemStack finishUsing(ItemStack stack, World world, LivingEntity user) {
-        if (stack.getItem() == ModBlocks.WOODEN_BEER_STEIN.asItem()) {
+        if (stack.getItem() == ModBlocks.WOODEN_BEER_STEIN.asItem() || stack.getItem() == ModBlocks.WOODEN_MEAD_STEIN.asItem()) {
             user.addStatusEffect(new StatusEffectInstance(ModEffects.DRUNK, 600));
         } else if (stack.getItem() == ModBlocks.WOODEN_MILK_STEIN.asItem()) {
             user.clearStatusEffects();
@@ -94,7 +94,7 @@ public class DrinkableWoodenSteinBlockItem extends BlockItem {
 
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        if (stack.getItem() == ModBlocks.WOODEN_BEER_STEIN.asItem()) {
+        if (stack.getItem() == ModBlocks.WOODEN_BEER_STEIN.asItem() || stack.getItem() == ModBlocks.WOODEN_MEAD_STEIN.asItem()) {
             tooltip.add(Text.translatable("effect.tlotd.drunk").append(Text.literal(" (00:30)")).formatted(Formatting.RED));
         }
         if (context.isCreative() && !compat.isEmpty()){

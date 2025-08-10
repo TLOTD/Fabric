@@ -42,8 +42,14 @@ public class ModBlocks {
     public static final Block SULFUR_TORCH = registerBlockWithoutItem("sulfur_torch", new TorchBlock(FabricBlockSettings.create().noCollision().breakInstantly().luminance(13).sounds(BlockSoundGroup.WOOD).pistonBehavior(PistonBehavior.DESTROY), ParticleTypes.SOUL_FIRE_FLAME));
     public static final Block SULFUR_WALL_TORCH = registerBlockWithoutItem("sulfur_wall_torch", new WallTorchBlock(FabricBlockSettings.create().noCollision().breakInstantly().luminance(13).sounds(BlockSoundGroup.WOOD).pistonBehavior(PistonBehavior.DESTROY), ParticleTypes.SOUL_FIRE_FLAME));
 
-    public static final Block SULFUR_LANTERN = registerBlock("sulfur_lantern", new LanternBlock(FabricBlockSettings.create().mapColor(MapColor.IRON_GRAY).solid().requiresTool().strength(3.5F).sounds(BlockSoundGroup.LANTERN).luminance(14).nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
+    public static final Block EXTINGUISHED_TORCH = registerBlockWithoutItem("extinguished_torch", new ExtinguishedTorchBlock(FabricBlockSettings.create().noCollision().breakInstantly().sounds(BlockSoundGroup.WOOD).pistonBehavior(PistonBehavior.DESTROY), ParticleTypes.ASH));
+    public static final Block EXTINGUISHED_WALL_TORCH = registerBlockWithoutItem("extinguished_wall_torch", new ExtinguishedWallTorchBlock(FabricBlockSettings.create().noCollision().breakInstantly().sounds(BlockSoundGroup.WOOD).pistonBehavior(PistonBehavior.DESTROY), ParticleTypes.ASH));
+    public static final Block EXTINGUISHED_SOUL_TORCH = registerBlockWithoutItem("extinguished_soul_torch", new ExtinguishedTorchBlock(FabricBlockSettings.create().noCollision().breakInstantly().sounds(BlockSoundGroup.WOOD).pistonBehavior(PistonBehavior.DESTROY), ParticleTypes.ASH));
+    public static final Block EXTINGUISHED_SOUL_WALL_TORCH = registerBlockWithoutItem("extinguished_soul_wall_torch", new ExtinguishedWallTorchBlock(FabricBlockSettings.create().noCollision().breakInstantly().sounds(BlockSoundGroup.WOOD).pistonBehavior(PistonBehavior.DESTROY), ParticleTypes.ASH));
+    public static final Block EXTINGUISHED_SULFUR_TORCH = registerBlockWithoutItem("extinguished_sulfur_torch", new ExtinguishedTorchBlock(FabricBlockSettings.create().noCollision().breakInstantly().sounds(BlockSoundGroup.WOOD).pistonBehavior(PistonBehavior.DESTROY), ParticleTypes.ASH));
+    public static final Block EXTINGUISHED_SULFUR_WALL_TORCH = registerBlockWithoutItem("extinguished_sulfur_wall_torch", new ExtinguishedWallTorchBlock(FabricBlockSettings.create().noCollision().breakInstantly().sounds(BlockSoundGroup.WOOD).pistonBehavior(PistonBehavior.DESTROY), ParticleTypes.ASH));
 
+    public static final Block SULFUR_LANTERN = registerBlock("sulfur_lantern", new LanternBlock(FabricBlockSettings.create().mapColor(MapColor.IRON_GRAY).solid().requiresTool().strength(3.5F).sounds(BlockSoundGroup.LANTERN).luminance(14).nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
     public static final Block SULFUR_CAMPFIRE = registerNyiBlock("sulfur_campfire", new CampfireBlock(false, 2, FabricBlockSettings.create().mapColor(MapColor.SPRUCE_BROWN).instrument(Instrument.BASS).strength(2.0f).sounds(BlockSoundGroup.WOOD).luminance(Blocks.createLightLevelFromLitBlockState(14)).nonOpaque().burnable()));
 
     public static final Block PRESERVES_JAR = registerSmallStackableBlock("preserves_jar",
@@ -213,6 +219,8 @@ public class ModBlocks {
     public static final Block REINFORCED_RED_DEEPSLATE = registerBlock("reinforced_red_deepslate",
             new Block(FabricBlockSettings.create().mapColor(MapColor.DULL_RED).requiresTool().strength(55.0F, 1200.0F).sounds(BlockSoundGroup.DEEPSLATE)));
 
+    public static final Block RED_DEEPSLATE_FOSSIL = registerBlock("red_deepslate_fossil",
+            new Block(FabricBlockSettings.create().mapColor(MapColor.PALE_YELLOW).requiresTool().strength(3.0F, 3.0F).sounds(BlockSoundGroup.DEEPSLATE)));
     public static final Block RED_DEEPSLATE_IRON_ORE = registerBlock("red_deepslate_iron_ore",
             new Block(FabricBlockSettings.create().mapColor(MapColor.RAW_IRON_PINK).requiresTool().strength(3.0F, 3.0F).sounds(BlockSoundGroup.DEEPSLATE)));
     public static final Block RED_DEEPSLATE_COPPER_ORE = registerBlock("red_deepslate_copper_ore",
@@ -279,11 +287,15 @@ public class ModBlocks {
 
     public static final Block LEAD_ORE = registerBlock("lead_ore",
             new Block(FabricBlockSettings.create().mapColor(MapColor.GRAY).requiresTool().strength(3.0F, 3.0F)));
+    public static final Block DEEPSLATE_LEAD_ORE = registerBlock("deepslate_lead_ore",
+            new Block(FabricBlockSettings.create().mapColor(MapColor.GRAY).requiresTool().strength(3.0F, 3.0F).sounds(BlockSoundGroup.DEEPSLATE)));
     public static final Block RAW_LEAD_BLOCK = registerBlock("raw_lead_block",
             new Block(FabricBlockSettings.create().mapColor(MapColor.GRAY).requiresTool().strength(3.0F, 3.0F)));
     public static final Block LEAD_BLOCK = registerBlock("lead_block",
             new Block(FabricBlockSettings.create().mapColor(MapColor.GRAY).requiresTool().strength(3.0F, 3.0F)));
 
+    public static final Block URANIUM_ORE = registerIrradiatedBlock("uranium_ore",
+            new Block(FabricBlockSettings.create().mapColor(MapColor.GRAY).requiresTool().strength(3.0F, 3.0F)));
     public static final Block DEEPSLATE_URANIUM_ORE = registerIrradiatedBlock("deepslate_uranium_ore",
             new Block(FabricBlockSettings.create().mapColor(MapColor.GRAY).requiresTool().strength(3.0F, 3.0F).sounds(BlockSoundGroup.DEEPSLATE)));
     public static final Block RAW_URANIUM_BLOCK = registerIrradiatedBlock("raw_uranium_block",
@@ -291,9 +303,13 @@ public class ModBlocks {
     public static final Block URANIUM_BLOCK = registerIrradiatedBlock("uranium_block",
             new Block(FabricBlockSettings.create().mapColor(MapColor.GREEN).requiresTool().strength(3.0F, 3.0F)));
 
+    public static final Block FOSSIL = registerBlock("fossil",
+            new Block(FabricBlockSettings.create().mapColor(MapColor.PALE_YELLOW).requiresTool().strength(3.0F, 3.0F)));
     public static final Block DEEPSLATE_FOSSIL = registerBlock("deepslate_fossil",
             new Block(FabricBlockSettings.create().mapColor(MapColor.PALE_YELLOW).requiresTool().strength(3.0F, 3.0F).sounds(BlockSoundGroup.DEEPSLATE)));
 
+    public static final Block HELIORITE_ORE = registerBlock("heliorite_ore",
+            new Block(FabricBlockSettings.create().mapColor(MapColor.MAGENTA).requiresTool().strength(16.0F, 1200.0F)));
     public static final Block DEEPSLATE_HELIORITE_ORE = registerBlock("deepslate_heliorite_ore",
             new Block(FabricBlockSettings.create().mapColor(MapColor.MAGENTA).requiresTool().strength(16.0F, 1200.0F).sounds(BlockSoundGroup.DEEPSLATE)));
     public static final Block HELIORITE_COMB_BLOCK = registerBlock("heliorite_comb_block",
@@ -308,6 +324,8 @@ public class ModBlocks {
     public static final Block ENDURIUM_BLOCK = registerBlock("endurium_block",
             new Block(FabricBlockSettings.create().mapColor(MapColor.DARK_AQUA).requiresTool().strength(16.0F, 1200.0F).sounds(BlockSoundGroup.NETHERITE)));
 
+    public static final Block PALLADIUM_ORE = registerBlock("palladium_ore",
+            new Block(FabricBlockSettings.create().mapColor(MapColor.ORANGE).requiresTool().strength(16.0F, 1200.0F)));
     public static final Block DEEPSLATE_PALLADIUM_ORE = registerBlock("deepslate_palladium_ore",
             new Block(FabricBlockSettings.create().mapColor(MapColor.ORANGE).requiresTool().strength(16.0F, 1200.0F).sounds(BlockSoundGroup.DEEPSLATE)));
     public static final Block RAW_PALLADIUM_BLOCK = registerBlock("raw_palladium_block",
@@ -315,6 +333,8 @@ public class ModBlocks {
     public static final Block PALLADIUM_BLOCK = registerBlock("palladium_block",
             new Block(FabricBlockSettings.create().mapColor(MapColor.ORANGE).requiresTool().strength(16.0F, 1200.0F).sounds(BlockSoundGroup.NETHERITE)));
 
+    public static final Block JURASSOLINE_ORE = registerBlock("jurassoline_ore",
+            new Block(FabricBlockSettings.create().mapColor(MapColor.PALE_GREEN).requiresTool().strength(16.0F, 1200.0F)));
     public static final Block DEEPSLATE_JURASSOLINE_ORE = registerBlock("deepslate_jurassoline_ore",
             new Block(FabricBlockSettings.create().mapColor(MapColor.PALE_GREEN).requiresTool().strength(16.0F, 1200.0F).sounds(BlockSoundGroup.DEEPSLATE)));
     public static final Block JURASSOLINE_CRYSTAL_BLOCK = registerBlock("jurassoline_crystal_block",
@@ -322,6 +342,8 @@ public class ModBlocks {
     public static final Block JURASSOLINE_BLOCK = registerBlock("jurassoline_block",
             new Block(FabricBlockSettings.create().mapColor(MapColor.PALE_GREEN).requiresTool().strength(16.0F, 1200.0F).sounds(BlockSoundGroup.NETHERITE)));
 
+    public static final Block CINNABAR_ORE = registerBlock("cinnabar_ore",
+            new Block(FabricBlockSettings.create().mapColor(MapColor.DARK_RED).requiresTool().strength(16.0F, 1200.0F)));
     public static final Block DEEPSLATE_CINNABAR_ORE = registerBlock("deepslate_cinnabar_ore",
             new Block(FabricBlockSettings.create().mapColor(MapColor.DARK_RED).requiresTool().strength(16.0F, 1200.0F).sounds(BlockSoundGroup.DEEPSLATE)));
     public static final Block CINNABAR_CRYSTAL_BLOCK = registerBlock("cinnabar_crystal_block",
@@ -329,6 +351,8 @@ public class ModBlocks {
     public static final Block CINNABAR_BLOCK = registerBlock("cinnabar_block",
             new Block(FabricBlockSettings.create().mapColor(MapColor.DARK_RED).requiresTool().strength(16.0F, 1200.0F).sounds(BlockSoundGroup.NETHERITE)));
 
+    public static final Block NEBULAR_ORE = registerBlock("nebular_ore",
+            new Block(FabricBlockSettings.create().mapColor(MapColor.DARK_AQUA).requiresTool().strength(16.0F, 1200.0F)));
     public static final Block DEEPSLATE_NEBULAR_ORE = registerBlock("deepslate_nebular_ore",
             new Block(FabricBlockSettings.create().mapColor(MapColor.DARK_AQUA).requiresTool().strength(16.0F, 1200.0F).sounds(BlockSoundGroup.DEEPSLATE)));
     public static final Block RAW_NEBULAR_BLOCK = registerBlock("raw_nebular_block",
@@ -358,6 +382,8 @@ public class ModBlocks {
     public static final Block WOODEN_ORANGE_JUICE_STEIN = registerDrinkableWoodenSteinBlock("wooden_orange_juice_stein",
             new WoodenSteinBlock(FabricBlockSettings.create().mapColor(MapColor.BROWN).strength(2.0F, 2.0F).sounds(BlockSoundGroup.WOOD).pistonBehavior(PistonBehavior.DESTROY).nonOpaque()),"");
     public static final Block WOODEN_BEER_STEIN = registerRemainderSteinBlock("wooden_beer_stein",
+            new WoodenSteinBlock(FabricBlockSettings.create().mapColor(MapColor.BROWN).strength(2.0F, 2.0F).sounds(BlockSoundGroup.WOOD).pistonBehavior(PistonBehavior.DESTROY).nonOpaque()),"");
+    public static final Block WOODEN_MEAD_STEIN = registerRemainderSteinBlock("wooden_mead_stein",
             new WoodenSteinBlock(FabricBlockSettings.create().mapColor(MapColor.BROWN).strength(2.0F, 2.0F).sounds(BlockSoundGroup.WOOD).pistonBehavior(PistonBehavior.DESTROY).nonOpaque()),"");
     public static final Block WOODEN_MILK_STEIN = registerDrinkableWoodenSteinBlock("wooden_milk_stein",
             new WoodenSteinBlock(FabricBlockSettings.create().mapColor(MapColor.BROWN).strength(2.0F, 2.0F).sounds(BlockSoundGroup.WOOD).pistonBehavior(PistonBehavior.DESTROY).nonOpaque()),"");

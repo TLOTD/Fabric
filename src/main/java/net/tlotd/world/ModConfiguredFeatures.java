@@ -48,6 +48,8 @@ public class ModConfiguredFeatures {
     public static final RegistryKey<ConfiguredFeature<?,?>> RED_DEEPSLATE_MARBLE_KEY = registerKey("red_deepslate_marble");
     public static final RegistryKey<ConfiguredFeature<?,?>> RED_DEEPSLATE_LIMESTONE_KEY = registerKey("red_deepslate_limestone");
 
+    public static final RegistryKey<ConfiguredFeature<?,?>> RED_DEEPSLATE_FOSSIL_KEY = registerKey("red_deepslate_fossil");
+
     public static final RegistryKey<ConfiguredFeature<?,?>> RED_DEEPSLATE_SULFUR_ORE_KEY = registerKey("red_deepslate_sulfur_ore");
     public static final RegistryKey<ConfiguredFeature<?,?>> RED_DEEPSLATE_QUARTZ_ORE_KEY = registerKey("red_deepslate_quartz_ore");
     public static final RegistryKey<ConfiguredFeature<?,?>> RED_DEEPSLATE_IRON_ORE_KEY = registerKey("red_deepslate_iron_ore");
@@ -80,6 +82,9 @@ public class ModConfiguredFeatures {
                 List.of(OreFeatureConfig.createTarget(redDeepslateReplacables, ModBlocks.MARBLE.getDefaultState()));
         List<OreFeatureConfig.Target> redDeepslateLimestone =
                 List.of(OreFeatureConfig.createTarget(redDeepslateReplacables, ModBlocks.LIMESTONE.getDefaultState()));
+
+        List<OreFeatureConfig.Target> redDeepslateFossil =
+                List.of(OreFeatureConfig.createTarget(redDeepslateReplacables, ModBlocks.RED_DEEPSLATE_FOSSIL.getDefaultState()));
 
         List<OreFeatureConfig.Target> redDeepslateSulfurOre =
                 List.of(OreFeatureConfig.createTarget(redDeepslateReplacables, ModBlocks.RED_DEEPSLATE_SULFUR_ORE.getDefaultState()));
@@ -192,6 +197,8 @@ public class ModConfiguredFeatures {
         register(context, RED_GRAVEL_KEY, Feature.ORE, new OreFeatureConfig(redGravel, 32));
         register(context, RED_DEEPSLATE_MARBLE_KEY, Feature.ORE, new OreFeatureConfig(redDeepslateMarble, 32));
         register(context, RED_DEEPSLATE_LIMESTONE_KEY, Feature.ORE, new OreFeatureConfig(redDeepslateLimestone, 32));
+
+        register(context, RED_DEEPSLATE_FOSSIL_KEY, Feature.ORE, new OreFeatureConfig(redDeepslateFossil, 4));
 
         register(context, RED_DEEPSLATE_SULFUR_ORE_KEY, Feature.ORE, new OreFeatureConfig(redDeepslateSulfurOre, 8));
         register(context, RED_DEEPSLATE_QUARTZ_ORE_KEY, Feature.ORE, new OreFeatureConfig(redDeepslateQuartzOre, 8));

@@ -86,7 +86,7 @@ public class WoodenSteinBlock extends Block {
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         if (!this.equals(ModBlocks.WOODEN_STEIN)) {
             player.getHungerManager().add(1,0.1f);
-            if (this.equals(ModBlocks.WOODEN_BEER_STEIN)) {
+            if (this.equals(ModBlocks.WOODEN_BEER_STEIN) || this.equals(ModBlocks.WOODEN_MEAD_STEIN)) {
                 player.addStatusEffect(new StatusEffectInstance(ModEffects.DRUNK, 600));
             } else if (this.equals(ModBlocks.WOODEN_MILK_STEIN)) {
                 player.clearStatusEffects();

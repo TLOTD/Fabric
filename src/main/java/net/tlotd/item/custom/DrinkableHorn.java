@@ -30,7 +30,7 @@ public class DrinkableHorn extends Item {
     }
 
     public ItemStack finishUsing(ItemStack stack, World world, LivingEntity user) {
-        if (stack.getItem() == ModItems.BEER_GOAT_HORN) {
+        if (stack.getItem() == ModItems.BEER_GOAT_HORN || stack.getItem() == ModItems.MEAD_GOAT_HORN) {
             user.addStatusEffect(new StatusEffectInstance(ModEffects.DRUNK, 600));
         }
         super.finishUsing(stack, world, user);
@@ -76,7 +76,7 @@ public class DrinkableHorn extends Item {
 
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        if (stack.getItem() == ModItems.BEER_GOAT_HORN) {
+        if (stack.getItem() == ModItems.BEER_GOAT_HORN || stack.getItem() == ModItems.MEAD_GOAT_HORN) {
             tooltip.add(Text.translatable("effect.tlotd.drunk").append(Text.literal(" (00:30)")).formatted(Formatting.RED));
         }
         super.appendTooltip(stack, world, tooltip, context);

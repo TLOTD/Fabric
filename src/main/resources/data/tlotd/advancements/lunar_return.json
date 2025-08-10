@@ -1,0 +1,27 @@
+{
+  "display": {
+    "icon": {
+      "item": "tlotd:megaregolith"
+    },
+    "title": {
+      "translate": "advancements.tlotd.lunar_return"
+    },
+    "description": {
+      "translate": "advancements.tlotd.lunar_return.desc"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:changed_dimension",
+      "conditions": {
+        "from": "tlotd:luna",
+        "to": "minecraft:overworld"
+      }
+    }
+  },
+  "parent": "tlotd:oxygen_collector"
+}

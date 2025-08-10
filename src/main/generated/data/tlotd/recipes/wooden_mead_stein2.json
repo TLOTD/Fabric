@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "Block{tlotd:wooden_mead_stein}",
+  "ingredients": [
+    {
+      "item": "tlotd:wooden_water_stein"
+    },
+    {
+      "item": "tlotd:wooden_stein"
+    },
+    {
+      "item": "minecraft:honey_block"
+    }
+  ],
+  "result": {
+    "count": 2,
+    "item": "tlotd:wooden_mead_stein"
+  }
+}

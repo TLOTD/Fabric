@@ -9,10 +9,10 @@ import java.util.function.Supplier;
 public enum ModToolMaterial implements ToolMaterial {
     BAMBOO(0, 42, 2.0F, 0.0F, 12, () -> Ingredient.ofItems(Items.BAMBOO)),
     HELIORITE(5, 2324,11.0f, 4.0f,18, () -> Ingredient.ofItems(ModItems.HELIORITE_INGOT)),
-    ENDURIUM(5, 2324,11.0f, 4.0f,18, () -> Ingredient.ofItems(ModItems.ENDURIUM_INGOT)),
-    PALLADIUM(6, 2612,14.0f, 5.0f,21, () -> Ingredient.ofItems(ModItems.PALLADIUM_INGOT)),
+    ENDURIUM(5, 2580,11.0f, 4.0f,18, () -> Ingredient.ofItems(ModItems.ENDURIUM_INGOT)),
+    PALLADIUM(6, 2484,14.0f, 5.0f,21, () -> Ingredient.ofItems(ModItems.PALLADIUM_INGOT)),
     JURASSOLINE(6, 2612,14.0f, 5.0f,21, () -> Ingredient.ofItems(ModItems.JURASSOLINE_INGOT)),
-    CINNABAR(7, 3418,14.0f, 6.0f,21, () -> Ingredient.ofItems(ModItems.CINNABAR_INGOT)),
+    CINNABAR(7, 3162,14.0f, 6.0f,21, () -> Ingredient.ofItems(ModItems.CINNABAR_INGOT)),
     NEBULAR(7, 3418,14.0f, 6.0f,21, () -> Ingredient.ofItems(ModItems.NEBULAR_INGOT)),
     MITHRIL(8, 4096,16.0f, 7.0f,25, () -> Ingredient.ofItems(ModItems.MITHRIL_INGOT)),
     ASTRAL(9, -1,18.0f, 8.0f,28, () -> Ingredient.ofItems()),

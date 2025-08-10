@@ -1,0 +1,28 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "fabric",
+        "create"
+      ]
+    }
+  ],
+  "type": "create:mixing",
+  "ingredients": [
+    {
+      "fluid": "minecraft:water",
+      "amount": 40500
+    },
+    {
+      "fluidTag": "c:honey",
+      "amount": 40500
+    }
+  ],
+  "results": [
+    {
+      "fluid": "tlotd:mead",
+      "amount": 81000
+    }
+  ]
+}

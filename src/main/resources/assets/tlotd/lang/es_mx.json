@@ -102,6 +102,8 @@
   "advancements.tlotd.simple_circuitry.desc": "Obtener una placa de circuito",
   "advancements.tlotd.oxygen_collector": "Captador de aire",
   "advancements.tlotd.oxygen_collector.desc": "Crear un colector de oxígeno",
+  "advancements.tlotd.lunar_return": "¡A la luna y vuelta!",
+  "advancements.tlotd.lunar_return.desc": "Regreso de un viaje a la luna.",
   "advancements.tlotd.radio_star": "Estrella de la radio",
   "advancements.tlotd.radio_star.desc": "Escuchar música con la radio",
   "advancements.tlotd.television": "¡Ahora en color!",
@@ -133,6 +135,11 @@
   "advancements.tlotd.jurassic.desc": "Tiempos jurásicos, exigen medidas jurásicas",
   "advancements.tlotd.kill_a_t-rex": "¡Debería haberse extinguido!",
   "advancements.tlotd.kill_a_t-rex.desc": "Lucha y vence a un T-Rex en combate",
+
+  "advancements.tlotd.luna": "Luna",
+  "advancements.tlotd.luna.desc": "¿A la luna y vuelta?",
+  "advancements.tlotd.lunar_callainus_lump": "La gema turquesa de la luna",
+  "advancements.tlotd.lunar_callainus_lump.desc": "Adquiera un trozo de callainus lunar",
 
   "advancements.tlotd.magic": "La magia se despliega",
   "advancements.tlotd.magic.desc": "La magia se expresa de muchas formas distintas en tu mundo",
@@ -343,6 +350,7 @@
   "item.tlotd.blood_bottle": "Botella de sangre",
 
   "item.tlotd.beer_bucket": "Cubo de cerveza",
+  "item.tlotd.mead_bucket": "Cubeta para hidromiel",
   "item.tlotd.hot_milk_bucket": "Cubo de leche caliente",
   "item.tlotd.hot_chocolate_bucket": "Cubo de chocolate caliente",
   "item.tlotd.oil_bucket": "Cubo de aceite",
@@ -446,6 +454,7 @@
   "item.tlotd.heliorite_axe": "Hacha de heliorita",
   "item.tlotd.heliorite_shovel": "Pala de heliorita",
   "item.tlotd.heliorite_hoe": "Azada de heliorita",
+  "item.tlotd.heliorite_paxel": "Paxel de heliorita",
   "item.tlotd.heliorite_sickle": "Hoz de heliorita",
   "item.tlotd.heliorite_forging_hammer": "Martillo de forja de heliorita",
 
@@ -471,6 +480,7 @@
   "item.tlotd.endurium_axe": "Hacha de endurium",
   "item.tlotd.endurium_shovel": "Pala de endurium",
   "item.tlotd.endurium_hoe": "Azada de endurium",
+  "item.tlotd.endurium_paxel": "Paxel de endurium",
   "item.tlotd.endurium_sickle": "Hoz de endurium",
   "item.tlotd.endurium_forging_hammer": "Martillo de forja de endurium",
 
@@ -488,6 +498,7 @@
   "item.tlotd.palladium_axe": "Hacha de paladio",
   "item.tlotd.palladium_shovel": "Pala de paladio",
   "item.tlotd.palladium_hoe": "Azada de paladio",
+  "item.tlotd.palladium_paxel": "Paxel de paladio",
   "item.tlotd.palladium_sickle": "Hoz de paladio",
   "item.tlotd.palladium_forging_hammer": "Martillo de forja de paladio",
 
@@ -505,6 +516,7 @@
   "item.tlotd.jurassoline_axe": "Hacha de jurassoline",
   "item.tlotd.jurassoline_shovel": "Pala de jurassoline",
   "item.tlotd.jurassoline_hoe": "Azada de jurassoline",
+  "item.tlotd.jurassoline_paxel": "Paxel de jurassoline",
   "item.tlotd.jurassoline_sickle": "Hoz de jurassoline",
   "item.tlotd.jurassoline_forging_hammer": "Martillo de forja de jurassoline",
 
@@ -524,6 +536,7 @@
   "item.tlotd.cinnabar_axe": "Hacha de cinabrio",
   "item.tlotd.cinnabar_shovel": "Pala de cinabrio",
   "item.tlotd.cinnabar_hoe": "Azada de cinabrio",
+  "item.tlotd.cinnabar_paxel": "§bPaxel de cinabrio",
   "item.tlotd.cinnabar_sickle": "Hoz de cinabrio",
   "item.tlotd.cinnabar_forging_hammer": "Martillo de forja de cinabrio",
 
@@ -541,6 +554,7 @@
   "item.tlotd.nebular_axe": "Hacha de nebular",
   "item.tlotd.nebular_shovel": "Pala de nebular",
   "item.tlotd.nebular_hoe": "Azada de nebular",
+  "item.tlotd.nebular_paxel": "§bPaxel de nebular",
   "item.tlotd.nebular_sickle": "Hoz de nebular",
   "item.tlotd.nebular_forging_hammer": "Martillo de forja de nebular",
 
@@ -560,6 +574,7 @@
   "item.tlotd.mithril_axe": "Hacha de mithril",
   "item.tlotd.mithril_shovel": "Pala de mithril",
   "item.tlotd.mithril_hoe": "Azada de mithril",
+  "item.tlotd.mithril_paxel": "Paxel de mithril",
   "item.tlotd.mithril_sickle": "Hoz de mithril",
 
   "item.tlotd.mithril_forging_hammer": "Martillo de forja de mithril",
@@ -644,6 +659,8 @@
   "block.minecraft.empty_block": "Vacío",
   "block.tlotd.beer": "Cerveza",
   "block.tlotd.beer_block": "Cerveza",
+  "block.tlotd.mead": "Hidromiel",
+  "block.tlotd.mead_block": "Hidromiel",
   "block.tlotd.hot_milk": "Leche caliente",
   "block.tlotd.hot_milk_block": "Leche caliente",
   "block.tlotd.hot_chocolate": "Chocolate caliente",
@@ -816,6 +833,8 @@
 
   "block.tlotd.reinforced_red_deepslate": "Pizarra profunda reforzada roja",
 
+  "block.tlotd.red_deepslate_fossil": "Fósil de pizarra profunda roja",
+
   "block.tlotd.red_deepslate_iron_ore": "Mineral de hierro de pizarra profunda roja",
   "block.tlotd.red_deepslate_copper_ore": "Mineral de cobre de pizarra profunda roja",
   "block.tlotd.red_deepslate_gold_ore": "Mineral de oro de pizarra profunda roja",
@@ -852,19 +871,30 @@
   "block.tlotd.nether_sulfur_ore": "Mineral de azufre del Nether",
   "block.tlotd.sulfur_block": "Bloque de azufre",
   "block.tlotd.sulfur_torch": "Antorcha de azufre",
+  "block.tlotd.sulfur_wall_torch": "Antorcha de azufre para paredes",
   "block.tlotd.sulfur_lantern": "Farol de azufre",
   "block.tlotd.sulfur_campfire": "Hoguera de azufre",
 
-  "block.tlotd.lead_ore": "Lead Ore",
+  "block.tlotd.extinguished_torch": "Antorcha apagada",
+  "block.tlotd.extinguished_wall_torch": "Antorcha de pared apagada",
+  "block.tlotd.extinguished_soul_torch": "Antorcha del alma extinguida",
+  "block.tlotd.extinguished_soul_wall_torch": "Antorcha de pared del alma extinguida",
+  "block.tlotd.extinguished_sulfur_torch": "Antorcha de azufre apagada",
+  "block.tlotd.extinguished_sulfur_wall_torch": "Antorcha de pared de azufre extinguida",
+
+  "block.tlotd.lead_ore": "Mineral de plomo",
   "block.tlotd.raw_lead_block": "Bloque de plomo en bruto",
   "block.tlotd.lead_block": "Bloque de plomo",
 
+  "block.tlotd.uranium_ore": "Mineral de uranio",
   "block.tlotd.deepslate_uranium_ore": "Mineral de uranio de pizarra profunda",
   "block.tlotd.raw_uranium_block": "Bloque de uranio en bruto",
   "block.tlotd.uranium_block": "Bloque de uranio",
 
-  "block.tlotd.deepslate_fossil": "Deepslate Fossil",
+  "block.tlotd.fossil": "Fósil",
+  "block.tlotd.deepslate_fossil": "Fósil de pizarra profunda",
 
+  "block.tlotd.heliorite_ore": "Mineral de heliorita",
   "block.tlotd.deepslate_heliorite_ore": "Mineral de heliorita de pizarra profunda",
   "block.tlotd.heliorite_comb_block": "Bloque de peine de heliorita",
   "block.tlotd.heliorite_block": "Bloque de heliorita",
@@ -873,18 +903,22 @@
   "block.tlotd.raw_endurium_block": "Bloque de endurium en bruto",
   "block.tlotd.endurium_block": "Bloque de endurium",
 
+  "block.tlotd.palladium_ore": "Mineral de paladio",
   "block.tlotd.deepslate_palladium_ore": "Mineral de paladio de pizarra profunda",
   "block.tlotd.raw_palladium_block": "Bloque de paladio en bruto",
   "block.tlotd.palladium_block": "Bloque de paladio",
 
+  "block.tlotd.jurassoline_ore": "Mineral de jurassoline",
   "block.tlotd.deepslate_jurassoline_ore": "Mineral de jurassoline de pizarra profunda",
   "block.tlotd.jurassoline_crystal_block": "Bloque de cristal de jurassoline",
   "block.tlotd.jurassoline_block": "Bloque de jurassoline",
 
+  "block.tlotd.cinnabar_ore": "Mineral de cinabrio",
   "block.tlotd.deepslate_cinnabar_ore": "Mineral de cinabrio de pizarra profunda",
   "block.tlotd.cinnabar_crystal_block": "Bloque de cristal de cinabrio",
   "block.tlotd.cinnabar_block": "Bloque de cinabrio",
 
+  "block.tlotd.nebular_ore": "Mineral de nebular",
   "block.tlotd.deepslate_nebular_ore": "Mineral de nebular de pizarra profunda",
   "block.tlotd.raw_nebular_block": "Bloque de nebular en bruto",
   "block.tlotd.nebular_block": "Bloque de nebular",
@@ -1102,6 +1136,9 @@
   "item.tlotd.beer_bottle": "Botella de cerveza",
   "item.tlotd.beer_goat_horn": "Cuerno de cabra a la cerveza",
 
+  "item.tlotd.mead_bottle": "Botella de cerveza",
+  "item.tlotd.mead_goat_horn": "Cuerno de cabra de hidromiel",
+
   "item.tlotd.extraction.tooltip": "Extracción",
   "item.tlotd.mouth_of_the_abyss.tooltip": "Boca del abismo",
 
@@ -1114,6 +1151,7 @@
   "block.tlotd.wooden_stein": "Jarra de madera",
   "block.tlotd.wooden_water_stein": "Jarra de madera con agua",
   "block.tlotd.wooden_beer_stein": "Jarra de madera con cerveza",
+  "block.tlotd.wooden_mead_stein": "Jarra de madera para hidromiel",
   "block.tlotd.wooden_apple_juice_stein": "Jarra de madera con zumo de manzana",
   "block.tlotd.wooden_orange_juice_stein": "Jarra de madera con zumo de naranja",
   "block.tlotd.wooden_milk_stein": "Jarra de madera con leche",

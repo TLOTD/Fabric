@@ -31,6 +31,8 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.Optional;
 
+import static net.tlotd.world.dimension.ModDimensions.LUNA_LEVEL_KEY;
+
 public class MithrilAnvilBlockEntity extends BlockEntity implements ExtendedScreenHandlerFactory, ImplementedInventory {
 
     private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(7, ItemStack.EMPTY);
@@ -130,7 +132,7 @@ public class MithrilAnvilBlockEntity extends BlockEntity implements ExtendedScre
         if (world.isClient()) {
             return;
         }
-        if (isOutputSlotEmptyOrReceivable() && (!ModConfigs.MITHRIL_ANVIL_NEEDS_DIRECT_MOONLIGHT || (world.isNight() && world.isSkyVisibleAllowingSea(pos)))) {
+        if (isOutputSlotEmptyOrReceivable() && (world.getRegistryKey().equals(LUNA_LEVEL_KEY) || !ModConfigs.MITHRIL_ANVIL_NEEDS_DIRECT_MOONLIGHT || (world.isNight() && world.isSkyVisibleAllowingSea(pos)))) {
             if (this.hasRecipe()) {
                 progress++;
                 markDirty(world, pos, state);

@@ -12,6 +12,7 @@ import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.tlotd.block.ModBlocks;
+import net.tlotd.util.ModTags;
 
 public class RichDirtBlock extends Block {
     public RichDirtBlock(Settings settings) {
@@ -21,11 +22,11 @@ public class RichDirtBlock extends Block {
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         if (!world.isClient()) {
-            if (player.getMainHandStack().isIn(ItemTags.HOES) || player.getOffHandStack().isIn(ItemTags.HOES)) {
+            if (player.getMainHandStack().isIn(ItemTags.HOES) || player.getOffHandStack().isIn(ItemTags.HOES) || player.getMainHandStack().isIn(ModTags.Items.PAXELS) || player.getOffHandStack().isIn(ModTags.Items.PAXELS)) {
                 world.setBlockState(pos, ModBlocks.RICH_FARMLAND.getStateWithProperties(state));
-                if (player.getMainHandStack().isIn(ItemTags.HOES)) {
+                if (player.getMainHandStack().isIn(ItemTags.HOES) || player.getMainHandStack().isIn(ModTags.Items.PAXELS)) {
                     player.getMainHandStack().damage(1,player,e -> e.sendEquipmentBreakStatus(EquipmentSlot.MAINHAND));
-                } else if (player.getOffHandStack().isIn(ItemTags.HOES)) {
+                } else if (player.getOffHandStack().isIn(ItemTags.HOES) || player.getOffHandStack().isIn(ModTags.Items.PAXELS)) {
                     player.getMainHandStack().damage(1,player,e -> e.sendEquipmentBreakStatus(EquipmentSlot.OFFHAND));
                 }
                 world.playSound(null, pos, SoundEvents.ITEM_HOE_TILL, SoundCategory.PLAYERS, 1.0f, 1.0f);

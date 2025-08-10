@@ -1,0 +1,26 @@
+{
+  "type": "tlotd:mithril_smithing",
+  "ingredients": [
+    {
+      "tag": "tlotd:forging_hammers_tier6"
+    },
+    {
+      "item": "tlotd:nebular_ingot"
+    },
+    {
+      "item": "tlotd:nebular_pickaxe"
+    },
+    {
+      "item": "tlotd:nebular_axe"
+    },
+    {
+      "item": "tlotd:nebular_shovel"
+    },
+    {
+      "item": "tlotd:nebular_hoe"
+    }
+  ],
+  "output": {
+    "item": "tlotd:nebular_paxel"
+  }
+}

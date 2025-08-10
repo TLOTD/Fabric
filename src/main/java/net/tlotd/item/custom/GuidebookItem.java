@@ -22,7 +22,7 @@ public class GuidebookItem extends Item {
         super(settings);
     }
 
-    public ClickEvent WIKI = new ClickEvent(ClickEvent.Action.OPEN_URL, "https://tlotd.net/wiki/guidebook");
+    public ClickEvent WIKI = new ClickEvent(ClickEvent.Action.OPEN_URL, "https://tlotd.net/wiki/mc-mod");
     public ClickEvent CONFIG = new ClickEvent(ClickEvent.Action.OPEN_FILE, FabricLoader.getInstance().getConfigDir().toString()+"/tlotd_config.toml");
 
     @Override

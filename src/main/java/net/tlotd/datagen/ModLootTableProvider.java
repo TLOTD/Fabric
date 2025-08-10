@@ -46,6 +46,15 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.SULFUR_TORCH, drops(ModItems.SULFUR_TORCH));
         addDrop(ModBlocks.SULFUR_WALL_TORCH, drops(ModItems.SULFUR_TORCH));
 
+        addDrop(ModBlocks.EXTINGUISHED_TORCH, drops(Items.TORCH));
+        addDrop(ModBlocks.EXTINGUISHED_WALL_TORCH, drops(Items.TORCH));
+
+        addDrop(ModBlocks.EXTINGUISHED_SOUL_TORCH, drops(Items.SOUL_TORCH));
+        addDrop(ModBlocks.EXTINGUISHED_SOUL_WALL_TORCH, drops(Items.SOUL_TORCH));
+
+        addDrop(ModBlocks.EXTINGUISHED_SULFUR_TORCH, drops(ModItems.SULFUR_TORCH));
+        addDrop(ModBlocks.EXTINGUISHED_SULFUR_WALL_TORCH, drops(ModItems.SULFUR_TORCH));
+
         addDrop(ModBlocks.BW_STICKER);
         addDrop(ModBlocks.TLOTD_STICKER);
 
@@ -137,13 +146,16 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.SULFUR_BLOCK);
 
         addDrop(ModBlocks.LEAD_ORE, drops(ModBlocks.LEAD_ORE, ModItems.RAW_LEAD));
+        addDrop(ModBlocks.DEEPSLATE_LEAD_ORE, drops(ModBlocks.DEEPSLATE_LEAD_ORE, ModItems.RAW_LEAD));
         addDrop(ModBlocks.RAW_LEAD_BLOCK);
         addDrop(ModBlocks.LEAD_BLOCK);
 
+        addDrop(ModBlocks.URANIUM_ORE, drops(ModBlocks.URANIUM_ORE, ModItems.URANIUM));
         addDrop(ModBlocks.DEEPSLATE_URANIUM_ORE, drops(ModBlocks.DEEPSLATE_URANIUM_ORE, ModItems.URANIUM));
         addDrop(ModBlocks.RAW_URANIUM_BLOCK);
         addDrop(ModBlocks.URANIUM_BLOCK);
 
+        addDrop(ModBlocks.HELIORITE_ORE, drops(ModBlocks.HELIORITE_ORE, ModItems.HELIORITE_COMB));
         addDrop(ModBlocks.DEEPSLATE_HELIORITE_ORE, drops(ModBlocks.DEEPSLATE_HELIORITE_ORE, ModItems.HELIORITE_COMB));
         addDrop(ModBlocks.HELIORITE_COMB_BLOCK);
         addDrop(ModBlocks.HELIORITE_BLOCK);
@@ -152,18 +164,22 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.RAW_ENDURIUM_BLOCK);
         addDrop(ModBlocks.ENDURIUM_BLOCK);
 
+        addDrop(ModBlocks.PALLADIUM_ORE, drops(ModBlocks.PALLADIUM_ORE, ModItems.RAW_PALLADIUM));
         addDrop(ModBlocks.DEEPSLATE_PALLADIUM_ORE, drops(ModBlocks.DEEPSLATE_PALLADIUM_ORE, ModItems.RAW_PALLADIUM));
         addDrop(ModBlocks.RAW_PALLADIUM_BLOCK);
         addDrop(ModBlocks.PALLADIUM_BLOCK);
 
+        addDrop(ModBlocks.JURASSOLINE_ORE, drops(ModBlocks.JURASSOLINE_ORE, ModItems.JURASSOLINE_CRYSTAL));
         addDrop(ModBlocks.DEEPSLATE_JURASSOLINE_ORE, drops(ModBlocks.DEEPSLATE_JURASSOLINE_ORE, ModItems.JURASSOLINE_CRYSTAL));
         addDrop(ModBlocks.JURASSOLINE_CRYSTAL_BLOCK);
         addDrop(ModBlocks.JURASSOLINE_BLOCK);
 
+        addDrop(ModBlocks.CINNABAR_ORE, drops(ModBlocks.CINNABAR_ORE, ModItems.CINNABAR_CRYSTAL));
         addDrop(ModBlocks.DEEPSLATE_CINNABAR_ORE, drops(ModBlocks.DEEPSLATE_CINNABAR_ORE, ModItems.CINNABAR_CRYSTAL));
         addDrop(ModBlocks.CINNABAR_CRYSTAL_BLOCK);
         addDrop(ModBlocks.CINNABAR_BLOCK);
 
+        addDrop(ModBlocks.NEBULAR_ORE, drops(ModBlocks.NEBULAR_ORE, ModItems.NEBULAR_CRYSTAL));
         addDrop(ModBlocks.DEEPSLATE_NEBULAR_ORE, drops(ModBlocks.DEEPSLATE_NEBULAR_ORE, ModItems.NEBULAR_CRYSTAL));
         addDrop(ModBlocks.RAW_NEBULAR_BLOCK);
         addDrop(ModBlocks.NEBULAR_BLOCK);

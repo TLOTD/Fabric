@@ -1,0 +1,30 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "brewinandchewin"
+      ]
+    }
+  ],
+  "type": "brewinandchewin:fermenting",
+  "container": {
+    "item": "tlotd:wooden_stein"
+  },
+  "experience": 0.6,
+  "fermentingtime": 12000,
+  "fluiditem": {
+    "item": "minecraft:water_bucket"
+  },
+  "ingredients": [
+    {
+      "item": "minecraft:honey_block"
+    }
+  ],
+  "recipe_book_tab": "drinks",
+  "result": {
+    "item": "tlotd:wooden_mead_stein",
+    "count": 2
+  },
+  "temperature": 3
+}

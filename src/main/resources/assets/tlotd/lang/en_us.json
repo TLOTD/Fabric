@@ -4,6 +4,7 @@
   "itemgroup.tlotd.blocks": "TLOTD Blocks",
   "itemgroup.tlotd.compat": "TLOTD Compatibility",
 
+  "mod.tlotd.name": "TLOTD",
   "mod.aether.name": "The Aether",
   "mod.alexscaves.name": "Alex's Caves",
   "mod.allthemodium.name": "AllTheModium",
@@ -119,6 +120,8 @@
   "advancements.tlotd.simple_circuitry.desc": "Obtain a Circuit Board",
   "advancements.tlotd.oxygen_collector": "Air Catcher",
   "advancements.tlotd.oxygen_collector.desc": "Create an oxygen collector",
+  "advancements.tlotd.lunar_return": "To the moon and back!",
+  "advancements.tlotd.lunar_return.desc": "Return from a trip to the moon.",
   "advancements.tlotd.radio_star": "Radio Star",
   "advancements.tlotd.radio_star.desc": "Listen to some music using the radio",
   "advancements.tlotd.television": "Now in Color!",
@@ -151,6 +154,11 @@
   "advancements.tlotd.kill_a_t-rex": "Shoud've stayed extinct!",
   "advancements.tlotd.kill_a_t-rex.desc": "Fight and successfully best a T-Rex in combat",
 
+  "advancements.tlotd.luna": "Luna",
+  "advancements.tlotd.luna.desc": "To the moon and back?",
+  "advancements.tlotd.lunar_callainus_lump": "The turquoise gem of the moon",
+  "advancements.tlotd.lunar_callainus_lump.desc": "Aquire a piece of lunar callainus lump",
+
   "advancements.tlotd.magic": "Magic Unfolding",
   "advancements.tlotd.magic.desc": "Magic expresses itself in many distinct ways throughout your world",
   "advancements.tlotd.effigies": "Figures of the Forest",
@@ -174,15 +182,19 @@
   "advancements.tlotd.all_jams.desc": "Obtain all jams and marmalades",
 
   "painting.tlotd.t.title": "T",
-  "painting.tlotd.t.author": "TLOTD & Isla_Nublar",
+  "painting.tlotd.t.author": "Isla_Nublar",
   "painting.tlotd.tlotd.title": "TLOTD",
-  "painting.tlotd.tlotd.author": "TLOTD & Isla_Nublar",
+  "painting.tlotd.tlotd.author": "Isla_Nublar",
   "painting.tlotd.t-rex_encounter.title": "T-Rex Encounter",
-  "painting.tlotd.t-rex_encounter.author": "TLOTD & Isla_Nublar",
+  "painting.tlotd.t-rex_encounter.author": "Isla_Nublar",
   "painting.tlotd.white_city.title": "The White City",
-  "painting.tlotd.white_city.author": "TLOTD & Isla_Nublar",
+  "painting.tlotd.white_city.author": "Isla_Nublar",
   "painting.tlotd.dragons_connection.title": "A Dragons Connection",
-  "painting.tlotd.dragons_connection.author": "TLOTD & Isla_Nublar",
+  "painting.tlotd.dragons_connection.author": "Isla_Nublar",
+  "painting.tlotd.silent_voyager.title": "Silent Voyager",
+  "painting.tlotd.silent_voyager.author": "Isla_Nublar",
+  "painting.tlotd.gothic.title": "Gothic",
+  "painting.tlotd.gothic.author": "Isla_Nublar",
 
   "rei.title.mithril_forging": "Mithril Forging",
 
@@ -366,6 +378,7 @@
   "item.tlotd.blood_bottle": "Blood Bottle",
 
   "item.tlotd.beer_bucket": "Beer Bucket",
+  "item.tlotd.mead_bucket": "Mead Bucket",
   "item.tlotd.hot_milk_bucket": "Hot Milk Bucket",
   "item.tlotd.hot_chocolate_bucket": "Hot Chocolate Bucket",
   "item.tlotd.oil_bucket": "Oil Bucket",
@@ -469,6 +482,7 @@
   "item.tlotd.heliorite_axe": "Heliorite Axe",
   "item.tlotd.heliorite_shovel": "Heliorite Shovel",
   "item.tlotd.heliorite_hoe": "Heliorite Hoe",
+  "item.tlotd.heliorite_paxel": "Heliorite Paxel",
   "item.tlotd.heliorite_sickle": "Heliorite Sickle",
   "item.tlotd.heliorite_forging_hammer": "Heliorite Forging Hammer",
 
@@ -494,6 +508,7 @@
   "item.tlotd.endurium_axe": "Endurium Axe",
   "item.tlotd.endurium_shovel": "Endurium Shovel",
   "item.tlotd.endurium_hoe": "Endurium Hoe",
+  "item.tlotd.endurium_paxel": "Endurium Paxel",
   "item.tlotd.endurium_sickle": "Endurium Sickle",
   "item.tlotd.endurium_forging_hammer": "Endurium Forging Hammer",
 
@@ -511,6 +526,7 @@
   "item.tlotd.palladium_axe": "Palladium Axe",
   "item.tlotd.palladium_shovel": "Palladium Shovel",
   "item.tlotd.palladium_hoe": "Palladium Hoe",
+  "item.tlotd.palladium_paxel": "Palladium Paxel",
   "item.tlotd.palladium_sickle": "Palladium Sickle",
   "item.tlotd.palladium_forging_hammer": "Palladium Forging Hammer",
 
@@ -528,6 +544,7 @@
   "item.tlotd.jurassoline_axe": "Jurassoline Axe",
   "item.tlotd.jurassoline_shovel": "Jurassoline Shovel",
   "item.tlotd.jurassoline_hoe": "Jurassoline Hoe",
+  "item.tlotd.jurassoline_paxel": "Jurassoline Paxel",
   "item.tlotd.jurassoline_sickle": "Jurassoline Sickle",
   "item.tlotd.jurassoline_forging_hammer": "Jurassoline Forging Hammer",
 
@@ -547,6 +564,7 @@
   "item.tlotd.cinnabar_axe": "Cinnabar Axe",
   "item.tlotd.cinnabar_shovel": "Cinnabar Shovel",
   "item.tlotd.cinnabar_hoe": "Cinnabar Hoe",
+  "item.tlotd.cinnabar_paxel": "§bCinnabar Paxel",
   "item.tlotd.cinnabar_sickle": "Cinnabar Sickle",
   "item.tlotd.cinnabar_forging_hammer": "Cinnabar Forging Hammer",
 
@@ -564,6 +582,7 @@
   "item.tlotd.nebular_axe": "Nebular Axe",
   "item.tlotd.nebular_shovel": "Nebular Shovel",
   "item.tlotd.nebular_hoe": "Nebular Hoe",
+  "item.tlotd.nebular_paxel": "§bNebular Paxel",
   "item.tlotd.nebular_sickle": "Nebular Sickle",
   "item.tlotd.nebular_forging_hammer": "Nebular Forging Hammer",
 
@@ -583,6 +602,7 @@
   "item.tlotd.mithril_axe": "Mithril Axe",
   "item.tlotd.mithril_shovel": "Mithril Shovel",
   "item.tlotd.mithril_hoe": "Mithril Hoe",
+  "item.tlotd.mithril_paxel": "Mithril Paxel",
   "item.tlotd.mithril_sickle": "Mithril Sickle",
   "item.tlotd.mithril_forging_hammer": "Mithril Forging Hammer",
 
@@ -676,6 +696,8 @@
   "block.minecraft.empty_block": "Empty",
   "block.tlotd.beer": "Beer",
   "block.tlotd.beer_block": "Beer",
+  "block.tlotd.mead": "Mead",
+  "block.tlotd.mead_block": "Mead",
   "block.tlotd.hot_milk": "Hot Milk",
   "block.tlotd.hot_milk_block": "Hot Milk",
   "block.tlotd.hot_chocolate": "Hot Chocolate",
@@ -848,6 +870,8 @@
 
   "block.tlotd.reinforced_red_deepslate": "Reinforced Red Deepslate",
 
+  "block.tlotd.red_deepslate_fossil": "Red Deepslate Fossil",
+
   "block.tlotd.red_deepslate_iron_ore": "Red Deepslate Iron Ore",
   "block.tlotd.red_deepslate_copper_ore": "Red Deepslate Copper Ore",
   "block.tlotd.red_deepslate_gold_ore": "Red Deepslate Gold Ore",
@@ -884,19 +908,31 @@
   "block.tlotd.nether_sulfur_ore": "Nether Sulfur Ore",
   "block.tlotd.sulfur_block": "Sulfur Block",
   "block.tlotd.sulfur_torch": "Sulfur Torch",
+  "block.tlotd.sulfur_wall_torch": "Sulfur Wall Torch",
   "block.tlotd.sulfur_lantern": "Sulfur Lantern",
   "block.tlotd.sulfur_campfire": "Sulfur Campfire",
 
+  "block.tlotd.extinguished_torch": "Extinguished Torch",
+  "block.tlotd.extinguished_wall_torch": "Extinguished Wall Torch",
+  "block.tlotd.extinguished_soul_torch": "Extinguished Soul Torch",
+  "block.tlotd.extinguished_soul_wall_torch": "Extinguished Soul Wall Torch",
+  "block.tlotd.extinguished_sulfur_torch": "Extinguished Sulfur Torch",
+  "block.tlotd.extinguished_sulfur_wall_torch": "Extinguished Sulfur Wall Torch",
+
   "block.tlotd.lead_ore": "Lead Ore",
+  "block.tlotd.deepslate_lead_ore": "Deepslate Lead Ore",
   "block.tlotd.raw_lead_block": "Raw Lead Block",
   "block.tlotd.lead_block": "Lead Block",
 
+  "block.tlotd.uranium_ore": "Uranium Ore",
   "block.tlotd.deepslate_uranium_ore": "Deepslate Uranium Ore",
   "block.tlotd.raw_uranium_block": "Raw Uranium Block",
   "block.tlotd.uranium_block": "Uranium Block",
 
+  "block.tlotd.fossil": "Fossil",
   "block.tlotd.deepslate_fossil": "Deepslate Fossil",
 
+  "block.tlotd.heliorite_ore": "Heliorite Ore",
   "block.tlotd.deepslate_heliorite_ore": "Deepslate Heliorite Ore",
   "block.tlotd.heliorite_comb_block": "Heliorite Comb Block",
   "block.tlotd.heliorite_block": "Heliorite Block",
@@ -905,18 +941,22 @@
   "block.tlotd.raw_endurium_block": "Raw Endurium Block",
   "block.tlotd.endurium_block": "Block of Endurium",
 
+  "block.tlotd.palladium_ore": "Palladium Ore",
   "block.tlotd.deepslate_palladium_ore": "Deepslate Palladium Ore",
   "block.tlotd.raw_palladium_block": "Raw Palladium Block",
   "block.tlotd.palladium_block": "Block of Palladium",
 
+  "block.tlotd.jurassoline_ore": "Jurassoline Ore",
   "block.tlotd.deepslate_jurassoline_ore": "Deepslate Jurassoline Ore",
   "block.tlotd.jurassoline_crystal_block": "Jurassoline Crystal Block",
   "block.tlotd.jurassoline_block": "Block of Jurassoline",
 
+  "block.tlotd.cinnabar_ore": "Cinnabar Ore",
   "block.tlotd.deepslate_cinnabar_ore": "Deepslate Cinnabar Ore",
   "block.tlotd.cinnabar_crystal_block": "Cinnabar Crystal Block",
   "block.tlotd.cinnabar_block": "Block of Cinnabar",
 
+  "block.tlotd.nebular_ore": "Nebular Ore",
   "block.tlotd.deepslate_nebular_ore": "Deepslate Nebular Ore",
   "block.tlotd.raw_nebular_block": "Raw Nebular Block",
   "block.tlotd.nebular_block": "Block of Nebular",
@@ -1134,6 +1174,9 @@
   "item.tlotd.beer_bottle": "Beer Bottle",
   "item.tlotd.beer_goat_horn": "Beer Goat Horn",
 
+  "item.tlotd.mead_bottle": "Mead Bottle",
+  "item.tlotd.mead_goat_horn": "Mead Goat Horn",
+
   "item.tlotd.extraction.tooltip": "Extraction",
   "item.tlotd.mouth_of_the_abyss.tooltip": "Mouth of the Abyss",
 
@@ -1146,6 +1189,7 @@
   "block.tlotd.wooden_stein": "Wooden Stein",
   "block.tlotd.wooden_water_stein": "Wooden Water Stein",
   "block.tlotd.wooden_beer_stein": "Wooden Beer Stein",
+  "block.tlotd.wooden_mead_stein": "Wooden Mead Stein",
   "block.tlotd.wooden_apple_juice_stein": "Wooden Apple Juice Stein",
   "block.tlotd.wooden_orange_juice_stein": "Wooden Orange Juice Stein",
   "block.tlotd.wooden_milk_stein": "Wooden Milk Stein",

@@ -66,6 +66,7 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.MOSSY_COBBLED_RED_DEEPSLATE_BRICKS);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.CRACKED_COBBLED_RED_DEEPSLATE_BRICKS);
 
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RED_DEEPSLATE_FOSSIL);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RED_DEEPSLATE_IRON_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RED_DEEPSLATE_COPPER_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RED_DEEPSLATE_GOLD_ORE);
@@ -100,15 +101,19 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SULFUR_BLOCK);
 
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.LEAD_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DEEPSLATE_LEAD_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RAW_LEAD_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.LEAD_BLOCK);
 
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.URANIUM_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DEEPSLATE_URANIUM_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RAW_URANIUM_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.URANIUM_BLOCK);
 
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.FOSSIL);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DEEPSLATE_FOSSIL);
 
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.HELIORITE_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DEEPSLATE_HELIORITE_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.HELIORITE_COMB_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.HELIORITE_BLOCK);
@@ -117,18 +122,22 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RAW_ENDURIUM_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.ENDURIUM_BLOCK);
 
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.PALLADIUM_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DEEPSLATE_PALLADIUM_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RAW_PALLADIUM_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.PALLADIUM_BLOCK);
 
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.JURASSOLINE_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DEEPSLATE_JURASSOLINE_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.JURASSOLINE_CRYSTAL_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.JURASSOLINE_BLOCK);
 
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.CINNABAR_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DEEPSLATE_CINNABAR_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.CINNABAR_CRYSTAL_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.CINNABAR_BLOCK);
 
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.NEBULAR_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DEEPSLATE_NEBULAR_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RAW_NEBULAR_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.NEBULAR_BLOCK);
@@ -414,6 +423,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.HELIORITE_AXE, Models.HANDHELD);
         itemModelGenerator.register(ModItems.HELIORITE_SHOVEL, Models.HANDHELD);
         itemModelGenerator.register(ModItems.HELIORITE_HOE, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.HELIORITE_PAXEL, Models.HANDHELD);
 
         itemModelGenerator.register(ModItems.HELIORITE_SICKLE, Models.HANDHELD);
         itemModelGenerator.register(ModItems.HELIORITE_FORGING_HAMMER, Models.HANDHELD);
@@ -435,6 +445,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.ENDURIUM_AXE, Models.HANDHELD);
         itemModelGenerator.register(ModItems.ENDURIUM_SHOVEL, Models.HANDHELD);
         itemModelGenerator.register(ModItems.ENDURIUM_HOE, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.ENDURIUM_PAXEL, Models.HANDHELD);
 
         itemModelGenerator.register(ModItems.ENDURIUM_SICKLE, Models.HANDHELD);
         itemModelGenerator.register(ModItems.ENDURIUM_FORGING_HAMMER, Models.HANDHELD);
@@ -453,6 +464,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.PALLADIUM_AXE, Models.HANDHELD);
         itemModelGenerator.register(ModItems.PALLADIUM_SHOVEL, Models.HANDHELD);
         itemModelGenerator.register(ModItems.PALLADIUM_HOE, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.PALLADIUM_PAXEL, Models.HANDHELD);
 
         itemModelGenerator.register(ModItems.PALLADIUM_SICKLE, Models.HANDHELD);
         itemModelGenerator.register(ModItems.PALLADIUM_FORGING_HAMMER, Models.HANDHELD);
@@ -471,6 +483,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.JURASSOLINE_AXE, Models.HANDHELD);
         itemModelGenerator.register(ModItems.JURASSOLINE_SHOVEL, Models.HANDHELD);
         itemModelGenerator.register(ModItems.JURASSOLINE_HOE, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.JURASSOLINE_PAXEL, Models.HANDHELD);
 
         itemModelGenerator.register(ModItems.JURASSOLINE_SICKLE, Models.HANDHELD);
         itemModelGenerator.register(ModItems.JURASSOLINE_FORGING_HAMMER, Models.HANDHELD);
@@ -489,6 +502,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.CINNABAR_AXE, Models.HANDHELD);
         itemModelGenerator.register(ModItems.CINNABAR_SHOVEL, Models.HANDHELD);
         itemModelGenerator.register(ModItems.CINNABAR_HOE, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.CINNABAR_PAXEL, Models.HANDHELD);
 
         itemModelGenerator.register(ModItems.CINNABAR_SICKLE, Models.HANDHELD);
         itemModelGenerator.register(ModItems.CINNABAR_FORGING_HAMMER, Models.HANDHELD);
@@ -507,6 +521,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.NEBULAR_AXE, Models.HANDHELD);
         itemModelGenerator.register(ModItems.NEBULAR_SHOVEL, Models.HANDHELD);
         itemModelGenerator.register(ModItems.NEBULAR_HOE, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.NEBULAR_PAXEL, Models.HANDHELD);
 
         itemModelGenerator.register(ModItems.NEBULAR_SICKLE, Models.HANDHELD);
         itemModelGenerator.register(ModItems.NEBULAR_FORGING_HAMMER, Models.HANDHELD);
@@ -525,6 +540,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.MITHRIL_AXE, Models.HANDHELD);
         itemModelGenerator.register(ModItems.MITHRIL_SHOVEL, Models.HANDHELD);
         itemModelGenerator.register(ModItems.MITHRIL_HOE, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.MITHRIL_PAXEL, Models.HANDHELD);
 
         itemModelGenerator.register(ModItems.MITHRIL_SICKLE, Models.HANDHELD);
         itemModelGenerator.register(ModItems.MITHRIL_FORGING_HAMMER, Models.HANDHELD);
@@ -589,6 +605,9 @@ public class ModModelProvider extends FabricModelProvider {
 
         itemModelGenerator.register(ModItems.BEER_BOTTLE, Models.GENERATED);
         itemModelGenerator.register(ModItems.BEER_GOAT_HORN, Models.GENERATED);
+
+        itemModelGenerator.register(ModItems.MEAD_BOTTLE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.MEAD_GOAT_HORN, Models.GENERATED);
 
         itemModelGenerator.register(ModItems.DRAGON_BANNER_PATTERN, Models.GENERATED);
         itemModelGenerator.register(ModItems.LOTR_BANNER_PATTERN, Models.GENERATED);

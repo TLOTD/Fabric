@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "Block{tlotd:wooden_mead_stein}",
+  "ingredients": [
+    {
+      "item": "tlotd:wooden_stein"
+    },
+    {
+      "tag": "tlotd:mead_container"
+    }
+  ],
+  "result": {
+    "item": "tlotd:wooden_mead_stein"
+  }
+}

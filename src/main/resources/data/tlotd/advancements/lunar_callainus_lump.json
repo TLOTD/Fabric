@@ -1,0 +1,32 @@
+{
+  "display": {
+    "icon": {
+      "item": "tlotd:lunar_callainus_lump"
+    },
+    "title": {
+      "translate": "advancements.tlotd.lunar_callainus_lump"
+    },
+    "description": {
+      "translate": "advancements.tlotd.lunar_callainus_lump.desc"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "tlotd:lunar_callainus_lump"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "parent": "tlotd:luna"
+}

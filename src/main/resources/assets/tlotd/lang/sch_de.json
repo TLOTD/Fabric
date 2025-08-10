@@ -102,6 +102,8 @@
   "advancements.tlotd.simple_circuitry.desc": "Gelang an a Platine",
   "advancements.tlotd.oxygen_collector": "Sauerstoffsammler",
   "advancements.tlotd.oxygen_collector.desc": "Baue einen Sauerstoffsammler",
+  "advancements.tlotd.lunar_return": "Zum Mond und wiedr zurigg!",
+  "advancements.tlotd.lunar_return.desc": "Kehr zrigg von ra Reisn zum Mond.",
   "advancements.tlotd.radio_star": "Radio Schtar",
   "advancements.tlotd.radio_star.desc": "Her a bissl Musik durchs Radios",
   "advancements.tlotd.television": "Endlich in Farb!",
@@ -133,6 +135,11 @@
   "advancements.tlotd.jurassic.desc": "Jurazeiten erfordern jurassische Maßnahmen",
   "advancements.tlotd.kill_a_t-rex": "Häddesch vai ausschterba sodda!",
   "advancements.tlotd.kill_a_t-rex.desc": "Bekämpf und bezwing an T-Rex im Kampf",
+
+  "advancements.tlotd.luna": "Luna",
+  "advancements.tlotd.luna.desc": "Zum Mond und wiedr zrigg?",
+  "advancements.tlotd.lunar_callainus_lump": "Das tirkiese Juwel des Mondes",
+  "advancements.tlotd.lunar_callainus_lump.desc": "Gelang an a Lunar Callainus Klumpn",
 
   "advancements.tlotd.magic": "Magische Entfaltung",
   "advancements.tlotd.magic.desc": "Magie aißert sich in viela oinzigartiga Weise in diesr Weld",
@@ -343,6 +350,7 @@
   "item.tlotd.blood_bottle": "Bluadflaschn",
 
   "item.tlotd.beer_bucket": "Biaoimr",
+  "item.tlotd.mead_bucket": "Metoimr",
   "item.tlotd.hot_milk_bucket": "Heisser Milchoimer",
   "item.tlotd.hot_chocolate_bucket": "Heisser Schokoladaoimer",
   "item.tlotd.oil_bucket": "Eeloimr",
@@ -446,6 +454,7 @@
   "item.tlotd.heliorite_axe": "Helioritaggscht",
   "item.tlotd.heliorite_shovel": "Helioritschpatn",
   "item.tlotd.heliorite_hoe": "Heliorithaggn",
+  "item.tlotd.heliorite_paxel": "Helioritpaxl",
   "item.tlotd.heliorite_sickle": "Helioritsichl",
   "item.tlotd.heliorite_forging_hammer": "Helioritschmiedehammr",
 
@@ -471,6 +480,7 @@
   "item.tlotd.endurium_axe": "Enduriumaggscht",
   "item.tlotd.endurium_shovel": "Enduriumschpatn",
   "item.tlotd.endurium_hoe": "Enduriumhaggn",
+  "item.tlotd.endurium_paxel": "Enduriumpaxl",
   "item.tlotd.endurium_sickle": "Enduriumsichl",
   "item.tlotd.endurium_forging_hammer": "Enduriumschmiedehammr",
 
@@ -488,6 +498,7 @@
   "item.tlotd.palladium_axe": "Palladiumaggscht",
   "item.tlotd.palladium_shovel": "Palladiumschpatn",
   "item.tlotd.palladium_hoe": "Palladiumhaggn",
+  "item.tlotd.palladium_paxel": "Palladiumpaxl",
   "item.tlotd.palladium_sickle": "Palladiumsichl",
   "item.tlotd.palladium_forging_hammer": "Palladiumschmiedehammr",
 
@@ -505,6 +516,7 @@
   "item.tlotd.jurassoline_axe": "Jurassolinaggscht",
   "item.tlotd.jurassoline_shovel": "Jurassolinschpatn",
   "item.tlotd.jurassoline_hoe": "Jurassolinhaggn",
+  "item.tlotd.jurassoline_paxel": "Jurassolinpaxl",
   "item.tlotd.jurassoline_sickle": "Jurassolinsichl",
   "item.tlotd.jurassoline_forging_hammer": "Jurassolinschmiedehammr",
 
@@ -524,6 +536,7 @@
   "item.tlotd.cinnabar_axe": "Zinnobraggscht",
   "item.tlotd.cinnabar_shovel": "Zinnobrschpatn",
   "item.tlotd.cinnabar_hoe": "Zinnobrhaggn",
+  "item.tlotd.cinnabar_paxel": "§bZinnoberpaxl",
   "item.tlotd.cinnabar_sickle": "Zinnobrsichl",
   "item.tlotd.cinnabar_forging_hammer": "Zinnobrschmiedehammer",
 
@@ -541,6 +554,7 @@
   "item.tlotd.nebular_axe": "Nebularaggscht",
   "item.tlotd.nebular_shovel": "Nebularschpatn",
   "item.tlotd.nebular_hoe": "Nebularhaggn",
+  "item.tlotd.nebular_paxel": "§bNebularpaxl",
   "item.tlotd.nebular_sickle": "Nebularsichl",
   "item.tlotd.nebular_forging_hammer": "Nebularschmiedehammr",
 
@@ -560,9 +574,10 @@
   "item.tlotd.mithril_axe": "Mithrilaggscht",
   "item.tlotd.mithril_shovel": "Mithrilschpatn",
   "item.tlotd.mithril_hoe": "Mithrilhaggn",
+  "item.tlotd.mithril_paxel": "Mithrilpaxl",
   "item.tlotd.mithril_sickle": "Mithrilsichl",
-
   "item.tlotd.mithril_forging_hammer": "Mithrilschmiedehammer",
+
   "item.tlotd.mithril_star_catcher": "Mithril Sternenfänger",
 
   "item.tlotd.mithril_helmet": "Mithrilhelm",
@@ -652,6 +667,8 @@
   "block.minecraft.empty_block": "Lea",
   "block.tlotd.beer": "Bia",
   "block.tlotd.beer_block": "Bia",
+  "block.tlotd.mead": "Met",
+  "block.tlotd.mead_block": "Met",
   "block.tlotd.hot_milk": "Heisse Milch",
   "block.tlotd.hot_milk_block": "Heisse Milch",
   "block.tlotd.hot_chocolate": "Heisse Schokolade",
@@ -822,6 +839,8 @@
 
   "block.tlotd.reinforced_red_deepslate": "Vrschtärgder Rotr Tiefnschiefr",
 
+  "block.tlotd.red_deepslate_fossil": "Rods-Tiefnschiefr-Fossil",
+
   "block.tlotd.red_deepslate_iron_ore": "Rods-Tiefnschiefr-Eiseerz",
   "block.tlotd.red_deepslate_copper_ore": "Rods-Tiefnschiefr-Kupfrerz",
   "block.tlotd.red_deepslate_gold_ore": "Rods-Tiefnschiefr-Golderz",
@@ -858,19 +877,31 @@
   "block.tlotd.nether_sulfur_ore": "Netherschwefelerz",
   "block.tlotd.sulfur_block": "Schweflblogg",
   "block.tlotd.sulfur_torch": "Schweflfaggl",
+  "block.tlotd.sulfur_wall_torch": "Schweflwandfaggl",
   "block.tlotd.sulfur_lantern": "Schwefllatern",
   "block.tlotd.sulfur_campfire": "Schwefellagerfeuer",
 
+  "block.tlotd.extinguished_torch": "Erloschne Faggl",
+  "block.tlotd.extinguished_wall_torch": "Erloschne Wandfaggl",
+  "block.tlotd.extinguished_soul_torch": "Erloschne Seelafaggl",
+  "block.tlotd.extinguished_soul_wall_torch": "Erloschne Seelawandfaggl",
+  "block.tlotd.extinguished_sulfur_torch": "Erloschne Schweflfaggl",
+  "block.tlotd.extinguished_sulfur_wall_torch": "Erloschne Schweflwandfaggl",
+
   "block.tlotd.lead_ore": "Bleierz",
+  "block.tlotd.deepslate_lead_ore": "Tiefnschiefr-Bleierz",
   "block.tlotd.raw_lead_block": "Rohbleiblogg",
   "block.tlotd.lead_block": "Bleiblogg",
 
+  "block.tlotd.uranium_ore": "Uranerz",
   "block.tlotd.deepslate_uranium_ore": "Tiefnschiefr-Uranerz",
   "block.tlotd.raw_uranium_block": "Rohuranblogg",
   "block.tlotd.uranium_block": "Uranblogg",
 
+  "block.tlotd.fossil": "Fossil",
   "block.tlotd.deepslate_fossil": "Tiefnschiefr-Fossil",
 
+  "block.tlotd.heliorite_ore": "Helioriterz",
   "block.tlotd.deepslate_heliorite_ore": "Tiefnschiefr-Helioriterz",
   "block.tlotd.heliorite_comb_block": "Helioritwabenblogg",
   "block.tlotd.heliorite_block": "Helioritblogg",
@@ -879,23 +910,27 @@
   "block.tlotd.raw_endurium_block": "Rohenduriumblogg",
   "block.tlotd.endurium_block": "Enduriumblogg",
 
+  "block.tlotd.palladium_ore": "Palladiumerz",
   "block.tlotd.deepslate_palladium_ore": "Tiefnschiefr-Palladiumerz",
   "block.tlotd.raw_palladium_block": "Rohpalladiumblogg",
   "block.tlotd.palladium_block": "Palladiumblogg",
 
+  "block.tlotd.jurassoline_ore": "Jurassolinerz",
   "block.tlotd.deepslate_jurassoline_ore": "Tiefnschiefr-Jurassolinerz",
   "block.tlotd.jurassoline_crystal_block": "Jurassolinkrischtallblogg",
   "block.tlotd.jurassoline_block": "Jurassolinblogg",
 
+  "block.tlotd.cinnabar_ore": "Zinnobrerz",
   "block.tlotd.deepslate_cinnabar_ore": "Tiefnschiefr-Zinnobrerz",
   "block.tlotd.cinnabar_crystal_block": "Zinnobrkrischtallblogg",
   "block.tlotd.cinnabar_block": "Zinnobrblogg",
 
+  "block.tlotd.nebular_ore": "Nebularerz",
   "block.tlotd.deepslate_nebular_ore": "Tiefnschiefr-Nebularerz",
   "block.tlotd.raw_nebular_block": "Rohnebularblogg",
   "block.tlotd.nebular_block": "Nebularblogg",
 
-  "block.tlotd.bedrock_mithril_ore": "Tiefnschiefr-Mithrilerz",
+  "block.tlotd.bedrock_mithril_ore": "Grundschtoi-Mithrilerz",
   "block.tlotd.raw_mithril_block": "Rohmithrilerz",
   "block.tlotd.mithril_block": "Mithrilblogg",
 
@@ -1108,6 +1143,9 @@
   "item.tlotd.beer_bottle": "Biaflaschn",
   "item.tlotd.beer_goat_horn": "Biabockshorn",
 
+  "item.tlotd.mead_bottle": "Metflaschn",
+  "item.tlotd.mead_goat_horn": "Metbockshorn",
+
   "item.tlotd.extraction.tooltip": "Ausgrabung",
   "item.tlotd.mouth_of_the_abyss.tooltip": "Schlund des Abgrunds",
 
@@ -1120,6 +1158,7 @@
   "block.tlotd.wooden_stein": "Holzkrug",
   "block.tlotd.wooden_water_stein": "Wassrholzkrug",
   "block.tlotd.wooden_beer_stein": "Biaholzkrug",
+  "block.tlotd.wooden_mead_stein": "Metholzkrug",
   "block.tlotd.wooden_apple_juice_stein": "Apfelsaftholzkrug",
   "block.tlotd.wooden_orange_juice_stein": "Oroschnsafdholzkrug",
   "block.tlotd.wooden_milk_stein": "Milchholzkrug",

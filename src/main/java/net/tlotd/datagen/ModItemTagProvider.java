@@ -393,6 +393,12 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModBlocks.WOODEN_BEER_STEIN.asItem())
         ;
 
+        getOrCreateTagBuilder(ModTags.Items.MEAD_CONTAINER)
+                .add(ModItems.MEAD_GOAT_HORN)
+                .add(ModFluids.MEAD_BUCKET)
+                .add(ModBlocks.WOODEN_MEAD_STEIN.asItem())
+        ;
+
         getOrCreateTagBuilder(ModTags.Items.HOT_MILK_CONTAINER)
                 .add(ModFluids.HOT_MILK_BUCKET)
                 .add(ModBlocks.HOT_WOODEN_MILK_STEIN.asItem())
@@ -400,8 +406,11 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
 
         getOrCreateTagBuilder(ModTags.Items.EXTRACTION_PICKAXES)
                 .add(ModItems.CINNABAR_PICKAXE)
+                .add(ModItems.CINNABAR_PAXEL)
                 .add(ModItems.NEBULAR_PICKAXE)
+                .add(ModItems.NEBULAR_PAXEL)
                 .add(ModItems.MITHRIL_PICKAXE)
+                .add(ModItems.MITHRIL_PAXEL)
                 .add(ModItems.ASTRAL_PICKAXE)
                 .add(ModItems.DIVINE_PICKAXE)
                 .add(ModItems.CATACLYSMIC_PICKAXE)
@@ -409,6 +418,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
 
         getOrCreateTagBuilder(ModTags.Items.EXTRACTION_II_PICKAXES)
                 .add(ModItems.MITHRIL_PICKAXE)
+                .add(ModItems.MITHRIL_PAXEL)
                 .add(ModItems.ASTRAL_PICKAXE)
                 .add(ModItems.DIVINE_PICKAXE)
                 .add(ModItems.CATACLYSMIC_PICKAXE)
@@ -428,6 +438,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
         getOrCreateTagBuilder(ModTags.Items.WOODEN_LIQUID_STEINS)
                 .add(ModBlocks.WOODEN_WATER_STEIN.asItem())
                 .add(ModBlocks.WOODEN_BEER_STEIN.asItem())
+                .add(ModBlocks.WOODEN_MEAD_STEIN.asItem())
                 .add(ModBlocks.WOODEN_APPLE_JUICE_STEIN.asItem())
                 .add(ModBlocks.WOODEN_ORANGE_JUICE_STEIN.asItem())
                 .add(ModBlocks.WOODEN_MILK_STEIN.asItem())
@@ -630,6 +641,16 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModItems.ASTRAL_HOE)
         ;
 
+        getOrCreateTagBuilder(ModTags.Items.PAXELS)
+                .add(ModItems.HELIORITE_PAXEL)
+                .add(ModItems.ENDURIUM_PAXEL)
+                .add(ModItems.PALLADIUM_PAXEL)
+                .add(ModItems.JURASSOLINE_PAXEL)
+                .add(ModItems.CINNABAR_PAXEL)
+                .add(ModItems.NEBULAR_PAXEL)
+                .add(ModItems.MITHRIL_PAXEL)
+        ;
+
         getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "quartz_blocks")))
                 .add(Items.QUARTZ_BLOCK)
                 .add(Items.SMOOTH_QUARTZ)
@@ -730,16 +751,19 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
         ;
 
         getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "uranium_ores")))
+                .add(ModBlocks.URANIUM_ORE.asItem())
                 .add(ModBlocks.DEEPSLATE_URANIUM_ORE.asItem())
                 .add(ModBlocks.RED_DEEPSLATE_URANIUM_ORE.asItem())
         ;
 
         getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "palladium_ores")))
+                .add(ModBlocks.PALLADIUM_ORE.asItem())
                 .add(ModBlocks.DEEPSLATE_PALLADIUM_ORE.asItem())
                 .add(ModBlocks.RED_DEEPSLATE_PALLADIUM_ORE.asItem())
         ;
 
         getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "cinnabar_ores")))
+                .add(ModBlocks.CINNABAR_ORE.asItem())
                 .add(ModBlocks.DEEPSLATE_CINNABAR_ORE.asItem())
                 .add(ModBlocks.RED_DEEPSLATE_CINNABAR_ORE.asItem())
         ;
@@ -774,6 +798,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
 
         getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "lead_ores")))
                 .add(ModBlocks.LEAD_ORE.asItem())
+                .add(ModBlocks.DEEPSLATE_LEAD_ORE.asItem())
                 .add(ModBlocks.RED_DEEPSLATE_LEAD_ORE.asItem())
         ;
 
@@ -897,6 +922,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModBlocks.WOODEN_WATER_STEIN.asItem())
                 .add(ModBlocks.WOODEN_MILK_STEIN.asItem())
                 .add(ModBlocks.WOODEN_BEER_STEIN.asItem())
+                .add(ModBlocks.WOODEN_MEAD_STEIN.asItem())
                 .add(ModBlocks.WOODEN_APPLE_JUICE_STEIN.asItem())
                 .add(ModBlocks.WOODEN_ORANGE_JUICE_STEIN.asItem())
                 .add(ModBlocks.WOODEN_STRAWBERRY_MILKSHAKE_STEIN.asItem())

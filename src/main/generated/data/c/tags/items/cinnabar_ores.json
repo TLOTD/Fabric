@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
+    "tlotd:cinnabar_ore",
     "tlotd:deepslate_cinnabar_ore",
     "tlotd:red_deepslate_cinnabar_ore"
   ]

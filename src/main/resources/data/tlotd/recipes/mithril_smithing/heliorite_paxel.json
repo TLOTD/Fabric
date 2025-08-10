@@ -1,0 +1,26 @@
+{
+  "type": "tlotd:mithril_smithing",
+  "ingredients": [
+    {
+      "tag": "tlotd:forging_hammers_tier4"
+    },
+    {
+      "item": "tlotd:heliorite_ingot"
+    },
+    {
+      "item": "tlotd:heliorite_pickaxe"
+    },
+    {
+      "item": "tlotd:heliorite_axe"
+    },
+    {
+      "item": "tlotd:heliorite_shovel"
+    },
+    {
+      "item": "tlotd:heliorite_hoe"
+    }
+  ],
+  "output": {
+    "item": "tlotd:heliorite_paxel"
+  }
+}

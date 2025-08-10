@@ -239,6 +239,7 @@ public class ModItems {
     public static final Item HELIORITE_AXE = registerItem("heliorite_axe", new AxeItem(ModToolMaterial.HELIORITE, 6, -3.0f, new FabricItemSettings()));
     public static final Item HELIORITE_SHOVEL = registerItem("heliorite_shovel", new ShovelItem(ModToolMaterial.HELIORITE, 2.5f, -3.0f, new FabricItemSettings()));
     public static final Item HELIORITE_HOE = registerItem("heliorite_hoe", new HoeItem(ModToolMaterial.HELIORITE, -4, 0.0f, new FabricItemSettings()));
+    public static final Item HELIORITE_PAXEL = registerItem("heliorite_paxel", new PaxelItem(ModToolMaterial.HELIORITE, 4, -3.0f, new FabricItemSettings()));
 
     public static final Item HELIORITE_SICKLE = registerItem("heliorite_sickle", new SickleItem(new FabricItemSettings().maxDamage(2319)));
     public static final Item HELIORITE_FORGING_HAMMER = registerItem("heliorite_forging_hammer", new ForgingHammerItem(new FabricItemSettings().maxDamage(20)));
@@ -261,6 +262,7 @@ public class ModItems {
     public static final Item ENDURIUM_AXE = registerItem("endurium_axe", new AxeItem(ModToolMaterial.ENDURIUM, 6, -3.0f, new FabricItemSettings()));
     public static final Item ENDURIUM_SHOVEL = registerItem("endurium_shovel", new ShovelItem(ModToolMaterial.ENDURIUM, 2.5f, -3.0f, new FabricItemSettings()));
     public static final Item ENDURIUM_HOE = registerItem("endurium_hoe", new HoeItem(ModToolMaterial.ENDURIUM, -4, 0.0f, new FabricItemSettings()));
+    public static final Item ENDURIUM_PAXEL = registerItem("endurium_paxel", new PaxelItem(ModToolMaterial.ENDURIUM, 4, -3.0f, new FabricItemSettings()));
 
     public static final Item ENDURIUM_SICKLE = registerItem("endurium_sickle", new SickleItem(new FabricItemSettings().maxDamage(2319)));
     public static final Item ENDURIUM_FORGING_HAMMER = registerItem("endurium_forging_hammer", new ForgingHammerItem(new FabricItemSettings().maxDamage(20)));
@@ -279,6 +281,7 @@ public class ModItems {
     public static final Item PALLADIUM_AXE = registerItem("palladium_axe", new AxeItem(ModToolMaterial.PALLADIUM, 6, -3.0f, new FabricItemSettings()));
     public static final Item PALLADIUM_SHOVEL = registerItem("palladium_shovel", new ShovelItem(ModToolMaterial.PALLADIUM, 2.5f, -3.0f, new FabricItemSettings()));
     public static final Item PALLADIUM_HOE = registerItem("palladium_hoe", new HoeItem(ModToolMaterial.PALLADIUM, -5, 0.0f, new FabricItemSettings()));
+    public static final Item PALLADIUM_PAXEL = registerItem("palladium_paxel", new PaxelItem(ModToolMaterial.PALLADIUM, 4, -3.0f, new FabricItemSettings()));
 
     public static final Item PALLADIUM_SICKLE = registerItem("palladium_sickle", new SickleItem(new FabricItemSettings().maxDamage(2612)));
     public static final Item PALLADIUM_FORGING_HAMMER = registerItem("palladium_forging_hammer", new ForgingHammerItem(new FabricItemSettings().maxDamage(30)));
@@ -297,6 +300,7 @@ public class ModItems {
     public static final Item JURASSOLINE_AXE = registerItem("jurassoline_axe", new AxeItem(ModToolMaterial.JURASSOLINE, 6, -3.0f, new FabricItemSettings()));
     public static final Item JURASSOLINE_SHOVEL = registerItem("jurassoline_shovel", new ShovelItem(ModToolMaterial.JURASSOLINE, 2.5f, -3.0f, new FabricItemSettings()));
     public static final Item JURASSOLINE_HOE = registerItem("jurassoline_hoe", new HoeItem(ModToolMaterial.JURASSOLINE, -5, 0.0f, new FabricItemSettings()));
+    public static final Item JURASSOLINE_PAXEL = registerItem("jurassoline_paxel", new PaxelItem(ModToolMaterial.JURASSOLINE, 4, -3.0f, new FabricItemSettings()));
 
     public static final Item JURASSOLINE_SICKLE = registerItem("jurassoline_sickle", new SickleItem(new FabricItemSettings().maxDamage(2612)));
     public static final Item JURASSOLINE_FORGING_HAMMER = registerItem("jurassoline_forging_hammer", new ForgingHammerItem(new FabricItemSettings().maxDamage(30)));
@@ -315,6 +319,7 @@ public class ModItems {
     public static final Item CINNABAR_AXE = registerItem("cinnabar_axe", new AxeItem(ModToolMaterial.CINNABAR, 6, -3.0f, new FabricItemSettings()));
     public static final Item CINNABAR_SHOVEL = registerItem("cinnabar_shovel", new ShovelItem(ModToolMaterial.CINNABAR, 2.5f, -3.0f, new FabricItemSettings()));
     public static final Item CINNABAR_HOE = registerItem("cinnabar_hoe", new HoeItem(ModToolMaterial.CINNABAR, -6, 0.0f, new FabricItemSettings()));
+    public static final Item CINNABAR_PAXEL = registerItem("cinnabar_paxel", new PaxelItem(ModToolMaterial.CINNABAR, 4, -3.0f, new FabricItemSettings()));
 
     public static final Item CINNABAR_SICKLE = registerItem("cinnabar_sickle", new SickleItem(new FabricItemSettings().maxDamage(2612)));
     public static final Item CINNABAR_FORGING_HAMMER = registerItem("cinnabar_forging_hammer", new ForgingHammerItem(new FabricItemSettings().maxDamage(40)));
@@ -333,6 +338,7 @@ public class ModItems {
     public static final Item NEBULAR_AXE = registerItem("nebular_axe", new AxeItem(ModToolMaterial.NEBULAR, 6, -3.0f, new FabricItemSettings()));
     public static final Item NEBULAR_SHOVEL = registerItem("nebular_shovel", new ShovelItem(ModToolMaterial.NEBULAR, 2.5f, -3.0f, new FabricItemSettings()));
     public static final Item NEBULAR_HOE = registerItem("nebular_hoe", new HoeItem(ModToolMaterial.NEBULAR, -6, 0.0f, new FabricItemSettings()));
+    public static final Item NEBULAR_PAXEL = registerItem("nebular_paxel", new PaxelItem(ModToolMaterial.NEBULAR, 4, -3.0f, new FabricItemSettings()));
 
     public static final Item NEBULAR_SICKLE = registerItem("nebular_sickle", new SickleItem(new FabricItemSettings().maxDamage(2612)));
     public static final Item NEBULAR_FORGING_HAMMER = registerItem("nebular_forging_hammer", new ForgingHammerItem(new FabricItemSettings().maxDamage(40)));
@@ -353,6 +359,7 @@ public class ModItems {
     public static final Item MITHRIL_AXE = registerItem("mithril_axe", new AxeItem(ModToolMaterial.MITHRIL, 6, -3.0f, new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof()));
     public static final Item MITHRIL_SHOVEL = registerItem("mithril_shovel", new ShovelItem(ModToolMaterial.MITHRIL, 2.5f, -3.0f, new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof()));
     public static final Item MITHRIL_HOE = registerItem("mithril_hoe", new HoeItem(ModToolMaterial.MITHRIL, -7, 0.0f, new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof()));
+    public static final Item MITHRIL_PAXEL = registerItem("mithril_paxel", new PaxelItem(ModToolMaterial.MITHRIL, 4, -3.0f, new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof()));
 
     public static final Item MITHRIL_SICKLE = registerItem("mithril_sickle", new SickleItem(new FabricItemSettings().maxDamage(3077).rarity(Rarity.UNCOMMON).fireproof()));
     public static final Item MITHRIL_FORGING_HAMMER = registerItem("mithril_forging_hammer", new ForgingHammerItem(new FabricItemSettings().rarity(Rarity.UNCOMMON).maxDamage(50).fireproof()));
@@ -434,6 +441,9 @@ public class ModItems {
     public static final Item BEER_BOTTLE = registerItem("beer_bottle", new DrinkableBottle(new FabricItemSettings().food(ModFoodComponents.WOODEN_LIQUID_STEIN).maxCount(16).recipeRemainder(Items.GLASS_BOTTLE)));
     public static final Item BEER_GOAT_HORN = registerItem("beer_goat_horn", new DrinkableHorn(new FabricItemSettings().food(ModFoodComponents.WOODEN_LIQUID_STEIN).maxCount(16).recipeRemainder(Items.GOAT_HORN)));
 
+    public static final Item MEAD_BOTTLE = registerItem("mead_bottle", new DrinkableBottle(new FabricItemSettings().food(ModFoodComponents.WOODEN_LIQUID_STEIN).maxCount(16).recipeRemainder(Items.GLASS_BOTTLE)));
+    public static final Item MEAD_GOAT_HORN = registerItem("mead_goat_horn", new DrinkableHorn(new FabricItemSettings().food(ModFoodComponents.WOODEN_LIQUID_STEIN).maxCount(16).recipeRemainder(Items.GOAT_HORN)));
+
     public static final Item TINTED_GLASS_FLASK = registerItem("tinted_glass_flask", new EmptyFlaskItem(new FabricItemSettings()));
     public static final Item SOUL_FLASK = registerItem("soul_flask", new SoulFlaskItem(new FabricItemSettings().recipeRemainder(ModItems.TINTED_GLASS_FLASK).rarity(Rarity.RARE).maxCount(16)));
     public static final Item CURSED_SOUL_FLASK = registerItem("cursed_soul_flask", new CursedFlaskItem(new FabricItemSettings().recipeRemainder(ModItems.TINTED_GLASS_FLASK).rarity(Rarity.EPIC).maxCount(16)));
@@ -447,9 +457,9 @@ public class ModItems {
     public static final Item VICTORIAN_BOOTS = registerItem("victorian_boots", new ArmorItem(ModArmorMaterial.VICTORIAN, ArmorItem.Type.BOOTS, new FabricItemSettings()));
 
     public static final Item PICKELHAUBE = registerItem("pickelhaube", new FrakturArmorItem(ModArmorMaterial.PICKELHAUBE, ArmorItem.Type.HELMET, new FabricItemSettings()));
-    public static final Item IMPERIAL_GERMAN_UNIFORM_MANTLE = registerItem("imperial_german_uniform_mantle", new FrakturArmorItem(ModArmorMaterial.IMPERIAL_GERMAN_UNIFORM, ArmorItem.Type.CHESTPLATE, new FabricItemSettings()));
-    public static final Item IMPERIAL_GERMAN_UNIFORM_PANTS = registerItem("imperial_german_uniform_pants", new FrakturArmorItem(ModArmorMaterial.IMPERIAL_GERMAN_UNIFORM, ArmorItem.Type.LEGGINGS, new FabricItemSettings()));
-    public static final Item IMPERIAL_GERMAN_UNIFORM_BOOTS = registerItem("imperial_german_uniform_boots", new FrakturArmorItem(ModArmorMaterial.IMPERIAL_GERMAN_UNIFORM, ArmorItem.Type.BOOTS, new FabricItemSettings()));
+    public static final Item IMPERIAL_GERMAN_UNIFORM_MANTLE = registerItem("imperial_german_uniform_mantle", new ArmorItem(ModArmorMaterial.IMPERIAL_GERMAN_UNIFORM, ArmorItem.Type.CHESTPLATE, new FabricItemSettings()));
+    public static final Item IMPERIAL_GERMAN_UNIFORM_PANTS = registerItem("imperial_german_uniform_pants", new ArmorItem(ModArmorMaterial.IMPERIAL_GERMAN_UNIFORM, ArmorItem.Type.LEGGINGS, new FabricItemSettings()));
+    public static final Item IMPERIAL_GERMAN_UNIFORM_BOOTS = registerItem("imperial_german_uniform_boots", new ArmorItem(ModArmorMaterial.IMPERIAL_GERMAN_UNIFORM, ArmorItem.Type.BOOTS, new FabricItemSettings()));
 
     public static final Item OXYGEN_TANK = registerItem("oxygen_tank", new OxygenTankItem(new FabricItemSettings().maxCount(1)));
     public static final Item ASTRONAUT_HELMET = registerItem("astronaut_helmet", new HypoxiaProofArmorItem(ModArmorMaterial.ASTRONAUT, ArmorItem.Type.HELMET, new FabricItemSettings()));

@@ -73,8 +73,30 @@ public class ModTags {
         public static final TagKey<Block> INFINIBURN_LUNA =
                 createTag("infiniburn_luna");
 
+        public static final TagKey<Block> TOOL_LEVEL_4 =
+                createTag("fabric", "needs_tool_level_4");
+        public static final TagKey<Block> TOOL_LEVEL_5 =
+                createTag("fabric", "needs_tool_level_5");
+        public static final TagKey<Block> TOOL_LEVEL_6 =
+                createTag("fabric", "needs_tool_level_6");
+        public static final TagKey<Block> TOOL_LEVEL_7 =
+                createTag("fabric", "needs_tool_level_7");
+        public static final TagKey<Block> TOOL_LEVEL_8 =
+                createTag("fabric", "needs_tool_level_8");
+        public static final TagKey<Block> TOOL_LEVEL_9 =
+                createTag("fabric", "needs_tool_level_9");
+        public static final TagKey<Block> TOOL_LEVEL_10 =
+                createTag("fabric", "needs_tool_level_10");
+
+        public static final TagKey<Block> PAXEL_MINEABLE =
+                createTag("c", "paxel_mineable");
+
         private static TagKey<Block> createTag(String name) {
             return TagKey.of(RegistryKeys.BLOCK, new Identifier(TLOTD.MOD_ID, name));
+        }
+
+        private static TagKey<Block> createTag(String identifirer, String name) {
+            return TagKey.of(RegistryKeys.BLOCK, new Identifier(identifirer, name));
         }
     }
 
@@ -155,6 +177,9 @@ public class ModTags {
         public static final TagKey<Item> BEER_CONTAINER =
                 createTag("beer_container");
 
+        public static final TagKey<Item> MEAD_CONTAINER =
+                createTag("mead_container");
+
         public static final TagKey<Item> HOT_MILK_CONTAINER =
                 createTag("hot_milk_container");
 
@@ -206,8 +231,15 @@ public class ModTags {
         public static final TagKey<Item> TREX_HEADS =
                 createTag("t-rex_heads");
 
+        public static final TagKey<Item> PAXELS =
+                createTag("c", "paxels");
+
         private static TagKey<Item> createTag(String name) {
             return TagKey.of(RegistryKeys.ITEM, new Identifier(TLOTD.MOD_ID, name));
+        }
+
+        private static TagKey<Item> createTag(String identifirer, String name) {
+            return TagKey.of(RegistryKeys.ITEM, new Identifier(identifirer, name));
         }
     }
 }

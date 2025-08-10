@@ -4,6 +4,7 @@ import com.terraformersmc.terraform.boat.api.client.TerraformBoatClientHelper;
 import com.terraformersmc.terraform.sign.SpriteIdentifierRegistry;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
+import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientLifecycleEvents;
 import net.fabricmc.fabric.api.client.render.fluid.v1.FluidRenderHandlerRegistry;
 import net.fabricmc.fabric.api.client.render.fluid.v1.SimpleFluidRenderHandler;
 import net.fabricmc.fabric.api.client.rendering.v1.DimensionRenderingRegistry;
@@ -29,8 +30,8 @@ import net.tlotd.networking.ModMessages;
 public class TLOTDClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
-
         FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.STILL_BEER, ModFluids.FLOWING_BEER, new SimpleFluidRenderHandler(new Identifier("tlotd:block/beer_still"), new Identifier("tlotd:block/beer_flow")));
+        FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.STILL_MEAD, ModFluids.FLOWING_MEAD, new SimpleFluidRenderHandler(new Identifier("tlotd:block/mead_still"), new Identifier("tlotd:block/mead_flow")));
         FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.STILL_HOT_MILK, ModFluids.FLOWING_HOT_MILK, new SimpleFluidRenderHandler(new Identifier("tlotd:block/hot_milk_still"), new Identifier("tlotd:block/hot_milk_flow")));
         FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.STILL_HOT_CHOCOLATE, ModFluids.FLOWING_HOT_CHOCOLATE, new SimpleFluidRenderHandler(new Identifier("tlotd:block/hot_chocolate_still"), new Identifier("tlotd:block/hot_chocolate_flow")));
         FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.STILL_OIL, ModFluids.FLOWING_OIL, new SimpleFluidRenderHandler(new Identifier("tlotd:block/oil_still"), new Identifier("tlotd:block/oil_flow")));

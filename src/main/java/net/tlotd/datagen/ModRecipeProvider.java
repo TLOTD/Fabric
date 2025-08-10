@@ -25,13 +25,13 @@ import java.util.function.Consumer;
 
 public class ModRecipeProvider extends FabricRecipeProvider {
 
-    private static final List<ItemConvertible> URANIUM_BLASTABLES = List.of(ModItems.URANIUM, ModBlocks.DEEPSLATE_URANIUM_ORE, ModBlocks.RED_DEEPSLATE_URANIUM_ORE);
+    private static final List<ItemConvertible> URANIUM_BLASTABLES = List.of(ModItems.URANIUM, ModBlocks.URANIUM_ORE, ModBlocks.DEEPSLATE_URANIUM_ORE, ModBlocks.RED_DEEPSLATE_URANIUM_ORE);
 
     private static final List<ItemConvertible> ENDURIUM_BLASTABLES = List.of(ModItems.ENDURIUM_CRYSTAL, ModBlocks.END_ENDURIUM_ORE);
-    private static final List<ItemConvertible> PALLADIUM_BLASTABLES = List.of(ModItems.RAW_PALLADIUM, ModBlocks.DEEPSLATE_PALLADIUM_ORE, ModBlocks.RED_DEEPSLATE_PALLADIUM_ORE);
-    private static final List<ItemConvertible> JURASSOLINE_BLASTABLES = List.of(ModItems.JURASSOLINE_CRYSTAL, ModBlocks.DEEPSLATE_JURASSOLINE_ORE, ModBlocks.RED_DEEPSLATE_JURASSOLINE_ORE);
-    private static final List<ItemConvertible> CINNABAR_BLASTABLES = List.of(ModItems.CINNABAR_CRYSTAL, ModBlocks.DEEPSLATE_CINNABAR_ORE, ModBlocks. RED_DEEPSLATE_CINNABAR_ORE);
-    private static final List<ItemConvertible> NEBULAR_BLASTABLES = List.of(ModItems.NEBULAR_CRYSTAL, ModBlocks.DEEPSLATE_NEBULAR_ORE, ModBlocks. RED_DEEPSLATE_NEBULAR_ORE);
+    private static final List<ItemConvertible> PALLADIUM_BLASTABLES = List.of(ModItems.RAW_PALLADIUM, ModBlocks.PALLADIUM_ORE, ModBlocks.DEEPSLATE_PALLADIUM_ORE, ModBlocks.RED_DEEPSLATE_PALLADIUM_ORE);
+    private static final List<ItemConvertible> JURASSOLINE_BLASTABLES = List.of(ModItems.JURASSOLINE_CRYSTAL, ModBlocks.JURASSOLINE_ORE, ModBlocks.DEEPSLATE_JURASSOLINE_ORE, ModBlocks.RED_DEEPSLATE_JURASSOLINE_ORE);
+    private static final List<ItemConvertible> CINNABAR_BLASTABLES = List.of(ModItems.CINNABAR_CRYSTAL, ModBlocks.CINNABAR_ORE, ModBlocks.DEEPSLATE_CINNABAR_ORE, ModBlocks. RED_DEEPSLATE_CINNABAR_ORE);
+    private static final List<ItemConvertible> NEBULAR_BLASTABLES = List.of(ModItems.NEBULAR_CRYSTAL, ModBlocks.NEBULAR_ORE, ModBlocks.DEEPSLATE_NEBULAR_ORE, ModBlocks. RED_DEEPSLATE_NEBULAR_ORE);
     private static final List<ItemConvertible> MITHRIL_BLASTABLES = List.of(ModItems.RAW_MITHRIL, ModBlocks.BEDROCK_MITHRIL_ORE);
 
     public ModRecipeProvider(FabricDataOutput output) {
@@ -44,6 +44,8 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 
     @Override
     public void generate(Consumer<RecipeJsonProvider> exporter) {
+
+        offerSmelting(exporter, List.of(ModBlocks.MEGAREGOLITH_IRON_ORE), RecipeCategory.MISC, Items.IRON_INGOT, 0.25f,200, "iron_ingot");
 
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.SULFUR_TORCH,4)
                 .pattern("#")
@@ -1575,16 +1577,6 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .offerTo(exporter, new Identifier(getRecipeName(ModFluids.BEER_BUCKET)+"2"));
 
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModFluids.BEER_BUCKET)
-                .input(Items.BUCKET)
-                .input(ModItems.BEER_BOTTLE)
-                .input(ModItems.BEER_BOTTLE)
-                .input(ModItems.BEER_BOTTLE)
-                .group(ModFluids.BEER_BUCKET.toString())
-                .criterion(hasItem(Items.BUCKET), conditionsFromItem(Items.BUCKET))
-                .criterion(hasItem(ModItems.BEER_BOTTLE), conditionsFromItem(ModItems.BEER_BOTTLE))
-                .offerTo(exporter, new Identifier(getRecipeName(ModFluids.BEER_BUCKET)+"_from_bottles"));
-
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModFluids.BEER_BUCKET)
                 .input(Items.POTION)
                 .input(Items.POTION)
                 .input(Items.POTION)
@@ -1595,6 +1587,57 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Items.WHEAT), conditionsFromItem(Items.WHEAT))
                 .criterion(hasItem(Items.POTION), conditionsFromItem(Items.POTION))
                 .offerTo(exporter, new Identifier(getRecipeName(ModFluids.BEER_BUCKET)+"3"));
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModFluids.BEER_BUCKET)
+                .input(Items.BUCKET)
+                .input(ModItems.BEER_BOTTLE)
+                .input(ModItems.BEER_BOTTLE)
+                .input(ModItems.BEER_BOTTLE)
+                .group(ModFluids.BEER_BUCKET.toString())
+                .criterion(hasItem(Items.BUCKET), conditionsFromItem(Items.BUCKET))
+                .criterion(hasItem(ModItems.BEER_BOTTLE), conditionsFromItem(ModItems.BEER_BOTTLE))
+                .offerTo(exporter, new Identifier(getRecipeName(ModFluids.BEER_BUCKET)+"4"));
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModFluids.MEAD_BUCKET)
+                .input(Items.BUCKET)
+                .input(Items.HONEY_BOTTLE)
+                .input(Items.HONEY_BOTTLE)
+                .input(Items.POTION)
+                .input(Items.POTION)
+                .group(ModFluids.MEAD_BUCKET.toString())
+                .criterion(hasItem(Items.BUCKET), conditionsFromItem(Items.BUCKET))
+                .criterion(hasItem(Items.HONEY_BOTTLE), conditionsFromItem(Items.HONEY_BOTTLE))
+                .criterion(hasItem(Items.POTION), conditionsFromItem(Items.POTION))
+                .offerTo(exporter, new Identifier(getRecipeName(ModFluids.MEAD_BUCKET)));
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModFluids.MEAD_BUCKET, 2)
+                .input(Items.WATER_BUCKET)
+                .input(Items.HONEY_BLOCK)
+                .input(Items.BUCKET)
+                .input(Items.BUCKET)
+                .group(ModFluids.MEAD_BUCKET.toString())
+                .criterion(hasItem(Items.WATER_BUCKET), conditionsFromItem(Items.WATER_BUCKET))
+                .criterion(hasItem(Items.HONEY_BLOCK), conditionsFromItem(Items.HONEY_BLOCK))
+                .criterion(hasItem(Items.BUCKET), conditionsFromItem(Items.BUCKET))
+                .offerTo(exporter, new Identifier(getRecipeName(ModFluids.MEAD_BUCKET)+"2"));
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModFluids.MEAD_BUCKET)
+                .input(Items.BUCKET)
+                .input(ModTags.Items.MEAD_CONTAINER)
+                .group(ModFluids.MEAD_BUCKET.toString())
+                .criterion(hasItem(Items.BUCKET), conditionsFromItem(Items.BUCKET))
+                .criterion(hasItem(ModBlocks.WOODEN_MEAD_STEIN), conditionsFromItem(ModBlocks.WOODEN_MEAD_STEIN))
+                .offerTo(exporter, new Identifier(getRecipeName(ModFluids.MEAD_BUCKET)+"3"));
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModFluids.MEAD_BUCKET)
+                .input(Items.BUCKET)
+                .input(ModItems.MEAD_BOTTLE)
+                .input(ModItems.MEAD_BOTTLE)
+                .input(ModItems.MEAD_BOTTLE)
+                .group(ModFluids.MEAD_BUCKET.toString())
+                .criterion(hasItem(Items.BUCKET), conditionsFromItem(Items.BUCKET))
+                .criterion(hasItem(ModItems.MEAD_BOTTLE), conditionsFromItem(ModItems.MEAD_BOTTLE))
+                .offerTo(exporter, new Identifier(getRecipeName(ModFluids.MEAD_BUCKET)+"4"));
 
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.WOODEN_STEIN,4)
                 .pattern("# #")
@@ -1609,7 +1652,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.WOODEN_WATER_STEIN)
                 .input(ModBlocks.WOODEN_STEIN)
                 .input(Items.WATER_BUCKET)
-                .group(ModBlocks.WOODEN_STEIN.toString())
+                .group(ModBlocks.WOODEN_WATER_STEIN.toString())
                 .criterion(hasItem(ModBlocks.WOODEN_STEIN), conditionsFromItem(ModBlocks.WOODEN_STEIN))
                 .criterion(hasItem(Items.WATER_BUCKET), conditionsFromItem(Items.WATER_BUCKET))
                 .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.WOODEN_WATER_STEIN)));
@@ -1619,7 +1662,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input(Items.APPLE)
                 .input(Items.APPLE)
                 .input(Items.APPLE)
-                .group(ModBlocks.WOODEN_STEIN.toString())
+                .group(ModBlocks.WOODEN_APPLE_JUICE_STEIN.toString())
                 .criterion(hasItem(ModBlocks.WOODEN_STEIN), conditionsFromItem(ModBlocks.WOODEN_STEIN))
                 .criterion(hasItem(Items.APPLE), conditionsFromItem(Items.APPLE))
                 .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.WOODEN_APPLE_JUICE_STEIN)));
@@ -1629,7 +1672,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "oranges")))
                 .input(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "oranges")))
                 .input(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "oranges")))
-                .group(ModBlocks.WOODEN_STEIN.toString())
+                .group(ModBlocks.WOODEN_ORANGE_JUICE_STEIN.toString())
                 .criterion(hasItem(ModBlocks.WOODEN_STEIN), conditionsFromItem(ModBlocks.WOODEN_STEIN))
                 .criterion(hasItem(ModItems.ORANGE), conditionsFromItem(ModItems.ORANGE))
                 .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.WOODEN_ORANGE_JUICE_STEIN)));
@@ -1637,33 +1680,71 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.WOODEN_BEER_STEIN)
                 .input(ModBlocks.WOODEN_STEIN)
                 .input(ModTags.Items.BEER_CONTAINER)
-                .group(ModBlocks.WOODEN_STEIN.toString())
+                .group(ModBlocks.WOODEN_BEER_STEIN.toString())
                 .criterion(hasItem(ModBlocks.WOODEN_STEIN), conditionsFromItem(ModBlocks.WOODEN_STEIN))
                 .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.WOODEN_BEER_STEIN)));
 
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.WOODEN_BEER_STEIN)
-                .input(ModBlocks.WOODEN_STEIN)
-                .input(ModItems.BEER_BOTTLE)
-                .input(ModItems.BEER_BOTTLE)
-                .input(ModItems.BEER_BOTTLE)
-                .group(ModBlocks.WOODEN_STEIN.toString())
-                .criterion(hasItem(ModBlocks.WOODEN_STEIN), conditionsFromItem(ModBlocks.WOODEN_STEIN))
-                .criterion(hasItem(ModItems.BEER_BOTTLE), conditionsFromItem(ModItems.BEER_BOTTLE))
-                .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.WOODEN_BEER_STEIN)+"_from_bottles"));
-
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.WOODEN_BEER_STEIN)
                 .input(ModBlocks.WOODEN_WATER_STEIN)
                 .input(Items.WHEAT)
-                .group(ModBlocks.WOODEN_STEIN.toString())
+                .group(ModBlocks.WOODEN_BEER_STEIN.toString())
                 .criterion(hasItem(ModBlocks.WOODEN_WATER_STEIN), conditionsFromItem(ModBlocks.WOODEN_WATER_STEIN))
                 .criterion(hasItem(Items.WHEAT), conditionsFromItem(Items.WHEAT))
                 .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.WOODEN_BEER_STEIN)+"2"));
 
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.WOODEN_BEER_STEIN)
+                .input(ModBlocks.WOODEN_STEIN)
+                .input(ModItems.BEER_BOTTLE)
+                .input(ModItems.BEER_BOTTLE)
+                .input(ModItems.BEER_BOTTLE)
+                .group(ModBlocks.WOODEN_BEER_STEIN.toString())
+                .criterion(hasItem(ModBlocks.WOODEN_STEIN), conditionsFromItem(ModBlocks.WOODEN_STEIN))
+                .criterion(hasItem(ModItems.BEER_BOTTLE), conditionsFromItem(ModItems.BEER_BOTTLE))
+                .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.WOODEN_BEER_STEIN)+"3"));
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.WOODEN_MEAD_STEIN)
+                .input(ModBlocks.WOODEN_STEIN)
+                .input(Items.HONEY_BOTTLE)
+                .input(Items.HONEY_BOTTLE)
+                .input(Items.POTION)
+                .input(Items.POTION)
+                .group(ModBlocks.WOODEN_MEAD_STEIN.toString())
+                .criterion(hasItem(ModBlocks.WOODEN_STEIN), conditionsFromItem(ModBlocks.WOODEN_STEIN))
+                .criterion(hasItem(Items.HONEY_BOTTLE), conditionsFromItem(Items.HONEY_BOTTLE))
+                .criterion(hasItem(Items.POTION), conditionsFromItem(Items.POTION))
+                .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.WOODEN_MEAD_STEIN)));
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.WOODEN_MEAD_STEIN, 2)
+                .input(ModBlocks.WOODEN_WATER_STEIN)
+                .input(ModBlocks.WOODEN_STEIN)
+                .input(Items.HONEY_BLOCK)
+                .group(ModBlocks.WOODEN_MEAD_STEIN.toString())
+                .criterion(hasItem(ModBlocks.WOODEN_WATER_STEIN), conditionsFromItem(ModBlocks.WOODEN_WATER_STEIN))
+                .criterion(hasItem(Items.HONEY_BLOCK), conditionsFromItem(Items.HONEY_BLOCK))
+                .criterion(hasItem(ModBlocks.WOODEN_STEIN), conditionsFromItem(ModBlocks.WOODEN_STEIN))
+                .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.WOODEN_MEAD_STEIN)+"2"));
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.WOODEN_MEAD_STEIN)
+                .input(ModBlocks.WOODEN_STEIN)
+                .input(ModTags.Items.MEAD_CONTAINER)
+                .group(ModBlocks.WOODEN_MEAD_STEIN.toString())
+                .criterion(hasItem(ModBlocks.WOODEN_STEIN), conditionsFromItem(ModBlocks.WOODEN_STEIN))
+                .criterion(hasItem(ModFluids.MEAD_BUCKET), conditionsFromItem(ModFluids.MEAD_BUCKET))
+                .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.WOODEN_MEAD_STEIN)+"3"));
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.WOODEN_MEAD_STEIN)
+                .input(ModBlocks.WOODEN_STEIN)
+                .input(ModItems.MEAD_BOTTLE)
+                .input(ModItems.BEER_BOTTLE)
+                .input(ModItems.BEER_BOTTLE)
+                .group(ModBlocks.WOODEN_BEER_STEIN.toString())
+                .criterion(hasItem(ModBlocks.WOODEN_STEIN), conditionsFromItem(ModBlocks.WOODEN_STEIN))
+                .criterion(hasItem(ModItems.MEAD_BOTTLE), conditionsFromItem(ModItems.MEAD_BOTTLE))
+                .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.WOODEN_MEAD_STEIN)+"4"));
 
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.WOODEN_MILK_STEIN)
                 .input(ModBlocks.WOODEN_STEIN)
                 .input(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "milk")))
-                .group(ModBlocks.WOODEN_STEIN.toString())
                 .criterion(hasItem(ModBlocks.WOODEN_STEIN), conditionsFromItem(ModBlocks.WOODEN_STEIN))
                 .criterion(hasItem(Items.MILK_BUCKET), conditionsFromItem(Items.MILK_BUCKET))
                 .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.WOODEN_MILK_STEIN)));
@@ -1671,7 +1752,6 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.HOT_WOODEN_MILK_STEIN)
                 .input(ModBlocks.WOODEN_STEIN)
                 .input(ModFluids.HOT_MILK_BUCKET)
-                .group(ModBlocks.WOODEN_STEIN.toString())
                 .criterion(hasItem(ModBlocks.WOODEN_STEIN), conditionsFromItem(ModBlocks.WOODEN_STEIN))
                 .criterion(hasItem(ModFluids.HOT_MILK_BUCKET), conditionsFromItem(ModFluids.HOT_MILK_BUCKET))
                 .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.HOT_WOODEN_MILK_STEIN)));
@@ -1679,7 +1759,6 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.WOODEN_HOT_CHOCOLATE_STEIN)
                 .input(ModBlocks.WOODEN_STEIN)
                 .input(ModFluids.HOT_CHOCOLATE_BUCKET)
-                .group(ModBlocks.WOODEN_STEIN.toString())
                 .criterion(hasItem(ModBlocks.WOODEN_STEIN), conditionsFromItem(ModBlocks.WOODEN_STEIN))
                 .criterion(hasItem(ModFluids.HOT_CHOCOLATE_BUCKET), conditionsFromItem(ModFluids.HOT_CHOCOLATE_BUCKET))
                 .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.WOODEN_HOT_CHOCOLATE_STEIN)));
@@ -1688,7 +1767,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input(ModBlocks.WOODEN_MILK_STEIN)
                 .input(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "strawberries")))
                 .input(Items.SNOWBALL)
-                .group(ModBlocks.WOODEN_STEIN.toString())
+                .group("wooden_milkshake_stein")
                 .criterion(hasItem(ModBlocks.WOODEN_MILK_STEIN), conditionsFromItem(ModBlocks.WOODEN_MILK_STEIN))
                 .criterion(hasItem(ModItems.STRAWBERRY), conditionsFromItem(ModItems.STRAWBERRY))
                 .criterion(hasItem(Items.SNOWBALL), conditionsFromItem(Items.SNOWBALL))
@@ -1698,7 +1777,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input(ModBlocks.WOODEN_MILK_STEIN)
                 .input(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "oranges")))
                 .input(Items.SNOWBALL)
-                .group(ModBlocks.WOODEN_STEIN.toString())
+                .group("wooden_milkshake_stein")
                 .criterion(hasItem(ModBlocks.WOODEN_MILK_STEIN), conditionsFromItem(ModBlocks.WOODEN_MILK_STEIN))
                 .criterion(hasItem(ModItems.ORANGE), conditionsFromItem(ModItems.ORANGE))
                 .criterion(hasItem(Items.SNOWBALL), conditionsFromItem(Items.SNOWBALL))
@@ -1708,7 +1787,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input(ModBlocks.WOODEN_MILK_STEIN)
                 .input(Items.COCOA_BEANS)
                 .input(Items.SNOWBALL)
-                .group(ModBlocks.WOODEN_STEIN.toString())
+                .group("wooden_milkshake_stein")
                 .criterion(hasItem(ModBlocks.WOODEN_MILK_STEIN), conditionsFromItem(ModBlocks.WOODEN_MILK_STEIN))
                 .criterion(hasItem(Items.COCOA_BEANS), conditionsFromItem(Items.COCOA_BEANS))
                 .criterion(hasItem(Items.SNOWBALL), conditionsFromItem(Items.SNOWBALL))
@@ -1726,10 +1805,9 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input(ModTags.Items.HOT_MILK_CONTAINER)
                 .input(Items.COCOA_BEANS)
                 .input(ModBlocks.WOODEN_STEIN)
-                .group(ModBlocks.WOODEN_STEIN.toString())
                 .criterion(hasItem(ModBlocks.HOT_WOODEN_MILK_STEIN), conditionsFromItem(ModBlocks.HOT_WOODEN_MILK_STEIN))
                 .criterion(hasItem(Items.COCOA_BEANS), conditionsFromItem(Items.COCOA_BEANS))
-                .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.WOODEN_HOT_CHOCOLATE_STEIN)+"_2"));
+                .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.WOODEN_HOT_CHOCOLATE_STEIN)+"2"));
 
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModFluids.HOT_CHOCOLATE_BUCKET)
                 .input(ModTags.Items.HOT_MILK_CONTAINER)
@@ -1747,7 +1825,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .group(ModFluids.HOT_CHOCOLATE_BUCKET.toString())
                 .criterion(hasItem(ModBlocks.WOODEN_HOT_CHOCOLATE_STEIN), conditionsFromItem(ModBlocks.WOODEN_HOT_CHOCOLATE_STEIN))
                 .criterion(hasItem(Items.BUCKET), conditionsFromItem(Items.BUCKET))
-                .offerTo(exporter, new Identifier(getRecipeName(ModFluids.HOT_CHOCOLATE_BUCKET)+"_2"));
+                .offerTo(exporter, new Identifier(getRecipeName(ModFluids.HOT_CHOCOLATE_BUCKET)+"2"));
 
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.BEER_GOAT_HORN)
                 .input(Items.GOAT_HORN)
@@ -1764,7 +1842,24 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .group(ModItems.BEER_GOAT_HORN.toString())
                 .criterion(hasItem(Items.GOAT_HORN), conditionsFromItem(Items.GOAT_HORN))
                 .criterion(hasItem(ModItems.BEER_BOTTLE), conditionsFromItem(ModItems.BEER_BOTTLE))
-                .offerTo(exporter, new Identifier(getRecipeName(ModItems.BEER_GOAT_HORN)+"_from_bottles"));
+                .offerTo(exporter, new Identifier(getRecipeName(ModItems.BEER_GOAT_HORN)+"2"));
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.MEAD_GOAT_HORN)
+                .input(Items.GOAT_HORN)
+                .input(ModTags.Items.MEAD_CONTAINER)
+                .group(ModItems.MEAD_GOAT_HORN.toString())
+                .criterion(hasItem(Items.GOAT_HORN), conditionsFromItem(Items.GOAT_HORN))
+                .offerTo(exporter, new Identifier(getRecipeName(ModItems.MEAD_GOAT_HORN)));
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.MEAD_GOAT_HORN)
+                .input(Items.GOAT_HORN)
+                .input(ModItems.MEAD_BOTTLE)
+                .input(ModItems.MEAD_BOTTLE)
+                .input(ModItems.MEAD_BOTTLE)
+                .group(ModItems.MEAD_GOAT_HORN.toString())
+                .criterion(hasItem(Items.GOAT_HORN), conditionsFromItem(Items.GOAT_HORN))
+                .criterion(hasItem(ModItems.MEAD_BOTTLE), conditionsFromItem(ModItems.MEAD_BOTTLE))
+                .offerTo(exporter, new Identifier(getRecipeName(ModItems.MEAD_GOAT_HORN)+"2"));
 
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.BEER_BOTTLE,3)
                 .input(Items.GLASS_BOTTLE)
@@ -1773,6 +1868,14 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input(ModTags.Items.BEER_CONTAINER)
                 .criterion(hasItem(Items.GLASS_BOTTLE), conditionsFromItem(Items.GLASS_BOTTLE))
                 .offerTo(exporter, new Identifier(getRecipeName(ModItems.BEER_BOTTLE)));
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.MEAD_BOTTLE,3)
+                .input(Items.GLASS_BOTTLE)
+                .input(Items.GLASS_BOTTLE)
+                .input(Items.GLASS_BOTTLE)
+                .input(ModTags.Items.MEAD_CONTAINER)
+                .criterion(hasItem(Items.GLASS_BOTTLE), conditionsFromItem(Items.GLASS_BOTTLE))
+                .offerTo(exporter, new Identifier(getRecipeName(ModItems.MEAD_BOTTLE)));
 
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.APPLE_JUICE_BOTTLE)
                 .input(Items.GLASS_BOTTLE)

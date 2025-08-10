@@ -1,7 +1,7 @@
 {
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
-  "group": "Block{tlotd:wooden_stein}",
+  "group": "Block{tlotd:wooden_beer_stein}",
   "ingredients": [
     {
       "item": "tlotd:wooden_stein"

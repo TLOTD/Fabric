@@ -1,0 +1,30 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "create"
+      ]
+    }
+  ],
+  "type": "create:splashing",
+  "ingredients": [
+    {
+      "item": "tlotd:lunar_regolith"
+    }
+  ],
+  "results": [
+    {
+      "chance": 0.125,
+      "item": "minecraft:coal"
+    },
+    {
+      "chance": 0.125,
+      "item": "minecraft:iron_nugget"
+    },
+    {
+      "chance": 0.02,
+      "item": "tlotd:lunar_callainus_lump"
+    }
+  ]
+}

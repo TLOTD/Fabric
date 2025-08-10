@@ -31,7 +31,7 @@ public class PlayerPlushieBlock extends HumanPlushieBlock {
         int skin = 0;
         boolean alternative = false;
         if (!Objects.requireNonNull(ctx.getPlayer()).isSneaking()) {
-            switch (ctx.getPlayer().getUuid().toString()) {
+            switch (ctx.getPlayer().getUuidAsString()) {
                 case "212aa6f5-69a9-47d9-9ad5-19b359744edf" -> skin = 1;
                 case "67148bd0-1a00-4bca-9d9e-ec246afbcf51" -> skin = 2;
                 case "53c68d22-726b-4a37-b92d-8d7c4670a87d" -> skin = 3;

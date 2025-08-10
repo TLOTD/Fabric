@@ -37,6 +37,7 @@ public class ModItemGroups {
                         entries.add(ModItems.OXYGEN_TANK);
 
                         entries.add(ModFluids.BEER_BUCKET);
+                        entries.add(ModFluids.MEAD_BUCKET);
                         entries.add(ModFluids.OIL_BUCKET);
                         entries.add(ModFluids.HOT_MILK_BUCKET);
                         entries.add(ModFluids.HOT_CHOCOLATE_BUCKET);
@@ -185,7 +186,9 @@ public class ModItemGroups {
                         entries.add(ModItems.SPEZI_BOTTLE);
 
                         entries.add(ModItems.BEER_BOTTLE);
+                        entries.add(ModItems.MEAD_BOTTLE);
                         entries.add(ModItems.BEER_GOAT_HORN);
+                        entries.add(ModItems.MEAD_GOAT_HORN);
 
                         entries.add(ModItems.DINOSAUR_HIDE);
                         entries.add(ModItems.DINOSAUR_MEAT);
@@ -272,7 +275,7 @@ public class ModItemGroups {
     public static final ItemGroup TLOTD_2_WEAPONS_TOOLS_UTILITIES_GROUP = Registry.register(Registries.ITEM_GROUP,
             new Identifier(TLOTD.MOD_ID, "2_weapons_tools_and_utilities"),
             FabricItemGroup.builder().displayName(Text.literal("\uE000 ").styled(style -> style.withFont(MODS_FONT_ID)).append(Text.translatable("itemgroup.tlotd.weapons_tools_and_utilities").styled(style -> style.withFont(DEFAULT_FONT_ID))))
-                    .icon(() -> new ItemStack(ModItems.ENDURIUM_PICKAXE)).entries((displayContext, entries) -> {
+                    .icon(() -> new ItemStack(ModItems.ENDURIUM_PAXEL)).entries((displayContext, entries) -> {
 
                         entries.add(ModItems.MONOCLE);
                         entries.add(ModItems.VICTORIAN_SUIT);
@@ -316,6 +319,7 @@ public class ModItemGroups {
                         entries.add(ModItems.HELIORITE_AXE);
                         entries.add(ModItems.HELIORITE_SHOVEL);
                         entries.add(ModItems.HELIORITE_HOE);
+                        entries.add(ModItems.HELIORITE_PAXEL);
 
                         entries.add(ModItems.HELIORITE_SICKLE);
                         entries.add(ModItems.HELIORITE_FORGING_HAMMER);
@@ -330,6 +334,7 @@ public class ModItemGroups {
                         entries.add(ModItems.ENDURIUM_AXE);
                         entries.add(ModItems.ENDURIUM_SHOVEL);
                         entries.add(ModItems.ENDURIUM_HOE);
+                        entries.add(ModItems.ENDURIUM_PAXEL);
 
                         entries.add(ModItems.ENDURIUM_SICKLE);
                         entries.add(ModItems.ENDURIUM_FORGING_HAMMER);
@@ -344,6 +349,7 @@ public class ModItemGroups {
                         entries.add(ModItems.PALLADIUM_AXE);
                         entries.add(ModItems.PALLADIUM_SHOVEL);
                         entries.add(ModItems.PALLADIUM_HOE);
+                        entries.add(ModItems.PALLADIUM_PAXEL);
 
                         entries.add(ModItems.PALLADIUM_SICKLE);
                         entries.add(ModItems.PALLADIUM_FORGING_HAMMER);
@@ -358,6 +364,7 @@ public class ModItemGroups {
                         entries.add(ModItems.JURASSOLINE_AXE);
                         entries.add(ModItems.JURASSOLINE_SHOVEL);
                         entries.add(ModItems.JURASSOLINE_HOE);
+                        entries.add(ModItems.JURASSOLINE_PAXEL);
 
                         entries.add(ModItems.JURASSOLINE_SICKLE);
                         entries.add(ModItems.JURASSOLINE_FORGING_HAMMER);
@@ -372,6 +379,7 @@ public class ModItemGroups {
                         entries.add(ModItems.CINNABAR_AXE);
                         entries.add(ModItems.CINNABAR_SHOVEL);
                         entries.add(ModItems.CINNABAR_HOE);
+                        entries.add(ModItems.CINNABAR_PAXEL);
 
                         entries.add(ModItems.CINNABAR_SICKLE);
                         entries.add(ModItems.CINNABAR_FORGING_HAMMER);
@@ -386,6 +394,7 @@ public class ModItemGroups {
                         entries.add(ModItems.NEBULAR_AXE);
                         entries.add(ModItems.NEBULAR_SHOVEL);
                         entries.add(ModItems.NEBULAR_HOE);
+                        entries.add(ModItems.NEBULAR_PAXEL);
 
                         entries.add(ModItems.NEBULAR_SICKLE);
                         entries.add(ModItems.NEBULAR_FORGING_HAMMER);
@@ -400,6 +409,7 @@ public class ModItemGroups {
                         entries.add(ModItems.MITHRIL_AXE);
                         entries.add(ModItems.MITHRIL_SHOVEL);
                         entries.add(ModItems.MITHRIL_HOE);
+                        entries.add(ModItems.MITHRIL_PAXEL);
 
                         entries.add(ModItems.MITHRIL_SICKLE);
                         entries.add(ModItems.MITHRIL_FORGING_HAMMER);
@@ -510,6 +520,7 @@ public class ModItemGroups {
                         entries.add(ModBlocks.WOODEN_APPLE_JUICE_STEIN);
                         entries.add(ModBlocks.WOODEN_ORANGE_JUICE_STEIN);
                         entries.add(ModBlocks.WOODEN_BEER_STEIN);
+                        entries.add(ModBlocks.WOODEN_MEAD_STEIN);
                         entries.add(ModBlocks.WOODEN_MILK_STEIN);
                         entries.add(ModBlocks.WOODEN_CHOCOLATE_MILKSHAKE_STEIN);
                         entries.add(ModBlocks.WOODEN_STRAWBERRY_MILKSHAKE_STEIN);
@@ -590,6 +601,8 @@ public class ModItemGroups {
 
                         entries.add(ModBlocks.REINFORCED_RED_DEEPSLATE);
 
+                        entries.add(ModBlocks.RED_DEEPSLATE_FOSSIL);
+
                         entries.add(ModBlocks.RED_DEEPSLATE_IRON_ORE);
                         entries.add(ModBlocks.RED_DEEPSLATE_COPPER_ORE);
                         entries.add(ModBlocks.RED_DEEPSLATE_GOLD_ORE);
@@ -619,15 +632,19 @@ public class ModItemGroups {
                         entries.add(ModBlocks.SULFUR_CAMPFIRE);
 
                         entries.add(ModBlocks.LEAD_ORE);
+                        entries.add(ModBlocks.DEEPSLATE_LEAD_ORE);
                         entries.add(ModBlocks.RAW_LEAD_BLOCK);
                         entries.add(ModBlocks.LEAD_BLOCK);
 
+                        entries.add(ModBlocks.URANIUM_ORE);
                         entries.add(ModBlocks.DEEPSLATE_URANIUM_ORE);
                         entries.add(ModBlocks.RAW_URANIUM_BLOCK);
                         entries.add(ModBlocks.URANIUM_BLOCK);
 
+                        entries.add(ModBlocks.FOSSIL);
                         entries.add(ModBlocks.DEEPSLATE_FOSSIL);
 
+                        entries.add(ModBlocks.HELIORITE_ORE);
                         entries.add(ModBlocks.DEEPSLATE_HELIORITE_ORE);
                         entries.add(ModBlocks.HELIORITE_COMB_BLOCK);
                         entries.add(ModBlocks.HELIORITE_BLOCK);
@@ -636,18 +653,22 @@ public class ModItemGroups {
                         entries.add(ModBlocks.RAW_ENDURIUM_BLOCK);
                         entries.add(ModBlocks.ENDURIUM_BLOCK);
 
+                        entries.add(ModBlocks.PALLADIUM_ORE);
                         entries.add(ModBlocks.DEEPSLATE_PALLADIUM_ORE);
                         entries.add(ModBlocks.RAW_PALLADIUM_BLOCK);
                         entries.add(ModBlocks.PALLADIUM_BLOCK);
 
+                        entries.add(ModBlocks.JURASSOLINE_ORE);
                         entries.add(ModBlocks.DEEPSLATE_JURASSOLINE_ORE);
                         entries.add(ModBlocks.JURASSOLINE_CRYSTAL_BLOCK);
                         entries.add(ModBlocks.JURASSOLINE_BLOCK);
 
+                        entries.add(ModBlocks.CINNABAR_ORE);
                         entries.add(ModBlocks.DEEPSLATE_CINNABAR_ORE);
                         entries.add(ModBlocks.CINNABAR_CRYSTAL_BLOCK);
                         entries.add(ModBlocks.CINNABAR_BLOCK);
 
+                        entries.add(ModBlocks.NEBULAR_ORE);
                         entries.add(ModBlocks.DEEPSLATE_NEBULAR_ORE);
                         entries.add(ModBlocks.RAW_NEBULAR_BLOCK);
                         entries.add(ModBlocks.NEBULAR_BLOCK);
@@ -889,13 +910,21 @@ public class ModItemGroups {
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.NATURAL).register(content -> {
             content.addAfter(Items.END_STONE, ModBlocks.END_ENDURIUM_ORE);
             content.addAfter(Items.DEEPSLATE_DIAMOND_ORE, ModBlocks.LEAD_ORE);
-            content.addAfter(ModBlocks.LEAD_ORE, ModBlocks.DEEPSLATE_URANIUM_ORE);
-            content.addAfter(ModBlocks.DEEPSLATE_URANIUM_ORE, ModBlocks.DEEPSLATE_FOSSIL);
-            content.addAfter(ModBlocks.DEEPSLATE_FOSSIL, ModBlocks.DEEPSLATE_HELIORITE_ORE);
-            content.addAfter(ModBlocks.DEEPSLATE_HELIORITE_ORE, ModBlocks.DEEPSLATE_PALLADIUM_ORE);
-            content.addAfter(ModBlocks.DEEPSLATE_PALLADIUM_ORE, ModBlocks.DEEPSLATE_JURASSOLINE_ORE);
-            content.addAfter(ModBlocks.DEEPSLATE_JURASSOLINE_ORE, ModBlocks.DEEPSLATE_CINNABAR_ORE);
-            content.addAfter(ModBlocks.DEEPSLATE_CINNABAR_ORE, ModBlocks.DEEPSLATE_NEBULAR_ORE);
+            content.addAfter(ModBlocks.LEAD_ORE, ModBlocks.DEEPSLATE_LEAD_ORE);
+            content.addAfter(ModBlocks.DEEPSLATE_LEAD_ORE, ModBlocks.URANIUM_ORE);
+            content.addAfter(ModBlocks.URANIUM_ORE, ModBlocks.DEEPSLATE_URANIUM_ORE);
+            content.addAfter(ModBlocks.DEEPSLATE_URANIUM_ORE, ModBlocks.FOSSIL);
+            content.addAfter(ModBlocks.FOSSIL, ModBlocks.DEEPSLATE_FOSSIL);
+            content.addAfter(ModBlocks.DEEPSLATE_FOSSIL, ModBlocks.HELIORITE_ORE);
+            content.addAfter(ModBlocks.HELIORITE_ORE, ModBlocks.DEEPSLATE_HELIORITE_ORE);
+            content.addAfter(ModBlocks.DEEPSLATE_HELIORITE_ORE, ModBlocks.PALLADIUM_ORE);
+            content.addAfter(ModBlocks.PALLADIUM_ORE, ModBlocks.DEEPSLATE_PALLADIUM_ORE);
+            content.addAfter(ModBlocks.DEEPSLATE_PALLADIUM_ORE, ModBlocks.JURASSOLINE_ORE);
+            content.addAfter(ModBlocks.JURASSOLINE_ORE, ModBlocks.DEEPSLATE_JURASSOLINE_ORE);
+            content.addAfter(ModBlocks.DEEPSLATE_JURASSOLINE_ORE, ModBlocks.CINNABAR_ORE);
+            content.addAfter(ModBlocks.CINNABAR_ORE, ModBlocks.DEEPSLATE_CINNABAR_ORE);
+            content.addAfter(ModBlocks.DEEPSLATE_CINNABAR_ORE, ModBlocks.NEBULAR_ORE);
+            content.addAfter(ModBlocks.NEBULAR_ORE, ModBlocks.DEEPSLATE_NEBULAR_ORE);
             content.addAfter(ModBlocks.DEEPSLATE_NEBULAR_ORE, ModBlocks.BEDROCK_MITHRIL_ORE);
             content.addAfter(Items.NETHER_GOLD_ORE, ModBlocks.NETHER_SULFUR_ORE);
             content.addAfter(Items.CHERRY_LOG, ModBlocks.GINKGO_LOG);
@@ -939,7 +968,8 @@ public class ModItemGroups {
             content.addAfter(ModItems.NETHERITE_SICKLE, ModItems.NETHERITE_FORGING_HAMMER);
             content.addAfter(Items.FLINT_AND_STEEL, ModItems.FOSSIL_AND_STEEL);
             content.addAfter(Items.MILK_BUCKET, ModFluids.BEER_BUCKET);
-            content.addAfter(ModFluids.BEER_BUCKET, ModFluids.OIL_BUCKET);
+            content.addAfter(ModFluids.BEER_BUCKET, ModFluids.MEAD_BUCKET);
+            content.addAfter(ModFluids.MEAD_BUCKET, ModFluids.OIL_BUCKET);
             content.addAfter(ModFluids.OIL_BUCKET, ModFluids.HOT_MILK_BUCKET);
             content.addAfter(ModFluids.HOT_MILK_BUCKET, ModFluids.HOT_CHOCOLATE_BUCKET);
             content.addAfter(ModFluids.HOT_CHOCOLATE_BUCKET, ModFluids.BLOOD_BUCKET);
@@ -986,7 +1016,8 @@ public class ModItemGroups {
             content.addAfter(ModBlocks.WOODEN_WATER_STEIN, ModBlocks.WOODEN_APPLE_JUICE_STEIN);
             content.addAfter(ModBlocks.WOODEN_APPLE_JUICE_STEIN, ModBlocks.WOODEN_ORANGE_JUICE_STEIN);
             content.addAfter(ModBlocks.WOODEN_ORANGE_JUICE_STEIN, ModBlocks.WOODEN_BEER_STEIN);
-            content.addAfter(ModBlocks.WOODEN_BEER_STEIN, ModBlocks.WOODEN_MILK_STEIN);
+            content.addAfter(ModBlocks.WOODEN_BEER_STEIN, ModBlocks.WOODEN_MEAD_STEIN);
+            content.addAfter(ModBlocks.WOODEN_MEAD_STEIN, ModBlocks.WOODEN_MILK_STEIN);
             content.addAfter(ModBlocks.WOODEN_MILK_STEIN, ModBlocks.WOODEN_CHOCOLATE_MILKSHAKE_STEIN);
             content.addAfter(ModBlocks.WOODEN_CHOCOLATE_MILKSHAKE_STEIN, ModBlocks.WOODEN_STRAWBERRY_MILKSHAKE_STEIN);
             content.addAfter(ModBlocks.WOODEN_STRAWBERRY_MILKSHAKE_STEIN, ModBlocks.WOODEN_ORANGE_MILKSHAKE_STEIN);
@@ -998,8 +1029,9 @@ public class ModItemGroups {
             content.addAfter(ModItems.APPLE_JUICE_BOTTLE, ModItems.ORANGE_JUICE_BOTTLE);
             content.addAfter(ModItems.ORANGE_JUICE_BOTTLE, ModItems.SPEZI_BOTTLE);
             content.addAfter(ModItems.SPEZI_BOTTLE, ModItems.BEER_BOTTLE);
-            content.addAfter(ModItems.BEER_BOTTLE, ModItems.BEER_GOAT_HORN);
-            content.addAfter(ModItems.BEER_BOTTLE, ModItems.BEER_GOAT_HORN);
+            content.addAfter(ModItems.BEER_BOTTLE, ModItems.MEAD_BOTTLE);
+            content.addAfter(ModItems.MEAD_BOTTLE, ModItems.BEER_GOAT_HORN);
+            content.addAfter(ModItems.BEER_GOAT_HORN, ModItems.MEAD_GOAT_HORN);
         });
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(content -> {

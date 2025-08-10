@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
+    "tlotd:red_deepslate_fossil",
     "tlotd:red_deepslate_iron_ore",
     "tlotd:red_deepslate_copper_ore",
     "tlotd:red_deepslate_gold_ore",

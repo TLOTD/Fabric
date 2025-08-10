@@ -10,6 +10,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
 import net.minecraft.item.PickaxeItem;
 import net.minecraft.item.ToolMaterial;
+import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.stat.Stats;
@@ -41,9 +42,21 @@ public class ExtractionPickaxeItem extends PickaxeItem {
             BlockState state = context.getWorld().getBlockState(positionClicked);
             String name = state.getBlock().getTranslationKey();
             int damage = 1;
+            int miningLevel = this.getMaterial().getMiningLevel();
+            int blockLevel = 0;
+            if (state.isIn(ModTags.Blocks.TOOL_LEVEL_10)) { blockLevel = 10; }
+            else if (state.isIn(ModTags.Blocks.TOOL_LEVEL_9)) { blockLevel = 9; }
+            else if (state.isIn(ModTags.Blocks.TOOL_LEVEL_8)) { blockLevel = 8; }
+            else if (state.isIn(ModTags.Blocks.TOOL_LEVEL_7)) { blockLevel = 7; }
+            else if (state.isIn(ModTags.Blocks.TOOL_LEVEL_6)) { blockLevel = 6; }
+            else if (state.isIn(ModTags.Blocks.TOOL_LEVEL_5)) { blockLevel = 5; }
+            else if (state.isIn(ModTags.Blocks.TOOL_LEVEL_4)) { blockLevel = 4; }
+            else if (state.isIn(BlockTags.NEEDS_DIAMOND_TOOL)) { blockLevel = 3; }
+            else if (state.isIn(BlockTags.NEEDS_IRON_TOOL)) { blockLevel = 2; }
+            else if (state.isIn(BlockTags.NEEDS_STONE_TOOL)) { blockLevel = 1; }
             if (context.getStack().isIn(ModTags.Items.MOUTH_OF_THE_ABYSS)) {
                 context.getWorld().breakBlock(positionClicked, true);
-            } else if (state.isOf(ModBlocks.ALIEN_CONTROL_PANEL) || state.isIn(ModTags.Blocks.EXTRACTABLE_BLOCKS) || (ModConfigs.EXTRACTION_ORE_EXPERIMENTAL_COMPAT && name.contains("_ore"))) {
+            } else if (miningLevel >= blockLevel && (state == ModBlocks.ALIEN_CONTROL_PANEL.getStateWithProperties(state).with(HARVESTED,false) || state.isIn(ModTags.Blocks.EXTRACTABLE_BLOCKS) || (ModConfigs.EXTRACTION_ORE_EXPERIMENTAL_COMPAT && name.contains("_ore")))) {
                 context.getWorld().breakBlock(positionClicked, true);
                 if (state.isOf(ModBlocks.ALIEN_CONTROL_PANEL) && !state.get(HARVESTED)) {
                     context.getWorld().setBlockState(positionClicked, state.with(HARVESTED, true));

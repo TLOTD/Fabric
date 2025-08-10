@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "mead_goat_horn",
+  "ingredients": [
+    {
+      "item": "minecraft:goat_horn"
+    },
+    {
+      "item": "tlotd:mead_bottle"
+    },
+    {
+      "item": "tlotd:mead_bottle"
+    },
+    {
+      "item": "tlotd:mead_bottle"
+    }
+  ],
+  "result": {
+    "item": "tlotd:mead_goat_horn"
+  }
+}

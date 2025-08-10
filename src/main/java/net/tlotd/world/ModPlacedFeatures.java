@@ -38,6 +38,8 @@ public class ModPlacedFeatures {
     public static final RegistryKey<PlacedFeature> RED_DEEPSLATE_MARBLE_PLACED_KEY = registerKey("red_deepslate_marble_placed");
     public static final RegistryKey<PlacedFeature> RED_DEEPSLATE_LIMESTONE_PLACED_KEY = registerKey("red_deepslate_limestone_placed");
 
+    public static final RegistryKey<PlacedFeature> RED_DEEPSLATE_FOSSIL_PLACED_KEY = registerKey("red_deepslate_fossil_placed");
+
     public static final RegistryKey<PlacedFeature> RED_DEEPSLATE_SULFUR_ORE_PLACED_KEY = registerKey("red_deepslate_sulfur_ore_placed");
     public static final RegistryKey<PlacedFeature> RED_DEEPSLATE_QUARTZ_ORE_PLACED_KEY = registerKey("red_deepslate_quartz_ore_placed");
     public static final RegistryKey<PlacedFeature> RED_DEEPSLATE_IRON_ORE_PLACED_KEY = registerKey("red_deepslate_iron_ore_placed");
@@ -77,6 +79,8 @@ public class ModPlacedFeatures {
         register(context, RED_GRAVEL_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.RED_GRAVEL_KEY), ModOrePlacement.modifiersWithCount(16, HeightRangePlacementModifier.uniform(YOffset.fixed(-64), YOffset.fixed(320))));
         register(context, RED_DEEPSLATE_MARBLE_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.RED_DEEPSLATE_MARBLE_KEY), ModOrePlacement.modifiersWithCount(16, HeightRangePlacementModifier.uniform(YOffset.fixed(-64), YOffset.fixed(320))));
         register(context, RED_DEEPSLATE_LIMESTONE_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.RED_DEEPSLATE_LIMESTONE_KEY), ModOrePlacement.modifiersWithCount(16, HeightRangePlacementModifier.uniform(YOffset.fixed(-64), YOffset.fixed(320))));
+
+        register(context, RED_DEEPSLATE_FOSSIL_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.RED_DEEPSLATE_FOSSIL_KEY), ModOrePlacement.modifiersWithCount(2, HeightRangePlacementModifier.uniform(YOffset.fixed(-64), YOffset.fixed(128))));
 
         register(context, RED_DEEPSLATE_SULFUR_ORE_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.RED_DEEPSLATE_SULFUR_ORE_KEY), ModOrePlacement.modifiersWithCount(16, HeightRangePlacementModifier.uniform(YOffset.fixed(-64), YOffset.fixed(320))));
         register(context, RED_DEEPSLATE_QUARTZ_ORE_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.RED_DEEPSLATE_QUARTZ_ORE_KEY), ModOrePlacement.modifiersWithCount(16, HeightRangePlacementModifier.uniform(YOffset.fixed(-64), YOffset.fixed(320))));

@@ -24,6 +24,7 @@ import net.minecraft.world.gen.feature.PlacedFeature;
 import net.minecraft.world.gen.feature.RandomPatchFeatureConfig;
 import net.minecraft.world.gen.feature.VegetationPlacedFeatures;
 import net.tlotd.block.ModBlocks;
+import net.tlotd.util.ModTags;
 
 import java.util.List;
 import java.util.Optional;
@@ -128,11 +129,11 @@ public class RichGrassBlock extends SnowyBlock implements Fertilizable {
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         if (!world.isClient()) {
-            if (player.getMainHandStack().isIn(ItemTags.HOES) || player.getOffHandStack().isIn(ItemTags.HOES)) {
+            if (player.getMainHandStack().isIn(ItemTags.HOES) || player.getOffHandStack().isIn(ItemTags.HOES) || player.getMainHandStack().isIn(ModTags.Items.PAXELS) || player.getOffHandStack().isIn(ModTags.Items.PAXELS)) {
                 world.setBlockState(pos, ModBlocks.RICH_FARMLAND.getStateWithProperties(state));
-                if (player.getMainHandStack().isIn(ItemTags.HOES)) {
+                if (player.getMainHandStack().isIn(ItemTags.HOES) || player.getMainHandStack().isIn(ModTags.Items.PAXELS)) {
                     player.getMainHandStack().damage(1,player,e -> e.sendEquipmentBreakStatus(EquipmentSlot.MAINHAND));
-                } else if (player.getOffHandStack().isIn(ItemTags.HOES)) {
+                } else if (player.getOffHandStack().isIn(ItemTags.HOES) || player.getOffHandStack().isIn(ModTags.Items.PAXELS)) {
                     player.getMainHandStack().damage(1,player,e -> e.sendEquipmentBreakStatus(EquipmentSlot.OFFHAND));
                 }
                 world.playSound(null, pos, SoundEvents.ITEM_HOE_TILL, SoundCategory.PLAYERS, 1.0f, 1.0f);
