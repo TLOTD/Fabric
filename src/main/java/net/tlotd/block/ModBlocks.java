@@ -4,10 +4,11 @@ import net.minecraft.core.block.Block;
 import net.minecraft.core.block.Blocks;
 import net.minecraft.core.block.material.Material;
 import net.minecraft.core.block.tag.BlockTags;
-import net.minecraft.core.data.tag.Tag;
 import net.tlotd.TLOTD;
 import net.tlotd.block.custom.*;
 import turniplabs.halplibe.helper.BlockBuilder;
+
+import static net.minecraft.core.item.tool.ItemToolPickaxe.miningLevels;
 
 public class ModBlocks {
 
@@ -90,6 +91,79 @@ public class ModBlocks {
 	public static Block<?> RED_DEEPSLATE_BRICKS;
 	public static Block<?> COBBLED_RED_DEEPSLATE;
 	public static Block<?> COBBLED_RED_DEEPSLATE_BRICKS;
+
+	public void initializeBlockDetails() {
+		miningLevels.put(ModBlocks.STONE_FOSSIL, 2);
+		miningLevels.put(ModBlocks.BASALT_FOSSIL, 2);
+		miningLevels.put(ModBlocks.LIMESTONE_FOSSIL, 2);
+		miningLevels.put(ModBlocks.GRANITE_FOSSIL, 2);
+		miningLevels.put(ModBlocks.PERMAFROST_FOSSIL, 2);
+		miningLevels.put(ModBlocks.RED_DEEPSLATE_FOSSIL, 2);
+
+		miningLevels.put(ModBlocks.HELIORITE_STONE_ORE, 3);
+		miningLevels.put(ModBlocks.HELIORITE_BASALT_ORE, 3);
+		miningLevels.put(ModBlocks.HELIORITE_LIMESTONE_ORE, 3);
+		miningLevels.put(ModBlocks.HELIORITE_GRANITE_ORE, 3);
+		miningLevels.put(ModBlocks.HELIORITE_PERMAFROST_ORE, 3);
+		miningLevels.put(ModBlocks.HELIORITE_RED_DEEPSLATE_ORE, 3);
+		miningLevels.put(ModBlocks.HELIORITE_COMB_BLOCK, 3);
+		miningLevels.put(ModBlocks.HELIORITE_BLOCK, 3);
+
+		miningLevels.put(ModBlocks.ENDURIUM_STONE_ORE, 3);
+		miningLevels.put(ModBlocks.ENDURIUM_BASALT_ORE, 3);
+		miningLevels.put(ModBlocks.ENDURIUM_LIMESTONE_ORE, 3);
+		miningLevels.put(ModBlocks.ENDURIUM_GRANITE_ORE, 3);
+		miningLevels.put(ModBlocks.ENDURIUM_PERMAFROST_ORE, 3);
+		miningLevels.put(ModBlocks.ENDURIUM_RED_DEEPSLATE_ORE, 3);
+		miningLevels.put(ModBlocks.RAW_ENDURIUM_BLOCK, 3);
+		miningLevels.put(ModBlocks.ENDURIUM_BLOCK, 3);
+
+		miningLevels.put(ModBlocks.PALLADIUM_STONE_ORE, 4);
+		miningLevels.put(ModBlocks.PALLADIUM_BASALT_ORE, 4);
+		miningLevels.put(ModBlocks.PALLADIUM_LIMESTONE_ORE, 4);
+		miningLevels.put(ModBlocks.PALLADIUM_GRANITE_ORE, 4);
+		miningLevels.put(ModBlocks.PALLADIUM_PERMAFROST_ORE, 4);
+		miningLevels.put(ModBlocks.PALLADIUM_RED_DEEPSLATE_ORE, 4);
+		miningLevels.put(ModBlocks.RAW_PALLADIUM_BLOCK, 4);
+		miningLevels.put(ModBlocks.PALLADIUM_BLOCK, 4);
+
+		miningLevels.put(ModBlocks.JURASSOLINE_STONE_ORE, 4);
+		miningLevels.put(ModBlocks.JURASSOLINE_BASALT_ORE, 4);
+		miningLevels.put(ModBlocks.JURASSOLINE_LIMESTONE_ORE, 4);
+		miningLevels.put(ModBlocks.JURASSOLINE_GRANITE_ORE, 4);
+		miningLevels.put(ModBlocks.JURASSOLINE_PERMAFROST_ORE, 4);
+		miningLevels.put(ModBlocks.JURASSOLINE_RED_DEEPSLATE_ORE, 4);
+		miningLevels.put(ModBlocks.JURASSOLINE_CRYSTAL_BLOCK, 4);
+		miningLevels.put(ModBlocks.JURASSOLINE_BLOCK, 4);
+
+		miningLevels.put(ModBlocks.CINNABAR_STONE_ORE, 5);
+		miningLevels.put(ModBlocks.CINNABAR_BASALT_ORE, 5);
+		miningLevels.put(ModBlocks.CINNABAR_LIMESTONE_ORE, 5);
+		miningLevels.put(ModBlocks.CINNABAR_GRANITE_ORE, 5);
+		miningLevels.put(ModBlocks.CINNABAR_PERMAFROST_ORE, 5);
+		miningLevels.put(ModBlocks.CINNABAR_RED_DEEPSLATE_ORE, 5);
+		miningLevels.put(ModBlocks.CINNABAR_CRYSTAL_BLOCK, 5);
+		miningLevels.put(ModBlocks.CINNABAR_BLOCK, 5);
+
+		miningLevels.put(ModBlocks.NEBULAR_STONE_ORE, 5);
+		miningLevels.put(ModBlocks.NEBULAR_BASALT_ORE, 5);
+		miningLevels.put(ModBlocks.NEBULAR_LIMESTONE_ORE, 5);
+		miningLevels.put(ModBlocks.NEBULAR_GRANITE_ORE, 5);
+		miningLevels.put(ModBlocks.NEBULAR_PERMAFROST_ORE, 5);
+		miningLevels.put(ModBlocks.NEBULAR_RED_DEEPSLATE_ORE, 5);
+		miningLevels.put(ModBlocks.RAW_NEBULAR_BLOCK, 5);
+		miningLevels.put(ModBlocks.NEBULAR_BLOCK, 5);
+
+		miningLevels.put(ModBlocks.MITHRIL_STONE_ORE, 6);
+		miningLevels.put(ModBlocks.MITHRIL_BASALT_ORE, 6);
+		miningLevels.put(ModBlocks.MITHRIL_LIMESTONE_ORE, 6);
+		miningLevels.put(ModBlocks.MITHRIL_GRANITE_ORE, 6);
+		miningLevels.put(ModBlocks.MITHRIL_PERMAFROST_ORE, 6);
+		miningLevels.put(ModBlocks.MITHRIL_RED_DEEPSLATE_ORE, 6);
+		miningLevels.put(ModBlocks.MITHRIL_BEDROCK_ORE, 6);
+		miningLevels.put(ModBlocks.RAW_MITHRIL_BLOCK, 6);
+		miningLevels.put(ModBlocks.MITHRIL_BLOCK, 6);
+	}
 
 	public void registerBlocks() {
 

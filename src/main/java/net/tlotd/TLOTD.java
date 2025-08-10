@@ -48,6 +48,6 @@ public class TLOTD implements ModInitializer, RecipeEntrypoint, GameStartEntrypo
 
 	@Override
 	public void afterGameStart() {
-
+		new ModBlocks().initializeBlockDetails();
 	}
 }

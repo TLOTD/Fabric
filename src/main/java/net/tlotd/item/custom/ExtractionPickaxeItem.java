@@ -201,9 +201,9 @@ public class ExtractionPickaxeItem extends ItemToolPickaxe {
 				world.markBlockDirty(blockX,blockY,blockZ);
 				itemstack.damageItem(1,entityplayer);
 				return true;
-			} else if (block == Blocks.BLOCK_NETHER_COAL) {
+			} else if (block == Blocks.ORE_NETHERCOAL_NETHERRACK) {
 				world.dropItem(blockX,blockY,blockZ, Items.NETHERCOAL.getDefaultStack());
-				world.setBlock(blockX,blockY,blockZ,Blocks.NETHERRACK.id());
+				world.setBlock(blockX,blockY,blockZ,Blocks.COBBLE_NETHERRACK.id());
 				world.markBlockDirty(blockX,blockY,blockZ);
 				itemstack.damageItem(1,entityplayer);
 				return true;

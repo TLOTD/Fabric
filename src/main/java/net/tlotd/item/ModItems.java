@@ -130,14 +130,14 @@ public class ModItems {
 
 	public static ToolMaterial HELIORITE = (new ToolMaterial()).setDurability(2324).setEfficiency(16.0F, 64.0F).setMiningLevel(4).setDamage(6).setBlockHitDelay(4);
 	public static ArmorMaterial HELIORITE_ARMOR = ArmorHelper.createArmorMaterial(TLOTD.MOD_ID, "heliorite_layer", 2324, 90f, 50f, 55f, 60f);
-	public static ToolMaterial ENDURIUM = (new ToolMaterial()).setDurability(2324).setEfficiency(16.0F, 64.0F).setMiningLevel(4).setDamage(6).setBlockHitDelay(4);
-	public static ArmorMaterial ENDURIUM_ARMOR = ArmorHelper.createArmorMaterial(TLOTD.MOD_ID, "endurium_layer", 2324, 90f, 50f, 55f, 60f);
-	public static ToolMaterial PALLADIUM = (new ToolMaterial()).setDurability(2612).setEfficiency(16.0F, 64.0F).setMiningLevel(5).setDamage(7).setBlockHitDelay(4);
-	public static ArmorMaterial PALLADIUM_ARMOR = ArmorHelper.createArmorMaterial(TLOTD.MOD_ID, "palladium_layer", 2612, 100f, 60f, 65f, 70f);
+	public static ToolMaterial ENDURIUM = (new ToolMaterial()).setDurability(2580).setEfficiency(16.0F, 64.0F).setMiningLevel(4).setDamage(6).setBlockHitDelay(4);
+	public static ArmorMaterial ENDURIUM_ARMOR = ArmorHelper.createArmorMaterial(TLOTD.MOD_ID, "endurium_layer", 2580, 90f, 50f, 55f, 60f);
+	public static ToolMaterial PALLADIUM = (new ToolMaterial()).setDurability(2484).setEfficiency(16.0F, 64.0F).setMiningLevel(5).setDamage(7).setBlockHitDelay(4);
+	public static ArmorMaterial PALLADIUM_ARMOR = ArmorHelper.createArmorMaterial(TLOTD.MOD_ID, "palladium_layer", 2484, 100f, 60f, 65f, 70f);
 	public static ToolMaterial JURASSOLINE = (new ToolMaterial()).setDurability(2612).setEfficiency(16.0F, 64.0F).setMiningLevel(5).setDamage(7).setBlockHitDelay(4);
 	public static ArmorMaterial JURASSOLINE_ARMOR = ArmorHelper.createArmorMaterial(TLOTD.MOD_ID, "jurassoline_layer", 2612, 100f, 60f, 65f, 70f);
-	public static ToolMaterial CINNABAR = (new ToolMaterial()).setDurability(3418).setEfficiency(16.0F, 64.0F).setMiningLevel(6).setDamage(8).setBlockHitDelay(4);
-	public static ArmorMaterial CINNABAR_ARMOR = ArmorHelper.createArmorMaterial(TLOTD.MOD_ID, "cinnabar_layer", 3418, 110f, 70f, 75f, 80f);
+	public static ToolMaterial CINNABAR = (new ToolMaterial()).setDurability(3162).setEfficiency(16.0F, 64.0F).setMiningLevel(6).setDamage(8).setBlockHitDelay(4);
+	public static ArmorMaterial CINNABAR_ARMOR = ArmorHelper.createArmorMaterial(TLOTD.MOD_ID, "cinnabar_layer", 3162, 110f, 70f, 75f, 80f);
 	public static ToolMaterial NEBULAR = (new ToolMaterial()).setDurability(3418).setEfficiency(16.0F, 64.0F).setMiningLevel(6).setDamage(8).setBlockHitDelay(4);
 	public static ArmorMaterial NEBULAR_ARMOR = ArmorHelper.createArmorMaterial(TLOTD.MOD_ID, "nebular_layer", 3418, 110f, 70f, 75f, 80f);
 	public static ToolMaterial MITHRIL = (new ToolMaterial()).setDurability(4096).setEfficiency(16.0F, 64.0F).setMiningLevel(7).setDamage(9).setBlockHitDelay(4);

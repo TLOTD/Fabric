@@ -4,10 +4,10 @@
     "package": "net.tlotd.mixin",
     "compatibilityLevel": "JAVA_8",
     "mixins": [
-      "ModBlockHarvestLevel",
       "ModChunkDecoratorOverworld"
     ],
     "client": [
+      "client.MobRendererPlayerMixin"
     ],
     "injectors": {
         "defaultRequire": 1
