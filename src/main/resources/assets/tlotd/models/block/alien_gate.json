@@ -1,0 +1,107 @@
+{
+	"credit": "Made by Isla_Nublar for the TLOTD Mod (https://tlotd.net)",
+	"textures": {
+		"0": "tlotd:block/alien_gate",
+		"1": "tlotd:block/alien_gate_outline",
+		"particle": "tlotd:block/alien_pillar"
+	},
+	"elements": [
+		{
+			"from": [-15, 1, -15],
+			"to": [31, 15, 31],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 8, 8]},
+			"faces": {
+				"north": {"uv": [12.25, 0.25, 15.75, 11.75], "rotation": 90, "texture": "#0"},
+				"east": {"uv": [12.25, 0.25, 15.75, 11.75], "rotation": 90, "texture": "#0"},
+				"south": {"uv": [12.25, 0.25, 15.75, 11.75], "rotation": 90, "texture": "#0"},
+				"west": {"uv": [12.25, 0.25, 15.75, 11.75], "rotation": 90, "texture": "#0"},
+				"up": {"uv": [0.25, 0.25, 11.75, 11.75], "texture": "#0"},
+				"down": {"uv": [0.25, 0.25, 11.75, 11.75], "texture": "#0"}
+			}
+		},
+		{
+			"from": [-16, 15.99, -16],
+			"to": [32, 15.99, 32],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 8, 8]},
+			"faces": {
+				"down": {"uv": [0, 0, 12, 12], "texture": "#1"}
+			}
+		},
+		{
+			"from": [-16, 0, 31.99],
+			"to": [32, 16, 31.99],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 8, 8]},
+			"faces": {
+				"north": {"uv": [12, 0, 16, 12], "rotation": 90, "texture": "#1"}
+			}
+		},
+		{
+			"from": [-16, 0, -15.99],
+			"to": [32, 16, -15.99],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 8, 8]},
+			"faces": {
+				"south": {"uv": [12, 0, 16, 12], "rotation": 90, "texture": "#1"}
+			}
+		},
+		{
+			"from": [31.99, 0, -16],
+			"to": [31.99, 16, 32],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 8, 8]},
+			"faces": {
+				"west": {"uv": [12, 0, 16, 12], "rotation": 90, "texture": "#1"}
+			}
+		},
+		{
+			"from": [-15.99, 0, -16],
+			"to": [-15.99, 16, 32],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 8, 8]},
+			"faces": {
+				"east": {"uv": [12, 0, 16, 12], "rotation": 90, "texture": "#1"}
+			}
+		},
+		{
+			"from": [-16, 0.01, -16],
+			"to": [32, 0.01, 32],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 8, 8]},
+			"faces": {
+				"up": {"uv": [0, 0, 12, 12], "texture": "#1"}
+			}
+		}
+	],
+	"gui_light": "front",
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [75, 45, 0],
+			"translation": [0, 2.5, 0],
+			"scale": [0.25, 0.25, 0.25]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [75, 45, 0],
+			"translation": [0, 2.5, 0],
+			"scale": [0.25, 0.25, 0.25]
+		},
+		"firstperson_righthand": {
+			"rotation": [0, 45, 0],
+			"scale": [0.25, 0.25, 0.25]
+		},
+		"firstperson_lefthand": {
+			"rotation": [0, -135, 0],
+			"scale": [0.25, 0.25, 0.25]
+		},
+		"ground": {
+			"translation": [0, 3, 0],
+			"scale": [0.25, 0.25, 0.25]
+		},
+		"gui": {
+			"rotation": [30, 45, 0],
+			"scale": [0.25, 0.25, 0.25]
+		},
+		"head": {
+			"rotation": [-90, 0, 0],
+			"translation": [0, 0, -14.5]
+		},
+		"fixed": {
+			"scale": [0.5, 0.5, 0.5]
+		}
+	}
+}

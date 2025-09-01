@@ -764,6 +764,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.RED_DEEPSLATE_BRICK_WALL)
                 .add(ModBlocks.COBBLED_RED_DEEPSLATE_WALL)
                 .add(ModBlocks.COBBLED_RED_DEEPSLATE_BRICK_WALL)
+                .add(ModBlocks.ALIEN_BRICK_WALL)
         ;
 
         getOrCreateTagBuilder(BlockTags.STONE_BUTTONS)
@@ -919,7 +920,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         ;
 
         getOrCreateTagBuilder(BlockTags.DRAGON_IMMUNE)
-                .add(ModBlocks.BEDROCK)
+                .add(ModBlocks.LUNAR_BEDROCK)
                 .add(ModBlocks.BEDROCK_MITHRIL_ORE)
                 .add(ModBlocks.RAW_MITHRIL_BLOCK)
                 .add(ModBlocks.MITHRIL_BLOCK)
@@ -929,20 +930,32 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.RAW_ENDURIUM_BLOCK)
                 .add(ModBlocks.ENDURIUM_BLOCK)
                 .add(ModBlocks.REINFORCED_RED_DEEPSLATE)
+                .add(ModBlocks.ALIEN_GATE)
+                .add(ModBlocks.ALIEN_BRICKS)
+                .add(ModBlocks.ALIEN_BRICK_STAIRS)
+                .add(ModBlocks.ALIEN_BRICK_SLAB)
+                .add(ModBlocks.ALIEN_BRICK_WALL)
+                .add(ModBlocks.ALIEN_PILLAR)
         ;
 
         getOrCreateTagBuilder(BlockTags.WITHER_IMMUNE)
-                .add(ModBlocks.BEDROCK)
+                .add(ModBlocks.LUNAR_BEDROCK)
                 .add(ModBlocks.BEDROCK_MITHRIL_ORE)
                 .add(ModBlocks.RAW_MITHRIL_BLOCK)
                 .add(ModBlocks.MITHRIL_BLOCK)
                 .add(ModBlocks.MITHRIL_ANVIL)
                 .add(ModBlocks.MITHRIL_BARS)
                 .add(ModBlocks.REINFORCED_RED_DEEPSLATE)
+                .add(ModBlocks.ALIEN_GATE)
+                .add(ModBlocks.ALIEN_BRICKS)
+                .add(ModBlocks.ALIEN_BRICK_STAIRS)
+                .add(ModBlocks.ALIEN_BRICK_SLAB)
+                .add(ModBlocks.ALIEN_BRICK_WALL)
+                .add(ModBlocks.ALIEN_PILLAR)
         ;
 
         getOrCreateTagBuilder(BlockTags.FEATURES_CANNOT_REPLACE)
-                .add(ModBlocks.BEDROCK)
+                .add(ModBlocks.LUNAR_BEDROCK)
                 .add(ModBlocks.BEDROCK_MITHRIL_ORE)
         ;
 

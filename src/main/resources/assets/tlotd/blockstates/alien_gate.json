@@ -2,7 +2,7 @@
   "variants": {
     "": [
       {
-        "model": "minecraft:block/bedrock"
+        "model": "tlotd:block/alien_gate"
       }
     ]
   }

@@ -414,6 +414,7 @@ public class ModItemGroups {
                         entries.add(ModItems.MITHRIL_SICKLE);
                         entries.add(ModItems.MITHRIL_FORGING_HAMMER);
                         entries.add(ModItems.MITHRIL_STAR_CATCHER);
+                        entries.add(ModItems.SILVERTHORN_ARROW);
                         entries.add(ModItems.MITHRIL_MIRROR);
 
                         entries.add(ModItems.MITHRIL_HELMET);
@@ -435,6 +436,8 @@ public class ModItemGroups {
                         entries.add(ModItems.DIVINE_PICKAXE);
                         entries.add(ModItems.CATACLYSMIC_PICKAXE);
                         entries.add(ModItems.ELDRITCH_PICKAXE);
+
+                        entries.add(ModItems.OMINOUS_ALIEN_KEY);
 
                         entries.add(ModItems.NARSIL_HANDLE);
                         entries.add(ModItems.ANDURIL);
@@ -551,6 +554,14 @@ public class ModItemGroups {
                         entries.add(ModBlocks.MEGAREGOLITH_COAL_ORE);
                         entries.add(ModBlocks.MEGAREGOLITH_IRON_ORE);
                         entries.add(ModBlocks.MEGAREGOLITH_LUNAR_CALLAINUS_ORE);
+                        entries.add(ModBlocks.LUNAR_BEDROCK);
+
+                        entries.add(ModBlocks.ALIEN_GATE);
+                        entries.add(ModBlocks.ALIEN_PILLAR);
+                        entries.add(ModBlocks.ALIEN_BRICKS);
+                        entries.add(ModBlocks.ALIEN_BRICK_STAIRS);
+                        entries.add(ModBlocks.ALIEN_BRICK_SLAB);
+                        entries.add(ModBlocks.ALIEN_BRICK_WALL);
 
                         entries.add(ModBlocks.MARBLE);
                         entries.add(ModBlocks.MARBLE_STAIRS);
@@ -985,6 +996,7 @@ public class ModItemGroups {
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register(content -> {
             content.addAfter(Items.TURTLE_HELMET, ModItems.EMPERORS_CROWN);
             content.addAfter(Items.DIAMOND_HORSE_ARMOR, ModItems.MITHRIL_HORSE_ARMOR);
+            content.addAfter(Items.SPECTRAL_ARROW, ModItems.SILVERTHORN_ARROW);
         });
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.FOOD_AND_DRINK).register(content -> {

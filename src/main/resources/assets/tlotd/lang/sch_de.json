@@ -54,11 +54,17 @@
   "death.attack.hypoxia": "%1$s isch erschtickt",
   "death.attack.hypoxia.player": "%1$s isch im Kampf mit %2$s erschtickt",
 
+  "death.attack.bullet": "%1$s wurd drschossa",
+  "death.attack.bullet.player": "%1$s wurd vom %2$s drschossa",
+  "death.attack.silverthorn_arrow": "%1$s wurd mit am a Silbrdornpfail drschossa",
+  "death.attack.silverthorn_arrow.player": "%1$s wurde vom %2$s mit am a Silbrdornpfail drschossa",
+
   "entity.minecraft.villager.archaeologist": "Archaeologe",
   "entity.minecraft.villager.cultist": "Kultischt",
   "entity.minecraft.villager.engineer": "Technigr",
   "entity.tlotd.t-rex": "Tireggs",
   "entity.tlotd.infected_t-rex": "Infiziertr Tireggs",
+  "entity.tlotd.silverthorn_arrow": "Silbrdornpfail",
 
   "sounds.tlotd.entity_t-rex_idle": "Tireggs atmet",
   "sounds.tlotd.entity_t-rex_hurt": "Tireggs isch verletzt",
@@ -577,8 +583,9 @@
   "item.tlotd.mithril_paxel": "Mithrilpaxl",
   "item.tlotd.mithril_sickle": "Mithrilsichl",
   "item.tlotd.mithril_forging_hammer": "Mithrilschmiedehammer",
-
   "item.tlotd.mithril_star_catcher": "Mithril Sternenfänger",
+
+  "item.tlotd.silverthorn_arrow": "Silbrdornpfail",
 
   "item.tlotd.mithril_helmet": "Mithrilhelm",
   "item.tlotd.mithril_chestplate": "Mithrilbruschtblattn",
@@ -628,6 +635,8 @@
   "item.tlotd.divine_pickaxe": "§6Göttliche Spitzhacke",
   "item.tlotd.cataclysmic_pickaxe": "§cKataklysmusspitzhacke",
   "item.tlotd.eldritch_pickaxe": "§4Verschlinger des Jenseits",
+
+  "item.tlotd.ominous_alien_key": "Ohailvollr Alienschlissl",
 
   "item.tlotd.mithril_command_block_sword": "Mithrilbefehlsblockschwert",
   "item.tlotd.mithril_command_block_pickaxe": "Mithrilbefehlsblockspitzhacke",
@@ -762,7 +771,7 @@
   "block.tlotd.signal_transmitter.tooltip_3": "Ausgwählte Schallplattn",
   "block.tlotd.signal_transmitter.tooltip_4": "Ausstrahlung benedigt:",
   "block.tlotd.signal_transmitter.list_empty": "Koi Signale werad momentan ausgschtrahlt.",
-  "block.tlotd.signal_transmitter.list": "Signale die momentan ausgschtrahlt wera:",
+  "block.tlotd.signal_transmitter.list": "%1$s Signale werad momentan ausgschtrahlt:",
   "block.tlotd.signal_transmitter.added": "Signal wurd hinzugfiagt.",
   "block.tlotd.signal_transmitter.removed": "Signal wurd entfernt.",
   "block.tlotd.signal_transmitter.incomplete": "Signalgebrantenne ofollschtändig!",
@@ -871,6 +880,14 @@
   "block.tlotd.megaregolith_coal_ore": "Megaregolith-Schtoikohle",
   "block.tlotd.megaregolith_iron_ore": "Megaregolith-Eiseerz",
   "block.tlotd.megaregolith_lunar_callainus_ore": "Megaregolith-Lunar-Callainus-Erz",
+  "block.tlotd.lunar_bedrock": "Mondgrundgeschtain",
+
+  "block.tlotd.alien_gate": "Aliator",
+  "block.tlotd.alien_pillar": "Aliaseile",
+  "block.tlotd.alien_bricks": "Aliaziegl",
+  "block.tlotd.alien_brick_stairs": "Aliaziegltreppm",
+  "block.tlotd.alien_brick_slab": "Aliazieglstufm",
+  "block.tlotd.alien_brick_wall": "Aliazieglmaur",
 
   "block.tlotd.steel_block": "Stahlblogg",
 

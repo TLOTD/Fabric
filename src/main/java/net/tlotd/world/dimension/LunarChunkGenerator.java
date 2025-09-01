@@ -35,6 +35,8 @@ public class LunarChunkGenerator extends ChunkGenerator {
     private final BiomeSource biomeSource;
     private final PerlinNoiseSampler heightNoise;
 
+    private final int MoonBedrock = -64;
+
     public LunarChunkGenerator(BiomeSource biomeSource) {
         super(biomeSource);
         this.biomeSource = biomeSource;
@@ -78,23 +80,26 @@ public class LunarChunkGenerator extends ChunkGenerator {
                 double noise = heightNoise.sample(worldX * 0.05, 0, worldZ * 0.05);
                 int height = 48 + (int)(noise * 16);
 
-                for (int dy = chunk.getBottomY(); dy <= height && dy < chunk.getTopY(); dy++) {
+                for (int dy = MoonBedrock; dy <= height && dy < chunk.getTopY(); dy++) {
                     BlockState state;
                     if (dy == height) { state = ModBlocks.LUNAR_REGOLITH.getDefaultState(); }
                     else { state = ModBlocks.MEGAREGOLITH.getDefaultState(); }
-                    if (dy >= chunk.getBottomY() && dy < chunk.getTopY()) {
+                    if (dy >= MoonBedrock && dy < chunk.getTopY()) {
                         chunk.setBlockState(new BlockPos(dx, dy, dz), state, false);
                     }
                 }
 
-                chunk.setBlockState(new BlockPos(dx, chunk.getBottomY(), dz), Blocks.BEDROCK.getDefaultState(), false);
-                for (int dy = chunk.getBottomY() + 1; dy < chunk.getBottomY() + 5; dy++) {
+                chunk.setBlockState(new BlockPos(dx, MoonBedrock, dz), ModBlocks.LUNAR_BEDROCK.getDefaultState(), false);
+                for (int dy = MoonBedrock + 1; dy < MoonBedrock + 5; dy++) {
                     long seed = BlockPos.asLong(worldX, dy, worldZ) ^ ModConfigs.LUNAR_SEED ^ 0xDEADBEEFL;
                     Random random = Random.create(seed);
-                    if (random.nextInt(5) > (dy - chunk.getBottomY())) {
-                        chunk.setBlockState(new BlockPos(dx, dy, dz), Blocks.BEDROCK.getDefaultState(), false);
+                    if (random.nextInt(5) > (dy - MoonBedrock)) {
+                        chunk.setBlockState(new BlockPos(dx, dy, dz), ModBlocks.LUNAR_BEDROCK.getDefaultState(), false);
                     }
                 }
+                //Upcoming Area
+                chunk.setBlockState(new BlockPos(dx, MoonBedrock-1, dz), Blocks.BEDROCK.getDefaultState(), false);
+                chunk.setBlockState(new BlockPos(dx, chunk.getBottomY(), dz), Blocks.BEDROCK.getDefaultState(), false);
             }
         }
         return CompletableFuture.completedFuture(chunk);
@@ -102,12 +107,12 @@ public class LunarChunkGenerator extends ChunkGenerator {
 
     @Override
     public int getSeaLevel() {
-        return -64;
+        return -128;
     }
 
     @Override
     public int getMinimumY() {
-        return -64;
+        return -128;
     }
 
     @Override

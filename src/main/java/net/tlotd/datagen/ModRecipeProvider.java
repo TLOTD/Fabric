@@ -3222,6 +3222,18 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(ModItems.SOUL_FLASK_OF_THE_ABYSS), conditionsFromItem(ModItems.SOUL_FLASK_OF_THE_ABYSS))
                 .offerTo(exporter, new Identifier("charge_" + getRecipeName(ModItems.MITHRIL_MIRROR)));
 
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.SILVERTHORN_ARROW,8)
+                .pattern("M")
+                .pattern("I")
+                .pattern("F")
+                .input('M', ModItems.MITHRIL_NUGGET)
+                .input('I', ModItems.FANCY_TOOL_ROD)
+                .input('F', Items.FEATHER)
+                .criterion(hasItem(ModItems.MITHRIL_NUGGET), conditionsFromItem(ModItems.MITHRIL_NUGGET))
+                .criterion(hasItem(ModItems.FANCY_TOOL_ROD), conditionsFromItem(ModItems.FANCY_TOOL_ROD))
+                .criterion(hasItem(Items.FEATHER), conditionsFromItem(Items.FEATHER))
+                .offerTo(exporter, new Identifier(getRecipeName(ModItems.SILVERTHORN_ARROW)));
+
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.MITHRIL_ANVIL)
                 .pattern("###")
                 .pattern(" I ")

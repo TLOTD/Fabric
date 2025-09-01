@@ -9,6 +9,7 @@ import net.minecraft.fluid.Fluids;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.registry.tag.ItemTags;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.state.StateManager;
@@ -33,12 +34,10 @@ import net.tlotd.config.ModConfigs;
 import net.tlotd.item.ModItems;
 import net.tlotd.sound.ModSounds;
 import net.tlotd.util.ModTags;
+import net.tlotd.world.SignalTrackingArray;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
-
-import static net.tlotd.block.custom.DataSaverBlock.*;
-import static net.tlotd.block.custom.DataSaverBlock.FREQUENCY_4;
 
 public class RadioBlock extends Block {
 
@@ -121,10 +120,11 @@ public class RadioBlock extends Block {
 
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        BlockPos zero = new BlockPos(0,world.getBottomY(),0);
         if (player.isSneaking()) {
             MinecraftClient.getInstance().getSoundManager().stopAll();
             if (!world.isClient) {
+                ServerWorld serverWorld = (ServerWorld) world;
+                SignalTrackingArray tracker = SignalTrackingArray.get(serverWorld);
                 if (state.getBlock().equals(ModBlocks.RADIO)) {
                     if (ModConfigs.ALL_SIGNALS_UNLOCKED) {
                         world.setBlockState(pos, ModBlocks.RADIO_ON.getStateWithProperties(state));
@@ -141,20 +141,21 @@ public class RadioBlock extends Block {
                             player.sendMessage(Text.translatable("messages.tlotd.radio.frequency.4"), true);
                             world.playSound(null, pos, ModSounds.RADIO_FREQUENCY_4, SoundCategory.RECORDS, 1.0f, 1.0f);
                         }
-                    } else if (world.getBlockState(zero).getBlock().equals(ModBlocks.BEDROCK)) {
-                        if (world.getBlockState(zero).get(FREQUENCY_1) && state.get(FREQUENCY) <= 1) {
+
+                    } else if (tracker.hasAnySignals()) {
+                        if (tracker.hasSignal(ModItems.MUSIC_DISC_1.getTranslationKey()) && state.get(FREQUENCY) <= 1) {
                             world.setBlockState(pos, ModBlocks.RADIO_ON.getStateWithProperties(state).with(FREQUENCY, 1));
                             player.sendMessage(Text.translatable("messages.tlotd.radio.frequency.1"), true);
                             world.playSound(null, pos, ModSounds.RADIO_FREQUENCY_1, SoundCategory.RECORDS, 1.0f, 1.0f);
-                        } else if (world.getBlockState(zero).get(FREQUENCY_2) && state.get(FREQUENCY) <= 2) {
+                        } else if (tracker.hasSignal(ModItems.MUSIC_DISC_2.getTranslationKey()) && state.get(FREQUENCY) <= 2) {
                             world.setBlockState(pos, ModBlocks.RADIO_ON.getStateWithProperties(state).with(FREQUENCY, 2));
                             player.sendMessage(Text.translatable("messages.tlotd.radio.frequency.2"), true);
                             world.playSound(null, pos, ModSounds.RADIO_FREQUENCY_2, SoundCategory.RECORDS, 1.0f, 1.0f);
-                        } else if (world.getBlockState(zero).get(FREQUENCY_3) && state.get(FREQUENCY) <= 3) {
+                        } else if (tracker.hasSignal(ModItems.MUSIC_DISC_3.getTranslationKey()) && state.get(FREQUENCY) <= 3) {
                             world.setBlockState(pos, ModBlocks.RADIO_ON.getStateWithProperties(state).with(FREQUENCY, 3));
                             player.sendMessage(Text.translatable("messages.tlotd.radio.frequency.3"), true);
                             world.playSound(null, pos, ModSounds.RADIO_FREQUENCY_3, SoundCategory.RECORDS, 1.0f, 1.0f);
-                        } else if (world.getBlockState(zero).get(FREQUENCY_4) && state.get(FREQUENCY) <= 4) {
+                        } else if (tracker.hasSignal(ModItems.MUSIC_DISC_4.getTranslationKey()) && state.get(FREQUENCY) <= 4) {
                             world.setBlockState(pos, ModBlocks.RADIO_ON.getStateWithProperties(state).with(FREQUENCY, 4));
                             player.sendMessage(Text.translatable("messages.tlotd.radio.frequency.4"), true);
                             world.playSound(null, pos, ModSounds.RADIO_FREQUENCY_4, SoundCategory.RECORDS, 1.0f, 1.0f);
@@ -238,6 +239,8 @@ public class RadioBlock extends Block {
             } else if (state.getBlock().equals(ModBlocks.RADIO_ON)) {
                 MinecraftClient.getInstance().getSoundManager().stopAll();
                 if (!world.isClient) {
+                    ServerWorld serverWorld = (ServerWorld) world;
+                    SignalTrackingArray tracker = SignalTrackingArray.get(serverWorld);
                     if (ModConfigs.ALL_SIGNALS_UNLOCKED) {
                         if (state.get(FREQUENCY) < 4) {
                             world.setBlockState(pos, ModBlocks.RADIO_ON.getStateWithProperties(state.with(FREQUENCY, state.get(FREQUENCY)+1)));
@@ -257,20 +260,21 @@ public class RadioBlock extends Block {
                             player.sendMessage(Text.translatable("messages.tlotd.radio.frequency.1"), true);
                             world.playSound(null, pos, ModSounds.RADIO_FREQUENCY_1, SoundCategory.RECORDS, 1.0f, 1.0f);
                         }
-                    } else if (world.getBlockState(zero).getBlock().equals(ModBlocks.BEDROCK)) {
-                        if (world.getBlockState(zero).get(FREQUENCY_1) && state.get(FREQUENCY) < 1) {
+
+                    } else if (tracker.hasAnySignals()) {
+                        if (tracker.hasSignal(ModItems.MUSIC_DISC_1.getTranslationKey()) && state.get(FREQUENCY) < 1) {
                             world.setBlockState(pos, ModBlocks.RADIO_ON.getStateWithProperties(state).with(FREQUENCY,1));
                             player.sendMessage(Text.translatable("messages.tlotd.radio.frequency.1"), true);
                             world.playSound(null, pos, ModSounds.RADIO_FREQUENCY_1, SoundCategory.RECORDS, 1.0f, 1.0f);
-                        } else if (world.getBlockState(zero).get(FREQUENCY_2) && state.get(FREQUENCY) < 2) {
+                        } else if (tracker.hasSignal(ModItems.MUSIC_DISC_2.getTranslationKey()) && state.get(FREQUENCY) < 2) {
                             world.setBlockState(pos, ModBlocks.RADIO_ON.getStateWithProperties(state).with(FREQUENCY,2));
                             player.sendMessage(Text.translatable("messages.tlotd.radio.frequency.2"), true);
                             world.playSound(null, pos, ModSounds.RADIO_FREQUENCY_2, SoundCategory.RECORDS, 1.0f, 1.0f);
-                        } else if (world.getBlockState(zero).get(FREQUENCY_3) && state.get(FREQUENCY) < 3) {
+                        } else if (tracker.hasSignal(ModItems.MUSIC_DISC_3.getTranslationKey()) && state.get(FREQUENCY) < 3) {
                             world.setBlockState(pos, ModBlocks.RADIO_ON.getStateWithProperties(state).with(FREQUENCY,3));
                             player.sendMessage(Text.translatable("messages.tlotd.radio.frequency.3"), true);
                             world.playSound(null, pos, ModSounds.RADIO_FREQUENCY_3, SoundCategory.RECORDS, 1.0f, 1.0f);
-                        } else if (world.getBlockState(zero).get(FREQUENCY_4) && state.get(FREQUENCY) < 4) {
+                        } else if (tracker.hasSignal(ModItems.MUSIC_DISC_4.getTranslationKey()) && state.get(FREQUENCY) < 4) {
                             world.setBlockState(pos, ModBlocks.RADIO_ON.getStateWithProperties(state).with(FREQUENCY,4));
                             player.sendMessage(Text.translatable("messages.tlotd.radio.frequency.4"), true);
                             world.playSound(null, pos, ModSounds.RADIO_FREQUENCY_4, SoundCategory.RECORDS, 1.0f, 1.0f);

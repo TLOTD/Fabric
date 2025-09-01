@@ -58,8 +58,8 @@ public class ModDimensions {
                 1.0, // coordinateScale
                 false, // bedWorks
                 true, // respawnAnchorWorks
-                -64, // minY
-                384, // height
+                -128, // minY
+                448, // height
                 320, // logicalHeight
                 ModTags.Blocks.INFINIBURN_LUNA, // infiniburn
                 DimensionTypes.THE_END_ID, // effectsLocation

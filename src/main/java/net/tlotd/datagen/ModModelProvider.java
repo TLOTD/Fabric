@@ -94,6 +94,12 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.MEGAREGOLITH_COAL_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.MEGAREGOLITH_IRON_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.MEGAREGOLITH_LUNAR_CALLAINUS_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.LUNAR_BEDROCK);
+
+        BlockStateModelGenerator.BlockTexturePool alienPool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.ALIEN_BRICKS);
+        alienPool.stairs(ModBlocks.ALIEN_BRICK_STAIRS);
+        alienPool.slab(ModBlocks.ALIEN_BRICK_SLAB);
+        alienPool.wall(ModBlocks.ALIEN_BRICK_WALL);
 
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.STEEL_BLOCK);
 
@@ -547,6 +553,8 @@ public class ModModelProvider extends FabricModelProvider {
 
         itemModelGenerator.register(ModItems.MITHRIL_STAR_CATCHER, Models.HANDHELD);
 
+        itemModelGenerator.register(ModItems.SILVERTHORN_ARROW, Models.GENERATED);
+
         itemModelGenerator.registerArmor(((ArmorItem) ModItems.MITHRIL_HELMET));
         itemModelGenerator.registerArmor(((ArmorItem) ModItems.MITHRIL_CHESTPLATE));
         itemModelGenerator.registerArmor(((ArmorItem) ModItems.MITHRIL_LEGGINGS));
@@ -567,6 +575,8 @@ public class ModModelProvider extends FabricModelProvider {
 
         itemModelGenerator.register(ModItems.ASTRAL_SICKLE, Models.HANDHELD);
         itemModelGenerator.register(ModItems.ASTRAL_FORGING_HAMMER, Models.HANDHELD);
+
+        itemModelGenerator.register(ModItems.OMINOUS_ALIEN_KEY, Models.GENERATED);
 
         itemModelGenerator.register(ModItems.DAYBREAK_DOMAIN_FRAGMENTS, Models.GENERATED);
         itemModelGenerator.register(ModItems.SOMBER_BLOOD_ORBS, Models.GENERATED);

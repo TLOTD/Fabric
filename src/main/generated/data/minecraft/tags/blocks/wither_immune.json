@@ -1,12 +1,18 @@
 {
   "replace": false,
   "values": [
-    "tlotd:bedrock",
+    "tlotd:lunar_bedrock",
     "tlotd:bedrock_mithril_ore",
     "tlotd:raw_mithril_block",
     "tlotd:mithril_block",
     "tlotd:mithril_anvil",
     "tlotd:mithril_bars",
-    "tlotd:reinforced_red_deepslate"
+    "tlotd:reinforced_red_deepslate",
+    "tlotd:alien_gate",
+    "tlotd:alien_bricks",
+    "tlotd:alien_brick_stairs",
+    "tlotd:alien_brick_slab",
+    "tlotd:alien_brick_wall",
+    "tlotd:alien_pillar"
   ]
 }

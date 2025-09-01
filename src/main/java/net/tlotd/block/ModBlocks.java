@@ -28,7 +28,6 @@ import net.tlotd.item.custom.*;
 import net.tlotd.world.tree.GinkgoSaplingGenerator;
 
 public class ModBlocks {
-
     public static final Block STICK_CROSS = registerBlock("stick_cross",
             new StickCrossBlock(FabricBlockSettings.create().mapColor(MapColor.BROWN).breakInstantly().sounds(BlockSoundGroup.WOOD).pistonBehavior(PistonBehavior.DESTROY).collidable(false).nonOpaque()));
 
@@ -276,6 +275,22 @@ public class ModBlocks {
             new Block(FabricBlockSettings.create().mapColor(MapColor.WHITE).requiresTool().strength(3.0F, 9.0F)));
     public static final Block MEGAREGOLITH_LUNAR_CALLAINUS_ORE = registerBlock("megaregolith_lunar_callainus_ore",
             new Block(FabricBlockSettings.create().mapColor(MapColor.WHITE).requiresTool().strength(3.0F, 9.0F)));
+
+    public static final Block LUNAR_BEDROCK = registerBlock("lunar_bedrock",
+            new Block(FabricBlockSettings.create().mapColor(MapColor.LIGHT_GRAY).strength(-1.0F, 3600000.0F)));
+
+    public static final Block ALIEN_GATE = registerRarityBlock("alien_gate",
+            new Block(FabricBlockSettings.create().mapColor(MapColor.LIGHT_GRAY).strength(-1.0F, 3600000.0F)), Rarity.EPIC);
+    public static final Block ALIEN_PILLAR = registerRarityBlock("alien_pillar",
+            new PillarBlock(FabricBlockSettings.create().mapColor(MapColor.LIGHT_GRAY).strength(-1.0F, 3600000.0F)), Rarity.EPIC);
+    public static final Block ALIEN_BRICKS = registerRarityBlock("alien_bricks",
+            new Block(FabricBlockSettings.create().mapColor(MapColor.LIGHT_GRAY).strength(-1.0F, 3600000.0F)), Rarity.EPIC);
+    public static final Block ALIEN_BRICK_STAIRS = registerRarityBlock("alien_brick_stairs",
+            new StairsBlock(ModBlocks.ALIEN_BRICKS.getDefaultState(), FabricBlockSettings.create().mapColor(MapColor.LIGHT_GRAY).strength(-1.0F, 3600000.0F)), Rarity.EPIC);
+    public static final Block ALIEN_BRICK_SLAB = registerRarityBlock("alien_brick_slab",
+            new SlabBlock(FabricBlockSettings.create().mapColor(MapColor.LIGHT_GRAY).strength(-1.0F, 3600000.0F)), Rarity.EPIC);
+    public static final Block ALIEN_BRICK_WALL = registerRarityBlock("alien_brick_wall",
+            new WallBlock(FabricBlockSettings.create().mapColor(MapColor.LIGHT_GRAY).strength(-1.0F, 3600000.0F)), Rarity.EPIC);
 
     public static final Block STEEL_BLOCK = registerBlock("steel_block",
             new Block(FabricBlockSettings.create().mapColor(MapColor.DEEPSLATE_GRAY).requiresTool().strength(6.0F, 12.0F).sounds(BlockSoundGroup.METAL)));
@@ -737,9 +752,6 @@ public class ModBlocks {
             new TrapdoorBlock(FabricBlockSettings.create().mapColor(MapColor.DEEPSLATE_GRAY).instrument(Instrument.BASS).strength(1.0F, 1.5F).sounds(BlockSoundGroup.WOOD), BlockSetType.OAK));
     public static final Block RITUALISTIC_FANCY_CHARRED_PLANKS = registerBlockWithoutItem("ritualistic_fancy_charred_planks",
             new RitualisticCircleBlock(FabricBlockSettings.create().mapColor(MapColor.DEEPSLATE_GRAY).instrument(Instrument.BASS).strength(1.0F, 1.5F).sounds(BlockSoundGroup.WOOD)));
-
-    public static final Block BEDROCK = registerBlockWithoutItem("bedrock",
-            new DataSaverBlock(FabricBlockSettings.create().mapColor(MapColor.GRAY).strength(-1.0F, 3600000.0F)));
 
     private static Block registerBlock(String name, Block block) {
         registerBlockItem(name, block);

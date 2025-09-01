@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "tlotd:block/alien_pillar_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "tlotd:block/alien_pillar"
+    },
+    "axis=z": {
+      "model": "tlotd:block/alien_pillar_horizontal",
+      "x": 90
+    }
+  }
+}

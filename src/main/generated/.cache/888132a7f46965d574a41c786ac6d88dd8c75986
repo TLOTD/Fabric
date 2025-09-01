@@ -1,4 +1,4 @@
-// 1.20.1	2025-08-10T14:00:35.3825462	TLOTD/Block Loot Tables
+// 1.20.1	2025-09-01T02:34:55.8731877	TLOTD/Block Loot Tables
 065c8df00f620de96b8a68f2f3c1419c98812efe data\tlotd\loot_tables\blocks\fancy_bamboo_planks.json
 086cc46163a83a89316fdbf152f160f82958d363 data\tlotd\loot_tables\blocks\cobbled_red_deepslate.json
 24933d84b3a1d8f15634bb910ef1533735175b98 data\tlotd\loot_tables\blocks\wooden_orange_milkshake_stein.json
@@ -35,8 +35,8 @@ c2de96295f1803d29ed1bc14c244e5113702d23d data\tlotd\loot_tables\blocks\sulfur_wa
 34ba12968d577502e4bde3312537f3eac7c0e256 data\tlotd\loot_tables\blocks\megaregolith_lunar_callainus_ore.json
 ba5a8b9f36c68bfd5b0ff76134e2f6054d90dfc3 data\tlotd\loot_tables\blocks\orange_marmelade_jar.json
 f2ada64c34ac246bfb4bb340d0a3826ea50103ca data\tlotd\loot_tables\blocks\fancy_bamboo_stairs.json
-d158e640fc841a3c2214ca63de6fa93d0b42c883 data\tlotd\loot_tables\blocks\stick_cross.json
 4edf766b6710481b4e2c2883de57019155e998c1 data\tlotd\loot_tables\blocks\ginkgo_pressure_plate.json
+d158e640fc841a3c2214ca63de6fa93d0b42c883 data\tlotd\loot_tables\blocks\stick_cross.json
 269fc50abe30172ae72f81890468cab060ae6806 data\tlotd\loot_tables\blocks\bench.json
 738a2467c8e0a760b9a6131334970843797a1cfe data\tlotd\loot_tables\blocks\fancy_jungle_planks.json
 d565c0ca4fc6435e50b0be0215d88ed214eb223f data\tlotd\loot_tables\blocks\sweet_berry_jam_jar.json

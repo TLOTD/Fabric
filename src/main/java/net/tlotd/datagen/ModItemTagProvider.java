@@ -381,6 +381,12 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModItems.MUSIC_DISC_4)
         ;
 
+        getOrCreateTagBuilder(ModTags.Items.TRANSMITTABLE_SIGNALS)
+                .addTag(ModTags.Items.MUSIC_DISCS)
+                .addTag(ModTags.Items.VHS_CASSETTES)
+                .addTag(ModTags.Items.GAME_CARTRIDGES)
+        ;
+
         getOrCreateTagBuilder(ModTags.Items.STICK_EFFIGIES)
                 .add(ModBlocks.STICK_CROSS.asItem())
                 .add(ModItems.STICK_EFFIGY)
@@ -600,6 +606,10 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModItems.DIVINE_PICKAXE)
                 .add(ModItems.CATACLYSMIC_PICKAXE)
                 .add(ModItems.ELDRITCH_PICKAXE)
+        ;
+
+        getOrCreateTagBuilder(ItemTags.ARROWS)
+                .add(ModItems.SILVERTHORN_ARROW)
         ;
 
         getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "axes")))

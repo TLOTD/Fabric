@@ -368,6 +368,8 @@ public class ModItems {
     public static final Item MITHRIL_MIRROR = registerItem("mithril_mirror", new MithrilMirrorItem(new FabricItemSettings().rarity(Rarity.UNCOMMON).maxCount(1).fireproof()));
     public static final Item FOGGY_MITHRIL_MIRROR = registerItem("foggy_mithril_mirror", new Item(new FabricItemSettings().rarity(Rarity.UNCOMMON).maxCount(1).fireproof()));
 
+    public static final Item SILVERTHORN_ARROW = registerItem("silverthorn_arrow", new ArmorPiercingArrowItem(new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof()));
+
     public static final Item MITHRIL_HELMET = registerItem("mithril_helmet", new ArmorItem(ModArmorMaterial.MITHRIL, ArmorItem.Type.HELMET, new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof()));
     public static final Item MITHRIL_CHESTPLATE = registerItem("mithril_chestplate", new ArmorItem(ModArmorMaterial.MITHRIL, ArmorItem.Type.CHESTPLATE, new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof()));
     public static final Item MITHRIL_LEGGINGS = registerItem("mithril_leggings", new ArmorItem(ModArmorMaterial.MITHRIL, ArmorItem.Type.LEGGINGS, new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof()));
@@ -401,6 +403,8 @@ public class ModItems {
 
     public static final Item ASTRAL_SICKLE = registerItem("astral_sickle", new SickleItem(new FabricItemSettings().maxDamage(5018).rarity(Rarity.EPIC).fireproof()));
     public static final Item ASTRAL_FORGING_HAMMER = registerItem("astral_forging_hammer", new ForgingHammerItem(new FabricItemSettings().rarity(Rarity.EPIC).maxDamage(60).fireproof()));
+
+    public static final Item OMINOUS_ALIEN_KEY = registerItem("ominous_alien_key", new OminousAlienKeyItem(new FabricItemSettings().maxCount(1).rarity(Rarity.EPIC).fireproof()));
 
     public static final Item DAYBREAK_DOMAIN_FRAGMENTS = registerItem("daybreak_domain_fragments", new NyiItem(new FabricItemSettings().rarity(Rarity.EPIC).fireproof()));
     public static final Item SOMBER_BLOOD_ORBS = registerItem("somber_blood_orbs", new NyiItem(new FabricItemSettings().rarity(Rarity.EPIC).fireproof()));

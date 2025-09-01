@@ -30,6 +30,7 @@ import net.tlotd.sound.ModSounds;
 import net.tlotd.tick.ModServerTickEvents;
 import net.tlotd.util.ModTrades;
 import net.tlotd.villager.ModVillagers;
+import net.tlotd.world.ModChunkEvents;
 import net.tlotd.world.dimension.LunarChunkGenerator;
 import net.tlotd.world.dimension.PrehistoricChunkGenerator;
 import net.tlotd.world.gen.ModWorldGeneration;
@@ -70,6 +71,7 @@ public class TLOTD implements ModInitializer {
 		ModArmorProtection.registerAllowedDamages();
 		ModServerTickEvents.registerServerTickEvents();
 		ModUseBlockCallback.interceptBlocks();
+		ModChunkEvents.generateModWorldGen();
 
 		Registry.register(Registries.CHUNK_GENERATOR, new Identifier(TLOTD.MOD_ID, "prehistoric"), PrehistoricChunkGenerator.CODEC);
 		Registry.register(Registries.CHUNK_GENERATOR, new Identifier(TLOTD.MOD_ID, "luna"), LunarChunkGenerator.CODEC);

@@ -56,11 +56,17 @@
   "death.attack.hypoxia": "%1$s ist erstickt",
   "death.attack.hypoxia.player": "%1$s ist im Kampf mit %2$s erstickt",
 
+  "death.attack.bullet": "%1$s wurde erschossen",
+  "death.attack.bullet.player": "%1$s wurde von %2$s erschossen",
+  "death.attack.silverthorn_arrow": "%1$s wurde mit einem Silberdornpfeil erschossen",
+  "death.attack.silverthorn_arrow.player": "%1$s wurde von %2$s mit einem Silberdornpfeil erschossen",
+
   "entity.minecraft.villager.archaeologist": "Archaeologe",
   "entity.minecraft.villager.cultist": "Kultist",
   "entity.minecraft.villager.engineer": "Techniker",
   "entity.tlotd.t-rex": "T-Rex",
   "entity.tlotd.infected_t-rex": "Infizierter T-Rex",
+  "entity.tlotd.silverthorn_arrow": "Silberdornpfeil",
 
   "sounds.tlotd.entity_t-rex_idle": "T-Rex atmet",
   "sounds.tlotd.entity_t-rex_hurt": "T-Rex ist verletzt",
@@ -579,8 +585,9 @@
   "item.tlotd.mithril_paxel": "Mithrilpaxel",
   "item.tlotd.mithril_sickle": "Mithrilsichel",
   "item.tlotd.mithril_forging_hammer": "Mithrilschmiedehammer",
-
   "item.tlotd.mithril_star_catcher": "Mithril Sternenfänger",
+
+  "item.tlotd.silverthorn_arrow": "Silberdornpfeil",
 
   "item.tlotd.mithril_helmet": "Mithrilhelm",
   "item.tlotd.mithril_chestplate": "Mithrilbrustplatte",
@@ -630,6 +637,8 @@
   "item.tlotd.divine_pickaxe": "§6Göttliche Spitzhacke",
   "item.tlotd.cataclysmic_pickaxe": "§cKataklysmusspitzhacke",
   "item.tlotd.eldritch_pickaxe": "§4Verschlinger des Jenseits",
+
+  "item.tlotd.ominous_alien_key": "Unheilvoller Alienschlüssel",
 
   "item.tlotd.mithril_command_block_sword": "Mithrilbefehlsblockschwert",
   "item.tlotd.mithril_command_block_pickaxe": "Mithrilbefehlsblockspitzhacke",
@@ -764,7 +773,7 @@
   "block.tlotd.signal_transmitter.tooltip_3": "Ausgewählte Schallplatten",
   "block.tlotd.signal_transmitter.tooltip_4": "Übertragung benötigt:",
   "block.tlotd.signal_transmitter.list_empty": "Keine Signale werden momentan ausgestrahlt.",
-  "block.tlotd.signal_transmitter.list": "Signale die momentan ausgestrahlt werden:",
+  "block.tlotd.signal_transmitter.list": "%1$s Signale werden momentan ausgestrahlt:",
   "block.tlotd.signal_transmitter.added": "Signal wurde hinzugefügt.",
   "block.tlotd.signal_transmitter.removed": "Signal wurde entfernt.",
   "block.tlotd.signal_transmitter.incomplete": "Signalgeberantenne unvollständig!",
@@ -873,6 +882,14 @@
   "block.tlotd.megaregolith_coal_ore": "Megaregolith-Steinkohle",
   "block.tlotd.megaregolith_iron_ore": "Megaregolith-Eisenerz",
   "block.tlotd.megaregolith_lunar_callainus_ore": "Megaregolith-Lunar-Callainus-Erz",
+  "block.tlotd.lunar_bedrock": "Mondgrundgestein",
+
+  "block.tlotd.alien_gate": "Alientor",
+  "block.tlotd.alien_pillar": "Aliensäule",
+  "block.tlotd.alien_bricks": "Alienziegel",
+  "block.tlotd.alien_brick_stairs": "Alienziegeltreppe",
+  "block.tlotd.alien_brick_slab": "Alienziegelstufe",
+  "block.tlotd.alien_brick_wall": "Alienziegelmauer",
 
   "block.tlotd.steel_block": "Stahlblock",
 

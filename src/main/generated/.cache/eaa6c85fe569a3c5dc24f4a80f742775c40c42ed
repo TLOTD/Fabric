@@ -1,4 +1,4 @@
-// 1.20.1	2025-08-10T14:00:35.3815445	TLOTD/Tags for minecraft:item
+// 1.20.1	2025-09-01T02:34:55.8721865	TLOTD/Tags for minecraft:item
 f0ede8599432b0c872f8763c56d1bbe4a38d00dd data\tlotd\tags\items\wooden_bark.json
 813942275850249af46b5acb7476d008f1ce0fde data\minecraft\tags\items\wooden_trapdoors.json
 5edfb657ae7c5f8f72cc4aa49e8b2550a7679fa6 data\tlotd\tags\items\circuit_boards.json
@@ -94,6 +94,7 @@ de22676a8696eda167c0df83521ff3ce0b276a3e data\c\tags\items\oil_buckets.json
 f8755b6cc51081032e066b70de3af24303536b28 data\c\tags\items\emerald_ores.json
 4a09641a0e5aa43ca093fa51dfd1bc3d4c710e14 data\c\tags\items\lead_nuggets.json
 363454af66ab7ef45fe440676e94c86f13ce1df2 data\minecraft\tags\items\wooden_pressure_plates.json
+e064a1970158848bccc738de94f362e0ef7b63e4 data\minecraft\tags\items\arrows.json
 6217e58c2bb175b6963e99cb402406e80d9102b3 data\c\tags\items\coal_ores.json
 0d59d884cc3b46ece9e07be09326b2c53a0925ff data\tlotd\tags\items\forging_hammers_tier6.json
 2093fc7992d5ed3fa71483edad11799e8971c49c data\c\tags\items\redstone_ores.json
@@ -104,6 +105,7 @@ baa63465bbc0014d25a50c804e9c4b01497f0094 data\c\tags\items\sugar.json
 7719faedd1aed99059af06d49999b24f786ccdc3 data\c\tags\items\mithril_nuggets.json
 70e4b37ddb7bbcf4f8c1b9dd13ef40158414d1c7 data\tlotd\tags\items\t-rex_heads.json
 41ac327f4e579d972f4f5b39ba398af9bc419e0f data\minecraft\tags\items\sand.json
+0cbb91b0ce3d11c0ee8cf1b787ec1ddfc0932d81 data\tlotd\tags\items\transmittable_signals.json
 30d0117625358213d425dea5513475175d03032a data\minecraft\tags\items\small_flowers.json
 d384ecdf0e5c6f9dbb0256357be03a6d7bca89c9 data\c\tags\items\raw_lead_blocks.json
 1c071e5b6725351d88b04f357b38a2d5c512ce78 data\c\tags\items\eggs.json

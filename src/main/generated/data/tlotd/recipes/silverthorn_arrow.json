@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "F": {
+      "item": "minecraft:feather"
+    },
+    "I": {
+      "item": "tlotd:fancy_tool_rod"
+    },
+    "M": {
+      "item": "tlotd:mithril_nugget"
+    }
+  },
+  "pattern": [
+    "M",
+    "I",
+    "F"
+  ],
+  "result": {
+    "count": 8,
+    "item": "tlotd:silverthorn_arrow"
+  },
+  "show_notification": true
+}

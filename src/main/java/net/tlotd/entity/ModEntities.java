@@ -8,6 +8,7 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import net.tlotd.TLOTD;
+import net.tlotd.entity.custom.ArmorPiercingArrowEntity;
 import net.tlotd.entity.custom.InfectedTRexEntity;
 import net.tlotd.entity.custom.SeatEntity;
 import net.tlotd.entity.custom.TRexEntity;
@@ -28,6 +29,16 @@ public class ModEntities {
             FabricEntityTypeBuilder.create(SpawnGroup.MISC, SeatEntity::new)
                     .dimensions(EntityDimensions.fixed(0.8f,0.5f)).build());
 
+    public static final EntityType<ArmorPiercingArrowEntity> ARMOR_PIERCING_ARROW =
+            Registry.register(
+                    Registries.ENTITY_TYPE,
+                    new Identifier(TLOTD.MOD_ID, "silverthorn_arrow"),
+                    FabricEntityTypeBuilder.<ArmorPiercingArrowEntity>create(SpawnGroup.MISC, ArmorPiercingArrowEntity::new)
+                            .dimensions(EntityDimensions.fixed(0.5f, 0.5f))
+                            .trackRangeBlocks(4)
+                            .trackedUpdateRate(20)
+                            .build()
+            );
     public static void registerModEntities() {
         TLOTD.LOGGER.info("Registering Entities for " + TLOTD.MOD_ID);
     }

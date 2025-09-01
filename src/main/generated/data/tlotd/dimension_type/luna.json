@@ -7,10 +7,10 @@
   "has_ceiling": false,
   "has_raids": false,
   "has_skylight": true,
-  "height": 384,
+  "height": 448,
   "infiniburn": "#tlotd:infiniburn_luna",
   "logical_height": 320,
-  "min_y": -64,
+  "min_y": -128,
   "monster_spawn_block_light_limit": 0,
   "monster_spawn_light_level": {
     "type": "minecraft:uniform",

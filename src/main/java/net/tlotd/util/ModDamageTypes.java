@@ -14,6 +14,8 @@ public class ModDamageTypes {
 
     public static final RegistryKey<DamageType> BULLET = RegistryKey.of(RegistryKeys.DAMAGE_TYPE, new Identifier(TLOTD.MOD_ID, "bullet"));
 
+    public static final RegistryKey<DamageType> SILVERTHORN_ARROW = RegistryKey.of(RegistryKeys.DAMAGE_TYPE, new Identifier(TLOTD.MOD_ID, "silverthorn_arrow"));
+
     public static DamageSource of(World world, RegistryKey<DamageType> key) {
         return new DamageSource(world.getRegistryManager().get(RegistryKeys.DAMAGE_TYPE).entryOf(key));
     }

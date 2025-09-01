@@ -213,6 +213,9 @@ public class ModTags {
         public static final TagKey<Item> MUSIC_DISCS =
                 createTag("music_discs");
 
+        public static final TagKey<Item> TRANSMITTABLE_SIGNALS =
+                createTag("transmittable_signals");
+
         public static final TagKey<Item> CIRCUIT_BOARDS =
                 createTag("circuit_boards");
 

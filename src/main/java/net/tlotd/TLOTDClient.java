@@ -26,6 +26,7 @@ import net.tlotd.entity.client.*;
 import net.tlotd.fluid.ModFluids;
 import net.tlotd.gui.*;
 import net.tlotd.networking.ModMessages;
+import net.minecraft.client.render.entity.SpectralArrowEntityRenderer;
 
 public class TLOTDClient implements ClientModInitializer {
     @Override
@@ -53,6 +54,8 @@ public class TLOTDClient implements ClientModInitializer {
         EntityModelLayerRegistry.registerModelLayer(ModModelLayers.INFECTED_TREX, InfectedTRexModel::getTexturedModelData);
 
         EntityRendererRegistry.register(ModEntities.SEAT, SeatRenderer::new);
+
+        EntityRendererRegistry.register(ModEntities.ARMOR_PIERCING_ARROW, SilverthornArrowEntityRenderer::new);
 
         SpriteIdentifierRegistry.INSTANCE.addIdentifier(new SpriteIdentifier(TexturedRenderLayers.SIGNS_ATLAS_TEXTURE, ModBlocks.GINKGO_SIGN_TEXTURE));
         SpriteIdentifierRegistry.INSTANCE.addIdentifier(new SpriteIdentifier(TexturedRenderLayers.SIGNS_ATLAS_TEXTURE, ModBlocks.GINKGO_HANGING_SIGN_TEXTURE));

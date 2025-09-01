@@ -54,11 +54,17 @@
   "death.attack.hypoxia": "%1$s ha sucumbido a la hipoxia",
   "death.attack.hypoxia.player": "%1$s ha sucumbido a la hipoxia mientras luchaba contra %2$s",
 
+  "death.attack.bullet": "%1$s recibió un disparo",
+  "death.attack.bullet.player": "%1$s fue disparado por %2$s",
+  "death.attack.silverthorn_arrow": "%1$s fue alcanzado por una flecha de espino plateado",
+  "death.attack.silverthorn_arrow.player": "%1$s fue alcanzado por %2$s con una flecha de espino plateado",
+
   "entity.minecraft.villager.archaeologist": "Arqueólogo",
   "entity.minecraft.villager.cultist": "Cultista",
   "entity.minecraft.villager.engineer": "Ingeniero",
   "entity.tlotd.t-rex": "T-Rex",
   "entity.tlotd.infected_t-rex": "T-Rex infectado",
+  "entity.tlotd.silverthorn_arrow": "Flecha de plata y espina",
 
   "sounds.tlotd.entity_t-rex_idle": "T-Rex respira",
   "sounds.tlotd.entity_t-rex_hurt": "T-Rex está herido",
@@ -576,9 +582,10 @@
   "item.tlotd.mithril_hoe": "Azada de mithril",
   "item.tlotd.mithril_paxel": "Paxel de mithril",
   "item.tlotd.mithril_sickle": "Hoz de mithril",
-
   "item.tlotd.mithril_forging_hammer": "Martillo de forja de mithril",
   "item.tlotd.mithril_star_catcher": "Atrapaestrellas de mithril",
+
+  "item.tlotd.silverthorn_arrow": "Flecha de plata y espina",
 
   "item.tlotd.mithril_helmet": "Yelmo de mithril",
   "item.tlotd.mithril_chestplate": "Pechera de mithril",
@@ -620,6 +627,8 @@
   "item.tlotd.divine_pickaxe": "§6Pico divino",
   "item.tlotd.cataclysmic_pickaxe": "§cPico cataclísmico",
   "item.tlotd.eldritch_pickaxe": "§4Devorador del Más Allá",
+
+  "item.tlotd.ominous_alien_key": "Llave alienígena siniestra",
 
   "item.tlotd.mithril_command_block_sword": "Espada de comandos de mithril",
   "item.tlotd.mithril_command_block_pickaxe": "Pico de comandos de mithril",
@@ -865,6 +874,14 @@
   "block.tlotd.megaregolith_coal_ore": "Megaregolito mineral de carbón",
   "block.tlotd.megaregolith_iron_ore": "Megaregolito mineral de hierro",
   "block.tlotd.megaregolith_lunar_callainus_ore": "Megaregolito mineral de lunar callainus",
+  "block.tlotd.lunar_bedrock": "Lecho rocoso lunar",
+
+  "block.tlotd.alien_gate": "Puerta alienígena",
+  "block.tlotd.alien_pillar": "Pilar alienígena",
+  "block.tlotd.alien_bricks": "Ladrillos alienígenas",
+  "block.tlotd.alien_brick_stairs": "Escaleras de ladrillo alienígenas",
+  "block.tlotd.alien_brick_slab": "Losa de ladrillo alienígena",
+  "block.tlotd.alien_brick_wall": "Muro de ladrillos alienígena",
 
   "block.tlotd.steel_block": "Bloque de acero",
 
