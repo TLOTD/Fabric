@@ -450,6 +450,10 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
                 .addOptional(Identifier.tryParse("biomesoplenty:fir_log"))
                 .addOptional(Identifier.tryParse("biomesoplenty:fir_wood"))
+                .addOptional(Identifier.tryParse("biomesoplenty:pine_log"))
+                .addOptional(Identifier.tryParse("biomesoplenty:pine_wood"))
+                .addOptional(Identifier.tryParse("biomesoplenty:maple_log"))
+                .addOptional(Identifier.tryParse("biomesoplenty:maple_wood"))
                 .addOptional(Identifier.tryParse("biomesoplenty:redwood_log"))
                 .addOptional(Identifier.tryParse("biomesoplenty:redwood_wood"))
                 .addOptional(Identifier.tryParse("biomesoplenty:mahogany_log"))
@@ -468,6 +472,8 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .addOptional(Identifier.tryParse("biomesoplenty:umbran_wood"))
                 .addOptional(Identifier.tryParse("biomesoplenty:hellbark_log"))
                 .addOptional(Identifier.tryParse("biomesoplenty:hellbark_wood"))
+                .addOptional(Identifier.tryParse("biomesoplenty:empyreal_log"))
+                .addOptional(Identifier.tryParse("biomesoplenty:empyreal_wood"))
 
                 .addOptional(Identifier.tryParse("quark:ancient_log"))
                 .addOptional(Identifier.tryParse("quark:ancient_wood"))
@@ -676,6 +682,10 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.MEGAREGOLITH_COAL_ORE)
                 .add(ModBlocks.MEGAREGOLITH_IRON_ORE)
                 .add(ModBlocks.MEGAREGOLITH_LUNAR_CALLAINUS_ORE)
+                .add(ModBlocks.MEGAREGOLITH_BRICKS)
+                .add(ModBlocks.MEGAREGOLITH_BRICK_STAIRS)
+                .add(ModBlocks.MEGAREGOLITH_BRICK_SLAB)
+                .add(ModBlocks.MEGAREGOLITH_BRICK_WALL)
 
                 .add(ModBlocks.STEEL_BLOCK)
 
@@ -764,6 +774,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.RED_DEEPSLATE_BRICK_WALL)
                 .add(ModBlocks.COBBLED_RED_DEEPSLATE_WALL)
                 .add(ModBlocks.COBBLED_RED_DEEPSLATE_BRICK_WALL)
+                .add(ModBlocks.MEGAREGOLITH_BRICK_WALL)
                 .add(ModBlocks.ALIEN_BRICK_WALL)
         ;
 

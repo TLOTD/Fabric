@@ -1,0 +1,121 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "fabric",
+        "create",
+        "neepmeat"
+      ]
+    }
+  ],
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "item": "neepmeat:animal_heart"
+  },
+  "loops": 2,
+  "results": [
+    {
+      "item": "tlotd:biological_circuit_board"
+    }
+  ],
+  "sequence": [
+    {
+      "type": "create:filling",
+      "ingredients": [
+        {
+          "item": "tlotd:biological_circuit_board"
+        },
+        {
+          "fluidTag": "c:blood",
+          "amount": 40500
+        }
+      ],
+      "results": [
+        {
+          "item": "tlotd:biological_circuit_board"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "tlotd:incomplete_biological_circuit_board"
+        },
+        {
+          "item": "minecraft:bone"
+        }
+      ],
+      "results": [
+        {
+          "item": "tlotd:incomplete_biological_circuit_board"
+        }
+      ]
+    },
+        {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "tlotd:incomplete_biological_circuit_board"
+        },
+        {
+          "item": "neepmeat:internal_components"
+        }
+      ],
+      "results": [
+        {
+          "item": "tlotd:incomplete_biological_circuit_board"
+        }
+      ]
+    },
+    {
+      "type": "create:pressing",
+      "ingredients": [
+        {
+          "item": "tlotd:incomplete_biological_circuit_board"
+        }
+      ],
+      "results": [
+        {
+          "item": "tlotd:incomplete_biological_circuit_board"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "tlotd:incomplete_biological_circuit_board"
+        },
+        {
+          "item": "neepmeat:raw_meat_brick"
+        }
+      ],
+      "results": [
+        {
+          "item": "tlotd:incomplete_biological_circuit_board"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "tlotd:incomplete_biological_circuit_board"
+        },
+        {
+          "item": "neepmeat:brain_rough"
+        }
+      ],
+      "results": [
+        {
+          "item": "tlotd:incomplete_biological_circuit_board"
+        }
+      ]
+    }
+  ],
+  "transitionalItem": {
+    "item": "tlotd:incomplete_biological_circuit_board"
+  }
+}

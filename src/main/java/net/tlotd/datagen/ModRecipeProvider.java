@@ -828,7 +828,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('#', TagKey.of(RegistryKeys.ITEM, new Identifier("c", "steel_ingots")))
                 .input('I', Items.IRON_BARS)
                 .input('B', ItemTags.BUTTONS)
-                .input('C', ModItems.COPPER_WIRE)
+                .input('C', ModTags.Items.CIRCUIT_BOARDS)
                 .criterion(hasItem(ModItems.STEEL_INGOT), conditionsFromItem(ModItems.STEEL_INGOT))
                 .criterion(hasItem(Items.IRON_BARS), conditionsFromItem(Items.IRON_BARS))
                 .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.MINING_ELEVATOR_CONTROLLER)));
@@ -853,7 +853,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('#', ItemTags.PLANKS)
                 .input('P', Items.PAINTING)
                 .input('B', ItemTags.BUTTONS)
-                .input('C', ModItems.COPPER_WIRE)
+                .input('C', ModTags.Items.CIRCUIT_BOARDS)
                 .criterion(hasItem(Items.PAINTING), conditionsFromItem(Items.PAINTING))
                 .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.WOODEN_ELEVATOR_CONTROLLER)));
 
@@ -876,7 +876,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('Q', TagKey.of(RegistryKeys.ITEM, new Identifier("c", "quartz_blocks")))
                 .input('P', Items.PAINTING)
                 .input('B', ItemTags.BUTTONS)
-                .input('C', ModItems.COPPER_WIRE)
+                .input('C', ModTags.Items.CIRCUIT_BOARDS)
                 .criterion(hasItem(Items.SMOOTH_QUARTZ), conditionsFromItem(Items.SMOOTH_QUARTZ))
                 .criterion(hasItem(Items.PAINTING), conditionsFromItem(Items.PAINTING))
                 .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.QUARTZ_ELEVATOR_CONTROLLER)));
@@ -901,7 +901,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('#', ItemTags.PLANKS)
                 .input('G', TagKey.of(RegistryKeys.ITEM, new Identifier("c", "colorless_glass")))
                 .input('B', ItemTags.BUTTONS)
-                .input('C', ModItems.COPPER_WIRE)
+                .input('C', ModTags.Items.CIRCUIT_BOARDS)
                 .criterion(hasItem(Items.GLASS), conditionsFromItem(Items.GLASS))
                 .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.GLASS_ELEVATOR_CONTROLLER)));
 
@@ -1546,6 +1546,26 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('#', ModBlocks.LUNAR_REGOLITH)
                 .criterion(hasItem(ModBlocks.LUNAR_REGOLITH), conditionsFromItem(ModBlocks.LUNAR_REGOLITH))
                 .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.MEGAREGOLITH)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModBlocks.MEGAREGOLITH_BRICKS, 4)
+                .pattern("##")
+                .pattern("##")
+                .input('#', ModBlocks.MEGAREGOLITH)
+                .criterion(hasItem(ModBlocks.MEGAREGOLITH), conditionsFromItem(ModBlocks.MEGAREGOLITH))
+                .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.MEGAREGOLITH_BRICKS)));
+
+        createStairsRecipe(ModBlocks.MEGAREGOLITH_BRICK_STAIRS, Ingredient.ofItems(ModBlocks.MEGAREGOLITH_BRICKS))
+                .criterion(hasItem(ModBlocks.MEGAREGOLITH_BRICKS), conditionsFromItem(ModBlocks.MEGAREGOLITH_BRICKS))
+                .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.MEGAREGOLITH_BRICK_STAIRS)));
+        createSlabRecipe(RecipeCategory.BUILDING_BLOCKS, ModBlocks.MEGAREGOLITH_BRICK_SLAB, Ingredient.ofItems(ModBlocks.MEGAREGOLITH_BRICKS))
+                .criterion(hasItem(ModBlocks.MEGAREGOLITH_BRICKS), conditionsFromItem(ModBlocks.MEGAREGOLITH_BRICKS))
+                .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.MEGAREGOLITH_BRICK_SLAB)));
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModBlocks.MEGAREGOLITH_BRICK_WALL, 6)
+                .pattern("###")
+                .pattern("###")
+                .input('#', ModBlocks.MEGAREGOLITH_BRICKS)
+                .criterion(hasItem(ModBlocks.MEGAREGOLITH_BRICKS), conditionsFromItem(ModBlocks.MEGAREGOLITH_BRICKS))
+                .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.MEGAREGOLITH_BRICK_WALL)));
 
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModFluids.CHEMICAL_WASTE_BUCKET)
                 .input(Items.LAVA_BUCKET)

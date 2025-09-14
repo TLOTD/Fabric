@@ -24,6 +24,38 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
     @Override
     protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
 
+        getOrCreateTagBuilder(ModTags.Items.DIVINE_ITEMS)
+                .add(ModBlocks.STICK_CROSS.asItem())
+                .add(ModItems.DIVINE_PICKAXE)
+        ;
+
+        getOrCreateTagBuilder(ModTags.Items.OCCULT_ITEMS)
+                .add(ModItems.PLANCHETTE)
+                .add(ModBlocks.OUIJA_BOARD.asItem())
+                .add(ModItems.CURSED_SOUL_FLASK)
+                .add(ModBlocks.GOAT_HEAD.asItem())
+                .add(ModBlocks.EFFIGIES.asItem())
+                .add(ModBlocks.WITCHING_TABLE.asItem())
+        ;
+
+        getOrCreateTagBuilder(ModTags.Items.ELDRITCH_ITEMS)
+                .add(ModItems.SOUL_FLASK_OF_THE_ABYSS)
+        ;
+
+        getOrCreateTagBuilder(ModTags.Items.BLOOD_BOTTLES)
+                .add(ModItems.BLOOD_BOTTLE)
+                .addOptional(Identifier.tryParse("twilightforest:fiery_blood"))
+                .addOptional(Identifier.tryParse("iceandfire:fire_dragon_blood"))
+                .addOptional(Identifier.tryParse("iceandfire:ice_dragon_blood"))
+                .addOptional(Identifier.tryParse("iceandfire:lightning_dragon_blood"))
+        ;
+
+        getOrCreateTagBuilder(ModTags.Items.BLOOD_BUCKETS)
+                .add(ModFluids.BLOOD_BUCKET)
+                .addOptional(Identifier.tryParse("biomesoplenty:blood_bucket"))
+                .addOptional(Identifier.tryParse("neepmeat:blood_bucket"))
+        ;
+
         getOrCreateTagBuilder(ModTags.Items.BULLET_PROOF_ARMOR)
                 .addTag(ModTags.Items.BULLET_PROOF_ARMOR_II)
                 .add(ModItems.JURASSOLINE_HELMET)
@@ -64,6 +96,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(Items.DRAGON_EGG)
                 .add(Items.SNIFFER_EGG)
                 .add(ModBlocks.TREX_EGG.asItem())
+                .add(ModBlocks.INFECTED_TREX_EGG.asItem())
         ;
 
         getOrCreateTagBuilder(ModTags.Items.FORGING_HAMMERS)
@@ -131,6 +164,8 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModItems.THORNWOOD_BARK)
 
                 .add(ModItems.FIR_BARK)
+                .add(ModItems.PINE_BARK)
+                .add(ModItems.MAPLE_BARK)
                 .add(ModItems.REDWOOD_BARK)
                 .add(ModItems.MAHOGANY_BARK)
                 .add(ModItems.JACARANCA_BARK)
@@ -140,6 +175,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModItems.MAGIC_BARK)
                 .add(ModItems.UMBRAN_BARK)
                 .add(ModItems.HELLBARK_BARK)
+                .add(ModItems.EMPYREAL_BARK)
 
                 .add(ModItems.ASHEN_BARK)
                 .add(ModItems.AZALEA_BARK)
@@ -508,17 +544,11 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModItems.OXYGEN_TANK)
                 .add(ModItems.SPACE_SUIT_CHESTPLATE)
                 .addOptional(Identifier.tryParse("ad_astra:space_suit"))
+                .addOptional(Identifier.tryParse("ad_astra:netherite_space_suit"))
         ;
 
         getOrCreateTagBuilder(ModTags.Items.HYPOXIA_PROTECTION)
-                .add(ModItems.ASTRONAUT_HELMET)
-                .add(ModItems.SPACE_SUIT_CHESTPLATE)
-                .add(ModItems.SPACE_SUIT_LEGGINGS)
-                .add(ModItems.SPACE_SUIT_BOOTS)
-                .addOptional(Identifier.tryParse("ad_astra:space_helmet"))
-                .addOptional(Identifier.tryParse("ad_astra:space_suit"))
-                .addOptional(Identifier.tryParse("ad_astra:space_pants"))
-                .addOptional(Identifier.tryParse("ad_astra:space_boots"))
+                .addOptionalTag(Identifier.tryParse("ad_astra:space_suit_items"))
         ;
 
         getOrCreateTagBuilder(ModTags.Items.IRON_OR_STEEL)

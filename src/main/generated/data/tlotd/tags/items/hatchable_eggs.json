@@ -4,6 +4,7 @@
     "minecraft:turtle_egg",
     "minecraft:dragon_egg",
     "minecraft:sniffer_egg",
-    "tlotd:t-rex_egg"
+    "tlotd:t-rex_egg",
+    "tlotd:infected_t-rex_egg"
   ]
 }

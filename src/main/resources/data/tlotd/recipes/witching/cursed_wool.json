@@ -29,6 +29,10 @@
       "tag": "minecraft:wool"
     }
   ],
+  "fluid": {
+    "tag": "c:blood",
+    "amount": 250
+  },
   "output": {
     "item": "tlotd:cursed_wool",
     "count": 9

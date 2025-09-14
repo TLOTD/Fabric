@@ -17,11 +17,19 @@ import net.minecraft.world.WorldAccess;
 public class SignalTransmitterAntennaBlock extends Block {
 
     public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
+    public static final BooleanProperty UPPER = BooleanProperty.of("upper");
 
     @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {
-        return this.getDefaultState()
-                .with(WATERLOGGED, ctx.getWorld().getFluidState(ctx.getBlockPos()).isOf(Fluids.WATER));
+        if (ctx.getWorld().getBlockState(ctx.getBlockPos().down()).isOf(this)) {
+            return this.getDefaultState()
+                    .with(WATERLOGGED, ctx.getWorld().getFluidState(ctx.getBlockPos()).isOf(Fluids.WATER))
+                    .with(UPPER, true);
+        } else {
+            return this.getDefaultState()
+                    .with(WATERLOGGED, ctx.getWorld().getFluidState(ctx.getBlockPos()).isOf(Fluids.WATER))
+                    .with(UPPER, false);
+        }
     }
 
     @Override
@@ -40,24 +48,30 @@ public class SignalTransmitterAntennaBlock extends Block {
 
     @Override
     public void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        builder.add(WATERLOGGED);
+        builder.add(WATERLOGGED, UPPER);
     }
 
     public SignalTransmitterAntennaBlock(Settings settings) {
         super(settings);
-        this.setDefaultState(this.stateManager.getDefaultState().with(WATERLOGGED, false));
+        this.setDefaultState(this.stateManager.getDefaultState().with(WATERLOGGED, false).with(UPPER, false));
     }
 
-    public static final VoxelShape SHAPE = VoxelShapes.union(
-            Block.createCuboidShape(3.0, 0.0, 3.0, 13.0, 3.0, 13.0),
-            Block.createCuboidShape(4.0, 3.0, 4.0, 12.0, 7.0, 12.0),
-            Block.createCuboidShape(5.0, 7.0, 5.0, 11.0, 11.0, 11.0),
-            Block.createCuboidShape(6.0, 11.0, 6.0, 10.0, 16.0, 10.0)
+    public static final VoxelShape UPPER_SHAPE = VoxelShapes.union(
+            Block.createCuboidShape(5.0, 0.0, 5.0, 11.0, 5.0, 11.0),
+            Block.createCuboidShape(6.0, 5.0, 6.0, 10.0, 16.0, 10.0)
+    );
+
+    public static final VoxelShape LOWER_SHAPE = VoxelShapes.union(
+            Block.createCuboidShape(3.0, 0.0, 3.0, 13.0, 5.0, 13.0),
+            Block.createCuboidShape(4.0, 5.0, 4.0, 12.0, 12.0, 12.0),
+            Block.createCuboidShape(5.0, 12.0, 5.0, 11.0, 16.0, 11.0)
     );
 
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        return SHAPE;
+        if (state.get(UPPER)) {
+            return UPPER_SHAPE;
+        } else return LOWER_SHAPE;
     }
 
     @Override

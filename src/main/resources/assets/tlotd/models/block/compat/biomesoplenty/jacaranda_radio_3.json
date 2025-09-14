@@ -1,0 +1,9 @@
+{
+	"parent": "tlotd:block/template_radio_on",
+	"textures": {
+		"0": "biomesoplenty:block/jacaranda_log",
+		"1": "biomesoplenty:block/stripped_jacaranda_log",
+		"3": "tlotd:block/radio/frequency3",
+		"particle": "biomesoplenty:block/jacaranda_log"
+	}
+}

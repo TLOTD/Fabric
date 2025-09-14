@@ -71,6 +71,7 @@ public class CursedFlaskItem extends Item {
             tooltip.add(Text.translatable("item.tlotd.cursed_soul_flask.tooltip").setStyle(style.withFont(ILLAGER_FONT_ID)).formatted(Formatting.GRAY));
             tooltip.add(Text.translatable("item.tlotd.cursed_soul_flask.tooltip_2").setStyle(style.withFont(ILLAGER_FONT_ID)).formatted(Formatting.GRAY));
         }
+        tooltip.add(Text.translatable("item.tlotd.desc_occult").formatted(Formatting.RED));
         super.appendTooltip(stack, world, tooltip, context);
     }
 }

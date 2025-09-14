@@ -20,6 +20,10 @@
       "item": "minecraft:spider_eye"
     }
   ],
+  "fluid": {
+    "tag": "c:blood",
+    "amount": 250
+  },
   "output": {
     "item": "tlotd:suspicious_maultaschen_broth"
   }

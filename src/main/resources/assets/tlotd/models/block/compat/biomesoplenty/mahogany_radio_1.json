@@ -1,0 +1,9 @@
+{
+	"parent": "tlotd:block/template_radio_on",
+	"textures": {
+		"0": "biomesoplenty:block/mahogany_log",
+		"1": "biomesoplenty:block/stripped_mahogany_log",
+		"3": "tlotd:block/radio/frequency1",
+		"particle": "biomesoplenty:block/mahogany_log"
+	}
+}

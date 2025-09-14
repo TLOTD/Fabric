@@ -170,17 +170,23 @@
   "advancements.tlotd.all_jams.desc": "Obtener todas las confituras y mermeladas",
 
   "painting.tlotd.t.title": "T",
-  "painting.tlotd.t.author": "TLOTD y Isla_Nublar",
+  "painting.tlotd.t.author": "Isla_Nublar",
   "painting.tlotd.tlotd.title": "TLOTD",
-  "painting.tlotd.tlotd.author": "TLOTD y Isla_Nublar",
+  "painting.tlotd.tlotd.author": "Isla_Nublar",
   "painting.tlotd.t-rex_encounter.title": "Encuentro con el T-Rex",
-  "painting.tlotd.t-rex_encounter.author": "TLOTD y Isla_Nublar",
+  "painting.tlotd.t-rex_encounter.author": "Isla_Nublar",
   "painting.tlotd.white_city.title": "La Ciudad Blanca",
-  "painting.tlotd.white_city.author": "TLOTD y Isla_Nublar",
+  "painting.tlotd.white_city.author": "Isla_Nublar",
+  "painting.tlotd.autumn_castle.title": "Castillo de Otoño",
+  "painting.tlotd.autumn_castle.author": "Isla_Nublar",
   "painting.tlotd.dragons_connection.title": "Una conexión de dragones",
-  "painting.tlotd.dragons_connection.author": "TLOTD y Isla_Nublar",
+  "painting.tlotd.dragons_connection.author": "Isla_Nublar",
 
   "rei.title.mithril_forging": "Forja de mithril",
+
+  "item.tlotd.desc_divine": "† Divino",
+  "item.tlotd.desc_occult": "⛧ Oculto",
+  "item.tlotd.desc_eldritch": "✦ Eldritch",
 
   "item.tlotd.dragon_banner_pattern": "Diseño de estandarte",
   "item.tlotd.dragon_banner_pattern.desc": "Dragón",
@@ -305,8 +311,7 @@
   "item.tlotd.game_cartridge_3.desc": "Terraria",
 
   "item.tlotd.flash_drive": "Lápiz de memoria",
-  "item.tlotd.flash_drive.empty": "Vacío",
-  "item.tlotd.flash_drive.one_entry": "Un expediente:",
+  "item.tlotd.flash_drive.data": "Datos",
   "item.tlotd.flash_drive.coordinates": "block.pos [%1$s,%2$s,%3$s]",
 
   "item.tlotd.copper_wire": "Alambre de cobre",
@@ -330,6 +335,7 @@
   "item.tlotd.fragmented_futuristic_circuit_board": "Placa de circuito futurista fragmentada",
 
   "item.tlotd.keycard": "Tarjeta",
+  "item.tlotd.keycard.data": "Datos",
   "item.tlotd.keycard.no_password": "Sin contraseña",
   "item.tlotd.keycard.has_password": "Contraseña",
 
@@ -423,7 +429,7 @@
   "item.tlotd.hypoxia_proof_armor.tooltip_2": "Previene la hipoxia",
   "item.tlotd.space_suit_leggings": "Pantalones de traje espacial",
   "item.tlotd.space_suit_boots": "Botas de traje espacial",
-  "item.tlotd.oxygen_level.tooltip": "Oxígeno: %1$s",
+  "item.tlotd.oxygen_level.tooltip": "%1$s Oxígeno",
 
   "item.tlotd.cthonaut_helmet": "Casco de cthonaut",
   "item.tlotd.depth_suit_chestplate": "Pechera de profundidad peto",
@@ -637,10 +643,13 @@
   "item.tlotd.mithril_command_block_hoe": "Azada de comandos de mithril",
   "item.tlotd.mithril_command_block_sickle": "Hoz de comandos de mithril",
 
+  "item.tlotd.emf_reader": "Lector EMF",
+
   "item.tlotd.t-rex_spawn_egg": "Generar T-Rex",
   "item.tlotd.infected_t-rex_spawn_egg": "T-Rex infectado",
 
   "block.tlotd.t-rex_egg": "Huevo de T-Rex",
+  "block.tlotd.infected_t-rex_egg": "Huevo infectado de T-Rex",
 
   "block.tlotd.strawberry_bush": "Arbusto de fresas",
   "block.tlotd.strawberry_cake": "Pastel de fresa",
@@ -770,6 +779,7 @@
   "block.tlotd.signal_transmitter.removed": "Se eliminó la señal.",
   "block.tlotd.signal_transmitter.incomplete": "Antena del transmisor de señal ¡Incompleta!",
   "block.tlotd.signal_transmitter_antenna": "Señal Antena transmisora",
+  "block.minecraft.lightning_rod.upside_down": "Pararrayos invertido",
 
   "block.tlotd.teleporter": "Teletransportador",
   "block.tlotd.teleporter.location_copied": "Ubicación copiada para conducir",
@@ -874,6 +884,10 @@
   "block.tlotd.megaregolith_coal_ore": "Megaregolito mineral de carbón",
   "block.tlotd.megaregolith_iron_ore": "Megaregolito mineral de hierro",
   "block.tlotd.megaregolith_lunar_callainus_ore": "Megaregolito mineral de lunar callainus",
+  "block.tlotd.megaregolith_bricks": "Ladrillos de megaregolito",
+  "block.tlotd.megaregolith_brick_stairs": "Escaleras de ladrillos de megaregolito",
+  "block.tlotd.megaregolith_brick_slab": "Losa de ladrillos de megaregolito",
+  "block.tlotd.megaregolith_brick_wall": "Pared de ladrillos de megaregolito",
   "block.tlotd.lunar_bedrock": "Lecho rocoso lunar",
 
   "block.tlotd.alien_gate": "Puerta alienígena",
@@ -1110,6 +1124,8 @@
   "item.tlotd.thornwood_bark": "Corteza de pinchoárbol",
 
   "item.tlotd.fir_bark": "Corteza de abeto blanco",
+  "item.tlotd.pine_bark": "Corteza de pino",
+  "item.tlotd.maple_bark": "Corteza de arce",
   "item.tlotd.redwood_bark": "Corteza de secoya",
   "item.tlotd.mahogany_bark": "Corteza de caoba",
   "item.tlotd.jacaranda_bark": "Corteza de jacarandá",
@@ -1119,6 +1135,7 @@
   "item.tlotd.magic_bark": "Corteza de mágico",
   "item.tlotd.umbran_bark": "Corteza de sombrío",
   "item.tlotd.hellbark_bark": "Corteza de corteza infernal",
+  "item.tlotd.empyreal_bark": "Corteza de empíreo",
 
   "item.tlotd.ashen_bark": "Corteza de fresno",
   "item.tlotd.azalea_bark": "Corteza de azalea",

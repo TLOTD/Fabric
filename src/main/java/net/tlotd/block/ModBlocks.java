@@ -71,6 +71,8 @@ public class ModBlocks {
 
     public static final Block TREX_EGG = registerBlock("t-rex_egg",
             new TRexEggBlock(FabricBlockSettings.create().mapColor(MapColor.BROWN).strength(0.5f, 0.5f).sounds(BlockSoundGroup.METAL).nonOpaque()));
+    public static final Block INFECTED_TREX_EGG = registerCompatBlock("infected_t-rex_egg",
+            new TRexEggBlock(FabricBlockSettings.create().mapColor(MapColor.OAK_TAN).strength(0.5f, 0.5f).sounds(BlockSoundGroup.METAL).nonOpaque()), Rarity.UNCOMMON, "spr");
 
     public static final Block BW_STICKER = registerBlock("bw_sticker",
             new StickerBlock(FabricBlockSettings.create().mapColor(MapColor.WHITE).breakInstantly().sounds(BlockSoundGroup.GRASS).pistonBehavior(PistonBehavior.DESTROY).collidable(false).nonOpaque()));
@@ -275,6 +277,15 @@ public class ModBlocks {
             new Block(FabricBlockSettings.create().mapColor(MapColor.WHITE).requiresTool().strength(3.0F, 9.0F)));
     public static final Block MEGAREGOLITH_LUNAR_CALLAINUS_ORE = registerBlock("megaregolith_lunar_callainus_ore",
             new Block(FabricBlockSettings.create().mapColor(MapColor.WHITE).requiresTool().strength(3.0F, 9.0F)));
+
+    public static final Block MEGAREGOLITH_BRICKS = registerBlock("megaregolith_bricks",
+            new Block(FabricBlockSettings.create().mapColor(MapColor.WHITE).requiresTool().strength(3.0F, 9.0F)));
+    public static final Block MEGAREGOLITH_BRICK_STAIRS = registerBlock("megaregolith_brick_stairs",
+            new StairsBlock(ModBlocks.MEGAREGOLITH_BRICKS.getDefaultState(), FabricBlockSettings.create().mapColor(MapColor.WHITE).requiresTool().strength(3.0F, 9.0F)));
+    public static final Block MEGAREGOLITH_BRICK_SLAB = registerBlock("megaregolith_brick_slab",
+            new SlabBlock(FabricBlockSettings.create().mapColor(MapColor.WHITE).requiresTool().strength(3.0F, 9.0F)));
+    public static final Block MEGAREGOLITH_BRICK_WALL = registerBlock("megaregolith_brick_wall",
+            new WallBlock(FabricBlockSettings.create().mapColor(MapColor.WHITE).requiresTool().strength(3.0F, 9.0F)));
 
     public static final Block LUNAR_BEDROCK = registerBlock("lunar_bedrock",
             new Block(FabricBlockSettings.create().mapColor(MapColor.LIGHT_GRAY).strength(-1.0F, 3600000.0F)));
@@ -499,16 +510,16 @@ public class ModBlocks {
     public static final Block TREX_HEAD = registerRarityBlock("t-rex_head",
             new TRexHeadBlock(FabricBlockSettings.create().mapColor(MapColor.BROWN).strength(1.0F, 1.0F).nonOpaque()), Rarity.UNCOMMON);
     public static final Block GREEN_TREX_HEAD = registerRarityBlock("green_t-rex_head",
-            new TRexHeadBlock(FabricBlockSettings.create().mapColor(MapColor.BROWN).strength(1.0F, 1.0F).nonOpaque()), Rarity.UNCOMMON);
+            new TRexHeadBlock(FabricBlockSettings.create().mapColor(MapColor.DARK_GREEN).strength(1.0F, 1.0F).nonOpaque()), Rarity.UNCOMMON);
     public static final Block GRAY_TREX_HEAD = registerRarityBlock("gray_t-rex_head",
-            new TRexHeadBlock(FabricBlockSettings.create().mapColor(MapColor.BROWN).strength(1.0F, 1.0F).nonOpaque()), Rarity.UNCOMMON);
+            new TRexHeadBlock(FabricBlockSettings.create().mapColor(MapColor.GRAY).strength(1.0F, 1.0F).nonOpaque()), Rarity.UNCOMMON);
 
     public static final Block INFECTED_TREX_HEAD = registerCompatBlock("infected_t-rex_head",
-            new TRexHeadBlock(FabricBlockSettings.create().mapColor(MapColor.BROWN).strength(1.0F, 1.0F).nonOpaque()), Rarity.UNCOMMON, "spr");
+            new TRexHeadBlock(FabricBlockSettings.create().mapColor(MapColor.OAK_TAN).strength(1.0F, 1.0F).nonOpaque()), Rarity.UNCOMMON, "spr");
     public static final Block SCULK_TREX_HEAD = registerCompatBlock("sculk_t-rex_head",
-            new TRexHeadBlock(FabricBlockSettings.create().mapColor(MapColor.BROWN).strength(1.0F, 1.0F).nonOpaque()), Rarity.UNCOMMON, "skh");
+            new TRexHeadBlock(FabricBlockSettings.create().mapColor(MapColor.BLACK).strength(1.0F, 1.0F).nonOpaque()), Rarity.UNCOMMON, "skh");
     public static final Block SICKENED_TREX_HEAD = registerCompatBlock("sickened_t-rex_head",
-            new TRexHeadBlock(FabricBlockSettings.create().mapColor(MapColor.BROWN).strength(1.0F, 1.0F).nonOpaque()), Rarity.UNCOMMON, "wsm");
+            new TRexHeadBlock(FabricBlockSettings.create().mapColor(MapColor.BLACK).strength(1.0F, 1.0F).nonOpaque()), Rarity.UNCOMMON, "wsm");
 
     public static final Block ROSE = registerBlock("rose",
             new ModFlowerBlock(StatusEffects.INSTANT_HEALTH, 10, FabricBlockSettings.create().breakInstantly().nonOpaque().sounds(BlockSoundGroup.GRASS).noCollision().pistonBehavior(PistonBehavior.DESTROY)));

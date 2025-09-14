@@ -10,7 +10,7 @@
       "tag": "minecraft:buttons"
     },
     "C": {
-      "item": "tlotd:copper_wire"
+      "tag": "tlotd:circuit_boards"
     },
     "I": {
       "item": "minecraft:iron_bars"

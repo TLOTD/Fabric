@@ -29,6 +29,10 @@
       "item": "minecraft:rotten_flesh"
     }
   ],
+  "fluid": {
+    "tag": "c:blood",
+    "amount": 250
+  },
   "output": {
     "item": "tlotd:cured_meat",
     "count": 6

@@ -2,22 +2,31 @@ package net.tlotd.block.custom;
 
 import net.minecraft.block.*;
 import net.minecraft.block.enums.WallMountLocation;
+import net.minecraft.client.gui.screen.Screen;
+import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.Equipment;
 import net.minecraft.item.ItemPlacementContext;
+import net.minecraft.item.ItemStack;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.DirectionProperty;
 import net.minecraft.state.property.EnumProperty;
 import net.minecraft.state.property.Properties;
+import net.minecraft.text.Style;
+import net.minecraft.text.Text;
 import net.minecraft.util.BlockRotation;
+import net.minecraft.util.Formatting;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.WorldAccess;
+import org.jetbrains.annotations.Nullable;
+
+import java.util.List;
 
 public class GoatHeadBlock extends Block implements Equipment {
 
@@ -116,5 +125,11 @@ public class GoatHeadBlock extends Block implements Equipment {
     @Override
     public EquipmentSlot getSlotType() {
         return EquipmentSlot.HEAD;
+    }
+
+    @Override
+    public void appendTooltip(ItemStack stack, @Nullable BlockView world, List<Text> tooltip, TooltipContext options) {
+        tooltip.add(Text.translatable("item.tlotd.desc_occult").formatted(Formatting.RED));
+        super.appendTooltip(stack, world, tooltip, options);
     }
 }

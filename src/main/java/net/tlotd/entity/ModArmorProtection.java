@@ -6,6 +6,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.util.math.random.Random;
 import net.tlotd.TLOTD;
+import net.tlotd.util.AdAstraOxygenNbtHelper;
 import net.tlotd.util.ModDamageTypes;
 import net.tlotd.util.ModTags;
 
@@ -60,12 +61,11 @@ public class ModArmorProtection {
                         hypoxiaProtection++;
                     }
                 }
-                if (hypoxiaProtection >= 4 && player.getInventory().getArmorStack(2).getNbt().getInt("tlotd:oxygen") > 0) {
+                if (hypoxiaProtection >= 4 && AdAstraOxygenNbtHelper.getOxygen(player.getInventory().getArmorStack(2)) > 0) {
                     if (oxygenTick.get() >= 20) {
                         oxygenTick.set(0);
-                        NbtCompound nbtData = new NbtCompound();
-                        nbtData.putInt("tlotd:oxygen", player.getInventory().getArmorStack(2).getNbt().getInt("tlotd:oxygen")-1);
-                        player.getInventory().getArmorStack(2).setNbt(nbtData);
+                        long current = AdAstraOxygenNbtHelper.getOxygen(player.getInventory().getArmorStack(2));
+                        AdAstraOxygenNbtHelper.setOxygen(player.getInventory().getArmorStack(2), current - 10);
                     } else {
                         oxygenTick.getAndIncrement();
                     }

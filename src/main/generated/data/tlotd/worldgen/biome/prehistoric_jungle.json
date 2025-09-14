@@ -64,8 +64,13 @@
     ],
     [
       "minecraft:glow_lichen",
+      "tlotd:mega_ginkgo_tree_placed",
+      "tlotd:ginkgo_tree_placed",
       "minecraft:trees_jungle",
-      "minecraft:patch_grass_badlands"
+      "minecraft:patch_grass_badlands",
+      "minecraft:patch_grass_jungle",
+      "minecraft:brown_mushroom_normal",
+      "minecraft:red_mushroom_normal"
     ],
     [
       "minecraft:freeze_top_layer"

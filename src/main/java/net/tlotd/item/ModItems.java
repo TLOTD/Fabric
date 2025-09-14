@@ -46,6 +46,8 @@ public class ModItems {
     public static final Item THORNWOOD_BARK = registerItem("thornwood_bark", new CompatItem(new FabricItemSettings(),"axc"));
 
     public static final Item FIR_BARK = registerItem("fir_bark", new CompatItem(new FabricItemSettings(),"bop"));
+    public static final Item PINE_BARK = registerItem("pine_bark", new CompatItem(new FabricItemSettings(),"bop"));
+    public static final Item MAPLE_BARK = registerItem("maple_bark", new CompatItem(new FabricItemSettings(),"bop"));
     public static final Item REDWOOD_BARK = registerItem("redwood_bark", new CompatItem(new FabricItemSettings(),"bop"));
     public static final Item MAHOGANY_BARK = registerItem("mahogany_bark", new CompatItem(new FabricItemSettings(),"bop"));
     public static final Item JACARANCA_BARK = registerItem("jacaranda_bark", new CompatItem(new FabricItemSettings(),"bop"));
@@ -55,6 +57,7 @@ public class ModItems {
     public static final Item MAGIC_BARK = registerItem("magic_bark", new CompatItem(new FabricItemSettings(),"bop"));
     public static final Item UMBRAN_BARK = registerItem("umbran_bark", new CompatItem(new FabricItemSettings(),"bop"));
     public static final Item HELLBARK_BARK = registerItem("hellbark_bark", new CompatItem(new FabricItemSettings(),"bop"));
+    public static final Item EMPYREAL_BARK = registerItem("empyreal_bark", new CompatItem(new FabricItemSettings(),"bop"));
 
     public static final Item ASHEN_BARK = registerItem("ashen_bark", new CompatItem(new FabricItemSettings(),"qrk"));
     public static final Item AZALEA_BARK = registerItem("azalea_bark", new CompatItem(new FabricItemSettings(),"qrk"));
@@ -480,6 +483,8 @@ public class ModItems {
     public static final Item HEV_SUIT_CHESTPLATE = registerItem("hev_suit_chestplate", new HEVArmorItem(ModArmorMaterial.HEV_SUIT, ArmorItem.Type.CHESTPLATE, new FabricItemSettings().fireproof()));
     public static final Item HEV_SUIT_LEGGINGS = registerItem("hev_suit_leggings", new HEVArmorItem(ModArmorMaterial.HEV_SUIT, ArmorItem.Type.LEGGINGS, new FabricItemSettings().fireproof()));
     public static final Item HEV_SUIT_BOOTS = registerItem("hev_suit_boots", new HEVArmorItem(ModArmorMaterial.HEV_SUIT, ArmorItem.Type.BOOTS, new FabricItemSettings().fireproof()));
+
+    public static final Item EMF_READER = registerItem("emf_reader", new Item(new FabricItemSettings().maxCount(1)));
 
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registries.ITEM, new Identifier(TLOTD.MOD_ID, name), item);

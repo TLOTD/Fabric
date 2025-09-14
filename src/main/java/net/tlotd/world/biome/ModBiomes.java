@@ -11,9 +11,11 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeEffects;
 import net.minecraft.world.biome.GenerationSettings;
 import net.minecraft.world.biome.SpawnSettings;
+import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.feature.DefaultBiomeFeatures;
 import net.tlotd.TLOTD;
 import net.tlotd.entity.ModEntities;
+import net.tlotd.world.ModPlacedFeatures;
 
 public class ModBiomes {
     public static final RegistryKey<Biome> PREHISTORIC_JUNGLE = RegistryKey.of(RegistryKeys.BIOME,
@@ -48,18 +50,20 @@ public class ModBiomes {
 
         globalOverworldGeneration(biomeBuilder);
         DefaultBiomeFeatures.addMossyRocks(biomeBuilder);
+
+        biomeBuilder.feature(
+                GenerationStep.Feature.VEGETAL_DECORATION,
+                ModPlacedFeatures.MEGA_GINKGO_TREE_PLACED_KEY
+        );
+        biomeBuilder.feature(
+                GenerationStep.Feature.VEGETAL_DECORATION,
+                ModPlacedFeatures.GINKGO_TREE_PLACED_KEY
+        );
         DefaultBiomeFeatures.addJungleTrees(biomeBuilder);
         DefaultBiomeFeatures.addDefaultDisks(biomeBuilder);
-
-
-        //biomeBuilder.feature(GenerationStep.Feature.VEGETAL_DECORATION, VegetationPlacedFeatures.TREES_JUNGLE);
-
         DefaultBiomeFeatures.addDefaultGrass(biomeBuilder);
-        //DefaultBiomeFeatures.addForestFlowers(biomeBuilder);
-        //DefaultBiomeFeatures.addJungleGrass(biomeBuilder);
-
-        //DefaultBiomeFeatures.addDefaultMushrooms(biomeBuilder);
-        //DefaultBiomeFeatures.addDefaultVegetation(biomeBuilder);
+        DefaultBiomeFeatures.addJungleGrass(biomeBuilder);
+        DefaultBiomeFeatures.addDefaultMushrooms(biomeBuilder);
 
         return new Biome.Builder()
                 .precipitation(true)

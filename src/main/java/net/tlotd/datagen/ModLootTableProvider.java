@@ -101,20 +101,24 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.RED_DEEPSLATE, drops(ModBlocks.RED_DEEPSLATE, ModBlocks.COBBLED_RED_DEEPSLATE));
         addDrop(ModBlocks.RED_DEEPSLATE_STAIRS);
         addDrop(ModBlocks.RED_DEEPSLATE_SLAB, slabDrops(ModBlocks.RED_DEEPSLATE_SLAB));
+        addDrop(ModBlocks.RED_DEEPSLATE_WALL);
         addDrop(ModBlocks.POLISHED_RED_DEEPSLATE);
         addDrop(ModBlocks.RED_DEEPSLATE_BRICKS);
         addDrop(ModBlocks.RED_DEEPSLATE_BRICK_STAIRS);
         addDrop(ModBlocks.RED_DEEPSLATE_BRICK_SLAB, slabDrops(ModBlocks.RED_DEEPSLATE_BRICK_SLAB));
+        addDrop(ModBlocks.RED_DEEPSLATE_BRICK_WALL);
         addDrop(ModBlocks.MOSSY_RED_DEEPSLATE_BRICKS);
         addDrop(ModBlocks.CRACKED_RED_DEEPSLATE_BRICKS);
 
         addDrop(ModBlocks.COBBLED_RED_DEEPSLATE);
         addDrop(ModBlocks.COBBLED_RED_DEEPSLATE_STAIRS);
         addDrop(ModBlocks.COBBLED_RED_DEEPSLATE_SLAB, slabDrops(ModBlocks.COBBLED_RED_DEEPSLATE_SLAB));
+        addDrop(ModBlocks.COBBLED_RED_DEEPSLATE_WALL);
         addDrop(ModBlocks.POLISHED_COBBLED_RED_DEEPSLATE);
         addDrop(ModBlocks.COBBLED_RED_DEEPSLATE_BRICKS);
         addDrop(ModBlocks.COBBLED_RED_DEEPSLATE_BRICK_STAIRS);
         addDrop(ModBlocks.COBBLED_RED_DEEPSLATE_BRICK_SLAB, slabDrops(ModBlocks.COBBLED_RED_DEEPSLATE_BRICK_SLAB));
+        addDrop(ModBlocks.COBBLED_RED_DEEPSLATE_BRICK_WALL);
         addDrop(ModBlocks.MOSSY_COBBLED_RED_DEEPSLATE_BRICKS);
         addDrop(ModBlocks.CRACKED_COBBLED_RED_DEEPSLATE_BRICKS);
 
@@ -139,6 +143,11 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.MEGAREGOLITH_COAL_ORE, drops(ModBlocks.MEGAREGOLITH_COAL_ORE, Items.COAL));
         addDrop(ModBlocks.MEGAREGOLITH_IRON_ORE, drops(ModBlocks.MEGAREGOLITH_IRON_ORE, Items.RAW_IRON));
         addDrop(ModBlocks.MEGAREGOLITH_LUNAR_CALLAINUS_ORE, drops(ModBlocks.MEGAREGOLITH_LUNAR_CALLAINUS_ORE, ModItems.LUNAR_CALLAINUS_LUMP));
+
+        addDrop(ModBlocks.MEGAREGOLITH_BRICKS);
+        addDrop(ModBlocks.MEGAREGOLITH_BRICK_STAIRS);
+        addDrop(ModBlocks.MEGAREGOLITH_BRICK_SLAB, slabDrops(ModBlocks.MEGAREGOLITH_BRICK_SLAB));
+        addDrop(ModBlocks.MEGAREGOLITH_BRICK_WALL);
 
         addDrop(ModBlocks.STEEL_BLOCK);
 

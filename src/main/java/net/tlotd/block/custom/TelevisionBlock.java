@@ -38,10 +38,27 @@ import java.util.List;
 public class TelevisionBlock extends Block {
 
     public static final IntProperty CHANNEL = IntProperty.of("channel", 0, 9);
-
     public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
-
     public static final DirectionProperty FACING = FacingBlock.FACING;
+
+    private static String[] VHS_DISC_KEYS = null;
+    private static String[] getVHSDiscKeys() {
+        if (VHS_DISC_KEYS == null) {
+            VHS_DISC_KEYS = new String[]{
+                    ModItems.VHS_CASSETTE_BROKEN.getTranslationKey(), // channel 0
+                    ModItems.VHS_CASSETTE_1.getTranslationKey(),
+                    ModItems.VHS_CASSETTE_2.getTranslationKey(),
+                    ModItems.VHS_CASSETTE_3.getTranslationKey(),
+                    ModItems.VHS_CASSETTE_4.getTranslationKey(),
+                    ModItems.VHS_CASSETTE_5.getTranslationKey(),
+                    ModItems.VHS_CASSETTE_6.getTranslationKey(),
+                    ModItems.VHS_CASSETTE_7.getTranslationKey(),
+                    ModItems.VHS_CASSETTE_8.getTranslationKey(),
+                    ModItems.VHS_CASSETTE_9.getTranslationKey()
+            };
+        }
+        return VHS_DISC_KEYS;
+    }
 
     @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {
@@ -77,6 +94,10 @@ public class TelevisionBlock extends Block {
 
     public TelevisionBlock(Settings settings) {
         super(settings);
+        this.setDefaultState(this.stateManager.getDefaultState()
+                .with(FACING, Direction.NORTH)
+                .with(WATERLOGGED, false)
+                .with(CHANNEL, 0));
     }
 
     public static final VoxelShape Z_SHAPE = Block.createCuboidShape(3, 0, 0, 13, 12, 16);
@@ -116,81 +137,54 @@ public class TelevisionBlock extends Block {
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         if (player.isSneaking()) {
             if (!world.isClient) {
-                ServerWorld serverWorld = (ServerWorld) world;
-                SignalTrackingArray tracker = SignalTrackingArray.get(serverWorld);
                 if (state.getBlock().equals(ModBlocks.TELEVISION)) {
-                    if (ModConfigs.ALL_SIGNALS_UNLOCKED || world.getBlockState(pos.up()).isOf(ModBlocks.INTERDIMENSIONAL_RECEIVER)) {
-                        world.setBlockState(pos, ModBlocks.TELEVISION_ON.getStateWithProperties(state));
-                    } else if (tracker.hasAnySignals()) {
-                        if (tracker.hasSignal(ModItems.VHS_CASSETTE_1.getTranslationKey()) && state.get(CHANNEL) <= 1) {
-                            world.setBlockState(pos, ModBlocks.TELEVISION_ON.getStateWithProperties(state).with(CHANNEL, 1));
-                        } else if (tracker.hasSignal(ModItems.VHS_CASSETTE_2.getTranslationKey()) && state.get(CHANNEL) <= 2) {
-                            world.setBlockState(pos, ModBlocks.TELEVISION_ON.getStateWithProperties(state).with(CHANNEL, 2));
-                        } else if (tracker.hasSignal(ModItems.VHS_CASSETTE_3.getTranslationKey()) && state.get(CHANNEL) <= 3) {
-                            world.setBlockState(pos, ModBlocks.TELEVISION_ON.getStateWithProperties(state).with(CHANNEL, 3));
-                        } else if (tracker.hasSignal(ModItems.VHS_CASSETTE_4.getTranslationKey()) && state.get(CHANNEL) <= 4) {
-                            world.setBlockState(pos, ModBlocks.TELEVISION_ON.getStateWithProperties(state).with(CHANNEL, 4));
-                        } else if (tracker.hasSignal(ModItems.VHS_CASSETTE_5.getTranslationKey()) && state.get(CHANNEL) <= 5) {
-                            world.setBlockState(pos, ModBlocks.TELEVISION_ON.getStateWithProperties(state).with(CHANNEL, 5));
-                        } else if (tracker.hasSignal(ModItems.VHS_CASSETTE_6.getTranslationKey()) && state.get(CHANNEL) <= 6) {
-                            world.setBlockState(pos, ModBlocks.TELEVISION_ON.getStateWithProperties(state).with(CHANNEL, 6));
-                        } else if (tracker.hasSignal(ModItems.VHS_CASSETTE_7.getTranslationKey()) && state.get(CHANNEL) <= 7) {
-                            world.setBlockState(pos, ModBlocks.TELEVISION_ON.getStateWithProperties(state).with(CHANNEL, 7));
-                        } else if (tracker.hasSignal(ModItems.VHS_CASSETTE_8.getTranslationKey()) && state.get(CHANNEL) <= 8) {
-                            world.setBlockState(pos, ModBlocks.TELEVISION_ON.getStateWithProperties(state).with(CHANNEL, 8));
-                        } else if (tracker.hasSignal(ModItems.VHS_CASSETTE_9.getTranslationKey()) && state.get(CHANNEL) <= 9) {
-                            world.setBlockState(pos, ModBlocks.TELEVISION_ON.getStateWithProperties(state).with(CHANNEL, 9));
-                        } else {
-                            world.setBlockState(pos, ModBlocks.TELEVISION_ON.getStateWithProperties(state).with(CHANNEL, 0));
-                        }
-                    } else {
-                        world.setBlockState(pos, ModBlocks.TELEVISION_ON.getStateWithProperties(state).with(CHANNEL, 0));
-                    }
-                } else {
-                    world.setBlockState(pos, ModBlocks.TELEVISION.getStateWithProperties(state));
-                }
-                world.playSound(null, pos, ModSounds.BLOCK_TELEVISION_SWITCH_CHANNEL, SoundCategory.BLOCKS, 1.0f, 1.0f);
-            }
-            return ActionResult.SUCCESS;
-        } else {
-            if (state.getBlock().equals(ModBlocks.TELEVISION_ON)) {
-                if (!world.isClient) {
                     ServerWorld serverWorld = (ServerWorld) world;
                     SignalTrackingArray tracker = SignalTrackingArray.get(serverWorld);
+                    int channel = 0;
                     if (ModConfigs.ALL_SIGNALS_UNLOCKED || world.getBlockState(pos.up()).isOf(ModBlocks.INTERDIMENSIONAL_RECEIVER)) {
-                        if (state.get(CHANNEL) == 9) {
-                            world.setBlockState(pos, ModBlocks.TELEVISION_ON.getStateWithProperties(state).with(CHANNEL,0));
-                        } else {
-                            world.setBlockState(pos, ModBlocks.TELEVISION_ON.getStateWithProperties(state).with(CHANNEL,state.get(CHANNEL)+1));
-                        }
-                        world.playSound(null, pos, ModSounds.BLOCK_TELEVISION_SWITCH_CHANNEL, SoundCategory.BLOCKS, 1.0f, 1.0f);
+                        channel = state.get(CHANNEL);
                     } else if (tracker.hasAnySignals()) {
-                        if (tracker.hasSignal(ModItems.VHS_CASSETTE_1.getTranslationKey()) && state.get(CHANNEL) < 1) {
-                            world.setBlockState(pos, ModBlocks.TELEVISION_ON.getStateWithProperties(state).with(CHANNEL,1));
-                        } else if (tracker.hasSignal(ModItems.VHS_CASSETTE_2.getTranslationKey()) && state.get(CHANNEL) < 2) {
-                            world.setBlockState(pos, ModBlocks.TELEVISION_ON.getStateWithProperties(state).with(CHANNEL,2));
-                        } else if (tracker.hasSignal(ModItems.VHS_CASSETTE_3.getTranslationKey()) && state.get(CHANNEL) < 3) {
-                            world.setBlockState(pos, ModBlocks.TELEVISION_ON.getStateWithProperties(state).with(CHANNEL,3));
-                        } else if (tracker.hasSignal(ModItems.VHS_CASSETTE_4.getTranslationKey()) && state.get(CHANNEL) < 4) {
-                            world.setBlockState(pos, ModBlocks.TELEVISION_ON.getStateWithProperties(state).with(CHANNEL,4));
-                        } else if (tracker.hasSignal(ModItems.VHS_CASSETTE_5.getTranslationKey()) && state.get(CHANNEL) < 5) {
-                            world.setBlockState(pos, ModBlocks.TELEVISION_ON.getStateWithProperties(state).with(CHANNEL,5));
-                        } else if (tracker.hasSignal(ModItems.VHS_CASSETTE_6.getTranslationKey()) && state.get(CHANNEL) < 6) {
-                            world.setBlockState(pos, ModBlocks.TELEVISION_ON.getStateWithProperties(state).with(CHANNEL,6));
-                        } else if (tracker.hasSignal(ModItems.VHS_CASSETTE_7.getTranslationKey()) && state.get(CHANNEL) < 7) {
-                            world.setBlockState(pos, ModBlocks.TELEVISION_ON.getStateWithProperties(state).with(CHANNEL,7));
-                        } else if (tracker.hasSignal(ModItems.VHS_CASSETTE_8.getTranslationKey()) && state.get(CHANNEL) < 8) {
-                            world.setBlockState(pos, ModBlocks.TELEVISION_ON.getStateWithProperties(state).with(CHANNEL,8));
-                        } else if (tracker.hasSignal(ModItems.VHS_CASSETTE_9.getTranslationKey()) && state.get(CHANNEL) < 9) {
-                            world.setBlockState(pos, ModBlocks.TELEVISION_ON.getStateWithProperties(state).with(CHANNEL,9));
-                        } else {
-                            world.setBlockState(pos, ModBlocks.TELEVISION_ON.getStateWithProperties(state).with(CHANNEL,0));
+                        for (int i = 0; i <= 9; i++) {
+                            if (tracker.hasSignal(getVHSDiscKeys()[i]) && state.get(CHANNEL) <= i) {
+                                channel = i;
+                                break;
+                            }
                         }
-                        world.playSound(null, pos, ModSounds.BLOCK_TELEVISION_SWITCH_CHANNEL, SoundCategory.BLOCKS, 1.0f, 1.0f);
                     }
+                    BlockState newState = ModBlocks.TELEVISION_ON.getStateWithProperties(state).with(CHANNEL, channel);
+                    world.setBlockState(pos, newState);
+                    world.playSound(null, pos, ModSounds.BLOCK_TELEVISION_SWITCH_CHANNEL, SoundCategory.BLOCKS, 1f, 1f);
+                } else if (state.getBlock().equals(ModBlocks.TELEVISION_ON)) {
+                    world.setBlockState(pos, ModBlocks.TELEVISION.getStateWithProperties(state));
+                    world.playSound(null, pos, ModSounds.BLOCK_TELEVISION_SWITCH_CHANNEL, SoundCategory.BLOCKS, 1f, 1f);
                 }
-                return ActionResult.SUCCESS;
             }
+            return ActionResult.SUCCESS;
+        }
+        else if (state.getBlock().equals(ModBlocks.TELEVISION_ON)) {
+            if (!world.isClient) {
+                ServerWorld serverWorld = (ServerWorld) world;
+                SignalTrackingArray tracker = SignalTrackingArray.get(serverWorld);
+                int currentChannel = state.get(CHANNEL);
+                int nextChannel = currentChannel;
+                if (ModConfigs.ALL_SIGNALS_UNLOCKED || world.getBlockState(pos.up()).isOf(ModBlocks.INTERDIMENSIONAL_RECEIVER)) {
+                    nextChannel = (currentChannel + 1) % 10;
+                } else if (tracker.hasAnySignals()) {
+                    for (int i = currentChannel + 1; i <= 9; i++) {
+                        if (tracker.hasSignal(getVHSDiscKeys()[i])) {
+                            nextChannel = i;
+                            break;
+                        }
+                    }
+                    if (nextChannel == currentChannel) nextChannel = 0;
+                }
+                if (nextChannel != currentChannel) {
+                    BlockState newState = ModBlocks.TELEVISION_ON.getStateWithProperties(state).with(CHANNEL, nextChannel);
+                    world.setBlockState(pos, newState);
+                    world.playSound(null, pos, ModSounds.BLOCK_TELEVISION_SWITCH_CHANNEL, SoundCategory.BLOCKS, 1f, 1f);
+                }
+            }
+            return ActionResult.SUCCESS;
         }
         return ActionResult.FAIL;
     }

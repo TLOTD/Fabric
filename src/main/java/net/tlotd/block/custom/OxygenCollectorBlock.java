@@ -15,6 +15,7 @@ import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.DirectionProperty;
 import net.minecraft.state.property.Properties;
+import net.minecraft.text.Style;
 import net.minecraft.text.Text;
 import net.minecraft.util.*;
 import net.minecraft.util.hit.BlockHitResult;
@@ -26,7 +27,6 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 import net.minecraft.world.WorldView;
-import net.tlotd.block.entity.MithrilAnvilBlockEntity;
 import net.tlotd.block.entity.ModBlockEntities;
 import net.tlotd.block.entity.OxygenCollectorBlockEntity;
 import net.tlotd.util.ModTags;
@@ -115,8 +115,15 @@ public class OxygenCollectorBlock extends BlockWithEntity implements BlockEntity
         return BlockRenderType.MODEL;
     }
 
+    public static final Identifier DEFAULT_FONT_ID = new Identifier("minecraft", "default");
+    public static final Identifier MODS_FONT_ID = new Identifier("tlotd", "mods");
+
     @Override
     public void appendTooltip(ItemStack stack, @Nullable BlockView world, List<Text> tooltip, TooltipContext options) {
+        Style style = this.getName().getStyle();
+        if (options.isCreative()){
+            tooltip.add(Text.literal("\uE015 ").setStyle(style.withFont(MODS_FONT_ID)).append(Text.translatable("mod.ad_astra.name").setStyle(style.withFont(DEFAULT_FONT_ID).withFormatting(Formatting.GRAY))));
+        }
         tooltip.add(Text.literal(""));
         tooltip.add(Text.translatable("block.tlotd.oxygen_collector.tooltip").formatted(Formatting.GRAY));
         tooltip.add(Text.literal(" ").append(Text.translatable("block.tlotd.oxygen_collector.tooltip_2")).formatted(Formatting.BLUE));

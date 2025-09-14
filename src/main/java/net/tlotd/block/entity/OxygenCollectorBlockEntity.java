@@ -8,6 +8,8 @@ import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventories;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.nbt.NbtElement;
+import net.minecraft.nbt.NbtList;
 import net.minecraft.network.PacketByteBuf;
 import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.ScreenHandler;
@@ -17,6 +19,7 @@ import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.tlotd.gui.OxygenCollectorGUIHandler;
+import net.tlotd.util.AdAstraOxygenNbtHelper;
 import net.tlotd.util.ModTags;
 import org.jetbrains.annotations.Nullable;
 
@@ -102,12 +105,10 @@ public class OxygenCollectorBlockEntity extends BlockEntity implements ExtendedS
     }
 
     private void fillOxygen() {
-        NbtCompound nbtData = new NbtCompound();
-        int next = 0;
-        if (this.getStack(0).hasNbt()) {
-            next = this.getStack(0).getNbt().getInt("tlotd:oxygen");
-        }
-        nbtData.putInt("tlotd:oxygen", Math.min(next+quality, 1000));
-        this.getStack(0).setNbt(nbtData);
+        ItemStack stack = this.getStack(0);
+        if (stack.isEmpty()) return;
+        long current = AdAstraOxygenNbtHelper.getOxygen(stack);
+        long next = Math.min(current + (quality * 81L), AdAstraOxygenNbtHelper.MAX_AMOUNT);
+        AdAstraOxygenNbtHelper.setOxygen(stack, next);
     }
 }

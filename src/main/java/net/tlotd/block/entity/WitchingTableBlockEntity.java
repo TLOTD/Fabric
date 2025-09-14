@@ -275,8 +275,8 @@ public class WitchingTableBlockEntity extends BlockEntity implements ExtendedScr
 
     private boolean witchingTableBase() {
         return (world.getBlockState(pos.add(-1,-1,-1)).isIn(ModTags.Blocks.WITCHING_TABLE_BASE_BLOCKS) && world.getBlockState(pos.add(0,-1,-1)).isIn(ModTags.Blocks.WITCHING_TABLE_BASE_BLOCKS) && world.getBlockState(pos.add(1,-1,-1)).isIn(ModTags.Blocks.WITCHING_TABLE_BASE_BLOCKS)
-        && world.getBlockState(pos.add(-1,-1,0)).isIn(ModTags.Blocks.WITCHING_TABLE_BASE_BLOCKS) && world.getBlockState(pos.add(0,-1,0)).isIn(ModTags.Blocks.WITCHING_TABLE_BASE_BLOCKS) && world.getBlockState(pos.add(1,-1,0)).isIn(ModTags.Blocks.WITCHING_TABLE_BASE_BLOCKS)
-        && world.getBlockState(pos.add(-1,-1,1)).isIn(ModTags.Blocks.WITCHING_TABLE_BASE_BLOCKS) && world.getBlockState(pos.add(0,-1,1)).isIn(ModTags.Blocks.WITCHING_TABLE_BASE_BLOCKS) && world.getBlockState(pos.add(1,-1,1)).isIn(ModTags.Blocks.WITCHING_TABLE_BASE_BLOCKS));
+                && world.getBlockState(pos.add(-1,-1,0)).isIn(ModTags.Blocks.WITCHING_TABLE_BASE_BLOCKS) && world.getBlockState(pos.add(0,-1,0)).isIn(ModTags.Blocks.WITCHING_TABLE_BASE_BLOCKS) && world.getBlockState(pos.add(1,-1,0)).isIn(ModTags.Blocks.WITCHING_TABLE_BASE_BLOCKS)
+                && world.getBlockState(pos.add(-1,-1,1)).isIn(ModTags.Blocks.WITCHING_TABLE_BASE_BLOCKS) && world.getBlockState(pos.add(0,-1,1)).isIn(ModTags.Blocks.WITCHING_TABLE_BASE_BLOCKS) && world.getBlockState(pos.add(1,-1,1)).isIn(ModTags.Blocks.WITCHING_TABLE_BASE_BLOCKS));
     }
 
     private boolean spaceForFluid() {
@@ -357,11 +357,11 @@ public class WitchingTableBlockEntity extends BlockEntity implements ExtendedScr
     }
 
     private boolean hasFluidBottleInSlot() {
-        return this.getStack(9).getItem() == ModItems.BLOOD_BOTTLE;
+        return this.getStack(9).isIn(ModTags.Items.BLOOD_BOTTLES);
     }
 
     private boolean hasFluidBucketInSlot() {
-        return this.getStack(9).getItem() == ModFluids.BLOOD_BUCKET;
+        return this.getStack(9).isIn(ModTags.Items.BLOOD_BUCKETS);
     }
 
     private void transferFluidBottleToStorage() {

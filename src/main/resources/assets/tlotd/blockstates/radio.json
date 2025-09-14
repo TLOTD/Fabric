@@ -137,6 +137,71 @@
     "facing=south,wood_type=15,modded=true":{"model":"tlotd:block/compat/alexscaves/thornwood_radio"},
     "facing=west,wood_type=15,modded=true":{"model":"tlotd:block/compat/alexscaves/thornwood_radio","y":90},
     "facing=north,wood_type=15,modded=true":{"model":"tlotd:block/compat/alexscaves/thornwood_radio","y":180},
-    "facing=east,wood_type=15,modded=true":{"model":"tlotd:block/compat/alexscaves/thornwood_radio","y":270}
+    "facing=east,wood_type=15,modded=true":{"model":"tlotd:block/compat/alexscaves/thornwood_radio","y":270},
+
+    "facing=south,wood_type=16,modded=true":{"model":"tlotd:block/compat/biomesoplenty/fir_radio"},
+    "facing=west,wood_type=16,modded=true":{"model":"tlotd:block/compat/biomesoplenty/fir_radio","y":90},
+    "facing=north,wood_type=16,modded=true":{"model":"tlotd:block/compat/biomesoplenty/fir_radio","y":180},
+    "facing=east,wood_type=16,modded=true":{"model":"tlotd:block/compat/biomesoplenty/fir_radio","y":270},
+
+    "facing=south,wood_type=17,modded=true":{"model":"tlotd:block/compat/biomesoplenty/pine_radio"},
+    "facing=west,wood_type=17,modded=true":{"model":"tlotd:block/compat/biomesoplenty/pine_radio","y":90},
+    "facing=north,wood_type=17,modded=true":{"model":"tlotd:block/compat/biomesoplenty/pine_radio","y":180},
+    "facing=east,wood_type=17,modded=true":{"model":"tlotd:block/compat/biomesoplenty/pine_radio","y":270},
+
+    "facing=south,wood_type=18,modded=true":{"model":"tlotd:block/compat/biomesoplenty/maple_radio"},
+    "facing=west,wood_type=18,modded=true":{"model":"tlotd:block/compat/biomesoplenty/maple_radio","y":90},
+    "facing=north,wood_type=18,modded=true":{"model":"tlotd:block/compat/biomesoplenty/maple_radio","y":180},
+    "facing=east,wood_type=18,modded=true":{"model":"tlotd:block/compat/biomesoplenty/maple_radio","y":270},
+
+    "facing=south,wood_type=19,modded=true":{"model":"tlotd:block/compat/biomesoplenty/redwood_radio"},
+    "facing=west,wood_type=19,modded=true":{"model":"tlotd:block/compat/biomesoplenty/redwood_radio","y":90},
+    "facing=north,wood_type=19,modded=true":{"model":"tlotd:block/compat/biomesoplenty/redwood_radio","y":180},
+    "facing=east,wood_type=19,modded=true":{"model":"tlotd:block/compat/biomesoplenty/redwood_radio","y":270},
+
+    "facing=south,wood_type=20,modded=true":{"model":"tlotd:block/compat/biomesoplenty/mahogany_radio"},
+    "facing=west,wood_type=20,modded=true":{"model":"tlotd:block/compat/biomesoplenty/mahogany_radio","y":90},
+    "facing=north,wood_type=20,modded=true":{"model":"tlotd:block/compat/biomesoplenty/mahogany_radio","y":180},
+    "facing=east,wood_type=20,modded=true":{"model":"tlotd:block/compat/biomesoplenty/mahogany_radio","y":270},
+
+    "facing=south,wood_type=21,modded=true":{"model":"tlotd:block/compat/biomesoplenty/jacaranda_radio"},
+    "facing=west,wood_type=21,modded=true":{"model":"tlotd:block/compat/biomesoplenty/jacaranda_radio","y":90},
+    "facing=north,wood_type=21,modded=true":{"model":"tlotd:block/compat/biomesoplenty/jacaranda_radio","y":180},
+    "facing=east,wood_type=21,modded=true":{"model":"tlotd:block/compat/biomesoplenty/jacaranda_radio","y":270},
+
+    "facing=south,wood_type=22,modded=true":{"model":"tlotd:block/compat/biomesoplenty/palm_radio"},
+    "facing=west,wood_type=22,modded=true":{"model":"tlotd:block/compat/biomesoplenty/palm_radio","y":90},
+    "facing=north,wood_type=22,modded=true":{"model":"tlotd:block/compat/biomesoplenty/palm_radio","y":180},
+    "facing=east,wood_type=22,modded=true":{"model":"tlotd:block/compat/biomesoplenty/palm_radio","y":270},
+
+    "facing=south,wood_type=23,modded=true":{"model":"tlotd:block/compat/biomesoplenty/willow_radio"},
+    "facing=west,wood_type=23,modded=true":{"model":"tlotd:block/compat/biomesoplenty/willow_radio","y":90},
+    "facing=north,wood_type=23,modded=true":{"model":"tlotd:block/compat/biomesoplenty/willow_radio","y":180},
+    "facing=east,wood_type=23,modded=true":{"model":"tlotd:block/compat/biomesoplenty/willow_radio","y":270},
+
+    "facing=south,wood_type=24,modded=true":{"model":"tlotd:block/compat/biomesoplenty/dead_radio"},
+    "facing=west,wood_type=24,modded=true":{"model":"tlotd:block/compat/biomesoplenty/dead_radio","y":90},
+    "facing=north,wood_type=24,modded=true":{"model":"tlotd:block/compat/biomesoplenty/dead_radio","y":180},
+    "facing=east,wood_type=24,modded=true":{"model":"tlotd:block/compat/biomesoplenty/dead_radio","y":270},
+
+    "facing=south,wood_type=25,modded=true":{"model":"tlotd:block/compat/biomesoplenty/magic_radio"},
+    "facing=west,wood_type=25,modded=true":{"model":"tlotd:block/compat/biomesoplenty/magic_radio","y":90},
+    "facing=north,wood_type=25,modded=true":{"model":"tlotd:block/compat/biomesoplenty/magic_radio","y":180},
+    "facing=east,wood_type=25,modded=true":{"model":"tlotd:block/compat/biomesoplenty/magic_radio","y":270},
+
+    "facing=south,wood_type=26,modded=true":{"model":"tlotd:block/compat/biomesoplenty/umbran_radio"},
+    "facing=west,wood_type=26,modded=true":{"model":"tlotd:block/compat/biomesoplenty/umbran_radio","y":90},
+    "facing=north,wood_type=26,modded=true":{"model":"tlotd:block/compat/biomesoplenty/umbran_radio","y":180},
+    "facing=east,wood_type=26,modded=true":{"model":"tlotd:block/compat/biomesoplenty/umbran_radio","y":270},
+
+    "facing=south,wood_type=27,modded=true":{"model":"tlotd:block/compat/biomesoplenty/hellbark_radio"},
+    "facing=west,wood_type=27,modded=true":{"model":"tlotd:block/compat/biomesoplenty/hellbark_radio","y":90},
+    "facing=north,wood_type=27,modded=true":{"model":"tlotd:block/compat/biomesoplenty/hellbark_radio","y":180},
+    "facing=east,wood_type=27,modded=true":{"model":"tlotd:block/compat/biomesoplenty/hellbark_radio","y":270},
+
+    "facing=south,wood_type=28,modded=true":{"model":"tlotd:block/compat/biomesoplenty/empyreal_radio"},
+    "facing=west,wood_type=28,modded=true":{"model":"tlotd:block/compat/biomesoplenty/empyreal_radio","y":90},
+    "facing=north,wood_type=28,modded=true":{"model":"tlotd:block/compat/biomesoplenty/empyreal_radio","y":180},
+    "facing=east,wood_type=28,modded=true":{"model":"tlotd:block/compat/biomesoplenty/empyreal_radio","y":270}
   }
 }

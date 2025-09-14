@@ -5,6 +5,10 @@
       "item": "tlotd:tinted_glass_flask"
     }
   ],
+  "fluid": {
+    "tag": "c:blood",
+    "amount": 250
+  },
   "output": {
     "item": "tlotd:cursed_soul_flask"
   }

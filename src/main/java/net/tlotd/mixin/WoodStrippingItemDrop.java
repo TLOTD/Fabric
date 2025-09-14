@@ -50,6 +50,10 @@ public abstract class WoodStrippingItemDrop {
                 bark = ModItems.THORNWOOD_BARK.getDefaultStack();
             } else if (name.contains("biomesoplenty") && name.contains("fir")) {
                 bark = ModItems.FIR_BARK.getDefaultStack();
+            } else if (name.contains("biomesoplenty") && name.contains("pine")) {
+                bark = ModItems.PINE_BARK.getDefaultStack();
+            } else if (name.contains("biomesoplenty") && name.contains("maple")) {
+                bark = ModItems.MAPLE_BARK.getDefaultStack();
             } else if (name.contains("biomesoplenty") && name.contains("redwood")) {
                 bark = ModItems.REDWOOD_BARK.getDefaultStack();
             } else if (name.contains("biomesoplenty") && name.contains("mahogany")) {
@@ -68,6 +72,8 @@ public abstract class WoodStrippingItemDrop {
                 bark = ModItems.UMBRAN_BARK.getDefaultStack();
             } else if (name.contains("biomesoplenty") && name.contains("hellbark")) {
                 bark = ModItems.HELLBARK_BARK.getDefaultStack();
+            } else if (name.contains("biomesoplenty") && name.contains("empyreal")) {
+                bark = ModItems.EMPYREAL_BARK.getDefaultStack();
             } else if (name.contains("quark") && name.contains("ancient")) {
                 bark = ModItems.ASHEN_BARK.getDefaultStack();
             } else if (name.contains("quark") && name.contains("azalea")) {

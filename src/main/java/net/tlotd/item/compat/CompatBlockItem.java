@@ -62,6 +62,9 @@ public class CompatBlockItem extends BlockItem {
             if (compat.contains("wsm")) {
                 tooltip.add(Text.literal("\uE012 ").setStyle(style.withFont(MODS_FONT_ID)).append(Text.translatable("mod.witherstormmod.name").setStyle(style.withFont(DEFAULT_FONT_ID).withFormatting(Formatting.GRAY))));
             }
+            if (compat.contains("ast")) {
+                tooltip.add(Text.literal("\uE015 ").setStyle(style.withFont(MODS_FONT_ID)).append(Text.translatable("mod.ad_astra.name").setStyle(style.withFont(DEFAULT_FONT_ID).withFormatting(Formatting.GRAY))));
+            }
             super.appendTooltip(stack, world, tooltip, context);
         }
     }

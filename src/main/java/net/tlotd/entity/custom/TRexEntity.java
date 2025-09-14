@@ -73,7 +73,7 @@ public class TRexEntity extends AnimalEntity implements VariantHolder<TRexVarian
 
     private void setupAnimationStates() {
         if (this.idleAnimationTimeout <= 0) {
-            this.idleAnimationTimeout = this.random.nextInt(40) + 80;
+            this.idleAnimationTimeout = 90;
             this.idleAnimationState.start(this.age);
         } else {
             --this.idleAnimationTimeout;
@@ -203,9 +203,6 @@ public class TRexEntity extends AnimalEntity implements VariantHolder<TRexVarian
     @Override
     public EntityData initialize(ServerWorldAccess world, LocalDifficulty difficulty, SpawnReason spawnReason, @Nullable EntityData entityData, @Nullable NbtCompound entityNbt) {
         boolean bl = false;
-        if (spawnReason == SpawnReason.BUCKET) {
-            return entityData;
-        }
         Random random = world.getRandom();
         if (entityData instanceof TRexData) {
             if (((TRexData)entityData).getSpawnedCount() >= 2) {

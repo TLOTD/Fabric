@@ -63,19 +63,25 @@ public class AbyssFlaskItem extends Item {
     }
 
     @Override
+    public Text getName(ItemStack stack) {
+        return Text.translatable(this.getTranslationKey()).styled(style -> style.withColor(0x3C009C));
+    }
+    
+    @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
+        Style style = getName().getStyle();
         if (Screen.hasShiftDown()) {
             tooltip.add(Text.translatable("item.tlotd.soul_flask_of_the_abyss.tooltip").formatted(Formatting.GRAY));
             tooltip.add(Text.translatable("item.tlotd.soul_flask_of_the_abyss.tooltip_2").formatted(Formatting.GRAY));
             tooltip.add(Text.translatable("item.tlotd.soul_flask_of_the_abyss.tooltip_3").formatted(Formatting.GRAY));
             tooltip.add(Text.translatable("item.tlotd.soul_flask_of_the_abyss.tooltip_4").formatted(Formatting.GRAY));
         } else {
-            Style style = getName().getStyle();
             tooltip.add(Text.literal("Und wenn du lange in").setStyle(style.withFont(ILLAGER_FONT_ID)).formatted(Formatting.GRAY));
             tooltip.add(Text.literal("einen Abgrund blickst").setStyle(style.withFont(ILLAGER_FONT_ID)).formatted(Formatting.GRAY).append(Text.literal(",").setStyle(style.withFont(DEFAULT_FONT_ID)).formatted(Formatting.GRAY)));
             tooltip.add(Text.literal("blickt der Abgrund").setStyle(style.withFont(ILLAGER_FONT_ID)).formatted(Formatting.GRAY));
             tooltip.add(Text.literal("auch in dich hinein").setStyle(style.withFont(ILLAGER_FONT_ID)).formatted(Formatting.GRAY).append(Text.literal(",").setStyle(style.withFont(DEFAULT_FONT_ID)).formatted(Formatting.GRAY)));
         }
+        tooltip.add(Text.translatable("item.tlotd.desc_eldritch").setStyle(style.withColor(0x3C009C)));
         super.appendTooltip(stack, world, tooltip, context);
     }
 }

@@ -60,6 +60,22 @@
       "required": false
     },
     {
+      "id": "biomesoplenty:pine_log",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:pine_wood",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:maple_log",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:maple_wood",
+      "required": false
+    },
+    {
       "id": "biomesoplenty:redwood_log",
       "required": false
     },
@@ -129,6 +145,14 @@
     },
     {
       "id": "biomesoplenty:hellbark_wood",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:empyreal_log",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:empyreal_wood",
       "required": false
     },
     {

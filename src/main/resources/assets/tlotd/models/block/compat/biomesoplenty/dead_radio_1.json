@@ -1,0 +1,9 @@
+{
+	"parent": "tlotd:block/template_radio_on",
+	"textures": {
+		"0": "biomesoplenty:block/dead_log",
+		"1": "biomesoplenty:block/stripped_dead_log",
+		"3": "tlotd:block/radio/frequency1",
+		"particle": "biomesoplenty:block/dead_log"
+	}
+}

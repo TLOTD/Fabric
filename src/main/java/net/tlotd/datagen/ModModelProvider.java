@@ -94,6 +94,10 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.MEGAREGOLITH_COAL_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.MEGAREGOLITH_IRON_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.MEGAREGOLITH_LUNAR_CALLAINUS_ORE);
+        BlockStateModelGenerator.BlockTexturePool megaregolithBrickPool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.MEGAREGOLITH_BRICKS);
+        megaregolithBrickPool.stairs(ModBlocks.MEGAREGOLITH_BRICK_STAIRS);
+        megaregolithBrickPool.slab(ModBlocks.MEGAREGOLITH_BRICK_SLAB);
+        megaregolithBrickPool.wall(ModBlocks.MEGAREGOLITH_BRICK_WALL);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.LUNAR_BEDROCK);
 
         BlockStateModelGenerator.BlockTexturePool alienPool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.ALIEN_BRICKS);
@@ -258,6 +262,8 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.THORNWOOD_BARK, Models.GENERATED);
 
         itemModelGenerator.register(ModItems.FIR_BARK, Models.GENERATED);
+        itemModelGenerator.register(ModItems.PINE_BARK, Models.GENERATED);
+        itemModelGenerator.register(ModItems.MAPLE_BARK, Models.GENERATED);
         itemModelGenerator.register(ModItems.REDWOOD_BARK, Models.GENERATED);
         itemModelGenerator.register(ModItems.MAHOGANY_BARK, Models.GENERATED);
         itemModelGenerator.register(ModItems.JACARANCA_BARK, Models.GENERATED);
@@ -267,6 +273,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.MAGIC_BARK, Models.GENERATED);
         itemModelGenerator.register(ModItems.UMBRAN_BARK, Models.GENERATED);
         itemModelGenerator.register(ModItems.HELLBARK_BARK, Models.GENERATED);
+        itemModelGenerator.register(ModItems.EMPYREAL_BARK, Models.GENERATED);
 
         itemModelGenerator.register(ModItems.ASHEN_BARK, Models.GENERATED);
         itemModelGenerator.register(ModItems.AZALEA_BARK, Models.GENERATED);

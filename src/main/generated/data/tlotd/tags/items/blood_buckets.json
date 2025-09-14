@@ -1,0 +1,14 @@
+{
+  "replace": false,
+  "values": [
+    "tlotd:blood_bucket",
+    {
+      "id": "biomesoplenty:blood_bucket",
+      "required": false
+    },
+    {
+      "id": "neepmeat:blood_bucket",
+      "required": false
+    }
+  ]
+}

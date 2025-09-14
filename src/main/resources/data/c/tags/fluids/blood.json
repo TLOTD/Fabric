@@ -1,0 +1,15 @@
+{
+  "replace": false,
+  "values": [
+    "tlotd:blood",
+    "tlotd:flowing_blood",
+    {
+      "id": "biomesoplenty:blood",
+      "required": false
+    },
+    {
+      "id": "neepmeat:blood",
+      "required": false
+    }
+  ]
+}

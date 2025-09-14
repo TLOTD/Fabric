@@ -15,6 +15,7 @@ import net.minecraft.village.raid.Raid;
 import net.tlotd.TLOTD;
 import net.tlotd.block.ModBlocks;
 import net.tlotd.fluid.ModFluids;
+import net.tlotd.util.AdAstraOxygenNbtHelper;
 
 public class ModItemGroups {
 
@@ -34,7 +35,7 @@ public class ModItemGroups {
                         entries.add(ModItems.DRAGON_BANNER_PATTERN);
                         entries.add(ModItems.LOTR_BANNER_PATTERN);
 
-                        entries.add(ModItems.OXYGEN_TANK);
+                        entries.add(addOxygenItem(ModItems.OXYGEN_TANK));
 
                         entries.add(ModFluids.BEER_BUCKET);
                         entries.add(ModFluids.MEAD_BUCKET);
@@ -246,6 +247,8 @@ public class ModItemGroups {
                         entries.add(ModItems.THORNWOOD_BARK);
 
                         entries.add(ModItems.FIR_BARK);
+                        entries.add(ModItems.PINE_BARK);
+                        entries.add(ModItems.MAPLE_BARK);
                         entries.add(ModItems.REDWOOD_BARK);
                         entries.add(ModItems.MAHOGANY_BARK);
                         entries.add(ModItems.JACARANCA_BARK);
@@ -255,6 +258,7 @@ public class ModItemGroups {
                         entries.add(ModItems.MAGIC_BARK);
                         entries.add(ModItems.UMBRAN_BARK);
                         entries.add(ModItems.HELLBARK_BARK);
+                        entries.add(ModItems.EMPYREAL_BARK);
 
                         entries.add(ModItems.ASHEN_BARK);
                         entries.add(ModItems.AZALEA_BARK);
@@ -277,6 +281,8 @@ public class ModItemGroups {
             FabricItemGroup.builder().displayName(Text.literal("\uE000 ").styled(style -> style.withFont(MODS_FONT_ID)).append(Text.translatable("itemgroup.tlotd.weapons_tools_and_utilities").styled(style -> style.withFont(DEFAULT_FONT_ID))))
                     .icon(() -> new ItemStack(ModItems.ENDURIUM_PAXEL)).entries((displayContext, entries) -> {
 
+                        entries.add(ModItems.EMF_READER);
+
                         entries.add(ModItems.MONOCLE);
                         entries.add(ModItems.VICTORIAN_SUIT);
                         entries.add(ModItems.VICTORIAN_PANTS);
@@ -288,7 +294,7 @@ public class ModItemGroups {
                         entries.add(ModItems.IMPERIAL_GERMAN_UNIFORM_BOOTS);
 
                         entries.add(ModItems.ASTRONAUT_HELMET);
-                        entries.add(ModItems.SPACE_SUIT_CHESTPLATE);
+                        entries.add(addOxygenItem(ModItems.SPACE_SUIT_CHESTPLATE));
                         entries.add(ModItems.SPACE_SUIT_LEGGINGS);
                         entries.add(ModItems.SPACE_SUIT_BOOTS);
 
@@ -511,6 +517,7 @@ public class ModItemGroups {
                         entries.add(ModBlocks.PLAYER_PLUSHIE);
 
                         entries.add(ModBlocks.TREX_EGG);
+                        entries.add(ModBlocks.INFECTED_TREX_EGG);
                         entries.add(ModBlocks.TREX_HEAD);
                         entries.add(ModBlocks.GREEN_TREX_HEAD);
                         entries.add(ModBlocks.GRAY_TREX_HEAD);
@@ -554,6 +561,10 @@ public class ModItemGroups {
                         entries.add(ModBlocks.MEGAREGOLITH_COAL_ORE);
                         entries.add(ModBlocks.MEGAREGOLITH_IRON_ORE);
                         entries.add(ModBlocks.MEGAREGOLITH_LUNAR_CALLAINUS_ORE);
+                        entries.add(ModBlocks.MEGAREGOLITH_BRICKS);
+                        entries.add(ModBlocks.MEGAREGOLITH_BRICK_STAIRS);
+                        entries.add(ModBlocks.MEGAREGOLITH_BRICK_SLAB);
+                        entries.add(ModBlocks.MEGAREGOLITH_BRICK_WALL);
                         entries.add(ModBlocks.LUNAR_BEDROCK);
 
                         entries.add(ModBlocks.ALIEN_GATE);
@@ -850,6 +861,7 @@ public class ModItemGroups {
                         entries.add(ModBlocks.WOODEN_TORCHBERRY_MILKSHAKE_STEIN);
                         entries.add(ModItems.BIOLOGICAL_CIRCUIT_BOARD);
                         entries.add(ModItems.INFECTED_TREX_SPAWN_EGG);
+                        entries.add(ModBlocks.INFECTED_TREX_EGG);
                         entries.add(ModBlocks.INFECTED_TREX_HEAD);
                         entries.add(ModBlocks.SCULK_TREX_HEAD);
                         entries.add(ModBlocks.SICKENED_TREX_HEAD);
@@ -862,6 +874,8 @@ public class ModItemGroups {
                         entries.add(ModItems.PEWEN_BARK);
                         entries.add(ModItems.THORNWOOD_BARK);
                         entries.add(ModItems.FIR_BARK);
+                        entries.add(ModItems.PINE_BARK);
+                        entries.add(ModItems.MAPLE_BARK);
                         entries.add(ModItems.REDWOOD_BARK);
                         entries.add(ModItems.MAHOGANY_BARK);
                         entries.add(ModItems.JACARANCA_BARK);
@@ -871,6 +885,7 @@ public class ModItemGroups {
                         entries.add(ModItems.MAGIC_BARK);
                         entries.add(ModItems.UMBRAN_BARK);
                         entries.add(ModItems.HELLBARK_BARK);
+                        entries.add(ModItems.EMPYREAL_BARK);
                         entries.add(ModItems.ASHEN_BARK);
                         entries.add(ModItems.AZALEA_BARK);
                         entries.add(ModItems.TRUMPET_BARK);
@@ -884,21 +899,6 @@ public class ModItemGroups {
                         entries.add(ModItems.MINEWOOD_BARK);
                         entries.add(ModItems.SORTINGWOOD_BARK);
                     }).build());
-
-    public static ItemStack addBanner(String patternName, Item baseBanner, int color) {
-        ItemStack itemStack = new ItemStack(baseBanner);
-        NbtCompound nbtCompound = new NbtCompound();
-        NbtCompound pattern = new NbtCompound();
-        pattern.putString("Pattern", patternName);
-        pattern.putInt("Color", color);
-        NbtList nbtList = new NbtList();
-        nbtList.add(pattern);
-        nbtCompound.put("Patterns", nbtList);
-        BlockItem.setBlockEntityNbt(itemStack, BlockEntityType.BANNER, nbtCompound);
-        itemStack.addHideFlag(ItemStack.TooltipSection.ADDITIONAL);
-        itemStack.setCustomName(Text.translatable("block.tlotd." + patternName + "_banner").formatted(Formatting.GOLD));
-        return itemStack;
-    }
 
     public static void registerItemGroups(){
 
@@ -1095,4 +1095,24 @@ public class ModItemGroups {
         TLOTD.LOGGER.info("Registering Item Groups for " + TLOTD.MOD_ID);
     }
 
+    public static ItemStack addOxygenItem(Item baseBanner) {
+        ItemStack itemStack = new ItemStack(baseBanner);
+        AdAstraOxygenNbtHelper.setOxygen(itemStack, AdAstraOxygenNbtHelper.MAX_AMOUNT);
+        return itemStack;
+    }
+
+    public static ItemStack addBanner(String patternName, Item baseBanner, int color) {
+        ItemStack itemStack = new ItemStack(baseBanner);
+        NbtCompound nbtCompound = new NbtCompound();
+        NbtCompound pattern = new NbtCompound();
+        pattern.putString("Pattern", patternName);
+        pattern.putInt("Color", color);
+        NbtList nbtList = new NbtList();
+        nbtList.add(pattern);
+        nbtCompound.put("Patterns", nbtList);
+        BlockItem.setBlockEntityNbt(itemStack, BlockEntityType.BANNER, nbtCompound);
+        itemStack.addHideFlag(ItemStack.TooltipSection.ADDITIONAL);
+        itemStack.setCustomName(Text.translatable("block.tlotd." + patternName + "_banner").formatted(Formatting.GOLD));
+        return itemStack;
+    }
 }

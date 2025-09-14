@@ -24,8 +24,10 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldEvents;
 import net.minecraft.world.event.GameEvent;
+import net.tlotd.block.ModBlocks;
 import net.tlotd.entity.ModEntities;
 import net.tlotd.entity.client.variant.TRexVariant;
+import net.tlotd.entity.custom.InfectedTRexEntity;
 import net.tlotd.entity.custom.TRexEntity;
 
 public class TRexEggBlock extends Block {
@@ -68,13 +70,23 @@ public class TRexEggBlock extends Block {
         }
         world.playSound(null, pos, SoundEvents.BLOCK_SNIFFER_EGG_HATCH, SoundCategory.BLOCKS, 0.7f, 0.9f + random.nextFloat() * 0.2f);
         world.breakBlock(pos, false);
-        TRexEntity trexEntity = ModEntities.TREX.create(world);
-        if (trexEntity != null) {
-            Vec3d vec3d = pos.toCenterPos();
-            trexEntity.setBaby(true);
-            trexEntity.setVariant(TRexVariant.getRandomNatural(random));
-            trexEntity.refreshPositionAndAngles(vec3d.getX(), vec3d.getY(), vec3d.getZ(), MathHelper.wrapDegrees(world.random.nextFloat() * 360.0f), 0.0f);
-            world.spawnEntity(trexEntity);
+        if (state.isOf(ModBlocks.INFECTED_TREX_EGG)) {
+            InfectedTRexEntity trexEntity = ModEntities.INFECTED_TREX.create(world);
+            if (trexEntity != null) {
+                Vec3d vec3d = pos.toCenterPos();
+                trexEntity.setBaby(true);
+                trexEntity.refreshPositionAndAngles(vec3d.getX(), vec3d.getY(), vec3d.getZ(), MathHelper.wrapDegrees(world.random.nextFloat() * 360.0f), 0.0f);
+                world.spawnEntity(trexEntity);
+            }
+        } else {
+            TRexEntity trexEntity = ModEntities.TREX.create(world);
+            if (trexEntity != null) {
+                Vec3d vec3d = pos.toCenterPos();
+                trexEntity.setBaby(true);
+                trexEntity.setVariant(TRexVariant.getRandomNatural(random));
+                trexEntity.refreshPositionAndAngles(vec3d.getX(), vec3d.getY(), vec3d.getZ(), MathHelper.wrapDegrees(world.random.nextFloat() * 360.0f), 0.0f);
+                world.spawnEntity(trexEntity);
+            }
         }
     }
 

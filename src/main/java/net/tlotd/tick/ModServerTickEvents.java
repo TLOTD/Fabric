@@ -44,7 +44,9 @@ public class ModServerTickEvents {
                         extinguishFireBlocksAroundPlayer(player.getServerWorld(), player);
                     }
                 }
-                handleDimensionTransfer(player);
+                if (tickCounter % 20 == 0) {
+                    handleDimensionTransfer(player);
+                }
             }
         });
     }

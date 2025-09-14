@@ -43,6 +43,7 @@ public class BiologicalCircuitBoardItem extends Item {
         if (context.isCreative()){
             tooltip.add(Text.literal("\uE013 ").setStyle(Style.EMPTY.withFont(MODS_FONT_ID)).append(Text.translatable("mod.biomancy.name").setStyle(Style.EMPTY.withFont(DEFAULT_FONT_ID).withFormatting(Formatting.GRAY))));
             tooltip.add(Text.literal("\uE010 ").setStyle(Style.EMPTY.withFont(MODS_FONT_ID)).append(Text.translatable("mod.spore.name").setStyle(Style.EMPTY.withFont(DEFAULT_FONT_ID).withFormatting(Formatting.GRAY))));
+            tooltip.add(Text.literal("\uE014 ").setStyle(Style.EMPTY.withFont(MODS_FONT_ID)).append(Text.translatable("mod.neepmeat.name").setStyle(Style.EMPTY.withFont(DEFAULT_FONT_ID).withFormatting(Formatting.GRAY))));
         }
         super.appendTooltip(stack, world, tooltip, context);
     }

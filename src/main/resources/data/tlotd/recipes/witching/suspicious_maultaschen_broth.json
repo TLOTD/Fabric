@@ -20,6 +20,10 @@
       "item": "minecraft:wither_rose"
     }
   ],
+  "fluid": {
+    "tag": "c:blood",
+    "amount": 250
+  },
   "output": {
     "item": "tlotd:suspicious_maultaschen_broth"
   }

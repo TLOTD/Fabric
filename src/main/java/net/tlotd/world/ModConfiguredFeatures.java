@@ -1,5 +1,6 @@
 package net.tlotd.world;
 
+import com.google.common.collect.ImmutableList;
 import net.minecraft.block.Blocks;
 import net.minecraft.registry.Registerable;
 import net.minecraft.registry.RegistryKey;
@@ -13,7 +14,11 @@ import net.minecraft.util.math.intprovider.ConstantIntProvider;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.feature.size.TwoLayersFeatureSize;
 import net.minecraft.world.gen.foliage.BlobFoliagePlacer;
+import net.minecraft.world.gen.foliage.JungleFoliagePlacer;
+import net.minecraft.world.gen.foliage.LargeOakFoliagePlacer;
 import net.minecraft.world.gen.stateprovider.BlockStateProvider;
+import net.minecraft.world.gen.treedecorator.TrunkVineTreeDecorator;
+import net.minecraft.world.gen.trunk.GiantTrunkPlacer;
 import net.minecraft.world.gen.trunk.StraightTrunkPlacer;
 import net.tlotd.TLOTD;
 import net.tlotd.block.ModBlocks;
@@ -42,7 +47,8 @@ public class ModConfiguredFeatures {
 
     public static final RegistryKey<ConfiguredFeature<?,?>> MITHRIL_ORE_KEY = registerKey("mithril_ore");
 
-    public static final RegistryKey<ConfiguredFeature<?,?>> GINKGO_KEY = registerKey("ginkgo");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> GINKGO_KEY = registerKey("ginkgo");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> MEGA_GINKGO_KEY = registerKey("mega_ginkgo");
 
     public static final RegistryKey<ConfiguredFeature<?,?>> RED_GRAVEL_KEY = registerKey("red_gravel");
     public static final RegistryKey<ConfiguredFeature<?,?>> RED_DEEPSLATE_MARBLE_KEY = registerKey("red_deepslate_marble");
@@ -217,13 +223,36 @@ public class ModConfiguredFeatures {
         register(context, MOON_ROCK_LUNAR_CALLAINUS_ORE_KEY, Feature.ORE, new OreFeatureConfig(moonRockLunarCallainusOre, 4));
 
         register(context, GINKGO_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
-                BlockStateProvider.of(ModBlocks.GINKGO_LOG),
-                new StraightTrunkPlacer(5, 4, 3),
+                        BlockStateProvider.of(ModBlocks.GINKGO_LOG),
+                        new StraightTrunkPlacer(7, 3, 2),
+                        BlockStateProvider.of(ModBlocks.GINKGO_LEAVES),
+                        new JungleFoliagePlacer(
+                                ConstantIntProvider.create(1),
+                                ConstantIntProvider.create(0),
+                                2
+                        ),
+                        new TwoLayersFeatureSize(1, 1, 2))
+                        .dirtProvider(BlockStateProvider.of(ModBlocks.RICH_DIRT))
+                        .decorators(ImmutableList.of(TrunkVineTreeDecorator.INSTANCE))
+                        .ignoreVines()
+                        .build()
+        );
 
-                BlockStateProvider.of(ModBlocks.GINKGO_LEAVES),
-                new BlobFoliagePlacer(ConstantIntProvider.create(3), ConstantIntProvider.create(2), 4),
-
-                new TwoLayersFeatureSize(1, 0, 2)).build());
+        register(context, MEGA_GINKGO_KEY, Feature.TREE, new TreeFeatureConfig.Builder(
+                        BlockStateProvider.of(ModBlocks.GINKGO_LOG),
+                        new GiantTrunkPlacer(10, 4, 8),
+                        BlockStateProvider.of(ModBlocks.GINKGO_LEAVES),
+                        new JungleFoliagePlacer(
+                                ConstantIntProvider.create(2),
+                                ConstantIntProvider.create(0),
+                                2
+                        ),
+                        new TwoLayersFeatureSize(1, 1, 2))
+                        .dirtProvider(BlockStateProvider.of(ModBlocks.RICH_DIRT))
+                        .decorators(ImmutableList.of(TrunkVineTreeDecorator.INSTANCE))
+                        .ignoreVines()
+                        .build()
+        );
     }
 
     public static RegistryKey<ConfiguredFeature<?,?>> registerKey(String name) {

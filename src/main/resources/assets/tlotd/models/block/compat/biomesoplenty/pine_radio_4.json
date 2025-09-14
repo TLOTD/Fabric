@@ -1,0 +1,9 @@
+{
+	"parent": "tlotd:block/template_radio_on",
+	"textures": {
+		"0": "biomesoplenty:block/pine_log",
+		"1": "biomesoplenty:block/stripped_pine_log",
+		"3": "tlotd:block/radio/frequency4",
+		"particle": "biomesoplenty:block/pine_log"
+	}
+}

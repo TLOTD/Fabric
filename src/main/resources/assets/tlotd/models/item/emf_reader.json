@@ -1,0 +1,13 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "tlotd:item/emf_reader/0"
+  },
+  "overrides": [
+    { "predicate": { "tlotd:proximity": 0.2 }, "model": "tlotd:item/emf_reader_1" },
+    { "predicate": { "tlotd:proximity": 0.4 }, "model": "tlotd:item/emf_reader_2" },
+    { "predicate": { "tlotd:proximity": 0.6 }, "model": "tlotd:item/emf_reader_3" },
+    { "predicate": { "tlotd:proximity": 0.8 }, "model": "tlotd:item/emf_reader_4" },
+    { "predicate": { "tlotd:proximity": 1.0 }, "model": "tlotd:item/emf_reader_5" }
+  ]
+}

@@ -18,6 +18,8 @@
   "mod.thermal.name": "Thermal Series",
   "mod.twilightforest.name": "The Twilight Forest",
   "mod.witherstormmod.name": "Cracker's Wither Storm Mod",
+  "mod.neepmeat.name": "NEEPMeat",
+  "mod.ad_astra.name": "Ad Astra",
 
   "info.tlotd.not_yet_implemented": "[This content is not fully implemented yet!]",
 
@@ -196,10 +198,16 @@
   "painting.tlotd.dragons_connection.author": "Isla_Nublar",
   "painting.tlotd.silent_voyager.title": "Silent Voyager",
   "painting.tlotd.silent_voyager.author": "Isla_Nublar",
+  "painting.tlotd.autumn_castle.title": "Autumn Castle",
+  "painting.tlotd.autumn_castle.author": "Isla_Nublar",
   "painting.tlotd.gothic.title": "Gothic",
   "painting.tlotd.gothic.author": "Isla_Nublar",
 
   "rei.title.mithril_forging": "Mithril Forging",
+
+  "item.tlotd.desc_divine": "† Divine",
+  "item.tlotd.desc_occult": "⛧ Occult",
+  "item.tlotd.desc_eldritch": "✦ Eldritch",
 
   "item.tlotd.dragon_banner_pattern": "Banner Pattern",
   "item.tlotd.dragon_banner_pattern.desc": "Dragon Charge",
@@ -324,8 +332,7 @@
   "item.tlotd.game_cartridge_3.desc": "Terraria",
 
   "item.tlotd.flash_drive": "Flash Drive",
-  "item.tlotd.flash_drive.empty": "Empty",
-  "item.tlotd.flash_drive.one_entry": "One File:",
+  "item.tlotd.flash_drive.data": "Data",
   "item.tlotd.flash_drive.coordinates": "block.pos [%1$s,%2$s,%3$s]",
 
   "item.tlotd.copper_wire": "Copper Wire",
@@ -355,6 +362,7 @@
   "item.tlotd.fragmented_futuristic_circuit_board": "Fragmented Futuristic Circuit Board",
 
   "item.tlotd.keycard": "Keycard",
+  "item.tlotd.keycard.data": "Data",
   "item.tlotd.keycard.no_password": "No password set",
   "item.tlotd.keycard.has_password": "Password set",
 
@@ -448,7 +456,7 @@
   "item.tlotd.hypoxia_proof_armor.tooltip_2": "Prevents Hypoxia",
   "item.tlotd.space_suit_leggings": "Space Suit Leggings",
   "item.tlotd.space_suit_boots": "Space Suit Boots",
-  "item.tlotd.oxygen_level.tooltip": "Oxygen: %1$s",
+  "item.tlotd.oxygen_level.tooltip": "%1$s Oxygen",
 
   "item.tlotd.cthonaut_helmet": "Cthonaut Helmet",
   "item.tlotd.depth_suit_chestplate": "Depth Suit Chestplate",
@@ -663,9 +671,10 @@
   "item.tlotd.eldritch_pickaxe": "§4Devourer of the Beyond",
 
   "item.tlotd.ominous_alien_key": "Ominous Alien Key",
-  "item.tlotd.ominous_alien_key.tooltip": "There is a gate in the depths",
-  "item.tlotd.ominous_alien_key.tooltip_2": "beneath the crust of our nearest",
-  "item.tlotd.ominous_alien_key.tooltip_3": "satellite demanding to be opened",
+  "item.tlotd.ominous_alien_key.tooltip": "There is a gate in the",
+  "item.tlotd.ominous_alien_key.tooltip_2": "depths beneath the crust",
+  "item.tlotd.ominous_alien_key.tooltip_3": "of our nearest satellite",
+  "item.tlotd.ominous_alien_key.tooltip_4": "demanding to be opened",
 
   "item.tlotd.mithril_command_block_sword": "Mithril Command Block Sword",
   "item.tlotd.mithril_command_block_pickaxe": "Mithril Command Block Pickaxe",
@@ -674,10 +683,13 @@
   "item.tlotd.mithril_command_block_hoe": "Mithril Command Block Hoe",
   "item.tlotd.mithril_command_block_sickle": "Mithril Command Block Sickle",
 
+  "item.tlotd.emf_reader": "EMF Reader",
+
   "item.tlotd.t-rex_spawn_egg": "T-Rex Spawn Egg",
   "item.tlotd.infected_t-rex_spawn_egg": "Infected T-Rex",
 
   "block.tlotd.t-rex_egg": "T-Rex Egg",
+  "block.tlotd.infected_t-rex_egg": "Infected T-Rex Egg",
 
   "block.tlotd.strawberry_bush": "Strawberry Bush",
   "block.tlotd.strawberry_cake": "Strawberry Cake",
@@ -807,6 +819,7 @@
   "block.tlotd.signal_transmitter.removed": "Signal was removed.",
   "block.tlotd.signal_transmitter.incomplete": "Signal Transmitter Antenna Incomplete!",
   "block.tlotd.signal_transmitter_antenna": "Signal Transmitter Antenna",
+  "block.minecraft.lightning_rod.upside_down": "Upside Down Lightning Rod",
 
   "block.tlotd.teleporter": "Teleporter",
   "block.tlotd.teleporter.location_copied": "Location copied to drive",
@@ -911,6 +924,10 @@
   "block.tlotd.megaregolith_coal_ore": "Megaregolith Coal Ore",
   "block.tlotd.megaregolith_iron_ore": "Megaregolith Iron Ore",
   "block.tlotd.megaregolith_lunar_callainus_ore": "Megaregolith Lunar Callainus Ore",
+  "block.tlotd.megaregolith_bricks": "Megaregolith Bricks",
+  "block.tlotd.megaregolith_brick_stairs": "Megaregolith Brick Stairs",
+  "block.tlotd.megaregolith_brick_slab": "Megaregolith Brick Slab",
+  "block.tlotd.megaregolith_brick_wall": "Megaregolith Brick Wall",
   "block.tlotd.lunar_bedrock": "Lunar Bedrock",
 
   "block.tlotd.alien_gate": "Alien Gate",
@@ -1148,6 +1165,8 @@
   "item.tlotd.thornwood_bark": "Thornwood Bark",
 
   "item.tlotd.fir_bark": "Fir Bark",
+  "item.tlotd.pine_bark": "Pine Bark",
+  "item.tlotd.maple_bark": "Maple Bark",
   "item.tlotd.redwood_bark": "Redwood Bark",
   "item.tlotd.mahogany_bark": "Mahogany Bark",
   "item.tlotd.jacaranda_bark": "Jacaranda Bark",
@@ -1157,6 +1176,7 @@
   "item.tlotd.magic_bark": "Magic Bark",
   "item.tlotd.umbran_bark": "Umbran Bark",
   "item.tlotd.hellbark_bark": "Hellbark Bark",
+  "item.tlotd.empyreal_bark": "Empyreal Bark",
 
   "item.tlotd.ashen_bark": "Ashen Bark",
   "item.tlotd.azalea_bark": "Azalea Bark",

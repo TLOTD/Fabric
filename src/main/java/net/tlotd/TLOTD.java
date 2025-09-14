@@ -28,6 +28,7 @@ import net.tlotd.painting.ModPaintings;
 import net.tlotd.recipe.ModRecipies;
 import net.tlotd.sound.ModSounds;
 import net.tlotd.tick.ModServerTickEvents;
+import net.tlotd.util.ModCommands;
 import net.tlotd.util.ModTrades;
 import net.tlotd.villager.ModVillagers;
 import net.tlotd.world.ModChunkEvents;
@@ -72,6 +73,7 @@ public class TLOTD implements ModInitializer {
 		ModServerTickEvents.registerServerTickEvents();
 		ModUseBlockCallback.interceptBlocks();
 		ModChunkEvents.generateModWorldGen();
+		ModCommands.registerCommands();
 
 		Registry.register(Registries.CHUNK_GENERATOR, new Identifier(TLOTD.MOD_ID, "prehistoric"), PrehistoricChunkGenerator.CODEC);
 		Registry.register(Registries.CHUNK_GENERATOR, new Identifier(TLOTD.MOD_ID, "luna"), LunarChunkGenerator.CODEC);
@@ -85,10 +87,10 @@ public class TLOTD implements ModInitializer {
 		FabricDefaultAttributeRegistry.register(ModEntities.INFECTED_TREX, InfectedTRexEntity.createInfectedTRexAttributes());
 
 		CustomPortalBuilder.beginPortal()
-				.frameBlock(ModBlocks.REINFORCED_RED_DEEPSLATE)
-				.lightWithItem(ModItems.FOSSIL_AND_STEEL)
-				.destDimID(new Identifier(TLOTD.MOD_ID, "prehistoric"))
-				.tintColor(0x925240)
-				.registerPortal();
+			.frameBlock(ModBlocks.REINFORCED_RED_DEEPSLATE)
+			.lightWithItem(ModItems.FOSSIL_AND_STEEL)
+			.destDimID(new Identifier(TLOTD.MOD_ID, "prehistoric"))
+			.tintColor(0x925240)
+			.registerPortal();
 	}
 }

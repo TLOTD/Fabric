@@ -26,6 +26,8 @@ public class ModCompostingChances {
 		ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModItems.THORNWOOD_BARK, 0.3f);
 
 		ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModItems.FIR_BARK, 0.3f);
+		ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModItems.PINE_BARK, 0.3f);
+		ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModItems.MAPLE_BARK, 0.3f);
 		ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModItems.REDWOOD_BARK, 0.3f);
 		ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModItems.MAHOGANY_BARK, 0.3f);
 		ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModItems.JACARANCA_BARK, 0.3f);
@@ -35,6 +37,7 @@ public class ModCompostingChances {
 		ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModItems.MAGIC_BARK, 0.3f);
 		ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModItems.UMBRAN_BARK, 0.3f);
 		ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModItems.HELLBARK_BARK, 0.3f);
+		ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModItems.EMPYREAL_BARK, 0.3f);
 
 		ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModItems.ASHEN_BARK, 0.3f);
 		ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModItems.AZALEA_BARK, 0.3f);

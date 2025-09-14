@@ -170,17 +170,23 @@
   "advancements.tlotd.all_jams.desc": "Erlang alle Marmeladn",
 
   "painting.tlotd.t.title": "T",
-  "painting.tlotd.t.author": "TLOTD & Isla_Nublar",
+  "painting.tlotd.t.author": "Isla_Nublar",
   "painting.tlotd.tlotd.title": "TLOTD",
-  "painting.tlotd.tlotd.author": "TLOTD & Isla_Nublar",
+  "painting.tlotd.tlotd.author": "Isla_Nublar",
   "painting.tlotd.t-rex_encounter.title": "Tireggs Begegnung",
-  "painting.tlotd.t-rex_encounter.author": "TLOTD & Isla_Nublar",
+  "painting.tlotd.t-rex_encounter.author": "Isla_Nublar",
   "painting.tlotd.white_city.title": "D Weiße Stadt",
-  "painting.tlotd.white_city.author": "TLOTD & Isla_Nublar",
+  "painting.tlotd.white_city.author": "Isla_Nublar",
+  "painting.tlotd.autumn_castle.title": "Herbschtschloss",
+  "painting.tlotd.autumn_castle.author": "Isla_Nublar",
   "painting.tlotd.dragons_connection.title": "Verbindung eines Drachns",
-  "painting.tlotd.dragons_connection.author": "TLOTD & Isla_Nublar",
+  "painting.tlotd.dragons_connection.author": "Isla_Nublar",
 
   "rei.title.mithril_forging": "Mithrilschmiede",
+
+  "item.tlotd.desc_divine": "† Göttlich",
+  "item.tlotd.desc_occult": "⛧ Okkult",
+  "item.tlotd.desc_eldritch": "✦ Unheimlich",
 
   "item.tlotd.dragon_banner_pattern": "Bannervorlagn",
   "item.tlotd.dragon_banner_pattern.desc": "Drachn",
@@ -305,8 +311,7 @@
   "item.tlotd.game_cartridge_3.desc": "Terraria",
 
   "item.tlotd.flash_drive": "Datnträgr",
-  "item.tlotd.flash_drive.empty": "Leer",
-  "item.tlotd.flash_drive.one_entry": "Eine Datei:",
+  "item.tlotd.flash_drive.data": "Datn",
   "item.tlotd.flash_drive.coordinates": "block.pos [%1$s,%2$s,%3$s]",
 
   "item.tlotd.copper_wire": "Kupfrkabl",
@@ -330,6 +335,7 @@
   "item.tlotd.fragmented_futuristic_circuit_board": "Futuristischs Platinenfragment",
 
   "item.tlotd.keycard": "Schlisslkartn",
+  "item.tlotd.keycard.data": "Datn",
   "item.tlotd.keycard.no_password": "Koi Password gsetzt",
   "item.tlotd.keycard.has_password": "Password gsetzt",
 
@@ -423,7 +429,7 @@
   "item.tlotd.hypoxia_proof_armor.tooltip_2": "Vrhindrd Hypoxia",
   "item.tlotd.space_suit_leggings": "Raumazugshosn",
   "item.tlotd.space_suit_boots": "Raumazugsschtiefl",
-  "item.tlotd.oxygen_level.tooltip": "Sauerschdoff: %1$s",
+  "item.tlotd.oxygen_level.tooltip": "%1$s Sauerschdoff",
 
   "item.tlotd.cthonaut_helmet": "Kadonaudehelm",
   "item.tlotd.depth_suit_chestplate": "Tiefnazugsbruschtblattn",
@@ -637,6 +643,10 @@
   "item.tlotd.eldritch_pickaxe": "§4Verschlinger des Jenseits",
 
   "item.tlotd.ominous_alien_key": "Ohailvollr Alienschlissl",
+  "item.tlotd.ominous_alien_key.tooltip": "Es gibt a Tor in de Tiefn",
+  "item.tlotd.ominous_alien_key.tooltip_2": "untr dr Krustn osres",
+  "item.tlotd.ominous_alien_key.tooltip_3": "naechschten Satellitens welches",
+  "item.tlotd.ominous_alien_key.tooltip_4": "verlangt geoeffnet zu werdn",
 
   "item.tlotd.mithril_command_block_sword": "Mithrilbefehlsblockschwert",
   "item.tlotd.mithril_command_block_pickaxe": "Mithrilbefehlsblockspitzhacke",
@@ -645,10 +655,13 @@
   "item.tlotd.mithril_command_block_hoe": "Mithrilbefehlsblockhacke",
   "item.tlotd.mithril_command_block_sickle": "Mithrilbefehlsblocksichel",
 
+  "item.tlotd.emf_reader": "EMF-Lesegerät",
+
   "item.tlotd.t-rex_spawn_egg": "Tireggs-Spawn-Oi",
   "item.tlotd.infected_t-rex_spawn_egg": "Infizierdr Tireggs",
 
   "block.tlotd.t-rex_egg": "Tireggs-Oi",
+  "block.tlotd.infected_t-rex_egg": "Infizierds Tireggs-Oi",
 
   "block.tlotd.strawberry_bush": "Erdbearbusch",
   "block.tlotd.strawberry_cake": "Erdbearkuacha",
@@ -776,6 +789,7 @@
   "block.tlotd.signal_transmitter.removed": "Signal wurd entfernt.",
   "block.tlotd.signal_transmitter.incomplete": "Signalgebrantenne ofollschtändig!",
   "block.tlotd.signal_transmitter_antenna": "Signalgebrantenne",
+  "block.minecraft.lightning_rod.upside_down": "Umgedrehtr Blitzableitr",
 
   "block.tlotd.teleporter": "Teleporter",
   "block.tlotd.teleporter.location_copied": "Position auf Datenträger kopiert",
@@ -880,6 +894,10 @@
   "block.tlotd.megaregolith_coal_ore": "Megaregolith-Schtoikohle",
   "block.tlotd.megaregolith_iron_ore": "Megaregolith-Eiseerz",
   "block.tlotd.megaregolith_lunar_callainus_ore": "Megaregolith-Lunar-Callainus-Erz",
+  "block.tlotd.megaregolith_bricks": "Megaregolithziegel",
+  "block.tlotd.megaregolith_brick_stairs": "Megaregolithziegeltreppn",
+  "block.tlotd.megaregolith_brick_slab": "Megaregolithziegelschtuafa",
+  "block.tlotd.megaregolith_brick_wall": "Megaregolithziegelmaua",
   "block.tlotd.lunar_bedrock": "Mondgrundgeschtain",
 
   "block.tlotd.alien_gate": "Aliator",
@@ -1116,16 +1134,19 @@
   "item.tlotd.pewen_bark": "Pewenrinde",
   "item.tlotd.thornwood_bark": "Dornenholzrinde",
 
-  "item.tlotd.fir_bark": "Tannenbaumrinde",
+  "item.tlotd.fir_bark": "Tannenrinde",
+  "item.tlotd.pine_bark": "Pinienrinde",
+  "item.tlotd.maple_bark": "Ahornrinde",
   "item.tlotd.redwood_bark": "Mammutbaumrinde",
   "item.tlotd.mahogany_bark": "Mahagonirinde",
-  "item.tlotd.jacaranda_bark": "Palisanderrinde",
+  "item.tlotd.jacaranda_bark": "Jacarandarinde",
   "item.tlotd.palm_bark": "Palmenrinde",
   "item.tlotd.willow_bark": "Weidenbaumrinde",
-  "item.tlotd.dead_bark": "Totenbaumrinde",
-  "item.tlotd.magic_bark": "Zauberbaumrinde",
-  "item.tlotd.umbran_bark": "Schattenbaumrinde",
-  "item.tlotd.hellbark_bark": "Höllenborkenrinde",
+  "item.tlotd.dead_bark": "Totrinde",
+  "item.tlotd.magic_bark": "Magierinde",
+  "item.tlotd.umbran_bark": "Umbranrinde",
+  "item.tlotd.hellbark_bark": "Höllenrinde",
+  "item.tlotd.empyreal_bark": "Empyrealrinde",
 
   "item.tlotd.ashen_bark": "Aschenrinde",
   "item.tlotd.azalea_bark": "Azaleenrinde",

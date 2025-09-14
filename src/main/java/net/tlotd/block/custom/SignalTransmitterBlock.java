@@ -96,11 +96,12 @@ public class SignalTransmitterBlock extends Block {
     public void appendTooltip(ItemStack stack, @Nullable BlockView world, List<Text> tooltip, TooltipContext options) {
         tooltip.add(Text.literal(""));
         tooltip.add(Text.translatable("block.tlotd.signal_transmitter.tooltip").formatted(Formatting.GRAY));
-        tooltip.add(Text.literal(" ").append(Text.translatable("block.tlotd.signal_transmitter.tooltip_2").formatted(Formatting.BLUE)));
-        tooltip.add(Text.literal(" ").append(Text.translatable("block.tlotd.signal_transmitter.tooltip_3").formatted(Formatting.BLUE)));
+        tooltip.add(Text.literal(" ").append(Text.translatable("block.tlotd.signal_transmitter.tooltip_2")).formatted(Formatting.BLUE));
+        tooltip.add(Text.literal(" ").append(Text.translatable("block.tlotd.signal_transmitter.tooltip_3")).formatted(Formatting.BLUE));
         tooltip.add(Text.translatable("block.tlotd.signal_transmitter.tooltip_4").formatted(Formatting.GRAY));
-        tooltip.add(Text.literal(" ").append(Text.translatable("block.tlotd.signal_transmitter_antenna").formatted(Formatting.BLUE)));
-        tooltip.add(Text.literal(" ").append(Text.translatable("block.minecraft.lightning_rod").formatted(Formatting.BLUE)));
+        tooltip.add(Text.literal(" 2x ").append(Text.translatable("block.tlotd.signal_transmitter_antenna")).formatted(Formatting.BLUE));
+        tooltip.add(Text.literal(" ").append(Text.translatable("block.minecraft.lightning_rod.upside_down")).formatted(Formatting.BLUE));
+        tooltip.add(Text.literal(" ").append(Text.translatable("block.minecraft.lightning_rod")).formatted(Formatting.BLUE));
         super.appendTooltip(stack, world, tooltip, options);
     }
 
@@ -109,7 +110,7 @@ public class SignalTransmitterBlock extends Block {
         if (!world.isClient) {
             ServerWorld serverWorld = (ServerWorld) world;
             SignalTrackingArray tracker = SignalTrackingArray.get(serverWorld);
-            if (world.getBlockState(pos.up()) == ModBlocks.SIGNAL_TRANSMITTER_ANTENNA.getDefaultState() && world.getBlockState(pos.up(2)) == Blocks.LIGHTNING_ROD.getDefaultState()) {
+            if (world.getBlockState(pos.up()) == ModBlocks.SIGNAL_TRANSMITTER_ANTENNA.getDefaultState() && world.getBlockState(pos.up(2)) == ModBlocks.SIGNAL_TRANSMITTER_ANTENNA.getDefaultState().with(SignalTransmitterAntennaBlock.UPPER, true) && world.getBlockState(pos.up(3)) == Blocks.LIGHTNING_ROD.getDefaultState().with(FACING, Direction.DOWN) && world.getBlockState(pos.up(4)) == Blocks.LIGHTNING_ROD.getDefaultState()) {
                 if (player.getMainHandStack().isIn(ModTags.Items.TRANSMITTABLE_SIGNALS)) {
                     if (tracker.hasSignal(player.getMainHandStack().getTranslationKey())) {
                         tracker.removeSignal(player.getMainHandStack().getTranslationKey());

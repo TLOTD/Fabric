@@ -9,6 +9,7 @@
   ],
   "replace": false,
   "values": [
+    "tlotd:infected_t-rex_egg",
     "tlotd:infected_t-rex_head"
   ]
 }

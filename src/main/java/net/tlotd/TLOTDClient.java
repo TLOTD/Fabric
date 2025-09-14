@@ -11,22 +11,27 @@ import net.fabricmc.fabric.api.client.rendering.v1.DimensionRenderingRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
+import net.minecraft.client.item.ModelPredicateProviderRegistry;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.TexturedRenderLayers;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
 import net.minecraft.client.util.SpriteIdentifier;
+import net.minecraft.entity.Entity;
 import net.minecraft.util.Identifier;
 import net.tlotd.block.ModBlocks;
 import net.tlotd.block.entity.ModBlockEntities;
 import net.tlotd.block.entity.renderer.*;
 import net.tlotd.client.ModBlockRenderLayerMap;
+import net.tlotd.client.ModItemRenderLayerMap;
 import net.tlotd.entity.ModBoats;
 import net.tlotd.entity.ModEntities;
 import net.tlotd.entity.client.*;
 import net.tlotd.fluid.ModFluids;
 import net.tlotd.gui.*;
+import net.tlotd.item.ModItems;
 import net.tlotd.networking.ModMessages;
-import net.minecraft.client.render.entity.SpectralArrowEntityRenderer;
+
+import java.util.Comparator;
 
 public class TLOTDClient implements ClientModInitializer {
     @Override
@@ -46,6 +51,7 @@ public class TLOTDClient implements ClientModInitializer {
         FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.STILL_ANCIENT_SOULBERRY_JAM, ModFluids.FLOWING_ANCIENT_SOULBERRY_JAM, new SimpleFluidRenderHandler(new Identifier("tlotd:block/ancient_soulberry_jam_still"), new Identifier("tlotd:block/ancient_soulberry_jam_flow")));
 
         ModBlockRenderLayerMap.registerBlockRenderLayerMaps();
+        ModItemRenderLayerMap.registerItemRenderLayerMaps();
 
         EntityRendererRegistry.register(ModEntities.TREX, TRexRenderer::new);
         EntityModelLayerRegistry.registerModelLayer(ModModelLayers.TREX, TRexModel::getTexturedModelData);

@@ -102,6 +102,21 @@ public class ModTags {
 
     public static class Items {
 
+        public static final TagKey<Item> DIVINE_ITEMS =
+                createTag("divine_items");
+
+        public static final TagKey<Item> OCCULT_ITEMS =
+                createTag("occult_items");
+
+        public static final TagKey<Item> ELDRITCH_ITEMS =
+                createTag("eldritch_items");
+
+        public static final TagKey<Item> BLOOD_BOTTLES =
+                createTag("blood_bottles");
+
+        public static final TagKey<Item> BLOOD_BUCKETS =
+                createTag("blood_buckets");
+
         public static final TagKey<Item> BULLET_PROOF_ARMOR =
                 createTag("bullet_proof_armor");
 

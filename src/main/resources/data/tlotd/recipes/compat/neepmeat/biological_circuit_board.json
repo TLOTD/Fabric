@@ -1,0 +1,52 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:and",
+      "values": [
+        {
+          "condition": "fabric:all_mods_loaded",
+          "values": [
+            "neepmeat"
+          ]
+        },
+        {
+          "condition": "fabric:not",
+          "value": {
+            "condition": "fabric:any_mod_loaded",
+            "values": [
+              "create"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "minecraft:bone"
+    },
+    "R": {
+      "item": "neepmeat:raw_meat_brick"
+    },
+    "I": {
+      "item": "neepmeat:internal_components"
+    },
+    "C": {
+      "item": "neepmeat:brain_rough"
+    },
+    "A": {
+      "item": "neepmeat:animal_heart"
+    }
+  },
+  "pattern": [
+    "RAC",
+    "ICI",
+    "BBR"
+  ],
+  "result": {
+    "item": "tlotd:biological_circuit_board"
+  },
+  "show_notification": true
+}

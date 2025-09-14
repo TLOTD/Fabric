@@ -99,7 +99,6 @@ public class LunarChunkGenerator extends ChunkGenerator {
                 }
                 //Upcoming Area
                 chunk.setBlockState(new BlockPos(dx, MoonBedrock-1, dz), Blocks.BEDROCK.getDefaultState(), false);
-                chunk.setBlockState(new BlockPos(dx, chunk.getBottomY(), dz), Blocks.BEDROCK.getDefaultState(), false);
             }
         }
         return CompletableFuture.completedFuture(chunk);

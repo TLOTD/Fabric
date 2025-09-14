@@ -28,11 +28,6 @@ public class OminousAlienKeyItem extends Item {
         super(settings);
     }
 
-    @Override
-    public boolean hasGlint(ItemStack stack) {
-        return true;
-    }
-
     public static final Identifier SGA_FONT_ID = new Identifier("minecraft", "alt");
 
     @Override
@@ -42,11 +37,13 @@ public class OminousAlienKeyItem extends Item {
             tooltip.add(Text.translatable("item.tlotd.ominous_alien_key.tooltip").formatted(Formatting.GRAY));
             tooltip.add(Text.translatable("item.tlotd.ominous_alien_key.tooltip_2").formatted(Formatting.GRAY));
             tooltip.add(Text.translatable("item.tlotd.ominous_alien_key.tooltip_3").formatted(Formatting.GRAY));
+            tooltip.add(Text.translatable("item.tlotd.ominous_alien_key.tooltip_4").formatted(Formatting.GRAY));
         } else {
             Style style = getName().getStyle();
             tooltip.add(Text.translatable("item.tlotd.ominous_alien_key.tooltip").setStyle(style.withFont(SGA_FONT_ID)).formatted(Formatting.GRAY));
             tooltip.add(Text.translatable("item.tlotd.ominous_alien_key.tooltip_2").setStyle(style.withFont(SGA_FONT_ID)).formatted(Formatting.GRAY));
             tooltip.add(Text.translatable("item.tlotd.ominous_alien_key.tooltip_3").setStyle(style.withFont(SGA_FONT_ID)).formatted(Formatting.GRAY));
+            tooltip.add(Text.translatable("item.tlotd.ominous_alien_key.tooltip_4").setStyle(style.withFont(SGA_FONT_ID)).formatted(Formatting.GRAY));
         }
         super.appendTooltip(stack, world, tooltip, context);
     }

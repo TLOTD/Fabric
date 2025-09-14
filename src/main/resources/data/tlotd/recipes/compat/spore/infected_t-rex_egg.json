@@ -1,0 +1,22 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "spore"
+      ]
+    }
+  ],
+  "type": "tlotd:incubation",
+  "ingredients": [
+    {
+      "tag": "tlotd:eggs"
+    },
+    {
+      "item": "spore:blomfung"
+    }
+  ],
+  "output": {
+    "item": "tlotd:infected_t-rex_egg"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "C": {
+      "tag": "tlotd:circuit_boards"
+    },
+    "I": {
+      "tag": "c:iron_ingots"
+    },
+    "W": {
+      "item": "tlotd:copper_wire"
+    }
+  },
+  "pattern": [
+    "C",
+    "I",
+    "W"
+  ],
+  "result": {
+    "item": "tlotd:emf_reader"
+  },
+  "show_notification": true
+}

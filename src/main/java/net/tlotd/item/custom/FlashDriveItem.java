@@ -1,5 +1,6 @@
 package net.tlotd.item.custom;
 
+import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -45,10 +46,12 @@ public class FlashDriveItem extends Item {
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
         if (!stack.hasNbt()) {
-            tooltip.add(Text.translatable("item.tlotd.flash_drive.empty").formatted(Formatting.GRAY));
+            tooltip.add(Text.literal("0 ♣ / 1 ♣ ").append(Text.translatable("item.tlotd.flash_drive.data")).formatted(Formatting.GREEN));
         } else {
-            tooltip.add(Text.translatable("item.tlotd.flash_drive.one_entry").formatted(Formatting.GRAY));
-            tooltip.add(Text.translatable("item.tlotd.flash_drive.coordinates", stack.getNbt().getInt("destination_x"),stack.getNbt().getInt("destination_y"),stack.getNbt().getInt("destination_z")).formatted(Formatting.GRAY));
+            tooltip.add(Text.literal("1 ♣ / 1 ♣ ").append(Text.translatable("item.tlotd.flash_drive.data")).formatted(Formatting.GREEN));
+            if (Screen.hasShiftDown()) {
+                tooltip.add(Text.translatable("item.tlotd.flash_drive.coordinates", stack.getNbt().getInt("destination_x"),stack.getNbt().getInt("destination_y"),stack.getNbt().getInt("destination_z")).formatted(Formatting.GREEN));
+            }
         }
         super.appendTooltip(stack, world, tooltip, context);
     }

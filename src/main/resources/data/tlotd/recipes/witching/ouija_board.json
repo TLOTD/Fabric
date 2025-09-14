@@ -29,6 +29,10 @@
       "item": "minecraft:black_dye"
     }
   ],
+  "fluid": {
+    "tag": "c:blood",
+    "amount": 250
+  },
   "output": {
     "item": "tlotd:ouija_board",
     "count": 6

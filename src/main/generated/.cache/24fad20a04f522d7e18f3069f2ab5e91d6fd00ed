@@ -1,4 +1,4 @@
-// 1.20.1	2025-09-01T02:34:55.8438829	TLOTD/Tags for minecraft:block
+// 1.20.1	2025-09-14T15:23:26.6490138	TLOTD/Tags for minecraft:block
 854e1fa4794d91c98093602527af0004315382a1 data\fabric\tags\blocks\needs_tool_level_5.json
 1aa38db4e6420b76b410075b910e734a02000e8c data\minecraft\tags\blocks\small_flowers.json
 67e04e0d4704f5e9971818062bd3123e46d48ce7 data\tlotd\tags\blocks\diorite_extractable_blocks.json
@@ -15,9 +15,9 @@ e3a258d8cfa0abf6dc3b5f89c1fe5e670d9d3161 data\minecraft\tags\blocks\buttons.json
 0dbcb95cd8296911c11c19bab1adcbc7a0509d27 data\minecraft\tags\blocks\wall_post_override.json
 1ab87cb3a2fee1a6b3b705566207f04dc0a50ef9 data\minecraft\tags\blocks\mineable\axe.json
 4699114aed9f9961879a48a83e73be9178296292 data\tlotd\tags\blocks\computer_accessories.json
-e3a258d8cfa0abf6dc3b5f89c1fe5e670d9d3161 data\minecraft\tags\blocks\wooden_buttons.json
-d71f2c72ecf35514cd19cb806618ef81556b2fce data\minecraft\tags\blocks\crops.json
 5280ceda7f02a98b28f1c3396614c34dfa336e9b data\minecraft\tags\blocks\wooden_fences.json
+d71f2c72ecf35514cd19cb806618ef81556b2fce data\minecraft\tags\blocks\crops.json
+e3a258d8cfa0abf6dc3b5f89c1fe5e670d9d3161 data\minecraft\tags\blocks\wooden_buttons.json
 60319a4b31fcdc216dafe9d29948432b6d43e175 data\minecraft\tags\blocks\wall_hanging_signs.json
 144c4aa4f6cac081e5d2f903fc4be47654269e77 data\minecraft\tags\blocks\planks.json
 1199e945a26f9fe928bed6eae27ee7d8381ae8f9 data\tlotd\tags\blocks\witching_table_base_blocks.json
@@ -41,7 +41,7 @@ f3052ed19ca76c99dfed2e9e11e0bb89ea8dcc36 data\minecraft\tags\blocks\vibration_re
 f3052ed19ca76c99dfed2e9e11e0bb89ea8dcc36 data\minecraft\tags\blocks\crystal_sound_blocks.json
 2d88bc8df3e36b1750226f5b0860259b87d0efc5 data\tlotd\tags\blocks\ginkgo_logs.json
 1dd6d27e8767e1d17b29030eba2f8d50058cec3c data\minecraft\tags\blocks\wooden_trapdoors.json
-7a41a4166abea38e8b0264e2a23b2c8e084a8003 data\tlotd\tags\blocks\logs_with_bark.json
+5ac2821b25827002db0c4163c79018b0399a5adf data\tlotd\tags\blocks\logs_with_bark.json
 ac1df89442e728e30ba3a539e796253f9389771e data\tlotd\tags\blocks\tuff_extractable_blocks.json
 7d77952901b90c559700b638994055ebe05c0597 data\minecraft\tags\blocks\wool.json
 01b3a9a7a303f54a516eb15948536ece78929cfa data\minecraft\tags\blocks\features_cannot_replace.json
@@ -62,7 +62,7 @@ b1a8bcf953a008a3ab27f72bc8ff5f35df2e5cfc data\minecraft\tags\blocks\mineable\sho
 bc6488b5942edf10dc34397a8477561f5f146ff2 data\minecraft\tags\blocks\campfires.json
 1ef6c3cc57007275c6583f8d5d91c039a52a2039 data\minecraft\tags\blocks\wool_carpets.json
 8a39ad0341680d328b76a58699f9dbef5a778f24 data\fabric\tags\blocks\needs_tool_level_7.json
-f486c8bc25f98926962d9967a26c27e01e156bfa data\minecraft\tags\blocks\walls.json
+e0fc3366676395aedcaf14f60886b88cf0fee6d4 data\minecraft\tags\blocks\walls.json
 8a23702b05296c8af5014d6aa6e9265ded85c7d9 data\fabric\tags\blocks\needs_tool_level_10.json
 08c68720aa5ba245f5ed77d9dbc48327c7799a2a data\minecraft\tags\blocks\wolves_spawnable_on.json
 7bc75d7fa5826eb1def12f763778fad0c636d265 data\minecraft\tags\blocks\wooden_stairs.json
@@ -88,4 +88,4 @@ d71f2c72ecf35514cd19cb806618ef81556b2fce data\minecraft\tags\blocks\maintains_fa
 08c68720aa5ba245f5ed77d9dbc48327c7799a2a data\minecraft\tags\blocks\valid_spawn.json
 d774ea261e9b7fe0da1d54be56f39b9c454d078f data\fabric\tags\blocks\needs_tool_level_6.json
 8a23702b05296c8af5014d6aa6e9265ded85c7d9 data\fabric\tags\blocks\needs_tool_level_9.json
-9d3d9cfc6724fa94fe683d3a03c3864b8a37b832 data\minecraft\tags\blocks\mineable\pickaxe.json
+88fb2a558ce7222a2edd1510c02286e276e6ee9f data\minecraft\tags\blocks\mineable\pickaxe.json

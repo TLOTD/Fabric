@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "tlotd:block/megaregolith_bricks",
+    "side": "tlotd:block/megaregolith_bricks",
+    "top": "tlotd:block/megaregolith_bricks"
+  }
+}

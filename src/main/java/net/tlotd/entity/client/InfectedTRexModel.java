@@ -5,7 +5,6 @@ import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.entity.model.SinglePartEntityModel;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.math.MathHelper;
-import net.tlotd.entity.animation.ModAnimations;
 import net.tlotd.entity.custom.InfectedTRexEntity;
 
 // Made with Blockbench 4.11.2
@@ -189,9 +188,12 @@ public class InfectedTRexModel<T extends InfectedTRexEntity> extends SinglePartE
 		this.getPart().traverse().forEach(ModelPart::resetTransform);
 		this.setHeadAngles(netHeadYaw, headPitch);
 
-		this.animateMovement(ModAnimations.TREX_WALK, limbSwing, limbSwingAmount, 1f, 1f);
-		this.updateAnimation(entity.idleAnimationState, ModAnimations.TREX_IDLE, ageInTicks, 1f);
-		this.updateAnimation(entity.attackAnimationState, ModAnimations.TREX_ATTACK, ageInTicks, 1f);
+		if (entity.getVelocity().horizontalLengthSquared() > 1.0E-3) {
+			this.animateMovement(TRexAnimations.ANIM_TREX_WALK, limbSwing, limbSwingAmount, 1f, 1f);
+		}
+
+		this.updateAnimation(entity.idleAnimationState, TRexAnimations.ANIM_TREX_IDLE, ageInTicks, 1f);
+		this.updateAnimation(entity.attackAnimationState, TRexAnimations.ANIM_TREX_ATTACK, ageInTicks, 1f);
 	}
 
 	private void setHeadAngles(float headYaw, float headPitch) {

@@ -13,6 +13,7 @@ public class ModPaintings {
     public static final PaintingVariant TREX_ENCOUNTER = registerPainting("t-rex_encounter", new PaintingVariant(32,16));
     public static final PaintingVariant DRAGONS_CONNECTION = registerPainting("dragons_connection", new PaintingVariant(16,32));
     public static final PaintingVariant SILENT_VOYAGER = registerPainting("silent_voyager", new PaintingVariant(32,32));
+    public static final PaintingVariant AUTUMN_CASTLE = registerPainting("autumn_castle", new PaintingVariant(48,48));
     public static final PaintingVariant GOTHIC = registerPainting("gothic", new PaintingVariant(64,48));
 
     private static PaintingVariant registerPainting(String name, PaintingVariant paintingVariant) {

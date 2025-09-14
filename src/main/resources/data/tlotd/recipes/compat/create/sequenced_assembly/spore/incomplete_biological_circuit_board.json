@@ -1,0 +1,121 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "fabric",
+        "create",
+        "spore"
+      ]
+    }
+  ],
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "item": "spore:mutated_heart"
+  },
+  "loops": 2,
+  "results": [
+    {
+      "item": "tlotd:biological_circuit_board"
+    }
+  ],
+  "sequence": [
+    {
+      "type": "create:filling",
+      "ingredients": [
+        {
+          "item": "tlotd:biological_circuit_board"
+        },
+        {
+          "fluidTag": "c:blood",
+          "amount": 40500
+        }
+      ],
+      "results": [
+        {
+          "item": "tlotd:biological_circuit_board"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "tlotd:incomplete_biological_circuit_board"
+        },
+        {
+          "item": "spore:claw"
+        }
+      ],
+      "results": [
+        {
+          "item": "tlotd:incomplete_biological_circuit_board"
+        }
+      ]
+    },
+        {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "tlotd:incomplete_biological_circuit_board"
+        },
+        {
+          "item": "spore:armor_fragment"
+        }
+      ],
+      "results": [
+        {
+          "item": "tlotd:incomplete_biological_circuit_board"
+        }
+      ]
+    },
+    {
+      "type": "create:pressing",
+      "ingredients": [
+        {
+          "item": "tlotd:incomplete_biological_circuit_board"
+        }
+      ],
+      "results": [
+        {
+          "item": "tlotd:incomplete_biological_circuit_board"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "tlotd:incomplete_biological_circuit_board"
+        },
+        {
+          "item": "spore:nerves"
+        }
+      ],
+      "results": [
+        {
+          "item": "tlotd:incomplete_biological_circuit_board"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "tlotd:incomplete_biological_circuit_board"
+        },
+        {
+          "item": "spore:cerebrum"
+        }
+      ],
+      "results": [
+        {
+          "item": "tlotd:incomplete_biological_circuit_board"
+        }
+      ]
+    }
+  ],
+  "transitionalItem": {
+    "item": "tlotd:incomplete_biological_circuit_board"
+  }
+}

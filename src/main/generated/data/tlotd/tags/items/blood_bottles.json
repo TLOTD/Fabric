@@ -1,0 +1,22 @@
+{
+  "replace": false,
+  "values": [
+    "tlotd:blood_bottle",
+    {
+      "id": "twilightforest:fiery_blood",
+      "required": false
+    },
+    {
+      "id": "iceandfire:fire_dragon_blood",
+      "required": false
+    },
+    {
+      "id": "iceandfire:ice_dragon_blood",
+      "required": false
+    },
+    {
+      "id": "iceandfire:lightning_dragon_blood",
+      "required": false
+    }
+  ]
+}

@@ -5,9 +5,12 @@ import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.util.Identifier;
+import net.minecraft.world.event.listener.GameEventListener;
 import net.minecraft.world.gen.YOffset;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.gen.feature.PlacedFeature;
+import net.minecraft.world.gen.feature.PlacedFeatures;
+import net.minecraft.world.gen.feature.VegetationPlacedFeatures;
 import net.minecraft.world.gen.placementmodifier.HeightRangePlacementModifier;
 import net.minecraft.world.gen.placementmodifier.PlacementModifier;
 import net.tlotd.TLOTD;
@@ -56,6 +59,9 @@ public class ModPlacedFeatures {
     public static final RegistryKey<PlacedFeature> MOON_ROCK_IRON_ORE_PLACED_KEY = registerKey("moon_rock_iron_ore_placed");
     public static final RegistryKey<PlacedFeature> MOON_ROCK_LUNAR_CALLAINUS_ORE_PLACED_KEY = registerKey("moon_rock_lunar_callainus_ore_placed");
 
+    public static final RegistryKey<PlacedFeature> MEGA_GINKGO_TREE_PLACED_KEY = registerKey("mega_ginkgo_tree_placed");
+    public static final RegistryKey<PlacedFeature> GINKGO_TREE_PLACED_KEY = registerKey("ginkgo_tree_placed");
+
     public static void bootstrap(Registerable<PlacedFeature> context) {
         var configuredFeatureRegistryEntryLookup = context.getRegistryLookup(RegistryKeys.CONFIGURED_FEATURE);
         register(context, NETHER_SULFUR_ORE_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.NETHER_SULFUR_ORE_KEY), ModOrePlacement.modifiersWithCount(8, HeightRangePlacementModifier.uniform(YOffset.fixed(0), YOffset.fixed(128))));
@@ -97,6 +103,18 @@ public class ModPlacedFeatures {
         register(context, MOON_ROCK_COAL_ORE_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.MOON_ROCK_COAL_ORE_KEY), ModOrePlacement.modifiersWithCount(24, HeightRangePlacementModifier.uniform(YOffset.fixed(-64), YOffset.fixed(320))));
         register(context, MOON_ROCK_IRON_ORE_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.MOON_ROCK_IRON_ORE_KEY), ModOrePlacement.modifiersWithCount(32, HeightRangePlacementModifier.uniform(YOffset.fixed(-64), YOffset.fixed(320))));
         register(context, MOON_ROCK_LUNAR_CALLAINUS_ORE_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.MOON_ROCK_LUNAR_CALLAINUS_ORE_KEY), ModOrePlacement.modifiersWithCount(12, HeightRangePlacementModifier.uniform(YOffset.fixed(-64), YOffset.fixed(320))));
+
+        register(context,
+                MEGA_GINKGO_TREE_PLACED_KEY,
+                configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.MEGA_GINKGO_KEY),
+                ModTreePlacement.modifiersWithCountAndExtra(6, 0.1f, 3)
+        );
+
+        register(context,
+                GINKGO_TREE_PLACED_KEY,
+                configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.GINKGO_KEY),
+                ModTreePlacement.modifiersWithCountAndExtra(6, 0.1f, 3)
+        );
     }
 
     public static RegistryKey<PlacedFeature> registerKey(String name) {

@@ -46,8 +46,6 @@ public class SignalTrackingArray extends PersistentState {
         return nbt;
     }
 
-    // --- API ---
-
     public boolean hasSignal(String signal) {
         return signals.contains(signal);
     }

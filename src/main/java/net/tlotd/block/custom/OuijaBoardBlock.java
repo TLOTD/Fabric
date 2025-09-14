@@ -97,6 +97,7 @@ public class OuijaBoardBlock extends Block {
             tooltip.add(Text.translatable("block.tlotd.ouija_board.tooltip_2").setStyle(style.withFont(ILLAGER_FONT_ID)).formatted(Formatting.GRAY));
             tooltip.add(Text.translatable("block.tlotd.ouija_board.tooltip_3").setStyle(style.withFont(ILLAGER_FONT_ID)).formatted(Formatting.GRAY));
         }
+        tooltip.add(Text.translatable("item.tlotd.desc_occult").formatted(Formatting.RED));
         super.appendTooltip(stack, world, tooltip, options);
     }
 }
