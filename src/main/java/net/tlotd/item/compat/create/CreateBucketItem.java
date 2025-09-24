@@ -32,6 +32,9 @@ public class CreateBucketItem extends BucketItem {
             if (stack.isOf(ModFluids.ANCIENT_SOULBERRY_JAM_BUCKET)) {
                 tooltip.add(Text.literal("\uE00B ").setStyle(Style.EMPTY.withFont(MODS_FONT_ID)).append(Text.translatable("mod.allthemodium.name").setStyle(Style.EMPTY.withFont(DEFAULT_FONT_ID).withFormatting(Formatting.GRAY))));
             }
+            if (stack.isOf(ModFluids.DROOPFRUIT_JAM_BUCKET)) {
+                tooltip.add(Text.literal("\uE016 ").setStyle(style.withFont(MODS_FONT_ID)).append(Text.translatable("mod.undergarden.name").setStyle(style.withFont(DEFAULT_FONT_ID).withFormatting(Formatting.GRAY))));
+            }
             tooltip.add(Text.literal("\uE00A ").setStyle(style.withFont(MODS_FONT_ID)).append(Text.translatable("mod.create.name").setStyle(style.withFont(DEFAULT_FONT_ID).withFormatting(Formatting.GRAY))));
         }
         super.appendTooltip(stack, world, tooltip, context);

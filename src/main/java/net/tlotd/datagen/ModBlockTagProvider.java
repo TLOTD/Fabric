@@ -29,6 +29,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(Blocks.GOLD_ORE)
                 .add(Blocks.DIAMOND_ORE)
                 .add(Blocks.EMERALD_ORE)
+                .add(ModBlocks.ALUMINIUM_ORE)
                 .add(ModBlocks.LEAD_ORE)
                 .add(ModBlocks.URANIUM_ORE)
                 .add(ModBlocks.FOSSIL)
@@ -191,6 +192,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
                 .add(ModBlocks.RED_DEEPSLATE_SULFUR_ORE)
                 .add(ModBlocks.RED_DEEPSLATE_QUARTZ_ORE)
+                .add(ModBlocks.RED_DEEPSLATE_ALUMINIUM_ORE)
                 .add(ModBlocks.RED_DEEPSLATE_LEAD_ORE)
                 .add(ModBlocks.RED_DEEPSLATE_URANIUM_ORE)
                 .add(ModBlocks.RED_DEEPSLATE_HELIORITE_ORE)
@@ -414,6 +416,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.WOODEN_BLUE_BERRY_MILKSHAKE_STEIN)
                 .add(ModBlocks.WOODEN_TORCHBERRY_MILKSHAKE_STEIN)
                 .add(ModBlocks.WOODEN_CHOCOLATE_MILKSHAKE_STEIN)
+                .add(ModBlocks.WOODEN_CARAMEL_MILKSHAKE_STEIN)
                 .add(ModBlocks.HOT_WOODEN_MILK_STEIN)
                 .add(ModBlocks.WOODEN_HOT_CHOCOLATE_STEIN)
         ;
@@ -665,6 +668,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
                 .add(ModBlocks.RED_DEEPSLATE_SULFUR_ORE)
                 .add(ModBlocks.RED_DEEPSLATE_QUARTZ_ORE)
+                .add(ModBlocks.RED_DEEPSLATE_ALUMINIUM_ORE)
                 .add(ModBlocks.RED_DEEPSLATE_LEAD_ORE)
                 .add(ModBlocks.RED_DEEPSLATE_URANIUM_ORE)
                 .add(ModBlocks.RED_DEEPSLATE_HELIORITE_ORE)
@@ -693,6 +697,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.FRAMED_GLASS_BOTTOM)
                 .add(ModBlocks.FRAMED_GLASS_MIDDLE)
                 .add(ModBlocks.FRAMED_GLASS_TOP)
+                .add(ModBlocks.FRAMED_GLASS_ROUND)
                 .add(ModBlocks.FRAMED_GLASS_SPLIT)
                 .add(ModBlocks.FRAMED_GLASS_TILED)
 
@@ -700,11 +705,17 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.FRAMED_GLASS_BOTTOM_PANE)
                 .add(ModBlocks.FRAMED_GLASS_MIDDLE_PANE)
                 .add(ModBlocks.FRAMED_GLASS_TOP_PANE)
+                .add(ModBlocks.FRAMED_GLASS_ROUND_PANE)
                 .add(ModBlocks.FRAMED_GLASS_SPLIT_PANE)
                 .add(ModBlocks.FRAMED_GLASS_TILED_PANE)
                 
                 .add(ModBlocks.NETHER_SULFUR_ORE)
                 .add(ModBlocks.SULFUR_BLOCK)
+
+                .add(ModBlocks.ALUMINIUM_ORE)
+                .add(ModBlocks.DEEPSLATE_ALUMINIUM_ORE)
+                .add(ModBlocks.RAW_ALUMINIUM_BLOCK)
+                .add(ModBlocks.ALUMINIUM_BLOCK)
 
                 .add(ModBlocks.LEAD_ORE)
                 .add(ModBlocks.DEEPSLATE_LEAD_ORE)
@@ -872,6 +883,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         ;
 
         getOrCreateTagBuilder(BlockTags.BEACON_BASE_BLOCKS)
+                .add(ModBlocks.ALUMINIUM_BLOCK)
                 .add(ModBlocks.HELIORITE_BLOCK)
                 .add(ModBlocks.ENDURIUM_BLOCK)
                 .add(ModBlocks.PALLADIUM_BLOCK)
@@ -882,12 +894,18 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         ;
 
         getOrCreateTagBuilder(BlockTags.NEEDS_STONE_TOOL)
+                .add(ModBlocks.ALUMINIUM_ORE)
+                .add(ModBlocks.DEEPSLATE_ALUMINIUM_ORE)
+                .add(ModBlocks.RAW_ALUMINIUM_BLOCK)
+                .add(ModBlocks.ALUMINIUM_BLOCK)
+
                 .add(ModBlocks.LEAD_ORE)
                 .add(ModBlocks.RAW_LEAD_BLOCK)
                 .add(ModBlocks.LEAD_BLOCK)
 
                 .add(ModBlocks.MEGAREGOLITH_IRON_ORE)
 
+                .add(ModBlocks.RED_DEEPSLATE_ALUMINIUM_ORE)
                 .add(ModBlocks.RED_DEEPSLATE_LEAD_ORE)
                 .add(ModBlocks.RED_DEEPSLATE_IRON_ORE)
                 .add(ModBlocks.RED_DEEPSLATE_COPPER_ORE)

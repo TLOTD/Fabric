@@ -77,6 +77,7 @@ public class ModModelProvider extends FabricModelProvider {
 
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RED_DEEPSLATE_SULFUR_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RED_DEEPSLATE_QUARTZ_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RED_DEEPSLATE_ALUMINIUM_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RED_DEEPSLATE_LEAD_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RED_DEEPSLATE_URANIUM_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RED_DEEPSLATE_HELIORITE_ORE);
@@ -109,6 +110,11 @@ public class ModModelProvider extends FabricModelProvider {
 
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.NETHER_SULFUR_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.SULFUR_BLOCK);
+
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.ALUMINIUM_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DEEPSLATE_ALUMINIUM_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RAW_ALUMINIUM_BLOCK);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.ALUMINIUM_BLOCK);
 
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.LEAD_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DEEPSLATE_LEAD_ORE);
@@ -317,6 +323,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.PIPE, Models.GENERATED);
 
         itemModelGenerator.register(ModItems.BLUE_BERRY_JAM_TOAST, Models.GENERATED);
+        itemModelGenerator.register(ModItems.DROOPFRUIT_JAM_TOAST, Models.GENERATED);
         itemModelGenerator.register(ModItems.ANCIENT_SOULBERRY_JAM_TOAST, Models.GENERATED);
 
         itemModelGenerator.registerArmor(((ArmorItem) ModItems.MONOCLE));
@@ -386,6 +393,11 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.HOLOGRAPHIC_PROJECTOR, Models.GENERATED);
 
         itemModelGenerator.register(ModItems.FRAGMENTED_FUTURISTIC_CIRCUIT_BOARD, Models.GENERATED);
+
+        itemModelGenerator.register(ModItems.RAW_ALUMINIUM, Models.GENERATED);
+        itemModelGenerator.register(ModItems.ALUMINIUM_NUGGET, Models.GENERATED);
+        itemModelGenerator.register(ModItems.ALUMINIUM_INGOT, Models.GENERATED);
+        itemModelGenerator.register(ModItems.ALUMINIUM_SHEET, Models.GENERATED);
 
         itemModelGenerator.register(ModItems.RAW_LEAD, Models.GENERATED);
         itemModelGenerator.register(ModItems.LEAD_NUGGET, Models.GENERATED);
@@ -619,6 +631,11 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.MAULTASCHE, Models.GENERATED);
         itemModelGenerator.register(ModItems.MAULTASCHEN_BROTH, Models.GENERATED);
         itemModelGenerator.register(ModItems.SUSPICIOUS_MAULTASCHEN_BROTH, Models.GENERATED);
+
+        itemModelGenerator.register(ModItems.CARAMEL, Models.GENERATED);
+        itemModelGenerator.register(ModItems.DRINK_CAN, Models.GENERATED);
+        itemModelGenerator.register(ModItems.SPEZI_CAN, Models.GENERATED);
+        itemModelGenerator.register(ModItems.BEER_CAN, Models.GENERATED);
 
         itemModelGenerator.register(ModItems.BEER_BOTTLE, Models.GENERATED);
         itemModelGenerator.register(ModItems.BEER_GOAT_HORN, Models.GENERATED);

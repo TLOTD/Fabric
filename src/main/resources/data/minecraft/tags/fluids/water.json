@@ -1,6 +1,8 @@
 {
   "replace": false,
   "values": [
+    "tlotd:spezi",
+    "tlotd:flowing_spezi",
     "tlotd:beer",
     "tlotd:flowing_beer",
     "tlotd:hot_milk",
@@ -21,6 +23,8 @@
     "tlotd:flowing_orange_marmelade",
     "tlotd:blue_berry_jam",
     "tlotd:flowing_blue_berry_jam",
+    "tlotd:droopfruit_jam",
+    "tlotd:flowing_droopfruit_jam",
     "tlotd:ancient_soulberry_jam",
     "tlotd:flowing_ancient_soulberry_jam"
   ]

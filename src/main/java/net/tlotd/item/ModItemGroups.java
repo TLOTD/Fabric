@@ -79,6 +79,11 @@ public class ModItemGroups {
 
                         entries.add(ModItems.SULFUR);
 
+                        entries.add(ModItems.RAW_ALUMINIUM);
+                        entries.add(ModItems.ALUMINIUM_NUGGET);
+                        entries.add(ModItems.ALUMINIUM_INGOT);
+                        entries.add(ModItems.ALUMINIUM_SHEET);
+
                         entries.add(ModItems.RAW_LEAD);
                         entries.add(ModItems.LEAD_NUGGET);
                         entries.add(ModItems.LEAD_INGOT);
@@ -169,12 +174,15 @@ public class ModItemGroups {
                         entries.add(ModItems.PIPE_WEED_PIPE);
                         entries.add(ModItems.HEMP_COOKIE);
 
+                        entries.add(ModItems.CARAMEL);
+
                         entries.add(ModBlocks.PRESERVES_JAR);
                         entries.add(ModBlocks.SWEET_BERRY_JAM_JAR);
                         entries.add(ModBlocks.GLOW_BERRY_JAM_JAR);
                         entries.add(ModBlocks.STRAWBERRY_JAM_JAR);
                         entries.add(ModBlocks.ORANGE_MARMELADE_JAR);
                         entries.add(ModBlocks.BLUE_BERRY_JAM_JAR);
+                        entries.add(ModBlocks.DROOPFRUIT_JAM_JAR);
                         entries.add(ModBlocks.ANCIENT_SOULBERRY_JAM_JAR);
                         entries.add(ModItems.TOAST);
                         entries.add(ModItems.SWEET_BERRY_JAM_TOAST);
@@ -182,10 +190,14 @@ public class ModItemGroups {
                         entries.add(ModItems.STRAWBERRY_JAM_TOAST);
                         entries.add(ModItems.ORANGE_MARMELADE_TOAST);
                         entries.add(ModItems.BLUE_BERRY_JAM_TOAST);
+                        entries.add(ModItems.DROOPFRUIT_JAM_TOAST);
                         entries.add(ModItems.ANCIENT_SOULBERRY_JAM_TOAST);
 
+                        entries.add(ModItems.DRINK_CAN);
+                        entries.add(ModItems.SPEZI_CAN);
                         entries.add(ModItems.SPEZI_BOTTLE);
 
+                        entries.add(ModItems.BEER_CAN);
                         entries.add(ModItems.BEER_BOTTLE);
                         entries.add(ModItems.MEAD_BOTTLE);
                         entries.add(ModItems.BEER_GOAT_HORN);
@@ -533,6 +545,7 @@ public class ModItemGroups {
                         entries.add(ModBlocks.WOODEN_MEAD_STEIN);
                         entries.add(ModBlocks.WOODEN_MILK_STEIN);
                         entries.add(ModBlocks.WOODEN_CHOCOLATE_MILKSHAKE_STEIN);
+                        entries.add(ModBlocks.WOODEN_CARAMEL_MILKSHAKE_STEIN);
                         entries.add(ModBlocks.WOODEN_STRAWBERRY_MILKSHAKE_STEIN);
                         entries.add(ModBlocks.WOODEN_ORANGE_MILKSHAKE_STEIN);
                         entries.add(ModBlocks.WOODEN_BLUE_BERRY_MILKSHAKE_STEIN);
@@ -635,6 +648,7 @@ public class ModItemGroups {
 
                         entries.add(ModBlocks.RED_DEEPSLATE_SULFUR_ORE);
                         entries.add(ModBlocks.RED_DEEPSLATE_QUARTZ_ORE);
+                        entries.add(ModBlocks.RED_DEEPSLATE_ALUMINIUM_ORE);
                         entries.add(ModBlocks.RED_DEEPSLATE_LEAD_ORE);
                         entries.add(ModBlocks.RED_DEEPSLATE_URANIUM_ORE);
                         entries.add(ModBlocks.RED_DEEPSLATE_HELIORITE_ORE);
@@ -652,6 +666,11 @@ public class ModItemGroups {
                         entries.add(ModItems.SULFUR_TORCH);
                         entries.add(ModBlocks.SULFUR_LANTERN);
                         entries.add(ModBlocks.SULFUR_CAMPFIRE);
+
+                        entries.add(ModBlocks.ALUMINIUM_ORE);
+                        entries.add(ModBlocks.DEEPSLATE_ALUMINIUM_ORE);
+                        entries.add(ModBlocks.RAW_ALUMINIUM_BLOCK);
+                        entries.add(ModBlocks.ALUMINIUM_BLOCK);
 
                         entries.add(ModBlocks.LEAD_ORE);
                         entries.add(ModBlocks.DEEPSLATE_LEAD_ORE);
@@ -740,6 +759,7 @@ public class ModItemGroups {
                         entries.add(ModBlocks.FRAMED_GLASS_BOTTOM);
                         entries.add(ModBlocks.FRAMED_GLASS_MIDDLE);
                         entries.add(ModBlocks.FRAMED_GLASS_TOP);
+                        entries.add(ModBlocks.FRAMED_GLASS_ROUND);
                         entries.add(ModBlocks.FRAMED_GLASS_SPLIT);
                         entries.add(ModBlocks.FRAMED_GLASS_TILED);
 
@@ -747,6 +767,7 @@ public class ModItemGroups {
                         entries.add(ModBlocks.FRAMED_GLASS_BOTTOM_PANE);
                         entries.add(ModBlocks.FRAMED_GLASS_MIDDLE_PANE);
                         entries.add(ModBlocks.FRAMED_GLASS_TOP_PANE);
+                        entries.add(ModBlocks.FRAMED_GLASS_ROUND_PANE);
                         entries.add(ModBlocks.FRAMED_GLASS_SPLIT_PANE);
                         entries.add(ModBlocks.FRAMED_GLASS_TILED_PANE);
 
@@ -847,6 +868,7 @@ public class ModItemGroups {
                         entries.add(ModItems.INCOMPLETE_KEYCARD_READER);
                         entries.add(ModItems.INCOMPLETE_OXYGEN_COLLECTOR);
                         entries.add(ModItems.INCOMPLETE_MITHRIL_MIRROR);
+                        entries.add(ModFluids.SPEZI_BUCKET);
                         entries.add(ModFluids.SWEET_BERRY_JAM_BUCKET);
                         entries.add(ModFluids.GLOW_BERRY_JAM_BUCKET);
                         entries.add(ModFluids.STRAWBERRY_JAM_BUCKET);
@@ -855,6 +877,9 @@ public class ModItemGroups {
                         entries.add(ModBlocks.WOODEN_BLUE_BERRY_MILKSHAKE_STEIN);
                         entries.add(ModBlocks.BLUE_BERRY_JAM_JAR);
                         entries.add(ModItems.BLUE_BERRY_JAM_TOAST);
+                        entries.add(ModFluids.DROOPFRUIT_JAM_BUCKET);
+                        entries.add(ModBlocks.DROOPFRUIT_JAM_JAR);
+                        entries.add(ModItems.DROOPFRUIT_JAM_TOAST);
                         entries.add(ModFluids.ANCIENT_SOULBERRY_JAM_BUCKET);
                         entries.add(ModBlocks.ANCIENT_SOULBERRY_JAM_JAR);
                         entries.add(ModItems.ANCIENT_SOULBERRY_JAM_TOAST);
@@ -920,7 +945,9 @@ public class ModItemGroups {
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.NATURAL).register(content -> {
             content.addAfter(Items.END_STONE, ModBlocks.END_ENDURIUM_ORE);
-            content.addAfter(Items.DEEPSLATE_DIAMOND_ORE, ModBlocks.LEAD_ORE);
+            content.addAfter(Items.DEEPSLATE_DIAMOND_ORE, ModBlocks.ALUMINIUM_ORE);
+            content.addAfter(ModBlocks.ALUMINIUM_ORE, ModBlocks.DEEPSLATE_ALUMINIUM_ORE);
+            content.addAfter(ModBlocks.DEEPSLATE_ALUMINIUM_ORE, ModBlocks.LEAD_ORE);
             content.addAfter(ModBlocks.LEAD_ORE, ModBlocks.DEEPSLATE_LEAD_ORE);
             content.addAfter(ModBlocks.DEEPSLATE_LEAD_ORE, ModBlocks.URANIUM_ORE);
             content.addAfter(ModBlocks.URANIUM_ORE, ModBlocks.DEEPSLATE_URANIUM_ORE);
@@ -1017,7 +1044,8 @@ public class ModItemGroups {
             content.addAfter(ModItems.GLOW_BERRY_JAM_TOAST, ModItems.STRAWBERRY_JAM_TOAST);
             content.addAfter(ModItems.STRAWBERRY_JAM_TOAST, ModItems.ORANGE_MARMELADE_TOAST);
             content.addAfter(ModItems.ORANGE_MARMELADE_TOAST, ModItems.BLUE_BERRY_JAM_TOAST);
-            content.addAfter(ModItems.BLUE_BERRY_JAM_TOAST, ModItems.ANCIENT_SOULBERRY_JAM_TOAST);
+            content.addAfter(ModItems.BLUE_BERRY_JAM_TOAST, ModItems.DROOPFRUIT_JAM_TOAST);
+            content.addAfter(ModItems.DROOPFRUIT_JAM_TOAST, ModItems.ANCIENT_SOULBERRY_JAM_TOAST);
             content.addAfter(Items.COOKIE, ModItems.HEMP_COOKIE);
             content.addAfter(ModItems.HEMP_COOKIE, ModItems.CHOCOLATE_STRAWBERRY);
             content.addAfter(Items.CAKE, ModBlocks.STRAWBERRY_CAKE);
@@ -1031,7 +1059,8 @@ public class ModItemGroups {
             content.addAfter(ModBlocks.WOODEN_BEER_STEIN, ModBlocks.WOODEN_MEAD_STEIN);
             content.addAfter(ModBlocks.WOODEN_MEAD_STEIN, ModBlocks.WOODEN_MILK_STEIN);
             content.addAfter(ModBlocks.WOODEN_MILK_STEIN, ModBlocks.WOODEN_CHOCOLATE_MILKSHAKE_STEIN);
-            content.addAfter(ModBlocks.WOODEN_CHOCOLATE_MILKSHAKE_STEIN, ModBlocks.WOODEN_STRAWBERRY_MILKSHAKE_STEIN);
+            content.addAfter(ModBlocks.WOODEN_CHOCOLATE_MILKSHAKE_STEIN, ModBlocks.WOODEN_CARAMEL_MILKSHAKE_STEIN);
+            content.addAfter(ModBlocks.WOODEN_CARAMEL_MILKSHAKE_STEIN, ModBlocks.WOODEN_STRAWBERRY_MILKSHAKE_STEIN);
             content.addAfter(ModBlocks.WOODEN_STRAWBERRY_MILKSHAKE_STEIN, ModBlocks.WOODEN_ORANGE_MILKSHAKE_STEIN);
             content.addAfter(ModBlocks.WOODEN_ORANGE_MILKSHAKE_STEIN, ModBlocks.WOODEN_BLUE_BERRY_MILKSHAKE_STEIN);
             content.addAfter(ModBlocks.WOODEN_BLUE_BERRY_MILKSHAKE_STEIN, ModBlocks.WOODEN_TORCHBERRY_MILKSHAKE_STEIN);
@@ -1042,12 +1071,15 @@ public class ModItemGroups {
             content.addAfter(ModItems.ORANGE_JUICE_BOTTLE, ModItems.SPEZI_BOTTLE);
             content.addAfter(ModItems.SPEZI_BOTTLE, ModItems.BEER_BOTTLE);
             content.addAfter(ModItems.BEER_BOTTLE, ModItems.MEAD_BOTTLE);
-            content.addAfter(ModItems.MEAD_BOTTLE, ModItems.BEER_GOAT_HORN);
+            content.addAfter(ModItems.MEAD_BOTTLE, ModItems.SPEZI_CAN);
+            content.addAfter(ModItems.SPEZI_CAN, ModItems.BEER_CAN);
+            content.addAfter(ModItems.BEER_CAN, ModItems.BEER_GOAT_HORN);
             content.addAfter(ModItems.BEER_GOAT_HORN, ModItems.MEAD_GOAT_HORN);
         });
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(content -> {
-            content.addAfter(Items.RAW_GOLD, ModItems.RAW_LEAD);
+            content.addAfter(Items.RAW_GOLD, ModItems.RAW_ALUMINIUM);
+            content.addAfter(ModItems.RAW_ALUMINIUM, ModItems.RAW_LEAD);
             content.addAfter(ModItems.RAW_LEAD, ModItems.RAW_PALLADIUM);
             content.addAfter(ModItems.RAW_PALLADIUM, ModItems.RAW_MITHRIL);
             content.addAfter(Items.DIAMOND, ModItems.URANIUM);
@@ -1058,7 +1090,8 @@ public class ModItemGroups {
             content.addAfter(Items.AMETHYST_SHARD, ModItems.XEN_CRYSTAL);
             content.addAfter(Items.IRON_NUGGET, ModItems.COPPER_NUGGET);
             content.addAfter(Items.GOLD_NUGGET, ModItems.STEEL_NUGGET);
-            content.addAfter(ModItems.STEEL_NUGGET, ModItems.LEAD_NUGGET);
+            content.addAfter(ModItems.STEEL_NUGGET, ModItems.ASTRAL_NUGGET);
+            content.addAfter(ModItems.ASTRAL_NUGGET, ModItems.LEAD_NUGGET);
             content.addAfter(ModItems.LEAD_NUGGET, ModItems.URANIUM_NUGGET);
             content.addAfter(ModItems.URANIUM_NUGGET, ModItems.HELIORITE_NUGGET);
             content.addAfter(ModItems.HELIORITE_NUGGET, ModItems.ENDURIUM_NUGGET);
@@ -1069,7 +1102,8 @@ public class ModItemGroups {
             content.addAfter(ModItems.NEBULAR_NUGGET, ModItems.MITHRIL_NUGGET);
             content.addAfter(ModItems.MITHRIL_NUGGET, ModItems.ASTRAL_NUGGET);
             content.addAfter(Items.GOLD_INGOT, ModItems.STEEL_INGOT);
-            content.addAfter(ModItems.STEEL_INGOT, ModItems.LEAD_INGOT);
+            content.addAfter(ModItems.STEEL_INGOT, ModItems.ALUMINIUM_INGOT);
+            content.addAfter(ModItems.ALUMINIUM_INGOT, ModItems.LEAD_INGOT);
             content.addAfter(ModItems.LEAD_INGOT, ModItems.URANIUM_INGOT);
             content.addAfter(Items.NETHERITE_INGOT, ModItems.HELIORITE_INGOT);
             content.addAfter(ModItems.HELIORITE_INGOT, ModItems.ENDURIUM_INGOT);

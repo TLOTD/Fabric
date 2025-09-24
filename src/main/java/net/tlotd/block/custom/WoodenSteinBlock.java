@@ -90,7 +90,7 @@ public class WoodenSteinBlock extends Block {
                 player.addStatusEffect(new StatusEffectInstance(ModEffects.DRUNK, 600));
             } else if (this.equals(ModBlocks.WOODEN_MILK_STEIN)) {
                 player.clearStatusEffects();
-            } else if (this.equals(ModBlocks.WOODEN_STRAWBERRY_MILKSHAKE_STEIN) || this.equals(ModBlocks.WOODEN_ORANGE_MILKSHAKE_STEIN) || this.equals(ModBlocks.WOODEN_CHOCOLATE_MILKSHAKE_STEIN) || this.equals(ModBlocks.WOODEN_BLUE_BERRY_MILKSHAKE_STEIN)) {
+            } else if (this.equals(ModBlocks.WOODEN_CARAMEL_MILKSHAKE_STEIN) || this.equals(ModBlocks.WOODEN_STRAWBERRY_MILKSHAKE_STEIN) || this.equals(ModBlocks.WOODEN_ORANGE_MILKSHAKE_STEIN) || this.equals(ModBlocks.WOODEN_CHOCOLATE_MILKSHAKE_STEIN) || this.equals(ModBlocks.WOODEN_BLUE_BERRY_MILKSHAKE_STEIN)) {
                 player.clearStatusEffects();
                 player.addStatusEffect(new StatusEffectInstance(StatusEffects.RESISTANCE, 10, 0));
             } else if (this.equals(ModBlocks.WOODEN_TORCHBERRY_MILKSHAKE_STEIN)) {

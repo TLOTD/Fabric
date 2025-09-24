@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "#c:raw_aluminum_blocks",
+      "required": false
+    }
+  ]
+}

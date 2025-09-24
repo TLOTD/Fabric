@@ -1,5 +1,5 @@
 {
-	"parent": "tlotd:block/template_human_plushie",
+	"parent": "tlotd:block/template_human_plushie_slim",
 	"textures": {
 		"0": "tlotd:block/human_plushies/magickvo",
 		"1": "tlotd:block/empty",

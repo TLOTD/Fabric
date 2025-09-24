@@ -24,6 +24,7 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.STRAWBERRY_JAM_JAR);
         addDrop(ModBlocks.ORANGE_MARMELADE_JAR);
         addDrop(ModBlocks.BLUE_BERRY_JAM_JAR);
+        addDrop(ModBlocks.DROOPFRUIT_JAM_JAR);
         addDrop(ModBlocks.ANCIENT_SOULBERRY_JAM_JAR);
 
         addDrop(ModBlocks.FRAMED_GLASS);
@@ -34,6 +35,8 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.FRAMED_GLASS_MIDDLE_PANE);
         addDrop(ModBlocks.FRAMED_GLASS_BOTTOM);
         addDrop(ModBlocks.FRAMED_GLASS_BOTTOM_PANE);
+        addDrop(ModBlocks.FRAMED_GLASS_ROUND);
+        addDrop(ModBlocks.FRAMED_GLASS_ROUND_PANE);
         addDrop(ModBlocks.FRAMED_GLASS_SPLIT);
         addDrop(ModBlocks.FRAMED_GLASS_SPLIT_PANE);
         addDrop(ModBlocks.FRAMED_GLASS_TILED);
@@ -125,6 +128,7 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.REINFORCED_RED_DEEPSLATE);
 
         addDrop(ModBlocks.RED_DEEPSLATE_SULFUR_ORE, drops(ModBlocks.RED_DEEPSLATE_SULFUR_ORE, ModItems.SULFUR));
+        addDrop(ModBlocks.RED_DEEPSLATE_ALUMINIUM_ORE, drops(ModBlocks.RED_DEEPSLATE_ALUMINIUM_ORE, ModItems.RAW_ALUMINIUM));
         addDrop(ModBlocks.RED_DEEPSLATE_LEAD_ORE, drops(ModBlocks.RED_DEEPSLATE_LEAD_ORE, ModItems.RAW_LEAD));
         addDrop(ModBlocks.RED_DEEPSLATE_URANIUM_ORE, drops(ModBlocks.RED_DEEPSLATE_URANIUM_ORE, ModItems.URANIUM));
         addDrop(ModBlocks.RED_DEEPSLATE_HELIORITE_ORE, drops(ModBlocks.RED_DEEPSLATE_HELIORITE_ORE, ModItems.HELIORITE_COMB));
@@ -153,6 +157,11 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
 
         addDrop(ModBlocks.NETHER_SULFUR_ORE, drops(ModBlocks.NETHER_SULFUR_ORE, ModItems.SULFUR));
         addDrop(ModBlocks.SULFUR_BLOCK);
+
+        addDrop(ModBlocks.ALUMINIUM_ORE, drops(ModBlocks.ALUMINIUM_ORE, ModItems.RAW_ALUMINIUM));
+        addDrop(ModBlocks.DEEPSLATE_ALUMINIUM_ORE, drops(ModBlocks.DEEPSLATE_ALUMINIUM_ORE, ModItems.RAW_ALUMINIUM));
+        addDrop(ModBlocks.RAW_ALUMINIUM_BLOCK);
+        addDrop(ModBlocks.ALUMINIUM_BLOCK);
 
         addDrop(ModBlocks.LEAD_ORE, drops(ModBlocks.LEAD_ORE, ModItems.RAW_LEAD));
         addDrop(ModBlocks.DEEPSLATE_LEAD_ORE, drops(ModBlocks.DEEPSLATE_LEAD_ORE, ModItems.RAW_LEAD));
@@ -211,6 +220,7 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.WOODEN_BLUE_BERRY_MILKSHAKE_STEIN);
         addDrop(ModBlocks.WOODEN_TORCHBERRY_MILKSHAKE_STEIN);
         addDrop(ModBlocks.WOODEN_CHOCOLATE_MILKSHAKE_STEIN);
+        addDrop(ModBlocks.WOODEN_CARAMEL_MILKSHAKE_STEIN);
         addDrop(ModBlocks.HOT_WOODEN_MILK_STEIN);
         addDrop(ModBlocks.WOODEN_HOT_CHOCOLATE_STEIN);
 

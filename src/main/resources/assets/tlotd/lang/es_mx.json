@@ -217,13 +217,20 @@
   "item.tlotd.orange_juice_bottle": "Botella de zumo de naranja",
   "item.tlotd.spezi_bottle": "Botella Spezi",
 
+  "item.tlotd.caramel": "Caramelo",
+  "item.tlotd.drink_can": "Lata de bebida",
+  "item.tlotd.spezi_can": "Lata de refresco de spezi",
+  "item.tlotd.beer_can": "Lata de refresco de cerveza",
+
   "item.tlotd.pipe_weed_seeds": "Semillas de hierba para pipa",
   "item.tlotd.pipe_weed": "Hierba para pipa",
   "item.tlotd.pipe": "Pipa",
   "item.tlotd.pipe_weed_pipe": "Pipa de Hierba para pipa",
 
   "block.tlotd.blue_berry_jam_jar": "Tarro de mermelada de bayas azules",
-  "item.tlotd.blue_berry_jam_toast": "Tostadas con mermelada de arándanos",
+  "item.tlotd.blue_berry_jam_toast": "Tostadas con mermelada de bayas azules",
+  "block.tlotd.droopfruit_jam_jar": "Tarro de mermelada de fruta madura",
+  "item.tlotd.droopfruit_jam_toast": "Tostadas con mermelada de fruta madura",
   "block.tlotd.ancient_soulberry_jam_jar": "Tarro de mermelada de bayas alma antigua",
   "item.tlotd.ancient_soulberry_jam_toast": "Tostada con mermelada de bayas alma antigua",
 
@@ -373,6 +380,7 @@
   "item.tlotd.strawberry_jam_bucket": "Cubo de mermelada de fresa",
   "item.tlotd.orange_marmelade_bucket": "Cubo de mermelada de naranja",
   "item.tlotd.blue_berry_jam_bucket": "Cubo de mermelada de bayas azules",
+  "item.tlotd.droopfruit_jam_bucket": "Cubo de mermelada de fruta madura",
   "item.tlotd.ancient_soulberry_jam_bucket": "Cubo de mermelada de bayas alma antigua",
 
   "item.tlotd.copper_nugget": "Pepita de cobre",
@@ -394,13 +402,18 @@
 
   "item.tlotd.sulfur": "Azufre",
 
-  "item.tlotd.raw_lead": "Plomo en bruto",
-  "item.tlotd.lead_nugget": "Pepita de plomo",
-  "item.tlotd.lead_ingot": "Lingote de plomo",
+  "item.tlotd.raw_aluminium": "Plata en aluminio",
+  "item.tlotd.aluminium_nugget": "Pepita de aluminio",
+  "item.tlotd.aluminium_ingot": "Lingote de aluminio",
+  "item.tlotd.aluminium_sheet": "Lámina de aluminio",
 
   "item.tlotd.raw_silver": "Plata en bruto",
   "item.tlotd.silver_nugget": "Pepita de plata",
   "item.tlotd.silver_ingot": "Lingote de plata",
+
+  "item.tlotd.raw_lead": "Plomo en bruto",
+  "item.tlotd.lead_nugget": "Pepita de plomo",
+  "item.tlotd.lead_ingot": "Lingote de plomo",
 
   "item.tlotd.uranium": "Uranio",
   "item.tlotd.uranium_nugget": "Pepita de uranio",
@@ -699,6 +712,8 @@
   "block.tlotd.orange_marmelade_block": "Mermelada de naranja",
   "block.tlotd.blue_berry_jam": "Mermelada de bayas azules",
   "block.tlotd.blue_berry_jam_block": "Mermelada de bayas azules",
+  "block.tlotd.droopfruit_jam": "Mermelada de fruta madura",
+  "block.tlotd.droopfruit_jam_block": "Mermelada de fruta madura",
   "block.tlotd.ancient_soulberry_jam": "Mermelada de bayas alma antigua",
   "block.tlotd.ancient_soulberry_jam_block": "Mermelada de bayas alma antigua",
 
@@ -864,6 +879,7 @@
 
   "block.tlotd.red_deepslate_sulfur_ore": "Mineral de azufre de pizarra profunda roja",
   "block.tlotd.red_deepslate_quartz_ore": "Mineral de cuarzo de pizarra profunda roja",
+  "block.tlotd.red_deepslate_aluminium_ore": "Mineral de aluminio de pizarra profunda roja",
   "block.tlotd.red_deepslate_lead_ore": "Mineral de plomo de pizarra profunda roja",
   "block.tlotd.red_deepslate_uranium_ore": "Mineral de uranio de pizarra profunda roja",
   "block.tlotd.red_deepslate_heliorite_ore": "Mineral de heliorita de pizarra profunda roja",
@@ -913,7 +929,13 @@
   "block.tlotd.extinguished_sulfur_torch": "Antorcha de azufre apagada",
   "block.tlotd.extinguished_sulfur_wall_torch": "Antorcha de pared de azufre extinguida",
 
+  "block.tlotd.aluminium_ore": "Mineral de aluminio",
+  "block.tlotd.deepslate_aluminium_ore": "Mineral de aluminio de pizarra profunda",
+  "block.tlotd.raw_aluminium_block": "Bloque de aluminio en bruto",
+  "block.tlotd.aluminium_block": "Bloque de aluminio",
+
   "block.tlotd.lead_ore": "Mineral de plomo",
+  "block.tlotd.deepslate_lead_ore": "Mineral de plomo de pizarra profunda",
   "block.tlotd.raw_lead_block": "Bloque de plomo en bruto",
   "block.tlotd.lead_block": "Bloque de plomo",
 
@@ -1027,6 +1049,8 @@
   "block.tlotd.framed_glass_middle_pane": "Panel de vidrio enmarcado (Centro)",
   "block.tlotd.framed_glass_top": "Vidrio enmarcado (Arriba)",
   "block.tlotd.framed_glass_top_pane": "Panel de vidrio enmarcado (Arriba)",
+  "block.tlotd.framed_glass_round": "Vidrio enmarcado (Ronda)",
+  "block.tlotd.framed_glass_round_pane": "Panel de vidrio enmarcado (Ronda)",
   "block.tlotd.framed_glass_split": "Vidrio enmarcado (Dividir)",
   "block.tlotd.framed_glass_split_pane": "Panel de vidrio enmarcado (Dividir)",
   "block.tlotd.framed_glass_tiled": "Vidrio enmarcado (Azulejos)",
@@ -1194,6 +1218,7 @@
   "block.tlotd.wooden_blue_berry_milkshake_stein": "Jarra de madera con batido de bayas azules",
   "block.tlotd.wooden_torchberry_milkshake_stein": "Jarra de madera con batido de bayas de antorcha",
   "block.tlotd.wooden_chocolate_milkshake_stein": "Jarra de madera con batido de chocolate",
+  "block.tlotd.wooden_caramel_milkshake_stein": "Jarra de madera con batido de caramelo",
   "block.tlotd.hot_wooden_milk_stein": "Jarra de madera con leche caliente",
   "block.tlotd.wooden_hot_chocolate_stein": "Jarra de madera con chocolate caliente",
 

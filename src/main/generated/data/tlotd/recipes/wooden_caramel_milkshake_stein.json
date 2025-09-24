@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "wooden_milkshake_stein",
+  "ingredients": [
+    {
+      "item": "tlotd:wooden_milk_stein"
+    },
+    {
+      "tag": "c:caramel"
+    },
+    {
+      "item": "minecraft:snowball"
+    }
+  ],
+  "result": {
+    "item": "tlotd:wooden_caramel_milkshake_stein"
+  }
+}

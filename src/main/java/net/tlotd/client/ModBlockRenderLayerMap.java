@@ -7,7 +7,7 @@ import net.tlotd.fluid.ModFluids;
 
 public class ModBlockRenderLayerMap {
     public static void registerBlockRenderLayerMaps() {
-
+        BlockRenderLayerMap.INSTANCE.putFluids(RenderLayer.getTranslucent(), ModFluids.STILL_SPEZI, ModFluids.FLOWING_SPEZI);
         BlockRenderLayerMap.INSTANCE.putFluids(RenderLayer.getTranslucent(), ModFluids.STILL_BEER, ModFluids.FLOWING_BEER);
         BlockRenderLayerMap.INSTANCE.putFluids(RenderLayer.getTranslucent(), ModFluids.STILL_MEAD, ModFluids.FLOWING_MEAD);
         BlockRenderLayerMap.INSTANCE.putFluids(RenderLayer.getTranslucent(), ModFluids.STILL_HOT_MILK, ModFluids.FLOWING_HOT_MILK);
@@ -20,6 +20,7 @@ public class ModBlockRenderLayerMap {
         BlockRenderLayerMap.INSTANCE.putFluids(RenderLayer.getTranslucent(), ModFluids.STILL_STRAWBERRY_JAM, ModFluids.FLOWING_STRAWBERRY_JAM);
         BlockRenderLayerMap.INSTANCE.putFluids(RenderLayer.getTranslucent(), ModFluids.STILL_ORANGE_MARMELADE, ModFluids.FLOWING_ORANGE_MARMELADE);
         BlockRenderLayerMap.INSTANCE.putFluids(RenderLayer.getTranslucent(), ModFluids.STILL_BLUE_BERRY_JAM, ModFluids.FLOWING_BLUE_BERRY_JAM);
+        BlockRenderLayerMap.INSTANCE.putFluids(RenderLayer.getTranslucent(), ModFluids.STILL_DROOPFRUIT_JAM, ModFluids.FLOWING_DROOPFRUIT_JAM);
         BlockRenderLayerMap.INSTANCE.putFluids(RenderLayer.getTranslucent(), ModFluids.STILL_ANCIENT_SOULBERRY_JAM, ModFluids.FLOWING_ANCIENT_SOULBERRY_JAM);
 
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.APPARATUS, RenderLayer.getTranslucent());
@@ -46,6 +47,8 @@ public class ModBlockRenderLayerMap {
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.FRAMED_GLASS_MIDDLE_PANE, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.FRAMED_GLASS_TOP, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.FRAMED_GLASS_TOP_PANE, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.FRAMED_GLASS_ROUND, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.FRAMED_GLASS_ROUND_PANE, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.FRAMED_GLASS_SPLIT, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.FRAMED_GLASS_SPLIT_PANE, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.FRAMED_GLASS_TILED, RenderLayer.getCutout());
@@ -57,6 +60,7 @@ public class ModBlockRenderLayerMap {
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.STRAWBERRY_JAM_JAR, RenderLayer.getTranslucent());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.ORANGE_MARMELADE_JAR, RenderLayer.getTranslucent());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.BLUE_BERRY_JAM_JAR, RenderLayer.getTranslucent());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.DROOPFRUIT_JAM_JAR, RenderLayer.getTranslucent());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.ANCIENT_SOULBERRY_JAM_JAR, RenderLayer.getTranslucent());
 
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.BW_STICKER, RenderLayer.getCutout());
@@ -134,6 +138,7 @@ public class ModBlockRenderLayerMap {
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.WOODEN_BLUE_BERRY_MILKSHAKE_STEIN, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.WOODEN_TORCHBERRY_MILKSHAKE_STEIN, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.WOODEN_CHOCOLATE_MILKSHAKE_STEIN, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.WOODEN_CARAMEL_MILKSHAKE_STEIN, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.HOT_WOODEN_MILK_STEIN, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.WOODEN_HOT_CHOCOLATE_STEIN, RenderLayer.getCutout());
 

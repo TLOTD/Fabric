@@ -1,0 +1,31 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "forge",
+        "create",
+        "undergarden"
+      ]
+    }
+  ],
+  "type": "create:mixing",
+  "ingredients": [
+    {
+      "item": "undergarden:droopvine_item"
+    },
+    {
+      "item": "undergarden:droopvine_item"
+    },
+    {
+      "item": "minecraft:sugar"
+    }
+  ],
+  "results": [
+    {
+      "fluid": "tlotd:droopfruit_jam",
+      "amount": 1000
+    }
+  ],
+  "heatRequirement": "heated"
+}

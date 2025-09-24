@@ -217,6 +217,11 @@
   "item.tlotd.orange_juice_bottle": "Oroschnsaftflaschn",
   "item.tlotd.spezi_bottle": "Spezi-Flaschn",
 
+  "item.tlotd.caramel": "Karamell",
+  "item.tlotd.drink_can": "Getränkedosn",
+  "item.tlotd.spezi_can": "Spezidosn",
+  "item.tlotd.beer_can": "Pennergranate",
+
   "item.tlotd.pipe_weed_seeds": "Pfeifnkrautsamn",
   "item.tlotd.pipe_weed": "Pfeifnkraut",
   "item.tlotd.pipe": "Pfeifn",
@@ -224,6 +229,8 @@
 
   "block.tlotd.blue_berry_jam_jar": "Blaubeermarmeladnglas",
   "item.tlotd.blue_berry_jam_toast": "Blaubeermarmeladntoscht",
+  "block.tlotd.droopfruit_jam_jar": "Schlafffruchtmarmeladenglas",
+  "item.tlotd.droopfruit_jam_toast": "Schlafffruchtmarmeladentoscht",
   "block.tlotd.ancient_soulberry_jam_jar": "Uralts Seelenbeermarmeladnglas",
   "item.tlotd.ancient_soulberry_jam_toast": "Uralts Seelenbeermarmeladntoscht",
 
@@ -373,6 +380,7 @@
   "item.tlotd.strawberry_jam_bucket": "Erdbeermarmeladnoimr",
   "item.tlotd.orange_marmelade_bucket": "Orangemarmeladnoimr",
   "item.tlotd.blue_berry_jam_bucket": "Blaubeermarmeladnoimr",
+  "item.tlotd.droopfruit_jam_bucket": "Schlafffruchtmarmeladnoimr",
   "item.tlotd.ancient_soulberry_jam_bucket": "Uraltr Seelenbeermarmeladnoimr",
 
   "item.tlotd.copper_nugget": "Kupfrklumba",
@@ -394,13 +402,18 @@
 
   "item.tlotd.sulfur": "Schwefl",
 
-  "item.tlotd.raw_lead": "Rohblei",
-  "item.tlotd.lead_nugget": "Bleiklumpa",
-  "item.tlotd.lead_ingot": "Bleibarrn",
+  "item.tlotd.raw_aluminium": "Rohaluminium",
+  "item.tlotd.aluminium_nugget": "Aluminiumklumpa",
+  "item.tlotd.aluminium_ingot": "Aluminiumbarrn",
+  "item.tlotd.aluminium_sheet": "Aluminiumblech",
 
   "item.tlotd.raw_silver": "Rohsilbr",
   "item.tlotd.silver_nugget": "Silbrklumpa",
   "item.tlotd.silver_ingot": "Silbrbarrn",
+
+  "item.tlotd.raw_lead": "Rohblei",
+  "item.tlotd.lead_nugget": "Bleiklumpa",
+  "item.tlotd.lead_ingot": "Bleibarrn",
 
   "item.tlotd.uranium": "Uran",
   "item.tlotd.uranium_nugget": "Uranklumpa",
@@ -709,6 +722,8 @@
   "block.tlotd.strawberry_jam_block": "Erdbearmarmelad",
   "block.tlotd.orange_marmelade": "Orangemarmelad",
   "block.tlotd.orange_marmelade_block": "Orangemarmelad",
+  "block.tlotd.droopfruit_jam": "Schlafffruchtmarmelad",
+  "block.tlotd.droopfruit_jam_block": "Schlafffruchtmarmelad",
   "block.tlotd.ancient_soulberry_jam": "Uralte Seelenbeermarmelad",
   "block.tlotd.ancient_soulberry_jam_block": "Uralte Seelenbeermarmelad",
 
@@ -874,6 +889,7 @@
 
   "block.tlotd.red_deepslate_sulfur_ore": "Rods-Tiefnschiefr-Schweflerz",
   "block.tlotd.red_deepslate_quartz_ore": "Rods-Tiefnschiefr-Quartzerz",
+  "block.tlotd.red_deepslate_aluminium_ore": "Rods-Tiefnschiefr-Aluminiumerz",
   "block.tlotd.red_deepslate_lead_ore": "Rods-Tiefnschiefr-Bleierz",
   "block.tlotd.red_deepslate_uranium_ore": "Rods-Tiefnschiefr-Uranerz",
   "block.tlotd.red_deepslate_heliorite_ore": "Rods-Tiefnschiefr-Helioriterz",
@@ -922,6 +938,11 @@
   "block.tlotd.extinguished_soul_wall_torch": "Erloschne Seelawandfaggl",
   "block.tlotd.extinguished_sulfur_torch": "Erloschne Schweflfaggl",
   "block.tlotd.extinguished_sulfur_wall_torch": "Erloschne Schweflwandfaggl",
+
+  "block.tlotd.aluminium_ore": "Aluminiumerz",
+  "block.tlotd.deepslate_aluminium_ore": "Tiefnschiefr-Aluminiumerz",
+  "block.tlotd.raw_aluminium_block": "Rohaluminiumblogg",
+  "block.tlotd.aluminium_block": "Aluminiumblogg",
 
   "block.tlotd.lead_ore": "Bleierz",
   "block.tlotd.deepslate_lead_ore": "Tiefnschiefr-Bleierz",
@@ -1038,6 +1059,8 @@
   "block.tlotd.framed_glass_middle_pane": "Oigrahmte Glasscheibn (Midde)",
   "block.tlotd.framed_glass_top": "Oigrahmts Glas (Oba)",
   "block.tlotd.framed_glass_top_pane": "Oigrahmte Glasscheibn (Oba)",
+  "block.tlotd.framed_glass_round": "Oigrahmts Glas (Rund)",
+  "block.tlotd.framed_glass_round_pane": "Oigrahmte Glasscheibn (Rund)",
   "block.tlotd.framed_glass_split": "Oigrahmts Glas (Geteilt)",
   "block.tlotd.framed_glass_split_pane": "Oigrahmte Glasscheibn (Geteilt)",
   "block.tlotd.framed_glass_tiled": "Oigrahmts Glas (Gekachelt)",
@@ -1205,6 +1228,7 @@
   "block.tlotd.wooden_blue_berry_milkshake_stein": "Blaubeermilchshakeholzkrug",
   "block.tlotd.wooden_torchberry_milkshake_stein": "Fackelbeermilchshakeholzkrug",
   "block.tlotd.wooden_chocolate_milkshake_stein": "Schokoladamilchshakeholzkrug",
+  "block.tlotd.wooden_caramel_milkshake_stein": "Karamellmilchshakeholzkrug",
   "block.tlotd.hot_wooden_milk_stein": "Heisser Milchholzkrug",
   "block.tlotd.wooden_hot_chocolate_stein": "Heisser Schokoladaholzkrug",
 

@@ -25,6 +25,9 @@ import java.util.function.Consumer;
 
 public class ModRecipeProvider extends FabricRecipeProvider {
 
+    private static final List<ItemConvertible> ALUMINIUM_BLASTABLES = List.of(ModItems.RAW_ALUMINIUM, ModBlocks.ALUMINIUM_ORE, ModBlocks.DEEPSLATE_ALUMINIUM_ORE, ModBlocks.RED_DEEPSLATE_ALUMINIUM_ORE);
+    private static final List<ItemConvertible> LEAD_BLASTABLES = List.of(ModItems.RAW_LEAD, ModBlocks.LEAD_ORE, ModBlocks.DEEPSLATE_LEAD_ORE, ModBlocks.RED_DEEPSLATE_LEAD_ORE);
+
     private static final List<ItemConvertible> URANIUM_BLASTABLES = List.of(ModItems.URANIUM, ModBlocks.URANIUM_ORE, ModBlocks.DEEPSLATE_URANIUM_ORE, ModBlocks.RED_DEEPSLATE_URANIUM_ORE);
 
     private static final List<ItemConvertible> ENDURIUM_BLASTABLES = List.of(ModItems.ENDURIUM_CRYSTAL, ModBlocks.END_ENDURIUM_ORE);
@@ -360,6 +363,16 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(ModBlocks.BLUE_BERRY_JAM_JAR), conditionsFromItem(ModBlocks.BLUE_BERRY_JAM_JAR))
                 .criterion(hasItem(ModItems.TOAST), conditionsFromItem(ModItems.TOAST))
                 .offerTo(exporter, new Identifier(getRecipeName(ModItems.BLUE_BERRY_JAM_TOAST)));
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.DROOPFRUIT_JAM_TOAST, 3)
+                .group("toasts")
+                .input(ModBlocks.DROOPFRUIT_JAM_JAR)
+                .input(ModItems.TOAST)
+                .input(ModItems.TOAST)
+                .input(ModItems.TOAST)
+                .criterion(hasItem(ModBlocks.DROOPFRUIT_JAM_JAR), conditionsFromItem(ModBlocks.DROOPFRUIT_JAM_JAR))
+                .criterion(hasItem(ModItems.TOAST), conditionsFromItem(ModItems.TOAST))
+                .offerTo(exporter, new Identifier(getRecipeName(ModItems.DROOPFRUIT_JAM_TOAST)));
 
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.ANCIENT_SOULBERRY_JAM_TOAST, 3)
                 .group("toasts")
@@ -1567,6 +1580,10 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(ModBlocks.MEGAREGOLITH_BRICKS), conditionsFromItem(ModBlocks.MEGAREGOLITH_BRICKS))
                 .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.MEGAREGOLITH_BRICK_WALL)));
 
+        offerFoodCookingRecipe(exporter, "campfire", RecipeSerializer.CAMPFIRE_COOKING, 600, Items.SUGAR, ModItems.CARAMEL, 0.5f);
+        offerFoodCookingRecipe(exporter, "smoker", RecipeSerializer.SMOKING, 100, Items.SUGAR, ModItems.CARAMEL, 0.5f);
+        offerFoodCookingRecipe(exporter, "furnace", RecipeSerializer.SMELTING, 200, Items.SUGAR, ModItems.CARAMEL, 0.5f);
+
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModFluids.CHEMICAL_WASTE_BUCKET)
                 .input(Items.LAVA_BUCKET)
                 .input(ModItems.URANIUM)
@@ -1813,6 +1830,16 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Items.SNOWBALL), conditionsFromItem(Items.SNOWBALL))
                 .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.WOODEN_CHOCOLATE_MILKSHAKE_STEIN)));
 
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.WOODEN_CARAMEL_MILKSHAKE_STEIN)
+                .input(ModBlocks.WOODEN_MILK_STEIN)
+                .input(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "caramel")))
+                .input(Items.SNOWBALL)
+                .group("wooden_milkshake_stein")
+                .criterion(hasItem(ModBlocks.WOODEN_MILK_STEIN), conditionsFromItem(ModBlocks.WOODEN_MILK_STEIN))
+                .criterion(hasItem(ModItems.CARAMEL), conditionsFromItem(ModItems.CARAMEL))
+                .criterion(hasItem(Items.SNOWBALL), conditionsFromItem(Items.SNOWBALL))
+                .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.WOODEN_CARAMEL_MILKSHAKE_STEIN)));
+
         offerFoodCookingRecipe(exporter, "campfire", RecipeSerializer.CAMPFIRE_COOKING, 600, ModBlocks.WOODEN_MILK_STEIN, ModBlocks.HOT_WOODEN_MILK_STEIN, 0.5f);
         offerFoodCookingRecipe(exporter, "smoker", RecipeSerializer.SMOKING, 100, ModBlocks.WOODEN_MILK_STEIN, ModBlocks.HOT_WOODEN_MILK_STEIN, 0.5f);
         offerFoodCookingRecipe(exporter, "furnace", RecipeSerializer.SMELTING, 200, ModBlocks.WOODEN_MILK_STEIN, ModBlocks.HOT_WOODEN_MILK_STEIN, 0.5f);
@@ -1846,6 +1873,13 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(ModBlocks.WOODEN_HOT_CHOCOLATE_STEIN), conditionsFromItem(ModBlocks.WOODEN_HOT_CHOCOLATE_STEIN))
                 .criterion(hasItem(Items.BUCKET), conditionsFromItem(Items.BUCKET))
                 .offerTo(exporter, new Identifier(getRecipeName(ModFluids.HOT_CHOCOLATE_BUCKET)+"2"));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.DRINK_CAN, 3)
+                .pattern("# #")
+                .pattern(" # ")
+                .input('#', TagKey.of(RegistryKeys.ITEM, new Identifier("c", "aluminium_plates")))
+                .criterion(hasItem(ModItems.ALUMINIUM_SHEET), conditionsFromItem(ModItems.ALUMINIUM_SHEET))
+                .offerTo(exporter, new Identifier(getRecipeName(ModItems.DRINK_CAN)));
 
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.BEER_GOAT_HORN)
                 .input(Items.GOAT_HORN)
@@ -1881,22 +1915,6 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(ModItems.MEAD_BOTTLE), conditionsFromItem(ModItems.MEAD_BOTTLE))
                 .offerTo(exporter, new Identifier(getRecipeName(ModItems.MEAD_GOAT_HORN)+"2"));
 
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.BEER_BOTTLE,3)
-                .input(Items.GLASS_BOTTLE)
-                .input(Items.GLASS_BOTTLE)
-                .input(Items.GLASS_BOTTLE)
-                .input(ModTags.Items.BEER_CONTAINER)
-                .criterion(hasItem(Items.GLASS_BOTTLE), conditionsFromItem(Items.GLASS_BOTTLE))
-                .offerTo(exporter, new Identifier(getRecipeName(ModItems.BEER_BOTTLE)));
-
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.MEAD_BOTTLE,3)
-                .input(Items.GLASS_BOTTLE)
-                .input(Items.GLASS_BOTTLE)
-                .input(Items.GLASS_BOTTLE)
-                .input(ModTags.Items.MEAD_CONTAINER)
-                .criterion(hasItem(Items.GLASS_BOTTLE), conditionsFromItem(Items.GLASS_BOTTLE))
-                .offerTo(exporter, new Identifier(getRecipeName(ModItems.MEAD_BOTTLE)));
-
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.APPLE_JUICE_BOTTLE)
                 .input(Items.GLASS_BOTTLE)
                 .input(Items.APPLE)
@@ -1910,15 +1928,6 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Items.GLASS_BOTTLE), conditionsFromItem(Items.GLASS_BOTTLE))
                 .criterion(hasItem(ModItems.ORANGE), conditionsFromItem(ModItems.ORANGE))
                 .offerTo(exporter, new Identifier(getRecipeName(ModItems.ORANGE_JUICE_BOTTLE)));
-
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.SPEZI_BOTTLE)
-                .input(Items.GLASS_BOTTLE)
-                .input(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "oranges")))
-                .input(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "sugar")))
-                .criterion(hasItem(Items.GLASS_BOTTLE), conditionsFromItem(Items.GLASS_BOTTLE))
-                .criterion(hasItem(ModItems.ORANGE), conditionsFromItem(ModItems.ORANGE))
-                .criterion(hasItem(Items.SUGAR), conditionsFromItem(Items.SUGAR))
-                .offerTo(exporter, new Identifier(getRecipeName(ModItems.SPEZI_BOTTLE)));
 
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.GLOBUS_CRUCIGER)
                 .input(Items.ENCHANTED_GOLDEN_APPLE)
@@ -1955,8 +1964,13 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 
         offerReversibleNuggetCompactingRecipes(exporter, RecipeCategory.MISC, ModItems.COPPER_NUGGET, RecipeCategory.MISC, Items.COPPER_INGOT);
 
+        offerReversibleCompactingRecipes(exporter, RecipeCategory.MISC, ModItems.RAW_ALUMINIUM, RecipeCategory.BUILDING_BLOCKS, ModBlocks.RAW_ALUMINIUM_BLOCK);
+        offerSmelting(exporter, ALUMINIUM_BLASTABLES, RecipeCategory.MISC, ModItems.ALUMINIUM_INGOT, 0.25f,200, "aluminium_ingot");
+        offerReversibleNuggetCompactingRecipes(exporter, RecipeCategory.MISC, ModItems.ALUMINIUM_NUGGET, RecipeCategory.MISC, ModItems.ALUMINIUM_INGOT);
+        offerReversibleCompactingRecipes(exporter, RecipeCategory.MISC, ModItems.ALUMINIUM_INGOT, RecipeCategory.BUILDING_BLOCKS, ModBlocks.ALUMINIUM_BLOCK);
+
         offerReversibleCompactingRecipes(exporter, RecipeCategory.MISC, ModItems.RAW_LEAD, RecipeCategory.BUILDING_BLOCKS, ModBlocks.RAW_LEAD_BLOCK);
-        offerSmelting(exporter, List.of(ModItems.RAW_LEAD), RecipeCategory.MISC, ModItems.LEAD_INGOT, 0.25f,200, "lead_ingot");
+        offerSmelting(exporter, LEAD_BLASTABLES, RecipeCategory.MISC, ModItems.LEAD_INGOT, 0.25f,200, "lead_ingot");
         offerReversibleNuggetCompactingRecipes(exporter, RecipeCategory.MISC, ModItems.LEAD_NUGGET, RecipeCategory.MISC, ModItems.LEAD_INGOT);
         offerReversibleCompactingRecipes(exporter, RecipeCategory.MISC, ModItems.LEAD_INGOT, RecipeCategory.BUILDING_BLOCKS, ModBlocks.LEAD_BLOCK);
 
@@ -2113,12 +2127,12 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .offerTo(exporter, new Identifier(getRecipeName(ModItems.DEPTH_SUIT_BOOTS)));
 
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.OXYGEN_TANK)
-                .pattern(" I ")
-                .pattern("IGI")
-                .pattern(" I ")
-                .input('I', TagKey.of(RegistryKeys.ITEM, new Identifier("c", "iron_ingots")))
+                .pattern(" A ")
+                .pattern("AGA")
+                .pattern(" A ")
+                .input('A', TagKey.of(RegistryKeys.ITEM, new Identifier("c", "aluminium_ingots")))
                 .input('G', TagKey.of(RegistryKeys.ITEM, new Identifier("c", "glass_panes")))
-                .criterion(hasItem(Items.IRON_INGOT), conditionsFromItem(Items.IRON_INGOT))
+                .criterion(hasItem(ModItems.ALUMINIUM_INGOT), conditionsFromItem(ModItems.ALUMINIUM_INGOT))
                 .criterion(hasItem(Items.GLASS_PANE), conditionsFromItem(Items.GLASS_PANE))
                 .offerTo(exporter, new Identifier(getRecipeName(ModItems.OXYGEN_TANK)));
 

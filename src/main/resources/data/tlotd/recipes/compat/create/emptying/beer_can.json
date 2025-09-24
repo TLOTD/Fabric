@@ -1,0 +1,26 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "fabric",
+        "create"
+      ]
+    }
+  ],
+  "type": "create:emptying",
+  "ingredients": [
+    {
+      "item": "tlotd:beer_can"
+    }
+  ],
+  "results": [
+    {
+      "item": "tlotd:drink_can"
+    },
+    {
+      "fluid": "tlotd:beer",
+      "amount": 27000
+    }
+  ]
+}

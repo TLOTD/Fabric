@@ -37,10 +37,10 @@ public class DrinkableWoodenSteinBlockItem extends BlockItem {
             user.addStatusEffect(new StatusEffectInstance(ModEffects.DRUNK, 600));
         } else if (stack.getItem() == ModBlocks.WOODEN_MILK_STEIN.asItem()) {
             user.clearStatusEffects();
-        } else if (stack.getItem() == ModBlocks.WOODEN_STRAWBERRY_MILKSHAKE_STEIN.asItem() || stack.getItem() == ModBlocks.WOODEN_ORANGE_MILKSHAKE_STEIN.asItem() || stack.getItem() == ModBlocks.WOODEN_CHOCOLATE_MILKSHAKE_STEIN.asItem() || stack.getItem() == ModBlocks.WOODEN_BLUE_BERRY_MILKSHAKE_STEIN.asItem()) {
+        } else if (stack.getItem() == ModBlocks.WOODEN_CARAMEL_MILKSHAKE_STEIN.asItem() || stack.getItem() == ModBlocks.WOODEN_STRAWBERRY_MILKSHAKE_STEIN.asItem() || stack.getItem() == ModBlocks.WOODEN_ORANGE_MILKSHAKE_STEIN.asItem() || stack.getItem() == ModBlocks.WOODEN_CHOCOLATE_MILKSHAKE_STEIN.asItem() || stack.getItem() == ModBlocks.WOODEN_BLUE_BERRY_MILKSHAKE_STEIN.asItem()) {
             user.clearStatusEffects();
             user.addStatusEffect(new StatusEffectInstance(StatusEffects.RESISTANCE, 10, 0));
-        } else if (stack.getItem() == ModBlocks.WOODEN_STRAWBERRY_MILKSHAKE_STEIN.asItem()) {
+        } else if (stack.getItem() == ModBlocks.WOODEN_TORCHBERRY_MILKSHAKE_STEIN.asItem()) {
             user.clearStatusEffects();
             user.addStatusEffect(new StatusEffectInstance(StatusEffects.RESISTANCE, 10, 0));
             user.addStatusEffect(new StatusEffectInstance(StatusEffects.GLOWING, 10, 0));

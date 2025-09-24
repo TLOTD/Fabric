@@ -65,7 +65,8 @@ public class ModBlocks {
 
     public static final Block BLUE_BERRY_JAM_JAR = registerCompatJamJarBlock("blue_berry_jam_jar",
             new PreservesJarBlock(FabricBlockSettings.create().mapColor(MapColor.WHITE).strength(0.3f, 0.3f).sounds(BlockSoundGroup.GLASS).nonOpaque()),"aet");
-
+    public static final Block DROOPFRUIT_JAM_JAR = registerCompatJamJarBlock("droopfruit_jam_jar",
+            new PreservesJarBlock(FabricBlockSettings.create().mapColor(MapColor.WHITE).strength(0.3f, 0.3f).sounds(BlockSoundGroup.GLASS).nonOpaque()),"udg");
     public static final Block ANCIENT_SOULBERRY_JAM_JAR = registerCompatJamJarBlock("ancient_soulberry_jam_jar",
             new PreservesJarBlock(FabricBlockSettings.create().mapColor(MapColor.WHITE).strength(0.3f, 0.3f).sounds(BlockSoundGroup.GLASS).nonOpaque()),"atm");
 
@@ -247,6 +248,8 @@ public class ModBlocks {
             new Block(FabricBlockSettings.create().mapColor(MapColor.PALE_YELLOW).requiresTool().strength(3.0F, 3.0F).sounds(BlockSoundGroup.DEEPSLATE)));
     public static final Block RED_DEEPSLATE_QUARTZ_ORE = registerBlock("red_deepslate_quartz_ore",
             new Block(FabricBlockSettings.create().mapColor(MapColor.OFF_WHITE).requiresTool().strength(3.0F, 3.0F).sounds(BlockSoundGroup.DEEPSLATE)));
+    public static final Block RED_DEEPSLATE_ALUMINIUM_ORE = registerBlock("red_deepslate_aluminium_ore",
+            new Block(FabricBlockSettings.create().mapColor(MapColor.LIGHT_GRAY).requiresTool().strength(3.0F, 3.0F).sounds(BlockSoundGroup.DEEPSLATE)));
     public static final Block RED_DEEPSLATE_LEAD_ORE = registerBlock("red_deepslate_lead_ore",
             new Block(FabricBlockSettings.create().mapColor(MapColor.GRAY).requiresTool().strength(3.0F, 3.0F).sounds(BlockSoundGroup.DEEPSLATE)));
     public static final Block RED_DEEPSLATE_URANIUM_ORE = registerIrradiatedBlock("red_deepslate_uranium_ore",
@@ -310,6 +313,15 @@ public class ModBlocks {
             new Block(FabricBlockSettings.create().mapColor(MapColor.PALE_YELLOW).requiresTool().strength(3.0F, 3.0F).sounds(BlockSoundGroup.NETHER_ORE)));
     public static final Block SULFUR_BLOCK = registerBlock("sulfur_block",
             new Block(FabricBlockSettings.create().mapColor(MapColor.PALE_YELLOW).requiresTool().strength(3.0F, 3.0F)));
+
+    public static final Block ALUMINIUM_ORE = registerBlock("aluminium_ore",
+            new Block(FabricBlockSettings.create().mapColor(MapColor.LIGHT_GRAY).requiresTool().strength(3.0F, 3.0F)));
+    public static final Block DEEPSLATE_ALUMINIUM_ORE = registerBlock("deepslate_aluminium_ore",
+            new Block(FabricBlockSettings.create().mapColor(MapColor.LIGHT_GRAY).requiresTool().strength(3.0F, 3.0F).sounds(BlockSoundGroup.DEEPSLATE)));
+    public static final Block RAW_ALUMINIUM_BLOCK = registerBlock("raw_aluminium_block",
+            new Block(FabricBlockSettings.create().mapColor(MapColor.LIGHT_GRAY).requiresTool().strength(3.0F, 3.0F)));
+    public static final Block ALUMINIUM_BLOCK = registerBlock("aluminium_block",
+            new Block(FabricBlockSettings.create().mapColor(MapColor.LIGHT_GRAY).requiresTool().strength(3.0F, 3.0F)));
 
     public static final Block LEAD_ORE = registerBlock("lead_ore",
             new Block(FabricBlockSettings.create().mapColor(MapColor.GRAY).requiresTool().strength(3.0F, 3.0F)));
@@ -412,6 +424,8 @@ public class ModBlocks {
     public static final Block WOODEN_MEAD_STEIN = registerRemainderSteinBlock("wooden_mead_stein",
             new WoodenSteinBlock(FabricBlockSettings.create().mapColor(MapColor.BROWN).strength(2.0F, 2.0F).sounds(BlockSoundGroup.WOOD).pistonBehavior(PistonBehavior.DESTROY).nonOpaque()),"");
     public static final Block WOODEN_MILK_STEIN = registerDrinkableWoodenSteinBlock("wooden_milk_stein",
+            new WoodenSteinBlock(FabricBlockSettings.create().mapColor(MapColor.BROWN).strength(2.0F, 2.0F).sounds(BlockSoundGroup.WOOD).pistonBehavior(PistonBehavior.DESTROY).nonOpaque()),"");
+    public static final Block WOODEN_CARAMEL_MILKSHAKE_STEIN = registerDrinkableWoodenSteinBlock("wooden_caramel_milkshake_stein",
             new WoodenSteinBlock(FabricBlockSettings.create().mapColor(MapColor.BROWN).strength(2.0F, 2.0F).sounds(BlockSoundGroup.WOOD).pistonBehavior(PistonBehavior.DESTROY).nonOpaque()),"");
     public static final Block WOODEN_CHOCOLATE_MILKSHAKE_STEIN = registerDrinkableWoodenSteinBlock("wooden_chocolate_milkshake_stein",
             new WoodenSteinBlock(FabricBlockSettings.create().mapColor(MapColor.BROWN).strength(2.0F, 2.0F).sounds(BlockSoundGroup.WOOD).pistonBehavior(PistonBehavior.DESTROY).nonOpaque()),"");
@@ -624,6 +638,11 @@ public class ModBlocks {
     public static final Block FRAMED_GLASS_TOP = registerBlock("framed_glass_top",
             new GlassBlock(FabricBlockSettings.create().mapColor(MapColor.GRAY).strength(1.0F, 1.0F).sounds(BlockSoundGroup.GLASS).nonOpaque()));
     public static final Block FRAMED_GLASS_TOP_PANE = registerBlock("framed_glass_top_pane",
+            new PaneBlock(FabricBlockSettings.create().mapColor(MapColor.GRAY).strength(1.0F, 1.0F).sounds(BlockSoundGroup.GLASS).nonOpaque()));
+
+    public static final Block FRAMED_GLASS_ROUND = registerBlock("framed_glass_round",
+            new GlassBlock(FabricBlockSettings.create().mapColor(MapColor.GRAY).strength(1.0F, 1.0F).sounds(BlockSoundGroup.GLASS).nonOpaque()));
+    public static final Block FRAMED_GLASS_ROUND_PANE = registerBlock("framed_glass_round_pane",
             new PaneBlock(FabricBlockSettings.create().mapColor(MapColor.GRAY).strength(1.0F, 1.0F).sounds(BlockSoundGroup.GLASS).nonOpaque()));
 
     public static final Block FRAMED_GLASS_SPLIT = registerBlock("framed_glass_split",

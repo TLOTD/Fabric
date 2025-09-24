@@ -61,6 +61,9 @@ public class CompatItem extends Item {
             if (compat.contains("wsm")) {
                 tooltip.add(Text.literal("\uE012 ").setStyle(style.withFont(MODS_FONT_ID)).append(Text.translatable("mod.witherstormmod.name").setStyle(style.withFont(DEFAULT_FONT_ID).withFormatting(Formatting.GRAY))));
             }
+            if (compat.contains("udg")) {
+                tooltip.add(Text.literal("\uE016 ").setStyle(style.withFont(MODS_FONT_ID)).append(Text.translatable("mod.undergarden.name").setStyle(style.withFont(DEFAULT_FONT_ID).withFormatting(Formatting.GRAY))));
+            }
             super.appendTooltip(stack, world, tooltip, context);
         }
     }

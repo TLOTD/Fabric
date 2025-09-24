@@ -1,0 +1,32 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "farmersdelight",
+        "undergarden"
+      ]
+    }
+  ],
+  "type": "farmersdelight:cooking",
+  "container": {
+      "item": "tlotd:preserves_jar"
+  },
+  "cookingtime": 200,
+  "experience": 1.0,
+  "ingredients": [
+    {
+      "item": "undergarden:droopvine_item"
+    },
+    {
+      "tag": "c:sugar"
+    },
+    {
+      "item": "undergarden:droopvine_item"
+    }
+  ],
+  "recipe_book_tab": "misc",
+  "result": {
+    "item": "tlotd:droopfruit_jam_jar"
+  }
+}

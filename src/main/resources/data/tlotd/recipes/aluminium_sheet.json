@@ -1,0 +1,27 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:not",
+      "value": {
+        "condition": "fabric:all_mods_loaded",
+        "values": [
+          "create"
+        ]
+      }
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "A": {
+      "tag": "c:aluminium_ingots"
+    }
+  },
+  "pattern": [
+    "AA"
+  ],
+  "result": {
+    "item": "tlotd:aluminium_sheet"
+  },
+  "show_notification": true
+}

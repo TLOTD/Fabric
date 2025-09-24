@@ -6,10 +6,13 @@ import net.minecraft.item.FoodComponent;
 
 public class ModFoodComponents {
 
+    public static final FoodComponent CARAMEL = new FoodComponent.Builder().snack().hunger(2).saturationModifier(0.2f).build();
+
     public static final FoodComponent HEMP_COOKIE = new FoodComponent.Builder().snack().hunger(2).saturationModifier(0.2f).build();
 
     public static final FoodComponent TOAST = new FoodComponent.Builder().snack().hunger(2).saturationModifier(0.2f).build();
     public static final FoodComponent JAM_TOAST = new FoodComponent.Builder().snack().hunger(5).saturationModifier(0.5f).build();
+    public static final FoodComponent DROOPFRUIT_JAM_TOAST = new FoodComponent.Builder().snack().hunger(5).saturationModifier(0.5f).statusEffect(new StatusEffectInstance(StatusEffects.GLOWING, 400, 2), 1.0F).build();
     public static final FoodComponent ANCIENT_SOULBERRY_JAM_TOAST = new FoodComponent.Builder().snack().hunger(7).saturationModifier(1.7f).build();
 
     public static final FoodComponent STRAWBERRY = new FoodComponent.Builder().snack().hunger(2).saturationModifier(0.2f).build();

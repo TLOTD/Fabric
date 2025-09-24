@@ -80,6 +80,8 @@ public class ModItems {
 
     public static final Item HEMP_COOKIE = registerItem("hemp_cookie", new HempCookieItem(new FabricItemSettings().food(ModFoodComponents.HEMP_COOKIE)));
 
+    public static final Item CARAMEL = registerItem("caramel", new Item(new FabricItemSettings().food(ModFoodComponents.CARAMEL)));
+
     public static final Item TOAST = registerItem("toast", new Item(new FabricItemSettings().food(ModFoodComponents.TOAST)));
 
     public static final Item SWEET_BERRY_JAM_TOAST = registerItem("sweet_berry_jam_toast", new Item(new FabricItemSettings().food(ModFoodComponents.JAM_TOAST)));
@@ -103,6 +105,7 @@ public class ModItems {
     public static final Item PIPE_WEED_PIPE = registerItem("pipe_weed_pipe", new PipeItem(new FabricItemSettings().maxCount(1)));
 
     public static final Item BLUE_BERRY_JAM_TOAST = registerItem("blue_berry_jam_toast", new CompatItem(new FabricItemSettings().food(ModFoodComponents.JAM_TOAST),"aet"));
+    public static final Item DROOPFRUIT_JAM_TOAST = registerItem("droopfruit_jam_toast", new CompatItem(new FabricItemSettings().food(ModFoodComponents.DROOPFRUIT_JAM_TOAST),"udg"));
     public static final Item ANCIENT_SOULBERRY_JAM_TOAST = registerItem("ancient_soulberry_jam_toast", new CompatItem(new FabricItemSettings().food(ModFoodComponents.ANCIENT_SOULBERRY_JAM_TOAST),"atm"));
 
     public static final Item BLOOD_BOTTLE = registerItem("blood_bottle", new Item(new FabricItemSettings().recipeRemainder(Items.GLASS_BOTTLE).maxCount(1)));
@@ -124,7 +127,6 @@ public class ModItems {
     public static final Item MUSIC_DISC_2 = registerItem("music_disc_2", new MusicDiscItem(1, ModSounds.RADIO_FREQUENCY_2, new FabricItemSettings().rarity(Rarity.RARE).maxCount(1),227));
     public static final Item MUSIC_DISC_3 = registerItem("music_disc_3", new MusicDiscItem(1, ModSounds.RADIO_FREQUENCY_3, new FabricItemSettings().rarity(Rarity.RARE).maxCount(1),43));
     public static final Item MUSIC_DISC_4 = registerItem("music_disc_4", new MusicDiscItem(1, ModSounds.RADIO_FREQUENCY_4, new FabricItemSettings().rarity(Rarity.RARE).maxCount(1),131));
-
 
     public static final Item VHS_CASSETTE = registerItem("vhs_cassette", new VHSCassetteItem(new FabricItemSettings().rarity(Rarity.RARE).maxCount(1)));
     public static final Item VHS_CASSETTE_1 = registerItem("vhs_cassette_1", new VHSCassetteItem(new FabricItemSettings().rarity(Rarity.RARE).maxCount(1)));
@@ -214,6 +216,11 @@ public class ModItems {
     public static final Item COPPER_NUGGET = registerItem("copper_nugget", new Item(new FabricItemSettings()));
 
     public static final Item SULFUR = registerItem("sulfur", new Item(new FabricItemSettings()));
+
+    public static final Item RAW_ALUMINIUM = registerItem("raw_aluminium", new Item(new FabricItemSettings()));
+    public static final Item ALUMINIUM_NUGGET = registerItem("aluminium_nugget", new Item(new FabricItemSettings()));
+    public static final Item ALUMINIUM_INGOT = registerItem("aluminium_ingot", new Item(new FabricItemSettings()));
+    public static final Item ALUMINIUM_SHEET = registerItem("aluminium_sheet", new Item(new FabricItemSettings()));
 
     public static final Item RAW_LEAD = registerItem("raw_lead", new Item(new FabricItemSettings()));
     public static final Item LEAD_NUGGET = registerItem("lead_nugget", new Item(new FabricItemSettings()));
@@ -444,6 +451,10 @@ public class ModItems {
     public static final Item MAULTASCHE = registerItem("maultasche", new Item(new FabricItemSettings().food(ModFoodComponents.MAULTASCHE)));
     public static final Item MAULTASCHEN_BROTH = registerItem("maultaschen_broth", new StewItem(new FabricItemSettings().maxCount(1).food(ModFoodComponents.MAULTASCHEN_BROTH).recipeRemainder(Items.BOWL)));
     public static final Item SUSPICIOUS_MAULTASCHEN_BROTH = registerItem("suspicious_maultaschen_broth", new StewItem(new FabricItemSettings().maxCount(1).food(ModFoodComponents.SUSPICIOUS_MAULTASCHEN_BROTH).recipeRemainder(Items.BOWL)));
+
+    public static final Item DRINK_CAN = registerItem("drink_can", new Item(new FabricItemSettings().maxCount(16)));
+    public static final Item SPEZI_CAN = registerItem("spezi_can", new DrinkableCan(new FabricItemSettings().food(ModFoodComponents.WOODEN_LIQUID_STEIN).maxCount(16).recipeRemainder(ModItems.DRINK_CAN)));
+    public static final Item BEER_CAN = registerItem("beer_can", new DrinkableCan(new FabricItemSettings().food(ModFoodComponents.WOODEN_LIQUID_STEIN).maxCount(16).recipeRemainder(ModItems.DRINK_CAN)));
 
     public static final Item BEER_BOTTLE = registerItem("beer_bottle", new DrinkableBottle(new FabricItemSettings().food(ModFoodComponents.WOODEN_LIQUID_STEIN).maxCount(16).recipeRemainder(Items.GLASS_BOTTLE)));
     public static final Item BEER_GOAT_HORN = registerItem("beer_goat_horn", new DrinkableHorn(new FabricItemSettings().food(ModFoodComponents.WOODEN_LIQUID_STEIN).maxCount(16).recipeRemainder(Items.GOAT_HORN)));

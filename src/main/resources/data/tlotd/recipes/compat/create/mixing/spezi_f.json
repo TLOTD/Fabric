@@ -1,0 +1,33 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "forge",
+        "create"
+      ]
+    }
+  ],
+  "type": "create:mixing",
+  "ingredients": [
+    {
+      "fluid": "minecraft:water",
+      "amount": 1000
+    },
+    {
+      "tag": "c:sugar"
+    },
+    {
+      "tag": "c:caramel"
+    },
+    {
+      "tag": "c:oranges"
+    }
+  ],
+  "results": [
+    {
+      "fluid": "tlotd:spezi",
+      "amount": 1000
+    }
+  ]
+}

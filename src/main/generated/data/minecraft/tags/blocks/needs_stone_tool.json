@@ -1,10 +1,15 @@
 {
   "replace": false,
   "values": [
+    "tlotd:aluminium_ore",
+    "tlotd:deepslate_aluminium_ore",
+    "tlotd:raw_aluminium_block",
+    "tlotd:aluminium_block",
     "tlotd:lead_ore",
     "tlotd:raw_lead_block",
     "tlotd:lead_block",
     "tlotd:megaregolith_iron_ore",
+    "tlotd:red_deepslate_aluminium_ore",
     "tlotd:red_deepslate_lead_ore",
     "tlotd:red_deepslate_iron_ore",
     "tlotd:red_deepslate_copper_ore",

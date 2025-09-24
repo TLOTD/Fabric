@@ -20,6 +20,7 @@
   "mod.witherstormmod.name": "Cracker's Wither Storm Mod",
   "mod.neepmeat.name": "NEEPMeat",
   "mod.ad_astra.name": "Ad Astra",
+  "mod.undergarden.name": "The Undergarden",
 
   "info.tlotd.not_yet_implemented": "[This content is not fully implemented yet!]",
 
@@ -62,6 +63,9 @@
   "effect.tlotd.irradiated.desc": "Inflicts damage every second spent without proper gear.",
   "effect.tlotd.hypoxia": "Hypoxia",
   "effect.tlotd.hypoxia.desc": "Inflicts damage every second spent without proper gear.",
+
+  "dimension.tlotd.luna": "Luna",
+  "dimension.tlotd.prehistoric": "Prehistoric",
 
   "biome.tlotd.lunar_highlands": "Lunar Highlands",
   "biome.tlotd.prehistoric_jungle": "Prehistoric Jungle",
@@ -238,6 +242,11 @@
   "item.tlotd.orange_juice_bottle": "Orange Juice Bottle",
   "item.tlotd.spezi_bottle": "Spezi Bottle",
 
+  "item.tlotd.caramel": "Caramel",
+  "item.tlotd.drink_can": "Drink Can",
+  "item.tlotd.spezi_can": "Spezi Can",
+  "item.tlotd.beer_can": "Beer Can",
+
   "item.tlotd.pipe_weed_seeds": "Pipe-Weed Seeds",
   "item.tlotd.pipe_weed": "Pipe-Weed",
   "item.tlotd.pipe": "Pipe",
@@ -245,6 +254,8 @@
 
   "block.tlotd.blue_berry_jam_jar": "Blue Berry Jam Jar",
   "item.tlotd.blue_berry_jam_toast": "Blue Berry Jam Toast",
+  "block.tlotd.droopfruit_jam_jar": "Droopfruit Jam Jar",
+  "item.tlotd.droopfruit_jam_toast": "Droopfruit Jam Toast",
   "block.tlotd.ancient_soulberry_jam_jar": "Ancient Soul Berry Jam Jar",
   "item.tlotd.ancient_soulberry_jam_toast": "Ancient Soul Berry Jam Toast",
 
@@ -388,6 +399,7 @@
 
   "item.tlotd.blood_bottle": "Blood Bottle",
 
+  "item.tlotd.spezi_bucket": "Spezi Bucket",
   "item.tlotd.beer_bucket": "Beer Bucket",
   "item.tlotd.mead_bucket": "Mead Bucket",
   "item.tlotd.hot_milk_bucket": "Hot Milk Bucket",
@@ -400,6 +412,7 @@
   "item.tlotd.strawberry_jam_bucket": "Strawberry Jam Bucket",
   "item.tlotd.orange_marmelade_bucket": "Orange Marmelade Bucket",
   "item.tlotd.blue_berry_jam_bucket": "Blue Berry Jam Bucket",
+  "item.tlotd.droopfruit_jam_bucket": "Droopfruit Jam Bucket",
   "item.tlotd.ancient_soulberry_jam_bucket": "Ancient Soul Berry Jam Bucket",
 
   "item.tlotd.copper_nugget": "Copper Nugget",
@@ -421,13 +434,18 @@
 
   "item.tlotd.sulfur": "Sulfur",
 
-  "item.tlotd.raw_lead": "Raw Lead",
-  "item.tlotd.lead_nugget": "Lead Nugget",
-  "item.tlotd.lead_ingot": "Lead Ingot",
+  "item.tlotd.raw_aluminium": "Raw Aluminum",
+  "item.tlotd.aluminium_nugget": "Aluminum Nugget",
+  "item.tlotd.aluminium_ingot": "Aluminum Ingot",
+  "item.tlotd.aluminium_sheet": "Aluminum Sheet",
 
   "item.tlotd.raw_silver": "Raw Silver",
   "item.tlotd.silver_nugget": "Silver Nugget",
   "item.tlotd.silver_ingot": "Silver Ingot",
+
+  "item.tlotd.raw_lead": "Raw Lead",
+  "item.tlotd.lead_nugget": "Lead Nugget",
+  "item.tlotd.lead_ingot": "Lead Ingot",
 
   "item.tlotd.uranium": "Uranium",
   "item.tlotd.uranium_nugget": "Uranium Nugget",
@@ -715,6 +733,8 @@
 
   "block.minecraft.empty": "Empty",
   "block.minecraft.empty_block": "Empty",
+  "block.tlotd.spezi": "Spezi",
+  "block.tlotd.spezi_block": "Spezi",
   "block.tlotd.beer": "Beer",
   "block.tlotd.beer_block": "Beer",
   "block.tlotd.mead": "Mead",
@@ -739,6 +759,8 @@
   "block.tlotd.orange_marmelade_block": "Orange Marmelade",
   "block.tlotd.blue_berry_jam": "Blue Berry Jam",
   "block.tlotd.blue_berry_jam_block": "Blue Berry Jam",
+  "block.tlotd.droopfruit_jam": "Droopfruit Jam",
+  "block.tlotd.droopfruit_jam_block": "Droopfruit Jam",
   "block.tlotd.ancient_soulberry_jam": "Ancient Soul Berry Jam",
   "block.tlotd.ancient_soulberry_jam_block": "Ancient Soul Berry Jam",
 
@@ -904,6 +926,7 @@
 
   "block.tlotd.red_deepslate_sulfur_ore": "Red Deepslate Sulfur Ore",
   "block.tlotd.red_deepslate_quartz_ore": "Red Deepslate Quartz Ore",
+  "block.tlotd.red_deepslate_aluminium_ore": "Red Deepslate Aluminium Ore",
   "block.tlotd.red_deepslate_lead_ore": "Red Deepslate Lead Ore",
   "block.tlotd.red_deepslate_uranium_ore": "Red Deepslate Uranium Ore",
   "block.tlotd.red_deepslate_heliorite_ore": "Red Deepslate Heliorite Ore",
@@ -952,6 +975,11 @@
   "block.tlotd.extinguished_soul_wall_torch": "Extinguished Soul Wall Torch",
   "block.tlotd.extinguished_sulfur_torch": "Extinguished Sulfur Torch",
   "block.tlotd.extinguished_sulfur_wall_torch": "Extinguished Sulfur Wall Torch",
+
+  "block.tlotd.aluminium_ore": "Aluminium Ore",
+  "block.tlotd.deepslate_aluminium_ore": "Deepslate Aluminium Ore",
+  "block.tlotd.raw_aluminium_block": "Raw Aluminium Block",
+  "block.tlotd.aluminium_block": "Aluminium Block",
 
   "block.tlotd.lead_ore": "Lead Ore",
   "block.tlotd.deepslate_lead_ore": "Deepslate Lead Ore",
@@ -1068,6 +1096,8 @@
   "block.tlotd.framed_glass_middle_pane": "Framed Glass Pane (Middle)",
   "block.tlotd.framed_glass_top": "Framed Glass (Top)",
   "block.tlotd.framed_glass_top_pane": "Framed Glass Pane (Top)",
+  "block.tlotd.framed_glass_round": "Framed Glass (Round)",
+  "block.tlotd.framed_glass_round_pane": "Framed Glass Pane (Round)",
   "block.tlotd.framed_glass_split": "Framed Glass (Split)",
   "block.tlotd.framed_glass_split_pane": "Framed Glass Pane (Split)",
   "block.tlotd.framed_glass_tiled": "Framed Glass (Tiled)",
@@ -1235,6 +1265,7 @@
   "block.tlotd.wooden_blue_berry_milkshake_stein": "Wooden Blue Berry Milkshake Stein",
   "block.tlotd.wooden_torchberry_milkshake_stein": "Wooden Torchberry Milkshake Stein",
   "block.tlotd.wooden_chocolate_milkshake_stein": "Wooden Chocolate Milkshake Stein",
+  "block.tlotd.wooden_caramel_milkshake_stein": "Wooden Caramel Milkshake Stein",
   "block.tlotd.hot_wooden_milk_stein": "Hot Wooden Milk Stein",
   "block.tlotd.wooden_hot_chocolate_stein": "Wooden Hot Chocolate Stein",
 

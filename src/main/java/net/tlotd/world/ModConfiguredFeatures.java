@@ -35,6 +35,8 @@ public class ModConfiguredFeatures {
 
     public static final RegistryKey<ConfiguredFeature<?,?>> ENDSTONE_ENDURIUM_ORE_KEY = registerKey("endstone_endurium_ore");
 
+    public static final RegistryKey<ConfiguredFeature<?,?>> ALUMINIUM_ORE_KEY = registerKey("aluminium_ore");
+
     public static final RegistryKey<ConfiguredFeature<?,?>> LEAD_ORE_KEY = registerKey("lead_ore");
 
     public static final RegistryKey<ConfiguredFeature<?,?>> DEEPSLATE_URANIUM_ORE_KEY = registerKey("deepslate_uranium_ore");
@@ -130,6 +132,12 @@ public class ModConfiguredFeatures {
         List<OreFeatureConfig.Target> endstoneEnduriumOre =
                 List.of(OreFeatureConfig.createTarget(endReplacables, ModBlocks.END_ENDURIUM_ORE.getDefaultState()));
 
+        List<OreFeatureConfig.Target> aluminiumOre =
+                List.of(
+                        OreFeatureConfig.createTarget(deepslateReplacables, ModBlocks.ALUMINIUM_ORE.getDefaultState()),
+                        OreFeatureConfig.createTarget(redDeepslateReplacables, ModBlocks.RED_DEEPSLATE_ALUMINIUM_ORE.getDefaultState())
+                );
+
         List<OreFeatureConfig.Target> leadOre =
                 List.of(
                         OreFeatureConfig.createTarget(deepslateReplacables, ModBlocks.LEAD_ORE.getDefaultState()),
@@ -187,6 +195,8 @@ public class ModConfiguredFeatures {
 
         register(context, NETHER_SULFUR_ORE_KEY, Feature.ORE, new OreFeatureConfig(netherSulfurOre, 8));
         register(context, ENDSTONE_ENDURIUM_ORE_KEY, Feature.ORE, new OreFeatureConfig(endstoneEnduriumOre, 8));
+
+        register(context, ALUMINIUM_ORE_KEY, Feature.ORE, new OreFeatureConfig(aluminiumOre, 8));
 
         register(context, LEAD_ORE_KEY, Feature.ORE, new OreFeatureConfig(leadOre, 8));
         register(context, DEEPSLATE_URANIUM_ORE_KEY, Feature.ORE, new OreFeatureConfig(deepslateUraniumOre, 8));

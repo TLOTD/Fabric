@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
+    "tlotd:aluminium_block",
     "tlotd:heliorite_block",
     "tlotd:endurium_block",
     "tlotd:palladium_block",

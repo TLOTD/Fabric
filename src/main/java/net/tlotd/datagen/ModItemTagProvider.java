@@ -353,6 +353,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
         ;
 
         getOrCreateTagBuilder(ItemTags.BEACON_PAYMENT_ITEMS)
+                .add(ModItems.ALUMINIUM_INGOT)
                 .add(ModItems.HELIORITE_INGOT)
                 .add(ModItems.ENDURIUM_INGOT)
                 .add(ModItems.PALLADIUM_INGOT)
@@ -485,6 +486,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModBlocks.WOODEN_ORANGE_JUICE_STEIN.asItem())
                 .add(ModBlocks.WOODEN_MILK_STEIN.asItem())
                 .add(ModBlocks.WOODEN_CHOCOLATE_MILKSHAKE_STEIN.asItem())
+                .add(ModBlocks.WOODEN_CARAMEL_MILKSHAKE_STEIN.asItem())
                 .add(ModBlocks.WOODEN_STRAWBERRY_MILKSHAKE_STEIN.asItem())
                 .add(ModBlocks.WOODEN_ORANGE_MILKSHAKE_STEIN.asItem())
                 .add(ModBlocks.WOODEN_BLUE_BERRY_MILKSHAKE_STEIN.asItem())
@@ -816,6 +818,19 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModItems.COPPER_NUGGET)
         ;
 
+        getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "aluminium_raw_materials"))).addOptionalTag(Identifier.tryParse("c:aluminum_raw_materials"));
+        getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "aluminum_raw_materials"))).add(ModItems.RAW_ALUMINIUM);
+        getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "aluminium_nuggets"))).addOptionalTag(Identifier.tryParse("c:aluminum_nuggets"));
+        getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "aluminum_nuggets"))).add(ModItems.ALUMINIUM_NUGGET);
+        getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "aluminium_ingots"))).addOptionalTag(Identifier.tryParse("c:aluminum_ingots"));
+        getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "aluminum_ingots"))).add(ModItems.ALUMINIUM_INGOT);
+        getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "aluminium_plates"))).addOptionalTag(Identifier.tryParse("c:aluminum_plates"));
+        getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "aluminum_plates"))).add(ModItems.ALUMINIUM_SHEET);
+        getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "raw_aluminium_blocks"))).addOptionalTag(Identifier.tryParse("c:raw_aluminum_blocks"));
+        getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "raw_aluminum_blocks"))).add(ModBlocks.RAW_ALUMINIUM_BLOCK.asItem());
+        getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "aluminium_blocks"))).addOptionalTag(Identifier.tryParse("c:aluminum_blocks"));
+        getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "aluminum_blocks"))).add(ModBlocks.ALUMINIUM_BLOCK.asItem());
+
         getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "lead_raw_materials")))
                 .add(ModItems.RAW_LEAD)
         ;
@@ -834,6 +849,12 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
 
         getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "lead_blocks")))
                 .add(ModBlocks.LEAD_BLOCK.asItem())
+        ;
+
+        getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "aluminium_ores")))
+                .add(ModBlocks.ALUMINIUM_ORE.asItem())
+                .add(ModBlocks.DEEPSLATE_ALUMINIUM_ORE.asItem())
+                .add(ModBlocks.RED_DEEPSLATE_ALUMINIUM_ORE.asItem())
         ;
 
         getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "lead_ores")))
@@ -970,8 +991,10 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModBlocks.WOODEN_BLUE_BERRY_MILKSHAKE_STEIN.asItem())
                 .add(ModBlocks.WOODEN_TORCHBERRY_MILKSHAKE_STEIN.asItem())
                 .add(ModBlocks.WOODEN_CHOCOLATE_MILKSHAKE_STEIN.asItem())
+                .add(ModBlocks.WOODEN_CARAMEL_MILKSHAKE_STEIN.asItem())
                 .add(ModBlocks.HOT_WOODEN_MILK_STEIN.asItem())
                 .add(ModBlocks.WOODEN_HOT_CHOCOLATE_STEIN.asItem())
+                .add(ModItems.CARAMEL)
                 .add(ModItems.STRAWBERRY)
                 .add(ModItems.CHOCOLATE_STRAWBERRY)
                 .add(ModItems.ORANGE)
@@ -982,6 +1005,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModItems.SWEET_BERRY_JAM_TOAST)
                 .add(ModItems.GLOW_BERRY_JAM_TOAST)
                 .add(ModItems.BLUE_BERRY_JAM_TOAST)
+                .add(ModItems.DROOPFRUIT_JAM_TOAST)
                 .add(ModItems.ANCIENT_SOULBERRY_JAM_TOAST)
                 .add(ModItems.MAULTASCHE)
                 .add(ModItems.MAULTASCHEN_BROTH)
@@ -994,6 +1018,11 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModItems.CURED_MEAT)
                 .add(ModItems.COOKED_MEAT)
                 .add(ModItems.PORRIDGE)
+        ;
+
+        getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "caramel")))
+                .add(ModItems.CARAMEL)
+                .addOptional(Identifier.tryParse("alexscaves:caramel"))
         ;
     }
 }

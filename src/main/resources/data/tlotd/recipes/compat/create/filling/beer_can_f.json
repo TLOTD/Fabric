@@ -1,0 +1,26 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "forge",
+        "create"
+      ]
+    }
+  ],
+  "type": "create:filling",
+  "ingredients": [
+    {
+      "item": "tlotd:drink_can"
+    },
+    {
+      "fluid": "tlotd:beer",
+      "amount": 333
+    }
+  ],
+  "results": [
+    {
+      "item": "tlotd:beer_can"
+    }
+  ]
+}

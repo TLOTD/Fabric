@@ -34,7 +34,7 @@ public class DrinkableBottle extends Item {
 
     public ItemStack finishUsing(ItemStack stack, World world, LivingEntity user) {
         if (stack.getItem() == ModItems.BEER_BOTTLE || stack.getItem() == ModItems.MEAD_BOTTLE) {
-            user.addStatusEffect(new StatusEffectInstance(ModEffects.DRUNK, 600));
+            user.addStatusEffect(new StatusEffectInstance(ModEffects.DRUNK, 200));
         } else if (stack.getItem() == ModItems.SPEZI_BOTTLE) {
             user.addStatusEffect(new StatusEffectInstance(StatusEffects.SPEED, 200));
         }
@@ -82,7 +82,7 @@ public class DrinkableBottle extends Item {
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
         if (stack.getItem() == ModItems.BEER_BOTTLE || stack.getItem() == ModItems.MEAD_BOTTLE) {
-            tooltip.add(Text.translatable("effect.tlotd.drunk").append(Text.literal(" (00:30)")).formatted(Formatting.RED));
+            tooltip.add(Text.translatable("effect.tlotd.drunk").append(Text.literal(" (00:10)")).formatted(Formatting.RED));
         } else if (stack.getItem() == ModItems.SPEZI_BOTTLE) {
             tooltip.add(Text.translatable("effect.minecraft.speed").append(Text.literal(" (00:10)")).formatted(Formatting.BLUE));
         }
