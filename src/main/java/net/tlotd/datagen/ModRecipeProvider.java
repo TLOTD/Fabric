@@ -549,13 +549,6 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Items.GLASS_PANE), conditionsFromItem(Items.GLASS_PANE))
                 .offerTo(exporter, new Identifier(getRecipeName(ModItems.PLANCHETTE)));
 
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.GUIDEBOOK)
-                .input(Items.BOOK)
-                .input(Items.COPPER_INGOT)
-                .criterion(hasItem(Items.BOOK), conditionsFromItem(Items.BOOK))
-                .criterion(hasItem(Items.COPPER_INGOT), conditionsFromItem(Items.COPPER_INGOT))
-                .offerTo(exporter, new Identifier(getRecipeName(ModItems.GUIDEBOOK)));
-
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.FLASH_DRIVE)
                 .pattern(" CB")
                 .pattern("WB ")

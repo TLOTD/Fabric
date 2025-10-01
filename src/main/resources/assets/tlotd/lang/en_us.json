@@ -5,6 +5,7 @@
   "itemgroup.tlotd.compat": "TLOTD Compatibility",
 
   "mod.tlotd.name": "TLOTD",
+  "mod.patchouli.name": "Patchouli",
   "mod.aether.name": "The Aether",
   "mod.alexscaves.name": "Alex's Caves",
   "mod.allthemodium.name": "AllTheModium",
@@ -289,8 +290,14 @@
   "item.tlotd.soul_flask_of_the_abyss.tooltip_3": "the abyss will also",
   "item.tlotd.soul_flask_of_the_abyss.tooltip_4": "gaze back into you.",
 
-  "item.tlotd.guidebook": "Guidebook",
-  "item.tlotd.guidebook.tooltip": "by %1$s & %2$s",
+  "item.patchouli.guide_book.tlotd.guiding_grimoire": "§eGrimoire of Guidance§r",
+  "item.patchouli.guide_book.tlotd.guiding_grimoire.desc": "by TLOTD & Isla_Nublar",
+  "item.patchouli.guide_book.tlotd.guiding_grimoire.intro": "Welcome $(playername) to TLOTD, a mod that allows you to explore the ancient times when dinosaurs ruled the earth, dig deep into the earth to find more valuables or adventure into the unknown depths of space! The sky is the limit!",
+  "item.patchouli.guide_book.tlotd.guiding_grimoire.category": "Category: ",
+  "item.patchouli.guide_book.tlotd.guiding_grimoire.category.exploration": "Exploration",
+  "item.patchouli.guide_book.tlotd.guiding_grimoire.chapter": "Chapter: ",
+  "item.patchouli.guide_book.tlotd.guiding_grimoire.chapter.prehistoric": "Prehistoric",
+  "item.patchouli.guide_book.tlotd.guiding_grimoire.chapter.the_moon": "The Moon",
 
   "item.tlotd.spell_book": "Spell Book",
   "item.tlotd.spell_book.tooltip": "Volume 1",

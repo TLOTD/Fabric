@@ -264,8 +264,8 @@
   "item.tlotd.soul_flask_of_the_abyss.tooltip_3": "blicksch, blickt dr",
   "item.tlotd.soul_flask_of_the_abyss.tooltip_4": "Abgrund au in di nei",
 
-  "item.tlotd.guidebook": "Lehrbuach",
-  "item.tlotd.guidebook.tooltip": "von %1$s & %2$s",
+  "item.patchouli.guide_book.tlotd.guiding_grimoire": "Grimoire der Führung",
+  "item.patchouli.guide_book.tlotd.guiding_grimoire.desc": "von TLOTD & Isla_Nublar",
 
   "item.tlotd.spell_book": "Zaubrbuach",
   "item.tlotd.spell_book.tooltip": "Band 1",

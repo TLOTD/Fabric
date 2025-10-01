@@ -25,9 +25,7 @@ public class ModItemGroups {
     public static final ItemGroup TLOTD_1_MATERIALS_GROUP = Registry.register(Registries.ITEM_GROUP,
             new Identifier(TLOTD.MOD_ID, "1_materials"),
             FabricItemGroup.builder().displayName(Text.literal("\uE000 ").styled(style -> style.withFont(MODS_FONT_ID)).append(Text.translatable("itemgroup.tlotd.materials").styled(style -> style.withFont(DEFAULT_FONT_ID))))
-                    .icon(() -> new ItemStack(ModItems.GUIDEBOOK)).entries((displayContext, entries) -> {
-                        entries.add(ModItems.GUIDEBOOK);
-
+                    .icon(() -> new ItemStack(ModItems.SPELL_BOOK)).entries((displayContext, entries) -> {
                         entries.add(ModItems.SPELL_BOOK);
                         entries.add(ModItems.FORBIDDEN_SPELL_BOOK);
                         entries.add(ModItems.PLANCHETTE);

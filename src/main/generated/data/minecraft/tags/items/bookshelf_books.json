@@ -1,7 +1,6 @@
 {
   "replace": false,
   "values": [
-    "tlotd:guidebook",
     "tlotd:spell_book",
     "tlotd:forbidden_spell_book"
   ]

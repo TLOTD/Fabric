@@ -219,7 +219,7 @@ public class ModBlocks {
     public static final Block MOSSY_COBBLED_RED_DEEPSLATE_BRICKS = registerBlock("mossy_cobbled_red_deepslate_bricks",
             new Block(FabricBlockSettings.create().mapColor(MapColor.DULL_RED).requiresTool().strength(2.75F, 6.0F).sounds(BlockSoundGroup.DEEPSLATE)));
     public static final Block REINFORCED_RED_DEEPSLATE = registerBlock("reinforced_red_deepslate",
-            new Block(FabricBlockSettings.create().mapColor(MapColor.DULL_RED).requiresTool().strength(55.0F, 1200.0F).sounds(BlockSoundGroup.DEEPSLATE)));
+            new ReinforcedRedDeepslateBlock(FabricBlockSettings.create().mapColor(MapColor.DULL_RED).requiresTool().strength(55.0F, 1200.0F).sounds(BlockSoundGroup.DEEPSLATE)));
 
     public static final Block RED_DEEPSLATE_FOSSIL = registerBlock("red_deepslate_fossil",
             new Block(FabricBlockSettings.create().mapColor(MapColor.PALE_YELLOW).requiresTool().strength(3.0F, 3.0F).sounds(BlockSoundGroup.DEEPSLATE)));

@@ -310,7 +310,6 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
         ;
 
         getOrCreateTagBuilder(ItemTags.BOOKSHELF_BOOKS)
-                .add(ModItems.GUIDEBOOK)
                 .add(ModItems.SPELL_BOOK)
                 .add(ModItems.FORBIDDEN_SPELL_BOOK)
         ;

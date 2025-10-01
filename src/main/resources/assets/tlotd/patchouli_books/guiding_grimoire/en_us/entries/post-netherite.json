@@ -1,0 +1,42 @@
+{
+  "name": "Post-Netherite",
+  "icon": "minecraft:netherite_pickaxe",
+  "category": "tlotd:progression",
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "title": "New Materials",
+      "item": "tlotd:heliorite_ore,tlotd:deepslate_heliorite_ore,tlotd:red_deepslate_heliorite_ore,tlotd:end_endurium_ore",
+      "text": "So, you have aquired a fancy $(item)Netherite Pickaxe$() huh? Well there are two new ores to be mined: $(#9866d6)Heliorite$() or $(#005648)Endurium$()."
+    },
+    {
+      "type": "patchouli:smithing",
+      "title": "An Upgraded Pickaxe",
+      "recipe": "tlotd:smithing/heliorite_pickaxe",
+      "recipe2": "tlotd:smithing/endurium_pickaxe",
+      "text": "One of these two should be your next goal."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "tlotd:heliorite_ingots",
+      "text": "With a $(item)Chunk of Heliorite$() and a $(item)Block of Obsidian$() you can create a new alloy: The $(item)Heliorite Ingot$()."
+    },
+    {
+      "type": "patchouli:blasting",
+      "recipe": "tlotd:endurium_ingot_from_blasting_endurium_crystal",
+      "text": "A $(item)Endurium Crystal$() or a $(item)End Endurium Ore$() can be $(thing)blasted$() into an $(item)Endurium Ingot$()."
+    },
+    {
+      "type": "patchouli:crafting",
+      "title": "Heliorite",
+      "recipe": "tlotd:heliorite_upgrade_smithing_template",
+      "recipe2": "tlotd:heliorite_pickaxe_head"
+    },
+    {
+      "type": "patchouli:crafting",
+      "title": "Endurium",
+      "recipe": "tlotd:endurium_upgrade_smithing_template",
+      "recipe2": "tlotd:endurium_pickaxe_head"
+    }
+  ]
+}

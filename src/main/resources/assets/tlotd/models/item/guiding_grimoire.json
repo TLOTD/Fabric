@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "tlotd:item/guidebook"
+    "layer0": "tlotd:item/guiding_grimoire"
   }
 }

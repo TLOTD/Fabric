@@ -366,7 +366,6 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.CURSED_SOUL_FLASK, Models.GENERATED);
         itemModelGenerator.register(ModItems.SOUL_FLASK_OF_THE_ABYSS, Models.GENERATED);
 
-        itemModelGenerator.register(ModItems.GUIDEBOOK, Models.GENERATED);
         itemModelGenerator.register(ModItems.SPELL_BOOK, Models.GENERATED);
         itemModelGenerator.register(ModItems.FORBIDDEN_SPELL_BOOK, Models.GENERATED);
 

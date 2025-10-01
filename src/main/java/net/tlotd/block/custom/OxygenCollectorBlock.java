@@ -4,6 +4,7 @@ import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
 import net.minecraft.block.entity.BlockEntityType;
+import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.FluidState;
@@ -29,6 +30,7 @@ import net.minecraft.world.WorldAccess;
 import net.minecraft.world.WorldView;
 import net.tlotd.block.entity.ModBlockEntities;
 import net.tlotd.block.entity.OxygenCollectorBlockEntity;
+import net.tlotd.compat.ModCheckOthers;
 import net.tlotd.util.ModTags;
 import org.jetbrains.annotations.Nullable;
 
@@ -117,12 +119,22 @@ public class OxygenCollectorBlock extends BlockWithEntity implements BlockEntity
 
     public static final Identifier DEFAULT_FONT_ID = new Identifier("minecraft", "default");
     public static final Identifier MODS_FONT_ID = new Identifier("tlotd", "mods");
+    public static final Identifier RECIPIES_FONT_ID = new Identifier("tlotd", "recipies");
 
     @Override
     public void appendTooltip(ItemStack stack, @Nullable BlockView world, List<Text> tooltip, TooltipContext options) {
         Style style = this.getName().getStyle();
         if (options.isCreative()){
             tooltip.add(Text.literal("\uE015 ").setStyle(style.withFont(MODS_FONT_ID)).append(Text.translatable("mod.ad_astra.name").setStyle(style.withFont(DEFAULT_FONT_ID).withFormatting(Formatting.GRAY))));
+        }
+        if (ModCheckOthers.PATCHOULI) {
+            if (Screen.hasShiftDown()) {
+                tooltip.add(Text.literal("\uE007 ").setStyle(style.withFont(RECIPIES_FONT_ID)).append(Text.translatable("item.patchouli.guide_book.tlotd.guiding_grimoire").setStyle(style.withFont(DEFAULT_FONT_ID).withFormatting(Formatting.GRAY))));
+                tooltip.add(Text.literal("   ").append(Text.translatable("item.patchouli.guide_book.tlotd.guiding_grimoire.category").formatted(Formatting.DARK_GRAY)).append(Text.translatable("item.patchouli.guide_book.tlotd.guiding_grimoire.category.exploration").formatted(Formatting.GRAY)));
+                tooltip.add(Text.literal("   ").append(Text.translatable("item.patchouli.guide_book.tlotd.guiding_grimoire.chapter").formatted(Formatting.DARK_GRAY)).append(Text.translatable("item.patchouli.guide_book.tlotd.guiding_grimoire.chapter.the_moon").formatted(Formatting.GRAY)));
+            } else {
+                tooltip.add(Text.literal("\uE007 ").setStyle(style.withFont(RECIPIES_FONT_ID)).append(Text.translatable("mod.patchouli.name").setStyle(style.withFont(DEFAULT_FONT_ID).withFormatting(Formatting.GRAY))));
+            }
         }
         tooltip.add(Text.literal(""));
         tooltip.add(Text.translatable("block.tlotd.oxygen_collector.tooltip").formatted(Formatting.GRAY));

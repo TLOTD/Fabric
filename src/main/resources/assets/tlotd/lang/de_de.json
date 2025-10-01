@@ -266,8 +266,8 @@
   "item.tlotd.soul_flask_of_the_abyss.tooltip_3": "blickt der Abgrund",
   "item.tlotd.soul_flask_of_the_abyss.tooltip_4": "auch in dich hinein",
 
-  "item.tlotd.guidebook": "Lehrbuch",
-  "item.tlotd.guidebook.tooltip": "von %1$s & %2$s",
+  "item.patchouli.guide_book.tlotd.guiding_grimoire": "Grimoire der Führung",
+  "item.patchouli.guide_book.tlotd.guiding_grimoire.desc": "von TLOTD & Isla_Nublar",
 
   "item.tlotd.spell_book": "Zauberbuch",
   "item.tlotd.spell_book.tooltip": "Band 1",

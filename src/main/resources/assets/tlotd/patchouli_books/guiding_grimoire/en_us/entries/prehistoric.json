@@ -1,0 +1,49 @@
+{
+  "name": "Prehistoric",
+  "icon": "tlotd:rich_grass_block",
+  "category": "tlotd:exploration",
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "title": "The Prehistoric",
+      "item": {
+        "item": "tlotd:rich_grass_block"
+      },
+      "text": "A lush land sprawling with $(item)Rich Soil$(), on a foundation of $(item)Red Deepslate$(), rich in ores of all kinds, aswell as a great variaty of vegetation!"
+    },
+    {
+      "type": "patchouli:entity",
+      "entity": "tlotd:t-rex",
+      "rotate": false,
+      "default_rotation": 45,
+      "scale": 0.5,
+      "offset": 2,
+      "text": "This majestic $(thing)creature$() loves to hunt both farm animals and humans, so beware."
+    },
+    {
+      "type": "patchouli:multiblock",
+      "name": "Getting There",
+      "multiblock": {
+        "pattern": [
+          [" ", "#", "#", " "],
+          ["#", " ", " ", "#"],
+          ["#", " ", " ", "#"],
+          ["#", " ", " ", "#"],
+          [" ", "0", "#", " "]
+        ],
+        "mapping": {
+            "#": "tlotd:reinforced_red_deepslate",
+            "0": "tlotd:reinforced_red_deepslate"
+        }
+      },
+      "text": "The size of the $(thing)portal frame$() is variable, the smallest possible configuration is depicted above."
+    },
+    {
+      "type": "patchouli:crafting",
+      "title": "Frame and Lighter",
+      "recipe": "tlotd:reinforced_red_deepslate",
+      "recipe2": "tlotd:fossil_and_steel",
+      "text": "The $(item)lighter$() can ignite the $(thing)portal$()."
+    }
+  ]
+}

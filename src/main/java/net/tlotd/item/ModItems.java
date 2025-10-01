@@ -13,6 +13,7 @@ import net.minecraft.util.math.Direction;
 import net.tlotd.TLOTD;
 import net.tlotd.banner.ModBanners;
 import net.tlotd.block.ModBlocks;
+import net.tlotd.compat.ModCheckOthers;
 import net.tlotd.entity.ModBoats;
 import net.tlotd.entity.ModEntities;
 import net.tlotd.item.compat.*;
@@ -117,7 +118,6 @@ public class ModItems {
     public static final Item CURED_MEAT = registerItem("cured_meat", new Item(new FabricItemSettings().food(ModFoodComponents.CURED_MEAT)));
     public static final Item COOKED_MEAT = registerItem("cooked_meat", new Item(new FabricItemSettings().food(ModFoodComponents.COOKED_MEAT)));
 
-    public static final Item GUIDEBOOK = registerItem("guidebook", new GuidebookItem(new FabricItemSettings().rarity(Rarity.UNCOMMON).maxCount(1)));
     public static final Item SPELL_BOOK = registerItem("spell_book", new SpellBookItem(new FabricItemSettings().rarity(Rarity.EPIC).maxCount(1).fireproof()));
     public static final Item FORBIDDEN_SPELL_BOOK = registerItem("forbidden_spell_book", new ForbiddenSpellBookItem(new FabricItemSettings().rarity(Rarity.EPIC).maxCount(1).fireproof()));
 

@@ -34,8 +34,8 @@ public class GuidebookItem extends Item {
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         if (!world.isClient()) {
-            if (!user.getItemCooldownManager().isCoolingDown(ModItems.GUIDEBOOK)) {
-                user.getItemCooldownManager().set(ModItems.GUIDEBOOK, 10);
+            if (!user.getItemCooldownManager().isCoolingDown(this)) {
+                user.getItemCooldownManager().set(this, 10);
                 user.sendMessage(Text.translatable("generic.tlotd.text.click_me").setStyle(Style.EMPTY.withClickEvent(WIKI).withColor(Formatting.BLUE)).append(" ").append(Text.translatable("generic.tlotd.text.wiki_link").formatted(Formatting.GRAY)));
                 user.sendMessage(Text.translatable("generic.tlotd.text.click_me").setStyle(Style.EMPTY.withClickEvent(CONFIG).withColor(Formatting.GOLD)).append(" ").append(Text.translatable("generic.tlotd.text.config_link").formatted(Formatting.GRAY)));
                 user.swingHand(hand);

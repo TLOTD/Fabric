@@ -1,0 +1,42 @@
+{
+  "name": "The Moon",
+  "icon": "tlotd:lunar_regolith",
+  "category": "tlotd:exploration",
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "title": "The Moon",
+      "item": {
+        "item": "tlotd:lunar_regolith"
+      },
+      "text": "A cold and desolate landscape, who in their right mind would want to go there? Oh that right, you would. Well in that case, you should get yourself a method of propulsion. A $(item)Elytra$() with a bunch of $(item)Fireworks$() should do the trick. Try to get up to 1000 Blocks in the air in the $(thing)Overworld$(), this should suffice in reaching the $(thing)Moon$()."
+    },
+    {
+      "type": "patchouli:crafting",
+      "title": "Equipment",
+      "recipe": "tlotd:oxygen_tank",
+      "recipe2": "tlotd:space_suit_chestplate",
+      "text": "You'll need this."
+    },
+    {
+      "type": "patchouli:crafting",
+      "recipe": "tlotd:oxygen_collector",
+      "text": "The $(item)Oxygen Collector$() can $(thing)collect oxygen$() and $(thing)fuel$() various $(item)items$()."
+    },
+    {
+      "type": "patchouli:multiblock",
+      "name": "Getting Air",
+      "multiblock": {
+        "pattern": [
+          ["#"],
+          ["0"]
+        ],
+        "mapping": {
+            "#": "tlotd:oxygen_collector",
+            "0": "#tlotd:oxygen_providers"
+        }
+      },
+      "text": "AIR"
+    }
+  ]
+}

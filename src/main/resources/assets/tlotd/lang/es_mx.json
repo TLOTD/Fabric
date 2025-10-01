@@ -264,8 +264,8 @@
   "item.tlotd.soul_flask_of_the_abyss.tooltip_3": "abismo el abismo",
   "item.tlotd.soul_flask_of_the_abyss.tooltip_4": "también te mira a ti",
 
-  "item.tlotd.guidebook": "Guía",
-  "item.tlotd.guidebook.tooltip": "por %1$s y %2$s",
+  "item.patchouli.guide_book.tlotd.guiding_grimoire": "Grimorio de orientación",
+  "item.patchouli.guide_book.tlotd.guiding_grimoire.desc": "por TLOTD y Isla_Nublar",
 
   "item.tlotd.spell_book": "Libro de Conjuros",
   "item.tlotd.spell_book.tooltip": "Volumen 1",

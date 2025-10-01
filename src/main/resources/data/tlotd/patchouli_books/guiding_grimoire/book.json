@@ -1,0 +1,10 @@
+{
+  "name": "item.patchouli.guide_book.tlotd.guiding_grimoire",
+  "subtitle": "item.patchouli.guide_book.tlotd.guiding_grimoire.desc",
+  "model": "tlotd:guiding_grimoire",
+  "landing_text": "item.patchouli.guide_book.tlotd.guiding_grimoire.intro",
+  "creative_tab": "tlotd:1_materials",
+  "use_resource_pack": true,
+  "show_progress": false,
+  "pause_game": true
+}
