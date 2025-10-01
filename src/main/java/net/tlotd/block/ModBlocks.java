@@ -51,7 +51,7 @@ public class ModBlocks {
     public static final Block SULFUR_LANTERN = registerBlock("sulfur_lantern", new LanternBlock(FabricBlockSettings.create().mapColor(MapColor.IRON_GRAY).solid().requiresTool().strength(3.5F).sounds(BlockSoundGroup.LANTERN).luminance(14).nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
     public static final Block SULFUR_CAMPFIRE = registerNyiBlock("sulfur_campfire", new CampfireBlock(false, 2, FabricBlockSettings.create().mapColor(MapColor.SPRUCE_BROWN).instrument(Instrument.BASS).strength(2.0f).sounds(BlockSoundGroup.WOOD).luminance(Blocks.createLightLevelFromLitBlockState(14)).nonOpaque().burnable()));
 
-    public static final Block PRESERVES_JAR = registerSmallStackableBlock("preserves_jar",
+    public static final Block PRESERVES_JAR = registerSmallStackableBlock(
             new PreservesJarBlock(FabricBlockSettings.create().mapColor(MapColor.WHITE).strength(0.3f, 0.3f).sounds(BlockSoundGroup.GLASS).nonOpaque()));
 
     public static final Block SWEET_BERRY_JAM_JAR = registerJamJarBlock("sweet_berry_jam_jar",
@@ -411,7 +411,7 @@ public class ModBlocks {
     public static final Block MITHRIL_BARS = registerRarityBlock("mithril_bars",
             new PaneBlock(FabricBlockSettings.create().mapColor(MapColor.WHITE_GRAY).requiresTool().strength(10.0F, 1200.0F).sounds(BlockSoundGroup.NETHERITE).nonOpaque()), Rarity.UNCOMMON);
 
-    public static final Block WOODEN_STEIN = registerWoodenSteinBlock("wooden_stein",
+    public static final Block WOODEN_STEIN = registerWoodenSteinBlock(
             new WoodenSteinBlock(FabricBlockSettings.create().mapColor(MapColor.BROWN).strength(2.0F, 2.0F).sounds(BlockSoundGroup.WOOD).pistonBehavior(PistonBehavior.DESTROY).nonOpaque()));
     public static final Block WOODEN_WATER_STEIN = registerDrinkableWoodenSteinBlock("wooden_water_stein",
             new WoodenSteinBlock(FabricBlockSettings.create().mapColor(MapColor.BROWN).strength(2.0F, 2.0F).sounds(BlockSoundGroup.WOOD).pistonBehavior(PistonBehavior.DESTROY).nonOpaque()),"");
@@ -492,7 +492,7 @@ public class ModBlocks {
     public static final Block ALIEN_CONTROL_PANEL = registerRarityBlock("alien_control_panel",
             new AlienControlPanelBlock(FabricBlockSettings.create().mapColor(MapColor.BLACK).requiresTool().strength(3.0F, 9.0F).pistonBehavior(PistonBehavior.BLOCK).luminance(4)), Rarity.EPIC);
 
-    public static final Block VIDEOCASSETTE_RECORDER = registerVCRBlock("videocassette_recorder",
+    public static final Block VIDEOCASSETTE_RECORDER = registerVCRBlock(
             new VideocassetteRecorderBlock(FabricBlockSettings.create().mapColor(MapColor.WHITE).strength(2.0F, 2.0F).pistonBehavior(PistonBehavior.DESTROY)));
 
     public static final Block VIDEOCASSETTE_RECORDER_BOOKSHELF = registerBlockWithoutItem("videocassette_recorder_bookshelf",
@@ -793,9 +793,9 @@ public class ModBlocks {
         return Registry.register(Registries.BLOCK, new Identifier(TLOTD.MOD_ID, name), block);
     }
 
-    private static Block registerSmallStackableBlock(String name, Block block) {
-        registerSmallStackBlockItem(name, block);
-        return Registry.register(Registries.BLOCK, new Identifier(TLOTD.MOD_ID, name), block);
+    private static Block registerSmallStackableBlock(Block block) {
+        registerSmallStackBlockItem("preserves_jar", block);
+        return Registry.register(Registries.BLOCK, new Identifier(TLOTD.MOD_ID, "preserves_jar"), block);
     }
 
     private static Block registerJamJarBlock(String name, Block block) {
@@ -808,9 +808,9 @@ public class ModBlocks {
         return Registry.register(Registries.BLOCK, new Identifier(TLOTD.MOD_ID, name), block);
     }
 
-    private static Block registerWoodenSteinBlock(String name, Block block) {
-        registerWoodenSteinBlockItem(name, block);
-        return Registry.register(Registries.BLOCK, new Identifier(TLOTD.MOD_ID, name), block);
+    private static Block registerWoodenSteinBlock(Block block) {
+        registerWoodenSteinBlockItem("wooden_stein", block);
+        return Registry.register(Registries.BLOCK, new Identifier(TLOTD.MOD_ID, "wooden_stein"), block);
     }
 
     private static Block registerDrinkableWoodenSteinBlock(String name, Block block, String compat) {
@@ -833,9 +833,9 @@ public class ModBlocks {
         return Registry.register(Registries.BLOCK, new Identifier(TLOTD.MOD_ID, name), block);
     }
 
-    private static Block registerVCRBlock(String name, Block block) {
-        registerVCRBlockItem(name, block);
-        return Registry.register(Registries.BLOCK, new Identifier(TLOTD.MOD_ID, name), block);
+    private static Block registerVCRBlock(Block block) {
+        registerVCRBlockItem("videocassette_recorder", block);
+        return Registry.register(Registries.BLOCK, new Identifier(TLOTD.MOD_ID, "videocassette_recorder"), block);
     }
 
     private static Block registerBlockWithoutItem(String name, Block block) {

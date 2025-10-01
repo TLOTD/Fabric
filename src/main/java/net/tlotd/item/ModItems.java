@@ -13,7 +13,6 @@ import net.minecraft.util.math.Direction;
 import net.tlotd.TLOTD;
 import net.tlotd.banner.ModBanners;
 import net.tlotd.block.ModBlocks;
-import net.tlotd.compat.ModCheckOthers;
 import net.tlotd.entity.ModBoats;
 import net.tlotd.entity.ModEntities;
 import net.tlotd.item.compat.*;

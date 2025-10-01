@@ -1,20 +1,14 @@
 package net.tlotd.block.custom;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.item.ItemStack;
-import net.minecraft.particle.ParticleTypes;
 import net.minecraft.text.Style;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Direction;
-import net.minecraft.util.math.random.Random;
 import net.minecraft.world.BlockView;
-import net.minecraft.world.World;
 import net.tlotd.compat.ModCheckOthers;
 import org.jetbrains.annotations.Nullable;
 
