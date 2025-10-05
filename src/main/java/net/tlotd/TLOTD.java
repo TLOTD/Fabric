@@ -2,6 +2,7 @@ package net.tlotd;
 
 import net.fabricmc.api.ModInitializer;
 import net.tlotd.block.ModBlocks;
+import net.tlotd.block.tag.ModTags;
 import net.tlotd.item.ModItems;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -29,6 +30,7 @@ public class TLOTD implements ModInitializer, RecipeEntrypoint, GameStartEntrypo
         LOGGER.info("TLOTD initialized.");
 		new ModItems().registerItems();
 		new ModBlocks().registerBlocks();
+		new ModTags().registerTags();
     }
 
 	@Override

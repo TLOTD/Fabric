@@ -451,6 +451,13 @@ public class ModModelProvider implements ModelEntrypoint {
 			}
 		);
 		ModelHelper.setItemModel(
+			ModItems.HELIORITE_PAXEL, () -> {
+				ItemModelStandard model = new ItemModelStandard(ModItems.HELIORITE_PAXEL, TLOTD.MOD_ID).setFull3D();
+				model.icon = TextureRegistry.getTexture(ModItems.HELIORITE_PAXEL.namespaceID);
+				return model;
+			}
+		);
+		ModelHelper.setItemModel(
 			ModItems.HELIORITE_HELMET, () -> {
 				ItemModelStandard model = new ItemModelStandard(ModItems.HELIORITE_HELMET, TLOTD.MOD_ID);
 				model.icon = TextureRegistry.getTexture(ModItems.HELIORITE_HELMET.namespaceID);
@@ -531,6 +538,13 @@ public class ModModelProvider implements ModelEntrypoint {
 			ModItems.ENDURIUM_HOE, () -> {
 				ItemModelStandard model = new ItemModelStandard(ModItems.ENDURIUM_HOE, TLOTD.MOD_ID).setFull3D();
 				model.icon = TextureRegistry.getTexture(ModItems.ENDURIUM_HOE.namespaceID);
+				return model;
+			}
+		);
+		ModelHelper.setItemModel(
+			ModItems.ENDURIUM_PAXEL, () -> {
+				ItemModelStandard model = new ItemModelStandard(ModItems.ENDURIUM_PAXEL, TLOTD.MOD_ID).setFull3D();
+				model.icon = TextureRegistry.getTexture(ModItems.ENDURIUM_PAXEL.namespaceID);
 				return model;
 			}
 		);
@@ -619,6 +633,13 @@ public class ModModelProvider implements ModelEntrypoint {
 			}
 		);
 		ModelHelper.setItemModel(
+			ModItems.PALLADIUM_PAXEL, () -> {
+				ItemModelStandard model = new ItemModelStandard(ModItems.PALLADIUM_PAXEL, TLOTD.MOD_ID).setFull3D();
+				model.icon = TextureRegistry.getTexture(ModItems.PALLADIUM_PAXEL.namespaceID);
+				return model;
+			}
+		);
+		ModelHelper.setItemModel(
 			ModItems.PALLADIUM_HELMET, () -> {
 				ItemModelStandard model = new ItemModelStandard(ModItems.PALLADIUM_HELMET, TLOTD.MOD_ID);
 				model.icon = TextureRegistry.getTexture(ModItems.PALLADIUM_HELMET.namespaceID);
@@ -699,6 +720,13 @@ public class ModModelProvider implements ModelEntrypoint {
 			ModItems.JURASSOLINE_HOE, () -> {
 				ItemModelStandard model = new ItemModelStandard(ModItems.JURASSOLINE_HOE, TLOTD.MOD_ID).setFull3D();
 				model.icon = TextureRegistry.getTexture(ModItems.JURASSOLINE_HOE.namespaceID);
+				return model;
+			}
+		);
+		ModelHelper.setItemModel(
+			ModItems.JURASSOLINE_PAXEL, () -> {
+				ItemModelStandard model = new ItemModelStandard(ModItems.JURASSOLINE_PAXEL, TLOTD.MOD_ID).setFull3D();
+				model.icon = TextureRegistry.getTexture(ModItems.JURASSOLINE_PAXEL.namespaceID);
 				return model;
 			}
 		);
@@ -787,6 +815,13 @@ public class ModModelProvider implements ModelEntrypoint {
 			}
 		);
 		ModelHelper.setItemModel(
+			ModItems.CINNABAR_PAXEL, () -> {
+				ItemModelStandard model = new ItemModelStandard(ModItems.CINNABAR_PAXEL, TLOTD.MOD_ID).setFull3D();
+				model.icon = TextureRegistry.getTexture(ModItems.CINNABAR_PAXEL.namespaceID);
+				return model;
+			}
+		);
+		ModelHelper.setItemModel(
 			ModItems.CINNABAR_HELMET, () -> {
 				ItemModelStandard model = new ItemModelStandard(ModItems.CINNABAR_HELMET, TLOTD.MOD_ID);
 				model.icon = TextureRegistry.getTexture(ModItems.CINNABAR_HELMET.namespaceID);
@@ -871,6 +906,13 @@ public class ModModelProvider implements ModelEntrypoint {
 			}
 		);
 		ModelHelper.setItemModel(
+			ModItems.NEBULAR_PAXEL, () -> {
+				ItemModelStandard model = new ItemModelStandard(ModItems.NEBULAR_PAXEL, TLOTD.MOD_ID).setFull3D();
+				model.icon = TextureRegistry.getTexture(ModItems.NEBULAR_PAXEL.namespaceID);
+				return model;
+			}
+		);
+		ModelHelper.setItemModel(
 			ModItems.NEBULAR_HELMET, () -> {
 				ItemModelStandard model = new ItemModelStandard(ModItems.NEBULAR_HELMET, TLOTD.MOD_ID);
 				model.icon = TextureRegistry.getTexture(ModItems.NEBULAR_HELMET.namespaceID);
@@ -951,6 +993,13 @@ public class ModModelProvider implements ModelEntrypoint {
 			ModItems.MITHRIL_HOE, () -> {
 				ItemModelStandard model = new ItemModelStandard(ModItems.MITHRIL_HOE, TLOTD.MOD_ID).setFull3D();
 				model.icon = TextureRegistry.getTexture(ModItems.MITHRIL_HOE.namespaceID);
+				return model;
+			}
+		);
+		ModelHelper.setItemModel(
+			ModItems.MITHRIL_PAXEL, () -> {
+				ItemModelStandard model = new ItemModelStandard(ModItems.MITHRIL_PAXEL, TLOTD.MOD_ID).setFull3D();
+				model.icon = TextureRegistry.getTexture(ModItems.MITHRIL_PAXEL.namespaceID);
 				return model;
 			}
 		);

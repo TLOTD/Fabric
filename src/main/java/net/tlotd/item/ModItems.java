@@ -9,6 +9,7 @@ import net.minecraft.core.item.material.ToolMaterial;
 import net.minecraft.core.item.tool.*;
 import net.tlotd.TLOTD;
 import net.tlotd.item.custom.ExtractionPickaxeItem;
+import net.tlotd.item.custom.ItemToolPaxel;
 import turniplabs.halplibe.helper.ArmorHelper;
 import turniplabs.halplibe.helper.ItemBuilder;
 
@@ -29,6 +30,7 @@ public class ModItems {
 	public static Item HELIORITE_AXE;
 	public static Item HELIORITE_SHOVEL;
 	public static Item HELIORITE_HOE;
+	public static Item HELIORITE_PAXEL;
 	public static Item HELIORITE_HELMET;
 	public static Item HELIORITE_CHESTPLATE;
 	public static Item HELIORITE_LEGGINGS;
@@ -42,6 +44,7 @@ public class ModItems {
 	public static Item ENDURIUM_AXE;
 	public static Item ENDURIUM_SHOVEL;
 	public static Item ENDURIUM_HOE;
+	public static Item ENDURIUM_PAXEL;
 	public static Item ENDURIUM_HELMET;
 	public static Item ENDURIUM_CHESTPLATE;
 	public static Item ENDURIUM_LEGGINGS;
@@ -55,6 +58,7 @@ public class ModItems {
 	public static Item PALLADIUM_AXE;
 	public static Item PALLADIUM_SHOVEL;
 	public static Item PALLADIUM_HOE;
+	public static Item PALLADIUM_PAXEL;
 	public static Item PALLADIUM_HELMET;
 	public static Item PALLADIUM_CHESTPLATE;
 	public static Item PALLADIUM_LEGGINGS;
@@ -68,6 +72,7 @@ public class ModItems {
 	public static Item JURASSOLINE_AXE;
 	public static Item JURASSOLINE_SHOVEL;
 	public static Item JURASSOLINE_HOE;
+	public static Item JURASSOLINE_PAXEL;
 	public static Item JURASSOLINE_HELMET;
 	public static Item JURASSOLINE_CHESTPLATE;
 	public static Item JURASSOLINE_LEGGINGS;
@@ -81,6 +86,7 @@ public class ModItems {
 	public static Item CINNABAR_AXE;
 	public static Item CINNABAR_SHOVEL;
 	public static Item CINNABAR_HOE;
+	public static Item CINNABAR_PAXEL;
 	public static Item CINNABAR_HELMET;
 	public static Item CINNABAR_CHESTPLATE;
 	public static Item CINNABAR_LEGGINGS;
@@ -94,6 +100,7 @@ public class ModItems {
 	public static Item NEBULAR_AXE;
 	public static Item NEBULAR_SHOVEL;
 	public static Item NEBULAR_HOE;
+	public static Item NEBULAR_PAXEL;
 	public static Item NEBULAR_HELMET;
 	public static Item NEBULAR_CHESTPLATE;
 	public static Item NEBULAR_LEGGINGS;
@@ -107,6 +114,7 @@ public class ModItems {
 	public static Item MITHRIL_AXE;
 	public static Item MITHRIL_SHOVEL;
 	public static Item MITHRIL_HOE;
+	public static Item MITHRIL_PAXEL;
 	public static Item MITHRIL_HELMET;
 	public static Item MITHRIL_CHESTPLATE;
 	public static Item MITHRIL_LEGGINGS;
@@ -158,6 +166,7 @@ public class ModItems {
 		HELIORITE_AXE = new ItemBuilder(TLOTD.MOD_ID).build(new ItemToolAxe("heliorite_axe", "tlotd:item/heliorite_axe", itemId++, HELIORITE));
 		HELIORITE_SHOVEL = new ItemBuilder(TLOTD.MOD_ID).build(new ItemToolShovel("heliorite_shovel", "tlotd:item/heliorite_shovel", itemId++, HELIORITE));
 		HELIORITE_HOE = new ItemBuilder(TLOTD.MOD_ID).build(new ItemToolHoe("heliorite_hoe", "tlotd:item/heliorite_hoe", itemId++, HELIORITE));
+		HELIORITE_PAXEL = new ItemBuilder(TLOTD.MOD_ID).build(new ItemToolPaxel("heliorite_paxel", "tlotd:item/heliorite_paxel", itemId++, HELIORITE));
 		HELIORITE_HELMET = new ItemBuilder(TLOTD.MOD_ID).build(new ItemArmor("heliorite_helmet", "tlotd:item/heliorite_helmet", itemId++, HELIORITE_ARMOR, 3));
 		HELIORITE_CHESTPLATE = new ItemBuilder(TLOTD.MOD_ID).build(new ItemArmor("heliorite_chestplate", "tlotd:item/heliorite_chestplate", itemId++, HELIORITE_ARMOR, 2));
 		HELIORITE_LEGGINGS = new ItemBuilder(TLOTD.MOD_ID).build(new ItemArmor("heliorite_leggings", "tlotd:item/heliorite_leggings", itemId++, HELIORITE_ARMOR, 1));
@@ -171,6 +180,7 @@ public class ModItems {
 		ENDURIUM_AXE = new ItemBuilder(TLOTD.MOD_ID).build(new ItemToolAxe("endurium_axe", "tlotd:item/endurium_axe", itemId++, ENDURIUM));
 		ENDURIUM_SHOVEL = new ItemBuilder(TLOTD.MOD_ID).build(new ItemToolShovel("endurium_shovel", "tlotd:item/endurium_shovel", itemId++, ENDURIUM));
 		ENDURIUM_HOE = new ItemBuilder(TLOTD.MOD_ID).build(new ItemToolHoe("endurium_hoe", "tlotd:item/endurium_hoe", itemId++, ENDURIUM));
+		ENDURIUM_PAXEL = new ItemBuilder(TLOTD.MOD_ID).build(new ItemToolPaxel("endurium_paxel", "tlotd:item/endurium_paxel", itemId++, ENDURIUM));
 		ENDURIUM_HELMET = new ItemBuilder(TLOTD.MOD_ID).build(new ItemArmor("endurium_helmet", "tlotd:item/endurium_helmet", itemId++, ENDURIUM_ARMOR, 3));
 		ENDURIUM_CHESTPLATE = new ItemBuilder(TLOTD.MOD_ID).build(new ItemArmor("endurium_chestplate", "tlotd:item/endurium_chestplate", itemId++, ENDURIUM_ARMOR, 2));
 		ENDURIUM_LEGGINGS = new ItemBuilder(TLOTD.MOD_ID).build(new ItemArmor("endurium_leggings", "tlotd:item/endurium_leggings", itemId++, ENDURIUM_ARMOR, 1));
@@ -184,6 +194,7 @@ public class ModItems {
 		PALLADIUM_AXE = new ItemBuilder(TLOTD.MOD_ID).build(new ItemToolAxe("palladium_axe", "tlotd:item/palladium_axe", itemId++, PALLADIUM));
 		PALLADIUM_SHOVEL = new ItemBuilder(TLOTD.MOD_ID).build(new ItemToolShovel("palladium_shovel", "tlotd:item/palladium_shovel", itemId++, PALLADIUM));
 		PALLADIUM_HOE = new ItemBuilder(TLOTD.MOD_ID).build(new ItemToolHoe("palladium_hoe", "tlotd:item/palladium_hoe", itemId++, PALLADIUM));
+		PALLADIUM_PAXEL = new ItemBuilder(TLOTD.MOD_ID).build(new ItemToolPaxel("palladium_paxel", "tlotd:item/palladium_paxel", itemId++, PALLADIUM));
 		PALLADIUM_HELMET = new ItemBuilder(TLOTD.MOD_ID).build(new ItemArmor("palladium_helmet", "tlotd:item/palladium_helmet", itemId++, PALLADIUM_ARMOR, 3));
 		PALLADIUM_CHESTPLATE = new ItemBuilder(TLOTD.MOD_ID).build(new ItemArmor("palladium_chestplate", "tlotd:item/palladium_chestplate", itemId++, PALLADIUM_ARMOR, 2));
 		PALLADIUM_LEGGINGS = new ItemBuilder(TLOTD.MOD_ID).build(new ItemArmor("palladium_leggings", "tlotd:item/palladium_leggings", itemId++, PALLADIUM_ARMOR, 1));
@@ -197,6 +208,7 @@ public class ModItems {
 		JURASSOLINE_AXE = new ItemBuilder(TLOTD.MOD_ID).build(new ItemToolAxe("jurassoline_axe", "tlotd:item/jurassoline_axe", itemId++, JURASSOLINE));
 		JURASSOLINE_SHOVEL = new ItemBuilder(TLOTD.MOD_ID).build(new ItemToolShovel("jurassoline_shovel", "tlotd:item/jurassoline_shovel", itemId++, JURASSOLINE));
 		JURASSOLINE_HOE = new ItemBuilder(TLOTD.MOD_ID).build(new ItemToolHoe("jurassoline_hoe", "tlotd:item/jurassoline_hoe", itemId++, JURASSOLINE));
+		JURASSOLINE_PAXEL = new ItemBuilder(TLOTD.MOD_ID).build(new ItemToolPaxel("jurassoline_paxel", "tlotd:item/jurassoline_paxel", itemId++, JURASSOLINE));
 		JURASSOLINE_HELMET = new ItemBuilder(TLOTD.MOD_ID).build(new ItemArmor("jurassoline_helmet", "tlotd:item/jurassoline_helmet", itemId++, JURASSOLINE_ARMOR, 3));
 		JURASSOLINE_CHESTPLATE = new ItemBuilder(TLOTD.MOD_ID).build(new ItemArmor("jurassoline_chestplate", "tlotd:item/jurassoline_chestplate", itemId++, JURASSOLINE_ARMOR, 2));
 		JURASSOLINE_LEGGINGS = new ItemBuilder(TLOTD.MOD_ID).build(new ItemArmor("jurassoline_leggings", "tlotd:item/jurassoline_leggings", itemId++, JURASSOLINE_ARMOR, 1));
@@ -210,6 +222,7 @@ public class ModItems {
 		CINNABAR_AXE = new ItemBuilder(TLOTD.MOD_ID).build(new ItemToolAxe("cinnabar_axe", "tlotd:item/cinnabar_axe", itemId++, CINNABAR));
 		CINNABAR_SHOVEL = new ItemBuilder(TLOTD.MOD_ID).build(new ItemToolShovel("cinnabar_shovel", "tlotd:item/cinnabar_shovel", itemId++, CINNABAR));
 		CINNABAR_HOE = new ItemBuilder(TLOTD.MOD_ID).build(new ItemToolHoe("cinnabar_hoe", "tlotd:item/cinnabar_hoe", itemId++, CINNABAR));
+		CINNABAR_PAXEL = new ItemBuilder(TLOTD.MOD_ID).build(new ItemToolPaxel("cinnabar_paxel", "tlotd:item/cinnabar_paxel", itemId++, CINNABAR));
 		CINNABAR_HELMET = new ItemBuilder(TLOTD.MOD_ID).build(new ItemArmor("cinnabar_helmet", "tlotd:item/cinnabar_helmet", itemId++, CINNABAR_ARMOR, 3));
 		CINNABAR_CHESTPLATE = new ItemBuilder(TLOTD.MOD_ID).build(new ItemArmor("cinnabar_chestplate", "tlotd:item/cinnabar_chestplate", itemId++, CINNABAR_ARMOR, 2));
 		CINNABAR_LEGGINGS = new ItemBuilder(TLOTD.MOD_ID).build(new ItemArmor("cinnabar_leggings", "tlotd:item/cinnabar_leggings", itemId++, CINNABAR_ARMOR, 1));
@@ -223,6 +236,7 @@ public class ModItems {
 		NEBULAR_AXE = new ItemBuilder(TLOTD.MOD_ID).build(new ItemToolAxe("nebular_axe", "tlotd:item/nebular_axe", itemId++, NEBULAR));
 		NEBULAR_SHOVEL = new ItemBuilder(TLOTD.MOD_ID).build(new ItemToolShovel("nebular_shovel", "tlotd:item/nebular_shovel", itemId++, NEBULAR));
 		NEBULAR_HOE = new ItemBuilder(TLOTD.MOD_ID).build(new ItemToolHoe("nebular_hoe", "tlotd:item/nebular_hoe", itemId++, NEBULAR));
+		NEBULAR_PAXEL = new ItemBuilder(TLOTD.MOD_ID).build(new ItemToolPaxel("nebular_paxel", "tlotd:item/nebular_paxel", itemId++, NEBULAR));
 		NEBULAR_HELMET = new ItemBuilder(TLOTD.MOD_ID).build(new ItemArmor("nebular_helmet", "tlotd:item/nebular_helmet", itemId++, NEBULAR_ARMOR, 3));
 		NEBULAR_CHESTPLATE = new ItemBuilder(TLOTD.MOD_ID).build(new ItemArmor("nebular_chestplate", "tlotd:item/nebular_chestplate", itemId++, NEBULAR_ARMOR, 2));
 		NEBULAR_LEGGINGS = new ItemBuilder(TLOTD.MOD_ID).build(new ItemArmor("nebular_leggings", "tlotd:item/nebular_leggings", itemId++, NEBULAR_ARMOR, 1));
@@ -236,6 +250,7 @@ public class ModItems {
 		MITHRIL_AXE = new ItemBuilder(TLOTD.MOD_ID).build(new ItemToolAxe("mithril_axe", "tlotd:item/mithril_axe", itemId++, MITHRIL));
 		MITHRIL_SHOVEL = new ItemBuilder(TLOTD.MOD_ID).build(new ItemToolShovel("mithril_shovel", "tlotd:item/mithril_shovel", itemId++, MITHRIL));
 		MITHRIL_HOE = new ItemBuilder(TLOTD.MOD_ID).build(new ItemToolHoe("mithril_hoe", "tlotd:item/mithril_hoe", itemId++, MITHRIL));
+		MITHRIL_PAXEL = new ItemBuilder(TLOTD.MOD_ID).build(new ItemToolPaxel("mithril_paxel", "tlotd:item/mithril_paxel", itemId++, MITHRIL));
 		MITHRIL_HELMET = new ItemBuilder(TLOTD.MOD_ID).build(new ItemArmor("mithril_helmet", "tlotd:item/mithril_helmet", itemId++, MITHRIL_ARMOR, 3));
 		MITHRIL_CHESTPLATE = new ItemBuilder(TLOTD.MOD_ID).build(new ItemArmor("mithril_chestplate", "tlotd:item/mithril_chestplate", itemId++, MITHRIL_ARMOR, 2));
 		MITHRIL_LEGGINGS = new ItemBuilder(TLOTD.MOD_ID).build(new ItemArmor("mithril_leggings", "tlotd:item/mithril_leggings", itemId++, MITHRIL_ARMOR, 1));

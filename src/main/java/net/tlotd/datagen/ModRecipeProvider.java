@@ -117,7 +117,12 @@ public class ModRecipeProvider implements RecipeEntrypoint {
 			.setShape(" ##", " I ", " I ")
 			.addInput('#', ModItems.HELIORITE_INGOT)
 			.addInput('I', ModItems.STEEL_ROD)
-			.create("heliorite__hoe_alt", new ItemStack(ModItems.HELIORITE_HOE));
+			.create("heliorite_hoe_alt", new ItemStack(ModItems.HELIORITE_HOE));
+		RecipeBuilder.Shapeless(TLOTD.MOD_ID)
+			.addInput(ModItems.HELIORITE_AXE)
+			.addInput(ModItems.HELIORITE_PICKAXE)
+			.addInput(ModItems.HELIORITE_SHOVEL)
+			.create("heliorite_paxel", new ItemStack(ModItems.HELIORITE_PAXEL));
 		RecipeBuilder.Shaped(TLOTD.MOD_ID)
 			.setShape("###", "# #")
 			.addInput('#', ModItems.HELIORITE_INGOT)
@@ -214,7 +219,12 @@ public class ModRecipeProvider implements RecipeEntrypoint {
 			.setShape(" ##", " I ", " I ")
 			.addInput('#', ModItems.ENDURIUM_INGOT)
 			.addInput('I', ModItems.STEEL_ROD)
-			.create("endurium__hoe_alt", new ItemStack(ModItems.ENDURIUM_HOE));
+			.create("endurium_hoe_alt", new ItemStack(ModItems.ENDURIUM_HOE));
+		RecipeBuilder.Shapeless(TLOTD.MOD_ID)
+			.addInput(ModItems.ENDURIUM_AXE)
+			.addInput(ModItems.ENDURIUM_PICKAXE)
+			.addInput(ModItems.ENDURIUM_SHOVEL)
+			.create("endurium_paxel", new ItemStack(ModItems.ENDURIUM_PAXEL));
 		RecipeBuilder.Shaped(TLOTD.MOD_ID)
 			.setShape("###", "# #")
 			.addInput('#', ModItems.ENDURIUM_INGOT)
@@ -311,7 +321,12 @@ public class ModRecipeProvider implements RecipeEntrypoint {
 			.setShape(" ##", " I ", " I ")
 			.addInput('#', ModItems.PALLADIUM_INGOT)
 			.addInput('I', ModItems.FOSSILIZED_BONE)
-			.create("palladium__hoe_alt", new ItemStack(ModItems.PALLADIUM_HOE));
+			.create("palladium_hoe_alt", new ItemStack(ModItems.PALLADIUM_HOE));
+		RecipeBuilder.Shapeless(TLOTD.MOD_ID)
+			.addInput(ModItems.PALLADIUM_AXE)
+			.addInput(ModItems.PALLADIUM_PICKAXE)
+			.addInput(ModItems.PALLADIUM_SHOVEL)
+			.create("palladium_paxel", new ItemStack(ModItems.PALLADIUM_PAXEL));
 		RecipeBuilder.Shaped(TLOTD.MOD_ID)
 			.setShape("###", "# #")
 			.addInput('#', ModItems.PALLADIUM_INGOT)
@@ -408,7 +423,12 @@ public class ModRecipeProvider implements RecipeEntrypoint {
 			.setShape(" ##", " I ", " I ")
 			.addInput('#', ModItems.JURASSOLINE_INGOT)
 			.addInput('I', ModItems.FOSSILIZED_BONE)
-			.create("jurassoline__hoe_alt", new ItemStack(ModItems.JURASSOLINE_HOE));
+			.create("jurassoline_hoe_alt", new ItemStack(ModItems.JURASSOLINE_HOE));
+		RecipeBuilder.Shapeless(TLOTD.MOD_ID)
+			.addInput(ModItems.JURASSOLINE_AXE)
+			.addInput(ModItems.JURASSOLINE_PICKAXE)
+			.addInput(ModItems.JURASSOLINE_SHOVEL)
+			.create("jurassoline_paxel", new ItemStack(ModItems.JURASSOLINE_PAXEL));
 		RecipeBuilder.Shaped(TLOTD.MOD_ID)
 			.setShape("###", "# #")
 			.addInput('#', ModItems.JURASSOLINE_INGOT)
@@ -505,7 +525,12 @@ public class ModRecipeProvider implements RecipeEntrypoint {
 			.setShape(" ##", " I ", " I ")
 			.addInput('#', ModItems.CINNABAR_INGOT)
 			.addInput('I', ModItems.REINFORCED_TOOL_ROD)
-			.create("cinnabar__hoe_alt", new ItemStack(ModItems.CINNABAR_HOE));
+			.create("cinnabar_hoe_alt", new ItemStack(ModItems.CINNABAR_HOE));
+		RecipeBuilder.Shapeless(TLOTD.MOD_ID)
+			.addInput(ModItems.CINNABAR_AXE)
+			.addInput(ModItems.CINNABAR_PICKAXE)
+			.addInput(ModItems.CINNABAR_SHOVEL)
+			.create("cinnabar_paxel", new ItemStack(ModItems.CINNABAR_PAXEL));
 		RecipeBuilder.Shaped(TLOTD.MOD_ID)
 			.setShape("###", "# #")
 			.addInput('#', ModItems.CINNABAR_INGOT)
@@ -602,7 +627,12 @@ public class ModRecipeProvider implements RecipeEntrypoint {
 			.setShape(" ##", " I ", " I ")
 			.addInput('#', ModItems.NEBULAR_INGOT)
 			.addInput('I', ModItems.REINFORCED_TOOL_ROD)
-			.create("nebular__hoe_alt", new ItemStack(ModItems.NEBULAR_HOE));
+			.create("nebular_hoe_alt", new ItemStack(ModItems.NEBULAR_HOE));
+		RecipeBuilder.Shapeless(TLOTD.MOD_ID)
+			.addInput(ModItems.NEBULAR_AXE)
+			.addInput(ModItems.NEBULAR_PICKAXE)
+			.addInput(ModItems.NEBULAR_SHOVEL)
+			.create("nebular_paxel", new ItemStack(ModItems.NEBULAR_PAXEL));
 		RecipeBuilder.Shaped(TLOTD.MOD_ID)
 			.setShape("###", "# #")
 			.addInput('#', ModItems.NEBULAR_INGOT)
@@ -699,7 +729,12 @@ public class ModRecipeProvider implements RecipeEntrypoint {
 			.setShape(" ##", " I ", " I ")
 			.addInput('#', ModItems.MITHRIL_INGOT)
 			.addInput('I', ModItems.FANCY_TOOL_ROD)
-			.create("mithril__hoe_alt", new ItemStack(ModItems.MITHRIL_HOE));
+			.create("mithril_hoe_alt", new ItemStack(ModItems.MITHRIL_HOE));
+		RecipeBuilder.Shapeless(TLOTD.MOD_ID)
+			.addInput(ModItems.MITHRIL_AXE)
+			.addInput(ModItems.MITHRIL_PICKAXE)
+			.addInput(ModItems.MITHRIL_SHOVEL)
+			.create("mithril_paxel", new ItemStack(ModItems.MITHRIL_PAXEL));
 		RecipeBuilder.Shaped(TLOTD.MOD_ID)
 			.setShape("###", "# #")
 			.addInput('#', ModItems.MITHRIL_INGOT)

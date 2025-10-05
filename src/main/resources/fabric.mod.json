@@ -5,9 +5,34 @@
 	"name": "TLOTD BTA!",
 	"description": "The Better Than Adventure Babric Port - This mod adds new progression after the normal diamond tier. Additional food items included!",
 	"authors": [
-		"TLOTD",
-		"Isla_Nublar",
-		"Salsafox"
+		{
+			"name": "TLOTD",
+			"contact": {
+				"homepage": "https://tlotd.net/",
+				"github": "https://github.com/tlotd",
+				"youtube": "https://www.youtube.com/@tlotd"
+			}
+		},
+		{
+			"name": "Isla_Nublar",
+			"contact": {
+				"homepage": "https://isla-nublar.com/",
+				"github": "https://github.com/isla-nublar",
+				"youtube": "https://www.youtube.com/@isla_nublar"
+			}
+		}],
+	"contributors": [
+		{
+			"name": "Salsafox",
+			"contact": {
+				"homepage": "https://tlotd.net/u/salsafox",
+				"github": "https://github.com/salsafox",
+				"youtube": "https://www.youtube.com/@salsafox"
+			}
+		},
+		{
+			"name": "Hobble Rox"
+		}
 	],
 	"contact": {
 		"homepage": "https://tlotd.net/",
