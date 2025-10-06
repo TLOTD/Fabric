@@ -5,12 +5,36 @@
 	"name": "TLOTD",
 	"description": "The 1.20.1 Fabric Port - This Mod adds new Dimensions and progression after the normal Diamond tier. Additionally this mod provides feats in Engineering and Technology!",
 	"authors": [
-		"TLOTD",
-		"Isla_Nublar",
-		"Salsafox"
+		{
+			"name": "TLOTD",
+			"contact": {
+				"homepage": "https://tlotd.net/",
+				"github": "https://github.com/tlotd",
+				"youtube": "https://www.youtube.com/@tlotd"
+			}
+		},
+		{
+			"name": "Isla_Nublar",
+			"contact": {
+				"homepage": "https://isla-nublar.com/",
+				"github": "https://github.com/isla-nublar",
+				"youtube": "https://www.youtube.com/@isla_nublar"
+			}
+		}],
+	"contributors": [
+		{
+			"name": "Salsafox",
+			"contact": {
+				"homepage": "https://tlotd.net/u/salsafox",
+				"github": "https://github.com/salsafox",
+				"youtube": "https://www.youtube.com/@salsafox"
+			}
+		}
 	],
 	"contact": {
 		"homepage": "https://tlotd.net/",
+		"discord": "https://discord.gg/qrdQReN",
+		"modrinth": "https://modrinth.com/mod/tlotd",
 		"sources": "https://github.com/tlotd/Fabric"
 	},
 	"license": "CC-BY-NC-SA-4.0",
@@ -43,6 +67,7 @@
 		"fabric-api": "*"
 	},
 	"suggests": {
-		"another-mod": "*"
+		"create": "*",
+		"farmers-delight": "*"
 	}
 }

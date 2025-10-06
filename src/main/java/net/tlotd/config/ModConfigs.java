@@ -9,7 +9,6 @@ public class ModConfigs {
 
     public static String CONFIG_VERSION;
     public static boolean EXTRACTION_ORE_EXPERIMENTAL_COMPAT;
-    public static boolean AXE_STRIPPING_DROPS_BARK;
     public static int ELEVATOR_MAX_DISTANCE;
     public static boolean MITHRIL_ANVIL_NEEDS_DIRECT_MOONLIGHT;
     public static boolean WITCHING_TABLE_NEEDS_BLOOD;
@@ -22,7 +21,7 @@ public class ModConfigs {
     public static int TERRA_FALL_DISTANCE_RESISTANCE;
     public static int LUNAR_SEED;
     public static int PREHISTORIC_SEED;
-    public static boolean FORMER_TLOTD_REWARDS;
+    public static boolean FORMER_TLOTD_REWARDS; //its only there for the item description atm
 
     public static void registerConfigs() {
         configs = new ModConfigProvider();
@@ -34,9 +33,8 @@ public class ModConfigs {
     }
 
     private static void createConfigs() {
-        configs.addKeyValuePair(new Pair<>("configVersion", "0.3.8"), "String [0.3.8] | shows version the config was made in");
+        configs.addKeyValuePair(new Pair<>("configVersion", "0.4.0"), "String [0.4.0] | shows version the config was made in");
         configs.addKeyValuePair(new Pair<>("extractionOreExperimentalCompat", true), "boolean [true] | looks for the names of any stone variant in any block containing ore");
-        configs.addKeyValuePair(new Pair<>("axeStrippingDropsBark", true), "boolean [true]");
         configs.addKeyValuePair(new Pair<>("elevatorMaxDistance", 100), "int [100] | max difference between y-levels");
         configs.addKeyValuePair(new Pair<>("mithrilAnvilNeedsDirectMoonlight", true), "boolean [true]");
         configs.addKeyValuePair(new Pair<>("witchingTableNeedsBlood", true), "boolean [true]");
@@ -53,9 +51,8 @@ public class ModConfigs {
     }
 
     private static void assignConfigs() {
-        CONFIG_VERSION = CONFIG.getOrDefault("configVersion", "0.3.8");
+        CONFIG_VERSION = CONFIG.getOrDefault("configVersion", "0.4.0");
         EXTRACTION_ORE_EXPERIMENTAL_COMPAT = CONFIG.getOrDefault("extractionOreExperimentalCompat", true);
-        AXE_STRIPPING_DROPS_BARK = CONFIG.getOrDefault("axeStrippingDropsBark", true);
         ELEVATOR_MAX_DISTANCE = CONFIG.getOrDefault("elevatorMaxDistance", 100);
         MITHRIL_ANVIL_NEEDS_DIRECT_MOONLIGHT = CONFIG.getOrDefault("mithrilAnvilNeedsDirectMoonlight", true);
         WITCHING_TABLE_NEEDS_BLOOD = CONFIG.getOrDefault("witchingTableNeedsBlood", true);

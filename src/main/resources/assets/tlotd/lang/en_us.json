@@ -290,6 +290,7 @@
   "item.tlotd.soul_flask_of_the_abyss.tooltip_3": "the abyss will also",
   "item.tlotd.soul_flask_of_the_abyss.tooltip_4": "gaze back into you.",
 
+  "item.patchouli.guide_book.tlotd.guiding_grimoire.ponder": "Shift to Ponder",
   "item.patchouli.guide_book.tlotd.guiding_grimoire": "§eGrimoire of Guidance§r",
   "item.patchouli.guide_book.tlotd.guiding_grimoire.desc": "by TLOTD & Isla_Nublar",
   "item.patchouli.guide_book.tlotd.guiding_grimoire.intro": "Welcome $(playername) to TLOTD, a mod that allows you to explore the ancient times when dinosaurs ruled the earth, dig deep into the earth to find more valuables or adventure into the unknown depths of space! The sky is the limit!",
@@ -808,6 +809,7 @@
   "block.tlotd.player_plushie.tooltip_3": "Hold [",
   "block.tlotd.player_plushie.tooltip_4": "] for list",
   "block.tlotd.player_plushie.tooltip_shift": "Works for:",
+  "block.tlotd.player_plushie.tooltip_custom": "Or any Command Defined",
 
   "block.tlotd.garbage_can": "Garbage Can",
   "block.tlotd.bench": "Bench",
@@ -950,6 +952,7 @@
   "block.tlotd.xen_crystal_block": "Xen Cystal Block",
 
   "block.tlotd.lunar_regolith": "Lunar Regolith",
+  "block.tlotd.suspicious_lunar_regolith": "Suspicious Lunar Regolith",
   "block.tlotd.megaregolith": "Megaregolith",
   "block.tlotd.megaregolith_coal_ore": "Megaregolith Coal Ore",
   "block.tlotd.megaregolith_iron_ore": "Megaregolith Iron Ore",

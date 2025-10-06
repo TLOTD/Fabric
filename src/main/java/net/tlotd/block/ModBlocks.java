@@ -18,6 +18,7 @@ import net.minecraft.particle.ParticleTypes;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.sound.BlockSoundGroup;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
 import net.tlotd.TLOTD;
@@ -270,7 +271,9 @@ public class ModBlocks {
             new Block(FabricBlockSettings.create().mapColor(MapColor.ORANGE).requiresTool().strength(1.5F, 1.5F).sounds(BlockSoundGroup.AMETHYST_BLOCK)),Rarity.UNCOMMON);
 
     public static final Block LUNAR_REGOLITH = registerBlock("lunar_regolith",
-            new Block(FabricBlockSettings.create().mapColor(MapColor.WHITE).strength(3.0F, 9.0F).sounds(BlockSoundGroup.SAND)));
+            new SandBlock(14406560,FabricBlockSettings.create().mapColor(MapColor.WHITE).instrument(Instrument.SNARE).strength(3.0F, 9.0F).sounds(BlockSoundGroup.SAND)));
+    public static final Block SUSPICIOUS_LUNAR_REGOLITH = registerBlock("suspicious_lunar_regolith",
+            new BrushableBlock(LUNAR_REGOLITH, FabricBlockSettings.create().mapColor(MapColor.WHITE).instrument(Instrument.SNARE).strength(0.25F).sounds(BlockSoundGroup.SUSPICIOUS_SAND).pistonBehavior(PistonBehavior.DESTROY), SoundEvents.ITEM_BRUSH_BRUSHING_SAND, SoundEvents.ITEM_BRUSH_BRUSHING_SAND_COMPLETE));
 
     public static final Block MEGAREGOLITH = registerBlock("megaregolith",
             new Block(FabricBlockSettings.create().mapColor(MapColor.WHITE).requiresTool().strength(3.0F, 9.0F)));

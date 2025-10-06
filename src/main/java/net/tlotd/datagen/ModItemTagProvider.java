@@ -382,6 +382,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
 
         getOrCreateTagBuilder(ItemTags.SAND)
                 .add(ModBlocks.LUNAR_REGOLITH.asItem())
+                .add(ModBlocks.SUSPICIOUS_LUNAR_REGOLITH.asItem())
         ;
 
         getOrCreateTagBuilder(ItemTags.SMELTS_TO_GLASS)

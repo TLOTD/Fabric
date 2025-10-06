@@ -264,6 +264,7 @@
   "item.tlotd.soul_flask_of_the_abyss.tooltip_3": "blicksch, blickt dr",
   "item.tlotd.soul_flask_of_the_abyss.tooltip_4": "Abgrund au in di nei",
 
+  "item.patchouli.guide_book.tlotd.guiding_grimoire.ponder": "Umschalt um nachzudenken",
   "item.patchouli.guide_book.tlotd.guiding_grimoire": "Grimoire der Führung",
   "item.patchouli.guide_book.tlotd.guiding_grimoire.desc": "von TLOTD & Isla_Nublar",
 
@@ -764,6 +765,7 @@
   "block.tlotd.player_plushie.tooltip_3": "Halt [",
   "block.tlotd.player_plushie.tooltip_4": "] gedrickt fir a Lischtn",
   "block.tlotd.player_plushie.tooltip_shift": "Klappt fir:",
+  "block.tlotd.player_plushie.tooltip_custom": "Odr jene Befehlsdefinierte",
 
   "block.tlotd.garbage_can": "Mülloimr",
   "block.tlotd.bench": "Bank",
@@ -906,6 +908,7 @@
   "block.tlotd.xen_crystal_block": "Xen-Krischtallblogg",
 
   "block.tlotd.lunar_regolith": "Mondregolith",
+  "block.tlotd.suspicious_lunar_regolith": "Seltsamr Mondregolith",
   "block.tlotd.megaregolith": "Megaregolith",
   "block.tlotd.megaregolith_coal_ore": "Megaregolith-Schtoikohle",
   "block.tlotd.megaregolith_iron_ore": "Megaregolith-Eiseerz",

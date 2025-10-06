@@ -264,6 +264,7 @@
   "item.tlotd.soul_flask_of_the_abyss.tooltip_3": "abismo el abismo",
   "item.tlotd.soul_flask_of_the_abyss.tooltip_4": "también te mira a ti",
 
+  "item.patchouli.guide_book.tlotd.guiding_grimoire.ponder": "Shift para reflexionar",
   "item.patchouli.guide_book.tlotd.guiding_grimoire": "Grimorio de orientación",
   "item.patchouli.guide_book.tlotd.guiding_grimoire.desc": "por TLOTD y Isla_Nublar",
 
@@ -754,6 +755,7 @@
   "block.tlotd.player_plushie.tooltip_3": "Mantenga pulsado [",
   "block.tlotd.player_plushie.tooltip_4": "] para ver la lista",
   "block.tlotd.player_plushie.tooltip_shift": "Sirve para:",
+  "block.tlotd.player_plushie.tooltip_custom": "O cualquier comando definido",
 
   "block.tlotd.garbage_can": "Cubo de basura",
   "block.tlotd.bench": "Banco",
@@ -896,6 +898,7 @@
   "block.tlotd.xen_crystal_block": "Bloqueo de xen cystal",
 
   "block.tlotd.lunar_regolith": "Regolito lunar",
+  "block.tlotd.suspicious_lunar_regolith": "Regolito lunar sospechosa",
   "block.tlotd.megaregolith": "Megaregolito",
   "block.tlotd.megaregolith_coal_ore": "Megaregolito mineral de carbón",
   "block.tlotd.megaregolith_iron_ore": "Megaregolito mineral de hierro",

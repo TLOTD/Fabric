@@ -6,7 +6,6 @@ import net.minecraft.nbt.NbtList;
 import net.minecraft.nbt.NbtString;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.world.PersistentState;
-import net.minecraft.world.PersistentStateManager;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -17,8 +16,7 @@ public class SignalTrackingArray extends PersistentState {
     private final Set<String> signals = new HashSet<>();
 
     public static SignalTrackingArray get(ServerWorld world) {
-        PersistentStateManager manager = world.getPersistentStateManager();
-        return manager.getOrCreate(
+        return world.getPersistentStateManager().getOrCreate(
                 SignalTrackingArray::createFromNbt,
                 SignalTrackingArray::new,
                 "tlotd_signals"

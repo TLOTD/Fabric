@@ -2,27 +2,32 @@ package net.tlotd.mixin;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.AxeItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
 import net.minecraft.util.ActionResult;
 import net.tlotd.block.ModBlocks;
-import net.tlotd.config.ModConfigs;
 import net.tlotd.item.ModItems;
 import net.tlotd.util.ModTags;
+import net.tlotd.world.ModGlobalState;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-
-import static net.tlotd.block.custom.AlienControlPanelBlock.HARVESTED;
 
 @Mixin(AxeItem.class)
 public abstract class WoodStrippingItemDrop {
 
     @Inject(method = "useOnBlock", at = @At("HEAD"))
     protected void injectOnUseMethod(ItemUsageContext context, CallbackInfoReturnable<ActionResult> cir) {
-        if(!context.getWorld().isClient && ModConfigs.AXE_STRIPPING_DROPS_BARK && context.getWorld().getBlockState(context.getBlockPos()).isIn(ModTags.Blocks.LOGS_WITH_BARK)) {
+        PlayerEntity player = context.getPlayer();
+        boolean dropsBark = false;
+        if (player != null && !context.getWorld().isClient && player.getServer() != null) {
+            ModGlobalState globalState = ModGlobalState.get(player.getServer());
+            dropsBark = globalState.strippingDropsBark();
+        }
+        if(!context.getWorld().isClient && dropsBark && context.getWorld().getBlockState(context.getBlockPos()).isIn(ModTags.Blocks.LOGS_WITH_BARK)) {
             Block block = context.getWorld().getBlockState(context.getBlockPos()).getBlock();
             ItemStack bark = ModItems.OAK_BARK.getDefaultStack();
             String name = block.getTranslationKey();

@@ -30,7 +30,7 @@ import net.minecraft.world.WorldAccess;
 import net.minecraft.world.WorldView;
 import net.tlotd.block.entity.ModBlockEntities;
 import net.tlotd.block.entity.OxygenCollectorBlockEntity;
-import net.tlotd.compat.ModCheckOthers;
+import net.tlotd.compat.CompatModsCheck;
 import net.tlotd.util.ModTags;
 import org.jetbrains.annotations.Nullable;
 
@@ -127,13 +127,13 @@ public class OxygenCollectorBlock extends BlockWithEntity implements BlockEntity
         if (options.isCreative()){
             tooltip.add(Text.literal("\uE015 ").setStyle(style.withFont(MODS_FONT_ID)).append(Text.translatable("mod.ad_astra.name").setStyle(style.withFont(DEFAULT_FONT_ID).withFormatting(Formatting.GRAY))));
         }
-        if (ModCheckOthers.PATCHOULI) {
+        if (CompatModsCheck.PATCHOULI) {
             if (Screen.hasShiftDown()) {
                 tooltip.add(Text.literal("\uE007 ").setStyle(style.withFont(RECIPIES_FONT_ID)).append(Text.translatable("item.patchouli.guide_book.tlotd.guiding_grimoire").setStyle(style.withFont(DEFAULT_FONT_ID).withFormatting(Formatting.GRAY))));
                 tooltip.add(Text.literal("   ").append(Text.translatable("item.patchouli.guide_book.tlotd.guiding_grimoire.category").formatted(Formatting.DARK_GRAY)).append(Text.translatable("item.patchouli.guide_book.tlotd.guiding_grimoire.category.exploration").formatted(Formatting.GRAY)));
                 tooltip.add(Text.literal("   ").append(Text.translatable("item.patchouli.guide_book.tlotd.guiding_grimoire.chapter").formatted(Formatting.DARK_GRAY)).append(Text.translatable("item.patchouli.guide_book.tlotd.guiding_grimoire.chapter.the_moon").formatted(Formatting.GRAY)));
             } else {
-                tooltip.add(Text.literal("\uE007 ").setStyle(style.withFont(RECIPIES_FONT_ID)).append(Text.translatable("mod.patchouli.name").setStyle(style.withFont(DEFAULT_FONT_ID).withFormatting(Formatting.GRAY))));
+                tooltip.add(Text.literal("\uE007 ").setStyle(style.withFont(RECIPIES_FONT_ID)).append(Text.translatable("item.patchouli.guide_book.tlotd.guiding_grimoire.ponder").setStyle(style.withFont(DEFAULT_FONT_ID).withFormatting(Formatting.GRAY))));
             }
         }
         tooltip.add(Text.literal(""));

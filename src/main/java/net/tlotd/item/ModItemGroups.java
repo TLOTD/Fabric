@@ -568,6 +568,7 @@ public class ModItemGroups {
                         entries.add(ModBlocks.WHITE_JACK_O_LANTERN);
 
                         entries.add(ModBlocks.LUNAR_REGOLITH);
+                        entries.add(ModBlocks.SUSPICIOUS_LUNAR_REGOLITH);
                         entries.add(ModBlocks.MEGAREGOLITH);
                         entries.add(ModBlocks.MEGAREGOLITH_COAL_ORE);
                         entries.add(ModBlocks.MEGAREGOLITH_IRON_ORE);

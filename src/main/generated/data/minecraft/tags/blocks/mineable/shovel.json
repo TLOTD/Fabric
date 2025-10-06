@@ -2,6 +2,7 @@
   "replace": false,
   "values": [
     "tlotd:lunar_regolith",
+    "tlotd:suspicious_lunar_regolith",
     "tlotd:rich_grass_block",
     "tlotd:rich_dirt",
     "tlotd:rich_dirt_path",

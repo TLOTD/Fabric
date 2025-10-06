@@ -530,6 +530,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
         getOrCreateTagBuilder(BlockTags.SHOVEL_MINEABLE)
                 .add(ModBlocks.LUNAR_REGOLITH)
+                .add(ModBlocks.SUSPICIOUS_LUNAR_REGOLITH)
 
                 .add(ModBlocks.RICH_GRASS_BLOCK)
                 .add(ModBlocks.RICH_DIRT)
@@ -801,6 +802,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
         getOrCreateTagBuilder(BlockTags.SAND)
                 .add(ModBlocks.LUNAR_REGOLITH)
+                .add(ModBlocks.SUSPICIOUS_LUNAR_REGOLITH)
         ;
 
         getOrCreateTagBuilder(BlockTags.SMALL_FLOWERS)
