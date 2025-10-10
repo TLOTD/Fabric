@@ -20,10 +20,10 @@ import net.minecraft.util.Formatting;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.tlotd.block.ModBlocks;
-import net.tlotd.config.ModConfigs;
 import net.tlotd.item.ModItems;
 import net.tlotd.sound.ModSounds;
 import net.tlotd.util.ModTags;
+import net.tlotd.world.ModGlobalState;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
@@ -41,6 +41,11 @@ public class ExtractionPickaxeItem extends PickaxeItem {
             PlayerEntity player = context.getPlayer();
             BlockState state = context.getWorld().getBlockState(positionClicked);
             String name = state.getBlock().getTranslationKey();
+            boolean compat = false;
+            if (player != null && !context.getWorld().isClient && player.getServer() != null) {
+                ModGlobalState globalState = ModGlobalState.get(player.getServer());
+                compat = globalState.extractionOreCompat();
+            }
             int damage = 1;
             int miningLevel = this.getMaterial().getMiningLevel();
             int blockLevel = 0;
@@ -56,7 +61,7 @@ public class ExtractionPickaxeItem extends PickaxeItem {
             else if (state.isIn(BlockTags.NEEDS_STONE_TOOL)) { blockLevel = 1; }
             if (context.getStack().isIn(ModTags.Items.MOUTH_OF_THE_ABYSS)) {
                 context.getWorld().breakBlock(positionClicked, true);
-            } else if (miningLevel >= blockLevel && (state == ModBlocks.ALIEN_CONTROL_PANEL.getStateWithProperties(state).with(HARVESTED,false) || state.isIn(ModTags.Blocks.EXTRACTABLE_BLOCKS) || (ModConfigs.EXTRACTION_ORE_EXPERIMENTAL_COMPAT && name.contains("_ore")))) {
+            } else if (miningLevel >= blockLevel && (state == ModBlocks.ALIEN_CONTROL_PANEL.getStateWithProperties(state).with(HARVESTED,false) || state.isIn(ModTags.Blocks.EXTRACTABLE_BLOCKS) || (compat && name.contains("_ore")))) {
                 context.getWorld().breakBlock(positionClicked, true);
                 if (state.isOf(ModBlocks.ALIEN_CONTROL_PANEL) && !state.get(HARVESTED)) {
                     context.getWorld().setBlockState(positionClicked, state.with(HARVESTED, true));
@@ -66,35 +71,35 @@ public class ExtractionPickaxeItem extends PickaxeItem {
                 }
                 if (state.isIn(ModTags.Blocks.STONE_EXTRACTABLE_BLOCKS)) {
                     context.getWorld().setBlockState(positionClicked, Blocks.STONE.getDefaultState());
-                } else if (state.isIn(ModTags.Blocks.ANDESITE_EXTRACTABLE_BLOCKS) || (ModConfigs.EXTRACTION_ORE_EXPERIMENTAL_COMPAT && name.contains("andesite") && name.contains("ore"))) {
+                } else if (state.isIn(ModTags.Blocks.ANDESITE_EXTRACTABLE_BLOCKS) || (compat && name.contains("andesite") && name.contains("ore"))) {
                     context.getWorld().setBlockState(positionClicked, Blocks.ANDESITE.getDefaultState());
-                } else if (state.isIn(ModTags.Blocks.DIORITE_EXTRACTABLE_BLOCKS) || (ModConfigs.EXTRACTION_ORE_EXPERIMENTAL_COMPAT && name.contains("diorite") && name.contains("ore"))) {
+                } else if (state.isIn(ModTags.Blocks.DIORITE_EXTRACTABLE_BLOCKS) || (compat && name.contains("diorite") && name.contains("ore"))) {
                     context.getWorld().setBlockState(positionClicked, Blocks.DIORITE.getDefaultState());
-                } else if (state.isIn(ModTags.Blocks.GRANITE_EXTRACTABLE_BLOCKS) || (ModConfigs.EXTRACTION_ORE_EXPERIMENTAL_COMPAT && name.contains("granite") && name.contains("ore"))) {
+                } else if (state.isIn(ModTags.Blocks.GRANITE_EXTRACTABLE_BLOCKS) || (compat && name.contains("granite") && name.contains("ore"))) {
                     context.getWorld().setBlockState(positionClicked, Blocks.GRANITE.getDefaultState());
-                } else if (state.isIn(ModTags.Blocks.TUFF_EXTRACTABLE_BLOCKS) || (ModConfigs.EXTRACTION_ORE_EXPERIMENTAL_COMPAT && name.contains("tuff") && name.contains("ore"))) {
+                } else if (state.isIn(ModTags.Blocks.TUFF_EXTRACTABLE_BLOCKS) || (compat && name.contains("tuff") && name.contains("ore"))) {
                     context.getWorld().setBlockState(positionClicked, Blocks.TUFF.getDefaultState());
-                } else if (state.isIn(ModTags.Blocks.CALCITE_EXTRACTABLE_BLOCKS) || (ModConfigs.EXTRACTION_ORE_EXPERIMENTAL_COMPAT && name.contains("calcite") && name.contains("ore"))) {
+                } else if (state.isIn(ModTags.Blocks.CALCITE_EXTRACTABLE_BLOCKS) || (compat && name.contains("calcite") && name.contains("ore"))) {
                     context.getWorld().setBlockState(positionClicked, Blocks.CALCITE.getDefaultState());
-                } else if (state.isIn(ModTags.Blocks.RED_DEEPSLATE_EXTRACTABLE_BLOCKS) || (ModConfigs.EXTRACTION_ORE_EXPERIMENTAL_COMPAT && name.contains("red_deepslate") && name.contains("ore"))) {
+                } else if (state.isIn(ModTags.Blocks.RED_DEEPSLATE_EXTRACTABLE_BLOCKS) || (compat && name.contains("red_deepslate") && name.contains("ore"))) {
                     context.getWorld().setBlockState(positionClicked, ModBlocks.RED_DEEPSLATE.getDefaultState());
                     damage = 2;
-                } else if (state.isIn(ModTags.Blocks.DEEPSLATE_EXTRACTABLE_BLOCKS) || (ModConfigs.EXTRACTION_ORE_EXPERIMENTAL_COMPAT && name.contains("deepslate") && name.contains("ore"))) {
+                } else if (state.isIn(ModTags.Blocks.DEEPSLATE_EXTRACTABLE_BLOCKS) || (compat && name.contains("deepslate") && name.contains("ore"))) {
                     context.getWorld().setBlockState(positionClicked, Blocks.DEEPSLATE.getDefaultState());
                     damage = 2;
-                } else if (state.isIn(ModTags.Blocks.BEDROCK_EXTRACTABLE_BLOCKS) || (ModConfigs.EXTRACTION_ORE_EXPERIMENTAL_COMPAT && name.contains("bedrock") && name.contains("ore"))) {
+                } else if (state.isIn(ModTags.Blocks.BEDROCK_EXTRACTABLE_BLOCKS) || (compat && name.contains("bedrock") && name.contains("ore"))) {
                     context.getWorld().setBlockState(positionClicked, Blocks.BEDROCK.getDefaultState());
                     damage = 10;
-                } else if (state.isIn(ModTags.Blocks.END_STONE_EXTRACTABLE_BLOCKS) || (ModConfigs.EXTRACTION_ORE_EXPERIMENTAL_COMPAT && name.contains("end") && name.contains("ore"))) {
+                } else if (state.isIn(ModTags.Blocks.END_STONE_EXTRACTABLE_BLOCKS) || (compat && name.contains("end") && name.contains("ore"))) {
                     context.getWorld().setBlockState(positionClicked, Blocks.END_STONE.getDefaultState());
                     damage = 5;
-                } else if (state.isIn(ModTags.Blocks.NETHERRACK_EXTRACTABLE_BLOCKS) || (ModConfigs.EXTRACTION_ORE_EXPERIMENTAL_COMPAT && name.contains("nether") && name.contains("ore"))) {
+                } else if (state.isIn(ModTags.Blocks.NETHERRACK_EXTRACTABLE_BLOCKS) || (compat && name.contains("nether") && name.contains("ore"))) {
                     context.getWorld().setBlockState(positionClicked, Blocks.NETHERRACK.getDefaultState());
                     damage = 3;
-                } else if (state.isIn(ModTags.Blocks.BASALT_EXTRACTABLE_BLOCKS) || (ModConfigs.EXTRACTION_ORE_EXPERIMENTAL_COMPAT && name.contains("basalt") && name.contains("ore"))) {
+                } else if (state.isIn(ModTags.Blocks.BASALT_EXTRACTABLE_BLOCKS) || (compat && name.contains("basalt") && name.contains("ore"))) {
                     context.getWorld().setBlockState(positionClicked, Blocks.BASALT.getDefaultState());
                     damage = 3;
-                } else if (state.isIn(ModTags.Blocks.BLACKSTONE_EXTRACTABLE_BLOCKS) || (ModConfigs.EXTRACTION_ORE_EXPERIMENTAL_COMPAT && name.contains("blackstone") && name.contains("ore"))) {
+                } else if (state.isIn(ModTags.Blocks.BLACKSTONE_EXTRACTABLE_BLOCKS) || (compat && name.contains("blackstone") && name.contains("ore"))) {
                     context.getWorld().setBlockState(positionClicked, Blocks.BLACKSTONE.getDefaultState());
                     damage = 3;
                 } else if (state.isIn(ModTags.Blocks.MOON_ROCK_EXTRACTABLE_BLOCKS)) {

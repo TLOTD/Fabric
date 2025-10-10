@@ -83,7 +83,7 @@ public class PlayerPlushieBlock extends HumanPlushieBlock {
         boolean alternative = false;
         boolean custom = false;
         if (world != null) {
-            CustomTextureManager manager = CustomTextureManager.get(world);
+            CustomTextureManager manager = CustomTextureManager.get(player.getServer());
             int customId = manager.getTexture(player.getUuid());
             if (customId >= 0) {
                 skin = customId;

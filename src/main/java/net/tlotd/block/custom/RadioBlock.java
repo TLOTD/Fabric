@@ -117,15 +117,15 @@ public class RadioBlock extends Block {
             new ModdedWoodRule("biomesoplenty", "empyreal", 28)
     );
 
-    private static String[] FREQUENCY_DISC_KEYS = null;
+    private static Item[] FREQUENCY_DISC_KEYS = null;
 
-    private static String[] getFrequencyDiscKeys() {
+    private static Item[] getFrequencyDiscKeys() {
         if (FREQUENCY_DISC_KEYS == null) {
-            FREQUENCY_DISC_KEYS = new String[]{
-                    ModItems.MUSIC_DISC_1.getTranslationKey(),
-                    ModItems.MUSIC_DISC_2.getTranslationKey(),
-                    ModItems.MUSIC_DISC_3.getTranslationKey(),
-                    ModItems.MUSIC_DISC_4.getTranslationKey()
+            FREQUENCY_DISC_KEYS = new Item[]{
+                    ModItems.MUSIC_DISC_1,
+                    ModItems.MUSIC_DISC_2,
+                    ModItems.MUSIC_DISC_3,
+                    ModItems.MUSIC_DISC_4
             };
         }
         return FREQUENCY_DISC_KEYS;

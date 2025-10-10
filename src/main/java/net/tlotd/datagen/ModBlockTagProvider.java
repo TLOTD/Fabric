@@ -1062,8 +1062,20 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         ;
 
         getOrCreateTagBuilder(ModTags.Blocks.TELEVISIONS)
+                .addTag(ModTags.Blocks.TELEVISIONS_OFF)
+                .addTag(ModTags.Blocks.TELEVISIONS_ON)
+        ;
+
+        getOrCreateTagBuilder(ModTags.Blocks.TELEVISIONS_OFF)
                 .add(ModBlocks.TELEVISION)
+        ;
+
+        getOrCreateTagBuilder(ModTags.Blocks.TELEVISIONS_ON)
                 .add(ModBlocks.TELEVISION_ON)
+        ;
+
+        getOrCreateTagBuilder(ModTags.Blocks.INTERDIMENSIONAL_RECEIVERS)
+                .add(ModBlocks.INTERDIMENSIONAL_RECEIVER)
         ;
 
         getOrCreateTagBuilder(ModTags.Blocks.INFINIBURN_PREHISTORIC)

@@ -3,6 +3,7 @@ package net.tlotd.world;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtElement;
 import net.minecraft.nbt.NbtList;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.world.PersistentState;
 
@@ -14,15 +15,12 @@ import java.util.UUID;
 public class CustomTextureManager extends PersistentState {
     private final Map<UUID, Integer> textureMap = new HashMap<>();
 
-    public static CustomTextureManager get(ServerWorld world) {
-        return world.getPersistentStateManager().getOrCreate(
-                CustomTextureManager::createFromNbt,
-                CustomTextureManager::new,
-                "textures"
-        );
+    public static CustomTextureManager get(MinecraftServer server) {
+        ServerWorld overworld = server.getOverworld();
+        return overworld.getPersistentStateManager().getOrCreate(CustomTextureManager::fromNbt, CustomTextureManager::new, "TLOTD_Textures");
     }
 
-    public static CustomTextureManager createFromNbt(NbtCompound tag) {
+    public static CustomTextureManager fromNbt(NbtCompound tag) {
         CustomTextureManager manager = new CustomTextureManager();
         NbtList list = tag.getList("Textures", NbtElement.COMPOUND_TYPE);
         for (NbtElement e : list) {

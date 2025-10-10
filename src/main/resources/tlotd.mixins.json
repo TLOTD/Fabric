@@ -11,6 +11,9 @@
   },
   "client": [
     "client.AbstractClientPlayerEntityMixin",
+    "client.CreativeInventoryScreenAccessor",
+    "client.CustomCreativeTabMixin",
+    "client.HandledScreenAccessor",
     "client.GameRendererMixin"
   ]
 }

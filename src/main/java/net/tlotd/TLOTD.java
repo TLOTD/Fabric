@@ -29,6 +29,7 @@ import net.tlotd.recipe.ModRecipies;
 import net.tlotd.sound.ModSounds;
 import net.tlotd.tick.ModServerTickEvents;
 import net.tlotd.util.ModCommands;
+import net.tlotd.util.ModTelevisionSignals;
 import net.tlotd.util.ModTrades;
 import net.tlotd.villager.ModVillagers;
 import net.tlotd.world.ModChunkEvents;
@@ -47,6 +48,8 @@ public class TLOTD implements ModInitializer {
 	public void onInitialize() {
 
 		ModConfigs.registerConfigs();
+
+		ModTelevisionSignals.registerSignals();
 
 		ModItemGroups.registerItemGroups();
 		ModItems.registerModItems();

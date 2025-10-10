@@ -458,7 +458,7 @@ public class ModBlocks {
     public static final Block SIGNAL_TRANSMITTER = registerBlock("signal_transmitter",
             new SignalTransmitterBlock(FabricBlockSettings.create().mapColor(MapColor.ORANGE).requiresTool().strength(3.0F, 3.0F).sounds(BlockSoundGroup.METAL)));
     public static final Block SIGNAL_TRANSMITTER_ANTENNA = registerBlock("signal_transmitter_antenna",
-            new SignalTransmitterAntennaBlock(FabricBlockSettings.create().mapColor(MapColor.ORANGE).requiresTool().strength(3.0F, 3.0F).sounds(BlockSoundGroup.METAL)));
+            new SignalTransmitterAntennaBlock(FabricBlockSettings.create().mapColor(MapColor.ORANGE).requiresTool().strength(3.0F, 3.0F).sounds(BlockSoundGroup.COPPER)));
 
     public static final Block GARBAGE_CAN = registerBlock("garbage_can",
             new GarbageCanBlock(FabricBlockSettings.create().mapColor(MapColor.GRAY).requiresTool().strength(5.0F, 1200.0F).nonOpaque()));

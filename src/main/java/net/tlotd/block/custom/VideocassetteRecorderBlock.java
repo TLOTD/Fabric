@@ -5,9 +5,10 @@ import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
+import net.minecraft.registry.Registries;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.stat.Stats;
@@ -16,10 +17,7 @@ import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.DirectionProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.text.Text;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.BlockRotation;
-import net.minecraft.util.Formatting;
-import net.minecraft.util.Hand;
+import net.minecraft.util.*;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
@@ -31,9 +29,11 @@ import net.tlotd.block.ModBlocks;
 import net.tlotd.item.ModItems;
 import net.tlotd.sound.ModSounds;
 import net.tlotd.util.ModTags;
+import net.tlotd.util.TelevisionSignalRegistry;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
+import java.util.Optional;
 
 import static net.tlotd.block.custom.TelevisionBlock.*;
 
@@ -115,37 +115,38 @@ public class VideocassetteRecorderBlock extends Block {
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         ItemStack stack = player.getStackInHand(hand);
-        if (stack.isIn(ModTags.Items.VHS_CASSETTES) && world.getBlockState(pos.up()).isOf(ModBlocks.TELEVISION_ON)) {
+        BlockPos tvPos = pos.up();
+        BlockState tvState = world.getBlockState(tvPos);
+        boolean tvOn = tvState.isIn(ModTags.Blocks.TELEVISIONS_ON);
+        if (stack.isIn(ModTags.Items.VHS_CASSETTES) && tvOn) {
             if (!world.isClient) {
-                BlockState upstate = world.getBlockState(pos.up());
-                if(stack.isOf(ModItems.VHS_CASSETTE_BROKEN)){world.setBlockState(pos.up(),upstate.with(CHANNEL,0));}
-                else if(stack.isOf(ModItems.VHS_CASSETTE_1)){world.setBlockState(pos.up(),upstate.with(CHANNEL,1));}
-                else if(stack.isOf(ModItems.VHS_CASSETTE_2)){world.setBlockState(pos.up(),upstate.with(CHANNEL,2));}
-                else if(stack.isOf(ModItems.VHS_CASSETTE_3)){world.setBlockState(pos.up(),upstate.with(CHANNEL,3));}
-                else if(stack.isOf(ModItems.VHS_CASSETTE_4)){world.setBlockState(pos.up(),upstate.with(CHANNEL,4));}
-                else if(stack.isOf(ModItems.VHS_CASSETTE_5)){world.setBlockState(pos.up(),upstate.with(CHANNEL,5));}
-                else if(stack.isOf(ModItems.VHS_CASSETTE_6)){world.setBlockState(pos.up(),upstate.with(CHANNEL,6));}
-                else if(stack.isOf(ModItems.VHS_CASSETTE_7)){world.setBlockState(pos.up(),upstate.with(CHANNEL,7));}
-                else if(stack.isOf(ModItems.VHS_CASSETTE_8)){world.setBlockState(pos.up(),upstate.with(CHANNEL,8));}
-                else if(stack.isOf(ModItems.VHS_CASSETTE_9)){world.setBlockState(pos.up(),upstate.with(CHANNEL,9));}
-                else if(stack.isOf(ModItems.VHS_CASSETTE)){
-                    stack.decrement(1);
-                    if (upstate.get(CHANNEL)==0){player.giveItemStack(ModItems.VHS_CASSETTE_BROKEN.getDefaultStack());}
-                    else if (upstate.get(CHANNEL)==1){player.giveItemStack(ModItems.VHS_CASSETTE_1.getDefaultStack());}
-                    else if (upstate.get(CHANNEL)==2){player.giveItemStack(ModItems.VHS_CASSETTE_2.getDefaultStack());}
-                    else if (upstate.get(CHANNEL)==3){player.giveItemStack(ModItems.VHS_CASSETTE_3.getDefaultStack());}
-                    else if (upstate.get(CHANNEL)==4){player.giveItemStack(ModItems.VHS_CASSETTE_4.getDefaultStack());}
-                    else if (upstate.get(CHANNEL)==5){player.giveItemStack(ModItems.VHS_CASSETTE_5.getDefaultStack());}
-                    else if (upstate.get(CHANNEL)==6){player.giveItemStack(ModItems.VHS_CASSETTE_6.getDefaultStack());}
-                    else if (upstate.get(CHANNEL)==7){player.giveItemStack(ModItems.VHS_CASSETTE_7.getDefaultStack());}
-                    else if (upstate.get(CHANNEL)==8){player.giveItemStack(ModItems.VHS_CASSETTE_8.getDefaultStack());}
-                    else if (upstate.get(CHANNEL)==9){player.giveItemStack(ModItems.VHS_CASSETTE_9.getDefaultStack());}
-                }
+                Optional<TelevisionSignalRegistry.SignalEntry> match = TelevisionSignalRegistry.findBySignal(Registries.ITEM.getId(stack.getItem()));
+                if (match.isPresent()) {
+                    TelevisionSignalRegistry.SignalEntry entry = match.get();
+                    BlockState newState = entry.onBlock().getStateWithProperties(tvState)
+                            .with(CHANNEL, entry.channel());
+                    world.setBlockState(tvPos, newState, 3);
+                } else if (stack.isOf(ModItems.VHS_CASSETTE)) {
+                        Optional<TelevisionSignalRegistry.SignalEntry> currentEntry =
+                                TelevisionSignalRegistry.getAll().stream()
+                                        .filter(e -> e.onBlock() == tvState.getBlock())
+                                        .findFirst();
+                        stack.decrement(1);
+                        if (currentEntry.isPresent()) {
+                            Identifier signalId = currentEntry.get().signalItem();
+                            Item recordedItem = Registries.ITEM.get(signalId);
+                            ItemStack recorded = new ItemStack(recordedItem);
+                            player.giveItemStack(recorded);
+                        } else {
+                            player.giveItemStack(ModItems.VHS_CASSETTE_BROKEN.getDefaultStack());
+                        }
+                    }
                 player.incrementStat(Stats.USED.getOrCreateStat(stack.getItem()));
                 world.playSound(null, pos, ModSounds.BLOCK_VIDEOCASSETTE_RECORDER, SoundCategory.BLOCKS, 1.0f, 1.0f);
             }
             return ActionResult.SUCCESS;
-        } else if (player.isSneaking() && state.getBlock().equals(ModBlocks.VIDEOCASSETTE_RECORDER_BOOKSHELF)) {
+        }
+        if (player.isSneaking() && state.getBlock() == ModBlocks.VIDEOCASSETTE_RECORDER_BOOKSHELF) {
             if (!world.isClient) {
                 world.setBlockState(pos, Blocks.BOOKSHELF.getDefaultState());
                 player.giveItemStack(ModBlocks.VIDEOCASSETTE_RECORDER.asItem().getDefaultStack());

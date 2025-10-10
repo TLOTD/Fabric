@@ -24,7 +24,8 @@ public class ModItemGroups {
 
     public static final ItemGroup TLOTD_1_MATERIALS_GROUP = Registry.register(Registries.ITEM_GROUP,
             new Identifier(TLOTD.MOD_ID, "1_materials"),
-            FabricItemGroup.builder().displayName(Text.literal("\uE000 ").styled(style -> style.withFont(MODS_FONT_ID)).append(Text.translatable("itemgroup.tlotd.materials").styled(style -> style.withFont(DEFAULT_FONT_ID))))
+            FabricItemGroup.builder()
+                    .displayName(Text.literal("\uE000 ").styled(style -> style.withFont(MODS_FONT_ID).withFormatting(Formatting.WHITE)).append(Text.translatable("itemgroup.tlotd.materials").styled(style -> style.withFont(DEFAULT_FONT_ID))))
                     .icon(() -> new ItemStack(ModItems.SPELL_BOOK)).entries((displayContext, entries) -> {
                         entries.add(ModItems.SPELL_BOOK);
                         entries.add(ModItems.FORBIDDEN_SPELL_BOOK);
@@ -288,7 +289,7 @@ public class ModItemGroups {
 
     public static final ItemGroup TLOTD_2_WEAPONS_TOOLS_UTILITIES_GROUP = Registry.register(Registries.ITEM_GROUP,
             new Identifier(TLOTD.MOD_ID, "2_weapons_tools_and_utilities"),
-            FabricItemGroup.builder().displayName(Text.literal("\uE000 ").styled(style -> style.withFont(MODS_FONT_ID)).append(Text.translatable("itemgroup.tlotd.weapons_tools_and_utilities").styled(style -> style.withFont(DEFAULT_FONT_ID))))
+            FabricItemGroup.builder().displayName(Text.literal("\uE000 ").styled(style -> style.withFont(MODS_FONT_ID).withFormatting(Formatting.WHITE)).append(Text.translatable("itemgroup.tlotd.weapons_tools_and_utilities").styled(style -> style.withFont(DEFAULT_FONT_ID))))
                     .icon(() -> new ItemStack(ModItems.ENDURIUM_PAXEL)).entries((displayContext, entries) -> {
 
                         entries.add(ModItems.EMF_READER);
@@ -477,7 +478,7 @@ public class ModItemGroups {
 
     public static final ItemGroup TLOTD_3_BLOCKS_GROUP = Registry.register(Registries.ITEM_GROUP,
             new Identifier(TLOTD.MOD_ID, "3_blocks"),
-            FabricItemGroup.builder().displayName(Text.literal("\uE000 ").styled(style -> style.withFont(MODS_FONT_ID)).append(Text.translatable("itemgroup.tlotd.blocks").styled(style -> style.withFont(DEFAULT_FONT_ID))))
+            FabricItemGroup.builder().displayName(Text.literal("\uE000 ").styled(style -> style.withFont(MODS_FONT_ID).withFormatting(Formatting.WHITE)).append(Text.translatable("itemgroup.tlotd.blocks").styled(style -> style.withFont(DEFAULT_FONT_ID))))
                     .icon(() -> new ItemStack(ModBlocks.RICH_GRASS_BLOCK)).entries((displayContext, entries) -> {
 
                         entries.add(ModBlocks.BW_STICKER);

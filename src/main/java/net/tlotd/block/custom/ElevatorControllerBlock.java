@@ -21,17 +21,13 @@ import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
-import net.tlotd.config.ModConfigs;
 import net.tlotd.sound.ModSounds;
 import net.tlotd.util.ModTags;
+import net.tlotd.world.ModGlobalState;
 
 public class ElevatorControllerBlock extends Block {
-
     public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
-
     public static final DirectionProperty FACING = FacingBlock.FACING;
-
-
 
     @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {
@@ -115,20 +111,27 @@ public class ElevatorControllerBlock extends Block {
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         if (!world.isClient) {
+            int max_distance = 0;
+            if (player != null && player.getServer() != null) {
+                ModGlobalState globalState = ModGlobalState.get(player.getServer());
+                max_distance = globalState.elevatorMaxDistance();
+            }
             if (player.getPos().add(0,1,0).isInRange(pos.toCenterPos(), 0.5)) {
                 int search_y;
                 if (player.isSneaking()) {
-                    for(search_y = -2; search_y>= -ModConfigs.ELEVATOR_MAX_DISTANCE-1; search_y--){
+                    for(search_y = -2; search_y>= -max_distance-1; search_y--){
                         if((world.getBlockState(pos.add(0, search_y,0)).isIn(ModTags.Blocks.ELEVATOR_BASES)) && (world.getBlockState(pos.add(0,1+search_y,0)).isIn(ModTags.Blocks.ELEVATOR_CONTROLLERS))) {
-                            player.setPos(player.getPos().getX(), player.getPos().getY()+search_y+1, player.getPos().getZ());
+                            player.teleport(player.getPos().getX(), player.getPos().getY()+search_y+1, player.getPos().getZ());
                             world.playSound(null, pos.add(0, search_y,0), ModSounds.BLOCK_ELEVATOR_PLING, SoundCategory.BLOCKS, 1.0f, 1.0f);
+                            break;
                         }
                     }
                 } else {
-                    for(search_y = 0; search_y<=ModConfigs.ELEVATOR_MAX_DISTANCE-1; search_y++){
+                    for(search_y = 0; search_y<=max_distance-1; search_y++){
                         if((world.getBlockState(pos.add(0, search_y,0)).isIn(ModTags.Blocks.ELEVATOR_BASES)) && (world.getBlockState(pos.add(0,1+search_y,0)).isIn(ModTags.Blocks.ELEVATOR_CONTROLLERS))) {
-                            player.setPos(player.getPos().getX(), player.getPos().getY()+search_y+1, player.getPos().getZ());
+                            player.teleport(player.getPos().getX(), player.getPos().getY()+search_y+1, player.getPos().getZ());
                             world.playSound(null, pos.add(0, search_y,0), ModSounds.BLOCK_ELEVATOR_PLING, SoundCategory.BLOCKS, 1.0f, 1.0f);
+                            break;
                         }
                     }
                 }

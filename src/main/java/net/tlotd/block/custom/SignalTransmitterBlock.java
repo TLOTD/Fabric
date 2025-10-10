@@ -7,6 +7,7 @@ import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
+import net.minecraft.registry.Registries;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
@@ -15,10 +16,7 @@ import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.DirectionProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.text.Text;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.BlockRotation;
-import net.minecraft.util.Formatting;
-import net.minecraft.util.Hand;
+import net.minecraft.util.*;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
@@ -107,35 +105,70 @@ public class SignalTransmitterBlock extends Block {
 
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        if (!world.isClient) {
-            ServerWorld serverWorld = (ServerWorld) world;
-            SignalTrackingArray tracker = SignalTrackingArray.get(serverWorld);
-            if (world.getBlockState(pos.up()) == ModBlocks.SIGNAL_TRANSMITTER_ANTENNA.getDefaultState() && world.getBlockState(pos.up(2)) == ModBlocks.SIGNAL_TRANSMITTER_ANTENNA.getDefaultState().with(SignalTransmitterAntennaBlock.UPPER, true) && world.getBlockState(pos.up(3)) == Blocks.LIGHTNING_ROD.getDefaultState().with(FACING, Direction.DOWN) && world.getBlockState(pos.up(4)) == Blocks.LIGHTNING_ROD.getDefaultState()) {
-                if (player.getMainHandStack().isIn(ModTags.Items.TRANSMITTABLE_SIGNALS)) {
-                    if (tracker.hasSignal(player.getMainHandStack().getTranslationKey())) {
-                        tracker.removeSignal(player.getMainHandStack().getTranslationKey());
-                        player.sendMessage(Text.translatable("block.tlotd.signal_transmitter.removed"),true);
+        if (world.isClient) return ActionResult.SUCCESS;
+        ServerWorld serverWorld = (ServerWorld) world;
+        SignalTrackingArray tracker = SignalTrackingArray.get(serverWorld);
+        boolean antennaCompleted =
+                world.getBlockState(pos.up()).isOf(ModBlocks.SIGNAL_TRANSMITTER_ANTENNA) &&
+                        world.getBlockState(pos.up(2)).isOf(ModBlocks.SIGNAL_TRANSMITTER_ANTENNA) &&
+                        world.getBlockState(pos.up(2)).get(SignalTransmitterAntennaBlock.UPPER) &&
+                        world.getBlockState(pos.up(3)).isOf(Blocks.LIGHTNING_ROD) &&
+                        world.getBlockState(pos.up(3)).get(FACING) == Direction.DOWN &&
+                        world.getBlockState(pos.up(4)).isOf(Blocks.LIGHTNING_ROD);
+        if (!antennaCompleted) {
+            player.sendMessage(Text.translatable("block.tlotd.signal_transmitter.incomplete"), false);
+            world.playSound(null, pos, SoundEvents.BLOCK_STONE_BUTTON_CLICK_ON, SoundCategory.BLOCKS, 1.0f, 1.0f);
+            return ActionResult.SUCCESS;
+        }
+        ItemStack stack = player.getMainHandStack();
+        if (!stack.isEmpty() && stack.isIn(ModTags.Items.TRANSMITTABLE_SIGNALS)) {
+            Identifier id = Registries.ITEM.getId(stack.getItem());
+            if (tracker.hasSignal(id)) {
+                tracker.removeSignal(id);
+                player.sendMessage(Text.translatable("block.tlotd.signal_transmitter.removed"), true);
+            } else {
+                tracker.addSignal(id);
+                player.sendMessage(Text.translatable("block.tlotd.signal_transmitter.added"), true);
+            }
+            world.playSound(null, pos, ModSounds.BLOCK_VIDEOCASSETTE_RECORDER, SoundCategory.BLOCKS, 1.0f, 1.0f);
+        } else {
+            if (!tracker.hasAnySignals()) {
+                player.sendMessage(
+                        Text.translatable("block.tlotd.signal_transmitter.list_empty"),
+                        false
+                );
+            } else {
+                player.sendMessage(
+                        Text.translatable("block.tlotd.signal_transmitter.list", tracker.getSignalCount()),
+                        false
+                );
+                for (Identifier sig : tracker.getAllSignals()) {
+                    String keyName = "item." + sig.getNamespace() + "." + sig.getPath();
+                    String descKey = keyName + ".desc";
+                    Text nameText;
+                    Text descText;
+                    if (Language.getInstance().hasTranslation(keyName)) {
+                        nameText = Text.translatable(keyName);
                     } else {
-                        tracker.addSignal(player.getMainHandStack().getTranslationKey());
-                        player.sendMessage(Text.translatable("block.tlotd.signal_transmitter.added"),true);
+                        String prettyName = sig.getPath().replace('_', ' ');
+                        prettyName = Character.toUpperCase(prettyName.charAt(0)) + prettyName.substring(1);
+                        nameText = Text.literal(prettyName);
                     }
-                    world.playSound(null, pos, ModSounds.BLOCK_VIDEOCASSETTE_RECORDER, SoundCategory.BLOCKS, 1.0f, 1.0f);
-                } else {
-                    if (!tracker.hasAnySignals()) {
-                        player.sendMessage(Text.translatable("block.tlotd.signal_transmitter.list_empty"));
+                    if (Language.getInstance().hasTranslation(descKey)) {
+                        descText = Text.translatable(descKey);
                     } else {
-                        player.sendMessage(Text.translatable("block.tlotd.signal_transmitter.list", tracker.getSignalCount()));
-                        for (String signal : tracker.getAllSignals()) {
-                            player.sendMessage(Text.literal(" ").formatted(Formatting.GRAY).append(Text.translatable(signal).append(Text.literal(": ")).append(Text.translatable(signal + ".desc"))));
-                        }
+                        descText = Text.literal("");
                     }
-                    world.playSound(null, pos, SoundEvents.BLOCK_STONE_BUTTON_CLICK_ON, SoundCategory.BLOCKS, 1.0f, 1.0f);
+                    player.sendMessage(
+                            Text.literal(" ").formatted(Formatting.GRAY)
+                                    .append(nameText)
+                                    .append(Text.literal(": "))
+                                    .append(descText),
+                            false
+                    );
                 }
             }
-            else {
-                player.sendMessage(Text.translatable("block.tlotd.signal_transmitter.incomplete"));
-                world.playSound(null, pos, SoundEvents.BLOCK_STONE_BUTTON_CLICK_ON, SoundCategory.BLOCKS, 1.0f, 1.0f);
-            }
+            world.playSound(null, pos, SoundEvents.BLOCK_STONE_BUTTON_CLICK_ON, SoundCategory.BLOCKS, 1.0f, 1.0f);
         }
         return ActionResult.SUCCESS;
     }

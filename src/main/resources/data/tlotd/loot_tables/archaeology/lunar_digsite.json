@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:archaeology",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "tlotd:xen_crystal"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "tlotd:meteorite_chunk"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "tlotd:star_fragment"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "tlotd:lunar_callainus_lump"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "tlotd:alien_metal"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "tlotd:fragmented_futuristic_circuit_board"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "tlotd:archaeology/lunar_digsite"
+}

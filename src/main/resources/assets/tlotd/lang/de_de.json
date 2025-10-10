@@ -759,9 +759,9 @@
   "block.tlotd.ouija_board.tooltip_3": "mit den Toten",
   "block.tlotd.goat_head": "Ziegenkopf",
 
-  "block.tlotd.creeper_plushie": "Creeper-Plüschtier",
-  "block.tlotd.zombie_plushie": "Zombie-Plüschtier",
-  "block.tlotd.player_plushie": "Spieler-Plüschtier",
+  "block.tlotd.creeper_plushie": "Creeper-Plüschfigur",
+  "block.tlotd.zombie_plushie": "Zombie-Plüschfigur",
+  "block.tlotd.player_plushie": "Spieler-Plüschfigur",
   "block.tlotd.player_plushie.tooltip": "Nimmt den Skin von einem",
   "block.tlotd.player_plushie.tooltip_2": "der auserwählten Spieler an",
   "block.tlotd.player_plushie.tooltip_3": "Halte [",

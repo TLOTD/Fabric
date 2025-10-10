@@ -5,7 +5,6 @@ import net.minecraft.item.Item;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.tag.TagKey;
 import net.minecraft.util.Identifier;
-import net.minecraft.world.biome.Biome;
 import net.tlotd.TLOTD;
 
 public class ModTags {
@@ -57,6 +56,15 @@ public class ModTags {
 
         public static final TagKey<Block> TELEVISIONS =
                 createTag("televisions");
+
+        public static final TagKey<Block> TELEVISIONS_ON =
+                createTag("televisions_on");
+
+        public static final TagKey<Block> TELEVISIONS_OFF =
+                createTag("televisions_off");
+
+        public static final TagKey<Block> INTERDIMENSIONAL_RECEIVERS =
+                createTag("interdimensional_receivers");
 
         public static final TagKey<Block> COMPUTER_ACCESSORIES =
                 createTag("computer_accessories");
@@ -256,8 +264,8 @@ public class ModTags {
             return TagKey.of(RegistryKeys.ITEM, new Identifier(TLOTD.MOD_ID, name));
         }
 
-        private static TagKey<Item> createTag(String identifirer, String name) {
-            return TagKey.of(RegistryKeys.ITEM, new Identifier(identifirer, name));
+        private static TagKey<Item> createTag(String identifier, String name) {
+            return TagKey.of(RegistryKeys.ITEM, new Identifier(identifier, name));
         }
     }
 }
