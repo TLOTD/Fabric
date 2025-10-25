@@ -4,6 +4,7 @@
     "tlotd:mining_elevator_controller",
     "tlotd:wooden_elevator_controller",
     "tlotd:quartz_elevator_controller",
-    "tlotd:glass_elevator_controller"
+    "tlotd:glass_elevator_controller",
+    "tlotd:backrooms_elevator_controller"
   ]
 }

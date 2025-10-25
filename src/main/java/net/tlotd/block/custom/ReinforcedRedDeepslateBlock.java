@@ -31,7 +31,7 @@ public class ReinforcedRedDeepslateBlock extends Block {
                 tooltip.add(Text.literal("   ").append(Text.translatable("item.patchouli.guide_book.tlotd.guiding_grimoire.category").formatted(Formatting.DARK_GRAY)).append(Text.translatable("item.patchouli.guide_book.tlotd.guiding_grimoire.category.exploration").formatted(Formatting.GRAY)));
                 tooltip.add(Text.literal("   ").append(Text.translatable("item.patchouli.guide_book.tlotd.guiding_grimoire.chapter").formatted(Formatting.DARK_GRAY)).append(Text.translatable("item.patchouli.guide_book.tlotd.guiding_grimoire.chapter.prehistoric").formatted(Formatting.GRAY)));
             } else {
-                tooltip.add(Text.literal("\uE007 ").setStyle(style.withFont(RECIPIES_FONT_ID)).append(Text.translatable("item.patchouli.guide_book.tlotd.guiding_grimoire.ponder").setStyle(style.withFont(DEFAULT_FONT_ID).withFormatting(Formatting.GRAY))));
+                tooltip.add(Text.literal("\uE007 ").setStyle(style.withFont(RECIPIES_FONT_ID)).append(Text.translatable("item.patchouli.guide_book.tlotd.guiding_grimoire.ponder", Text.translatable("key.keyboard.shift").formatted(Formatting.GRAY)).setStyle(style.withFont(DEFAULT_FONT_ID).withFormatting(Formatting.DARK_GRAY))));
             }
         }
         super.appendTooltip(stack, world, tooltip, options);

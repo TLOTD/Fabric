@@ -31,7 +31,7 @@ import java.util.List;
 public class IncubatorBlock extends BlockWithEntity implements BlockEntityProvider {
 
     public static final BooleanProperty ON = BooleanProperty.of("on");
-    public static final DirectionProperty FACING = FacingBlock.FACING;
+    public static final DirectionProperty FACING = HorizontalFacingBlock.FACING;
 
     public IncubatorBlock(Settings settings) {
         super(settings);
@@ -76,12 +76,13 @@ public class IncubatorBlock extends BlockWithEntity implements BlockEntityProvid
         tooltip.add(Text.literal(" ").append(Text.translatable("block.tlotd.computer").formatted(Formatting.BLUE)));
         tooltip.add(Text.literal(""));
         if (Screen.hasShiftDown()) {
+            tooltip.add(Text.translatable("text.tlotd.recipe.ponder", Text.translatable("key.keyboard.shift").formatted(Formatting.WHITE)).formatted(Formatting.DARK_GRAY));
             Style style = this.getName().getStyle();
             tooltip.add(Text.literal("\uE030\uE000\uE033\uE031\uE034\uE032\uE035").setStyle(style.withFont(RECIPIES_FONT_ID)));
             tooltip.add(Text.literal("\uE030\uE000\uE033\uE031\uE036\uE032\uE037").setStyle(style.withFont(RECIPIES_FONT_ID)));
             tooltip.add(Text.literal("\uE030\uE000\uE033\uE031\uE038\uE032\uE039").setStyle(style.withFont(RECIPIES_FONT_ID)));
         } else {
-            tooltip.add(Text.literal("").append(Text.translatable("text.tlotd.recipe.tooltip").formatted(Formatting.DARK_GRAY)).append(Text.translatable("key.keyboard.left.shift").formatted(Formatting.GRAY)).append(Text.translatable("text.tlotd.recipe.tooltip_2").formatted(Formatting.DARK_GRAY)));
+            tooltip.add(Text.translatable("text.tlotd.recipe.ponder", Text.translatable("key.keyboard.shift").formatted(Formatting.GRAY)).formatted(Formatting.DARK_GRAY));
         }
         super.appendTooltip(stack, world, tooltip, options);
     }

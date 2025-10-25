@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "ad_astra:jet_suit",
+      "required": false
+    }
+  ]
+}

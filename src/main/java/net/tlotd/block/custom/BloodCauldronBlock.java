@@ -75,12 +75,12 @@ public class BloodCauldronBlock extends Block {
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         if (!world.isClient()) {
-            if (state.get(LEVEL) == 3 && (player.getMainHandStack().getItem() == Items.BUCKET || player.getOffHandStack().getItem() == Items.BUCKET)) {
+            if (state.get(LEVEL) == 3 && (player.getMainHandStack().isOf(Items.BUCKET) || player.getOffHandStack().isOf(Items.BUCKET))) {
                 world.setBlockState(pos, Blocks.CAULDRON.getStateWithProperties(state));
-                if (player.getMainHandStack().getItem() == Items.BUCKET) {
+                if (player.getMainHandStack().isOf(Items.BUCKET)) {
                     player.getMainHandStack().decrement(1);
 
-                } else if (player.getOffHandStack().getItem() == Items.BUCKET) {
+                } else if (player.getOffHandStack().isOf(Items.BUCKET)) {
                     player.getOffHandStack().decrement(1);
                 }
                 player.incrementStat(Stats.USED.getOrCreateStat(Items.BUCKET));
@@ -89,12 +89,12 @@ public class BloodCauldronBlock extends Block {
                 world.playSound(null, pos, SoundEvents.ITEM_BUCKET_FILL, SoundCategory.PLAYERS, 1.0f, 1.0f);
                 return ActionResult.SUCCESS;
             }
-            if (!player.getItemCooldownManager().isCoolingDown(Items.GLASS_BOTTLE) && (player.getMainHandStack().getItem() == Items.GLASS_BOTTLE || player.getOffHandStack().getItem() == Items.GLASS_BOTTLE)) {
+            if (!player.getItemCooldownManager().isCoolingDown(Items.GLASS_BOTTLE) && (player.getMainHandStack().isOf(Items.GLASS_BOTTLE) || player.getOffHandStack().isOf(Items.GLASS_BOTTLE))) {
                 decrementFluidLevel(state, world, pos);
-                if (player.getMainHandStack().getItem() == Items.GLASS_BOTTLE) {
+                if (player.getMainHandStack().isOf(Items.GLASS_BOTTLE)) {
                     player.getMainHandStack().decrement(1);
 
-                } else if (player.getOffHandStack().getItem() == Items.GLASS_BOTTLE) {
+                } else if (player.getOffHandStack().isOf(Items.GLASS_BOTTLE)) {
                     player.getOffHandStack().decrement(1);
                 }
                 player.incrementStat(Stats.USED.getOrCreateStat(Items.GLASS_BOTTLE));

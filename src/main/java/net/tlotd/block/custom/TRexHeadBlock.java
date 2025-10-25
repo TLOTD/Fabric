@@ -22,7 +22,7 @@ public class TRexHeadBlock extends Block implements Equipment {
 
     public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
 
-    public static final DirectionProperty FACING = FacingBlock.FACING;
+    public static final DirectionProperty FACING = HorizontalFacingBlock.FACING;
 
     @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {

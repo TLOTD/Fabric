@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "C": {
+      "tag": "tlotd:circuit_boards"
+    },
+    "S": {
+      "tag": "c:steel_ingots"
+    },
+    "B": {
+      "tag": "minecraft:buttons"
+    },
+    "G": {
+      "tag": "tlotd:game_cartridges"
+    }    
+  },
+  "pattern": [
+    "SCS",
+    "CGC",
+    "BSB"
+  ],
+  "result": {
+    "item": "tlotd:game_console"
+  },
+  "show_notification": true
+}

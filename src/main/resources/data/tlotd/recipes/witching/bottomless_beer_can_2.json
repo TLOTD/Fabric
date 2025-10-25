@@ -1,0 +1,39 @@
+{
+  "type": "tlotd:witching",
+  "ingredients": [
+    {
+      "item": "tlotd:beer_can"
+    },
+    {
+      "item": "tlotd:soul_flask_of_the_abyss"
+    },
+    {
+      "item": "tlotd:stick_cross"
+    },
+    {
+      "item": "tlotd:soul_flask_of_the_abyss"
+    },
+    {
+      "item": "tlotd:stick_cross"
+    },
+    {
+      "item": "tlotd:stick_cross"
+    },
+    {
+      "item": "tlotd:soul_flask_of_the_abyss"
+    },
+    {
+      "item": "tlotd:stick_cross"
+    },
+    {
+      "item": "tlotd:soul_flask_of_the_abyss"
+    }
+  ],
+  "fluid": {
+    "tag": "c:blood",
+    "amount": 250
+  },
+  "output": {
+    "item": "tlotd:bottomless_beer_can"
+  }
+}

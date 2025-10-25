@@ -63,6 +63,15 @@ public class ModTags {
         public static final TagKey<Block> TELEVISIONS_OFF =
                 createTag("televisions_off");
 
+        public static final TagKey<Block> COMPUTERS =
+                createTag("computers");
+
+        public static final TagKey<Block> COMPUTERS_ON =
+                createTag("computers_on");
+
+        public static final TagKey<Block> COMPUTERS_OFF =
+                createTag("televisions_off");
+
         public static final TagKey<Block> INTERDIMENSIONAL_RECEIVERS =
                 createTag("interdimensional_receivers");
 
@@ -77,9 +86,10 @@ public class ModTags {
 
         public static final TagKey<Block> INFINIBURN_PREHISTORIC =
                 createTag("infiniburn_prehistoric");
-
         public static final TagKey<Block> INFINIBURN_LUNA =
                 createTag("infiniburn_luna");
+        public static final TagKey<Block> INFINIBURN_BACKROOMS =
+                createTag("infiniburn_backrooms");
 
         public static final TagKey<Block> TOOL_LEVEL_4 =
                 createTag("fabric", "needs_tool_level_4");
@@ -215,8 +225,17 @@ public class ModTags {
         public static final TagKey<Item> RADIATION_PROTECTION_WITHOUT_HELMET =
                 createTag("radiation_protection_without_helmet");
 
-        public static final TagKey<Item> OXYGEN_CHARGABLE =
-                createTag("oxygen_chargable");
+        public static final TagKey<Item> OXYGEN_STORING =
+                createTag("oxygen_storing");
+
+        public static final TagKey<Item> OXYGEN_STORING_1K =
+                createTag("oxygen_storing_1k");
+
+        public static final TagKey<Item> OXYGEN_STORING_2K =
+                createTag("oxygen_storing_2k");
+
+        public static final TagKey<Item> OXYGEN_STORING_4K =
+                createTag("oxygen_storing_4k");
 
         public static final TagKey<Item> HYPOXIA_PROTECTION =
                 createTag("hypoxia_protection");
@@ -238,6 +257,15 @@ public class ModTags {
 
         public static final TagKey<Item> TRANSMITTABLE_SIGNALS =
                 createTag("transmittable_signals");
+
+        public static final TagKey<Item> WIRES =
+                createTag("wires");
+
+        public static final TagKey<Item> WIRES_2 =
+                createTag("wires_2");
+
+        public static final TagKey<Item> WIRES_3 =
+                createTag("wires_3");
 
         public static final TagKey<Item> CIRCUIT_BOARDS =
                 createTag("circuit_boards");

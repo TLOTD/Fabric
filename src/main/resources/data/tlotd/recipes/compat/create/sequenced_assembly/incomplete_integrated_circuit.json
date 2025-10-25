@@ -9,7 +9,7 @@
   ],
   "type": "create:sequenced_assembly",
   "ingredient": {
-    "item": "tlotd:copper_wire"
+    "tag": "tlotd:wires"
   },
   "loops": 2,
   "results": [

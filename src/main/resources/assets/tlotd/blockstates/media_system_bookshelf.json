@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=south":{"model":"tlotd:block/media_system_bookshelf","y":180},
+    "facing=west":{"model":"tlotd:block/media_system_bookshelf","y":270},
+    "facing=north":{"model":"tlotd:block/media_system_bookshelf"},
+    "facing=east":{"model": "tlotd:block/media_system_bookshelf","y":90}
+  }
+}

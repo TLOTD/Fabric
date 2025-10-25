@@ -54,7 +54,7 @@ public class ModArmorProtection {
                     }
                     return false;
                 }
-            } else if (damageSource.getType().msgId().contains("hypoxia")) {
+            } else if (damageSource.getType().msgId().contains("hypoxia") || damageSource.getType().msgId().contains("oxygen")) {
                 float hypoxiaProtection = 0f;
                 for (ItemStack armor : player.getArmorItems()) {
                     if (armor.isIn(ModTags.Items.HYPOXIA_PROTECTION)) {

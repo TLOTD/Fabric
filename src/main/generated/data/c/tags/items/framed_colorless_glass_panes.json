@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "tlotd:framed_glass_pane",
+    "tlotd:framed_glass_bottom_pane",
+    "tlotd:framed_glass_middle_pane",
+    "tlotd:framed_glass_top_pane",
+    "tlotd:framed_glass_round_pane",
+    "tlotd:framed_glass_split_pane",
+    "tlotd:framed_glass_tiled_pane"
+  ]
+}

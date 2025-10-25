@@ -14,6 +14,7 @@ import net.tlotd.block.ModUseBlockCallback;
 import net.tlotd.block.entity.ModBlockEntities;
 import net.tlotd.config.ModConfigs;
 import net.tlotd.effect.ModEffects;
+import net.tlotd.enchantments.ModEnchantments;
 import net.tlotd.entity.ModArmorProtection;
 import net.tlotd.entity.ModBoats;
 import net.tlotd.entity.ModEntities;
@@ -33,6 +34,7 @@ import net.tlotd.util.ModTelevisionSignals;
 import net.tlotd.util.ModTrades;
 import net.tlotd.villager.ModVillagers;
 import net.tlotd.world.ModChunkEvents;
+import net.tlotd.world.dimension.BackroomsChunkGenerator;
 import net.tlotd.world.dimension.LunarChunkGenerator;
 import net.tlotd.world.dimension.PrehistoricChunkGenerator;
 import net.tlotd.world.gen.ModWorldGeneration;
@@ -46,11 +48,8 @@ public class TLOTD implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-
 		ModConfigs.registerConfigs();
-
 		ModTelevisionSignals.registerSignals();
-
 		ModItemGroups.registerItemGroups();
 		ModItems.registerModItems();
 		ModCompostingChances.registerCompostableItems();
@@ -66,6 +65,7 @@ public class TLOTD implements ModInitializer {
 		ModBoats.registerBoats();
 		ModPaintings.registerPaintings();
 		ModBanners.registerBanners();
+		ModEnchantments.registerEnchants();
 		ModEntities.registerModEntities();
 		ModSounds.registerSounds();
 		ModEffects.registerEffects();
@@ -80,11 +80,14 @@ public class TLOTD implements ModInitializer {
 
 		Registry.register(Registries.CHUNK_GENERATOR, new Identifier(TLOTD.MOD_ID, "prehistoric"), PrehistoricChunkGenerator.CODEC);
 		Registry.register(Registries.CHUNK_GENERATOR, new Identifier(TLOTD.MOD_ID, "luna"), LunarChunkGenerator.CODEC);
+		Registry.register(Registries.CHUNK_GENERATOR, new Identifier(TLOTD.MOD_ID, "backrooms"), BackroomsChunkGenerator.CODEC);
 
 		LOGGER.info("TLOTD INITIALIZED!");
 
 		StrippableBlockRegistry.register(ModBlocks.GINKGO_LOG, ModBlocks.STRIPPED_GINKGO_LOG);
 		StrippableBlockRegistry.register(ModBlocks.GINKGO_WOOD, ModBlocks.STRIPPED_GINKGO_WOOD);
+
+		StrippableBlockRegistry.register(ModBlocks.YELLOW_WALLPAPERED_WALL, ModBlocks.STRIPPED_YELLOW_WALLPAPERED_WALL);
 
 		FabricDefaultAttributeRegistry.register(ModEntities.TREX, TRexEntity.createTRexAttributes());
 		FabricDefaultAttributeRegistry.register(ModEntities.INFECTED_TREX, InfectedTRexEntity.createInfectedTRexAttributes());

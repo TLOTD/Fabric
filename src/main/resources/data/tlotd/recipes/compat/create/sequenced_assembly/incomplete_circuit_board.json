@@ -41,7 +41,7 @@
           "item": "tlotd:incomplete_circuit_board"
         },
         {
-          "item": "tlotd:gold_wire"
+          "tag": "tlotd:wires_2"
         }
       ],
       "results": [
@@ -70,7 +70,7 @@
           "item": "tlotd:incomplete_circuit_board"
         },
         {
-          "item": "tlotd:copper_wire"
+          "tag": "tlotd:wires"
         }
       ],
       "results": [

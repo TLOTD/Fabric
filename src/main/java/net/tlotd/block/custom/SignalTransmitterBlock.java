@@ -36,7 +36,7 @@ import java.util.List;
 public class SignalTransmitterBlock extends Block {
 
     public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
-    public static final DirectionProperty FACING = FacingBlock.FACING;
+    public static final DirectionProperty FACING = HorizontalFacingBlock.FACING;
 
     @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {
@@ -113,7 +113,7 @@ public class SignalTransmitterBlock extends Block {
                         world.getBlockState(pos.up(2)).isOf(ModBlocks.SIGNAL_TRANSMITTER_ANTENNA) &&
                         world.getBlockState(pos.up(2)).get(SignalTransmitterAntennaBlock.UPPER) &&
                         world.getBlockState(pos.up(3)).isOf(Blocks.LIGHTNING_ROD) &&
-                        world.getBlockState(pos.up(3)).get(FACING) == Direction.DOWN &&
+                        world.getBlockState(pos.up(3)).get(LightningRodBlock.FACING) == Direction.DOWN &&
                         world.getBlockState(pos.up(4)).isOf(Blocks.LIGHTNING_ROD);
         if (!antennaCompleted) {
             player.sendMessage(Text.translatable("block.tlotd.signal_transmitter.incomplete"), false);

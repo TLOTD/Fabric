@@ -1,10 +1,11 @@
 {
 	"parent": "tlotd:block/template_elevator_controller",
 	"textures": {
-		"2": "minecraft:block/quartz_block_bottom",
-		"3": "tlotd:block/elevator_decor",
-		"4": "minecraft:block/end_rod",
-		"5": "minecraft:block/oak_planks",
+		"outside": "minecraft:block/quartz_block_bottom",
+		"inside": "minecraft:block/quartz_block_bottom",
+		"wood": "minecraft:block/oak_planks",
+		"decor": "tlotd:block/elevator_decor",
+		"light": "minecraft:block/end_rod",
 		"particle": "minecraft:block/quartz_block_bottom"
 	}
 }

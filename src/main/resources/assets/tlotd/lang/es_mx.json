@@ -4,6 +4,12 @@
   "itemgroup.tlotd.blocks": "TLOTD Bloquea",
   "itemgroup.tlotd.compat": "TLOTD Compatibilidad",
 
+  "key.keyboard.shift": "Tecla Mayús",
+  "text.tlotd.recipe.ponder": "Mantén pulsada la tecla [%1$s] para las recetas",
+  "text.tlotd.player_plushie.ponder": "Mantenga pulsado [%1$s] para ver la lista",
+
+  "item.infinite": "Infinito",
+
   "mod.spore.calamity": "Calamidad",
 
   "gui.tlotd.mithril_smithing": "Herrería de Mithril",
@@ -12,6 +18,12 @@
   "gui.tlotd.oxygen_collector": "Tanque de oxígeno",
   "gui.tlotd.keycard_programmer": "Programar una tarjeta",
   "gui.tlotd.incubator": "Incubadora",
+
+  "enchantment.tlotd.transdimensional": "Transdimensional",
+  "enchantment.tlotd.depth_of_the_abyss": "Profundidad del abismo",
+  "enchantment.tlotd.shattering_reflection": "Maldición del reflejo destrozador",
+  "enchantment.tlotd.refill_charges": "Restaurador",
+  "enchantment.tlotd.resourceful_smoking": "Fumar con ingenio",
 
   "generic.tlotd.text.click_me": "[HAGA CLIC AQUÍ]",
   "generic.tlotd.text.wiki_link": "para abrir el Mod Wiki.",
@@ -219,8 +231,9 @@
 
   "item.tlotd.caramel": "Caramelo",
   "item.tlotd.drink_can": "Lata de bebida",
-  "item.tlotd.spezi_can": "Lata de refresco de spezi",
-  "item.tlotd.beer_can": "Lata de refresco de cerveza",
+  "item.tlotd.spezi_can": "Lata de spezi",
+  "item.tlotd.beer_can": "lata de cerveza",
+  "item.tlotd.bottomless_beer_can": "Lata de cerveza sin fondo",
 
   "item.tlotd.pipe_weed_seeds": "Semillas de hierba para pipa",
   "item.tlotd.pipe_weed": "Hierba para pipa",
@@ -264,7 +277,7 @@
   "item.tlotd.soul_flask_of_the_abyss.tooltip_3": "abismo el abismo",
   "item.tlotd.soul_flask_of_the_abyss.tooltip_4": "también te mira a ti",
 
-  "item.patchouli.guide_book.tlotd.guiding_grimoire.ponder": "Shift para reflexionar",
+  "item.patchouli.guide_book.tlotd.guiding_grimoire.ponder": "[%1$s] para reflexionar",
   "item.patchouli.guide_book.tlotd.guiding_grimoire": "Grimorio de orientación",
   "item.patchouli.guide_book.tlotd.guiding_grimoire.desc": "por TLOTD y Isla_Nublar",
 
@@ -306,6 +319,8 @@
   "item.tlotd.vhs_cassette_8.desc": "Robert Zemeckis: Volver al futuro",
   "item.tlotd.vhs_cassette_9": "Cassette VHS",
   "item.tlotd.vhs_cassette_9.desc": "John Carpenter: La cosa del otro mundo",
+  "item.tlotd.vhs_cassette_project_kv31": "Cassette VHS",
+  "item.tlotd.vhs_cassette_project_kv31.desc": "Proyecto KV31",
   "item.tlotd.vhs_cassette_broken": "Cassette VHS",
   "item.tlotd.vhs_cassette_broken.desc": "Roto",
 
@@ -322,6 +337,7 @@
   "item.tlotd.flash_drive.data": "Datos",
   "item.tlotd.flash_drive.coordinates": "block.pos [%1$s,%2$s,%3$s]",
 
+  "item.tlotd.aluminium_wire": "Alambre de aluminio",
   "item.tlotd.copper_wire": "Alambre de cobre",
   "item.tlotd.gold_wire": "Alambre de oro",
   "item.tlotd.mithril_wire": "Alambre de mithril",
@@ -347,6 +363,7 @@
   "item.tlotd.keycard.no_password": "Sin contraseña",
   "item.tlotd.keycard.has_password": "Contraseña",
 
+  "item.tlotd.incomplete_aluminium_wire": "Alambre de aluminio incompleto",
   "item.tlotd.incomplete_copper_wire": "Alambre de cobre incompleto",
   "item.tlotd.incomplete_gold_wire": "Alambre de oro incompleto",
   "item.tlotd.incomplete_mithril_wire": "Alambre de mithril incompleto",
@@ -615,7 +632,12 @@
   "item.tlotd.mithril_horse_armor": "Armadura de mithril para caballo",
   "item.tlotd.mithril_mirror": "Espejo de mithril",
   "item.tlotd.mithril_mirror.tooltip": "Te Ileva a tu casa.",
+  "item.tlotd.mithril_mirror.charges_requirement": "Requiere %1$s cargas para un viaje transdimensional.",
+  "item.tlotd.mithril_mirror.transdimensional": "Tu punto de aparición está en otra dimensión.",
+  "item.tlotd.mithril_mirror.cannot_escape": "El Espejo no puede encontrar tu plano dimensional.",
+  "item.tlotd.mithril_mirror.destination_unknown": "Tu punto de aparición no es de este mundo.",
   "item.tlotd.foggy_mithril_mirror": "Espejo de mithril empañado",
+  "item.tlotd.foggy_mithril_mirror.charge_item_missing": "No hay ningún artículo gratuito.",
   "item.tlotd.soul_mirror": "Espejo del alma",
 
   "item.tlotd.narsil_handle": "Mango narsil",
@@ -640,9 +662,9 @@
   "item.tlotd.astral_sickle": "Hoz de astral",
   "item.tlotd.astral_forging_hammer": "Martillo de forja astral",
 
-  "item.tlotd.daybreak_domain_fragments": "§6Fragmentos de dominios del amanecer",
-  "item.tlotd.somber_blood_orbs": "§cOrbes de sangre sombríos",
-  "item.tlotd.otherworldly_whispers": "§4Susurros de otro mundo",
+  "item.tlotd.daybreak_domain_fragments": "Fragmentos de dominios del amanecer",
+  "item.tlotd.somber_blood_orbs": "Orbes de sangre sombríos",
+  "item.tlotd.otherworldly_whispers": "Susurros de otro mundo",
 
   "item.tlotd.divine_pickaxe": "§6Pico divino",
   "item.tlotd.cataclysmic_pickaxe": "§cPico cataclísmico",
@@ -752,8 +774,6 @@
   "block.tlotd.player_plushie": "Peluche de jugador",
   "block.tlotd.player_plushie.tooltip": "Se pone en la piel de",
   "block.tlotd.player_plushie.tooltip_2": "algunos jugadores selectos",
-  "block.tlotd.player_plushie.tooltip_3": "Mantenga pulsado [",
-  "block.tlotd.player_plushie.tooltip_4": "] para ver la lista",
   "block.tlotd.player_plushie.tooltip_shift": "Sirve para:",
   "block.tlotd.player_plushie.tooltip_custom": "O cualquier comando definido",
 
@@ -776,6 +796,10 @@
   "block.tlotd.television.tooltip_2": "Funcionalidad añadida sobre:",
   "block.tlotd.videocassette_recorder": "Videograbadora",
   "block.tlotd.videocassette_recorder.tooltip": "Puede colocarse en el interior:",
+  "block.tlotd.videocassette_recorder_bookshelf": "Estante para videograbadora",
+  "block.tlotd.game_console": "Consola de videojuegos",
+  "block.tlotd.game_console_bookshelf": "Estantería para consolas de videojuegos",
+  "block.tlotd.media_system_bookshelf": "Estantería para sistema multimedia",
   "block.tlotd.computer": "Ordenador",
   "block.tlotd.computer_on": "Ordenador",
   "block.tlotd.powered_by_computer.tooltip": "Desarrollado por:",
@@ -811,6 +835,7 @@
 
   "block.tlotd.hev_charger": "Cargador HEV",
 
+  "block.tlotd.elevator_dial": "Indicador de ascensor",
   "block.tlotd.mining_elevator_controller": "Controlador de ascensores mineros",
   "block.tlotd.mining_elevator_base": "Base elevadora minera",
   "block.tlotd.wooden_elevator_controller": "Controlador de ascensor de madera",
@@ -916,6 +941,11 @@
   "block.tlotd.alien_brick_slab": "Losa de ladrillo alienígena",
   "block.tlotd.alien_brick_wall": "Muro de ladrillos alienígena",
 
+  "block.tlotd.yellow_wallpapered_wood": "Madera con papel tapiz amarillo",
+  "block.tlotd.fragile_light_switch": "Interruptor de luz",
+  "block.tlotd.light_switch": "Interruptor de luz",
+  "block.tlotd.exit_sign": "Señal de salida",
+
   "block.tlotd.steel_block": "Bloque de acero",
 
   "block.tlotd.nether_sulfur_ore": "Mineral de azufre del Nether",
@@ -985,9 +1015,6 @@
 
   "block.tlotd.mithril_anvil": "Yunque de mithril",
   "block.tlotd.mithril_bars": "Barras de mithril",
-
-  "text.tlotd.recipe.tooltip": "Mantén pulsada la tecla [",
-  "text.tlotd.recipe.tooltip_2": "] para las recetas",
 
   "block.tlotd.mithril_anvil.tooltip": "Forja sólo bajo:",
   "block.tlotd.mithril_anvil.tooltip_2": "Luz directa de las estrellas",
@@ -1178,6 +1205,8 @@
   "item.tlotd.transwood_bark": "Corteza de árbol de transformación",
   "item.tlotd.minewood_bark": "Corteza de árbol de minero",
   "item.tlotd.sortingwood_bark": "Corteza de árbol de clasificación",
+
+  "item.tlotd.yellow_wallpaper": "Papel tapiz amarillo",
 
   "item.tlotd.flour": "Harina",
   "item.tlotd.breadcrumbs": "Migas de pan",

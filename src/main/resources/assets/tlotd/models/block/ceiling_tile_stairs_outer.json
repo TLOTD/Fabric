@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "tlotd:block/backrooms/ceiling_tile",
+    "side": "tlotd:block/backrooms/ceiling_tile",
+    "top": "tlotd:block/backrooms/ceiling_tile"
+  }
+}

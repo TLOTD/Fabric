@@ -118,7 +118,7 @@
           "item": "tlotd:incomplete_radio"
         },
         {
-          "item": "tlotd:copper_wire"
+          "tag": "tlotd:wires"
         }
       ],
       "results": [

@@ -13,6 +13,22 @@
     "tlotd:alien_brick_stairs",
     "tlotd:alien_brick_slab",
     "tlotd:alien_brick_wall",
-    "tlotd:alien_pillar"
+    "tlotd:alien_pillar",
+    "tlotd:yellow_wallpapered_wall",
+    "tlotd:stripped_yellow_wallpapered_wall",
+    "tlotd:noclipable_yellow_wallpapered_wall",
+    "tlotd:ceiling_light",
+    "tlotd:ceiling_tile",
+    "tlotd:ceiling_tile_stairs",
+    "tlotd:horizontal_ceiling_tile_stairs",
+    "tlotd:moist_carpet",
+    "tlotd:moist_carpet_stairs",
+    "tlotd:horizontal_moist_carpet_stairs",
+    "tlotd:floor_tile",
+    "tlotd:fragile_light_switch",
+    "tlotd:light_switch",
+    "tlotd:backrooms_elevator_controller",
+    "tlotd:backrooms_elevator_base",
+    "tlotd:void"
   ]
 }

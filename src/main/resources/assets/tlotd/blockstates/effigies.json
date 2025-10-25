@@ -1,8 +1,7 @@
 {
   "variants": {
     "facing=north": {
-      "model": "tlotd:block/effigies",
-      "y": 0
+      "model": "tlotd:block/effigies"
     },
     "facing=east": {
       "model": "tlotd:block/effigies",

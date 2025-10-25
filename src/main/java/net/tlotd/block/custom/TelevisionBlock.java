@@ -38,7 +38,7 @@ public class TelevisionBlock extends Block {
 
     public static final IntProperty CHANNEL = IntProperty.of("channel", 0, 127);
     public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
-    public static final DirectionProperty FACING = FacingBlock.FACING;
+    public static final DirectionProperty FACING = HorizontalFacingBlock.FACING;
 
     @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {
@@ -158,6 +158,7 @@ public class TelevisionBlock extends Block {
         }
         tooltip.add(Text.translatable("block.tlotd.television.tooltip_2").formatted(Formatting.GRAY));
         tooltip.add(Text.literal(" ").append(Text.translatable("block.tlotd.videocassette_recorder").formatted(Formatting.BLUE)));
+        tooltip.add(Text.literal(" ").append(Text.translatable("block.tlotd.game_console").formatted(Formatting.BLUE)));
         super.appendTooltip(stack, world, tooltip, options);
     }
 

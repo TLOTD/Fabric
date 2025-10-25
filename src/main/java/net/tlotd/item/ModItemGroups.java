@@ -3,6 +3,7 @@ package net.tlotd.item;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.block.entity.BlockEntityType;
+import net.minecraft.enchantment.Enchantment;
 import net.minecraft.item.*;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtList;
@@ -14,8 +15,12 @@ import net.minecraft.util.Identifier;
 import net.minecraft.village.raid.Raid;
 import net.tlotd.TLOTD;
 import net.tlotd.block.ModBlocks;
+import net.tlotd.compat.CompatModsCheck;
+import net.tlotd.enchantments.ModEnchantments;
 import net.tlotd.fluid.ModFluids;
 import net.tlotd.util.AdAstraOxygenNbtHelper;
+
+import java.util.Map;
 
 public class ModItemGroups {
 
@@ -26,7 +31,7 @@ public class ModItemGroups {
             new Identifier(TLOTD.MOD_ID, "1_materials"),
             FabricItemGroup.builder()
                     .displayName(Text.literal("\uE000 ").styled(style -> style.withFont(MODS_FONT_ID).withFormatting(Formatting.WHITE)).append(Text.translatable("itemgroup.tlotd.materials").styled(style -> style.withFont(DEFAULT_FONT_ID))))
-                    .icon(() -> new ItemStack(ModItems.SPELL_BOOK)).entries((displayContext, entries) -> {
+                    .icon(() -> new ItemStack(ModItems.RAW_MITHRIL)).entries((displayContext, entries) -> {
                         entries.add(ModItems.SPELL_BOOK);
                         entries.add(ModItems.FORBIDDEN_SPELL_BOOK);
                         entries.add(ModItems.PLANCHETTE);
@@ -44,6 +49,7 @@ public class ModItemGroups {
                         entries.add(ModFluids.BLOOD_BUCKET);
                         entries.add(ModFluids.CHEMICAL_WASTE_BUCKET);
 
+                        entries.add(ModItems.ALUMINIUM_WIRE);
                         entries.add(ModItems.COPPER_WIRE);
                         entries.add(ModItems.GOLD_WIRE);
                         entries.add(ModItems.MITHRIL_WIRE);
@@ -53,7 +59,9 @@ public class ModItemGroups {
                         entries.add(ModItems.TRANSCENDENT_CIRCUIT_BOARD);
                         entries.add(ModItems.FUTURISTIC_CIRCUIT_BOARD);
                         entries.add(ModItems.ARCANE_CIRCUIT_BOARD);
-                        entries.add(ModItems.BIOLOGICAL_CIRCUIT_BOARD);
+                        if (CompatModsCheck.BIOMANCY || CompatModsCheck.NEEPMEAT || CompatModsCheck.SPORE) {
+                            entries.add(ModItems.BIOLOGICAL_CIRCUIT_BOARD);
+                        }
                         entries.add(ModItems.INTEGRATED_CIRCUIT);
                         entries.add(ModItems.CATHODE_RAY_TUBE);
                         entries.add(ModItems.LIQUID_CRYSTAL_DISPLAY_PANEL);
@@ -169,8 +177,6 @@ public class ModItemGroups {
 
                         entries.add(ModItems.PIPE_WEED_SEEDS);
                         entries.add(ModItems.PIPE_WEED);
-                        entries.add(ModItems.PIPE);
-                        entries.add(ModItems.PIPE_WEED_PIPE);
                         entries.add(ModItems.HEMP_COOKIE);
 
                         entries.add(ModItems.CARAMEL);
@@ -180,23 +186,36 @@ public class ModItemGroups {
                         entries.add(ModBlocks.GLOW_BERRY_JAM_JAR);
                         entries.add(ModBlocks.STRAWBERRY_JAM_JAR);
                         entries.add(ModBlocks.ORANGE_MARMELADE_JAR);
-                        entries.add(ModBlocks.BLUE_BERRY_JAM_JAR);
-                        entries.add(ModBlocks.DROOPFRUIT_JAM_JAR);
-                        entries.add(ModBlocks.ANCIENT_SOULBERRY_JAM_JAR);
+                        if (CompatModsCheck.AETHER) {
+                            entries.add(ModBlocks.BLUE_BERRY_JAM_JAR);
+                        }
+                        if (CompatModsCheck.UNDERGARDEN) {
+                            entries.add(ModBlocks.DROOPFRUIT_JAM_JAR);
+                        }
+                        if (CompatModsCheck.ATM) {
+                            entries.add(ModBlocks.ANCIENT_SOULBERRY_JAM_JAR);
+                        }
                         entries.add(ModItems.TOAST);
                         entries.add(ModItems.SWEET_BERRY_JAM_TOAST);
                         entries.add(ModItems.GLOW_BERRY_JAM_TOAST);
                         entries.add(ModItems.STRAWBERRY_JAM_TOAST);
                         entries.add(ModItems.ORANGE_MARMELADE_TOAST);
-                        entries.add(ModItems.BLUE_BERRY_JAM_TOAST);
-                        entries.add(ModItems.DROOPFRUIT_JAM_TOAST);
-                        entries.add(ModItems.ANCIENT_SOULBERRY_JAM_TOAST);
+                        if (CompatModsCheck.AETHER) {
+                            entries.add(ModItems.BLUE_BERRY_JAM_TOAST);
+                        }
+                        if (CompatModsCheck.UNDERGARDEN) {
+                            entries.add(ModItems.DROOPFRUIT_JAM_TOAST);
+                        }
+                        if (CompatModsCheck.ATM) {
+                            entries.add(ModItems.ANCIENT_SOULBERRY_JAM_TOAST);
+                        }
 
                         entries.add(ModItems.DRINK_CAN);
                         entries.add(ModItems.SPEZI_CAN);
                         entries.add(ModItems.SPEZI_BOTTLE);
 
                         entries.add(ModItems.BEER_CAN);
+                        entries.add(ModItems.BOTTOMLESS_BEER_CAN);
                         entries.add(ModItems.BEER_BOTTLE);
                         entries.add(ModItems.MEAD_BOTTLE);
                         entries.add(ModItems.BEER_GOAT_HORN);
@@ -235,6 +254,7 @@ public class ModItemGroups {
                         entries.add(ModItems.VHS_CASSETTE_7);
                         entries.add(ModItems.VHS_CASSETTE_8);
                         entries.add(ModItems.VHS_CASSETTE_9);
+                        entries.add(ModItems.VHS_CASSETTE_PROJECT_KV31);
                         entries.add(ModItems.VHS_CASSETTE_BROKEN);
 
                         entries.add(ModItems.GAME_CARTRIDGE);
@@ -251,40 +271,47 @@ public class ModItemGroups {
                         entries.add(ModItems.MANGROVE_BARK);
                         entries.add(ModItems.CHERRY_BARK);
                         entries.add(ModItems.GINKGO_BARK);
-
-                        entries.add(ModItems.SKYROOT_BARK);
-
-                        entries.add(ModItems.PEWEN_BARK);
-                        entries.add(ModItems.THORNWOOD_BARK);
-
-                        entries.add(ModItems.FIR_BARK);
-                        entries.add(ModItems.PINE_BARK);
-                        entries.add(ModItems.MAPLE_BARK);
-                        entries.add(ModItems.REDWOOD_BARK);
-                        entries.add(ModItems.MAHOGANY_BARK);
-                        entries.add(ModItems.JACARANCA_BARK);
-                        entries.add(ModItems.PALM_BARK);
-                        entries.add(ModItems.WILLOW_BARK);
-                        entries.add(ModItems.DEAD_BARK);
-                        entries.add(ModItems.MAGIC_BARK);
-                        entries.add(ModItems.UMBRAN_BARK);
-                        entries.add(ModItems.HELLBARK_BARK);
-                        entries.add(ModItems.EMPYREAL_BARK);
-
-                        entries.add(ModItems.ASHEN_BARK);
-                        entries.add(ModItems.AZALEA_BARK);
-                        entries.add(ModItems.TRUMPET_BARK);
-
-                        entries.add(ModItems.RUBBERWOOD_BARK);
-
-                        entries.add(ModItems.TWILIGHT_OAK_BARK);
-                        entries.add(ModItems.CANOPY_TREE_BARK);
-                        entries.add(ModItems.TWILIGHT_MANGROVE_BARK);
-                        entries.add(ModItems.DARKWOOD_BARK);
-                        entries.add(ModItems.TIMEWOOD_BARK);
-                        entries.add(ModItems.TRANSWOOD_BARK);
-                        entries.add(ModItems.MINEWOOD_BARK);
-                        entries.add(ModItems.SORTINGWOOD_BARK);
+                        if (CompatModsCheck.AETHER) {
+                            entries.add(ModItems.SKYROOT_BARK);
+                        }
+                        if (CompatModsCheck.ALEXSCAVES) {
+                            entries.add(ModItems.PEWEN_BARK);
+                            entries.add(ModItems.THORNWOOD_BARK);
+                        }
+                        if (CompatModsCheck.BIOMESOPLENTY) {
+                            entries.add(ModItems.FIR_BARK);
+                            entries.add(ModItems.PINE_BARK);
+                            entries.add(ModItems.MAPLE_BARK);
+                            entries.add(ModItems.REDWOOD_BARK);
+                            entries.add(ModItems.MAHOGANY_BARK);
+                            entries.add(ModItems.JACARANCA_BARK);
+                            entries.add(ModItems.PALM_BARK);
+                            entries.add(ModItems.WILLOW_BARK);
+                            entries.add(ModItems.DEAD_BARK);
+                            entries.add(ModItems.MAGIC_BARK);
+                            entries.add(ModItems.UMBRAN_BARK);
+                            entries.add(ModItems.HELLBARK_BARK);
+                            entries.add(ModItems.EMPYREAL_BARK);
+                        }
+                        if (CompatModsCheck.QUARK) {
+                            entries.add(ModItems.ASHEN_BARK);
+                            entries.add(ModItems.AZALEA_BARK);
+                            entries.add(ModItems.TRUMPET_BARK);
+                        }
+                        if (CompatModsCheck.THERMAL) {
+                            entries.add(ModItems.RUBBERWOOD_BARK);
+                        }
+                        if (CompatModsCheck.TWILIGHTFOREST) {
+                            entries.add(ModItems.TWILIGHT_OAK_BARK);
+                            entries.add(ModItems.CANOPY_TREE_BARK);
+                            entries.add(ModItems.TWILIGHT_MANGROVE_BARK);
+                            entries.add(ModItems.DARKWOOD_BARK);
+                            entries.add(ModItems.TIMEWOOD_BARK);
+                            entries.add(ModItems.TRANSWOOD_BARK);
+                            entries.add(ModItems.MINEWOOD_BARK);
+                            entries.add(ModItems.SORTINGWOOD_BARK);
+                        }
+                        entries.add(ModItems.YELLOW_WALLPAPER);
                     }).build());
 
     public static final ItemGroup TLOTD_2_WEAPONS_TOOLS_UTILITIES_GROUP = Registry.register(Registries.ITEM_GROUP,
@@ -472,8 +499,23 @@ public class ModItemGroups {
                         entries.add(ModBlocks.GLOBUS_CRUCIGER);
 
                         entries.add(ModItems.FOSSIL_AND_STEEL);
+                        entries.add(ModItems.PIPE);
+                        entries.add(ModItems.PIPE_WEED_PIPE);
                         entries.add(ModItems.TREX_SPAWN_EGG);
-                        entries.add(ModItems.INFECTED_TREX_SPAWN_EGG);
+                        if (CompatModsCheck.SPORE) {
+                            entries.add(ModItems.INFECTED_TREX_SPAWN_EGG);
+                        }
+
+                        entries.add(addEnchantedBook(ModEnchantments.TRANSDIMENSIONAL, 1));
+                        entries.add(addEnchantedBook(ModEnchantments.TRANSDIMENSIONAL, 2));
+                        entries.add(addEnchantedBook(ModEnchantments.TRANSDIMENSIONAL, 3));
+                        entries.add(addEnchantedBook(ModEnchantments.DEPTH_OF_THE_ABYSS, 1));
+                        entries.add(addEnchantedBook(ModEnchantments.DEPTH_OF_THE_ABYSS, 2));
+                        entries.add(addEnchantedBook(ModEnchantments.DEPTH_OF_THE_ABYSS, 3));
+                        entries.add(addEnchantedBook(ModEnchantments.CURSED_REFLECTION, 1));
+                        entries.add(addEnchantedBook(ModEnchantments.REFILL_CHARGES, 1));
+                        entries.add(addEnchantedBook(ModEnchantments.RESOURCEFUL_SMOKING, 1));
+                        entries.add(addEnchantedBook(ModEnchantments.RESOURCEFUL_SMOKING, 2));
                     }).build());
 
     public static final ItemGroup TLOTD_3_BLOCKS_GROUP = Registry.register(Registries.ITEM_GROUP,
@@ -506,6 +548,7 @@ public class ModItemGroups {
                         entries.add(ModBlocks.RADIO);
                         entries.add(ModBlocks.TELEVISION);
                         entries.add(ModBlocks.VIDEOCASSETTE_RECORDER);
+                        entries.add(ModBlocks.GAME_CONSOLE);
                         entries.add(ModBlocks.COMPUTER);
                         entries.add(ModBlocks.INCUBATOR);
                         entries.add(ModBlocks.KEYCARD_PROGRAMMER);
@@ -528,13 +571,21 @@ public class ModItemGroups {
                         entries.add(ModBlocks.PLAYER_PLUSHIE);
 
                         entries.add(ModBlocks.TREX_EGG);
-                        entries.add(ModBlocks.INFECTED_TREX_EGG);
+                        if (CompatModsCheck.SPORE) {
+                            entries.add(ModBlocks.INFECTED_TREX_EGG);
+                        }
                         entries.add(ModBlocks.TREX_HEAD);
                         entries.add(ModBlocks.GREEN_TREX_HEAD);
                         entries.add(ModBlocks.GRAY_TREX_HEAD);
-                        entries.add(ModBlocks.INFECTED_TREX_HEAD);
-                        entries.add(ModBlocks.SCULK_TREX_HEAD);
-                        entries.add(ModBlocks.SICKENED_TREX_HEAD);
+                        if (CompatModsCheck.SPORE) {
+                            entries.add(ModBlocks.INFECTED_TREX_HEAD);
+                        }
+                        if (CompatModsCheck.SCULKHORDE) {
+                            entries.add(ModBlocks.SCULK_TREX_HEAD);
+                        }
+                        if (CompatModsCheck.WITHERSTORMMOD) {
+                            entries.add(ModBlocks.SICKENED_TREX_HEAD);
+                        }
 
                         entries.add(ModBlocks.WOODEN_STEIN);
                         entries.add(ModBlocks.WOODEN_WATER_STEIN);
@@ -547,10 +598,17 @@ public class ModItemGroups {
                         entries.add(ModBlocks.WOODEN_CARAMEL_MILKSHAKE_STEIN);
                         entries.add(ModBlocks.WOODEN_STRAWBERRY_MILKSHAKE_STEIN);
                         entries.add(ModBlocks.WOODEN_ORANGE_MILKSHAKE_STEIN);
-                        entries.add(ModBlocks.WOODEN_BLUE_BERRY_MILKSHAKE_STEIN);
-                        entries.add(ModBlocks.WOODEN_TORCHBERRY_MILKSHAKE_STEIN);
+                        if (CompatModsCheck.AETHER) {
+                            entries.add(ModBlocks.WOODEN_BLUE_BERRY_MILKSHAKE_STEIN);
+                        }
+                        if (CompatModsCheck.TWILIGHTFOREST) {
+                            entries.add(ModBlocks.WOODEN_TORCHBERRY_MILKSHAKE_STEIN);
+                        }
                         entries.add(ModBlocks.HOT_WOODEN_MILK_STEIN);
                         entries.add(ModBlocks.WOODEN_HOT_CHOCOLATE_STEIN);
+
+                        entries.add(ModBlocks.EXIT_SIGN);
+                        entries.add(ModBlocks.ELEVATOR_DIAL);
 
                         entries.add(ModBlocks.MINING_ELEVATOR_CONTROLLER);
                         entries.add(ModBlocks.MINING_ELEVATOR_BASE);
@@ -586,6 +644,8 @@ public class ModItemGroups {
                         entries.add(ModBlocks.ALIEN_BRICK_STAIRS);
                         entries.add(ModBlocks.ALIEN_BRICK_SLAB);
                         entries.add(ModBlocks.ALIEN_BRICK_WALL);
+
+                        entries.add(ModBlocks.LIGHT_SWITCH);
 
                         entries.add(ModBlocks.MARBLE);
                         entries.add(ModBlocks.MARBLE_STAIRS);
@@ -640,6 +700,9 @@ public class ModItemGroups {
 
                         entries.add(ModBlocks.RED_DEEPSLATE_IRON_ORE);
                         entries.add(ModBlocks.RED_DEEPSLATE_COPPER_ORE);
+                        if (CompatModsCheck.CREATE) {
+                            entries.add(ModBlocks.RED_DEEPSLATE_ZINC_ORE);
+                        }
                         entries.add(ModBlocks.RED_DEEPSLATE_GOLD_ORE);
                         entries.add(ModBlocks.RED_DEEPSLATE_REDSTONE_ORE);
                         entries.add(ModBlocks.RED_DEEPSLATE_EMERALD_ORE);
@@ -846,9 +909,10 @@ public class ModItemGroups {
 
     public static final ItemGroup TLOTD_9_COMPAT_GROUP = Registry.register(Registries.ITEM_GROUP,
             new Identifier(TLOTD.MOD_ID, "9_compat"),
-            FabricItemGroup.builder().displayName(Text.literal("\uE00A ").styled(style -> style.withFont(MODS_FONT_ID)).append(Text.translatable("itemgroup.tlotd.compat").styled(style -> style.withFont(DEFAULT_FONT_ID))))
+            FabricItemGroup.builder().displayName(Text.literal("\uE00A ").styled(style -> style.withFont(MODS_FONT_ID).withFormatting(Formatting.WHITE)).append(Text.translatable("itemgroup.tlotd.compat").styled(style -> style.withFont(DEFAULT_FONT_ID))))
                     .icon(() -> new ItemStack(ModBlocks.INFECTED_TREX_HEAD)).entries((displayContext, entries) -> {
                         entries.add(ModBlocks.RED_DEEPSLATE_ZINC_ORE);
+                        entries.add(ModItems.INCOMPLETE_ALUMINIUM_WIRE);
                         entries.add(ModItems.INCOMPLETE_COPPER_WIRE);
                         entries.add(ModItems.INCOMPLETE_GOLD_WIRE);
                         entries.add(ModItems.INCOMPLETE_MITHRIL_WIRE);
@@ -999,6 +1063,11 @@ public class ModItemGroups {
 
         });
 
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.REDSTONE).register(content -> {
+            content.addAfter(Items.LEVER, ModBlocks.LIGHT_SWITCH);
+            content.addAfter(ModBlocks.LIGHT_SWITCH, ModBlocks.KEYCARD_READER);
+        });
+
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register(content -> {
             content.addBefore(Items.IRON_SHOVEL, ModItems.COPPER_SICKLE);
             content.addAfter(Items.GOLDEN_HOE, ModItems.GOLDEN_SICKLE);
@@ -1043,9 +1112,15 @@ public class ModItemGroups {
             content.addAfter(ModItems.SWEET_BERRY_JAM_TOAST, ModItems.GLOW_BERRY_JAM_TOAST);
             content.addAfter(ModItems.GLOW_BERRY_JAM_TOAST, ModItems.STRAWBERRY_JAM_TOAST);
             content.addAfter(ModItems.STRAWBERRY_JAM_TOAST, ModItems.ORANGE_MARMELADE_TOAST);
-            content.addAfter(ModItems.ORANGE_MARMELADE_TOAST, ModItems.BLUE_BERRY_JAM_TOAST);
-            content.addAfter(ModItems.BLUE_BERRY_JAM_TOAST, ModItems.DROOPFRUIT_JAM_TOAST);
-            content.addAfter(ModItems.DROOPFRUIT_JAM_TOAST, ModItems.ANCIENT_SOULBERRY_JAM_TOAST);
+            if (CompatModsCheck.ATM) {
+                content.addAfter(ModItems.ORANGE_MARMELADE_TOAST, ModItems.ANCIENT_SOULBERRY_JAM_TOAST);
+            }
+            if (CompatModsCheck.UNDERGARDEN) {
+                content.addAfter(ModItems.ORANGE_MARMELADE_TOAST, ModItems.DROOPFRUIT_JAM_TOAST);
+            }
+            if (CompatModsCheck.AETHER) {
+                content.addAfter(ModItems.ORANGE_MARMELADE_TOAST, ModItems.BLUE_BERRY_JAM_TOAST);
+            }
             content.addAfter(Items.COOKIE, ModItems.HEMP_COOKIE);
             content.addAfter(ModItems.HEMP_COOKIE, ModItems.CHOCOLATE_STRAWBERRY);
             content.addAfter(Items.CAKE, ModBlocks.STRAWBERRY_CAKE);
@@ -1062,9 +1137,13 @@ public class ModItemGroups {
             content.addAfter(ModBlocks.WOODEN_CHOCOLATE_MILKSHAKE_STEIN, ModBlocks.WOODEN_CARAMEL_MILKSHAKE_STEIN);
             content.addAfter(ModBlocks.WOODEN_CARAMEL_MILKSHAKE_STEIN, ModBlocks.WOODEN_STRAWBERRY_MILKSHAKE_STEIN);
             content.addAfter(ModBlocks.WOODEN_STRAWBERRY_MILKSHAKE_STEIN, ModBlocks.WOODEN_ORANGE_MILKSHAKE_STEIN);
-            content.addAfter(ModBlocks.WOODEN_ORANGE_MILKSHAKE_STEIN, ModBlocks.WOODEN_BLUE_BERRY_MILKSHAKE_STEIN);
-            content.addAfter(ModBlocks.WOODEN_BLUE_BERRY_MILKSHAKE_STEIN, ModBlocks.WOODEN_TORCHBERRY_MILKSHAKE_STEIN);
-            content.addAfter(ModBlocks.WOODEN_TORCHBERRY_MILKSHAKE_STEIN, ModBlocks.HOT_WOODEN_MILK_STEIN);
+            content.addAfter(ModBlocks.WOODEN_ORANGE_MILKSHAKE_STEIN, ModBlocks.HOT_WOODEN_MILK_STEIN);
+            if (CompatModsCheck.TWILIGHTFOREST) {
+                content.addAfter(ModBlocks.WOODEN_ORANGE_MILKSHAKE_STEIN, ModBlocks.WOODEN_TORCHBERRY_MILKSHAKE_STEIN);
+            }
+            if (CompatModsCheck.AETHER) {
+                content.addAfter(ModBlocks.WOODEN_ORANGE_MILKSHAKE_STEIN, ModBlocks.WOODEN_BLUE_BERRY_MILKSHAKE_STEIN);
+            }
             content.addAfter(ModBlocks.HOT_WOODEN_MILK_STEIN, ModBlocks.WOODEN_HOT_CHOCOLATE_STEIN);
             content.addAfter(Items.HONEY_BOTTLE, ModItems.APPLE_JUICE_BOTTLE);
             content.addAfter(ModItems.APPLE_JUICE_BOTTLE, ModItems.ORANGE_JUICE_BOTTLE);
@@ -1073,12 +1152,14 @@ public class ModItemGroups {
             content.addAfter(ModItems.BEER_BOTTLE, ModItems.MEAD_BOTTLE);
             content.addAfter(ModItems.MEAD_BOTTLE, ModItems.SPEZI_CAN);
             content.addAfter(ModItems.SPEZI_CAN, ModItems.BEER_CAN);
-            content.addAfter(ModItems.BEER_CAN, ModItems.BEER_GOAT_HORN);
+            content.addAfter(ModItems.BEER_CAN, ModItems.BOTTOMLESS_BEER_CAN);
+            content.addAfter(ModItems.BOTTOMLESS_BEER_CAN, ModItems.BEER_GOAT_HORN);
             content.addAfter(ModItems.BEER_GOAT_HORN, ModItems.MEAD_GOAT_HORN);
         });
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(content -> {
-            content.addAfter(Items.RAW_GOLD, ModItems.RAW_ALUMINIUM);
+            content.addAfter(Items.RAW_GOLD, ModItems.STEEL_INGREDIENTS);
+            content.addAfter(ModItems.STEEL_INGREDIENTS, ModItems.RAW_ALUMINIUM);
             content.addAfter(ModItems.RAW_ALUMINIUM, ModItems.RAW_LEAD);
             content.addAfter(ModItems.RAW_LEAD, ModItems.RAW_PALLADIUM);
             content.addAfter(ModItems.RAW_PALLADIUM, ModItems.RAW_MITHRIL);
@@ -1088,10 +1169,13 @@ public class ModItemGroups {
             content.addAfter(ModItems.ENDURIUM_CRYSTAL, ModItems.CINNABAR_CRYSTAL);
             content.addAfter(ModItems.CINNABAR_CRYSTAL, ModItems.NEBULAR_CRYSTAL);
             content.addAfter(Items.AMETHYST_SHARD, ModItems.XEN_CRYSTAL);
+            content.addAfter(ModItems.XEN_CRYSTAL, ModItems.METEORITE_CHUNK);
+            content.addAfter(ModItems.METEORITE_CHUNK, ModItems.STAR_FRAGMENT);
+            content.addAfter(ModItems.STAR_FRAGMENT, ModItems.LUNAR_CALLAINUS_LUMP);
             content.addAfter(Items.IRON_NUGGET, ModItems.COPPER_NUGGET);
             content.addAfter(Items.GOLD_NUGGET, ModItems.STEEL_NUGGET);
-            content.addAfter(ModItems.STEEL_NUGGET, ModItems.ASTRAL_NUGGET);
-            content.addAfter(ModItems.ASTRAL_NUGGET, ModItems.LEAD_NUGGET);
+            content.addAfter(ModItems.STEEL_NUGGET, ModItems.ALUMINIUM_NUGGET);
+            content.addAfter(ModItems.ALUMINIUM_NUGGET, ModItems.LEAD_NUGGET);
             content.addAfter(ModItems.LEAD_NUGGET, ModItems.URANIUM_NUGGET);
             content.addAfter(ModItems.URANIUM_NUGGET, ModItems.HELIORITE_NUGGET);
             content.addAfter(ModItems.HELIORITE_NUGGET, ModItems.ENDURIUM_NUGGET);
@@ -1105,6 +1189,7 @@ public class ModItemGroups {
             content.addAfter(ModItems.STEEL_INGOT, ModItems.ALUMINIUM_INGOT);
             content.addAfter(ModItems.ALUMINIUM_INGOT, ModItems.LEAD_INGOT);
             content.addAfter(ModItems.LEAD_INGOT, ModItems.URANIUM_INGOT);
+            content.addAfter(ModItems.URANIUM_INGOT, ModItems.ALIEN_METAL);
             content.addAfter(Items.NETHERITE_INGOT, ModItems.HELIORITE_INGOT);
             content.addAfter(ModItems.HELIORITE_INGOT, ModItems.ENDURIUM_INGOT);
             content.addAfter(ModItems.ENDURIUM_INGOT, ModItems.PALLADIUM_INGOT);
@@ -1120,6 +1205,8 @@ public class ModItemGroups {
             content.addAfter(Items.GLOWSTONE_DUST, ModItems.SULFUR);
             content.addAfter(Items.PIGLIN_BANNER_PATTERN, ModItems.DRAGON_BANNER_PATTERN);
             content.addAfter(ModItems.DRAGON_BANNER_PATTERN, ModItems.LOTR_BANNER_PATTERN);
+            content.addAfter(Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE, ModItems.HELIORITE_UPGRADE_SMITHING_TEMPLATE);
+            content.addAfter(ModItems.HELIORITE_UPGRADE_SMITHING_TEMPLATE, ModItems.ENDURIUM_UPGRADE_SMITHING_TEMPLATE);
         });
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.SPAWN_EGGS).register(content -> {
@@ -1133,6 +1220,12 @@ public class ModItemGroups {
         ItemStack itemStack = new ItemStack(baseBanner);
         AdAstraOxygenNbtHelper.setOxygen(itemStack, AdAstraOxygenNbtHelper.MAX_AMOUNT);
         return itemStack;
+    }
+
+    private static ItemStack addEnchantedBook(Enchantment enchantment, int level) {
+        ItemStack book = new ItemStack(Items.ENCHANTED_BOOK);
+        net.minecraft.enchantment.EnchantmentHelper.set(Map.of(enchantment, level), book);
+        return book;
     }
 
     public static ItemStack addBanner(String patternName, Item baseBanner, int color) {

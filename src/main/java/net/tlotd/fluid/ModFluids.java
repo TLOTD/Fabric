@@ -98,7 +98,7 @@ public class ModFluids {
         STILL_SPEZI = Registry.register(Registries.FLUID, new Identifier(TLOTD.MOD_ID, "spezi"), new SpeziFluid.Still());
         FLOWING_SPEZI = Registry.register(Registries.FLUID, new Identifier(TLOTD.MOD_ID, "flowing_spezi"), new SpeziFluid.Flowing());
         SPEZI_BLOCK = Registry.register(Registries.BLOCK, new Identifier(TLOTD.MOD_ID, "spezi_block"), new FluidBlock(ModFluids.STILL_SPEZI, FabricBlockSettings.copyOf(Blocks.WATER)){});
-        SPEZI_BUCKET = Registry.register(Registries.ITEM, new Identifier(TLOTD.MOD_ID, "spezi_bucket"), new BucketItem(ModFluids.STILL_SPEZI, new FabricItemSettings().recipeRemainder(Items.BUCKET).maxCount(1)));
+        SPEZI_BUCKET = Registry.register(Registries.ITEM, new Identifier(TLOTD.MOD_ID, "spezi_bucket"), new CreateBucketItem(ModFluids.STILL_SPEZI, new FabricItemSettings().recipeRemainder(Items.BUCKET).maxCount(1)));
 
         STILL_BEER = Registry.register(Registries.FLUID, new Identifier(TLOTD.MOD_ID, "beer"), new BeerFluid.Still());
         FLOWING_BEER = Registry.register(Registries.FLUID, new Identifier(TLOTD.MOD_ID, "flowing_beer"), new BeerFluid.Flowing());

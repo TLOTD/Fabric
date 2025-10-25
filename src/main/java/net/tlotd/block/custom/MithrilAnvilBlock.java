@@ -159,12 +159,13 @@ public class MithrilAnvilBlock extends BlockWithEntity implements BlockEntityPro
             tooltip.add(Text.literal(""));
         }
         if (Screen.hasShiftDown()) {
+            tooltip.add(Text.translatable("text.tlotd.recipe.ponder", Text.translatable("key.keyboard.shift").formatted(Formatting.WHITE)).formatted(Formatting.DARK_GRAY));
             Style style = this.getName().getStyle();
             tooltip.add(Text.literal("\uE010\uE000\uE018\uE019\uE01A\uE01B\uE011\uE013\uE014\uE012\uE016").setStyle(style.withFont(RECIPIES_FONT_ID)));
             tooltip.add(Text.literal("\uE010\uE000\uE015\uE011\uE013\uE016\uE012\uE017").setStyle(style.withFont(RECIPIES_FONT_ID)));
 
         } else {
-            tooltip.add(Text.literal("").append(Text.translatable("text.tlotd.recipe.tooltip").formatted(Formatting.DARK_GRAY)).append(Text.translatable("key.keyboard.left.shift").formatted(Formatting.GRAY)).append(Text.translatable("text.tlotd.recipe.tooltip_2").formatted(Formatting.DARK_GRAY)));
+            tooltip.add(Text.translatable("text.tlotd.recipe.ponder", Text.translatable("key.keyboard.shift").formatted(Formatting.GRAY)).formatted(Formatting.DARK_GRAY));
         }
         super.appendTooltip(stack, world, tooltip, options);
     }

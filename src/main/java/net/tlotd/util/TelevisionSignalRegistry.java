@@ -1,7 +1,6 @@
 package net.tlotd.util;
 
 import net.minecraft.block.Block;
-import net.minecraft.registry.Registries;
 import net.minecraft.util.Identifier;
 
 import java.util.*;
@@ -11,7 +10,7 @@ public class TelevisionSignalRegistry {
 
     public record SignalEntry(Identifier signalItem, Block offBlock, Block onBlock, int channel) {}
 
-    private static Identifier normalize(Identifier id) {
+    public static Identifier normalize(Identifier id) {
         if (id == null) return null;
         return new Identifier(id.getNamespace().toLowerCase(Locale.ROOT), id.getPath().toLowerCase(Locale.ROOT));
     }
@@ -23,10 +22,6 @@ public class TelevisionSignalRegistry {
             return;
         }
         SIGNALS.put(key, entry);
-    }
-
-    public static void registerAll(SignalEntry... entries) {
-        for (SignalEntry entry : entries) register(entry);
     }
 
     public static void registerBatch(Identifier[] itemIds, Block offBlock, Block onBlock, int startingChannel) {
@@ -46,12 +41,6 @@ public class TelevisionSignalRegistry {
         return SIGNALS.values();
     }
 
-    public static boolean blocksMatch(Block a, Block b) {
-        if (a == b) return true;
-        if (a == null || b == null) return false;
-        return Registries.BLOCK.getId(a).equals(Registries.BLOCK.getId(b));
-    }
-
     public static void debugDump() {
         if (SIGNALS.isEmpty()) {
             System.out.println("[TelevisionSignalRegistry] No signals registered.");
@@ -63,7 +52,7 @@ public class TelevisionSignalRegistry {
                     + "\n  Off Block: " + entry.offBlock()
                     + "\n  On Block: " + entry.onBlock()
                     + "\n  Channel: " + entry.channel()
-                    + "\n"); // extra line for spacing
+                    + "\n");
         }
         System.out.println("[TelevisionSignalRegistry] End of dump.\n");
     }

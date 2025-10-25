@@ -1,0 +1,10 @@
+{
+  "type": "tlotd:backrooms",
+  "generator": {
+    "type": "tlotd:backrooms",
+    "biome_source": {
+      "type": "minecraft:fixed",
+      "biome": "tlotd:level_1"
+    }
+  }
+}

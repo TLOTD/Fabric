@@ -74,7 +74,7 @@ public class ModItems {
     public static final Item MINEWOOD_BARK = registerItem("minewood_bark", new CompatItem(new FabricItemSettings(),"tlf"));
     public static final Item SORTINGWOOD_BARK = registerItem("sortingwood_bark", new CompatItem(new FabricItemSettings(),"tlf"));
 
-    public static final Item IRRADIATED_ICON = registerItem("irradiated_icon", new Item(new FabricItemSettings()));
+    public static final Item YELLOW_WALLPAPER = registerItem("yellow_wallpaper", new Item(new FabricItemSettings()));
 
     public static final Item APPLE_JUICE_BOTTLE = registerItem("apple_juice_bottle", new DrinkableBottle(new FabricItemSettings().food(ModFoodComponents.WOODEN_LIQUID_STEIN).maxCount(16).recipeRemainder(Items.GLASS_BOTTLE)));
 
@@ -101,7 +101,7 @@ public class ModItems {
     public static final Item PIPE_WEED_SEEDS = registerItem("pipe_weed_seeds", new AliasedBlockItem(ModBlocks.PIPE_WEED_PLANT, new FabricItemSettings()));
     public static final Item PIPE_WEED = registerItem("pipe_weed", new Item(new FabricItemSettings()));
 
-    public static final Item PIPE = registerItem("pipe", new Item(new FabricItemSettings().maxCount(1)));
+    public static final Item PIPE = registerItem("pipe", new PipeItem(new FabricItemSettings().maxCount(1)));
     public static final Item PIPE_WEED_PIPE = registerItem("pipe_weed_pipe", new PipeItem(new FabricItemSettings().maxCount(1)));
 
     public static final Item BLUE_BERRY_JAM_TOAST = registerItem("blue_berry_jam_toast", new CompatItem(new FabricItemSettings().food(ModFoodComponents.JAM_TOAST),"aet"));
@@ -137,6 +137,7 @@ public class ModItems {
     public static final Item VHS_CASSETTE_7 = registerItem("vhs_cassette_7", new VHSCassetteItem(new FabricItemSettings().rarity(Rarity.RARE).maxCount(1)));
     public static final Item VHS_CASSETTE_8 = registerItem("vhs_cassette_8", new VHSCassetteItem(new FabricItemSettings().rarity(Rarity.RARE).maxCount(1)));
     public static final Item VHS_CASSETTE_9 = registerItem("vhs_cassette_9", new VHSCassetteItem(new FabricItemSettings().rarity(Rarity.RARE).maxCount(1)));
+    public static final Item VHS_CASSETTE_PROJECT_KV31 = registerItem("vhs_cassette_project_kv31", new VHSCassetteItem(new FabricItemSettings().rarity(Rarity.RARE).maxCount(1)));
     public static final Item VHS_CASSETTE_BROKEN = registerItem("vhs_cassette_broken", new VHSCassetteItem(new FabricItemSettings().rarity(Rarity.RARE).maxCount(1)));
 
     public static final Item GAME_CARTRIDGE = registerItem("game_cartridge", new GameCartridgeItem(new FabricItemSettings().rarity(Rarity.RARE).maxCount(1)));
@@ -147,6 +148,7 @@ public class ModItems {
     public static final Item FLASH_DRIVE = registerItem("flash_drive", new FlashDriveItem(new FabricItemSettings()));
     public static final Item KEYCARD = registerItem("keycard", new KeycardItem(new FabricItemSettings().maxCount(1)));
 
+    public static final Item ALUMINIUM_WIRE = registerItem("aluminium_wire", new Item(new FabricItemSettings()));
     public static final Item COPPER_WIRE = registerItem("copper_wire", new Item(new FabricItemSettings()));
     public static final Item GOLD_WIRE = registerItem("gold_wire", new Item(new FabricItemSettings()));
     public static final Item MITHRIL_WIRE = registerItem("mithril_wire", new Item(new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof()));
@@ -164,6 +166,7 @@ public class ModItems {
 
     public static final Item FRAGMENTED_FUTURISTIC_CIRCUIT_BOARD = registerItem("fragmented_futuristic_circuit_board", new FuturisticCircuitBoardItem(new FabricItemSettings().rarity(Rarity.RARE).fireproof()));
 
+    public static final Item INCOMPLETE_ALUMINIUM_WIRE = registerItem("incomplete_aluminium_wire", new SequencedAssemblyItem(new FabricItemSettings().maxCount(1)));
     public static final Item INCOMPLETE_COPPER_WIRE = registerItem("incomplete_copper_wire", new SequencedAssemblyItem(new FabricItemSettings().maxCount(1)));
     public static final Item INCOMPLETE_GOLD_WIRE = registerItem("incomplete_gold_wire", new SequencedAssemblyItem(new FabricItemSettings().maxCount(1)));
     public static final Item INCOMPLETE_MITHRIL_WIRE = registerItem("incomplete_mithril_wire", new SequencedAssemblyItem(new FabricItemSettings().maxCount(1).rarity(Rarity.UNCOMMON)));
@@ -373,9 +376,9 @@ public class ModItems {
     public static final Item MITHRIL_SICKLE = registerItem("mithril_sickle", new SickleItem(new FabricItemSettings().maxDamage(3077).rarity(Rarity.UNCOMMON).fireproof()));
     public static final Item MITHRIL_FORGING_HAMMER = registerItem("mithril_forging_hammer", new ForgingHammerItem(new FabricItemSettings().rarity(Rarity.UNCOMMON).maxDamage(50).fireproof()));
     public static final Item MITHRIL_STAR_CATCHER = registerItem("mithril_star_catcher", new StarCatcherItem(new FabricItemSettings().rarity(Rarity.UNCOMMON).maxDamage(30).fireproof()));
-    public static final Item SOUL_MIRROR = registerItem("soul_mirror", new Item(new FabricItemSettings().rarity(Rarity.RARE).maxCount(1)));
+    public static final Item SOUL_MIRROR = registerItem("soul_mirror", new SoulMirrorItem(new FabricItemSettings().rarity(Rarity.RARE).maxCount(1)));
     public static final Item MITHRIL_MIRROR = registerItem("mithril_mirror", new MithrilMirrorItem(new FabricItemSettings().rarity(Rarity.UNCOMMON).maxCount(1).fireproof()));
-    public static final Item FOGGY_MITHRIL_MIRROR = registerItem("foggy_mithril_mirror", new Item(new FabricItemSettings().rarity(Rarity.UNCOMMON).maxCount(1).fireproof()));
+    public static final Item FOGGY_MITHRIL_MIRROR = registerItem("foggy_mithril_mirror", new MithrilMirrorItem(new FabricItemSettings().rarity(Rarity.UNCOMMON).maxCount(1).fireproof()));
 
     public static final Item SILVERTHORN_ARROW = registerItem("silverthorn_arrow", new ArmorPiercingArrowItem(new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof()));
 
@@ -417,7 +420,7 @@ public class ModItems {
 
     public static final Item DAYBREAK_DOMAIN_FRAGMENTS = registerItem("daybreak_domain_fragments", new NyiItem(new FabricItemSettings().rarity(Rarity.EPIC).fireproof()));
     public static final Item SOMBER_BLOOD_ORBS = registerItem("somber_blood_orbs", new NyiItem(new FabricItemSettings().rarity(Rarity.EPIC).fireproof()));
-    public static final Item OTHERWORLDLY_WHISPERS = registerItem("otherworldly_whispers", new OtherworldlyWhispersItem(new FabricItemSettings().rarity(Rarity.EPIC).fireproof()));
+    public static final Item OTHERWORLDLY_WHISPERS = registerItem("otherworldly_whispers", new NyiItem(new FabricItemSettings().rarity(Rarity.EPIC).fireproof()));
 
     public static final Item DIVINE_PICKAXE = registerItem("divine_pickaxe", new ExtractionPickaxeItem(ModToolMaterial.DIVINE, 2, -2.8f, new FabricItemSettings().rarity(Rarity.EPIC).fireproof()));
     public static final Item CATACLYSMIC_PICKAXE = registerItem("cataclysmic_pickaxe", new ExtractionPickaxeItem(ModToolMaterial.CATACLYSMIC, 2, -2.8f, new FabricItemSettings().rarity(Rarity.EPIC).fireproof()));
@@ -454,6 +457,7 @@ public class ModItems {
     public static final Item DRINK_CAN = registerItem("drink_can", new Item(new FabricItemSettings().maxCount(16)));
     public static final Item SPEZI_CAN = registerItem("spezi_can", new DrinkableCan(new FabricItemSettings().food(ModFoodComponents.WOODEN_LIQUID_STEIN).maxCount(16).recipeRemainder(ModItems.DRINK_CAN)));
     public static final Item BEER_CAN = registerItem("beer_can", new DrinkableCan(new FabricItemSettings().food(ModFoodComponents.WOODEN_LIQUID_STEIN).maxCount(16).recipeRemainder(ModItems.DRINK_CAN)));
+    public static final Item BOTTOMLESS_BEER_CAN = registerItem("bottomless_beer_can", new DrinkableCan(new FabricItemSettings().food(ModFoodComponents.WOODEN_LIQUID_STEIN).rarity(Rarity.EPIC).maxCount(1).recipeRemainder(ModItems.BOTTOMLESS_BEER_CAN)));
 
     public static final Item BEER_BOTTLE = registerItem("beer_bottle", new DrinkableBottle(new FabricItemSettings().food(ModFoodComponents.WOODEN_LIQUID_STEIN).maxCount(16).recipeRemainder(Items.GLASS_BOTTLE)));
     public static final Item BEER_GOAT_HORN = registerItem("beer_goat_horn", new DrinkableHorn(new FabricItemSettings().food(ModFoodComponents.WOODEN_LIQUID_STEIN).maxCount(16).recipeRemainder(Items.GOAT_HORN)));
@@ -495,6 +499,8 @@ public class ModItems {
     public static final Item HEV_SUIT_BOOTS = registerItem("hev_suit_boots", new HEVArmorItem(ModArmorMaterial.HEV_SUIT, ArmorItem.Type.BOOTS, new FabricItemSettings().fireproof()));
 
     public static final Item EMF_READER = registerItem("emf_reader", new Item(new FabricItemSettings().maxCount(1)));
+
+    public static final Item IRRADIATED_ICON = registerItem("irradiated_icon", new Item(new FabricItemSettings()));
 
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registries.ITEM, new Identifier(TLOTD.MOD_ID, name), item);

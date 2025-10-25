@@ -9,7 +9,7 @@
       "tag": "c:iron_ingots"
     },
     "W": {
-      "item": "tlotd:copper_wire"
+      "tag": "tlotd:wires"
     }
   },
   "pattern": [

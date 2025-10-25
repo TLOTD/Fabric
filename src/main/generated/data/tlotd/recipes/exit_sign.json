@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "I": {
+      "item": "minecraft:iron_nugget"
+    },
+    "R": {
+      "item": "minecraft:redstone_lamp"
+    }
+  },
+  "pattern": [
+    "I I",
+    "IRI",
+    "III"
+  ],
+  "result": {
+    "item": "tlotd:exit_sign"
+  },
+  "show_notification": true
+}

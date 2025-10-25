@@ -20,7 +20,7 @@
       "item": "tlotd:advanced_circuit_board"
     },
     "M": {
-      "item": "tlotd:mithril_wire"
+      "tag": "tlotd:wires_3"
     },
     "I": {
       "item": "tlotd:mithril_ingot"

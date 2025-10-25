@@ -22,9 +22,9 @@ public class ModUseBlockCallback {
         UseBlockCallback.EVENT.register((player, world, hand, hitResult) -> {
             ItemStack item = player.getStackInHand(hand);
             if (player.getWorld().getRegistryKey().equals(LUNA_LEVEL_KEY)) {
-                if (item.getItem() == Items.FLINT_AND_STEEL || item.getItem() == Items.FIRE_CHARGE) {
+                if (item.isOf(Items.FLINT_AND_STEEL) || item.isOf(Items.FIRE_CHARGE)) {
                     return ActionResult.FAIL;
-                } else if (item.getItem() == Items.CAMPFIRE || item.getItem() == Items.SOUL_CAMPFIRE || item.getItem() == ModBlocks.SULFUR_CAMPFIRE.asItem()) {
+                } else if (item.isOf(Items.CAMPFIRE) || item.isOf(Items.SOUL_CAMPFIRE) || item.isOf(ModBlocks.SULFUR_CAMPFIRE.asItem())) {
                     BlockState state = ((BlockItem) item.getItem()).getBlock().getDefaultState()
                             .with(CampfireBlock.LIT, false)
                             .with(CampfireBlock.FACING, player.getHorizontalFacing().getOpposite());
@@ -36,24 +36,24 @@ public class ModUseBlockCallback {
                         item.decrement(1);
                     }
                     return ActionResult.SUCCESS;
-                } else if (item.getItem() == Items.TORCH || item.getItem() == Items.SOUL_TORCH || item.getItem() == ModItems.SULFUR_TORCH) {
+                } else if (item.isOf(Items.TORCH) || item.isOf(Items.SOUL_TORCH) || item.isOf(ModItems.SULFUR_TORCH)) {
                     BlockPos pos = hitResult.getBlockPos();
                     BlockState hitState = world.getBlockState(pos);
                     Direction facing = hitResult.getSide();
                     BlockState torchState;
                     if (hitState.isSideSolid(world, pos, facing,FULL) && (facing != Direction.DOWN)) {
                         torchState = ModBlocks.EXTINGUISHED_TORCH.getDefaultState();
-                        if (item.getItem() == Items.TORCH) {
+                        if (item.isOf(Items.TORCH)) {
                             if (facing.getAxis() != Direction.Axis.Y) {
                                 torchState = ModBlocks.EXTINGUISHED_WALL_TORCH.getDefaultState().with(FACING, facing);
                             }
-                        } else if (item.getItem() == Items.SOUL_TORCH) {
+                        } else if (item.isOf(Items.SOUL_TORCH)) {
                             if (facing.getAxis() != Direction.Axis.Y) {
                                 torchState = ModBlocks.EXTINGUISHED_SOUL_WALL_TORCH.getDefaultState().with(FACING, facing);
                             } else {
                                 torchState = ModBlocks.EXTINGUISHED_SOUL_TORCH.getDefaultState();
                             }
-                        } else if (item.getItem() == ModItems.SULFUR_TORCH) {
+                        } else if (item.isOf(ModItems.SULFUR_TORCH)) {
                             if (facing.getAxis() != Direction.Axis.Y) {
                                 torchState = ModBlocks.EXTINGUISHED_SULFUR_WALL_TORCH.getDefaultState().with(FACING, facing);
                             } else {

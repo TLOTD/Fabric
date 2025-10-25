@@ -6,13 +6,14 @@ import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
+import net.minecraft.registry.Registries;
 import net.minecraft.sound.SoundCategory;
+import net.minecraft.stat.Stats;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.DirectionProperty;
 import net.minecraft.state.property.IntProperty;
 import net.minecraft.state.property.Properties;
-import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.BlockRotation;
 import net.minecraft.util.Hand;
@@ -25,26 +26,28 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 import net.tlotd.block.ModBlocks;
-import net.tlotd.item.ModItems;
 import net.tlotd.sound.ModSounds;
 import net.tlotd.util.ModTags;
+import net.tlotd.util.VideoGameRegistry;
+
+import java.util.Optional;
 
 import static net.tlotd.block.custom.KeycardProgrammerBlock.ON;
 
 public class ComputerBlock extends Block {
 
-    public static final IntProperty SCREEN = IntProperty.of("screen", 0, 7);
-
+    public static final IntProperty SCREEN = IntProperty.of("screen", 0, 127);
+    public static final BooleanProperty MENU = BooleanProperty.of("menu");
     public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
-
-    public static final DirectionProperty FACING = FacingBlock.FACING;
+    public static final DirectionProperty FACING = HorizontalFacingBlock.FACING;
 
     @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {
         return this.getDefaultState()
                 .with(FACING, ctx.getHorizontalPlayerFacing())
                 .with(WATERLOGGED, ctx.getWorld().getFluidState(ctx.getBlockPos()).isOf(Fluids.WATER))
-                .with(SCREEN, 0);
+                .with(SCREEN, 0)
+                .with(MENU, false);
     }
 
     @Override
@@ -68,12 +71,12 @@ public class ComputerBlock extends Block {
 
     @Override
     public void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        builder.add(FACING, WATERLOGGED, SCREEN);
+        builder.add(FACING, WATERLOGGED, SCREEN, MENU);
     }
 
     public ComputerBlock(Settings settings) {
         super(settings);
-        this.setDefaultState(this.stateManager.getDefaultState().with(FACING, Direction.NORTH).with(WATERLOGGED, false).with(SCREEN, 0));
+        this.setDefaultState(this.stateManager.getDefaultState().with(FACING, Direction.NORTH).with(WATERLOGGED, false).with(SCREEN, 0).with(MENU, false));
     }
 
     public static final VoxelShape NORTH_SHAPE = VoxelShapes.union(
@@ -109,7 +112,7 @@ public class ComputerBlock extends Block {
         return ModBlocks.COMPUTER.asItem().getDefaultStack();
     }
 
-    private void TurnOffBlocks(World world, BlockPos pos) {
+    private static void TurnOffBlocks(World world, BlockPos pos) {
         if (world.getBlockState(pos.north()).isIn(ModTags.Blocks.COMPUTER_ACCESSORIES)) {
             world.setBlockState(pos.north(), world.getBlockState(pos.north()).with(ON, false));
         }
@@ -124,50 +127,55 @@ public class ComputerBlock extends Block {
         }
     }
 
+    public static BlockState handleComputerUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand) {
+        if (world.isClient) return state;
+        BlockState newState = state;
+        if (player.isSneaking()) {
+            if (state.isIn(ModTags.Blocks.COMPUTERS_OFF)) {
+                newState = ModBlocks.COMPUTER_ON.getStateWithProperties(state);
+                if (world.getBlockState(pos.north()).isIn(ModTags.Blocks.COMPUTER_ACCESSORIES)) {
+                    world.setBlockState(pos.north(), world.getBlockState(pos.north()).with(ON, true));
+                }
+                if (world.getBlockState(pos.east()).isIn(ModTags.Blocks.COMPUTER_ACCESSORIES)) {
+                    world.setBlockState(pos.east(), world.getBlockState(pos.east()).with(ON, true));
+                }
+                if (world.getBlockState(pos.south()).isIn(ModTags.Blocks.COMPUTER_ACCESSORIES)) {
+                    world.setBlockState(pos.south(), world.getBlockState(pos.south()).with(ON, true));
+                }
+                if (world.getBlockState(pos.west()).isIn(ModTags.Blocks.COMPUTER_ACCESSORIES)) {
+                    world.setBlockState(pos.west(), world.getBlockState(pos.west()).with(ON, true));
+                }
+            } else {
+                newState = ModBlocks.COMPUTER.getStateWithProperties(state).with(SCREEN, 0);
+                TurnOffBlocks(world, pos);
+            }
+            world.playSound(null, pos, ModSounds.BLOCK_COMPUTER_INTERACT, SoundCategory.BLOCKS, 1.0f, 1.0f);
+        } else if (state.isIn(ModTags.Blocks.COMPUTERS_ON)) {
+            ItemStack stack = player.getStackInHand(hand);
+            if (stack.isIn(ModTags.Items.GAME_CARTRIDGES)) {
+                if (!world.isClient) {
+                    BlockState computerState = world.getBlockState(pos);
+                    Optional<VideoGameRegistry.SignalEntry> match = VideoGameRegistry.findBySignal(Registries.ITEM.getId(stack.getItem()));
+                    if (match.isPresent()) {
+                        VideoGameRegistry.SignalEntry entry = match.get();
+                        newState = entry.computerBlock().getStateWithProperties(computerState)
+                                .with(SCREEN, entry.gameID());
+                    }
+                    player.incrementStat(Stats.USED.getOrCreateStat(stack.getItem()));
+                    world.playSound(null, pos, ModSounds.BLOCK_COMPUTER_INTERACT, SoundCategory.BLOCKS, 1.0f, 1.0f);
+                }
+            } else {
+                newState = state.cycle(MENU);
+            }
+        }
+        return newState;
+    }
+
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        if (player.isSneaking()) {
-            if (!world.isClient) {
-                if (state.getBlock().equals(ModBlocks.COMPUTER)) {
-                    world.setBlockState(pos, ModBlocks.COMPUTER_ON.getStateWithProperties(state));
-                    if (world.getBlockState(pos.north()).isIn(ModTags.Blocks.COMPUTER_ACCESSORIES)) {
-                        world.setBlockState(pos.north(), world.getBlockState(pos.north()).with(ON, true));
-                    }
-                    if (world.getBlockState(pos.east()).isIn(ModTags.Blocks.COMPUTER_ACCESSORIES)) {
-                        world.setBlockState(pos.east(), world.getBlockState(pos.east()).with(ON, true));
-                    }
-                    if (world.getBlockState(pos.south()).isIn(ModTags.Blocks.COMPUTER_ACCESSORIES)) {
-                        world.setBlockState(pos.south(), world.getBlockState(pos.south()).with(ON, true));
-                    }
-                    if (world.getBlockState(pos.west()).isIn(ModTags.Blocks.COMPUTER_ACCESSORIES)) {
-                        world.setBlockState(pos.west(), world.getBlockState(pos.west()).with(ON, true));
-                    }
-                } else {
-                    world.setBlockState(pos, ModBlocks.COMPUTER.getStateWithProperties(state).with(SCREEN, 0));
-                    TurnOffBlocks(world, pos);
-                }
-                world.playSound(null, pos, ModSounds.BLOCK_COMPUTER_INTERACT, SoundCategory.BLOCKS, 1.0f, 1.0f);
-            }
-            return ActionResult.SUCCESS;
-        } else if (state.getBlock().equals(ModBlocks.COMPUTER_ON)) {
-            if (!world.isClient) {
-                ItemStack stack = player.getStackInHand(hand);
-                int x = 0;
-                if (stack.isIn(ModTags.Items.GAME_CARTRIDGES)) {
-                    if(stack.isOf(ModItems.GAME_CARTRIDGE_1)) {x = 2;}
-                    else if(stack.isOf(ModItems.GAME_CARTRIDGE_2)) {x = 4;}
-                    else if(stack.isOf(ModItems.GAME_CARTRIDGE_3)) {x = 6;}
-                } else if (state.get(SCREEN) == 0 || state.get(SCREEN) == 2 || state.get(SCREEN) == 4 || state.get(SCREEN) == 6) {
-                    x = state.get(SCREEN) + 1;
-                } else {
-                    x = state.get(SCREEN) - 1;
-                }
-                world.setBlockState(pos, ModBlocks.COMPUTER_ON.getStateWithProperties(state).with(SCREEN, x));
-                world.playSound(null, pos, ModSounds.BLOCK_COMPUTER_INTERACT, SoundCategory.BLOCKS, 1.0f, 1.0f);
-            }
-            return ActionResult.SUCCESS;
-        }
-        return ActionResult.FAIL;
+        if (world.isClient) return ActionResult.SUCCESS;
+        world.setBlockState(pos, handleComputerUse(state, world, pos, player, hand));
+        return ActionResult.SUCCESS;
     }
 
     @Override

@@ -49,7 +49,7 @@ public class RadioBlock extends Block {
     public static final IntProperty WOOD_TYPE = IntProperty.of("wood_type", 1, 28);
     public static final BooleanProperty MODDED = BooleanProperty.of("modded");
     public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
-    public static final DirectionProperty FACING = FacingBlock.FACING;
+    public static final DirectionProperty FACING = HorizontalFacingBlock.FACING;
 
     private static final VoxelShape Z_SHAPE = Block.createCuboidShape(4.0, 0.0, 0.0, 12.0, 11.0, 16.0);
     private static final VoxelShape X_SHAPE = Block.createCuboidShape(0.0, 0.0, 4.0, 16.0, 11.0, 12.0);

@@ -153,6 +153,14 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.MEGAREGOLITH_BRICK_SLAB, slabDrops(ModBlocks.MEGAREGOLITH_BRICK_SLAB));
         addDrop(ModBlocks.MEGAREGOLITH_BRICK_WALL);
 
+        addDrop(ModBlocks.FRAGILE_LIGHT_SWITCH, drops(ModBlocks.LIGHT_SWITCH));
+        addDrop(ModBlocks.LIGHT_SWITCH);
+
+        addDrop(ModBlocks.ELEVATOR_DIAL);
+        addDrop(ModBlocks.EXIT_SIGN);
+
+        addDrop(ModBlocks.YELLOW_WALLPAPERED_WOOD);
+
         addDrop(ModBlocks.STEEL_BLOCK);
 
         addDrop(ModBlocks.NETHER_SULFUR_ORE, drops(ModBlocks.NETHER_SULFUR_ORE, ModItems.SULFUR));
@@ -236,10 +244,12 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.RADIO_ON, drops(ModBlocks.RADIO));
         addDrop(ModBlocks.TELEVISION);
         addDrop(ModBlocks.TELEVISION_ON, drops(ModBlocks.TELEVISION));
+        addDrop(ModBlocks.TELEVISION_GAME, drops(ModBlocks.TELEVISION));
         addDrop(ModBlocks.COMPUTER);
         addDrop(ModBlocks.COMPUTER_ON, drops(ModBlocks.COMPUTER));
         addDrop(ModBlocks.INTERDIMENSIONAL_RECEIVER);
         addDrop(ModBlocks.VIDEOCASSETTE_RECORDER);
+        addDrop(ModBlocks.GAME_CONSOLE);
         addDrop(ModBlocks.OXYGEN_COLLECTOR);
         addDrop(ModBlocks.INCUBATOR);
 
@@ -372,5 +382,8 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.RITUALISTIC_FANCY_CHARRED_PLANKS, drops(ModBlocks.FANCY_CHARRED_PLANKS));
 
         addDrop(ModBlocks.ARCHAEOLOGY_TABLE);
+
+        addDrop(ModBlocks.CURSED_WOOL);
+        addDrop(ModBlocks.CURSED_CARPET);
     }
 }

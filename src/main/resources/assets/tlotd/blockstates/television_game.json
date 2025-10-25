@@ -1,0 +1,18 @@
+{
+  "variants": {
+    "facing=south,channel=1":{"model":"tlotd:block/television_game_1"},
+    "facing=west,channel=1":{"model":"tlotd:block/television_game_1","y":90},
+    "facing=north,channel=1":{"model":"tlotd:block/television_game_1","y":180},
+    "facing=east,channel=1":{"model":"tlotd:block/television_game_1","y":270},
+
+    "facing=south,channel=2":{"model":"tlotd:block/television_game_2"},
+    "facing=west,channel=2":{"model":"tlotd:block/television_game_2","y":90},
+    "facing=north,channel=2":{"model":"tlotd:block/television_game_2","y":180},
+    "facing=east,channel=2":{"model":"tlotd:block/television_game_2","y":270},
+
+    "facing=south,channel=3":{"model":"tlotd:block/television_game_3"},
+    "facing=west,channel=3":{"model":"tlotd:block/television_game_3","y":90},
+    "facing=north,channel=3":{"model":"tlotd:block/television_game_3","y":180},
+    "facing=east,channel=3":{"model":"tlotd:block/television_game_3","y":270}
+  }
+}

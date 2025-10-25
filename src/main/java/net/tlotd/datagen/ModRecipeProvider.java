@@ -238,6 +238,13 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(ModItems.GINKGO_BARK), conditionsFromItem(ModItems.GINKGO_BARK))
                 .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.GINKGO_WOOD)));
 
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.YELLOW_WALLPAPERED_WOOD)
+                .input(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "stripped_woods")))
+                .input(ModItems.YELLOW_WALLPAPER)
+                .criterion(hasItem(Items.STRIPPED_OAK_WOOD), conditionsFromItem(Items.STRIPPED_OAK_WOOD))
+                .criterion(hasItem(ModItems.YELLOW_WALLPAPER), conditionsFromItem(ModItems.YELLOW_WALLPAPER))
+                .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.YELLOW_WALLPAPERED_WOOD)));
+
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.DRAGON_BANNER_PATTERN)
                 .input(Items.PAPER)
                 .input(Items.DRAGON_HEAD)
@@ -286,13 +293,6 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Items.OAK_PLANKS), conditionsFromItem(Items.OAK_PLANKS))
                 .criterion(hasItem(Items.STICK), conditionsFromItem(Items.STICK))
                 .offerTo(exporter, new Identifier(getRecipeName(ModItems.PIPE)));
-
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.PIPE_WEED_PIPE)
-                .input(ModItems.PIPE)
-                .input(ModItems.PIPE_WEED)
-                .criterion(hasItem(ModItems.PIPE), conditionsFromItem(ModItems.PIPE))
-                .criterion(hasItem(ModItems.PIPE_WEED), conditionsFromItem(ModItems.PIPE_WEED))
-                .offerTo(exporter, new Identifier(getRecipeName(ModItems.PIPE_WEED_PIPE)));
 
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.HEMP_COOKIE, 8)
                 .pattern("#C#")
@@ -455,10 +455,10 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.TLOTD_STICKER)));
 
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.FESTIVE_LIGHTS, 8)
-                .pattern("CCC")
+                .pattern("WWW")
                 .pattern("#R#")
                 .pattern("###")
-                .input('C', ModItems.COPPER_WIRE)
+                .input('W', ModTags.Items.WIRES)
                 .input('R', Items.REDSTONE_LAMP)
                 .input('#', TagKey.of(RegistryKeys.ITEM, new Identifier("c", "glass_blocks")))
                 .criterion(hasItem(ModItems.COPPER_WIRE), conditionsFromItem(ModItems.COPPER_WIRE))
@@ -554,7 +554,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .pattern("WB ")
                 .pattern("I  ")
                 .input('I', TagKey.of(RegistryKeys.ITEM, new Identifier("c", "iron_ingots")))
-                .input('W', ModItems.COPPER_WIRE)
+                .input('W', ModTags.Items.WIRES)
                 .input('C', ModItems.INTEGRATED_CIRCUIT)
                 .input('B', ModTags.Items.CIRCUIT_BOARDS)
                 .criterion(hasItem(Items.IRON_INGOT), conditionsFromItem(Items.IRON_INGOT))
@@ -739,10 +739,10 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .offerTo(exporter, new Identifier(getRecipeName(ModItems.VHS_CASSETTE)));
 
         ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModBlocks.INTERDIMENSIONAL_RECEIVER)
-                .pattern("M M")
+                .pattern("W W")
                 .pattern("IRI")
                 .pattern("TXT")
-                .input('M', ModItems.MITHRIL_WIRE)
+                .input('W', ModTags.Items.WIRES_3)
                 .input('I', TagKey.of(RegistryKeys.ITEM, new Identifier("c", "iron_ingots")))
                 .input('T', ModTags.Items.TRANSCENDENT_CIRCUIT_BOARDS)
                 .input('X', ModItems.XEN_CRYSTAL)
@@ -786,7 +786,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .pattern("CWC")
                 .pattern("CWC")
                 .input('C', TagKey.of(RegistryKeys.ITEM, new Identifier("c", "copper_ingots")))
-                .input('W', ModItems.COPPER_WIRE)
+                .input('W', ModTags.Items.WIRES)
                 .criterion(hasItem(Items.COPPER_INGOT), conditionsFromItem(Items.COPPER_INGOT))
                 .criterion(hasItem(ModItems.COPPER_WIRE), conditionsFromItem(ModItems.COPPER_WIRE))
                 .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.SIGNAL_TRANSMITTER_ANTENNA)));
@@ -1379,6 +1379,36 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Items.GLASS_PANE), conditionsFromItem(Items.GLASS_PANE))
                 .criterion(hasItem(ModItems.STEEL_ROD), conditionsFromItem(ModItems.STEEL_ROD))
                 .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.FRAMED_GLASS_PANE)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.LIGHT_SWITCH)
+                .pattern(" # ")
+                .pattern("#L#")
+                .pattern(" # ")
+                .input('L', Items.LEVER)
+                .input('#', Items.QUARTZ)
+                .criterion(hasItem(Items.LEVER), conditionsFromItem(Items.LEVER))
+                .criterion(hasItem(Items.QUARTZ), conditionsFromItem(Items.QUARTZ))
+                .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.LIGHT_SWITCH)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.ELEVATOR_DIAL)
+                .pattern(" G ")
+                .pattern("G#G")
+                .pattern("GGG")
+                .input('G', Items.GOLD_NUGGET)
+                .input('#', Items.GLASS_PANE)
+                .criterion(hasItem(Items.GOLD_NUGGET), conditionsFromItem(Items.GOLD_NUGGET))
+                .criterion(hasItem(Items.GLASS_PANE), conditionsFromItem(Items.GLASS_PANE))
+                .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.ELEVATOR_DIAL)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.EXIT_SIGN)
+                .pattern("I I")
+                .pattern("IRI")
+                .pattern("III")
+                .input('I', Items.IRON_NUGGET)
+                .input('R', Items.REDSTONE_LAMP)
+                .criterion(hasItem(Items.IRON_NUGGET), conditionsFromItem(Items.IRON_NUGGET))
+                .criterion(hasItem(Items.REDSTONE_LAMP), conditionsFromItem(Items.REDSTONE_LAMP))
+                .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.EXIT_SIGN)));
 
         offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.FANCY_OAK_PLANKS, Blocks.OAK_PLANKS);
         offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.FANCY_SPRUCE_PLANKS, Blocks.SPRUCE_PLANKS);
@@ -3241,13 +3271,6 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(ModItems.MITHRIL_INGOT), conditionsFromItem(ModItems.MITHRIL_INGOT))
                 .criterion(hasItem(Items.LEATHER), conditionsFromItem(Items.LEATHER))
                 .offerTo(exporter, new Identifier(getRecipeName(ModItems.MITHRIL_HORSE_ARMOR)));
-
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.MITHRIL_MIRROR)
-                .input(ModItems.FOGGY_MITHRIL_MIRROR)
-                .input(ModItems.SOUL_FLASK_OF_THE_ABYSS)
-                .criterion(hasItem(ModItems.FOGGY_MITHRIL_MIRROR), conditionsFromItem(ModItems.FOGGY_MITHRIL_MIRROR))
-                .criterion(hasItem(ModItems.SOUL_FLASK_OF_THE_ABYSS), conditionsFromItem(ModItems.SOUL_FLASK_OF_THE_ABYSS))
-                .offerTo(exporter, new Identifier("charge_" + getRecipeName(ModItems.MITHRIL_MIRROR)));
 
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.SILVERTHORN_ARROW,8)
                 .pattern("M")

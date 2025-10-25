@@ -20,13 +20,13 @@
       "item": "minecraft:green_dye"
     },
     "G": {
-      "item": "tlotd:gold_wire"
+      "tag": "tlotd:wires_2"
     },
     "I": {
       "tag": "c:iron_ingots"
     },
     "W": {
-      "item": "tlotd:copper_wire"
+      "tag": "tlotd:wires"
     }
   },
   "pattern": [

@@ -32,18 +32,30 @@ public class DrinkableCan extends Item {
         super(settings);
     }
 
+    @Override
+    public boolean hasGlint(ItemStack stack) {
+        return stack.isOf(ModItems.BOTTOMLESS_BEER_CAN);
+    }
+
     public ItemStack finishUsing(ItemStack stack, World world, LivingEntity user) {
-        if (stack.getItem() == ModItems.BEER_CAN) {
+        if (stack.isOf(ModItems.BEER_CAN) || stack.isOf(ModItems.BOTTOMLESS_BEER_CAN)) {
             user.addStatusEffect(new StatusEffectInstance(ModEffects.DRUNK, 200));
-        } else if (stack.getItem() == ModItems.SPEZI_CAN) {
+        } else if (stack.isOf(ModItems.SPEZI_CAN)) {
             user.addStatusEffect(new StatusEffectInstance(StatusEffects.SPEED, 200));
+        }
+        if (stack.isOf(ModItems.BOTTOMLESS_BEER_CAN)) {
+            super.finishUsing(stack, world, user);
+            if (user instanceof ServerPlayerEntity serverPlayerEntity) {
+                Criteria.CONSUME_ITEM.trigger(serverPlayerEntity, stack);
+                serverPlayerEntity.incrementStat(Stats.USED.getOrCreateStat(this));
+            }
+            return new ItemStack(ModItems.BOTTOMLESS_BEER_CAN);
         }
         super.finishUsing(stack, world, user);
         if (user instanceof ServerPlayerEntity serverPlayerEntity) {
             Criteria.CONSUME_ITEM.trigger(serverPlayerEntity, stack);
             serverPlayerEntity.incrementStat(Stats.USED.getOrCreateStat(this));
         }
-
         if (stack.isEmpty()) {
             return new ItemStack(ModItems.DRINK_CAN);
         } else {
@@ -54,7 +66,6 @@ public class DrinkableCan extends Item {
                     playerEntity.dropItem(itemStack, false);
                 }
             }
-
             return stack;
         }
     }
@@ -81,9 +92,13 @@ public class DrinkableCan extends Item {
 
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        if (stack.getItem() == ModItems.BEER_CAN) {
+        if (stack.isOf(ModItems.BOTTOMLESS_BEER_CAN)) {
+            tooltip.add(Text.translatable("item.tlotd.desc_divine").formatted(Formatting.YELLOW));
+            tooltip.add(Text.translatable("item.infinite").formatted(Formatting.GOLD));
+        }
+        if (stack.isOf(ModItems.BEER_CAN) || stack.isOf(ModItems.BOTTOMLESS_BEER_CAN)) {
             tooltip.add(Text.translatable("effect.tlotd.drunk").append(Text.literal(" (00:10)")).formatted(Formatting.RED));
-        } else if (stack.getItem() == ModItems.SPEZI_CAN) {
+        } else if (stack.isOf(ModItems.SPEZI_CAN)) {
             tooltip.add(Text.translatable("effect.minecraft.speed").append(Text.literal(" (00:10)")).formatted(Formatting.BLUE));
         }
         super.appendTooltip(stack, world, tooltip, context);

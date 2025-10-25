@@ -8,8 +8,6 @@ import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventories;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
-import net.minecraft.nbt.NbtElement;
-import net.minecraft.nbt.NbtList;
 import net.minecraft.network.PacketByteBuf;
 import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.ScreenHandler;
@@ -97,7 +95,7 @@ public class OxygenCollectorBlockEntity extends BlockEntity implements ExtendedS
     }
 
     private boolean oxygenChargable() {
-        return this.getStack(0).isIn(ModTags.Items.OXYGEN_CHARGABLE);
+        return this.getStack(0).isIn(ModTags.Items.OXYGEN_STORING);
     }
 
     private boolean canBeFilled() {
@@ -108,7 +106,7 @@ public class OxygenCollectorBlockEntity extends BlockEntity implements ExtendedS
         ItemStack stack = this.getStack(0);
         if (stack.isEmpty()) return;
         long current = AdAstraOxygenNbtHelper.getOxygen(stack);
-        long next = Math.min(current + (quality * 81L), AdAstraOxygenNbtHelper.MAX_AMOUNT);
+        long next = Math.min(current + (quality * 81L), AdAstraOxygenNbtHelper.getMaxOxygenForChestplate(stack));
         AdAstraOxygenNbtHelper.setOxygen(stack, next);
     }
 }

@@ -15,6 +15,6 @@ public class FrakturArmorItem extends ArmorItem {
 
     @Override
     public Text getName(ItemStack stack) {
-        return Text.translatable(this.getTranslationKey()).styled(style -> style.withFont(FRAKTUR_FONT_ID));
+        return super.getName(stack).copy().styled(style -> style.withFont(FRAKTUR_FONT_ID));
     }
 }

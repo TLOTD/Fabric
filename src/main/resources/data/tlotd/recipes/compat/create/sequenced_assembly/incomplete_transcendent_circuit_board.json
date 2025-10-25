@@ -86,7 +86,7 @@
           "item": "tlotd:incomplete_transcendent_circuit_board"
         },
         {
-          "item": "tlotd:mithril_wire"
+          "tag": "tlotd:wires_3"
         }
       ],
       "results": [

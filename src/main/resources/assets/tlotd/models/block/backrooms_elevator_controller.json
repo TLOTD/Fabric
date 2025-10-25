@@ -1,0 +1,11 @@
+{
+	"parent": "tlotd:block/template_elevator_controller",
+	"textures": {
+		"outside": "tlotd:block/backrooms/yellow_wallpapered_wall",
+		"inside": "minecraft:block/quartz_block_bottom",
+		"wood": "minecraft:block/dark_oak_planks",
+		"decor": "tlotd:block/elevator_decor",
+		"light": "minecraft:block/end_rod",
+		"particle": "tlotd:block/backrooms/yellow_wallpapered_wall"
+	}
+}

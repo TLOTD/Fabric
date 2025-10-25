@@ -102,6 +102,8 @@ public class ModBlockRenderLayerMap {
 
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.BLOOD_CAULDRON, RenderLayer.getCutout());
 
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.ELEVATOR_DIAL, RenderLayer.getCutout());
+
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.MINING_ELEVATOR_CONTROLLER, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.MINING_ELEVATOR_BASE, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.GLASS_ELEVATOR_CONTROLLER, RenderLayer.getCutout());

@@ -4,6 +4,12 @@
   "itemgroup.tlotd.blocks": "TLOTD Baublegge",
   "itemgroup.tlotd.compat": "TLOTD Kompatiblität",
 
+  "key.keyboard.shift": "Oschalt",
+  "text.tlotd.recipe.ponder": "Halt [%1$s] gedrickt fir Rezepte",
+  "text.tlotd.player_plushie.ponder": "Halt [%1$s] gedrickt fir a Lischtn",
+
+  "item.infinite": "Endlos",
+
   "mod.spore.calamity": "Ohail",
 
   "gui.tlotd.mithril_smithing": "Mithrilschmiede",
@@ -12,6 +18,12 @@
   "gui.tlotd.oxygen_collector": "Sauerstoffbetanker",
   "gui.tlotd.keycard_programmer": "Schlisslkartn Programmiern",
   "gui.tlotd.incubator": "Brutkaschtn",
+
+  "enchantment.tlotd.transdimensional": "Transdimensional",
+  "enchantment.tlotd.depth_of_the_abyss": "Tiefn des Abgrunds",
+  "enchantment.tlotd.shattering_reflection": "Fluch der zerbrechndn Reflektion",
+  "enchantment.tlotd.refill_charges": "Wiederherstellnd",
+  "enchantment.tlotd.resourceful_smoking": "Raffinierts Rauchn",
 
   "generic.tlotd.text.click_me": "[Hier Klickn]",
   "generic.tlotd.text.wiki_link": "um die Mod Wiki z effna.",
@@ -76,7 +88,7 @@
   "sounds.tlotd.block_television_switch_channel": "Fernsehkanal ändrd sich",
   "sounds.tlotd.block_television_static_channel": "Fernsehr schpielt schtatik",
   "sounds.tlotd.block_computer_interact": "Rechner wird gnutzt",
-  "sounds.tlotd.block_videocassette_recorder": "Videokassettaschpielr wird gnutzt",
+  "sounds.tlotd.block_videocassette_recorder": "Videokassettarekoda wird gnutzt",
   "sounds.tlotd.block_keycard_reader_pling": "Kartnleser wird gnutzt",
   "sounds.tlotd.block_garbage_can_used": "Mülloimr wird gnutzt",
 
@@ -123,7 +135,7 @@
   "advancements.tlotd.all_vhs_cassettes": "Habs uff Kassettn",
   "advancements.tlotd.all_vhs_cassettes.desc": "Erlange alle VHS-Kassettn",
   "advancements.tlotd.videocassette_recorder": "Uffgenommen",
-  "advancements.tlotd.videocassette_recorder.desc": "Gelange an n Videokassettaschpielr",
+  "advancements.tlotd.videocassette_recorder.desc": "Gelange an n Videokassettarekoda",
   "advancements.tlotd.advanced_circuitry": "Verbesserte Schaitung",
   "advancements.tlotd.advanced_circuitry.desc": "Gelange an a Verbesserte Platine",
   "advancements.tlotd.at_the_edge_of_technology": "Am Rande der Technologie",
@@ -221,6 +233,7 @@
   "item.tlotd.drink_can": "Getränkedosn",
   "item.tlotd.spezi_can": "Spezidosn",
   "item.tlotd.beer_can": "Pennergranate",
+  "item.tlotd.bottomless_beer_can": "Bodenlose Pennergranate",
 
   "item.tlotd.pipe_weed_seeds": "Pfeifnkrautsamn",
   "item.tlotd.pipe_weed": "Pfeifnkraut",
@@ -231,8 +244,8 @@
   "item.tlotd.blue_berry_jam_toast": "Blaubeermarmeladntoscht",
   "block.tlotd.droopfruit_jam_jar": "Schlafffruchtmarmeladenglas",
   "item.tlotd.droopfruit_jam_toast": "Schlafffruchtmarmeladentoscht",
-  "block.tlotd.ancient_soulberry_jam_jar": "Uralts Seelenbeermarmeladnglas",
-  "item.tlotd.ancient_soulberry_jam_toast": "Uralts Seelenbeermarmeladntoscht",
+  "block.tlotd.ancient_soulberry_jam_jar": "Uralts Seelabeermarmeladnglas",
+  "item.tlotd.ancient_soulberry_jam_toast": "Uralts Seelabeermarmeladntoscht",
 
   "item.tlotd.irradiated.tooltip": "☢ Vrschdrahld (00:03)",
   "item.tlotd.radiaton_proof_armor.chargable": "Aufladbar via:",
@@ -264,7 +277,7 @@
   "item.tlotd.soul_flask_of_the_abyss.tooltip_3": "blicksch, blickt dr",
   "item.tlotd.soul_flask_of_the_abyss.tooltip_4": "Abgrund au in di nei",
 
-  "item.patchouli.guide_book.tlotd.guiding_grimoire.ponder": "Umschalt um nachzudenken",
+  "item.patchouli.guide_book.tlotd.guiding_grimoire.ponder": "[%1$s] um nachzudenken",
   "item.patchouli.guide_book.tlotd.guiding_grimoire": "Grimoire der Führung",
   "item.patchouli.guide_book.tlotd.guiding_grimoire.desc": "von TLOTD & Isla_Nublar",
 
@@ -306,6 +319,8 @@
   "item.tlotd.vhs_cassette_8.desc": "Robert Zemeckis - Zrigg in die Zukunft",
   "item.tlotd.vhs_cassette_9": "VHS-Kassettn",
   "item.tlotd.vhs_cassette_9.desc": "John Carpenter - s' Ding aus ra andre Welt",
+  "item.tlotd.vhs_cassette_project_kv31": "VHS-Kassette",
+  "item.tlotd.vhs_cassette_project_kv31.desc": "Projekt KV31",
   "item.tlotd.vhs_cassette_broken": "VHS-Kassettn",
   "item.tlotd.vhs_cassette_broken.desc": "He",
 
@@ -322,6 +337,7 @@
   "item.tlotd.flash_drive.data": "Datn",
   "item.tlotd.flash_drive.coordinates": "block.pos [%1$s,%2$s,%3$s]",
 
+  "item.tlotd.aluminium_wire": "Aluminiumkabl",
   "item.tlotd.copper_wire": "Kupfrkabl",
   "item.tlotd.gold_wire": "Goldkabl",
   "item.tlotd.mithril_wire": "Mithrilkabl",
@@ -347,6 +363,7 @@
   "item.tlotd.keycard.no_password": "Koi Password gsetzt",
   "item.tlotd.keycard.has_password": "Password gsetzt",
 
+  "item.tlotd.incomplete_aluminium_wire": "Ovollendets Aluminiumkabl",
   "item.tlotd.incomplete_copper_wire": "Ovollendets Kupfrkabl",
   "item.tlotd.incomplete_gold_wire": "Ovollendets Goldkabl",
   "item.tlotd.incomplete_mithril_wire": "Ovollendets Mithrilkabl",
@@ -359,7 +376,7 @@
   "item.tlotd.incomplete_biological_circuit_board": "Ovollendete Biologische Platine",
   "item.tlotd.incomplete_radio": "Ovollendets Radio",
   "item.tlotd.incomplete_television": "Ovollendetr Fernseha",
-  "item.tlotd.incomplete_videocassette_recorder": "Ovollendetr Videokassettaschpielr",
+  "item.tlotd.incomplete_videocassette_recorder": "Ovollendetr Videokassettarekoda",
   "item.tlotd.incomplete_signal_transmitter": "Ovollendetr Signalgebr",
   "item.tlotd.incomplete_computer": "Ovollendetr Rechnr",
   "item.tlotd.incomplete_keycard_programmer": "Ovollendetr Kartnprogrammierer",
@@ -382,7 +399,7 @@
   "item.tlotd.orange_marmelade_bucket": "Orangemarmeladnoimr",
   "item.tlotd.blue_berry_jam_bucket": "Blaubeermarmeladnoimr",
   "item.tlotd.droopfruit_jam_bucket": "Schlafffruchtmarmeladnoimr",
-  "item.tlotd.ancient_soulberry_jam_bucket": "Uraltr Seelenbeermarmeladnoimr",
+  "item.tlotd.ancient_soulberry_jam_bucket": "Uraltr Seelabeermarmeladnoimr",
 
   "item.tlotd.copper_nugget": "Kupfrklumba",
 
@@ -615,7 +632,12 @@
   "item.tlotd.mithril_horse_armor": "Mithrilrossrüschtung",
   "item.tlotd.mithril_mirror": "Mithrilschpiegl",
   "item.tlotd.mithril_mirror.tooltip": "Bringt di Hoam.",
+  "item.tlotd.mithril_mirror.charges_requirement": "Braucht %1$s Ladunga fir a Transdimensionelle Reisn.",
+  "item.tlotd.mithril_mirror.transdimensional": "Dei Wiedreinschtiegspunkt isch vai in ra andera Dimension.",
+  "item.tlotd.mithril_mirror.cannot_escape": "Dr Schpiegel findet dai Dimensionsebene nedd.",
+  "item.tlotd.mithril_mirror.destination_unknown": "Dai Wiedreinschtiegspunkt isch nedd von diesr Welt.",
   "item.tlotd.foggy_mithril_mirror": "Vrschlairtr Mithrilschpiegl",
+  "item.tlotd.foggy_mithril_mirror.charge_item_missing": "Koi Seela des Abgrunds gfunda.",
   "item.tlotd.soul_mirror": "Selaschpiegl",
 
   "item.tlotd.narsil_handle": "Narsilgriff",
@@ -648,9 +670,9 @@
   "item.tlotd.astral_sickle": "Aschtralsichl",
   "item.tlotd.astral_forging_hammer": "Aschtralschmiedehammr",
 
-  "item.tlotd.daybreak_domain_fragments": "§6Dämmerungsreichfragmente",
-  "item.tlotd.somber_blood_orbs": "§cDüstere Blutkugeln",
-  "item.tlotd.otherworldly_whispers": "§4Stimmen aus dem Jenseits",
+  "item.tlotd.daybreak_domain_fragments": "Dämmerungsreichfragmente",
+  "item.tlotd.somber_blood_orbs": "Düstere Blutkugeln",
+  "item.tlotd.otherworldly_whispers": "Stimmen aus dem Jenseits",
 
   "item.tlotd.divine_pickaxe": "§6Göttliche Spitzhacke",
   "item.tlotd.cataclysmic_pickaxe": "§cKataklysmusspitzhacke",
@@ -725,8 +747,8 @@
   "block.tlotd.orange_marmelade_block": "Orangemarmelad",
   "block.tlotd.droopfruit_jam": "Schlafffruchtmarmelad",
   "block.tlotd.droopfruit_jam_block": "Schlafffruchtmarmelad",
-  "block.tlotd.ancient_soulberry_jam": "Uralte Seelenbeermarmelad",
-  "block.tlotd.ancient_soulberry_jam_block": "Uralte Seelenbeermarmelad",
+  "block.tlotd.ancient_soulberry_jam": "Uralte Seelabeermarmelad",
+  "block.tlotd.ancient_soulberry_jam_block": "Uralte Seelabeermarmelad",
 
   "block.tlotd.gravestone": "Grabschtoi",
   "block.tlotd.mossy_gravestone": "Bemoostr Grabschtoi",
@@ -762,8 +784,6 @@
   "block.tlotd.player_plushie": "Schpieler-Plischtier",
   "block.tlotd.player_plushie.tooltip": "Nimmt de Skin von oim von",
   "block.tlotd.player_plushie.tooltip_2": "de ausgwählde Spieler a",
-  "block.tlotd.player_plushie.tooltip_3": "Halt [",
-  "block.tlotd.player_plushie.tooltip_4": "] gedrickt fir a Lischtn",
   "block.tlotd.player_plushie.tooltip_shift": "Klappt fir:",
   "block.tlotd.player_plushie.tooltip_custom": "Odr jene Befehlsdefinierte",
 
@@ -784,8 +804,12 @@
   "block.tlotd.television_on": "Fernseha",
   "block.tlotd.television.tooltip": "Kanäle kennad erweidert wera mit:",
   "block.tlotd.television.tooltip_2": "Zusätzliche Funktionalität uff:",
-  "block.tlotd.videocassette_recorder": "Videokassettaschpielr",
+  "block.tlotd.videocassette_recorder": "Videokassettarekoda",
   "block.tlotd.videocassette_recorder.tooltip": "Ka blazierd werde in:",
+  "block.tlotd.videocassette_recorder_bookshelf": "Videokassettarekoda Regal",
+  "block.tlotd.game_console": "Schpielakonsola",
+  "block.tlotd.game_console_bookshelf": "Schpielakonsolaregal",
+  "block.tlotd.media_system_bookshelf": "Media-Syschtem Regal",
   "block.tlotd.computer": "Rechnr",
   "block.tlotd.computer_on": "Rechnr",
   "block.tlotd.powered_by_computer.tooltip": "Betreibbar durch:",
@@ -821,6 +845,7 @@
 
   "block.tlotd.hev_charger": "HEV Ladeschtation",
 
+  "block.tlotd.elevator_dial": "Aufzuganzeige",
   "block.tlotd.mining_elevator_controller": "Bergwergsuffzuagsschteierung",
   "block.tlotd.mining_elevator_base": "Bergwergsuffzuagsbasis",
   "block.tlotd.wooden_elevator_controller": "Holzuffzuagsschteierung",
@@ -926,6 +951,11 @@
   "block.tlotd.alien_brick_slab": "Aliazieglstufm",
   "block.tlotd.alien_brick_wall": "Aliazieglmaur",
 
+  "block.tlotd.yellow_wallpapered_wood": "Gelb Tapezierts Holz",
+  "block.tlotd.fragile_light_switch": "Lichtschaldr",
+  "block.tlotd.light_switch": "Lichtschaldr",
+  "block.tlotd.exit_sign": "Ausgangsschild",
+
   "block.tlotd.steel_block": "Stahlblogg",
 
   "block.tlotd.nether_sulfur_ore": "Netherschwefelerz",
@@ -995,9 +1025,6 @@
 
   "block.tlotd.mithril_anvil": "Mithrilamboss",
   "block.tlotd.mithril_bars": "Mithrilgittr",
-
-  "text.tlotd.recipe.tooltip": "Halt [",
-  "text.tlotd.recipe.tooltip_2": "] gedrickt fir Rezepte",
 
   "block.tlotd.mithril_anvil.tooltip": "Schmiedet undr:",
   "block.tlotd.mithril_anvil.tooltip_2": "Direktem Sternelicht",
@@ -1188,6 +1215,8 @@
   "item.tlotd.transwood_bark": "Wandlholzrinde",
   "item.tlotd.minewood_bark": "Bergwerksholzrinde",
   "item.tlotd.sortingwood_bark": "Sortierbaumrinde",
+
+  "item.tlotd.yellow_wallpaper": "Geale Tapetn",
 
   "item.tlotd.flour": "Mehl",
   "item.tlotd.breadcrumbs": "Brotkrumen",

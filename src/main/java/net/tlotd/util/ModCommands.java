@@ -35,7 +35,8 @@ public class ModCommands {
                                     .requires(source -> source.hasPermissionLevel(2))
                                     .executes(context -> {
                                         TelevisionSignalRegistry.debugDump();
-                                        context.getSource().sendFeedback(() -> Text.literal("Dumped TV signal registry to console."), false);
+                                        VideoGameRegistry.debugDump();
+                                        context.getSource().sendFeedback(() -> Text.literal("Dumped TV signal & Video Game registries to console."), false);
                                         return 1;
                                     })
                             )

@@ -1,6 +1,8 @@
 {
   "replace": false,
   "values": [
-    "tlotd:videocassette_recorder_bookshelf"
+    "tlotd:videocassette_recorder_bookshelf",
+    "tlotd:game_console_bookshelf",
+    "tlotd:media_system_bookshelf"
   ]
 }

@@ -20,7 +20,7 @@
       "item": "tlotd:circuit_board"
     },
     "G": {
-      "item": "tlotd:gold_wire"
+      "tag": "tlotd:wires_2"
     },
     "I": {
       "tag": "c:iron_ingots"

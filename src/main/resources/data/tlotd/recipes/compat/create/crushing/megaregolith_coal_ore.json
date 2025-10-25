@@ -1,0 +1,35 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "create"
+      ]
+    }
+  ],
+  "type": "create:crushing",
+  "ingredients": [
+    {
+      "item": "tlotd:megaregolith_coal_ore"
+    }
+  ],
+  "processingTime": 300,
+  "results": [
+    {
+      "count": 2,
+      "item": "minecraft:coal"
+    },
+    {
+      "chance": 0.25,
+      "item": "minecraft:coal"
+    },
+    {
+      "chance": 0.75,
+      "item": "create:experience_nugget"
+    },
+    {
+      "chance": 0.125,
+      "item": "tlotd:megaregolith"
+    }
+  ]
+}

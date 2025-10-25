@@ -134,7 +134,7 @@
           "item": "tlotd:incomplete_signal_transmitter"
         },
         {
-          "item": "tlotd:gold_wire"
+          "tag": "tlotd:wires_2"
         }
       ],
       "results": [

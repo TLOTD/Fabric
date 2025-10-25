@@ -4,6 +4,12 @@
   "itemgroup.tlotd.blocks": "TLOTD Baublöcke",
   "itemgroup.tlotd.compat": "TLOTD Kompatibilität",
 
+  "key.keyboard.shift": "Umschalt",
+  "text.tlotd.recipe.ponder": "Halte [%1$s] gedrückt für Rezepte",
+  "text.tlotd.player_plushie.ponder": "Halte [%1$s] gedrückt für eine Liste",
+
+  "item.infinite": "Endlos",
+
   "mod.spore.calamity": "Unheil",
 
   "info.tlotd.not_yet_implemented": "[Dieser Inhalt wurde noch nicht vollständig Hinzugefügt!]",
@@ -14,6 +20,12 @@
   "gui.tlotd.oxygen_collector": "Sauerstoffbetanker",
   "gui.tlotd.keycard_programmer": "Schlüsselkarte Programmieren",
   "gui.tlotd.incubator": "Brutkasten",
+
+  "enchantment.tlotd.transdimensional": "Transdimensional",
+  "enchantment.tlotd.depth_of_the_abyss": "Tiefen des Abgrundes",
+  "enchantment.tlotd.shattering_reflection": "Fluch der zerbrechenden Reflexion",
+  "enchantment.tlotd.refill_charges": "Wiederherstellend",
+  "enchantment.tlotd.resourceful_smoking": "Raffiniertes Rauchen",
 
   "generic.tlotd.text.click_me": "[Hier Klicken]",
   "generic.tlotd.text.wiki_link": "um die Mod Wiki zu öffnen.",
@@ -78,7 +90,7 @@
   "sounds.tlotd.block_television_switch_channel": "Fernsehkanal ändert sich",
   "sounds.tlotd.block_television_static_channel": "Fernseher spielt statik",
   "sounds.tlotd.block_computer_interact": "Rechner wird genutzt",
-  "sounds.tlotd.block_videocassette_recorder": "Videokassettenspieler wird genutzt",
+  "sounds.tlotd.block_videocassette_recorder": "Videokassettenrekorder wird genutzt",
   "sounds.tlotd.block_keycard_reader_pling": "Kartenleser wird genutzt",
   "sounds.tlotd.block_garbage_can_used": "Mülleimer wird genutzt",
 
@@ -125,7 +137,7 @@
   "advancements.tlotd.all_vhs_cassettes": "Habs auf Kassette",
   "advancements.tlotd.all_vhs_cassettes.desc": "Erlange alle VHS-Kassetten",
   "advancements.tlotd.videocassette_recorder": "Afgenommen",
-  "advancements.tlotd.videocassette_recorder.desc": "Gelange an einen Videokassettenspieler",
+  "advancements.tlotd.videocassette_recorder.desc": "Gelange an einen Videokassettenrekorder",
   "advancements.tlotd.advanced_circuitry": "Verbesserte Schaltung",
   "advancements.tlotd.advanced_circuitry.desc": "Gelange an eine Verbesserte Platine",
   "advancements.tlotd.at_the_edge_of_technology": "Am Rande der Technologie",
@@ -223,6 +235,7 @@
   "item.tlotd.drink_can": "Getränkedose",
   "item.tlotd.spezi_can": "Spezidose",
   "item.tlotd.beer_can": "Pennergranate",
+  "item.tlotd.bottomless_beer_can": "Bodenlose Pennergranate",
 
   "item.tlotd.pipe_weed_seeds": "Pfeifenkrautsamen",
   "item.tlotd.pipe_weed": "Pfeifenkraut",
@@ -266,7 +279,7 @@
   "item.tlotd.soul_flask_of_the_abyss.tooltip_3": "blickt der Abgrund",
   "item.tlotd.soul_flask_of_the_abyss.tooltip_4": "auch in dich hinein",
 
-  "item.patchouli.guide_book.tlotd.guiding_grimoire.ponder": "Umschalt um nachzudenken",
+  "item.patchouli.guide_book.tlotd.guiding_grimoire.ponder": "[%1$s] um nachzudenken",
   "item.patchouli.guide_book.tlotd.guiding_grimoire": "Grimoire der Führung",
   "item.patchouli.guide_book.tlotd.guiding_grimoire.desc": "von TLOTD & Isla_Nublar",
 
@@ -308,6 +321,8 @@
   "item.tlotd.vhs_cassette_8.desc": "Robert Zemeckis - Zurück in die Zukunft",
   "item.tlotd.vhs_cassette_9": "VHS-Kassette",
   "item.tlotd.vhs_cassette_9.desc": "John Carpenter - Das Ding aus einer anderen Welt",
+  "item.tlotd.vhs_cassette_project_kv31": "VHS-Kassette",
+  "item.tlotd.vhs_cassette_project_kv31.desc": "Projekt KV31",
   "item.tlotd.vhs_cassette_broken": "VHS-Kassette",
   "item.tlotd.vhs_cassette_broken.desc": "Kaputt",
 
@@ -324,6 +339,7 @@
   "item.tlotd.flash_drive.data": "Daten",
   "item.tlotd.flash_drive.coordinates": "block.pos [%1$s,%2$s,%3$s]",
 
+  "item.tlotd.aluminium_wire": "Aluminiumkabel",
   "item.tlotd.copper_wire": "Kupferkabel",
   "item.tlotd.gold_wire": "Goldkabel",
   "item.tlotd.mithril_wire": "Mithrilkabel",
@@ -349,6 +365,7 @@
   "item.tlotd.keycard.no_password": "Kein Password gesetzt",
   "item.tlotd.keycard.has_password": "Password gesetzt",
 
+  "item.tlotd.incomplete_aluminium_wire": "Unvollendetes Aluminiumkabel",
   "item.tlotd.incomplete_copper_wire": "Unvollendetes Kupferkabel",
   "item.tlotd.incomplete_gold_wire": "Unvollendetes Goldkabel",
   "item.tlotd.incomplete_mithril_wire": "Unvollendetes Mithrilkabel",
@@ -361,7 +378,7 @@
   "item.tlotd.incomplete_biological_circuit_board": "Unvollendete Biologische Platine",
   "item.tlotd.incomplete_radio": "Unvollendetes Radio",
   "item.tlotd.incomplete_television": "Unvollendeter Fernseher",
-  "item.tlotd.incomplete_videocassette_recorder": "Unvollendeter Videokassettenspieler",
+  "item.tlotd.incomplete_videocassette_recorder": "Unvollendeter Videokassettenrekorder",
   "item.tlotd.incomplete_signal_transmitter": "Unvollendeter Signalgeber",
   "item.tlotd.incomplete_computer": "Unvollendeter Rechner",
   "item.tlotd.incomplete_keycard_programmer": "Unvollendeter Kartenprogrammierer",
@@ -617,7 +634,12 @@
   "item.tlotd.mithril_horse_armor": "Mithril Rossharnisch",
   "item.tlotd.mithril_mirror": "Mithrilspiegel",
   "item.tlotd.mithril_mirror.tooltip": "Bringt dich nach Hause.",
+  "item.tlotd.mithril_mirror.charges_requirement": "Benötigt %1$s Ladungen für eine Transdimensionelle Reise.",
+  "item.tlotd.mithril_mirror.transdimensional": "Dein Wiedereinstiegspunkt ist in einer anderen Dimension.",
+  "item.tlotd.mithril_mirror.cannot_escape": "Der Spiegel findet deine Dimensionsebene nicht.",
+  "item.tlotd.mithril_mirror.destination_unknown": "Dein Wiedereinstiegspunkt ist nicht von dieser Welt.",
   "item.tlotd.foggy_mithril_mirror": "Verschleierter Mithrilspiegel",
+  "item.tlotd.foggy_mithril_mirror.charge_item_missing": "Keine Seele des Abgrunds gefunden.",
   "item.tlotd.soul_mirror": "Selenspiegel",
 
   "item.tlotd.narsil_handle": "Narsilgriff",
@@ -650,9 +672,9 @@
   "item.tlotd.astral_sickle": "Astralsichel",
   "item.tlotd.astral_forging_hammer": "Astralschmiedehammer",
 
-  "item.tlotd.daybreak_domain_fragments": "§6Dämmerungsreichfragmente",
-  "item.tlotd.somber_blood_orbs": "§cDüstere Blutkugeln",
-  "item.tlotd.otherworldly_whispers": "§4Stimmen aus dem Jenseits",
+  "item.tlotd.daybreak_domain_fragments": "Dämmerungsreichfragmente",
+  "item.tlotd.somber_blood_orbs": "Düstere Blutkugeln",
+  "item.tlotd.otherworldly_whispers": "Stimmen aus dem Jenseits",
 
   "item.tlotd.divine_pickaxe": "§6Göttliche Spitzhacke",
   "item.tlotd.cataclysmic_pickaxe": "§cKataklysmusspitzhacke",
@@ -764,8 +786,6 @@
   "block.tlotd.player_plushie": "Spieler-Plüschfigur",
   "block.tlotd.player_plushie.tooltip": "Nimmt den Skin von einem",
   "block.tlotd.player_plushie.tooltip_2": "der auserwählten Spieler an",
-  "block.tlotd.player_plushie.tooltip_3": "Halte [",
-  "block.tlotd.player_plushie.tooltip_4": "] gedrückt für eine Liste",
   "block.tlotd.player_plushie.tooltip_shift": "Klappt für:",
   "block.tlotd.player_plushie.tooltip_custom": "Oder jene Befehlsdefinierte",
 
@@ -786,8 +806,12 @@
   "block.tlotd.television_on": "Fernseher",
   "block.tlotd.television.tooltip": "Kanäle können erweitert werden mit:",
   "block.tlotd.television.tooltip_2": "Zusätzliche Funktionalität auf:",
-  "block.tlotd.videocassette_recorder": "Videokassettenspieler",
+  "block.tlotd.videocassette_recorder": "Videokassettenrekorder",
   "block.tlotd.videocassette_recorder.tooltip": "Kann plaziert werden in:",
+  "block.tlotd.videocassette_recorder_bookshelf": "Videokassettenrekorder Regal",
+  "block.tlotd.game_console": "Spielkonsole",
+  "block.tlotd.game_console_bookshelf": "Spielkonsolenregal",
+  "block.tlotd.media_system_bookshelf": "Medien-System Regal",
   "block.tlotd.computer": "Rechner",
   "block.tlotd.computer_on": "Rechner",
   "block.tlotd.powered_by_computer.tooltip": "Betreibbar durch:",
@@ -823,6 +847,7 @@
 
   "block.tlotd.hev_charger": "HEV Ladestation",
 
+  "block.tlotd.elevator_dial": "Aufzuganzeige",
   "block.tlotd.mining_elevator_controller": "Bergwerksaufzugssteuerung",
   "block.tlotd.mining_elevator_base": "Bergwerksaufzugsbasis",
   "block.tlotd.wooden_elevator_controller": "Holzaufzugssteuerung",
@@ -928,6 +953,11 @@
   "block.tlotd.alien_brick_slab": "Alienziegelstufe",
   "block.tlotd.alien_brick_wall": "Alienziegelmauer",
 
+  "block.tlotd.yellow_wallpapered_wood": "Gelb Tapeziertes Holz",
+  "block.tlotd.fragile_light_switch": "Lichtschalter",
+  "block.tlotd.light_switch": "Lichtschalter",
+  "block.tlotd.exit_sign": "Ausgangsschild",
+
   "block.tlotd.steel_block": "Stahlblock",
 
   "block.tlotd.nether_sulfur_ore": "Netherschwefelerz",
@@ -997,9 +1027,6 @@
 
   "block.tlotd.mithril_anvil": "Mithrilamboss",
   "block.tlotd.mithril_bars": "Mithrilgitter",
-
-  "text.tlotd.recipe.tooltip": "Halte [",
-  "text.tlotd.recipe.tooltip_2": "] gedrückt für Rezepte",
 
   "block.tlotd.mithril_anvil.tooltip": "Schmiedet unter:",
   "block.tlotd.mithril_anvil.tooltip_2": "Direktem Sternenlicht",
@@ -1190,6 +1217,8 @@
   "item.tlotd.transwood_bark": "Wandelholzrinde",
   "item.tlotd.minewood_bark": "Bergwerksholzrinde",
   "item.tlotd.sortingwood_bark": "Sortierbaumrinde",
+
+  "item.tlotd.yellow_wallpaper": "Gelbe Tapete",
 
   "item.tlotd.flour": "Mehl",
   "item.tlotd.breadcrumbs": "Brotkrumen",

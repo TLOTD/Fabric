@@ -129,6 +129,6 @@ public class PrehistoricChunkGenerator extends ChunkGenerator {
 
     @Override
     public void getDebugHudText(List<String> text, NoiseConfig config, BlockPos pos) {
-        text.add("PrehistoricChunkGenerator: prehistoric terrain");
+        text.add("TLOTD Biome Builder: PrehistoricChunkGenerator: Prehistoric Terrain");
     }
 }

@@ -31,6 +31,13 @@ public class ModDimensions {
     public static final RegistryKey<DimensionType> LUNA_TYPE = RegistryKey.of(RegistryKeys.DIMENSION_TYPE,
             new Identifier(TLOTD.MOD_ID, "luna"));
 
+    public static final RegistryKey<DimensionOptions> BACKROOMS_KEY = RegistryKey.of(RegistryKeys.DIMENSION,
+            new Identifier(TLOTD.MOD_ID, "backrooms"));
+    public static final RegistryKey<World> BACKROOMS_LEVEL_KEY = RegistryKey.of(RegistryKeys.WORLD,
+            new Identifier(TLOTD.MOD_ID, "backrooms"));
+    public static final RegistryKey<DimensionType> BACKROOMS_TYPE = RegistryKey.of(RegistryKeys.DIMENSION_TYPE,
+            new Identifier(TLOTD.MOD_ID, "backrooms"));
+
     public static void bootstrapType(Registerable<DimensionType> context) {
         context.register(PREHISTORIC_TYPE, new DimensionType(
                 OptionalLong.of(12000), // fixedTime
@@ -50,20 +57,37 @@ public class ModDimensions {
                 new DimensionType.MonsterSettings(false, false, UniformIntProvider.create(0, 0), 0)));
 
         context.register(LUNA_TYPE, new DimensionType(
-                OptionalLong.of(0), // fixedTime
-                true, // hasSkylight
-                false, // hasCeiling
-                false, // ultraWarm
-                false, // natural
-                1.0, // coordinateScale
-                false, // bedWorks
-                true, // respawnAnchorWorks
-                -128, // minY
-                448, // height
-                320, // logicalHeight
-                ModTags.Blocks.INFINIBURN_LUNA, // infiniburn
-                DimensionTypes.THE_END_ID, // effectsLocation
-                0f, // ambientLight
+                OptionalLong.of(0),
+                true,
+                false,
+                false,
+                false,
+                1.0,
+                false,
+                true,
+                -128,
+                448,
+                320,
+                ModTags.Blocks.INFINIBURN_LUNA,
+                DimensionTypes.THE_END_ID,
+                0f,
+                new DimensionType.MonsterSettings(false, false, UniformIntProvider.create(0, 0), 0)));
+
+        context.register(BACKROOMS_TYPE, new DimensionType(
+                OptionalLong.of(0),
+                true,
+                false,
+                false,
+                false,
+                1.0,
+                false,
+                false,
+                -128,
+                448,
+                320,
+                ModTags.Blocks.INFINIBURN_BACKROOMS,
+                DimensionTypes.THE_END_ID,
+                0f,
                 new DimensionType.MonsterSettings(false, false, UniformIntProvider.create(0, 0), 0)));
     }
 
@@ -73,17 +97,22 @@ public class ModDimensions {
 
         RegistryEntry<DimensionType> prehistoricDimensionType = dimensionTypes.getOrThrow(PREHISTORIC_TYPE);
         RegistryEntry<DimensionType> lunaDimensionType = dimensionTypes.getOrThrow(LUNA_TYPE);
+        RegistryEntry<DimensionType> backroomsDimensionType = dimensionTypes.getOrThrow(BACKROOMS_TYPE);
 
         RegistryEntry<Biome> prehistoricJungle = biomes.getOrThrow(ModBiomes.PREHISTORIC_JUNGLE);
         RegistryEntry<Biome> lunarHighlands = biomes.getOrThrow(ModBiomes.LUNAR_HIGHLANDS);
+        RegistryEntry<Biome> level1 = biomes.getOrThrow(ModBiomes.LEVEL_1);
 
         FixedBiomeSource prehistoricSource = new FixedBiomeSource(prehistoricJungle);
         FixedBiomeSource lunarSource = new FixedBiomeSource(lunarHighlands);
+        FixedBiomeSource backroomsSource = new FixedBiomeSource(level1);
 
         PrehistoricChunkGenerator prehistoricGenerator = new PrehistoricChunkGenerator(prehistoricSource);
         LunarChunkGenerator lunarGenerator = new LunarChunkGenerator(lunarSource);
+        BackroomsChunkGenerator backroomsGenerator = new BackroomsChunkGenerator(backroomsSource);
 
         context.register(PREHISTORIC_KEY, new DimensionOptions(prehistoricDimensionType, prehistoricGenerator));
         context.register(LUNA_KEY, new DimensionOptions(lunaDimensionType, lunarGenerator));
+        context.register(BACKROOMS_KEY, new DimensionOptions(backroomsDimensionType, backroomsGenerator));
     }
 }

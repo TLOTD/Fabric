@@ -19,7 +19,6 @@ import net.minecraft.world.WorldAccess;
 public class ApparatusBlock extends Block {
 
     public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
-
     public static final DirectionProperty FACING = FacingBlock.FACING;
 
     @Override

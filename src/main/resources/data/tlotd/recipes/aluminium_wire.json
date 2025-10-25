@@ -1,0 +1,36 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:not",
+      "value": {
+        "condition": "fabric:all_mods_loaded",
+        "values": [
+          "create"
+        ]
+      }
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "tag": "c:aluminium_ingots"
+    },
+    "I": {
+      "tag": "c:wooden_rods"
+    },
+    "_": {
+      "tag": "minecraft:wooden_pressure_plates"
+    }
+  },
+  "pattern": [
+    " _ ",
+    "AIA",
+    " _ "
+  ],
+  "result": {
+    "count": 4,
+    "item": "tlotd:aluminium_wire"
+  },
+  "show_notification": true
+}

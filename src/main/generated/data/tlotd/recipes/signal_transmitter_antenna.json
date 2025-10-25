@@ -6,7 +6,7 @@
       "tag": "c:copper_ingots"
     },
     "W": {
-      "item": "tlotd:copper_wire"
+      "tag": "tlotd:wires"
     }
   },
   "pattern": [

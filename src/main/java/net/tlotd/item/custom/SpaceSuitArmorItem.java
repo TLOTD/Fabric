@@ -88,6 +88,6 @@ public class SpaceSuitArmorItem extends ArmorItem {
 
     @Override
     public int getItemBarColor(ItemStack stack) {
-        return 0x9fc5e8;
+        return 0xDAE6F0;
     }
 }

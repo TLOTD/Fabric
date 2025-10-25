@@ -6,9 +6,11 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.util.Hand;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.tlotd.util.VideoGameRegistry;
 
 import java.util.Collection;
 import java.util.Optional;
@@ -19,6 +21,8 @@ public class TlotdAPI {
 
     public record TelevisionSignal(Identifier signalItem, Block offBlock, Block onBlock, int channel) {}
 
+    public record VideoGame(Identifier signalItem, Block tvBlock, Block computerBlock, int gameID) {}
+
     //Textures
     public static int getCustomTexture(MinecraftServer server, UUID player) {
         return net.tlotd.world.CustomTextureManager.get(server).getTexture(player);
@@ -26,8 +30,6 @@ public class TlotdAPI {
     public static boolean hasCustomTexture(MinecraftServer server, UUID player) {
         return net.tlotd.world.CustomTextureManager.get(server).hasTexture(player);
     }
-
-
 
     //TV Signal List
     public static BlockState handleTelevisionUse(BlockState state, World world, BlockPos pos, PlayerEntity player) {
@@ -54,7 +56,31 @@ public class TlotdAPI {
         net.tlotd.util.TelevisionSignalRegistry.registerBatch(itemIds, offBlock, onBlock, startingChannel);
     }
 
+    //Video Game Registry
+    public static BlockState handleComputerUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand) {
+        return net.tlotd.block.custom.ComputerBlock.handleComputerUse(state, world, pos, player, hand);
+    }
 
+    public static Collection<VideoGame> getAllVideoGames() {
+        return net.tlotd.util.VideoGameRegistry.getAll().stream()
+                .map(e -> new VideoGame(e.signalItem(), e.tvBlock(), e.computerBlock(), e.gameID()))
+                .toList();
+    }
+    public static Optional<VideoGame> findVideoGame(Identifier signalId) {
+        return net.tlotd.util.VideoGameRegistry.findBySignal(signalId)
+                .map(e -> new VideoGame(e.signalItem(), e.tvBlock(), e.computerBlock(), e.gameID()));
+    }
+    public static void registerVideoGame(VideoGame entry) {
+        net.tlotd.util.VideoGameRegistry.register(new net.tlotd.util.VideoGameRegistry.SignalEntry(
+                entry.signalItem(),
+                entry.tvBlock(),
+                entry.computerBlock(),
+                entry.gameID()
+        ));
+    }
+    public static void registerVideoGameBatch(Identifier[] itemIds, Block offBlock, Block onBlock, int startingGameID) {
+        net.tlotd.util.VideoGameRegistry.registerBatch(itemIds, offBlock, onBlock, startingGameID);
+    }
 
     //Signals
     public static boolean hasAnySignals(ServerWorld world) {

@@ -48,6 +48,11 @@
     "facing=south,channel=9":{"model":"tlotd:block/television_channel_9"},
     "facing=west,channel=9":{"model":"tlotd:block/television_channel_9","y":90},
     "facing=north,channel=9":{"model":"tlotd:block/television_channel_9","y":180},
-    "facing=east,channel=9":{"model":"tlotd:block/television_channel_9","y":270}
+    "facing=east,channel=9":{"model":"tlotd:block/television_channel_9","y":270},
+
+    "facing=south,channel=31":{"model":"tlotd:block/television_channel_project_kv_31"},
+    "facing=west,channel=31":{"model":"tlotd:block/television_channel_project_kv_31","y":90},
+    "facing=north,channel=31":{"model":"tlotd:block/television_channel_project_kv_31","y":180},
+    "facing=east,channel=31":{"model":"tlotd:block/television_channel_project_kv_31","y":270}
   }
 }

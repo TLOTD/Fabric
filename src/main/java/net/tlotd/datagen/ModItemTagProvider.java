@@ -191,6 +191,8 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModItems.TRANSWOOD_BARK)
                 .add(ModItems.MINEWOOD_BARK)
                 .add(ModItems.SORTINGWOOD_BARK)
+
+                .add(ModItems.YELLOW_WALLPAPER)
         ;
 
         getOrCreateTagBuilder(ItemTags.LOGS_THAT_BURN)
@@ -506,6 +508,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModItems.VHS_CASSETTE_7)
                 .add(ModItems.VHS_CASSETTE_8)
                 .add(ModItems.VHS_CASSETTE_9)
+                .add(ModItems.VHS_CASSETTE_PROJECT_KV31)
                 .add(ModItems.VHS_CASSETTE_BROKEN)
         ;
 
@@ -542,14 +545,31 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .addOptional(Identifier.tryParse("mekanism:hazmat_boots"))
         ;
 
-        getOrCreateTagBuilder(ModTags.Items.OXYGEN_CHARGABLE)
+        getOrCreateTagBuilder(ModTags.Items.OXYGEN_STORING)
+                .addTag(ModTags.Items.OXYGEN_STORING_1K)
+                .addTag(ModTags.Items.OXYGEN_STORING_2K)
+                .addTag(ModTags.Items.OXYGEN_STORING_4K)
+        ;
+
+        getOrCreateTagBuilder(ModTags.Items.OXYGEN_STORING_1K)
                 .add(ModItems.OXYGEN_TANK)
                 .add(ModItems.SPACE_SUIT_CHESTPLATE)
                 .addOptional(Identifier.tryParse("ad_astra:space_suit"))
+        ;
+
+        getOrCreateTagBuilder(ModTags.Items.OXYGEN_STORING_2K)
                 .addOptional(Identifier.tryParse("ad_astra:netherite_space_suit"))
         ;
 
+        getOrCreateTagBuilder(ModTags.Items.OXYGEN_STORING_4K)
+                .addOptional(Identifier.tryParse("ad_astra:jet_suit"))
+        ;
+
         getOrCreateTagBuilder(ModTags.Items.HYPOXIA_PROTECTION)
+                .add(ModItems.ASTRONAUT_HELMET)
+                .add(ModItems.SPACE_SUIT_CHESTPLATE)
+                .add(ModItems.SPACE_SUIT_LEGGINGS)
+                .add(ModItems.SPACE_SUIT_BOOTS)
                 .addOptionalTag(Identifier.tryParse("ad_astra:space_suit_items"))
         ;
 
@@ -561,6 +581,21 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
         getOrCreateTagBuilder(ModTags.Items.CINNABAR_OR_NEBULAR)
                 .add(ModItems.CINNABAR_CRYSTAL)
                 .add(ModItems.NEBULAR_CRYSTAL)
+        ;
+
+        getOrCreateTagBuilder(ModTags.Items.WIRES)
+                .add(ModItems.ALUMINIUM_WIRE)
+                .add(ModItems.COPPER_WIRE)
+                .addTag(ModTags.Items.WIRES_2)
+        ;
+
+        getOrCreateTagBuilder(ModTags.Items.WIRES_2)
+                .add(ModItems.GOLD_WIRE)
+                .addTag(ModTags.Items.WIRES_3)
+        ;
+
+        getOrCreateTagBuilder(ModTags.Items.WIRES_3)
+                .add(ModItems.MITHRIL_WIRE)
         ;
 
         getOrCreateTagBuilder(ModTags.Items.CIRCUIT_BOARDS)
@@ -592,6 +627,20 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModBlocks.INFECTED_TREX_HEAD.asItem())
                 .add(ModBlocks.SCULK_TREX_HEAD.asItem())
                 .add(ModBlocks.SICKENED_TREX_HEAD.asItem())
+        ;
+
+        getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "stripped_woods")))
+                .add(Items.STRIPPED_OAK_WOOD)
+                .add(Items.STRIPPED_SPRUCE_WOOD)
+                .add(Items.STRIPPED_BIRCH_WOOD)
+                .add(Items.STRIPPED_JUNGLE_WOOD)
+                .add(Items.STRIPPED_ACACIA_WOOD)
+                .add(Items.STRIPPED_DARK_OAK_WOOD)
+                .add(Items.STRIPPED_MANGROVE_WOOD)
+                .add(Items.STRIPPED_CHERRY_WOOD)
+                .add(Items.STRIPPED_CRIMSON_HYPHAE)
+                .add(Items.STRIPPED_WARPED_HYPHAE)
+                .add(ModBlocks.STRIPPED_GINKGO_WOOD.asItem())
         ;
 
         getOrCreateTagBuilder(ModTags.Items.SICKLES)
@@ -698,12 +747,32 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(Items.SMOOTH_QUARTZ)
         ;
 
+        getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "colorless_glass")))
+                .add(Items.GLASS)
+        ;
+
         getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "colorless_glass_panes")))
                 .add(Items.GLASS_PANE)
         ;
 
-        getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "colorless_glass")))
-                .add(Items.GLASS)
+        getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "framed_colorless_glass")))
+                .add(ModBlocks.FRAMED_GLASS.asItem())
+                .add(ModBlocks.FRAMED_GLASS_BOTTOM.asItem())
+                .add(ModBlocks.FRAMED_GLASS_MIDDLE.asItem())
+                .add(ModBlocks.FRAMED_GLASS_TOP.asItem())
+                .add(ModBlocks.FRAMED_GLASS_ROUND.asItem())
+                .add(ModBlocks.FRAMED_GLASS_SPLIT.asItem())
+                .add(ModBlocks.FRAMED_GLASS_TILED.asItem())
+        ;
+
+        getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "framed_colorless_glass_panes")))
+                .add(ModBlocks.FRAMED_GLASS_PANE.asItem())
+                .add(ModBlocks.FRAMED_GLASS_BOTTOM_PANE.asItem())
+                .add(ModBlocks.FRAMED_GLASS_MIDDLE_PANE.asItem())
+                .add(ModBlocks.FRAMED_GLASS_TOP_PANE.asItem())
+                .add(ModBlocks.FRAMED_GLASS_ROUND_PANE.asItem())
+                .add(ModBlocks.FRAMED_GLASS_SPLIT_PANE.asItem())
+                .add(ModBlocks.FRAMED_GLASS_TILED_PANE.asItem())
         ;
 
         getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "bones")))
@@ -830,6 +899,12 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
         getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "raw_aluminum_blocks"))).add(ModBlocks.RAW_ALUMINIUM_BLOCK.asItem());
         getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "aluminium_blocks"))).addOptionalTag(Identifier.tryParse("c:aluminum_blocks"));
         getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "aluminum_blocks"))).add(ModBlocks.ALUMINIUM_BLOCK.asItem());
+        getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "aluminium_ores"))).addOptionalTag(Identifier.tryParse("c:aluminum_ores"));
+        getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "aluminum_ores")))
+                .add(ModBlocks.ALUMINIUM_ORE.asItem())
+                .add(ModBlocks.DEEPSLATE_ALUMINIUM_ORE.asItem())
+                .add(ModBlocks.RED_DEEPSLATE_ALUMINIUM_ORE.asItem())
+        ;
 
         getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "lead_raw_materials")))
                 .add(ModItems.RAW_LEAD)
@@ -849,12 +924,6 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
 
         getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "lead_blocks")))
                 .add(ModBlocks.LEAD_BLOCK.asItem())
-        ;
-
-        getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "aluminium_ores")))
-                .add(ModBlocks.ALUMINIUM_ORE.asItem())
-                .add(ModBlocks.DEEPSLATE_ALUMINIUM_ORE.asItem())
-                .add(ModBlocks.RED_DEEPSLATE_ALUMINIUM_ORE.asItem())
         ;
 
         getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "lead_ores")))

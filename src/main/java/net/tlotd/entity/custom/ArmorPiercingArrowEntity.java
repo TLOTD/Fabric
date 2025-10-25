@@ -55,7 +55,7 @@ public class ArmorPiercingArrowEntity extends PersistentProjectileEntity {
 
     @Override
     public boolean collidesWith(Entity other) {
-        return super.collidesWith(other); // keep normal entity collisions
+        return super.collidesWith(other);
     }
 
     @Override

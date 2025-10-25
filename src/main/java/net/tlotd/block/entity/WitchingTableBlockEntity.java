@@ -285,18 +285,18 @@ public class WitchingTableBlockEntity extends BlockEntity implements ExtendedScr
 
     private boolean canBottleOrBucketBeFilled() {
         return (this.fluidStorage.amount >= FluidConstants.BOTTLE && this.getStack(10).getCount() == 1 &&
-                (this.getStack(10).getItem() == Items.GLASS_BOTTLE || this.getStack(10).getItem() == Items.BUCKET));
+                (this.getStack(10).isOf(Items.GLASS_BOTTLE) || this.getStack(10).isOf(Items.BUCKET)));
     }
 
     private boolean canBucketBeFilled() {
         return (this.fluidStorage.amount >= FluidConstants.BUCKET &&
-                this.getStack(10).getItem() == Items.BUCKET &&
+                this.getStack(10).isOf(Items.BUCKET) &&
                 this.getStack(10).getCount() == 1);
     }
 
     private boolean canBottleBeFilled() {
         return (this.fluidStorage.amount >= FluidConstants.BOTTLE &&
-                this.getStack(10).getItem() == Items.GLASS_BOTTLE &&
+                this.getStack(10).isOf(Items.GLASS_BOTTLE) &&
                 this.getStack(10).getCount() == 1);
     }
 
@@ -402,7 +402,7 @@ public class WitchingTableBlockEntity extends BlockEntity implements ExtendedScr
     }
 
     private boolean canInsertItemIntoOutputSlot(Item item) {
-        return this.getStack(OUTPUT_SLOT).getItem() == item || this.getStack(OUTPUT_SLOT).isEmpty();
+        return this.getStack(OUTPUT_SLOT).isOf(item) || this.getStack(OUTPUT_SLOT).isEmpty();
     }
 
     private boolean canInsertAmountIntoOutputSlot(ItemStack result) {

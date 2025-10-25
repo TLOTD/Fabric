@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "tlotd:block/exit_sign"
+    },
+    "facing=east": {
+      "model": "tlotd:block/exit_sign",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "tlotd:block/exit_sign",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "tlotd:block/exit_sign",
+      "y": 270
+    }
+  }
+}

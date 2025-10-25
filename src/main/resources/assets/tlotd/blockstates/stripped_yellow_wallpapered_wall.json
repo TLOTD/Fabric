@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "tlotd:block/stripped_yellow_wallpapered_wall_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "tlotd:block/stripped_yellow_wallpapered_wall"
+    },
+    "axis=z": {
+      "model": "tlotd:block/stripped_yellow_wallpapered_wall_horizontal",
+      "x": 90
+    }
+  }
+}

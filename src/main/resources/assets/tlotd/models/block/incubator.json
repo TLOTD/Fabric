@@ -5,7 +5,7 @@
 		"1": "tlotd:block/incubator",
 		"2": "tlotd:block/steel_block",
 		"3": "minecraft:block/hay_block_top",
-		"particle": "tlotd:block/incubator"
+		"particle": "tlotd:block/steel_block"
 	},
 	"elements": [
 		{

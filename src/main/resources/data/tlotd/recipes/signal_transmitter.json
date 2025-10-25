@@ -29,7 +29,7 @@
       "item": "tlotd:videocassette_recorder"
     },
     "W": {
-      "item": "tlotd:gold_wire"
+      "tag": "tlotd:wires_2"
     }
   },
   "pattern": [

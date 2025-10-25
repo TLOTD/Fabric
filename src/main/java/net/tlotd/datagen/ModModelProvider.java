@@ -247,6 +247,7 @@ public class ModModelProvider extends FabricModelProvider {
 
     @Override
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
+
         itemModelGenerator.register(ModItems.IRRADIATED_ICON, Models.GENERATED);
 
         itemModelGenerator.register(ModItems.COPPER_NUGGET, Models.GENERATED);
@@ -320,8 +321,6 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.PIPE_WEED_SEEDS, Models.GENERATED);
         itemModelGenerator.register(ModItems.PIPE_WEED, Models.GENERATED);
 
-        itemModelGenerator.register(ModItems.PIPE, Models.GENERATED);
-
         itemModelGenerator.register(ModItems.BLUE_BERRY_JAM_TOAST, Models.GENERATED);
         itemModelGenerator.register(ModItems.DROOPFRUIT_JAM_TOAST, Models.GENERATED);
         itemModelGenerator.register(ModItems.ANCIENT_SOULBERRY_JAM_TOAST, Models.GENERATED);
@@ -376,6 +375,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.NETHERITE_SICKLE, Models.HANDHELD);
         itemModelGenerator.register(ModItems.NETHERITE_FORGING_HAMMER, Models.HANDHELD);
 
+        itemModelGenerator.register(ModItems.ALUMINIUM_WIRE, Models.GENERATED);
         itemModelGenerator.register(ModItems.COPPER_WIRE, Models.GENERATED);
         itemModelGenerator.register(ModItems.GOLD_WIRE, Models.GENERATED);
         itemModelGenerator.register(ModItems.MITHRIL_WIRE, Models.GENERATED);
@@ -660,6 +660,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.VHS_CASSETTE_7, Models.GENERATED);
         itemModelGenerator.register(ModItems.VHS_CASSETTE_8, Models.GENERATED);
         itemModelGenerator.register(ModItems.VHS_CASSETTE_9, Models.GENERATED);
+        itemModelGenerator.register(ModItems.VHS_CASSETTE_PROJECT_KV31, Models.GENERATED);
         itemModelGenerator.register(ModItems.VHS_CASSETTE_BROKEN, Models.GENERATED);
 
         itemModelGenerator.register(ModItems.GAME_CARTRIDGE, Models.GENERATED);

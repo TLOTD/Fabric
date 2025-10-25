@@ -25,7 +25,7 @@ import net.tlotd.effect.ModEffects;
 
 public class WoodenSteinBlock extends Block {
 
-    public static final DirectionProperty FACING = FacingBlock.FACING;
+    public static final DirectionProperty FACING = HorizontalFacingBlock.FACING;
 
     @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {

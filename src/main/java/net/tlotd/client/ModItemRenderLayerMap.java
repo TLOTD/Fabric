@@ -17,15 +17,11 @@ public class ModItemRenderLayerMap {
                 (stack, world, entity, seed) -> {
                     if (entity == null || world == null) return 0.0f;
                     if (stack.isEmpty() || stack.getItem() != ModItems.EMF_READER) return 0.0f;
-
-                    // Find nearest entity (ignore self)
                     Entity nearest = world.getOtherEntities(entity, entity.getBoundingBox().expand(11.0), e -> e != entity && e instanceof LivingEntity)
                             .stream()
                             .min(Comparator.comparingDouble(entity::squaredDistanceTo))
                             .orElse(null);
-
                     if (nearest == null) return 0.0f;
-
                     double dist = Math.sqrt(entity.squaredDistanceTo(nearest));
                     System.out.println("Proximity value: " + dist);
                     if (dist <= 3.0) return 1.0f;

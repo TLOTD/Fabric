@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "tlotd:aluminium_wire",
+    "tlotd:copper_wire",
+    "#tlotd:wires_2"
+  ]
+}

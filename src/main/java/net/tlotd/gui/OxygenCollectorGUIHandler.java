@@ -32,9 +32,9 @@ public class OxygenCollectorGUIHandler extends ScreenHandler {
         this.propertyDelegate = propertyDelegate;
         this.blockEntity = ((OxygenCollectorBlockEntity) blockEntity);
 
-        this.addSlot(new RestrictedSlot(playerInventory, 38, 62, 19, ModTags.Items.OXYGEN_CHARGABLE));
+        this.addSlot(new RestrictedSlot(playerInventory, 38, 62, 19, ModTags.Items.OXYGEN_STORING));
 
-        this.addSlot(new RestrictedSlot(inventory, 0, 98, 19, ModTags.Items.OXYGEN_CHARGABLE));
+        this.addSlot(new RestrictedSlot(inventory, 0, 98, 19, ModTags.Items.OXYGEN_STORING));
 
         addPlayerInventory(playerInventory);
         addPlayerHotbar(playerInventory);

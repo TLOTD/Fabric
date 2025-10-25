@@ -504,6 +504,8 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .addOptional(Identifier.tryParse("twilightforest:mining_wood"))
                 .addOptional(Identifier.tryParse("twilightforest:sorting_log"))
                 .addOptional(Identifier.tryParse("twilightforest:sorting_wood"))
+
+                .add(ModBlocks.YELLOW_WALLPAPERED_WALL)
         ;
 
         getOrCreateTagBuilder(BlockTags.CROPS)
@@ -557,9 +559,13 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.FANCY_CHARRED_TRAPDOOR)
                 .add(ModBlocks.RITUALISTIC_FANCY_CHARRED_PLANKS)
                 .add(ModBlocks.VIDEOCASSETTE_RECORDER_BOOKSHELF)
+                .add(ModBlocks.GAME_CONSOLE_BOOKSHELF)
+                .add(ModBlocks.MEDIA_SYSTEM_BOOKSHELF)
                 .add(ModBlocks.WHITE_PUMPKIN)
                 .add(ModBlocks.CARVED_WHITE_PUMPKIN)
                 .add(ModBlocks.WHITE_JACK_O_LANTERN)
+
+                .add(ModBlocks.YELLOW_WALLPAPERED_WOOD)
         ;
 
         getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE)
@@ -589,10 +595,12 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.RADIO_ON)
                 .add(ModBlocks.TELEVISION)
                 .add(ModBlocks.TELEVISION_ON)
+                .add(ModBlocks.TELEVISION_GAME)
                 .add(ModBlocks.COMPUTER)
                 .add(ModBlocks.COMPUTER_ON)
                 .add(ModBlocks.INTERDIMENSIONAL_RECEIVER)
                 .add(ModBlocks.VIDEOCASSETTE_RECORDER)
+                .add(ModBlocks.GAME_CONSOLE)
                 .add(ModBlocks.OXYGEN_COLLECTOR)
                 .add(ModBlocks.INCUBATOR)
 
@@ -606,6 +614,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.TELEPORTER)
                 .add(ModBlocks.ALIEN_CONTROL_PANEL)
 
+                .add(ModBlocks.ELEVATOR_DIAL)
                 .add(ModBlocks.MINING_ELEVATOR_CONTROLLER)
                 .add(ModBlocks.MINING_ELEVATOR_BASE)
                 .add(ModBlocks.WOODEN_ELEVATOR_CONTROLLER)
@@ -614,6 +623,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.QUARTZ_ELEVATOR_BASE)
                 .add(ModBlocks.GLASS_ELEVATOR_CONTROLLER)
                 .add(ModBlocks.GLASS_ELEVATOR_BASE)
+                .add(ModBlocks.EXIT_SIGN)
 
                 .add(ModBlocks.MARBLE)
                 .add(ModBlocks.MARBLE_STAIRS)
@@ -865,12 +875,10 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.BLOOD_CAULDRON)
         ;
 
-        getOrCreateTagBuilder(BlockTags.ENCHANTMENT_POWER_PROVIDER)
-                .add(ModBlocks.VIDEOCASSETTE_RECORDER_BOOKSHELF)
-        ;
-
         getOrCreateTagBuilder(TagKey.of(RegistryKeys.BLOCK, new Identifier("c", "bookshelves")))
                 .add(ModBlocks.VIDEOCASSETTE_RECORDER_BOOKSHELF)
+                .add(ModBlocks.GAME_CONSOLE_BOOKSHELF)
+                .add(ModBlocks.MEDIA_SYSTEM_BOOKSHELF)
         ;
 
         getOrCreateTagBuilder(TagKey.of(RegistryKeys.BLOCK, new Identifier("c", "clusters")))
@@ -967,6 +975,23 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.ALIEN_BRICK_SLAB)
                 .add(ModBlocks.ALIEN_BRICK_WALL)
                 .add(ModBlocks.ALIEN_PILLAR)
+
+                .add(ModBlocks.YELLOW_WALLPAPERED_WALL)
+                .add(ModBlocks.STRIPPED_YELLOW_WALLPAPERED_WALL)
+                .add(ModBlocks.NOCLIPABLE_YELLOW_WALLPAPERED_WALL)
+                .add(ModBlocks.CEILING_LIGHT)
+                .add(ModBlocks.CEILING_TILE)
+                .add(ModBlocks.CEILING_TILE_STAIRS)
+                .add(ModBlocks.HORIZONTAL_CEILING_TILE_STAIRS)
+                .add(ModBlocks.MOIST_CARPET)
+                .add(ModBlocks.MOIST_CARPET_STAIRS)
+                .add(ModBlocks.HORIZONTAL_MOIST_CARPET_STAIRS)
+                .add(ModBlocks.FLOOR_TILE)
+                .add(ModBlocks.FRAGILE_LIGHT_SWITCH)
+                .add(ModBlocks.LIGHT_SWITCH)
+                .add(ModBlocks.BACKROOMS_ELEVATOR_CONTROLLER)
+                .add(ModBlocks.BACKROOMS_ELEVATOR_BASE)
+                .add(ModBlocks.VOID)
         ;
 
         getOrCreateTagBuilder(BlockTags.WITHER_IMMUNE)
@@ -983,6 +1008,23 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.ALIEN_BRICK_SLAB)
                 .add(ModBlocks.ALIEN_BRICK_WALL)
                 .add(ModBlocks.ALIEN_PILLAR)
+
+                .add(ModBlocks.YELLOW_WALLPAPERED_WALL)
+                .add(ModBlocks.STRIPPED_YELLOW_WALLPAPERED_WALL)
+                .add(ModBlocks.NOCLIPABLE_YELLOW_WALLPAPERED_WALL)
+                .add(ModBlocks.CEILING_LIGHT)
+                .add(ModBlocks.CEILING_TILE)
+                .add(ModBlocks.CEILING_TILE_STAIRS)
+                .add(ModBlocks.HORIZONTAL_CEILING_TILE_STAIRS)
+                .add(ModBlocks.MOIST_CARPET)
+                .add(ModBlocks.MOIST_CARPET_STAIRS)
+                .add(ModBlocks.HORIZONTAL_MOIST_CARPET_STAIRS)
+                .add(ModBlocks.FLOOR_TILE)
+                .add(ModBlocks.FRAGILE_LIGHT_SWITCH)
+                .add(ModBlocks.LIGHT_SWITCH)
+                .add(ModBlocks.BACKROOMS_ELEVATOR_CONTROLLER)
+                .add(ModBlocks.BACKROOMS_ELEVATOR_BASE)
+                .add(ModBlocks.VOID)
         ;
 
         getOrCreateTagBuilder(BlockTags.FEATURES_CANNOT_REPLACE)
@@ -1053,12 +1095,14 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.WOODEN_ELEVATOR_CONTROLLER)
                 .add(ModBlocks.QUARTZ_ELEVATOR_CONTROLLER)
                 .add(ModBlocks.GLASS_ELEVATOR_CONTROLLER)
+                .add(ModBlocks.BACKROOMS_ELEVATOR_CONTROLLER)
         ;
         getOrCreateTagBuilder(ModTags.Blocks.ELEVATOR_BASES)
                 .add(ModBlocks.MINING_ELEVATOR_BASE)
                 .add(ModBlocks.WOODEN_ELEVATOR_BASE)
                 .add(ModBlocks.QUARTZ_ELEVATOR_BASE)
                 .add(ModBlocks.GLASS_ELEVATOR_BASE)
+                .add(ModBlocks.BACKROOMS_ELEVATOR_BASE)
         ;
 
         getOrCreateTagBuilder(ModTags.Blocks.TELEVISIONS)
@@ -1072,6 +1116,20 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
         getOrCreateTagBuilder(ModTags.Blocks.TELEVISIONS_ON)
                 .add(ModBlocks.TELEVISION_ON)
+                .add(ModBlocks.TELEVISION_GAME)
+        ;
+
+        getOrCreateTagBuilder(ModTags.Blocks.COMPUTERS)
+                .addTag(ModTags.Blocks.COMPUTERS_OFF)
+                .addTag(ModTags.Blocks.COMPUTERS_ON)
+        ;
+
+        getOrCreateTagBuilder(ModTags.Blocks.COMPUTERS_OFF)
+                .add(ModBlocks.COMPUTER)
+        ;
+
+        getOrCreateTagBuilder(ModTags.Blocks.COMPUTERS_ON)
+                .add(ModBlocks.COMPUTER_ON)
         ;
 
         getOrCreateTagBuilder(ModTags.Blocks.INTERDIMENSIONAL_RECEIVERS)

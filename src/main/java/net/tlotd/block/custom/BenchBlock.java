@@ -37,7 +37,7 @@ import java.util.List;
 public class BenchBlock extends Block {
 
     public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
-    public static final DirectionProperty FACING = FacingBlock.FACING;
+    public static final DirectionProperty FACING = HorizontalFacingBlock.FACING;
     public static final IntProperty BENCH = IntProperty.of("bench", 0,3);
 
     @Override
@@ -54,13 +54,20 @@ public class BenchBlock extends Block {
         return state.get(WATERLOGGED) ? Fluids.WATER.getStill(false) : super.getFluidState(state);
     }
 
-    @Override
-    public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos) {
+    public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState neighborState,
+                                                WorldAccess world, BlockPos pos, BlockPos neighborPos) {
         if (state.get(WATERLOGGED)) {
             world.scheduleFluidTick(pos, Fluids.WATER, Fluids.WATER.getTickRate(world));
         }
 
-        return super.getStateForNeighborUpdate(state, direction, neighborState, world, pos, neighborPos);
+        if (!world.isClient()) {
+            BlockState newState = updateBenchState(world, pos, state);
+            if (newState != state) {
+                world.setBlockState(pos, newState, Block.NOTIFY_ALL);
+            }
+        }
+
+        return state;
     }
 
     @Override
@@ -128,99 +135,44 @@ public class BenchBlock extends Block {
         return ActionResult.SUCCESS;
     }
 
+    private BlockState updateBenchState(WorldAccess world, BlockPos pos, BlockState state) {
+        Direction facing = state.get(FACING);
+        boolean leftConnected = false;
+        boolean rightConnected = false;
+        Direction leftDir = facing.rotateYCounterclockwise();
+        Direction rightDir = facing.rotateYClockwise();
+        BlockState leftState = world.getBlockState(pos.offset(leftDir));
+        BlockState rightState = world.getBlockState(pos.offset(rightDir));
+        if (leftState.isOf(ModBlocks.BENCH) && leftState.get(FACING) == facing) {
+            leftConnected = true;
+        }
+        if (rightState.isOf(ModBlocks.BENCH) && rightState.get(FACING) == facing) {
+            rightConnected = true;
+        }
+        int benchType;
+        if (leftConnected && rightConnected) {
+            benchType = 2;
+        } else if (leftConnected) {
+            benchType = 3;
+        } else if (rightConnected) {
+            benchType = 1;
+        } else {
+            benchType = 0;
+        }
+        return state.with(BENCH, benchType);
+    }
+
     @Override
     public void onPlaced(World world, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack itemStack) {
-        boolean thisWater = world.getFluidState(pos).isOf(Fluids.WATER);
-        if (world.getBlockState(pos.north()).isOf(ModBlocks.BENCH)) {
-            boolean water = world.getBlockState(pos.north()).get(WATERLOGGED);
-            if (world.getBlockState(pos.north()).get(FACING).equals(Direction.WEST) && state.get(FACING).equals(Direction.WEST)) {
-                if (world.getBlockState(pos.north()).get(BENCH) == 0) {
-                    world.setBlockState(pos.north(), ModBlocks.BENCH.getDefaultState().with(FACING, Direction.WEST).with(BENCH, 3).with(WATERLOGGED, water));
-                } else if (world.getBlockState(pos.north()).get(BENCH) != 3) {
-                    world.setBlockState(pos.north(), ModBlocks.BENCH.getDefaultState().with(FACING, Direction.WEST).with(BENCH, 2).with(WATERLOGGED, water));
+        if (!world.isClient) {
+            BlockState newState = updateBenchState(world, pos, state);
+            world.setBlockState(pos, newState, Block.NOTIFY_ALL);
+            for (Direction dir : Direction.Type.HORIZONTAL) {
+                BlockPos neighborPos = pos.offset(dir);
+                BlockState neighbor = world.getBlockState(neighborPos);
+                if (neighbor.isOf(ModBlocks.BENCH)) {
+                    world.setBlockState(neighborPos, updateBenchState(world, neighborPos, neighbor), Block.NOTIFY_ALL);
                 }
-                world.setBlockState(pos, ModBlocks.BENCH.getDefaultState().with(FACING, Direction.WEST).with(BENCH, 1).with(WATERLOGGED, thisWater));
-            }
-            if (world.getBlockState(pos.north()).get(FACING).equals(Direction.EAST) && state.get(FACING).equals(Direction.EAST)) {
-                if (world.getBlockState(pos.north()).get(BENCH) == 0) {
-                    world.setBlockState(pos.north(), ModBlocks.BENCH.getDefaultState().with(FACING, Direction.EAST).with(BENCH, 1).with(WATERLOGGED, water));
-                } else if (world.getBlockState(pos.north()).get(BENCH) != 1) {
-                    world.setBlockState(pos.north(), ModBlocks.BENCH.getDefaultState().with(FACING, Direction.EAST).with(BENCH, 2).with(WATERLOGGED, water));
-                }
-                world.setBlockState(pos, ModBlocks.BENCH.getDefaultState().with(FACING, Direction.EAST).with(BENCH, 3).with(WATERLOGGED, thisWater));
-            }
-        }
-        if (world.getBlockState(pos.south()).isOf(ModBlocks.BENCH)) {
-            boolean water = world.getBlockState(pos.south()).get(WATERLOGGED);
-            if (world.getBlockState(pos.south()).get(FACING).equals(Direction.WEST) && state.get(FACING).equals(Direction.WEST)) {
-                if (world.getBlockState(pos.south()).get(BENCH) == 0) {
-                    world.setBlockState(pos.south(), ModBlocks.BENCH.getDefaultState().with(FACING, Direction.WEST).with(BENCH, 1).with(WATERLOGGED, water));
-                } else if (world.getBlockState(pos.south()).get(BENCH) != 1) {
-                    world.setBlockState(pos.south(), ModBlocks.BENCH.getDefaultState().with(FACING, Direction.WEST).with(BENCH, 2).with(WATERLOGGED, water));
-                }
-                world.setBlockState(pos, ModBlocks.BENCH.getDefaultState().with(FACING, Direction.WEST).with(BENCH, 3).with(WATERLOGGED, thisWater));
-            }
-            if (world.getBlockState(pos.south()).get(FACING).equals(Direction.EAST) && state.get(FACING).equals(Direction.EAST)) {
-                if (world.getBlockState(pos.south()).get(BENCH) == 0) {
-                    world.setBlockState(pos.south(), ModBlocks.BENCH.getDefaultState().with(FACING, Direction.EAST).with(BENCH, 3).with(WATERLOGGED, water));
-                } else if (world.getBlockState(pos.south()).get(BENCH) != 3) {
-                    world.setBlockState(pos.south(), ModBlocks.BENCH.getDefaultState().with(FACING, Direction.EAST).with(BENCH, 2).with(WATERLOGGED, water));
-                }
-                world.setBlockState(pos, ModBlocks.BENCH.getDefaultState().with(FACING, Direction.EAST).with(BENCH, 1).with(WATERLOGGED, thisWater));
-            }
-        }
-        if (world.getBlockState(pos.west()).isOf(ModBlocks.BENCH)) {
-            boolean water = world.getBlockState(pos.west()).get(WATERLOGGED);
-            if (world.getBlockState(pos.west()).get(FACING).equals(Direction.NORTH) && state.get(FACING).equals(Direction.NORTH)) {
-                if (world.getBlockState(pos.west()).get(BENCH) == 0) {
-                    world.setBlockState(pos.west(), ModBlocks.BENCH.getDefaultState().with(FACING, Direction.NORTH).with(BENCH, 1).with(WATERLOGGED, water));
-                } else if (world.getBlockState(pos.west()).get(BENCH) != 1) {
-                    world.setBlockState(pos.west(), ModBlocks.BENCH.getDefaultState().with(FACING, Direction.NORTH).with(BENCH, 2).with(WATERLOGGED, water));
-                }
-                world.setBlockState(pos, ModBlocks.BENCH.getDefaultState().with(FACING, Direction.NORTH).with(BENCH, 3).with(WATERLOGGED, thisWater));
-            }
-            if (world.getBlockState(pos.west()).get(FACING).equals(Direction.SOUTH) && state.get(FACING).equals(Direction.SOUTH)) {
-                if (world.getBlockState(pos.west()).get(BENCH) == 0) {
-                    world.setBlockState(pos.west(), ModBlocks.BENCH.getDefaultState().with(FACING, Direction.SOUTH).with(BENCH, 3).with(WATERLOGGED, water));
-                } else if (world.getBlockState(pos.west()).get(BENCH) != 3) {
-                    world.setBlockState(pos.west(), ModBlocks.BENCH.getDefaultState().with(FACING, Direction.SOUTH).with(BENCH, 2).with(WATERLOGGED, water));
-                }
-                world.setBlockState(pos, ModBlocks.BENCH.getDefaultState().with(FACING, Direction.SOUTH).with(BENCH, 1).with(WATERLOGGED, thisWater));
-            }
-        }
-        if (world.getBlockState(pos.east()).isOf(ModBlocks.BENCH)) {
-            boolean water = world.getBlockState(pos.east()).get(WATERLOGGED);
-            if (world.getBlockState(pos.east()).get(FACING).equals(Direction.NORTH) && state.get(FACING).equals(Direction.NORTH)) {
-                if (world.getBlockState(pos.east()).get(BENCH) == 0) {
-                    world.setBlockState(pos.east(), ModBlocks.BENCH.getDefaultState().with(FACING, Direction.NORTH).with(BENCH, 3).with(WATERLOGGED, water));
-                } else if (world.getBlockState(pos.east()).get(BENCH) != 3) {
-                    world.setBlockState(pos.east(), ModBlocks.BENCH.getDefaultState().with(FACING, Direction.NORTH).with(BENCH, 2).with(WATERLOGGED, water));
-                }
-                world.setBlockState(pos, ModBlocks.BENCH.getDefaultState().with(FACING, Direction.NORTH).with(BENCH, 1).with(WATERLOGGED, thisWater));
-            }
-            if (world.getBlockState(pos.east()).get(FACING).equals(Direction.SOUTH) && state.get(FACING).equals(Direction.SOUTH)) {
-                if (world.getBlockState(pos.east()).get(BENCH) == 0) {
-                    world.setBlockState(pos.east(), ModBlocks.BENCH.getDefaultState().with(FACING, Direction.SOUTH).with(BENCH, 1).with(WATERLOGGED, water));
-                } else if (world.getBlockState(pos.east()).get(BENCH) != 1) {
-                    world.setBlockState(pos.east(), ModBlocks.BENCH.getDefaultState().with(FACING, Direction.SOUTH).with(BENCH, 2).with(WATERLOGGED, water));
-                }
-                world.setBlockState(pos, ModBlocks.BENCH.getDefaultState().with(FACING, Direction.SOUTH).with(BENCH, 3).with(WATERLOGGED, thisWater));
-            }
-        } //Middle Part
-        if (world.getBlockState(pos.north()).isOf(ModBlocks.BENCH) && world.getBlockState(pos.south()).isOf(ModBlocks.BENCH)) {
-            if (world.getBlockState(pos.north()).get(FACING).equals(Direction.WEST) && world.getBlockState(pos.south()).get(FACING).equals(Direction.WEST) && state.get(FACING).equals(Direction.WEST)) {
-                world.setBlockState(pos, ModBlocks.BENCH.getDefaultState().with(FACING, Direction.WEST).with(BENCH, 2).with(WATERLOGGED, thisWater));
-            }
-            if (world.getBlockState(pos.north()).get(FACING).equals(Direction.EAST) && world.getBlockState(pos.south()).get(FACING).equals(Direction.EAST) && state.get(FACING).equals(Direction.EAST)) {
-                world.setBlockState(pos, ModBlocks.BENCH.getDefaultState().with(FACING, Direction.EAST).with(BENCH, 2).with(WATERLOGGED, thisWater));
-            }
-        }
-        if (world.getBlockState(pos.west()).isOf(ModBlocks.BENCH) && world.getBlockState(pos.east()).isOf(ModBlocks.BENCH)) {
-            if (world.getBlockState(pos.west()).get(FACING).equals(Direction.NORTH) && world.getBlockState(pos.east()).get(FACING).equals(Direction.NORTH) && state.get(FACING).equals(Direction.NORTH)) {
-                world.setBlockState(pos, ModBlocks.BENCH.getDefaultState().with(FACING, Direction.NORTH).with(BENCH, 2).with(WATERLOGGED, thisWater));
-            }
-            if (world.getBlockState(pos.west()).get(FACING).equals(Direction.SOUTH) && world.getBlockState(pos.east()).get(FACING).equals(Direction.SOUTH) && state.get(FACING).equals(Direction.SOUTH)) {
-                world.setBlockState(pos, ModBlocks.BENCH.getDefaultState().with(FACING, Direction.SOUTH).with(BENCH, 2).with(WATERLOGGED, thisWater));
             }
         }
         super.onPlaced(world, pos, state, placer, itemStack);

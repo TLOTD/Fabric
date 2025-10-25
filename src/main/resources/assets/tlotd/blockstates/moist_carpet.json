@@ -1,0 +1,30 @@
+{
+  "variants": {
+    "face=wall,facing=west": {
+      "model": "tlotd:block/moist_carpet",
+      "x": 90,
+      "y": 90
+    },
+    "face=wall,facing=north": {
+      "model": "tlotd:block/moist_carpet",
+      "x": 90,
+      "y": 180
+    },
+    "face=wall,facing=east": {
+      "model": "tlotd:block/moist_carpet",
+      "x": 90,
+      "y": 270
+    },
+    "face=wall,facing=south": {
+      "model": "tlotd:block/moist_carpet",
+      "x": 90
+    },
+    "face=floor": {
+      "model": "tlotd:block/moist_carpet"
+    },
+    "face=ceiling": {
+      "model": "tlotd:block/moist_carpet",
+      "x": 180
+    }
+  }
+}

@@ -5,16 +5,13 @@ import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NbtCompound;
 import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
-import net.tlotd.sound.ModSounds;
 import net.tlotd.util.AdAstraOxygenNbtHelper;
 import net.tlotd.util.ModTags;
 import org.jetbrains.annotations.Nullable;
@@ -76,7 +73,7 @@ public class OxygenTankItem extends Item {
 
     @Override
     public int getItemBarColor(ItemStack stack) {
-        return 0x9fc5e8;
+        return 0xDAE6F0;
     }
 
     @Override
@@ -84,14 +81,17 @@ public class OxygenTankItem extends Item {
         ItemStack itemStack = user.getStackInHand(hand);
         if (!world.isClient()) {
             ItemStack chest = user.getInventory().getArmorStack(2);
-            if (chest.isIn(ModTags.Items.OXYGEN_CHARGABLE) && AdAstraOxygenNbtHelper.getOxygen(itemStack) > 0 && AdAstraOxygenNbtHelper.getOxygen(chest) < AdAstraOxygenNbtHelper.MAX_AMOUNT) {
+            if (chest.isIn(ModTags.Items.OXYGEN_STORING)) {
+                long tankOxygen = AdAstraOxygenNbtHelper.getOxygen(itemStack);
                 long chestOxygen = AdAstraOxygenNbtHelper.getOxygen(chest);
-                long itemOxygen = AdAstraOxygenNbtHelper.getOxygen(itemStack);
-                long transfer = Math.min(itemOxygen, AdAstraOxygenNbtHelper.MAX_AMOUNT - chestOxygen);
-                AdAstraOxygenNbtHelper.setOxygen(chest, chestOxygen + transfer);
-                AdAstraOxygenNbtHelper.setOxygen(itemStack, itemOxygen - transfer);
-                world.playSound(null, user.getBlockPos(), SoundEvents.ENTITY_PLAYER_BREATH, SoundCategory.PLAYERS, 1.0f, 1.0f);
-                return TypedActionResult.success(itemStack);
+                long maxChestOxygen = AdAstraOxygenNbtHelper.getMaxOxygenForChestplate(chest);
+                if (tankOxygen > 0 && chestOxygen < maxChestOxygen) {
+                    long transfer = Math.min(tankOxygen, maxChestOxygen - chestOxygen);
+                    AdAstraOxygenNbtHelper.setOxygen(chest, chestOxygen + transfer);
+                    AdAstraOxygenNbtHelper.setOxygen(itemStack, tankOxygen - transfer);
+                    world.playSound(null, user.getBlockPos(), SoundEvents.ENTITY_PLAYER_BREATH, SoundCategory.PLAYERS, 1.0f, 1.0f);
+                    return TypedActionResult.success(itemStack);
+                }
             }
         }
         return TypedActionResult.pass(itemStack);

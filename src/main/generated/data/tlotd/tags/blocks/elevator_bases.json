@@ -4,6 +4,7 @@
     "tlotd:mining_elevator_base",
     "tlotd:wooden_elevator_base",
     "tlotd:quartz_elevator_base",
-    "tlotd:glass_elevator_base"
+    "tlotd:glass_elevator_base",
+    "tlotd:backrooms_elevator_base"
   ]
 }

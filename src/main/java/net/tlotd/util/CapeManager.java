@@ -92,7 +92,6 @@ public class CapeManager {
             }
 
         } catch (Exception e) {
-            //System.err.println("[TLOTD] " + uuid + " is not a supporter or team member, loading default cape" + e.getMessage());
             CAPE_CACHE.put(uuid, NO_CAPE);
             CAPE_CACHE_TIMESTAMPS.put(uuid, now);
             return null;

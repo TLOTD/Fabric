@@ -122,6 +122,7 @@ public class WitchingTableBlock extends BlockWithEntity implements BlockEntityPr
             }
             tooltip.add(Text.translatable("item.tlotd.desc_occult").formatted(Formatting.RED));
             tooltip.add(Text.literal(""));
+            tooltip.add(Text.translatable("text.tlotd.recipe.ponder", Text.translatable("key.keyboard.shift").formatted(Formatting.WHITE)).formatted(Formatting.DARK_GRAY));
             tooltip.add(Text.literal("\uE020\uE000\uE022\uE021\uE023").setStyle(style.withFont(RECIPIES_FONT_ID)));
             tooltip.add(Text.literal("\uE020\uE000\uE026\uE024\uE025\uE027\uE021\uE028").setStyle(style.withFont(RECIPIES_FONT_ID)));
             tooltip.add(Text.literal("\uE020\uE000\uE029\uE02A\uE023\uE02A\uE021\uE02B").setStyle(style.withFont(RECIPIES_FONT_ID)));
@@ -144,7 +145,7 @@ public class WitchingTableBlock extends BlockWithEntity implements BlockEntityPr
             }
             tooltip.add(Text.translatable("item.tlotd.desc_occult").formatted(Formatting.RED));
             tooltip.add(Text.literal(""));
-            tooltip.add(Text.literal("").append(Text.translatable("text.tlotd.recipe.tooltip").formatted(Formatting.DARK_GRAY)).append(Text.translatable("key.keyboard.left.shift").formatted(Formatting.GRAY)).append(Text.translatable("text.tlotd.recipe.tooltip_2").formatted(Formatting.DARK_GRAY)));
+            tooltip.add(Text.translatable("text.tlotd.recipe.ponder", Text.translatable("key.keyboard.shift").formatted(Formatting.GRAY)).formatted(Formatting.DARK_GRAY));
         }
         super.appendTooltip(stack, world, tooltip, options);
     }

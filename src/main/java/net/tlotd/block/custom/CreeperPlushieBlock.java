@@ -26,7 +26,7 @@ import net.tlotd.sound.ModSounds;
 public class CreeperPlushieBlock extends Block {
 
     public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
-    public static final DirectionProperty FACING = FacingBlock.FACING;
+    public static final DirectionProperty FACING = HorizontalFacingBlock.FACING;
 
     public CreeperPlushieBlock(Settings settings) {
         super(settings);

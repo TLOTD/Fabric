@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:glass_pane"
+    },
+    "G": {
+      "item": "minecraft:gold_nugget"
+    }
+  },
+  "pattern": [
+    " G ",
+    "G#G",
+    "GGG"
+  ],
+  "result": {
+    "item": "tlotd:elevator_dial"
+  },
+  "show_notification": true
+}

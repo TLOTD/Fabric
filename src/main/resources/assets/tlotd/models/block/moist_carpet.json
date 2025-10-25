@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/carpet",
+  "textures": {
+    "wool": "tlotd:block/backrooms/old_moist_wool"
+  }
+}

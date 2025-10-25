@@ -1,0 +1,23 @@
+{
+    "providers": [
+        {
+            "type": "reference",
+            "id": "minecraft:include/space"
+        },
+        {
+            "type": "bitmap",
+            "file": "tlotd:font/soul_charges.png",
+            "ascent": 8,
+            "chars": [
+                "\uE000\uE001\uE002\uE003\uE004\uE005\u0000\u0000",
+                "\uE008\uE009\uE00A\uE00B\uE00C\uE00D\u0000\u0000",
+                "\uE010\uE011\uE012\uE013\uE014\uE015\u0000\u0000",
+                "\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+                "\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+                "\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+                "\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+                "\uE038\uE039\uE03A\uE03B\uE03C\uE03D\u0000\u0000"
+            ]
+        }
+    ]
+}

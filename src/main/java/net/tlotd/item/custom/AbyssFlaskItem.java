@@ -64,7 +64,7 @@ public class AbyssFlaskItem extends Item {
 
     @Override
     public Text getName(ItemStack stack) {
-        return Text.translatable(this.getTranslationKey()).styled(style -> style.withColor(0x3C009C));
+        return super.getName(stack).copy().styled(style -> style.withColor(0x3C009C));
     }
     
     @Override

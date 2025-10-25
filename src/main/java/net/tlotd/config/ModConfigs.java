@@ -38,7 +38,7 @@ public class ModConfigs {
         configs.addKeyValuePair(new Pair<>("allSignalsUnlocked", false), "boolean [false] | enables all signals on the radio or televison out of the box");
         configs.addKeyValuePair(new Pair<>("terraWarpHeightThreshold", 1000), "int [1000] | y-level to initiate warp in the Overworld");
         configs.addKeyValuePair(new Pair<>("lunarWarpHeightThreshold", 1000), "int [1000] | y-level to initiate warp on the Moon");
-        configs.addKeyValuePair(new Pair<>("terraWarpDestinationHeight", 300), "int [300] | y-level in the Overworld after warp");
+        configs.addKeyValuePair(new Pair<>("terraWarpDestinationHeight", 320), "int [300] | y-level in the Overworld after warp");
         configs.addKeyValuePair(new Pair<>("lunarWarpDestinationHeight", 100), "int [100] | y-level on the Moon after warp");
         configs.addKeyValuePair(new Pair<>("terraFallDistanceResistance", 400), "int [400] | resistence effect time in ticks (0 to disable)");
         configs.addKeyValuePair(new Pair<>("lunarSeed", 21071969), "int [21071969] | chunk generator seed for the moon");
@@ -54,7 +54,7 @@ public class ModConfigs {
         ALL_SIGNALS_UNLOCKED = CONFIG.getOrDefault("allSignalsUnlocked", false);
         TERRA_WARP_HEIGHT_THRESHOLD = CONFIG.getOrDefault("terraWarpHeightThreshold", 1000);
         LUNAR_WARP_HEIGHT_THRESHOLD = CONFIG.getOrDefault("lunarWarpHeightThreshold", 1000);
-        TERRA_WARP_DESTINATION_HEIGHT = CONFIG.getOrDefault("terraWarpDestinationHeight", 300);
+        TERRA_WARP_DESTINATION_HEIGHT = CONFIG.getOrDefault("terraWarpDestinationHeight", 320);
         LUNAR_WARP_DESTINATION_HEIGHT = CONFIG.getOrDefault("lunarWarpDestinationHeight", 100);
         TERRA_FALL_DISTANCE_RESISTANCE = CONFIG.getOrDefault("terraFallDistanceResistance", 400);
         LUNAR_SEED = CONFIG.getOrDefault("lunarSeed", 21071969);

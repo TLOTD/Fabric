@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=south": {"model": "tlotd:block/moist_carpet_stairs","x":90},
+    "facing=west": {"model": "tlotd:block/moist_carpet_stairs","x":90,"y": 90},
+    "facing=north": {"model": "tlotd:block/moist_carpet_stairs","x":90,"y": 180},
+    "facing=east": {"model": "tlotd:block/moist_carpet_stairs","x":90,"y": 270}
+  }
+}

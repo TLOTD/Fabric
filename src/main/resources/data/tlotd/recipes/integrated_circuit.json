@@ -17,7 +17,7 @@
       "item": "minecraft:black_dye"
     },
     "C": {
-      "item": "tlotd:copper_wire"
+      "tag": "tlotd:wires"
     },
     "I": {
       "tag": "c:iron_nuggets"

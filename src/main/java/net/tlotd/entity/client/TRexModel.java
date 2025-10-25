@@ -7,9 +7,6 @@ import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.math.MathHelper;
 import net.tlotd.entity.custom.TRexEntity;
 
-// Made with Blockbench 4.11.2
-// Exported for Minecraft version 1.17+ for Yarn
-// Paste this class into your mod and generate all required imports
 public class TRexModel<T extends TRexEntity> extends SinglePartEntityModel<T> {
 	private final ModelPart t_rex;
 	private final ModelPart head;

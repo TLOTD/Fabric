@@ -43,8 +43,7 @@ import static net.tlotd.block.custom.BloodCauldronBlock.LEVEL;
 public class EffigiesBlock extends Block {
 
     public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
-
-    public static final DirectionProperty FACING = FacingBlock.FACING;
+    public static final DirectionProperty FACING = HorizontalFacingBlock.FACING;
 
     @Override
     public boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {

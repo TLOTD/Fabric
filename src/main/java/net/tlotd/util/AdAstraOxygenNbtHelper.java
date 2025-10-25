@@ -9,6 +9,13 @@ public class AdAstraOxygenNbtHelper {
     public static final String FLUID_ID = "ad_astra:oxygen";
     public static final long MAX_AMOUNT = 81000L;
 
+    public static long getMaxOxygenForChestplate(ItemStack stack) {
+        if (stack.isIn(ModTags.Items.OXYGEN_STORING_4K)) return MAX_AMOUNT*4;
+        if (stack.isIn(ModTags.Items.OXYGEN_STORING_2K)) return MAX_AMOUNT*2;
+        if (stack.isIn(ModTags.Items.OXYGEN_STORING_1K)) return MAX_AMOUNT;
+        return 0;
+    }
+
     public static long getOxygen(ItemStack stack) {
         if (!stack.hasNbt()) return 0L;
         NbtCompound root = stack.getNbt();
@@ -23,7 +30,7 @@ public class AdAstraOxygenNbtHelper {
     }
 
     public static void setOxygen(ItemStack stack, long amount) {
-        amount = Math.min(amount, MAX_AMOUNT);
+        amount = Math.min(amount, getMaxOxygenForChestplate(stack));
         amount = Math.max(amount, 0);
         NbtCompound root = stack.getOrCreateNbt();
         NbtCompound botarium = root.getCompound("BotariumData");

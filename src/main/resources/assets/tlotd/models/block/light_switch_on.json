@@ -1,0 +1,63 @@
+{
+	"credit": "Made by Isla_Nublar for the TLOTD Mod (https://tlotd.net)",
+	"ambientocclusion": false,
+	"textures": {
+		"particle": "minecraft:block/quartz_block_bottom",
+		"quartz_block_bottom": "minecraft:block/quartz_block_bottom"
+	},
+	"elements": [
+		{
+			"name": "Cube",
+			"from": [4, 0, 4],
+			"to": [12, 1, 12],
+			"faces": {
+				"north": {"uv": [2, 0, 10, 1], "texture": "#quartz_block_bottom"},
+				"east": {"uv": [2, 0, 10, 1], "texture": "#quartz_block_bottom"},
+				"south": {"uv": [2, 0, 10, 1], "texture": "#quartz_block_bottom"},
+				"west": {"uv": [2, 0, 10, 1], "texture": "#quartz_block_bottom"},
+				"up": {"uv": [2, 2, 10, 10], "texture": "#quartz_block_bottom"},
+				"down": {"uv": [2, 2, 10, 10], "texture": "#quartz_block_bottom"}
+			}
+		},
+		{
+			"name": "Cube",
+			"from": [5, 0.5, 8],
+			"to": [11, 1.5, 11],
+			"faces": {
+				"north": {"uv": [3, 0, 9, 1], "texture": "#quartz_block_bottom"},
+				"east": {"uv": [3, 0, 6, 1], "texture": "#quartz_block_bottom"},
+				"south": {"uv": [3, 0, 9, 1], "texture": "#quartz_block_bottom"},
+				"west": {"uv": [3, 0, 6, 1], "texture": "#quartz_block_bottom"},
+				"up": {"uv": [3, 3, 9, 6], "texture": "#quartz_block_bottom"}
+			}
+		},
+		{
+			"name": "Cube",
+			"from": [5, 1, 8],
+			"to": [11, 2, 11],
+			"rotation": {"angle": 22.5, "axis": "x", "origin": [8, 8, 8]},
+			"faces": {
+				"north": {"uv": [3, 0, 9, 1], "texture": "#quartz_block_bottom"},
+				"east": {"uv": [0, 0, 3, 1], "texture": "#quartz_block_bottom"},
+				"south": {"uv": [3, 0, 9, 1], "texture": "#quartz_block_bottom"},
+				"west": {"uv": [0, 0, 3, 1], "texture": "#quartz_block_bottom"},
+				"up": {"uv": [3, 8, 9, 11], "texture": "#quartz_block_bottom"},
+				"down": {"uv": [3, 8, 9, 11], "texture": "#quartz_block_bottom"}
+			}
+		},
+		{
+			"name": "Cube",
+			"from": [5, 0, 8],
+			"to": [11, 1, 9.5],
+			"rotation": {"angle": 22.5, "axis": "x", "origin": [8, 8, 8]},
+			"faces": {
+				"north": {"uv": [0, 0, 6, 1], "texture": "#quartz_block_bottom"},
+				"east": {"uv": [0, 0, 1.5, 1], "texture": "#quartz_block_bottom"},
+				"south": {"uv": [3, 1, 9, 2], "texture": "#quartz_block_bottom"},
+				"west": {"uv": [0, 0, 1.5, 1], "texture": "#quartz_block_bottom"},
+				"up": {"uv": [0, 0, 6, 1.5], "texture": "#quartz_block_bottom"},
+				"down": {"uv": [0, 0, 6, 1.5], "texture": "#quartz_block_bottom"}
+			}
+		}
+	]
+}

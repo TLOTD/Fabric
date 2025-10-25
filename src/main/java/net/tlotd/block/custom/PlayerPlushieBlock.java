@@ -119,6 +119,10 @@ public class PlayerPlushieBlock extends HumanPlushieBlock {
     @Override
     public void appendTooltip(ItemStack stack, @Nullable BlockView world, List<Text> tooltip, TooltipContext options) {
         if (Screen.hasShiftDown()) {
+            tooltip.add(Text.translatable("block.tlotd.player_plushie.tooltip").formatted(Formatting.GRAY));
+            tooltip.add(Text.translatable("block.tlotd.player_plushie.tooltip_2").formatted(Formatting.GRAY));
+            tooltip.add(Text.literal(""));
+            tooltip.add(Text.translatable("text.tlotd.player_plushie.ponder", Text.translatable("key.keyboard.shift").formatted(Formatting.WHITE)).formatted(Formatting.DARK_GRAY));
             Style style = this.getName().getStyle();
             tooltip.add(Text.translatable("block.tlotd.player_plushie.tooltip_shift").formatted(Formatting.GRAY));
             tooltip.add(Text.literal("\uE000").setStyle(style.withFont(PLAYERS_FONT_ID)).append(Text.literal(" TLOTD").setStyle(style.withFont(DEFAULT_FONT_ID))));
@@ -155,7 +159,7 @@ public class PlayerPlushieBlock extends HumanPlushieBlock {
             tooltip.add(Text.translatable("block.tlotd.player_plushie.tooltip").formatted(Formatting.GRAY));
             tooltip.add(Text.translatable("block.tlotd.player_plushie.tooltip_2").formatted(Formatting.GRAY));
             tooltip.add(Text.literal(""));
-            tooltip.add(Text.translatable("block.tlotd.player_plushie.tooltip_3").formatted(Formatting.DARK_GRAY).append(Text.translatable("key.keyboard.left.shift").formatted(Formatting.GRAY)).append(Text.translatable("block.tlotd.player_plushie.tooltip_4")).formatted(Formatting.DARK_GRAY));
+            tooltip.add(Text.translatable("text.tlotd.player_plushie.ponder", Text.translatable("key.keyboard.shift").formatted(Formatting.GRAY)).formatted(Formatting.DARK_GRAY));
         }
         super.appendTooltip(stack, world, tooltip, options);
     }

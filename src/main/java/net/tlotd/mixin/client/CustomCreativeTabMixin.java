@@ -42,7 +42,7 @@ public abstract class CustomCreativeTabMixin {
         int y = hs.getY();
         int bgW = hs.getBackgroundWidth();
         int bgH = hs.getBackgroundHeight();
-        if (selectedTab == ModItemGroups.TLOTD_1_MATERIALS_GROUP || selectedTab == ModItemGroups.TLOTD_2_WEAPONS_TOOLS_UTILITIES_GROUP || selectedTab == ModItemGroups.TLOTD_3_BLOCKS_GROUP) {
+        if (selectedTab == ModItemGroups.TLOTD_1_MATERIALS_GROUP || selectedTab == ModItemGroups.TLOTD_2_WEAPONS_TOOLS_UTILITIES_GROUP || selectedTab == ModItemGroups.TLOTD_3_BLOCKS_GROUP || selectedTab == ModItemGroups.TLOTD_9_COMPAT_GROUP) {
             context.drawTexture(TAB_TLOTD_BG, x, y, 0, 0, bgW, bgH);
             int scrollbarX = x + 175;
             int scrollbarY = y + 18;
@@ -58,7 +58,7 @@ public abstract class CustomCreativeTabMixin {
 
     @Inject(method = "renderTabIcon", at = @At("HEAD"), cancellable = true)
     private void mymod$drawCustomTabIcon(DrawContext context, ItemGroup group, CallbackInfo ci) {
-        if (!CompatModsCheck.FORGE && (group == ModItemGroups.TLOTD_1_MATERIALS_GROUP || group == ModItemGroups.TLOTD_2_WEAPONS_TOOLS_UTILITIES_GROUP || group == ModItemGroups.TLOTD_3_BLOCKS_GROUP)) {
+        if (!CompatModsCheck.FORGE && (group == ModItemGroups.TLOTD_1_MATERIALS_GROUP || group == ModItemGroups.TLOTD_2_WEAPONS_TOOLS_UTILITIES_GROUP || group == ModItemGroups.TLOTD_3_BLOCKS_GROUP || group == ModItemGroups.TLOTD_9_COMPAT_GROUP)) {
                 int currentPage = (selectedTab instanceof FabricItemGroup)
                         ? ((FabricItemGroup) selectedTab).getPage()
                         : 0;
@@ -74,7 +74,7 @@ public abstract class CustomCreativeTabMixin {
                 boolean topRow = group.getRow() == ItemGroup.Row.TOP;
                 int column = group.getColumn();
                 int tabX = x + column * 27;
-                int tabY = y + (topRow ? -28 : (bgHeight - 4));
+                int tabY = y + (topRow ? -28 : (bgHeight - 6));
                 Identifier texture = (selectedTab == group)
                         ? (topRow ? TAB_TOP_SELECTED : TAB_BOTTOM_SELECTED)
                         : (topRow ? TAB_TOP_INACTIVE : TAB_BOTTOM_INACTIVE);

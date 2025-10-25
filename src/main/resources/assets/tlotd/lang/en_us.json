@@ -4,6 +4,12 @@
   "itemgroup.tlotd.blocks": "TLOTD Blocks",
   "itemgroup.tlotd.compat": "TLOTD Compatibility",
 
+  "key.keyboard.shift": "Shift",
+  "text.tlotd.recipe.ponder": "Hold [%1$s] for Recipies",
+  "text.tlotd.player_plushie.ponder": "Hold [%1$s] for a list",
+
+  "item.infinite": "Infinite",
+
   "mod.tlotd.name": "TLOTD",
   "mod.patchouli.name": "Patchouli",
   "mod.aether.name": "The Aether",
@@ -31,6 +37,17 @@
   "gui.tlotd.oxygen_collector": "Oxygen Fueling",
   "gui.tlotd.keycard_programmer": "Program Keycard",
   "gui.tlotd.incubator": "Incubator",
+
+  "enchantment.tlotd.transdimensional": "Transdimensional",
+  "enchantment.tlotd.transdimensional.desc": "Allows the mithril mirror to cross dimensions. The higher the level the lower the cost.",
+  "enchantment.tlotd.depth_of_the_abyss": "Depth of the Abyss",
+  "enchantment.tlotd.depth_of_the_abyss.desc": "Increases the amount of charges on the mithril mirror.",
+  "enchantment.tlotd.shattering_reflection": "Curse of the Shattering Reflection",
+  "enchantment.tlotd.shattering_reflection.desc": "The mithril mirror now almost kills you, but does not loose charge.",
+  "enchantment.tlotd.refill_charges": "Refill Charges",
+  "enchantment.tlotd.refill_charges.desc": "Recharges the mithril mirror or pipe if the player has the fuel item upon final use.",
+  "enchantment.tlotd.resourceful_smoking": "Resourceful Smoking",
+  "enchantment.tlotd.resourceful_smoking.desc": "Increases the amount of charges on the pipe.",
 
   "generic.tlotd.text.click_me": "[CLICK HERE]",
   "generic.tlotd.text.wiki_link": "to open the Mod Wiki.",
@@ -67,9 +84,11 @@
 
   "dimension.tlotd.luna": "Luna",
   "dimension.tlotd.prehistoric": "Prehistoric",
+  "dimension.tlotd.backrooms": "Unknown",
 
   "biome.tlotd.lunar_highlands": "Lunar Highlands",
   "biome.tlotd.prehistoric_jungle": "Prehistoric Jungle",
+  "biome.tlotd.level_1": "Unavailable",
 
   "death.attack.radiation": "%1$s has died from radiation sickness",
   "death.attack.radiation.player": "%1$s has died from radiation sickness whilst fighting %2$s",
@@ -247,6 +266,7 @@
   "item.tlotd.drink_can": "Drink Can",
   "item.tlotd.spezi_can": "Spezi Can",
   "item.tlotd.beer_can": "Beer Can",
+  "item.tlotd.bottomless_beer_can": "Bottomless Beer Can",
 
   "item.tlotd.pipe_weed_seeds": "Pipe-Weed Seeds",
   "item.tlotd.pipe_weed": "Pipe-Weed",
@@ -290,7 +310,7 @@
   "item.tlotd.soul_flask_of_the_abyss.tooltip_3": "the abyss will also",
   "item.tlotd.soul_flask_of_the_abyss.tooltip_4": "gaze back into you.",
 
-  "item.patchouli.guide_book.tlotd.guiding_grimoire.ponder": "Shift to Ponder",
+  "item.patchouli.guide_book.tlotd.guiding_grimoire.ponder": "[%1$s] to Ponder",
   "item.patchouli.guide_book.tlotd.guiding_grimoire": "§eGrimoire of Guidance§r",
   "item.patchouli.guide_book.tlotd.guiding_grimoire.desc": "by TLOTD & Isla_Nublar",
   "item.patchouli.guide_book.tlotd.guiding_grimoire.intro": "Welcome $(playername) to TLOTD, a mod that allows you to explore the ancient times when dinosaurs ruled the earth, dig deep into the earth to find more valuables or adventure into the unknown depths of space! The sky is the limit!",
@@ -338,6 +358,8 @@
   "item.tlotd.vhs_cassette_8.desc": "Robert Zemeckis - Back to the Future",
   "item.tlotd.vhs_cassette_9": "VHS Cassette",
   "item.tlotd.vhs_cassette_9.desc": "John Carpenter - The Thing",
+  "item.tlotd.vhs_cassette_project_kv31": "VHS Cassette",
+  "item.tlotd.vhs_cassette_project_kv31.desc": "Project KV31",
   "item.tlotd.vhs_cassette_broken": "VHS Cassette",
   "item.tlotd.vhs_cassette_broken.desc": "Broken",
 
@@ -354,6 +376,7 @@
   "item.tlotd.flash_drive.data": "Data",
   "item.tlotd.flash_drive.coordinates": "block.pos [%1$s,%2$s,%3$s]",
 
+  "item.tlotd.aluminium_wire": "Aluminum Wire",
   "item.tlotd.copper_wire": "Copper Wire",
   "item.tlotd.gold_wire": "Gold Wire",
   "item.tlotd.mithril_wire": "Mithril Wire",
@@ -385,6 +408,7 @@
   "item.tlotd.keycard.no_password": "No password set",
   "item.tlotd.keycard.has_password": "Password set",
 
+  "item.tlotd.incomplete_aluminium_wire": "Incomplete Aluminum Wire",
   "item.tlotd.incomplete_copper_wire": "Incomplete Copper Wire",
   "item.tlotd.incomplete_gold_wire": "Incomplete Gold Wire",
   "item.tlotd.incomplete_mithril_wire": "Incomplete Mithril Wire",
@@ -655,7 +679,12 @@
   "item.tlotd.mithril_mirror": "Mithril Mirror",
   "item.tlotd.mithril_mirror.tooltip": "Takes you home.",
   "item.tlotd.mithril_mirror.tooltip_quenya": "\uE080\uE246 \u0016\uE15F \uE028\uE1A0\uE061",
+  "item.tlotd.mithril_mirror.charges_requirement": "Requires %1$s charges for a transdimensional journey.",
+  "item.tlotd.mithril_mirror.transdimensional": "Your spawnpoint is in another dimension.",
+  "item.tlotd.mithril_mirror.cannot_escape": "The Mirror can't find your dimensional plane.",
+  "item.tlotd.mithril_mirror.destination_unknown": "Your spawnpoint is not of this world.",
   "item.tlotd.foggy_mithril_mirror": "Foggy Mithril Mirror",
+  "item.tlotd.foggy_mithril_mirror.charge_item_missing": "No charge item present.",
   "item.tlotd.soul_mirror": "Soul Mirror",
 
   "item.tlotd.narsil_handle": "Narsil Handle",
@@ -688,9 +717,9 @@
   "item.tlotd.astral_sickle": "Astral Sickle",
   "item.tlotd.astral_forging_hammer": "Astral Forging Hammer",
 
-  "item.tlotd.daybreak_domain_fragments": "§6Daybreak Domain Fragments",
-  "item.tlotd.somber_blood_orbs": "§cSomber Blood Orbs",
-  "item.tlotd.otherworldly_whispers": "§4Otherworldly Whispers",
+  "item.tlotd.daybreak_domain_fragments": "Daybreak Domain Fragments",
+  "item.tlotd.somber_blood_orbs": "Somber Blood Orbs",
+  "item.tlotd.otherworldly_whispers": "Otherworldly Whispers",
 
   "item.tlotd.divine_pickaxe": "§6Divine Pickaxe",
   "item.tlotd.cataclysmic_pickaxe": "§cCataclysmic Pickaxe",
@@ -806,8 +835,6 @@
   "block.tlotd.player_plushie": "Player Plushie",
   "block.tlotd.player_plushie.tooltip": "Takes on the skin of",
   "block.tlotd.player_plushie.tooltip_2": "a few select players",
-  "block.tlotd.player_plushie.tooltip_3": "Hold [",
-  "block.tlotd.player_plushie.tooltip_4": "] for list",
   "block.tlotd.player_plushie.tooltip_shift": "Works for:",
   "block.tlotd.player_plushie.tooltip_custom": "Or any Command Defined",
 
@@ -830,6 +857,10 @@
   "block.tlotd.television.tooltip_2": "Added functionality on top of:",
   "block.tlotd.videocassette_recorder": "Videocassette Recorder",
   "block.tlotd.videocassette_recorder.tooltip": "Can be placed inside:",
+  "block.tlotd.videocassette_recorder_bookshelf": "Videocassette Recorder Bookshelf",
+  "block.tlotd.game_console": "Game Console",
+  "block.tlotd.game_console_bookshelf": "Game Console Bookshelf",
+  "block.tlotd.media_system_bookshelf": "Media System Bookshelf",
   "block.tlotd.computer": "Computer",
   "block.tlotd.computer_on": "Computer",
   "block.tlotd.powered_by_computer.tooltip": "Powered by:",
@@ -865,6 +896,7 @@
 
   "block.tlotd.hev_charger": "HEV Charger",
 
+  "block.tlotd.elevator_dial": "Elevator Dial",
   "block.tlotd.mining_elevator_controller": "Mining Elevator Controller",
   "block.tlotd.mining_elevator_base": "Mining Elevator Base",
   "block.tlotd.wooden_elevator_controller": "Wooden Elevator Controller",
@@ -970,6 +1002,26 @@
   "block.tlotd.alien_brick_slab": "Alien Brick Slab",
   "block.tlotd.alien_brick_wall": "Alien Brick Wall",
 
+  "block.tlotd.yellow_wallpapered_wall": "",
+  "block.tlotd.stripped_yellow_wallpapered_wall": "",
+  "block.tlotd.noclipable_yellow_wallpapered_wall": "",
+  "block.tlotd.ceiling_light": "",
+  "block.tlotd.ceiling_tile": "",
+  "block.tlotd.ceiling_tile_stairs": "",
+  "block.tlotd.horizontal_ceiling_tile_stairs": "",
+  "block.tlotd.moist_carpet": "",
+  "block.tlotd.moist_carpet_stairs": "",
+  "block.tlotd.horizontal_moist_carpet_stairs": "",
+  "block.tlotd.floor_tile": "",
+  "block.tlotd.backrooms_elevator_controller": "",
+  "block.tlotd.backrooms_elevator_base": "",
+  "block.tlotd.void": "",
+
+  "block.tlotd.yellow_wallpapered_wood": "Yellow Wallpapered Wood",
+  "block.tlotd.fragile_light_switch": "Light Switch",
+  "block.tlotd.light_switch": "Light Switch",
+  "block.tlotd.exit_sign": "Exit Sign",
+
   "block.tlotd.steel_block": "Steel Block",
 
   "block.tlotd.nether_sulfur_ore": "Nether Sulfur Ore",
@@ -1039,9 +1091,6 @@
 
   "block.tlotd.mithril_anvil": "Mithril Anvil",
   "block.tlotd.mithril_bars": "Mithril Bars",
-
-  "text.tlotd.recipe.tooltip": "Hold [",
-  "text.tlotd.recipe.tooltip_2": "] for recipies",
 
   "block.tlotd.mithril_anvil.tooltip": "Forges only under:",
   "block.tlotd.mithril_anvil.tooltip_2": "Direct Starlight",
@@ -1232,6 +1281,8 @@
   "item.tlotd.transwood_bark": "Transwood Bark",
   "item.tlotd.minewood_bark": "Minewood Bark",
   "item.tlotd.sortingwood_bark": "Sortingwood Bark",
+
+  "item.tlotd.yellow_wallpaper": "Yellow Wallpaper",
 
   "item.tlotd.flour": "Flour",
   "item.tlotd.breadcrumbs": "Breadcrumbs",

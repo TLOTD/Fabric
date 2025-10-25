@@ -54,6 +54,8 @@ public class ModCompostingChances {
 		ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModItems.MINEWOOD_BARK, 0.3f);
 		ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModItems.SORTINGWOOD_BARK, 0.3f);
 
+		ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModItems.YELLOW_WALLPAPER, 0.3f);
+
 		ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModBlocks.GINKGO_LEAVES.asItem(), 0.3f);
 		ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModBlocks.GINKGO_SAPLING.asItem(), 0.3f);
 

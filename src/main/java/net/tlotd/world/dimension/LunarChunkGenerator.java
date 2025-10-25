@@ -130,6 +130,6 @@ public class LunarChunkGenerator extends ChunkGenerator {
 
     @Override
     public void getDebugHudText(List<String> text, NoiseConfig config, BlockPos pos) {
-        text.add("LunarChunkGenerator: moon terrain");
+        text.add("TLOTD Biome Builder: LunarChunkGenerator: Moon Terrain");
     }
 }

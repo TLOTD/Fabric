@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "tlotd:block/backrooms/ceiling_tile",
+    "side": "tlotd:block/backrooms/yellow_wallpapered_wall"
+  }
+}

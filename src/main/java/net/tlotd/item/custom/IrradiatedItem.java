@@ -22,7 +22,7 @@ public class IrradiatedItem extends Item {
 
     @Override
     public Text getName(ItemStack stack) {
-        return Text.translatable(this.getTranslationKey()).styled(style -> style.withColor(0x7AFF2C));
+        return super.getName(stack).copy().styled(style -> style.withColor(0x7AFF2C));
     }
 
     @Override

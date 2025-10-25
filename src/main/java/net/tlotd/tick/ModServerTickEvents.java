@@ -24,16 +24,12 @@ public class ModServerTickEvents {
 
     public static void registerServerTickEvents() {
         ServerTickEvents.END_SERVER_TICK.register(server -> {
-
             tickCounter++;
-
             for (ServerPlayerEntity player : server.getPlayerManager().getPlayerList()) {
                 if (player.getWorld().getRegistryKey().equals(LUNA_LEVEL_KEY)) {
-
                     if (player.isOnFire()) {
                         player.extinguish();
                     }
-
                     StatusEffectInstance h = new StatusEffectInstance(ModEffects.HYPOXIA, 220, 0, true, false, true);
                     StatusEffectInstance s = new StatusEffectInstance(StatusEffects.SLOW_FALLING, 220, 0, true, false, true);
                     StatusEffectInstance j = new StatusEffectInstance(StatusEffects.JUMP_BOOST, 220, 2, true, false, true);
@@ -52,12 +48,9 @@ public class ModServerTickEvents {
     }
 
     private static void extinguishFireBlocksAroundPlayer(ServerWorld world, ServerPlayerEntity player) {
-
         BlockPos playerPos = player.getBlockPos();
-        int radius = 8; // Check in an 8-block radius around the player
-
+        int radius = 8;
         BlockPos.Mutable mutablePos = new BlockPos.Mutable();
-
         for (int dx = -radius; dx <= radius; dx++) {
             for (int dy = -2; dy <= 4; dy++) {
                 for (int dz = -radius; dz <= radius; dz++) {
@@ -75,12 +68,9 @@ public class ModServerTickEvents {
         ServerWorld currentWorld = player.getServerWorld();
         RegistryKey<World> currentKey = currentWorld.getRegistryKey();
         MinecraftServer server = currentWorld.getServer();
-
         RegistryKey<World> lunaKey = ModDimensions.LUNA_LEVEL_KEY;
         RegistryKey<World> overworldKey = World.OVERWORLD;
-
         BlockPos pos = player.getBlockPos();
-
         if (currentKey.equals(overworldKey) && pos.getY() > ModConfigs.TERRA_WARP_HEIGHT_THRESHOLD) {
             ServerWorld luna = server.getWorld(lunaKey);
             if (luna != null) {

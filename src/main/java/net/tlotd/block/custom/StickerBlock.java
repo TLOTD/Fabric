@@ -21,6 +21,7 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.WorldAccess;
+import net.minecraft.world.WorldView;
 import net.tlotd.block.ModBlocks;
 import org.jetbrains.annotations.Nullable;
 
@@ -29,12 +30,23 @@ import java.util.List;
 public class StickerBlock extends Block {
 
     public static final EnumProperty<WallMountLocation> FACE = Properties.WALL_MOUNT_LOCATION;
-    public static final DirectionProperty FACING = Properties.FACING;
+    public static final DirectionProperty FACING = HorizontalFacingBlock.FACING;
     public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
 
     @Override
-    public BlockState getPlacementState(ItemPlacementContext ctx) {
+    public boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
+        Direction direction = state.get(FACING);
+        BlockPos blockPos = pos.offset(direction);
+        BlockState blockState = world.getBlockState(blockPos);
+        if (!state.get(FACE).equals(WallMountLocation.WALL)) {
+            if (state.get(FACE).equals(WallMountLocation.FLOOR)) {
+                return world.getBlockState(pos.down()).isSideSolidFullSquare(world, pos.down(), Direction.UP);
+            } else return world.getBlockState(pos.up()).isSideSolidFullSquare(world, pos.up(), Direction.DOWN);
+        } else return blockState.isSideSolidFullSquare(world, blockPos, direction.getOpposite());
+    }
 
+    @Override
+    public BlockState getPlacementState(ItemPlacementContext ctx) {
         for (Direction direction : ctx.getPlacementDirections()) {
             BlockState blockState = direction.getAxis() == Direction.Axis.Y ? this.getDefaultState().with(FACE, direction == Direction.UP ? WallMountLocation.CEILING : WallMountLocation.FLOOR).with(FACING, ctx.getHorizontalPlayerFacing()).with(WATERLOGGED, ctx.getWorld().getFluidState(ctx.getBlockPos()).isOf(Fluids.WATER)) : this.getDefaultState().with(FACE, WallMountLocation.WALL).with(FACING, direction).with(WATERLOGGED, ctx.getWorld().getFluidState(ctx.getBlockPos()).isOf(Fluids.WATER));
             if (!blockState.canPlaceAt(ctx.getWorld(), ctx.getBlockPos())) continue;
@@ -53,8 +65,7 @@ public class StickerBlock extends Block {
         if (state.get(WATERLOGGED)) {
             world.scheduleFluidTick(pos, Fluids.WATER, Fluids.WATER.getTickRate(world));
         }
-
-        return super.getStateForNeighborUpdate(state, direction, neighborState, world, pos, neighborPos);
+        return (direction == Direction.DOWN && state.get(FACE).equals(WallMountLocation.FLOOR) || direction == Direction.UP && state.get(FACE).equals(WallMountLocation.CEILING) || direction == state.get(FACING) && state.get(FACE).equals(WallMountLocation.WALL)) && !state.canPlaceAt(world, pos) ? Blocks.AIR.getDefaultState() : state;
     }
 
     @Override
@@ -118,7 +129,7 @@ public class StickerBlock extends Block {
     @Override
     public void appendTooltip(ItemStack stack, @Nullable BlockView world, List<Text> tooltip, TooltipContext options) {
         if (Screen.hasShiftDown()) {
-            if (stack.getItem() == ModBlocks.BW_STICKER.asItem()) {
+            if (stack.isOf(ModBlocks.BW_STICKER.asItem())) {
                 tooltip.add(Text.translatable("block.tlotd.bw_sticker.tooltip").formatted(Formatting.GRAY));
                 tooltip.add(Text.translatable("block.tlotd.bw_sticker.tooltip_2").formatted(Formatting.GRAY));
                 tooltip.add(Text.translatable("block.tlotd.bw_sticker.tooltip_3").formatted(Formatting.GRAY));

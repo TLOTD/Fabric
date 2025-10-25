@@ -23,5 +23,22 @@ public class ModTelevisionSignals {
                 ModBlocks.TELEVISION_ON,
                 0
         );
+        TelevisionSignalRegistry.register(
+                new TelevisionSignalRegistry.SignalEntry(TelevisionSignalRegistry.normalize(
+                        Identifier.of(TLOTD.MOD_ID,"vhs_cassette_project_kv31")),
+                        ModBlocks.TELEVISION, ModBlocks.TELEVISION_ON, 31));
+
+
+
+        VideoGameRegistry.registerBatch(
+                new Identifier[]{
+                        Identifier.of(TLOTD.MOD_ID,"game_cartridge_1"),
+                        Identifier.of(TLOTD.MOD_ID,"game_cartridge_2"),
+                        Identifier.of(TLOTD.MOD_ID,"game_cartridge_3")
+                },
+                ModBlocks.TELEVISION_GAME,
+                ModBlocks.COMPUTER_ON,
+                1
+        );
     }
 }

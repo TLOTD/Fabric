@@ -26,7 +26,7 @@ import java.util.List;
 public class AlienControlPanelBlock extends Block {
 
     public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
-    public static final DirectionProperty FACING = FacingBlock.FACING;
+    public static final DirectionProperty FACING = HorizontalFacingBlock.FACING;
     public static final BooleanProperty HARVESTED = BooleanProperty.of("harvested");
 
     public AlienControlPanelBlock(Settings settings) {

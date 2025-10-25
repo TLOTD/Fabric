@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=south": {
+      "model": "tlotd:block/elevator_dial"
+    },
+    "facing=west": {
+      "model": "tlotd:block/elevator_dial",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "tlotd:block/elevator_dial",
+      "y": 180
+    },
+    "facing=east": {
+      "model": "tlotd:block/elevator_dial",
+      "y": 270
+    }
+  }
+}

@@ -1,8 +1,9 @@
 {
   "replace": false,
   "values": [
-    "tlotd:aluminium_ore",
-    "tlotd:deepslate_aluminium_ore",
-    "tlotd:red_deepslate_aluminium_ore"
+    {
+      "id": "#c:aluminum_ores",
+      "required": false
+    }
   ]
 }

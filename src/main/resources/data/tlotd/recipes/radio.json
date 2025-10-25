@@ -29,7 +29,7 @@
       "tag": "c:iron_nuggets"
     },
     "W": {
-      "item": "tlotd:copper_wire"
+      "tag": "tlotd:wires"
     }
   },
   "pattern": [

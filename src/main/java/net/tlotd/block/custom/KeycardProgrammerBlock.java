@@ -34,7 +34,7 @@ public class KeycardProgrammerBlock extends BlockWithEntity implements BlockEnti
 
     public static final BooleanProperty ON = BooleanProperty.of("on");
     public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
-    public static final DirectionProperty FACING = FacingBlock.FACING;
+    public static final DirectionProperty FACING = HorizontalFacingBlock.FACING;
 
     @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {
