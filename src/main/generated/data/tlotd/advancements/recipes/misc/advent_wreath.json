@@ -1,0 +1,48 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_candle": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:candle"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_christmas_wreath": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "tlotd:christmas_wreath"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:advent_wreath"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_candle",
+      "has_christmas_wreath",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:advent_wreath"
+    ]
+  },
+  "sends_telemetry_event": false
+}

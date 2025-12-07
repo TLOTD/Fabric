@@ -108,6 +108,11 @@ public class ModItems {
     public static final Item DROOPFRUIT_JAM_TOAST = registerItem("droopfruit_jam_toast", new CompatItem(new FabricItemSettings().food(ModFoodComponents.DROOPFRUIT_JAM_TOAST),"udg"));
     public static final Item ANCIENT_SOULBERRY_JAM_TOAST = registerItem("ancient_soulberry_jam_toast", new CompatItem(new FabricItemSettings().food(ModFoodComponents.ANCIENT_SOULBERRY_JAM_TOAST),"atm"));
 
+    public static final Item TOME_OF_ENLIGHTENMENT = registerItem("tome_of_enlightenment", new EnlightenmentItem(new FabricItemSettings().rarity(Rarity.EPIC).maxCount(1).fireproof()));
+    public static final Item ARTIFACT_OF_ENLIGHTENMENT = registerItem("artifact_of_enlightenment", new EnlightenmentItem(new FabricItemSettings().rarity(Rarity.EPIC).maxCount(1).fireproof()));
+    public static final Item EYE_OF_ENLIGHTENMENT = registerItem("eye_of_enlightenment", new EnlightenmentItem(new FabricItemSettings().rarity(Rarity.EPIC).maxCount(1).fireproof()));
+
+
     public static final Item BLOOD_BOTTLE = registerItem("blood_bottle", new Item(new FabricItemSettings().recipeRemainder(Items.GLASS_BOTTLE).maxCount(1)));
 
     public static final Item STICK_EFFIGY = registerItem("stick_effigy", new Item(new FabricItemSettings()));
@@ -116,9 +121,6 @@ public class ModItems {
     public static final Item MISTLETOE = registerItem("mistletoe", new Item(new FabricItemSettings()));
     public static final Item CURED_MEAT = registerItem("cured_meat", new Item(new FabricItemSettings().food(ModFoodComponents.CURED_MEAT)));
     public static final Item COOKED_MEAT = registerItem("cooked_meat", new Item(new FabricItemSettings().food(ModFoodComponents.COOKED_MEAT)));
-
-    public static final Item SPELL_BOOK = registerItem("spell_book", new SpellBookItem(new FabricItemSettings().rarity(Rarity.EPIC).maxCount(1).fireproof()));
-    public static final Item FORBIDDEN_SPELL_BOOK = registerItem("forbidden_spell_book", new ForbiddenSpellBookItem(new FabricItemSettings().rarity(Rarity.EPIC).maxCount(1).fireproof()));
 
     public static final Item PLANCHETTE = registerItem("planchette", new PlanchetteItem(new FabricItemSettings().maxCount(1)));
 

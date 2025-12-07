@@ -7,34 +7,38 @@
 	"authors": [
 		{
 			"name": "TLOTD",
-			"contact": {
-				"homepage": "https://tlotd.net/",
-				"github": "https://github.com/tlotd",
-				"youtube": "https://www.youtube.com/@tlotd"
+			"custom": {
+				"modmenu": {
+					"links": {
+						"modmenu.tlotd": "https://tlotd.net/u/tlotd"
+					}
+				}
 			}
 		},
 		{
 			"name": "Isla_Nublar",
-			"contact": {
-				"homepage": "https://isla-nublar.com/",
-				"github": "https://github.com/isla-nublar",
-				"youtube": "https://www.youtube.com/@isla_nublar"
+			"custom": {
+				"modmenu": {
+					"links": {
+						"modmenu.tlotd": "https://tlotd.net/u/isla_nublar"
+					}
+				}
 			}
 		}],
 	"contributors": [
 		{
 			"name": "Salsafox",
-			"contact": {
-				"homepage": "https://tlotd.net/u/salsafox",
-				"github": "https://github.com/salsafox",
-				"youtube": "https://www.youtube.com/@salsafox"
+			"custom": {
+				"modmenu": {
+					"links": {
+						"modmenu.tlotd": "https://tlotd.net/u/salsafox"
+					}
+				}
 			}
 		}
 	],
 	"contact": {
-		"homepage": "https://tlotd.net/",
-		"discord": "https://discord.gg/qrdQReN",
-		"modrinth": "https://modrinth.com/mod/tlotd",
+		"homepage": "https://tlotd.net/wiki/mc-mod/",
 		"sources": "https://github.com/tlotd/Fabric"
 	},
 	"license": "CC-BY-NC-SA-4.0",
@@ -69,5 +73,17 @@
 	"suggests": {
 		"create": "*",
 		"farmers-delight": "*"
+	},
+	"custom": {
+		"modmenu": {
+			"links": {
+				"modmenu.tlotd": "https://tlotd.net/u/tlotd",
+				"modmenu.modrinth": "https://modrinth.com/mod/tlotd",
+				"modmenu.curseforge": "https://www.curseforge.com/minecraft/mc-mods/tlotd",
+				"modmenu.wiki": "https://tlotd.net/wiki/mc-mod/",
+				"modmenu.discord": "https://tlotd.net/discord",
+				"modmenu.reddit": "https://www.reddit.com/r/tlotd/"
+			}
+		}
 	}
 }

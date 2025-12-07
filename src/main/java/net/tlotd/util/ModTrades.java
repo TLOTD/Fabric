@@ -11,6 +11,14 @@ import net.tlotd.villager.ModVillagers;
 
 public class ModTrades {
     public static void registerTrades() {
+        TradeOfferHelper.registerVillagerOffers(VillagerProfession.LIBRARIAN, 3,
+                factories -> {
+                    factories.add((entity, random) -> new TradeOffer(
+                            new ItemStack(Items.BOOK, 1),
+                            new ItemStack(Items.EMERALD, 9),
+                            new ItemStack(ModItems.TOME_OF_ENLIGHTENMENT, 1),
+                            1, 20, 0.1f));
+                });
         TradeOfferHelper.registerVillagerOffers(VillagerProfession.FARMER, 1,
                 factories -> {
                     factories.add((entity, random) -> new TradeOffer(
@@ -85,6 +93,27 @@ public class ModTrades {
                             new ItemStack(ModItems.BLOOD_BOTTLE, 1),
                             new ItemStack(ModItems.CURSED_SOUL_FLASK, 1),
                             6, 2, 0.1f));
+                    factories.add((entity, random) -> new TradeOffer(
+                            new ItemStack(Items.BOOK, 1),
+                            new ItemStack(Items.EMERALD, 9),
+                            new ItemStack(ModItems.TOME_OF_ENLIGHTENMENT, 1),
+                            1, 2, 0.1f));
+                });
+        TradeOfferHelper.registerVillagerOffers(ModVillagers.CULTIST, 2,
+                factories -> {
+                    factories.add((entity, random) -> new TradeOffer(
+                            new ItemStack(ModItems.TOME_OF_ENLIGHTENMENT, 1),
+                            new ItemStack(Items.GOLD_BLOCK, 9),
+                            new ItemStack(ModItems.ARTIFACT_OF_ENLIGHTENMENT, 1),
+                            1, 10, 0.1f));
+                });
+        TradeOfferHelper.registerVillagerOffers(ModVillagers.CULTIST, 3,
+                factories -> {
+                    factories.add((entity, random) -> new TradeOffer(
+                            new ItemStack(ModItems.ARTIFACT_OF_ENLIGHTENMENT, 1),
+                            new ItemStack(Items.ENDER_EYE, 9),
+                            new ItemStack(ModItems.EYE_OF_ENLIGHTENMENT, 1),
+                            1, 20, 0.1f));
                 });
 
         TradeOfferHelper.registerVillagerOffers(ModVillagers.ENGINEER, 1,

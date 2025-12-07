@@ -10,10 +10,10 @@
   "type": "tlotd:incubation",
   "ingredients": [
     {
-      "tag": "tlotd:eggs"
+      "item": "tlotd:t-rex_egg"
     },
     {
-      "item": "spore:blomfung"
+      "tag": "spore:bloomfungs"
     }
   ],
   "output": {

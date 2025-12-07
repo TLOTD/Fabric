@@ -18,6 +18,7 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
+import net.tlotd.networking.JoinDataSync;
 import net.tlotd.world.CustomTextureManager;
 import net.tlotd.world.ModGlobalState;
 import net.tlotd.world.SignalTrackingArray;
@@ -166,6 +167,7 @@ public class ModCommands {
                                           boolean value = BoolArgumentType.getBool(ctx, "value");
                                           ModGlobalState state = ModGlobalState.get(ctx.getSource().getServer());
                                           state.setFormerTlotdRewards(value);
+                                          JoinDataSync.syncAll(ctx.getSource().getWorld());
                                           ctx.getSource().sendFeedback(() ->
                                                   Text.literal("Vanished representatives " + (value ? "will" : "won't") + " be rewarded."), true);
                                           return 1;
@@ -185,7 +187,7 @@ public class ModCommands {
                                     int id = manager.getTexture(player.getUuid());
                                     if (id >= 0) {
                                         source.sendFeedback(() ->
-                                                Text.literal("Your custom texture ID is ").append(Text.literal(String.valueOf(id)).formatted(Formatting.AQUA)), false);
+                                                Text.literal("Your custom texture ID is " + id + "."), false);
                                     } else {
                                         source.sendFeedback(() -> Text.literal("You don’t have a custom texture ID assigned."), false);
                                     }
@@ -200,11 +202,10 @@ public class ModCommands {
                                                 int id = manager.getTexture(profile.getId());
                                                 if (id >= 0) {
                                                     source.sendFeedback(() ->
-                                                            Text.literal("🎨 ").append(Text.literal(profile.getName() + " → ID " + id)
-                                                                    .formatted(Formatting.AQUA)), false);
+                                                            Text.literal(profile.getName() + " has custom texture ID " + id + " assigned."), false);
                                                 } else {
                                                     source.sendFeedback(() ->
-                                                            Text.literal(profile.getName() + " has no assigned texture ID."), false);
+                                                            Text.literal(profile.getName() + " has no custom texture ID assigned."), false);
                                                 }
                                             }
                                             return 1;
@@ -223,6 +224,7 @@ public class ModCommands {
                                                     for (GameProfile profile : profiles) {
                                                         manager.setTexture(profile.getId(), id);
                                                     }
+                                                    JoinDataSync.syncAll(ctx.getSource().getWorld());
                                                     source.sendFeedback(() ->
                                                             Text.literal("Set custom texture ID to " + id + " for " + profiles.size() + " player(s)."), true);
                                                     return 1;

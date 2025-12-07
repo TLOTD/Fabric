@@ -23,6 +23,8 @@
 
   "enchantment.tlotd.transdimensional": "Transdimensional",
   "enchantment.tlotd.depth_of_the_abyss": "Tiefen des Abgrundes",
+  "enchantment.tlotd.sharper_lens": "Linsenschärfe",
+  "enchantment.tlotd.reinforced_glass": "Verstärktes Glas",
   "enchantment.tlotd.shattering_reflection": "Fluch der zerbrechenden Reflexion",
   "enchantment.tlotd.refill_charges": "Wiederherstellend",
   "enchantment.tlotd.resourceful_smoking": "Raffiniertes Rauchen",
@@ -255,9 +257,9 @@
   "item.tlotd.radiaton_proof_armor.tooltip_2": "Schützt vor Strahlung",
 
   "item.tlotd.forging_hammer.tooltip": "Wenn im Mithrilamboss:",
-  "item.tlotd.forging_hammer.tooltip_2": "Schmiedestufe",
+  "item.tlotd.forging_hammer.tooltip_2": "%1$s Schmiedestufe",
   "item.tlotd.star_catcher.tooltip": "Wenn Nachts genutzt in:",
-  "item.tlotd.star_catcher.tooltip_2": "Blocken höhe",
+  "item.tlotd.star_catcher.tooltip_2": "%1$s Blocken höhe",
 
   "block.tlotd.stick_cross": "Stockkreuz",
   "item.tlotd.stick_effigy": "Stockbildnis",
@@ -267,6 +269,10 @@
   "item.tlotd.mistletoe": "Mistelzweig",
   "item.tlotd.cured_meat": "Geheiltes Fleisch",
   "item.tlotd.cooked_meat": "Gebratenes Fleisch",
+
+  "item.tlotd.tome_of_enlightenment": "Wälzer der Aufklärung",
+  "item.tlotd.artifact_of_enlightenment": "Artifakt der Aufklärung",
+  "item.tlotd.eye_of_enlightenment": "Auge der Aufklärung",
 
   "item.tlotd.tinted_glass_flask": "Getönte Glasflasche",
   "item.tlotd.soul_flask": "Seelenflasche",
@@ -337,7 +343,11 @@
 
   "item.tlotd.flash_drive": "Datenträger",
   "item.tlotd.flash_drive.data": "Daten",
-  "item.tlotd.flash_drive.coordinates": "block.pos [%1$s,%2$s,%3$s]",
+  "item.tlotd.flash_drive.password": "password.sha",
+  "item.tlotd.flash_drive.password_type": "keycard",
+  "item.tlotd.flash_drive.application": "program.app",
+  "item.tlotd.flash_drive.coordinates": "block.pos",
+  "item.tlotd.flash_drive.position": "Position",
 
   "item.tlotd.aluminium_wire": "Aluminiumkabel",
   "item.tlotd.copper_wire": "Kupferkabel",
@@ -402,6 +412,7 @@
   "item.tlotd.blue_berry_jam_bucket": "Blaubeermarmeladeneimer",
   "item.tlotd.droopfruit_jam_bucket": "Schlafffruchtmarmeladeneimer",
   "item.tlotd.ancient_soulberry_jam_bucket": "Uralter Seelenbeermarmeladeneimer",
+  "item.tlotd.molten_mithril_bucket": "Eimer mit geschmolzenem Mithril",
 
   "item.tlotd.copper_nugget": "Kupferklumpen",
 
@@ -720,6 +731,8 @@
 
   "block.tlotd.present": "Geschenk",
   "block.tlotd.festive_lights": "Festtagsbeleuchtung",
+  "block.tlotd.christmas_wreath": "Weihnachtskranz",
+  "block.tlotd.advent_wreath": "Adventskranz",
 
   "block.tlotd.apparatus": "Apparatur",
 
@@ -751,6 +764,8 @@
   "block.tlotd.droopfruit_jam_block": "Schlafffruchtmarmelade",
   "block.tlotd.ancient_soulberry_jam": "Uralte Seelenbeermarmelade",
   "block.tlotd.ancient_soulberry_jam_block": "Uralte Seelenbeermarmelade",
+  "block.tlotd.molten_mithril": "Geschmolzenes Mithril",
+  "block.tlotd.molten_mithril_block": "Geschmolzenes Mithril",
 
   "block.tlotd.gravestone": "Grabstein",
   "block.tlotd.mossy_gravestone": "Bemooster Grabstein",
@@ -814,6 +829,7 @@
   "block.tlotd.media_system_bookshelf": "Medien-System Regal",
   "block.tlotd.computer": "Rechner",
   "block.tlotd.computer_on": "Rechner",
+  "block.tlotd.computer_on.application_copied": "Anwendung auf Datenträger kopiert",
   "block.tlotd.powered_by_computer.tooltip": "Betreibbar durch:",
   "block.tlotd.interdimensional_receiver": "Interdimensionaler Receiver",
   "block.tlotd.interdimensional_receiver.tooltip": "Kann plaziert werden auf:",

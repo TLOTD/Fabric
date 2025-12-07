@@ -25,6 +25,7 @@ import net.tlotd.gui.ModGUIHandlers;
 import net.tlotd.item.*;
 import net.tlotd.block.ModBlocks;
 import net.tlotd.networking.ModMessages;
+import net.tlotd.networking.JoinDataSync;
 import net.tlotd.painting.ModPaintings;
 import net.tlotd.recipe.ModRecipies;
 import net.tlotd.sound.ModSounds;
@@ -82,7 +83,7 @@ public class TLOTD implements ModInitializer {
 		Registry.register(Registries.CHUNK_GENERATOR, new Identifier(TLOTD.MOD_ID, "luna"), LunarChunkGenerator.CODEC);
 		Registry.register(Registries.CHUNK_GENERATOR, new Identifier(TLOTD.MOD_ID, "backrooms"), BackroomsChunkGenerator.CODEC);
 
-		LOGGER.info("TLOTD INITIALIZED!");
+
 
 		StrippableBlockRegistry.register(ModBlocks.GINKGO_LOG, ModBlocks.STRIPPED_GINKGO_LOG);
 		StrippableBlockRegistry.register(ModBlocks.GINKGO_WOOD, ModBlocks.STRIPPED_GINKGO_WOOD);
@@ -98,5 +99,7 @@ public class TLOTD implements ModInitializer {
 			.destDimID(new Identifier(TLOTD.MOD_ID, "prehistoric"))
 			.tintColor(0x925240)
 			.registerPortal();
+		JoinDataSync.init();
+		LOGGER.info("TLOTD INITIALIZED!");
 	}
 }

@@ -23,7 +23,12 @@ public class EnduringMirrorEnchantment extends Enchantment {
 
     @Override
     protected boolean canAccept(Enchantment other) {
-        return (super.canAccept(other) || other == ModEnchantments.REFILL_CHARGES || other == ModEnchantments.TRANSDIMENSIONAL) && other != ModEnchantments.CURSED_REFLECTION;
+        return (super.canAccept(other) ||
+                other == ModEnchantments.REFILL_CHARGES ||
+                other == ModEnchantments.TRANSDIMENSIONAL ||
+                other == ModEnchantments.SHARPER_LENS ||
+                other == ModEnchantments.REINFORCED_GLASS) &&
+                other != ModEnchantments.CURSED_REFLECTION;
     }
 
     @Override

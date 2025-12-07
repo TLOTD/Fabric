@@ -87,6 +87,11 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModItems.MITHRIL_BOOTS)
         ;
 
+        getOrCreateTagBuilder(ModTags.Items.INCUBATOR_EGGS)
+                .addTag(ModTags.Items.EGGS)
+                .add(ModBlocks.TREX_EGG.asItem())
+        ;
+
         getOrCreateTagBuilder(ModTags.Items.EGGS)
                 .addOptionalTag(Identifier.tryParse("c:eggs"))
         ;
@@ -312,8 +317,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
         ;
 
         getOrCreateTagBuilder(ItemTags.BOOKSHELF_BOOKS)
-                .add(ModItems.SPELL_BOOK)
-                .add(ModItems.FORBIDDEN_SPELL_BOOK)
+                .add(ModItems.TOME_OF_ENLIGHTENMENT)
         ;
 
         getOrCreateTagBuilder(ItemTags.SMALL_FLOWERS)
@@ -617,6 +621,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
 
         getOrCreateTagBuilder(ModTags.Items.KEYCARDS)
                 .add(ModItems.KEYCARD)
+                .add(ModItems.FLASH_DRIVE)
         ;
 
         getOrCreateTagBuilder(ModTags.Items.TREX_HEADS)

@@ -19,7 +19,6 @@ public class ModConfigs {
     public static int TERRA_FALL_DISTANCE_RESISTANCE;
     public static int LUNAR_SEED;
     public static int PREHISTORIC_SEED;
-    public static boolean FORMER_TLOTD_REWARDS; //its only there for the item description atm
 
     public static void registerConfigs() {
         configs = new ModConfigProvider();
@@ -31,7 +30,7 @@ public class ModConfigs {
     }
 
     private static void createConfigs() {
-        configs.addKeyValuePair(new Pair<>("configVersion", "0.4.0"), "String [0.4.0] | shows version the config was made in");
+        configs.addKeyValuePair(new Pair<>("configVersion", "0.4.1"), "String [0.4.1] | shows version the config was made in");
         configs.addKeyValuePair(new Pair<>("mithrilAnvilNeedsDirectMoonlight", true), "boolean [true]");
         configs.addKeyValuePair(new Pair<>("witchingTableNeedsBlood", true), "boolean [true]");
         configs.addKeyValuePair(new Pair<>("witchingTableNeedsSouls", true), "boolean [true]");
@@ -43,11 +42,10 @@ public class ModConfigs {
         configs.addKeyValuePair(new Pair<>("terraFallDistanceResistance", 400), "int [400] | resistence effect time in ticks (0 to disable)");
         configs.addKeyValuePair(new Pair<>("lunarSeed", 21071969), "int [21071969] | chunk generator seed for the moon");
         configs.addKeyValuePair(new Pair<>("prehistoricSeed", 18011871), "int [18011871] | chunk generator seed for the prehistoric");
-        configs.addKeyValuePair(new Pair<>("formerTlotdRewards", false), "boolean [false] | effects the skins of the player plushie when placed by them");
     }
 
     private static void assignConfigs() {
-        CONFIG_VERSION = CONFIG.getOrDefault("configVersion", "0.4.0");
+        CONFIG_VERSION = CONFIG.getOrDefault("configVersion", "0.4.1");
         MITHRIL_ANVIL_NEEDS_DIRECT_MOONLIGHT = CONFIG.getOrDefault("mithrilAnvilNeedsDirectMoonlight", true);
         WITCHING_TABLE_NEEDS_BLOOD = CONFIG.getOrDefault("witchingTableNeedsBlood", true);
         WITCHING_TABLE_NEEDS_SOULS = CONFIG.getOrDefault("witchingTableNeedsSouls", true);
@@ -59,7 +57,6 @@ public class ModConfigs {
         TERRA_FALL_DISTANCE_RESISTANCE = CONFIG.getOrDefault("terraFallDistanceResistance", 400);
         LUNAR_SEED = CONFIG.getOrDefault("lunarSeed", 21071969);
         PREHISTORIC_SEED = CONFIG.getOrDefault("prehistoricSeed", 18011871);
-        FORMER_TLOTD_REWARDS = CONFIG.getOrDefault("formerTlotdRewards", false);
 
         System.out.println("All " + configs.getConfigsList().size() + " " + TLOTD.MOD_ID + " configs have been set properly");
     }

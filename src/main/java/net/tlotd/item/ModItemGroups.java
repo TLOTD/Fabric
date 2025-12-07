@@ -32,8 +32,10 @@ public class ModItemGroups {
             FabricItemGroup.builder()
                     .displayName(Text.literal("\uE000 ").styled(style -> style.withFont(MODS_FONT_ID).withFormatting(Formatting.WHITE)).append(Text.translatable("itemgroup.tlotd.materials").styled(style -> style.withFont(DEFAULT_FONT_ID))))
                     .icon(() -> new ItemStack(ModItems.RAW_MITHRIL)).entries((displayContext, entries) -> {
-                        entries.add(ModItems.SPELL_BOOK);
-                        entries.add(ModItems.FORBIDDEN_SPELL_BOOK);
+                        entries.add(ModItems.TOME_OF_ENLIGHTENMENT);
+                        entries.add(ModItems.ARTIFACT_OF_ENLIGHTENMENT);
+                        entries.add(ModItems.EYE_OF_ENLIGHTENMENT);
+
                         entries.add(ModItems.PLANCHETTE);
 
                         entries.add(ModItems.DRAGON_BANNER_PATTERN);
@@ -509,9 +511,19 @@ public class ModItemGroups {
                         entries.add(addEnchantedBook(ModEnchantments.TRANSDIMENSIONAL, 1));
                         entries.add(addEnchantedBook(ModEnchantments.TRANSDIMENSIONAL, 2));
                         entries.add(addEnchantedBook(ModEnchantments.TRANSDIMENSIONAL, 3));
+                        entries.add(addEnchantedBook(ModEnchantments.TRANSDIMENSIONAL, 4));
+                        entries.add(addEnchantedBook(ModEnchantments.TRANSDIMENSIONAL, 5));
                         entries.add(addEnchantedBook(ModEnchantments.DEPTH_OF_THE_ABYSS, 1));
                         entries.add(addEnchantedBook(ModEnchantments.DEPTH_OF_THE_ABYSS, 2));
                         entries.add(addEnchantedBook(ModEnchantments.DEPTH_OF_THE_ABYSS, 3));
+                        entries.add(addEnchantedBook(ModEnchantments.SHARPER_LENS, 1));
+                        entries.add(addEnchantedBook(ModEnchantments.SHARPER_LENS, 2));
+                        entries.add(addEnchantedBook(ModEnchantments.SHARPER_LENS, 3));
+                        entries.add(addEnchantedBook(ModEnchantments.SHARPER_LENS, 4));
+                        entries.add(addEnchantedBook(ModEnchantments.SHARPER_LENS, 5));
+                        entries.add(addEnchantedBook(ModEnchantments.REINFORCED_GLASS, 1));
+                        entries.add(addEnchantedBook(ModEnchantments.REINFORCED_GLASS, 2));
+                        entries.add(addEnchantedBook(ModEnchantments.REINFORCED_GLASS, 3));
                         entries.add(addEnchantedBook(ModEnchantments.CURSED_REFLECTION, 1));
                         entries.add(addEnchantedBook(ModEnchantments.REFILL_CHARGES, 1));
                         entries.add(addEnchantedBook(ModEnchantments.RESOURCEFUL_SMOKING, 1));
@@ -793,6 +805,8 @@ public class ModItemGroups {
                         entries.add(ModBlocks.ATHELAS);
 
                         entries.add(ModBlocks.PRESENT);
+                        entries.add(ModBlocks.CHRISTMAS_WREATH);
+                        entries.add(ModBlocks.ADVENT_WREATH);
                         entries.add(ModBlocks.FESTIVE_LIGHTS);
 
                         entries.add(ModBlocks.GLASS_DOOR);
@@ -932,6 +946,7 @@ public class ModItemGroups {
                         entries.add(ModItems.INCOMPLETE_KEYCARD_READER);
                         entries.add(ModItems.INCOMPLETE_OXYGEN_COLLECTOR);
                         entries.add(ModItems.INCOMPLETE_MITHRIL_MIRROR);
+                        entries.add(ModFluids.MOLTEN_MITHRIL_BUCKET);
                         entries.add(ModFluids.SPEZI_BUCKET);
                         entries.add(ModFluids.SWEET_BERRY_JAM_BUCKET);
                         entries.add(ModFluids.GLOW_BERRY_JAM_BUCKET);

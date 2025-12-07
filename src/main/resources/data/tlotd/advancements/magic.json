@@ -1,7 +1,7 @@
 {
   "display": {
     "icon": {
-      "item": "tlotd:spell_book"
+      "item": "tlotd:tome_of_enlightenment"
     },
     "title": {
       "translate": "advancements.tlotd.magic"
@@ -22,7 +22,7 @@
         "items": [
           {
             "items": [
-              "tlotd:spell_book"
+              "tlotd:tome_of_enlightenment"
             ]
           }
         ]

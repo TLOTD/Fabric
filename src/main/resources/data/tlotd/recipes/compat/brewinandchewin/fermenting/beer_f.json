@@ -1,0 +1,35 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "forge",
+        "brewinandchewin"
+      ]
+    }
+  ],
+  "type": "brewinandchewin:fermenting",
+  "basefluid": {
+    "count": 1000,
+    "fluid": "minecraft:water"
+  },
+  "experience": 1.0,
+  "fermentingtime": 9600,
+  "ingredients": [
+    {
+      "item": "minecraft:wheat"
+    },
+    {
+      "item": "minecraft:wheat"
+    },
+    {
+      "item": "minecraft:wheat"
+    }
+  ],
+  "recipe_book_tab": "drinks",
+  "result": {
+    "count": 1000,
+    "fluid": "tlotd:beer"
+  },
+  "temperature": 3
+}

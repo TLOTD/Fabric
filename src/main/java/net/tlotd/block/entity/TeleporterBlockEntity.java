@@ -7,9 +7,9 @@ import net.minecraft.util.math.BlockPos;
 
 public class TeleporterBlockEntity extends BlockEntity {
 
-    public int destination_x = 0;
-    public int destination_y = 2147483647;
-    public int destination_z = 0;
+    public int pos_x = 0;
+    public int pos_y = 2147483647;
+    public int pos_z = 0;
     public boolean one_way = false;
     public boolean relative = false;
 
@@ -20,9 +20,9 @@ public class TeleporterBlockEntity extends BlockEntity {
     @Override
     protected void writeNbt(NbtCompound nbt) {
         super.writeNbt(nbt);
-        nbt.putInt("destination_x", destination_x);
-        nbt.putInt("destination_y", destination_y);
-        nbt.putInt("destination_z", destination_z);
+        nbt.putInt("pos_x", pos_x);
+        nbt.putInt("pos_y", pos_y);
+        nbt.putInt("pos_z", pos_z);
         nbt.putBoolean("one_way", one_way);
         nbt.putBoolean("relative", relative);
     }
@@ -30,9 +30,9 @@ public class TeleporterBlockEntity extends BlockEntity {
     @Override
     public void readNbt(NbtCompound nbt) {
         super.readNbt(nbt);
-        destination_x = nbt.getInt("destination_x");
-        destination_y = nbt.getInt("destination_y");
-        destination_z = nbt.getInt("destination_z");
+        pos_x = nbt.getInt("pos_x");
+        pos_y = nbt.getInt("pos_y");
+        pos_z = nbt.getInt("pos_z");
         one_way = nbt.getBoolean("one_way");
         relative = nbt.getBoolean("relative");
     }

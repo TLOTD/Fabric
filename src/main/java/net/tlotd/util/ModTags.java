@@ -147,6 +147,9 @@ public class ModTags {
         public static final TagKey<Item> EGGS =
                 createTag("eggs");
 
+        public static final TagKey<Item> INCUBATOR_EGGS =
+                createTag("incubator_eggs");
+
         public static final TagKey<Item> HATCHABLE_EGGS =
                 createTag("hatchable_eggs");
 

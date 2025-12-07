@@ -9,6 +9,8 @@ import net.tlotd.TLOTD;
 public class ModEnchantments {
     public static final Enchantment TRANSDIMENSIONAL = registerEnchant("transdimensional", new TransdimensionalMirrorEnchantment());
     public static final Enchantment DEPTH_OF_THE_ABYSS = registerEnchant("depth_of_the_abyss", new EnduringMirrorEnchantment());
+    public static final Enchantment SHARPER_LENS = registerEnchant("sharper_lens", new SharperLensEnchantment());
+    public static final Enchantment REINFORCED_GLASS = registerEnchant("reinforced_glass", new ReinforcedGlassEnchantment());
     public static final Enchantment CURSED_REFLECTION = registerEnchant("shattering_reflection", new CursedReflectionEnchantment());
     public static final Enchantment REFILL_CHARGES = registerEnchant("refill_charges", new RefillChargesEnchantment());
     public static final Enchantment RESOURCEFUL_SMOKING = registerEnchant("resourceful_smoking", new ResourcefulSmokingEnchantment());

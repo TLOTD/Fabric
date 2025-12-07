@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "tlotd:keycard"
+    "tlotd:keycard",
+    "tlotd:flash_drive"
   ]
 }

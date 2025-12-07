@@ -23,6 +23,8 @@ public class ModBlockRenderLayerMap {
         BlockRenderLayerMap.INSTANCE.putFluids(RenderLayer.getTranslucent(), ModFluids.STILL_DROOPFRUIT_JAM, ModFluids.FLOWING_DROOPFRUIT_JAM);
         BlockRenderLayerMap.INSTANCE.putFluids(RenderLayer.getTranslucent(), ModFluids.STILL_ANCIENT_SOULBERRY_JAM, ModFluids.FLOWING_ANCIENT_SOULBERRY_JAM);
 
+        BlockRenderLayerMap.INSTANCE.putFluids(RenderLayer.getTranslucent(), ModFluids.STILL_MOLTEN_MITHRIL, ModFluids.FLOWING_MOLTEN_MITHRIL);
+
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.APPARATUS, RenderLayer.getTranslucent());
 
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.SULFUR_LANTERN, RenderLayer.getCutout());
@@ -68,6 +70,8 @@ public class ModBlockRenderLayerMap {
 
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.PRESENT, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.FESTIVE_LIGHTS, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.CHRISTMAS_WREATH, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.ADVENT_WREATH, RenderLayer.getCutout());
 
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.STRAWBERRY_BUSH, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.ORANGE_TREE, RenderLayer.getCutout());

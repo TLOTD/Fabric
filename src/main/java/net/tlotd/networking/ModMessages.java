@@ -14,5 +14,6 @@ public class ModMessages {
 
     public static void registerS2CPackets() {
         ClientPlayNetworking.registerGlobalReceiver(FLUID_SYNC, FluidSyncS2CPacket::receive);
+        PlayerDataSyncNetworking.registerClientReceiver();
     }
 }

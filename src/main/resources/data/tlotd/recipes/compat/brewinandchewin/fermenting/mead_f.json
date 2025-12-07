@@ -1,0 +1,32 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "forge",
+        "brewinandchewin"
+      ]
+    }
+  ],
+  "type": "brewinandchewin:fermenting",
+  "basefluid": {
+    "count": 500,
+    "fluid": "minecraft:water"
+  },
+  "experience": 1.0,
+  "fermentingtime": 9600,
+  "ingredients": [
+    {
+      "item": "minecraft:honey_bottle"
+    },
+    {
+      "item": "minecraft:honey_bottle"
+    }
+  ],
+  "recipe_book_tab": "drinks",
+  "result": {
+    "count": 1000,
+    "fluid": "tlotd:mead"
+  },
+  "temperature": 3
+}

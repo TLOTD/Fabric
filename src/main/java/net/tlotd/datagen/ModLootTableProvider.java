@@ -63,6 +63,8 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
 
         addDrop(ModBlocks.APPARATUS);
         addDrop(ModBlocks.FESTIVE_LIGHTS);
+        addDrop(ModBlocks.CHRISTMAS_WREATH);
+        addDrop(ModBlocks.ADVENT_WREATH);
 
         addDrop(ModBlocks.GRAVESTONE);
         addDrop(ModBlocks.GRAVESTONE_CROSS);

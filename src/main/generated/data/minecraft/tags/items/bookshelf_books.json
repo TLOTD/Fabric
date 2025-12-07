@@ -1,7 +1,6 @@
 {
   "replace": false,
   "values": [
-    "tlotd:spell_book",
-    "tlotd:forbidden_spell_book"
+    "tlotd:tome_of_enlightenment"
   ]
 }

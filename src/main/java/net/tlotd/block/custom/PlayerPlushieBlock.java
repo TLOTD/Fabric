@@ -1,6 +1,7 @@
 package net.tlotd.block.custom;
 
 import net.minecraft.block.*;
+import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.PlayerEntity;
@@ -17,7 +18,8 @@ import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.BlockView;
-import net.tlotd.config.ModConfigs;
+import net.tlotd.networking.ClientGlobalConfig;
+import net.tlotd.networking.ClientTextureCache;
 import net.tlotd.world.CustomTextureManager;
 import net.tlotd.world.ModGlobalState;
 import org.jetbrains.annotations.Nullable;
@@ -51,7 +53,7 @@ public class PlayerPlushieBlock extends HumanPlushieBlock {
             case "f31b18df-5db5-4e00-9adc-b66e89c69792" -> 17;
             case "4488478f-78d4-4885-be12-1f2179874912" -> 18;
             case "8365d4fc-c514-4c2e-a4e5-cf39fb26b0f0" -> 19;
-            case "1987a906-540f-4ae8-90df-43504c06a6e7" -> 20;
+            case "1987a906-540f-4ae8-90df-43504c06a6e7" -> formerTLOTD ? 20 : 0; //GenosseNeuro
             case "7af13cd9-4c28-4d48-a3f4-3cfbbce46438" -> 21;
             default -> 0;
         };
@@ -115,6 +117,7 @@ public class PlayerPlushieBlock extends HumanPlushieBlock {
 
     public static final Identifier DEFAULT_FONT_ID = new Identifier("minecraft", "default");
     public static final Identifier PLAYERS_FONT_ID = new Identifier("tlotd", "players");
+    public static final Identifier MODS_FONT_ID = new Identifier("tlotd", "mods");
 
     @Override
     public void appendTooltip(ItemStack stack, @Nullable BlockView world, List<Text> tooltip, TooltipContext options) {
@@ -128,18 +131,18 @@ public class PlayerPlushieBlock extends HumanPlushieBlock {
             tooltip.add(Text.literal("\uE000").setStyle(style.withFont(PLAYERS_FONT_ID)).append(Text.literal(" TLOTD").setStyle(style.withFont(DEFAULT_FONT_ID))));
             tooltip.add(Text.literal("\uE001").setStyle(style.withFont(PLAYERS_FONT_ID)).append(Text.literal(" Isla_Nublar").setStyle(style.withFont(DEFAULT_FONT_ID))));
             tooltip.add(Text.literal("\uE002").setStyle(style.withFont(PLAYERS_FONT_ID)).append(Text.literal(" EinsDarki").setStyle(style.withFont(DEFAULT_FONT_ID))));
-            if (ModConfigs.FORMER_TLOTD_REWARDS) {
+            if (ClientGlobalConfig.formerTlotdRewards) {
                 tooltip.add(Text.literal("\uE003").setStyle(style.withFont(PLAYERS_FONT_ID)).append(Text.literal(" AliaSophie").setStyle(style.withFont(DEFAULT_FONT_ID))));
                 tooltip.add(Text.literal("\uE004").setStyle(style.withFont(PLAYERS_FONT_ID)).append(Text.literal(" Teneba").setStyle(style.withFont(DEFAULT_FONT_ID))));
             }
             tooltip.add(Text.literal("\uE005").setStyle(style.withFont(PLAYERS_FONT_ID)).append(Text.literal(" Alex1666").setStyle(style.withFont(DEFAULT_FONT_ID))));
-            if (ModConfigs.FORMER_TLOTD_REWARDS) {
+            if (ClientGlobalConfig.formerTlotdRewards) {
                 tooltip.add(Text.literal("\uE006").setStyle(style.withFont(PLAYERS_FONT_ID)).append(Text.literal(" ISSO_21_").setStyle(style.withFont(DEFAULT_FONT_ID))));
                 tooltip.add(Text.literal("\uE007").setStyle(style.withFont(PLAYERS_FONT_ID)).append(Text.literal(" Akitorlp").setStyle(style.withFont(DEFAULT_FONT_ID))));
             }
             tooltip.add(Text.literal("\uE008").setStyle(style.withFont(PLAYERS_FONT_ID)).append(Text.literal(" Polarfoxtm").setStyle(style.withFont(DEFAULT_FONT_ID))));
             tooltip.add(Text.literal("\uE009").setStyle(style.withFont(PLAYERS_FONT_ID)).append(Text.literal(" Salsafox").setStyle(style.withFont(DEFAULT_FONT_ID))));
-            if (ModConfigs.FORMER_TLOTD_REWARDS) {
+            if (ClientGlobalConfig.formerTlotdRewards) {
                 tooltip.add(Text.literal("\uE00A").setStyle(style.withFont(PLAYERS_FONT_ID)).append(Text.literal(" VANDAGR").setStyle(style.withFont(DEFAULT_FONT_ID))));
             }
             tooltip.add(Text.literal("\uE00B").setStyle(style.withFont(PLAYERS_FONT_ID)).append(Text.literal(" TLOTDShido").setStyle(style.withFont(DEFAULT_FONT_ID))));
@@ -150,11 +153,20 @@ public class PlayerPlushieBlock extends HumanPlushieBlock {
             tooltip.add(Text.literal("\uE010").setStyle(style.withFont(PLAYERS_FONT_ID)).append(Text.literal(" TheVexTv").setStyle(style.withFont(DEFAULT_FONT_ID))));
             tooltip.add(Text.literal("\uE011").setStyle(style.withFont(PLAYERS_FONT_ID)).append(Text.literal(" Glamin").setStyle(style.withFont(DEFAULT_FONT_ID))));
             tooltip.add(Text.literal("\uE012").setStyle(style.withFont(PLAYERS_FONT_ID)).append(Text.literal(" Jakx444").setStyle(style.withFont(DEFAULT_FONT_ID))));
-            tooltip.add(Text.literal("\uE013").setStyle(style.withFont(PLAYERS_FONT_ID)).append(Text.literal(" NightHawk241199").setStyle(style.withFont(DEFAULT_FONT_ID))));
+            if (ClientGlobalConfig.formerTlotdRewards) {
+                tooltip.add(Text.literal("\uE013").setStyle(style.withFont(PLAYERS_FONT_ID)).append(Text.literal(" GenosseNeuro").setStyle(style.withFont(DEFAULT_FONT_ID))));
+            }
             tooltip.add(Text.literal("\uE014").setStyle(style.withFont(PLAYERS_FONT_ID)).append(Text.literal(" Red_ice").setStyle(style.withFont(DEFAULT_FONT_ID))));
             //tooltip.add(Text.literal("\uE015").setStyle(style.withFont(PLAYERS_FONT_ID)).append(Text.literal(" Jxst_Freezy").setStyle(style.withFont(DEFAULT_FONT_ID)))); (dont know his ign)
-            tooltip.add(Text.literal("...").formatted(Formatting.GRAY));
-            tooltip.add(Text.translatable("block.tlotd.player_plushie.tooltip_custom"));
+            tooltip.add(Text.translatable("block.tlotd.player_plushie.tooltip_custom").formatted(Formatting.GRAY));
+            MinecraftClient client = MinecraftClient.getInstance();
+            if (client.player != null && client.getServer() != null) {
+                if (!ClientTextureCache.TEXTURES.isEmpty()) {
+                    ClientTextureCache.TEXTURES.forEach((uuid, entry) -> tooltip.add(Text.literal("\uE000 ").setStyle(style.withFont(MODS_FONT_ID)).append(Text.literal(entry.playerName).setStyle(style.withFont(DEFAULT_FONT_ID)))));
+                } else {
+                    tooltip.add(Text.literal("...").formatted(Formatting.DARK_GRAY));
+                }
+            }
         } else {
             tooltip.add(Text.translatable("block.tlotd.player_plushie.tooltip").formatted(Formatting.GRAY));
             tooltip.add(Text.translatable("block.tlotd.player_plushie.tooltip_2").formatted(Formatting.GRAY));

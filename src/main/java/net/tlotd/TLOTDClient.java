@@ -22,7 +22,10 @@ import net.tlotd.entity.ModEntities;
 import net.tlotd.entity.client.*;
 import net.tlotd.fluid.ModFluids;
 import net.tlotd.gui.*;
+import net.tlotd.networking.GlobalConfigNetworking;
 import net.tlotd.networking.ModMessages;
+import net.tlotd.networking.PlayerDataSyncNetworking;
+import net.tlotd.networking.TextureSyncNetworking;
 
 public class TLOTDClient implements ClientModInitializer {
     @Override
@@ -42,6 +45,7 @@ public class TLOTDClient implements ClientModInitializer {
         FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.STILL_BLUE_BERRY_JAM, ModFluids.FLOWING_BLUE_BERRY_JAM, new SimpleFluidRenderHandler(new Identifier("tlotd:block/blue_berry_jam_still"), new Identifier("tlotd:block/blue_berry_jam_flow")));
         FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.STILL_DROOPFRUIT_JAM, ModFluids.FLOWING_DROOPFRUIT_JAM, new SimpleFluidRenderHandler(new Identifier("tlotd:block/droopfruit_jam_still"), new Identifier("tlotd:block/droopfruit_jam_flow")));
         FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.STILL_ANCIENT_SOULBERRY_JAM, ModFluids.FLOWING_ANCIENT_SOULBERRY_JAM, new SimpleFluidRenderHandler(new Identifier("tlotd:block/ancient_soulberry_jam_still"), new Identifier("tlotd:block/ancient_soulberry_jam_flow")));
+        FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.STILL_MOLTEN_MITHRIL, ModFluids.FLOWING_MOLTEN_MITHRIL, new SimpleFluidRenderHandler(new Identifier("tlotd:block/molten_mithril_still"), new Identifier("tlotd:block/molten_mithril_flow")));
 
         ModBlockRenderLayerMap.registerBlockRenderLayerMaps();
         ModItemRenderLayerMap.registerItemRenderLayerMaps();
@@ -74,5 +78,8 @@ public class TLOTDClient implements ClientModInitializer {
         HandledScreens.register(ModGUIHandlers.KEYCARD_PROGRAMMER_GUI_HANDLER, KeycardProgrammerGUI::new);
 
         ModMessages.registerS2CPackets();
+        TextureSyncNetworking.registerClientReceiver();
+        GlobalConfigNetworking.registerClientReceiver();
+        PlayerDataSyncNetworking.registerClientReceiver();
     }
 }

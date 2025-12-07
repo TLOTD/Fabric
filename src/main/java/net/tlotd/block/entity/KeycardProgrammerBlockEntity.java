@@ -100,6 +100,9 @@ public class KeycardProgrammerBlockEntity extends BlockEntity implements Extende
             markDirty(world, pos, state);
             if(progress >= maxProgress) {
                 NbtCompound nbt = new NbtCompound();
+                if (this.getStack(0).getNbt() != null) {
+                    nbt = this.getStack(0).getNbt();
+                }
                 nbt.putString("password", this.getStack(1).toString());
                 this.setStack(2, this.getStack(0));
                 this.setStack(0, ItemStack.EMPTY);

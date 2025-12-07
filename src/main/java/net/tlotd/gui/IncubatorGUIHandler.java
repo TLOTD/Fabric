@@ -32,7 +32,7 @@ public class IncubatorGUIHandler extends ScreenHandler {
         this.propertyDelegate = propertyDelegate;
         this.blockEntity = ((IncubatorBlockEntity) blockEntity);
 
-        this.addSlot(new RestrictedSlot(inventory, 0, 44, 19, ModTags.Items.EGGS));
+        this.addSlot(new RestrictedSlot(inventory, 0, 44, 19, ModTags.Items.INCUBATOR_EGGS));
 
         this.addSlot(new Slot(inventory, 1, 80, 19));
 

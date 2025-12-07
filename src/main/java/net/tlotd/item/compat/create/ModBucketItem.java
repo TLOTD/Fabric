@@ -14,8 +14,8 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class CreateBucketItem extends BucketItem {
-    public CreateBucketItem(Fluid fluid, Settings settings) {
+public class ModBucketItem extends BucketItem {
+    public ModBucketItem(Fluid fluid, Settings settings) {
         super(fluid, settings);
     }
 
@@ -35,7 +35,11 @@ public class CreateBucketItem extends BucketItem {
             if (stack.isOf(ModFluids.DROOPFRUIT_JAM_BUCKET)) {
                 tooltip.add(Text.literal("\uE016 ").setStyle(style.withFont(MODS_FONT_ID)).append(Text.translatable("mod.undergarden.name").setStyle(style.withFont(DEFAULT_FONT_ID).withFormatting(Formatting.GRAY))));
             }
-            tooltip.add(Text.literal("\uE00A ").setStyle(style.withFont(MODS_FONT_ID)).append(Text.translatable("mod.create.name").setStyle(style.withFont(DEFAULT_FONT_ID).withFormatting(Formatting.GRAY))));
+            if (stack.isOf(ModFluids.MOLTEN_MITHRIL_BUCKET)) {
+                tooltip.add(Text.literal("\uE017 ").setStyle(style.withFont(MODS_FONT_ID)).append(Text.translatable("mod.tconstruct.name").setStyle(style.withFont(DEFAULT_FONT_ID).withFormatting(Formatting.GRAY))));
+            } else {
+                tooltip.add(Text.literal("\uE00A ").setStyle(style.withFont(MODS_FONT_ID)).append(Text.translatable("mod.create.name").setStyle(style.withFont(DEFAULT_FONT_ID).withFormatting(Formatting.GRAY))));
+            }
         }
         super.appendTooltip(stack, world, tooltip, context);
     }

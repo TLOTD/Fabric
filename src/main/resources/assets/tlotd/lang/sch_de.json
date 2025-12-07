@@ -21,6 +21,8 @@
 
   "enchantment.tlotd.transdimensional": "Transdimensional",
   "enchantment.tlotd.depth_of_the_abyss": "Tiefn des Abgrunds",
+  "enchantment.tlotd.sharper_lens": "Linsnschärfe",
+  "enchantment.tlotd.reinforced_glass": "Verschtärktes Glas",
   "enchantment.tlotd.shattering_reflection": "Fluch der zerbrechndn Reflektion",
   "enchantment.tlotd.refill_charges": "Wiederherstellnd",
   "enchantment.tlotd.resourceful_smoking": "Raffinierts Rauchn",
@@ -253,9 +255,9 @@
   "item.tlotd.radiaton_proof_armor.tooltip_2": "Bschitzt vor Schtrahlung",
 
   "item.tlotd.forging_hammer.tooltip": "Wenn im Mithrilamboss:",
-  "item.tlotd.forging_hammer.tooltip_2": "Schmiedeschtufn",
+  "item.tlotd.forging_hammer.tooltip_2": "%1$s Schmiedeschtufn",
   "item.tlotd.star_catcher.tooltip": "Wenn Nachts gnutzt in:",
-  "item.tlotd.star_catcher.tooltip_2": "Blegge heä",
+  "item.tlotd.star_catcher.tooltip_2": "%1$s Blegge heä",
 
   "block.tlotd.stick_cross": "Schtecknkreiz",
   "item.tlotd.stick_effigy": "Schtecknbildnis",
@@ -265,6 +267,10 @@
   "item.tlotd.mistletoe": "Mischtlzweig",
   "item.tlotd.cured_meat": "Geheilts Floisch",
   "item.tlotd.cooked_meat": "Gebrodns Floisch",
+
+  "item.tlotd.tome_of_enlightenment": "Wälzer dr Uffklärung",
+  "item.tlotd.artifact_of_enlightenment": "Artifakt dr Uffklärung",
+  "item.tlotd.eye_of_enlightenment": "Auge dr Uffklärung",
 
   "item.tlotd.tinted_glass_flask": "Getönte Glasflaschn",
   "item.tlotd.soul_flask": "Seelnflaschn",
@@ -335,7 +341,11 @@
 
   "item.tlotd.flash_drive": "Datnträgr",
   "item.tlotd.flash_drive.data": "Datn",
-  "item.tlotd.flash_drive.coordinates": "block.pos [%1$s,%2$s,%3$s]",
+  "item.tlotd.flash_drive.password": "password.sha",
+  "item.tlotd.flash_drive.password_type": "keycard",
+  "item.tlotd.flash_drive.application": "program.app",
+  "item.tlotd.flash_drive.coordinates": "block.pos",
+  "item.tlotd.flash_drive.position": "Position",
 
   "item.tlotd.aluminium_wire": "Aluminiumkabl",
   "item.tlotd.copper_wire": "Kupfrkabl",
@@ -400,6 +410,7 @@
   "item.tlotd.blue_berry_jam_bucket": "Blaubeermarmeladnoimr",
   "item.tlotd.droopfruit_jam_bucket": "Schlafffruchtmarmeladnoimr",
   "item.tlotd.ancient_soulberry_jam_bucket": "Uraltr Seelabeermarmeladnoimr",
+  "item.tlotd.molten_mithril_bucket": "Eimer mit gschmolznem Mithril",
 
   "item.tlotd.copper_nugget": "Kupfrklumba",
 
@@ -718,6 +729,8 @@
 
   "block.tlotd.present": "Gschenk",
   "block.tlotd.festive_lights": "Feschtdagsbeleichtung",
+  "block.tlotd.christmas_wreath": "Weihnachtskranz",
+  "block.tlotd.advent_wreath": "Adventskranz",
 
   "block.tlotd.apparatus": "Apperadus",
 
@@ -749,6 +762,8 @@
   "block.tlotd.droopfruit_jam_block": "Schlafffruchtmarmelad",
   "block.tlotd.ancient_soulberry_jam": "Uralte Seelabeermarmelad",
   "block.tlotd.ancient_soulberry_jam_block": "Uralte Seelabeermarmelad",
+  "block.tlotd.molten_mithril": "Gschmolznes Mithril",
+  "block.tlotd.molten_mithril_block": "Gschmolznes Mithril",
 
   "block.tlotd.gravestone": "Grabschtoi",
   "block.tlotd.mossy_gravestone": "Bemoostr Grabschtoi",
@@ -812,6 +827,7 @@
   "block.tlotd.media_system_bookshelf": "Media-Syschtem Regal",
   "block.tlotd.computer": "Rechnr",
   "block.tlotd.computer_on": "Rechnr",
+  "block.tlotd.computer_on.application_copied": "Awendung uffn Datnträger kopiert",
   "block.tlotd.powered_by_computer.tooltip": "Betreibbar durch:",
   "block.tlotd.interdimensional_receiver": "Interdimensionalr Receivr",
   "block.tlotd.interdimensional_receiver.tooltip": "Ka blazierd werde uff:",
@@ -833,7 +849,7 @@
   "block.minecraft.lightning_rod.upside_down": "Umgedrehtr Blitzableitr",
 
   "block.tlotd.teleporter": "Teleporter",
-  "block.tlotd.teleporter.location_copied": "Position auf Datenträger kopiert",
+  "block.tlotd.teleporter.location_copied": "Position uffn Datnträger kopiert",
   "block.tlotd.teleporter.no_destination_on_drive": "Koi Ziel auf dem Datnträgr gfundn",
   "block.tlotd.teleporter.destination_same": "Ziel und Ursprung dirfn net gleich sei",
   "block.tlotd.teleporter.connected": "Teleporter verbundn",

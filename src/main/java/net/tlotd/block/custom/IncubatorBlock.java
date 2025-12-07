@@ -24,6 +24,7 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.tlotd.block.entity.IncubatorBlockEntity;
 import net.tlotd.block.entity.ModBlockEntities;
+import net.tlotd.compat.CompatModsCheck;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
@@ -81,6 +82,9 @@ public class IncubatorBlock extends BlockWithEntity implements BlockEntityProvid
             tooltip.add(Text.literal("\uE030\uE000\uE033\uE031\uE034\uE032\uE035").setStyle(style.withFont(RECIPIES_FONT_ID)));
             tooltip.add(Text.literal("\uE030\uE000\uE033\uE031\uE036\uE032\uE037").setStyle(style.withFont(RECIPIES_FONT_ID)));
             tooltip.add(Text.literal("\uE030\uE000\uE033\uE031\uE038\uE032\uE039").setStyle(style.withFont(RECIPIES_FONT_ID)));
+            if (CompatModsCheck.SPORE) {
+                tooltip.add(Text.literal("\uE030\uE000\uE039\uE031\uE03A\uE032\uE03B").setStyle(style.withFont(RECIPIES_FONT_ID)));
+            }
         } else {
             tooltip.add(Text.translatable("text.tlotd.recipe.ponder", Text.translatable("key.keyboard.shift").formatted(Formatting.GRAY)).formatted(Formatting.DARK_GRAY));
         }

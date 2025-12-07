@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=south": {
+      "model": "tlotd:block/christmas_wreath"
+    },
+    "facing=west": {
+      "model": "tlotd:block/christmas_wreath",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "tlotd:block/christmas_wreath",
+      "y": 180
+    },
+    "facing=east": {
+      "model": "tlotd:block/christmas_wreath",
+      "y": 270
+    }
+  }
+}

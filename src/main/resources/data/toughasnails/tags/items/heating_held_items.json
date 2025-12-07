@@ -9,6 +9,7 @@
   ],
   "replace": false,
   "values": [
+    "tlotd:artifact_of_enlightenment",
     "tlotd:cursed_soul_flask",
     "tlotd:hot_milk_bucket",
     "tlotd:hot_chocolate_bucket",

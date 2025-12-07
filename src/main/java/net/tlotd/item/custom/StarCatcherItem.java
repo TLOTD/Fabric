@@ -34,7 +34,7 @@ public class StarCatcherItem extends Item {
         tooltip.add(Text.literal(""));
         tooltip.add(Text.translatable("item.tlotd.star_catcher.tooltip").formatted(Formatting.GRAY));
         if (stack.getItem().equals(ModItems.MITHRIL_STAR_CATCHER)) {
-            tooltip.add(Text.literal(" 800+ ").append(Text.translatable("item.tlotd.star_catcher.tooltip_2")).formatted(Formatting.DARK_GREEN));
+            tooltip.add(Text.literal(" ").append(Text.translatable("item.tlotd.star_catcher.tooltip_2", "800+")).formatted(Formatting.DARK_GREEN));
         }
         super.appendTooltip(stack, world, tooltip, context);
     }

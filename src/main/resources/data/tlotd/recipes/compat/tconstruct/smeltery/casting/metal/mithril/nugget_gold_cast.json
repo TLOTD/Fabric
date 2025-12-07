@@ -1,0 +1,20 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "tconstruct"
+      ]
+    }
+  ],
+  "type": "tconstruct:casting_table",
+  "cast": {
+    "tag": "tconstruct:casts/multi_use/nugget"
+  },
+  "fluid": {
+    "name": "tlotd:molten_mithril",
+    "amount": 10
+  },
+  "result": "tlotd:mithril_nugget",
+  "cooling_time": 22
+}

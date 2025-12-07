@@ -1,0 +1,19 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "forge",
+        "brewinandchewin"
+      ]
+    }
+  ],
+  "type": "brewinandchewin:keg_pouring",
+  "amount": 1000,
+  "filling": true,
+  "fluid": "tlotd:beer",
+  "output": {
+    "item": "tlotd:beer_bucket"
+  },
+  "strict": false
+}

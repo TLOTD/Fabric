@@ -4,6 +4,7 @@ import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
 import net.minecraft.block.entity.BlockEntityType;
+import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.ai.pathing.NavigationType;
@@ -27,6 +28,8 @@ import net.tlotd.item.ModItems;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
+
+import static net.tlotd.api.TlotdAPI.enlightened;
 
 public class WitchingTableBlock extends BlockWithEntity implements BlockEntityProvider {
 
@@ -97,13 +100,18 @@ public class WitchingTableBlock extends BlockWithEntity implements BlockEntityPr
         builder.add(SOUL_CHARGES, CURSED_SOUL_CHARGES, ABYSSAL_SOUL_CHARGES);
     }
 
+    public static final Identifier DEFAULT_FONT_ID = new Identifier("minecraft", "default");
     public static final Identifier ILLAGER_FONT_ID = new Identifier("minecraft", "illageralt");
+    public static final Identifier TOOLTIP_FONT_ID = new Identifier("tlotd", "tooltip");
     public static final Identifier RECIPIES_FONT_ID = new Identifier("tlotd", "recipies");
 
     @Override
     public void appendTooltip(ItemStack stack, @Nullable BlockView world, List<Text> tooltip, TooltipContext options) {
         Style style = getName().getStyle();
-        if (Screen.hasShiftDown()) {
+        PlayerEntity player = MinecraftClient.getInstance().player;
+        if (player == null) return;
+        if (enlightened(player) >= 10 && Screen.hasShiftDown()) {
+            tooltip.add(Text.literal("\uE002 ").setStyle(style.withFont(TOOLTIP_FONT_ID)).append(Text.translatable("item.tlotd.desc_enlightened").setStyle(style.withFont(DEFAULT_FONT_ID).withFormatting(Formatting.GOLD))));
             if (ModConfigs.WITCHING_TABLE_NEEDS_BLOOD && ModConfigs.WITCHING_TABLE_NEEDS_SOULS) {
                 tooltip.add(Text.translatable("block.tlotd.witching_table.tooltip_bs").formatted(Formatting.GRAY));
                 tooltip.add(Text.translatable("block.tlotd.witching_table.tooltip_bs_2").formatted(Formatting.GRAY));
@@ -120,13 +128,12 @@ public class WitchingTableBlock extends BlockWithEntity implements BlockEntityPr
                 tooltip.add(Text.translatable("block.tlotd.witching_table.tooltip").formatted(Formatting.GRAY));
                 tooltip.add(Text.translatable("block.tlotd.witching_table.tooltip_2").formatted(Formatting.GRAY));
             }
-            tooltip.add(Text.translatable("item.tlotd.desc_occult").formatted(Formatting.RED));
-            tooltip.add(Text.literal(""));
-            tooltip.add(Text.translatable("text.tlotd.recipe.ponder", Text.translatable("key.keyboard.shift").formatted(Formatting.WHITE)).formatted(Formatting.DARK_GRAY));
-            tooltip.add(Text.literal("\uE020\uE000\uE022\uE021\uE023").setStyle(style.withFont(RECIPIES_FONT_ID)));
-            tooltip.add(Text.literal("\uE020\uE000\uE026\uE024\uE025\uE027\uE021\uE028").setStyle(style.withFont(RECIPIES_FONT_ID)));
-            tooltip.add(Text.literal("\uE020\uE000\uE029\uE02A\uE023\uE02A\uE021\uE02B").setStyle(style.withFont(RECIPIES_FONT_ID)));
         } else {
+            if (enlightened(player) >= 10) {
+                tooltip.add(Text.literal("\uE001 ").setStyle(style.withFont(TOOLTIP_FONT_ID)).append(Text.translatable("item.tlotd.desc_enlightened").setStyle(style.withFont(DEFAULT_FONT_ID).withFormatting(Formatting.GOLD))));
+            } else {
+                tooltip.add(Text.literal("\uE000 ").setStyle(style.withFont(TOOLTIP_FONT_ID)).append(Text.translatable("item.tlotd.desc_not_enlightened").setStyle(style.withFont(DEFAULT_FONT_ID).withFormatting(Formatting.DARK_GRAY))));
+            }
             if (ModConfigs.WITCHING_TABLE_NEEDS_BLOOD && ModConfigs.WITCHING_TABLE_NEEDS_SOULS) {
                 tooltip.add(Text.translatable("block.tlotd.witching_table.tooltip_bs").setStyle(style.withFont(ILLAGER_FONT_ID)).formatted(Formatting.GRAY));
                 tooltip.add(Text.translatable("block.tlotd.witching_table.tooltip_bs_2").setStyle(style.withFont(ILLAGER_FONT_ID)).formatted(Formatting.GRAY));
@@ -143,6 +150,15 @@ public class WitchingTableBlock extends BlockWithEntity implements BlockEntityPr
                 tooltip.add(Text.translatable("block.tlotd.witching_table.tooltip").setStyle(style.withFont(ILLAGER_FONT_ID)).formatted(Formatting.GRAY));
                 tooltip.add(Text.translatable("block.tlotd.witching_table.tooltip_2").setStyle(style.withFont(ILLAGER_FONT_ID)).formatted(Formatting.GRAY));
             }
+        }
+        if (Screen.hasShiftDown()) {
+            tooltip.add(Text.translatable("item.tlotd.desc_occult").formatted(Formatting.RED));
+            tooltip.add(Text.literal(""));
+            tooltip.add(Text.translatable("text.tlotd.recipe.ponder", Text.translatable("key.keyboard.shift").formatted(Formatting.WHITE)).formatted(Formatting.DARK_GRAY));
+            tooltip.add(Text.literal("\uE020\uE000\uE022\uE021\uE023").setStyle(style.withFont(RECIPIES_FONT_ID)));
+            tooltip.add(Text.literal("\uE020\uE000\uE026\uE024\uE025\uE027\uE021\uE028").setStyle(style.withFont(RECIPIES_FONT_ID)));
+            tooltip.add(Text.literal("\uE020\uE000\uE029\uE02A\uE023\uE02A\uE021\uE02B").setStyle(style.withFont(RECIPIES_FONT_ID)));
+        } else {
             tooltip.add(Text.translatable("item.tlotd.desc_occult").formatted(Formatting.RED));
             tooltip.add(Text.literal(""));
             tooltip.add(Text.translatable("text.tlotd.recipe.ponder", Text.translatable("key.keyboard.shift").formatted(Formatting.GRAY)).formatted(Formatting.DARK_GRAY));

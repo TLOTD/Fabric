@@ -1,0 +1,31 @@
+{
+  "name": "Mithril Mirror",
+  "icon": "tlotd:mithril_mirror",
+  "category": "tlotd:progression",
+  "pages": [
+    {
+      "type": "patchouli:spotlight",
+      "title": "A New Way of Travelling",
+      "item": "tlotd:mithril_mirror",
+      "text": "This bad boy lets you travel back to your $(thing)Spawnpoint$() from wherever you are for a resonable price."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "title": "The Heart",
+      "item": "tlotd:soul_mirror",
+      "text": "The centre piece of your new mirror is the $(item)Soul Mirror$(). Reflecting the place your soul feels most connected to, home."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "title": "Crafting the Heart",
+      "item": "tlotd:xen_crystal,tlotd:soul_flask_of_the_abyss,minecraft:echo_shard,minecraft:ender_pearl",
+      "text": "Combine these in either a $(item)Crafting Table$() or if $(thing)Create$() is installed pressed inside of a $(thing)Superheated$() $(item)Basin$()."
+    },
+    {
+      "type": "patchouli:spotlight",
+      "title": "Crafting the Mirror",
+      "item": "tlotd:soul_mirror,tlotd:mithril_ingot,minecraft:gold_ingot",
+      "text": "Combine these in either a $(item)Crafting Table$() or if $(thing)Create$() is installed as a $(thing)Sequenced Assembly$()."
+    }
+  ]
+}

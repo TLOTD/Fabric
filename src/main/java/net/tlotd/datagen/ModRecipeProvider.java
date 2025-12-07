@@ -466,6 +466,28 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Items.GLASS), conditionsFromItem(Items.GLASS))
                 .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.FESTIVE_LIGHTS)));
 
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.CHRISTMAS_WREATH)
+                .pattern("RLR")
+                .pattern("L L")
+                .pattern("PLP")
+                .input('L', ItemTags.LEAVES)
+                .input('R', Items.RED_DYE)
+                .input('P', Items.PAPER)
+                .criterion(hasItem(Items.OAK_LEAVES), conditionsFromItem(Items.OAK_LEAVES))
+                .criterion(hasItem(Items.RED_DYE), conditionsFromItem(Items.RED_DYE))
+                .criterion(hasItem(Items.PAPER), conditionsFromItem(Items.PAPER))
+                .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.CHRISTMAS_WREATH)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.ADVENT_WREATH)
+                .pattern("C C")
+                .pattern(" W ")
+                .pattern("C C")
+                .input('C', ItemTags.CANDLES)
+                .input('W', ModBlocks.CHRISTMAS_WREATH)
+                .criterion(hasItem(Items.CANDLE), conditionsFromItem(Items.CANDLE))
+                .criterion(hasItem(ModBlocks.CHRISTMAS_WREATH), conditionsFromItem(ModBlocks.CHRISTMAS_WREATH))
+                .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.ADVENT_WREATH)));
+
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.PRESENT)
                 .pattern("PYP")
                 .pattern("RER")

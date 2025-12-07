@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "tlotd:steel_block",
+    "tlotd:aluminium_block",
+    "tlotd:lead_block",
+    "tlotd:mithril_block"
+  ]
+}

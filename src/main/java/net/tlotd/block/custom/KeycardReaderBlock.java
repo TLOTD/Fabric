@@ -18,6 +18,7 @@ import net.minecraft.world.event.GameEvent;
 import net.tlotd.block.entity.KeycardReaderBlockEntity;
 import net.tlotd.item.ModItems;
 import net.tlotd.sound.ModSounds;
+import net.tlotd.util.ModTags;
 import org.jetbrains.annotations.Nullable;
 
 public class KeycardReaderBlock extends ButtonBlock implements BlockEntityProvider {
@@ -39,8 +40,8 @@ public class KeycardReaderBlock extends ButtonBlock implements BlockEntityProvid
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         ItemStack stack = player.getStackInHand(hand);
         BlockEntity blockEntity = world.getBlockEntity(pos);
-        if (!world.isClient && stack.isOf(ModItems.KEYCARD) && blockEntity instanceof KeycardReaderBlockEntity keycardReaderBlockEntity) {
-            if (!stack.hasNbt()) {
+        if (!world.isClient && stack.isIn(ModTags.Items.KEYCARDS) && blockEntity instanceof KeycardReaderBlockEntity keycardReaderBlockEntity) {
+            if (stack.getNbt().getString("password").isEmpty()) {
                 player.sendMessage(Text.translatable("block.tlotd.keycard_reader.no_password"), true);
                 world.playSound(null, pos, SoundEvents.ENTITY_VILLAGER_NO, SoundCategory.BLOCKS, 1.0f, 1.0f);
             }

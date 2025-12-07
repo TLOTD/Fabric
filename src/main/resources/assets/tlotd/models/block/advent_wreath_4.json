@@ -1,0 +1,9 @@
+{
+	"parent": "tlotd:block/advent_wreath",
+	"textures": {
+		"1": "minecraft:block/red_candle_lit",
+		"2": "minecraft:block/red_candle_lit",
+		"3": "minecraft:block/red_candle_lit",
+		"4": "minecraft:block/red_candle_lit"
+	}
+}

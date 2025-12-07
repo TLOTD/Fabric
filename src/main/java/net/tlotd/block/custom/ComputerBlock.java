@@ -17,6 +17,7 @@ import net.minecraft.state.property.Properties;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.BlockRotation;
 import net.minecraft.util.Hand;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
@@ -26,6 +27,7 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 import net.tlotd.block.ModBlocks;
+import net.tlotd.item.ModItems;
 import net.tlotd.sound.ModSounds;
 import net.tlotd.util.ModTags;
 import net.tlotd.util.VideoGameRegistry;
@@ -152,10 +154,16 @@ public class ComputerBlock extends Block {
             world.playSound(null, pos, ModSounds.BLOCK_COMPUTER_INTERACT, SoundCategory.BLOCKS, 1.0f, 1.0f);
         } else if (state.isIn(ModTags.Blocks.COMPUTERS_ON)) {
             ItemStack stack = player.getStackInHand(hand);
-            if (stack.isIn(ModTags.Items.GAME_CARTRIDGES)) {
+            if (stack.isIn(ModTags.Items.GAME_CARTRIDGES) || (stack.isOf(ModItems.FLASH_DRIVE) && !stack.getNbt().getString("app").isEmpty())) {
                 if (!world.isClient) {
                     BlockState computerState = world.getBlockState(pos);
-                    Optional<VideoGameRegistry.SignalEntry> match = VideoGameRegistry.findBySignal(Registries.ITEM.getId(stack.getItem()));
+                    Identifier id;
+                    if (stack.isIn(ModTags.Items.GAME_CARTRIDGES)) {
+                        id = Registries.ITEM.getId(stack.getItem());
+                    } else {
+                        id = new Identifier(stack.getNbt().getString("app"));
+                    }
+                    Optional<VideoGameRegistry.SignalEntry> match = VideoGameRegistry.findBySignal(id);
                     if (match.isPresent()) {
                         VideoGameRegistry.SignalEntry entry = match.get();
                         newState = entry.computerBlock().getStateWithProperties(computerState)

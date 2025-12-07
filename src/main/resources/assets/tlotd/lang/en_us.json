@@ -1,4 +1,6 @@
 {
+  "modmenu.tlotd": "TLOTD",
+
   "itemgroup.tlotd.materials": "TLOTD Materials",
   "itemgroup.tlotd.weapons_tools_and_utilities": "TLOTD Weapons, Tools & Utilities",
   "itemgroup.tlotd.blocks": "TLOTD Blocks",
@@ -28,6 +30,7 @@
   "mod.neepmeat.name": "NEEPMeat",
   "mod.ad_astra.name": "Ad Astra",
   "mod.undergarden.name": "The Undergarden",
+  "mod.tconstruct.name": "Tinkers' Construct",
 
   "info.tlotd.not_yet_implemented": "[This content is not fully implemented yet!]",
 
@@ -42,6 +45,10 @@
   "enchantment.tlotd.transdimensional.desc": "Allows the mithril mirror to cross dimensions. The higher the level the lower the cost.",
   "enchantment.tlotd.depth_of_the_abyss": "Depth of the Abyss",
   "enchantment.tlotd.depth_of_the_abyss.desc": "Increases the amount of charges on the mithril mirror.",
+  "enchantment.tlotd.sharper_lens": "Sharper Lens",
+  "enchantment.tlotd.sharper_lens.desc": "Decreses the usetime and cooldown of the mithril mirror.",
+  "enchantment.tlotd.reinforced_glass": "Reinforced Glass",
+  "enchantment.tlotd.reinforced_glass.desc": "Grants a brief window of protection after using the mithril mirror.",
   "enchantment.tlotd.shattering_reflection": "Curse of the Shattering Reflection",
   "enchantment.tlotd.shattering_reflection.desc": "The mithril mirror now almost kills you, but does not loose charge.",
   "enchantment.tlotd.refill_charges": "Refill Charges",
@@ -199,7 +206,7 @@
   "advancements.tlotd.witching_table": "Witching Temptations",
   "advancements.tlotd.witching_table.desc": "Obtain a Witching Table",
   "advancements.tlotd.cursed_soul_flask": "Soul Corrupter",
-  "advancements.tlotd.cursed_soul_flask.desc": "Corrupter a soul in a Witching Table",
+  "advancements.tlotd.cursed_soul_flask.desc": "Corrupt a soul in a Witching Table",
   "advancements.tlotd.soul_flask_of_the_abyss": "Whispers of the Void",
   "advancements.tlotd.soul_flask_of_the_abyss.desc": "Collect a soul from the Abyss",
 
@@ -232,6 +239,9 @@
   "item.tlotd.desc_divine": "† Divine",
   "item.tlotd.desc_occult": "⛧ Occult",
   "item.tlotd.desc_eldritch": "✦ Eldritch",
+
+  "item.tlotd.desc_not_enlightened": "Enlighten yourself",
+  "item.tlotd.desc_enlightened": "Enlightened",
 
   "item.tlotd.dragon_banner_pattern": "Banner Pattern",
   "item.tlotd.dragon_banner_pattern.desc": "Dragon Charge",
@@ -286,9 +296,9 @@
   "item.tlotd.radiaton_proof_armor.tooltip_2": "Shields from Radiation",
 
   "item.tlotd.forging_hammer.tooltip": "When in Mithril Anvil:",
-  "item.tlotd.forging_hammer.tooltip_2": "Forging Level",
+  "item.tlotd.forging_hammer.tooltip_2": "%1$s Forging Level",
   "item.tlotd.star_catcher.tooltip": "When Used at Night at:",
-  "item.tlotd.star_catcher.tooltip_2": "Blocks in the Air",
+  "item.tlotd.star_catcher.tooltip_2": "%1$s Blocks in the Air",
 
   "block.tlotd.stick_cross": "Stick Cross",
   "item.tlotd.stick_effigy": "Stick Effigy",
@@ -298,6 +308,12 @@
   "item.tlotd.mistletoe": "Mistletoe",
   "item.tlotd.cured_meat": "Cured Meat",
   "item.tlotd.cooked_meat": "Cooked Meat",
+
+  "item.tlotd.tome_of_enlightenment": "Tome of Enlightenment",
+  "item.tlotd.artifact_of_enlightenment": "Artifact of Enlightenment",
+  "item.tlotd.eye_of_enlightenment": "Eye of Enlightenment",
+  "item.tlotd.enlightenment.tooltip": "When used:",
+  "item.tlotd.enlightenment.tooltip_2": "+%1$s Enlightenment",
 
   "item.tlotd.tinted_glass_flask": "Tinted Glass Flask",
   "item.tlotd.soul_flask": "Soul Flask",
@@ -367,14 +383,21 @@
   "item.tlotd.game_cartridge.desc": "Empty",
   "item.tlotd.game_cartridge_1": "Game Cartridge",
   "item.tlotd.game_cartridge_1.desc": "DOOM",
+  "item.tlotd.game_cartridge_1.app": "doom",
   "item.tlotd.game_cartridge_2": "Game Cartridge",
   "item.tlotd.game_cartridge_2.desc": "Hλlf-Life",
+  "item.tlotd.game_cartridge_2.app": "half-life",
   "item.tlotd.game_cartridge_3": "Game Cartridge",
   "item.tlotd.game_cartridge_3.desc": "Terraria",
+  "item.tlotd.game_cartridge_3.app": "terraria",
 
   "item.tlotd.flash_drive": "Flash Drive",
   "item.tlotd.flash_drive.data": "Data",
-  "item.tlotd.flash_drive.coordinates": "block.pos [%1$s,%2$s,%3$s]",
+  "item.tlotd.flash_drive.password": "password.sha",
+  "item.tlotd.flash_drive.password_type": "keycard",
+  "item.tlotd.flash_drive.application": "%1$s.app",
+  "item.tlotd.flash_drive.coordinates": "block.pos",
+  "item.tlotd.flash_drive.position": "Position",
 
   "item.tlotd.aluminium_wire": "Aluminum Wire",
   "item.tlotd.copper_wire": "Copper Wire",
@@ -446,6 +469,7 @@
   "item.tlotd.blue_berry_jam_bucket": "Blue Berry Jam Bucket",
   "item.tlotd.droopfruit_jam_bucket": "Droopfruit Jam Bucket",
   "item.tlotd.ancient_soulberry_jam_bucket": "Ancient Soul Berry Jam Bucket",
+  "item.tlotd.molten_mithril_bucket": "Molten Mithril Bucket",
 
   "item.tlotd.copper_nugget": "Copper Nugget",
 
@@ -755,16 +779,18 @@
   "block.tlotd.pipe_weed_plant": "Pipe-Weed Plant",
 
   "block.tlotd.bw_sticker": "Sticker",
-  "block.tlotd.bw_sticker.tooltip": "Nett hier.",
-  "block.tlotd.bw_sticker.tooltip_2": "Aber waren sie schonmal",
-  "block.tlotd.bw_sticker.tooltip_3": "in Baden-Württemberg?",
+  "block.tlotd.bw_sticker.tooltip": "Nice here.",
+  "block.tlotd.bw_sticker.tooltip_2": "But have you been to",
+  "block.tlotd.bw_sticker.tooltip_3": "Baden-Württemberg yet?",
   "block.tlotd.tlotd_sticker": "Sticker",
-  "block.tlotd.tlotd_sticker.tooltip": "Nett hier.",
-  "block.tlotd.tlotd_sticker.tooltip_2": "Aber waren sie schonmal",
-  "block.tlotd.tlotd_sticker.tooltip_3": "bei den TLOTD?",
+  "block.tlotd.tlotd_sticker.tooltip": "Nice here.",
+  "block.tlotd.tlotd_sticker.tooltip_2": "But have you been a",
+  "block.tlotd.tlotd_sticker.tooltip_3": "part of TLOTD yet?",
 
   "block.tlotd.present": "Present",
   "block.tlotd.festive_lights": "Festive Lights",
+  "block.tlotd.christmas_wreath": "Christmas Wreath",
+  "block.tlotd.advent_wreath": "Advent Wreath",
 
   "block.tlotd.apparatus": "Apparatus",
 
@@ -800,6 +826,8 @@
   "block.tlotd.droopfruit_jam_block": "Droopfruit Jam",
   "block.tlotd.ancient_soulberry_jam": "Ancient Soul Berry Jam",
   "block.tlotd.ancient_soulberry_jam_block": "Ancient Soul Berry Jam",
+  "block.tlotd.molten_mithril": "Molten Mithril",
+  "block.tlotd.molten_mithril_block": "Molten Mithril",
 
   "block.tlotd.gravestone": "Gravestone",
   "block.tlotd.mossy_gravestone": "Mossy Gravestone",
@@ -836,7 +864,7 @@
   "block.tlotd.player_plushie.tooltip": "Takes on the skin of",
   "block.tlotd.player_plushie.tooltip_2": "a few select players",
   "block.tlotd.player_plushie.tooltip_shift": "Works for:",
-  "block.tlotd.player_plushie.tooltip_custom": "Or any Command Defined",
+  "block.tlotd.player_plushie.tooltip_custom": "Or any command defined:",
 
   "block.tlotd.garbage_can": "Garbage Can",
   "block.tlotd.bench": "Bench",
@@ -863,6 +891,7 @@
   "block.tlotd.media_system_bookshelf": "Media System Bookshelf",
   "block.tlotd.computer": "Computer",
   "block.tlotd.computer_on": "Computer",
+  "block.tlotd.computer_on.application_copied": "Application copied to drive",
   "block.tlotd.powered_by_computer.tooltip": "Powered by:",
   "block.tlotd.interdimensional_receiver": "Interdimensional Receiver",
   "block.tlotd.interdimensional_receiver.tooltip": "Can be placed on:",

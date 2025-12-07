@@ -34,6 +34,12 @@ public class ExtractionPickaxeItem extends PickaxeItem {
     public ExtractionPickaxeItem(ToolMaterial material, int attackDamage, float attackSpeed, Settings settings) {
         super(material, attackDamage, attackSpeed, settings);
     }
+
+    @Override
+    public boolean hasGlint(ItemStack stack) {
+        return true;
+    }
+
     @Override
     public ActionResult useOnBlock(ItemUsageContext context) {
         if(!context.getWorld().isClient()) {
@@ -143,10 +149,5 @@ public class ExtractionPickaxeItem extends PickaxeItem {
             tooltip.add(Text.translatable("item.tlotd.extraction.tooltip").append(Text.literal(" ").append(Text.translatable("enchantment.level.1"))).formatted(Formatting.GRAY));
         }
         super.appendTooltip(stack, world, tooltip, context);
-    }
-
-    @Override
-    public boolean hasGlint(ItemStack stack) {
-        return true;
     }
 }

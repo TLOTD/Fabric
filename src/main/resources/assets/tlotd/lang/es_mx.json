@@ -21,6 +21,8 @@
 
   "enchantment.tlotd.transdimensional": "Transdimensional",
   "enchantment.tlotd.depth_of_the_abyss": "Profundidad del abismo",
+  "enchantment.tlotd.sharper_lens": "Lente más nítida",
+  "enchantment.tlotd.reinforced_glass": "Vidrio reforzado",
   "enchantment.tlotd.shattering_reflection": "Maldición del reflejo destrozador",
   "enchantment.tlotd.refill_charges": "Restaurador",
   "enchantment.tlotd.resourceful_smoking": "Fumar con ingenio",
@@ -253,9 +255,9 @@
   "item.tlotd.radiaton_proof_armor.tooltip_2": "Protección contra la radiación",
 
   "item.tlotd.forging_hammer.tooltip": "Cuando en Yunque de Mithril:",
-  "item.tlotd.forging_hammer.tooltip_2": "Nivel de Forja",
+  "item.tlotd.forging_hammer.tooltip_2": "%1$s Nivel de Forja",
   "item.tlotd.star_catcher.tooltip": "Cuando se utiliza por la noche en:",
-  "item.tlotd.star_catcher.tooltip_2": "bloques en el aire",
+  "item.tlotd.star_catcher.tooltip_2": "%1$s bloques en el aire",
 
   "block.tlotd.stick_cross": "Cruz de palo",
   "item.tlotd.stick_effigy": "Efigie de palo",
@@ -265,6 +267,10 @@
   "item.tlotd.mistletoe": "Muérdago",
   "item.tlotd.cured_meat": "Carne curada",
   "item.tlotd.cooked_meat": "Carne asada",
+
+  "item.tlotd.tome_of_enlightenment": "Tomo de la Ilustración",
+  "item.tlotd.artifact_of_enlightenment": "Artefacto de la Ilustración",
+  "item.tlotd.eye_of_enlightenment": "Ojo de la Ilustración",
 
   "item.tlotd.tinted_glass_flask": "Petaca de cristal tintado",
   "item.tlotd.soul_flask": "Frasco del alma",
@@ -335,7 +341,11 @@
 
   "item.tlotd.flash_drive": "Lápiz de memoria",
   "item.tlotd.flash_drive.data": "Datos",
-  "item.tlotd.flash_drive.coordinates": "block.pos [%1$s,%2$s,%3$s]",
+  "item.tlotd.flash_drive.password": "password.sha",
+  "item.tlotd.flash_drive.password_type": "keycard",
+  "item.tlotd.flash_drive.application": "program.app",
+  "item.tlotd.flash_drive.coordinates": "block.pos",
+  "item.tlotd.flash_drive.position": "Posición",
 
   "item.tlotd.aluminium_wire": "Alambre de aluminio",
   "item.tlotd.copper_wire": "Alambre de cobre",
@@ -400,6 +410,7 @@
   "item.tlotd.blue_berry_jam_bucket": "Cubo de mermelada de bayas azules",
   "item.tlotd.droopfruit_jam_bucket": "Cubo de mermelada de fruta madura",
   "item.tlotd.ancient_soulberry_jam_bucket": "Cubo de mermelada de bayas alma antigua",
+  "item.tlotd.molten_mithril_bucket": "Cubeta de mithril fundido",
 
   "item.tlotd.copper_nugget": "Pepita de cobre",
 
@@ -706,6 +717,8 @@
 
   "block.tlotd.present": "Presente",
   "block.tlotd.festive_lights": "Luces de fiesta",
+  "block.tlotd.christmas_wreath": "Corona navideña",
+  "block.tlotd.advent_wreath": "Corona de Adviento",
 
   "block.tlotd.apparatus": "Aparatos",
 
@@ -739,6 +752,8 @@
   "block.tlotd.droopfruit_jam_block": "Mermelada de fruta madura",
   "block.tlotd.ancient_soulberry_jam": "Mermelada de bayas alma antigua",
   "block.tlotd.ancient_soulberry_jam_block": "Mermelada de bayas alma antigua",
+  "block.tlotd.molten_mithril": "Mithril fundido",
+  "block.tlotd.molten_mithril_block": "Mithril fundido",
 
   "block.tlotd.gravestone": "Lápida",
   "block.tlotd.mossy_gravestone": "Lápida musgosa",
@@ -802,6 +817,7 @@
   "block.tlotd.media_system_bookshelf": "Estantería para sistema multimedia",
   "block.tlotd.computer": "Ordenador",
   "block.tlotd.computer_on": "Ordenador",
+  "block.tlotd.computer_on.application_copied": "Aplicación copiada en la unidad",
   "block.tlotd.powered_by_computer.tooltip": "Desarrollado por:",
   "block.tlotd.interdimensional_receiver": "Receptor interdimensional",
   "block.tlotd.interdimensional_receiver.tooltip": "Puede colocarse sobre:",
@@ -823,7 +839,7 @@
   "block.minecraft.lightning_rod.upside_down": "Pararrayos invertido",
 
   "block.tlotd.teleporter": "Teletransportador",
-  "block.tlotd.teleporter.location_copied": "Ubicación copiada para conducir",
+  "block.tlotd.teleporter.location_copied": "Ubicación copiada en la unidad",
   "block.tlotd.teleporter.no_destination_on_drive": "No hay destino en la unidad",
   "block.tlotd.teleporter.destination_same": "El destino no puede ser el mismo que el origen",
   "block.tlotd.teleporter.connected": "Conectado",

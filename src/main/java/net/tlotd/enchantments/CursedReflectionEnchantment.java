@@ -28,7 +28,12 @@ public class CursedReflectionEnchantment extends Enchantment {
 
     @Override
     protected boolean canAccept(Enchantment other) {
-        return (super.canAccept(other) || other == ModEnchantments.DEPTH_OF_THE_ABYSS) && (other != ModEnchantments.REFILL_CHARGES || other != ModEnchantments.TRANSDIMENSIONAL);
+        return (super.canAccept(other) ||
+                other == ModEnchantments.DEPTH_OF_THE_ABYSS ||
+                other == ModEnchantments.SHARPER_LENS ||
+                other == ModEnchantments.REINFORCED_GLASS) &&
+                (other != ModEnchantments.REFILL_CHARGES ||
+                other != ModEnchantments.TRANSDIMENSIONAL);
     }
 
     @Override

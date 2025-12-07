@@ -1,0 +1,20 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "tconstruct"
+      ]
+    }
+  ],
+    "type": "tconstruct:melting",
+    "ingredient": {
+      "tag": "c:raw_mithril_blocks"
+    },
+    "result": {
+      "fluid": "tlotd:molten_mithril",
+      "amount": 1080
+    },
+    "temperature": 1500,
+    "time": 194
+}

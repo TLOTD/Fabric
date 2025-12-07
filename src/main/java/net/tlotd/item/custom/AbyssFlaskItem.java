@@ -2,6 +2,7 @@ package net.tlotd.item.custom;
 
 import net.minecraft.advancement.criterion.Criteria;
 import net.minecraft.block.BlockState;
+import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.PlayerEntity;
@@ -25,6 +26,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
+import static net.tlotd.api.TlotdAPI.enlightened;
 import static net.tlotd.block.custom.WitchingTableBlock.*;
 import static net.tlotd.block.custom.WitchingTableBlock.CURSED_SOUL_CHARGES;
 
@@ -56,6 +58,7 @@ public class AbyssFlaskItem extends Item {
 
     public static final Identifier DEFAULT_FONT_ID = new Identifier("minecraft", "default");
     public static final Identifier ILLAGER_FONT_ID = new Identifier("minecraft", "illageralt");
+    public static final Identifier TOOLTIP_FONT_ID = new Identifier("tlotd", "tooltip");
 
     @Override
     public boolean hasGlint(ItemStack stack) {
@@ -70,12 +73,20 @@ public class AbyssFlaskItem extends Item {
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
         Style style = getName().getStyle();
-        if (Screen.hasShiftDown()) {
+        PlayerEntity player = MinecraftClient.getInstance().player;
+        if (player == null) return;
+        if (enlightened(player) >= 30 && Screen.hasShiftDown()) {
+            tooltip.add(Text.literal("\uE008 ").setStyle(style.withFont(TOOLTIP_FONT_ID)).append(Text.translatable("item.tlotd.desc_enlightened").setStyle(style.withFont(DEFAULT_FONT_ID).withFormatting(Formatting.GOLD))));
             tooltip.add(Text.translatable("item.tlotd.soul_flask_of_the_abyss.tooltip").formatted(Formatting.GRAY));
             tooltip.add(Text.translatable("item.tlotd.soul_flask_of_the_abyss.tooltip_2").formatted(Formatting.GRAY));
             tooltip.add(Text.translatable("item.tlotd.soul_flask_of_the_abyss.tooltip_3").formatted(Formatting.GRAY));
             tooltip.add(Text.translatable("item.tlotd.soul_flask_of_the_abyss.tooltip_4").formatted(Formatting.GRAY));
         } else {
+            if (enlightened(player) >= 30) {
+                tooltip.add(Text.literal("\uE007 ").setStyle(style.withFont(TOOLTIP_FONT_ID)).append(Text.translatable("item.tlotd.desc_enlightened").setStyle(style.withFont(DEFAULT_FONT_ID).withFormatting(Formatting.GOLD))));
+            } else {
+                tooltip.add(Text.literal("\uE006 ").setStyle(style.withFont(TOOLTIP_FONT_ID)).append(Text.translatable("item.tlotd.desc_not_enlightened").setStyle(style.withFont(DEFAULT_FONT_ID).withFormatting(Formatting.DARK_GRAY))));
+            }
             tooltip.add(Text.literal("Und wenn du lange in").setStyle(style.withFont(ILLAGER_FONT_ID)).formatted(Formatting.GRAY));
             tooltip.add(Text.literal("einen Abgrund blickst").setStyle(style.withFont(ILLAGER_FONT_ID)).formatted(Formatting.GRAY).append(Text.literal(",").setStyle(style.withFont(DEFAULT_FONT_ID)).formatted(Formatting.GRAY)));
             tooltip.add(Text.literal("blickt der Abgrund").setStyle(style.withFont(ILLAGER_FONT_ID)).formatted(Formatting.GRAY));

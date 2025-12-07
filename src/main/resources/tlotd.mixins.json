@@ -3,7 +3,7 @@
   "package": "net.tlotd.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-    "ModEntityDataSaverMixin",
+    "PlayerEntityDataSaverMixin",
     "WoodStrippingItemDrop"
   ],
   "injectors": {

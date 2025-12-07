@@ -1,0 +1,30 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "fabric",
+        "brewinandchewin"
+      ]
+    }
+  ],
+  "type": "brewinandchewin:fermenting",
+  "container": {
+    "item": "minecraft:goat_horn"
+  },
+  "experience": 0.6,
+  "fermentingtime": 12000,
+  "fluiditem": {
+    "item": "minecraft:water_bucket"
+  },
+  "ingredients": [
+    {
+      "item": "minecraft:wheat"
+    }
+  ],
+  "recipe_book_tab": "drinks",
+  "result": {
+    "item": "tlotd:beer_goat_horn"
+  },
+  "temperature": 3
+}

@@ -14,7 +14,7 @@ import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import net.tlotd.TLOTD;
 import net.tlotd.block.custom.ChemicalWasteFluidBlock;
-import net.tlotd.item.compat.create.CreateBucketItem;
+import net.tlotd.item.compat.create.ModBucketItem;
 import net.tlotd.item.custom.ChemicalWasteBucketItem;
 
 public class ModFluids {
@@ -94,11 +94,17 @@ public class ModFluids {
     public static Block ANCIENT_SOULBERRY_JAM_BLOCK;
     public static Item ANCIENT_SOULBERRY_JAM_BUCKET;
 
+    public static FlowableFluid STILL_MOLTEN_MITHRIL;
+    public static FlowableFluid FLOWING_MOLTEN_MITHRIL;
+    public static Block MOLTEN_MITHRIL_BLOCK;
+    public static Item MOLTEN_MITHRIL_BUCKET;
+
     public static void registerModFluids() {
+
         STILL_SPEZI = Registry.register(Registries.FLUID, new Identifier(TLOTD.MOD_ID, "spezi"), new SpeziFluid.Still());
         FLOWING_SPEZI = Registry.register(Registries.FLUID, new Identifier(TLOTD.MOD_ID, "flowing_spezi"), new SpeziFluid.Flowing());
         SPEZI_BLOCK = Registry.register(Registries.BLOCK, new Identifier(TLOTD.MOD_ID, "spezi_block"), new FluidBlock(ModFluids.STILL_SPEZI, FabricBlockSettings.copyOf(Blocks.WATER)){});
-        SPEZI_BUCKET = Registry.register(Registries.ITEM, new Identifier(TLOTD.MOD_ID, "spezi_bucket"), new CreateBucketItem(ModFluids.STILL_SPEZI, new FabricItemSettings().recipeRemainder(Items.BUCKET).maxCount(1)));
+        SPEZI_BUCKET = Registry.register(Registries.ITEM, new Identifier(TLOTD.MOD_ID, "spezi_bucket"), new ModBucketItem(ModFluids.STILL_SPEZI, new FabricItemSettings().recipeRemainder(Items.BUCKET).maxCount(1)));
 
         STILL_BEER = Registry.register(Registries.FLUID, new Identifier(TLOTD.MOD_ID, "beer"), new BeerFluid.Still());
         FLOWING_BEER = Registry.register(Registries.FLUID, new Identifier(TLOTD.MOD_ID, "flowing_beer"), new BeerFluid.Flowing());
@@ -138,37 +144,42 @@ public class ModFluids {
         STILL_SWEET_BERRY_JAM = Registry.register(Registries.FLUID, new Identifier(TLOTD.MOD_ID, "sweet_berry_jam"), new SweetBerryJamFluid.Still());
         FLOWING_SWEET_BERRY_JAM = Registry.register(Registries.FLUID, new Identifier(TLOTD.MOD_ID, "flowing_sweet_berry_jam"), new SweetBerryJamFluid.Flowing());
         SWEET_BERRY_JAM_BLOCK = Registry.register(Registries.BLOCK, new Identifier(TLOTD.MOD_ID, "sweet_berry_jam_block"), new FluidBlock(ModFluids.STILL_SWEET_BERRY_JAM, FabricBlockSettings.copyOf(Blocks.WATER)){});
-        SWEET_BERRY_JAM_BUCKET = Registry.register(Registries.ITEM, new Identifier(TLOTD.MOD_ID, "sweet_berry_jam_bucket"), new CreateBucketItem(ModFluids.STILL_SWEET_BERRY_JAM, new FabricItemSettings().recipeRemainder(Items.BUCKET).maxCount(1)));
+        SWEET_BERRY_JAM_BUCKET = Registry.register(Registries.ITEM, new Identifier(TLOTD.MOD_ID, "sweet_berry_jam_bucket"), new ModBucketItem(ModFluids.STILL_SWEET_BERRY_JAM, new FabricItemSettings().recipeRemainder(Items.BUCKET).maxCount(1)));
 
         STILL_GLOW_BERRY_JAM = Registry.register(Registries.FLUID, new Identifier(TLOTD.MOD_ID, "glow_berry_jam"), new GlowBerryJamFluid.Still());
         FLOWING_GLOW_BERRY_JAM = Registry.register(Registries.FLUID, new Identifier(TLOTD.MOD_ID, "flowing_glow_berry_jam"), new GlowBerryJamFluid.Flowing());
         GLOW_BERRY_JAM_BLOCK = Registry.register(Registries.BLOCK, new Identifier(TLOTD.MOD_ID, "glow_berry_jam_block"), new FluidBlock(ModFluids.STILL_GLOW_BERRY_JAM, FabricBlockSettings.copyOf(Blocks.WATER)){});
-        GLOW_BERRY_JAM_BUCKET = Registry.register(Registries.ITEM, new Identifier(TLOTD.MOD_ID, "glow_berry_jam_bucket"), new CreateBucketItem(ModFluids.STILL_GLOW_BERRY_JAM, new FabricItemSettings().recipeRemainder(Items.BUCKET).maxCount(1)));
+        GLOW_BERRY_JAM_BUCKET = Registry.register(Registries.ITEM, new Identifier(TLOTD.MOD_ID, "glow_berry_jam_bucket"), new ModBucketItem(ModFluids.STILL_GLOW_BERRY_JAM, new FabricItemSettings().recipeRemainder(Items.BUCKET).maxCount(1)));
 
         STILL_STRAWBERRY_JAM = Registry.register(Registries.FLUID, new Identifier(TLOTD.MOD_ID, "strawberry_jam"), new StrawberryJamFluid.Still());
         FLOWING_STRAWBERRY_JAM = Registry.register(Registries.FLUID, new Identifier(TLOTD.MOD_ID, "flowing_strawberry_jam"), new StrawberryJamFluid.Flowing());
         STRAWBERRY_JAM_BLOCK = Registry.register(Registries.BLOCK, new Identifier(TLOTD.MOD_ID, "strawberry_jam_block"), new FluidBlock(ModFluids.STILL_STRAWBERRY_JAM, FabricBlockSettings.copyOf(Blocks.WATER)){});
-        STRAWBERRY_JAM_BUCKET = Registry.register(Registries.ITEM, new Identifier(TLOTD.MOD_ID, "strawberry_jam_bucket"), new CreateBucketItem(ModFluids.STILL_STRAWBERRY_JAM, new FabricItemSettings().recipeRemainder(Items.BUCKET).maxCount(1)));
+        STRAWBERRY_JAM_BUCKET = Registry.register(Registries.ITEM, new Identifier(TLOTD.MOD_ID, "strawberry_jam_bucket"), new ModBucketItem(ModFluids.STILL_STRAWBERRY_JAM, new FabricItemSettings().recipeRemainder(Items.BUCKET).maxCount(1)));
 
         STILL_ORANGE_MARMELADE = Registry.register(Registries.FLUID, new Identifier(TLOTD.MOD_ID, "orange_marmelade"), new OrangeMarmeladeFluid.Still());
         FLOWING_ORANGE_MARMELADE = Registry.register(Registries.FLUID, new Identifier(TLOTD.MOD_ID, "flowing_orange_marmelade"), new OrangeMarmeladeFluid.Flowing());
         ORANGE_MARMELADE_BLOCK = Registry.register(Registries.BLOCK, new Identifier(TLOTD.MOD_ID, "orange_marmelade_block"), new FluidBlock(ModFluids.STILL_ORANGE_MARMELADE, FabricBlockSettings.copyOf(Blocks.WATER)){});
-        ORANGE_MARMELADE_BUCKET = Registry.register(Registries.ITEM, new Identifier(TLOTD.MOD_ID, "orange_marmelade_bucket"), new CreateBucketItem(ModFluids.STILL_ORANGE_MARMELADE, new FabricItemSettings().recipeRemainder(Items.BUCKET).maxCount(1)));
+        ORANGE_MARMELADE_BUCKET = Registry.register(Registries.ITEM, new Identifier(TLOTD.MOD_ID, "orange_marmelade_bucket"), new ModBucketItem(ModFluids.STILL_ORANGE_MARMELADE, new FabricItemSettings().recipeRemainder(Items.BUCKET).maxCount(1)));
 
         STILL_BLUE_BERRY_JAM = Registry.register(Registries.FLUID, new Identifier(TLOTD.MOD_ID, "blue_berry_jam"), new BlueBerryJamFluid.Still());
         FLOWING_BLUE_BERRY_JAM = Registry.register(Registries.FLUID, new Identifier(TLOTD.MOD_ID, "flowing_blue_berry_jam"), new BlueBerryJamFluid.Flowing());
         BLUE_BERRY_JAM_BLOCK = Registry.register(Registries.BLOCK, new Identifier(TLOTD.MOD_ID, "blue_berry_jam_block"), new FluidBlock(ModFluids.STILL_BLUE_BERRY_JAM, FabricBlockSettings.copyOf(Blocks.WATER)){});
-        BLUE_BERRY_JAM_BUCKET = Registry.register(Registries.ITEM, new Identifier(TLOTD.MOD_ID, "blue_berry_jam_bucket"), new CreateBucketItem(ModFluids.STILL_BLUE_BERRY_JAM, new FabricItemSettings().recipeRemainder(Items.BUCKET).maxCount(1)));
+        BLUE_BERRY_JAM_BUCKET = Registry.register(Registries.ITEM, new Identifier(TLOTD.MOD_ID, "blue_berry_jam_bucket"), new ModBucketItem(ModFluids.STILL_BLUE_BERRY_JAM, new FabricItemSettings().recipeRemainder(Items.BUCKET).maxCount(1)));
 
         STILL_DROOPFRUIT_JAM = Registry.register(Registries.FLUID, new Identifier(TLOTD.MOD_ID, "droopfruit_jam"), new DroopfruitJamFluid.Still());
         FLOWING_DROOPFRUIT_JAM = Registry.register(Registries.FLUID, new Identifier(TLOTD.MOD_ID, "flowing_droopfruit_jam"), new DroopfruitJamFluid.Flowing());
         DROOPFRUIT_JAM_BLOCK = Registry.register(Registries.BLOCK, new Identifier(TLOTD.MOD_ID, "droopfruit_jam_block"), new FluidBlock(ModFluids.STILL_DROOPFRUIT_JAM, FabricBlockSettings.copyOf(Blocks.WATER)){});
-        DROOPFRUIT_JAM_BUCKET = Registry.register(Registries.ITEM, new Identifier(TLOTD.MOD_ID, "droopfruit_jam_bucket"), new CreateBucketItem(ModFluids.STILL_DROOPFRUIT_JAM, new FabricItemSettings().recipeRemainder(Items.BUCKET).maxCount(1)));
+        DROOPFRUIT_JAM_BUCKET = Registry.register(Registries.ITEM, new Identifier(TLOTD.MOD_ID, "droopfruit_jam_bucket"), new ModBucketItem(ModFluids.STILL_DROOPFRUIT_JAM, new FabricItemSettings().recipeRemainder(Items.BUCKET).maxCount(1)));
 
         STILL_ANCIENT_SOULBERRY_JAM = Registry.register(Registries.FLUID, new Identifier(TLOTD.MOD_ID, "ancient_soulberry_jam"), new AncientSoulberryJamFluid.Still());
         FLOWING_ANCIENT_SOULBERRY_JAM = Registry.register(Registries.FLUID, new Identifier(TLOTD.MOD_ID, "flowing_ancient_soulberry_jam"), new AncientSoulberryJamFluid.Flowing());
         ANCIENT_SOULBERRY_JAM_BLOCK = Registry.register(Registries.BLOCK, new Identifier(TLOTD.MOD_ID, "ancient_soulberry_jam_block"), new FluidBlock(ModFluids.STILL_ANCIENT_SOULBERRY_JAM, FabricBlockSettings.copyOf(Blocks.WATER)){});
-        ANCIENT_SOULBERRY_JAM_BUCKET = Registry.register(Registries.ITEM, new Identifier(TLOTD.MOD_ID, "ancient_soulberry_jam_bucket"), new CreateBucketItem(ModFluids.STILL_ANCIENT_SOULBERRY_JAM, new FabricItemSettings().recipeRemainder(Items.BUCKET).maxCount(1)));
+        ANCIENT_SOULBERRY_JAM_BUCKET = Registry.register(Registries.ITEM, new Identifier(TLOTD.MOD_ID, "ancient_soulberry_jam_bucket"), new ModBucketItem(ModFluids.STILL_ANCIENT_SOULBERRY_JAM, new FabricItemSettings().recipeRemainder(Items.BUCKET).maxCount(1)));
+
+        STILL_MOLTEN_MITHRIL = Registry.register(Registries.FLUID, new Identifier(TLOTD.MOD_ID, "molten_mithril"), new MoltenMithrilFluid.Still());
+        FLOWING_MOLTEN_MITHRIL = Registry.register(Registries.FLUID, new Identifier(TLOTD.MOD_ID, "flowing_molten_mithril"), new MoltenMithrilFluid.Flowing());
+        MOLTEN_MITHRIL_BLOCK = Registry.register(Registries.BLOCK, new Identifier(TLOTD.MOD_ID, "molten_mithril_block"), new FluidBlock(ModFluids.STILL_MOLTEN_MITHRIL, FabricBlockSettings.copyOf(Blocks.LAVA)){});
+        MOLTEN_MITHRIL_BUCKET = Registry.register(Registries.ITEM, new Identifier(TLOTD.MOD_ID, "molten_mithril_bucket"), new ModBucketItem(ModFluids.STILL_MOLTEN_MITHRIL, new FabricItemSettings().recipeRemainder(Items.BUCKET).maxCount(1)));
 
         TLOTD.LOGGER.info("Registering ModFluids for " + TLOTD.MOD_ID
         );

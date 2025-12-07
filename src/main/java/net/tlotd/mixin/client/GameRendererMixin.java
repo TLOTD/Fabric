@@ -2,8 +2,12 @@ package net.tlotd.mixin.client;
 
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.render.GameRenderer;
+import net.minecraft.entity.EquipmentSlot;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
 import net.tlotd.effect.ModEffects;
+import net.tlotd.item.ModItems;
+import net.tlotd.world.dimension.ModDimensions;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
@@ -11,40 +15,56 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+import java.util.Objects;
+
 @Mixin(GameRenderer.class)
 public abstract class GameRendererMixin {
 
     @Shadow
     abstract void loadPostProcessor(Identifier id);
+
     @Shadow
     public abstract void disablePostProcessor();
 
     @Unique
-    private static boolean hadDrunk = false;
+    private static Identifier currentShader = null;
+
     @Unique
-    private static boolean hadStoned = false;
+    private static int lastPerspective = -1;
 
     @Inject(method = "render", at = @At("HEAD"))
     private void onRender(float tickDelta, long startTime, boolean tick, CallbackInfo ci) {
         MinecraftClient client = MinecraftClient.getInstance();
-        if (client.player == null) return;
+        if (client.player == null || client.world == null) return;
 
-        boolean hasDrunk = client.player.hasStatusEffect(ModEffects.DRUNK);
-        boolean hasStoned = client.player.hasStatusEffect(ModEffects.STONED);
+        int currentPerspective = client.options.getPerspective().ordinal();
+        boolean perspectiveChanged = currentPerspective != lastPerspective;
+        lastPerspective = currentPerspective;
 
-        if (hasDrunk && !hadDrunk) {
-            this.loadPostProcessor(new Identifier("minecraft", "shaders/post/phosphor.json"));
-        } else if (!hasDrunk && hadDrunk) {
-            this.disablePostProcessor();
+        Identifier targetShader = null;
+
+        if (client.world.getRegistryKey().equals(ModDimensions.BACKROOMS_LEVEL_KEY)) {
+            targetShader = new Identifier("minecraft", "shaders/post/ntsc.json");
         }
 
-        if (hasStoned && !hadStoned) {
-            this.loadPostProcessor(new Identifier("minecraft", "shaders/post/blobs2.json"));
-        } else if (!hasStoned && hadStoned) {
-            this.disablePostProcessor();
+        ItemStack helmet = client.player.getEquippedStack(EquipmentSlot.HEAD);
+        if (helmet.isOf(ModItems.ASTRONAUT_HELMET)) {
+            targetShader = new Identifier("minecraft", "shaders/post/desaturate.json");
         }
 
-        hadDrunk = hasDrunk;
-        hadStoned = hasStoned;
+        if (client.player.hasStatusEffect(ModEffects.STONED)) {
+            targetShader = new Identifier("minecraft", "shaders/post/blobs2.json");
+        } else if (client.player.hasStatusEffect(ModEffects.DRUNK)) {
+            targetShader = new Identifier("minecraft", "shaders/post/phosphor.json");
+        }
+
+        if (perspectiveChanged || !Objects.equals(currentShader, targetShader)) {
+            if (targetShader != null) {
+                this.loadPostProcessor(targetShader);
+            } else {
+                this.disablePostProcessor();
+            }
+            currentShader = targetShader;
+        }
     }
 }

@@ -87,6 +87,10 @@ public class ModBlocks {
             new PresentBlock(FabricBlockSettings.create().mapColor(MapColor.RED).strength(0.8F, 0.8F).sounds(BlockSoundGroup.WOOL).pistonBehavior(PistonBehavior.DESTROY).nonOpaque()));
     public static final Block FESTIVE_LIGHTS = registerBlock("festive_lights",
             new FestiveLightsBlock(FabricBlockSettings.create().mapColor(MapColor.BLACK).strength(0.8F, 0.8F).sounds(BlockSoundGroup.WOOL).pistonBehavior(PistonBehavior.DESTROY).collidable(false).nonOpaque().luminance(12)));
+    public static final Block CHRISTMAS_WREATH = registerBlock("christmas_wreath",
+            new ChristmasWreathBlock(FabricBlockSettings.create().mapColor(MapColor.GREEN).strength(0.8F, 0.8F).sounds(BlockSoundGroup.GRASS).pistonBehavior(PistonBehavior.DESTROY).collidable(false).nonOpaque()));
+    public static final Block ADVENT_WREATH = registerBlock("advent_wreath",
+            new AdventWreathBlock(FabricBlockSettings.create().mapColor(MapColor.GREEN).luminance((state) -> 3 * state.get(AdventWreathBlock.LIT)).strength(0.8F, 0.8F).sounds(BlockSoundGroup.GRASS).pistonBehavior(PistonBehavior.DESTROY).nonOpaque()));
 
     public static final Block APPARATUS = registerIrradiatedBlock("apparatus",
             new ApparatusBlock(FabricBlockSettings.create().mapColor(MapColor.PALE_YELLOW).strength(2.0F, 2.0F).sounds(BlockSoundGroup.GLASS).nonOpaque().luminance(15)));

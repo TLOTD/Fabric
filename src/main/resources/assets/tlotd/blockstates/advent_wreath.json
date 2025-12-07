@@ -1,0 +1,9 @@
+{
+  "variants": {
+    "lit=0": { "model": "tlotd:block/advent_wreath" },
+    "lit=1": { "model": "tlotd:block/advent_wreath_1" },
+    "lit=2": { "model": "tlotd:block/advent_wreath_2" },
+    "lit=3": { "model": "tlotd:block/advent_wreath_3" },
+    "lit=4": { "model": "tlotd:block/advent_wreath_4" }
+  }
+}

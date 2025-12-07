@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "L": {
+      "tag": "minecraft:leaves"
+    },
+    "P": {
+      "item": "minecraft:paper"
+    },
+    "R": {
+      "item": "minecraft:red_dye"
+    }
+  },
+  "pattern": [
+    "RLR",
+    "L L",
+    "PLP"
+  ],
+  "result": {
+    "item": "tlotd:christmas_wreath"
+  },
+  "show_notification": true
+}
