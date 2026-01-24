@@ -151,7 +151,7 @@ public class TelevisionBlock extends Block {
 
     @Override
     public void appendTooltip(ItemStack stack, @Nullable BlockView world, List<Text> tooltip, TooltipContext options) {
-        tooltip.add(Text.literal(""));
+        tooltip.add(Text.empty());
         if (!ModConfigs.ALL_SIGNALS_UNLOCKED) {
             tooltip.add(Text.translatable("block.tlotd.television.tooltip").formatted(Formatting.GRAY));
             tooltip.add(Text.literal(" ").append(Text.translatable("block.tlotd.signal_transmitter").formatted(Formatting.BLUE)));

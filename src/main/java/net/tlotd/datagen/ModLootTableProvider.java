@@ -27,6 +27,9 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.DROOPFRUIT_JAM_JAR);
         addDrop(ModBlocks.ANCIENT_SOULBERRY_JAM_JAR);
 
+        addDrop(ModBlocks.STRAWBERRY_CRATE);
+        addDrop(ModBlocks.ORANGE_CRATE);
+
         addDrop(ModBlocks.FRAMED_GLASS);
         addDrop(ModBlocks.FRAMED_GLASS_PANE);
         addDrop(ModBlocks.FRAMED_GLASS_TOP);
@@ -65,6 +68,8 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.FESTIVE_LIGHTS);
         addDrop(ModBlocks.CHRISTMAS_WREATH);
         addDrop(ModBlocks.ADVENT_WREATH);
+
+        addDrop(ModBlocks.AUGMENTATION_TABLE);
 
         addDrop(ModBlocks.GRAVESTONE);
         addDrop(ModBlocks.GRAVESTONE_CROSS);

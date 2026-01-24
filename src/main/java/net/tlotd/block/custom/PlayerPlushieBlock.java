@@ -42,7 +42,7 @@ public class PlayerPlushieBlock extends HumanPlushieBlock {
             case "d9ffb72a-f473-4ebc-936f-6f7d5d694145" -> 6;
             case "ebcc701d-5e03-4e57-9279-1dd595f6a4d4" -> formerTLOTD ? 7 : 0; //ISSO_21_
             case "9d978ae8-0368-442b-b4c4-fd27ad9f4888" -> formerTLOTD ? 8 : 0; //Akitorlp
-            case "08c6cfba-40cd-43e2-a929-764e9fadc442" -> 9;
+            case "08c6cfba-40cd-43e2-a929-764e9fadc442" -> formerTLOTD ? 9 : 0; //Polarfoxtm
             case "d3018dca-9a16-43f0-8d72-19b93e33fa6b" -> 10;
             case "7c2b3137-729f-47af-b3f8-55a0994a8c61" -> formerTLOTD ? 11 : 0; //VANDAGR
             case "2dc144f0-3e65-4e80-978b-d6356e5d3008" -> 12;
@@ -124,7 +124,7 @@ public class PlayerPlushieBlock extends HumanPlushieBlock {
         if (Screen.hasShiftDown()) {
             tooltip.add(Text.translatable("block.tlotd.player_plushie.tooltip").formatted(Formatting.GRAY));
             tooltip.add(Text.translatable("block.tlotd.player_plushie.tooltip_2").formatted(Formatting.GRAY));
-            tooltip.add(Text.literal(""));
+            tooltip.add(Text.empty());
             tooltip.add(Text.translatable("text.tlotd.player_plushie.ponder", Text.translatable("key.keyboard.shift").formatted(Formatting.WHITE)).formatted(Formatting.DARK_GRAY));
             Style style = this.getName().getStyle();
             tooltip.add(Text.translatable("block.tlotd.player_plushie.tooltip_shift").formatted(Formatting.GRAY));
@@ -139,8 +139,8 @@ public class PlayerPlushieBlock extends HumanPlushieBlock {
             if (ClientGlobalConfig.formerTlotdRewards) {
                 tooltip.add(Text.literal("\uE006").setStyle(style.withFont(PLAYERS_FONT_ID)).append(Text.literal(" ISSO_21_").setStyle(style.withFont(DEFAULT_FONT_ID))));
                 tooltip.add(Text.literal("\uE007").setStyle(style.withFont(PLAYERS_FONT_ID)).append(Text.literal(" Akitorlp").setStyle(style.withFont(DEFAULT_FONT_ID))));
+                tooltip.add(Text.literal("\uE008").setStyle(style.withFont(PLAYERS_FONT_ID)).append(Text.literal(" Polarfoxtm").setStyle(style.withFont(DEFAULT_FONT_ID))));
             }
-            tooltip.add(Text.literal("\uE008").setStyle(style.withFont(PLAYERS_FONT_ID)).append(Text.literal(" Polarfoxtm").setStyle(style.withFont(DEFAULT_FONT_ID))));
             tooltip.add(Text.literal("\uE009").setStyle(style.withFont(PLAYERS_FONT_ID)).append(Text.literal(" Salsafox").setStyle(style.withFont(DEFAULT_FONT_ID))));
             if (ClientGlobalConfig.formerTlotdRewards) {
                 tooltip.add(Text.literal("\uE00A").setStyle(style.withFont(PLAYERS_FONT_ID)).append(Text.literal(" VANDAGR").setStyle(style.withFont(DEFAULT_FONT_ID))));
@@ -170,7 +170,7 @@ public class PlayerPlushieBlock extends HumanPlushieBlock {
         } else {
             tooltip.add(Text.translatable("block.tlotd.player_plushie.tooltip").formatted(Formatting.GRAY));
             tooltip.add(Text.translatable("block.tlotd.player_plushie.tooltip_2").formatted(Formatting.GRAY));
-            tooltip.add(Text.literal(""));
+            tooltip.add(Text.empty());
             tooltip.add(Text.translatable("text.tlotd.player_plushie.ponder", Text.translatable("key.keyboard.shift").formatted(Formatting.GRAY)).formatted(Formatting.DARK_GRAY));
         }
         super.appendTooltip(stack, world, tooltip, options);

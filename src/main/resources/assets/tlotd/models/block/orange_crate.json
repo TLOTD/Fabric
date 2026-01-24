@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "tlotd:block/crate_bottom",
+    "side": "tlotd:block/orange_crate_side",
+    "top": "tlotd:block/orange_crate_top"
+  }
+}

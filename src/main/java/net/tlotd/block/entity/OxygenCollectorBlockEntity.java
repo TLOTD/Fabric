@@ -21,6 +21,8 @@ import net.tlotd.util.AdAstraOxygenNbtHelper;
 import net.tlotd.util.ModTags;
 import org.jetbrains.annotations.Nullable;
 
+import static net.tlotd.util.AugmentNbtHelper.getAugmentLevel;
+
 public class OxygenCollectorBlockEntity extends BlockEntity implements ExtendedScreenHandlerFactory, ImplementedInventory {
 
     private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(1, ItemStack.EMPTY);
@@ -95,11 +97,11 @@ public class OxygenCollectorBlockEntity extends BlockEntity implements ExtendedS
     }
 
     private boolean oxygenChargable() {
-        return this.getStack(0).isIn(ModTags.Items.OXYGEN_STORING);
+        return this.getStack(0).isIn(ModTags.Items.OXYGEN_STORING) || (getAugmentLevel(this.getStack(0), "tlotd:oxygen_tank") > 0);
     }
 
     private boolean canBeFilled() {
-        return (this.getStack(0).hasNbt() && this.getStack(0).getNbt().getInt("tlotd:oxygen") < 1000 || !this.getStack(0).hasNbt());
+        return (this.getStack(0).hasNbt() && this.getStack(0).getNbt().getInt("tlotd:oxygen") < AdAstraOxygenNbtHelper.getMaxOxygenForChestplate(this.getStack(0)) || !this.getStack(0).hasNbt());
     }
 
     private void fillOxygen() {

@@ -1,0 +1,18 @@
+{
+	"fabric:load_conditions": [
+	  {
+		"condition": "fabric:all_mods_loaded",
+		"values": [
+		  "apotheosis"
+		]
+	  }
+	],
+	"block": "tlotd:videocassette_recorder_bookshelf",
+	"stats": {
+		"maxEterna": 17.5,
+		"eterna": 2,
+		"quanta": -2,
+		"arcana": 0,
+		"clues": 0
+	}
+}

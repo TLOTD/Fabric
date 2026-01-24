@@ -15,6 +15,11 @@ public class ModBlockEntities {
                     FabricBlockEntityTypeBuilder.create(MithrilAnvilBlockEntity::new,
                             ModBlocks.MITHRIL_ANVIL).build());
 
+    public static final BlockEntityType<AugmentationTableBlockEntity> AUGMENTATION_TABLE_BLOCK_ENTITY =
+            Registry.register(Registries.BLOCK_ENTITY_TYPE, new Identifier(TLOTD.MOD_ID, "augmentation_table_block_entity"),
+                    FabricBlockEntityTypeBuilder.create(AugmentationTableBlockEntity::new,
+                            ModBlocks.AUGMENTATION_TABLE).build());
+
     public static final BlockEntityType<WitchingTableBlockEntity> WITCHING_TABLE_BLOCK_ENTITY =
             Registry.register(Registries.BLOCK_ENTITY_TYPE, new Identifier(TLOTD.MOD_ID, "witching_table_block_entity"),
                     FabricBlockEntityTypeBuilder.create(WitchingTableBlockEntity::new,

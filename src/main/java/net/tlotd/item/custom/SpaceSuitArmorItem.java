@@ -67,7 +67,7 @@ public class SpaceSuitArmorItem extends ArmorItem {
             }
         }
         tooltip.add(Text.translatable("item.tlotd.oxygen_level.tooltip", oxygen).formatted(Formatting.GOLD));
-        tooltip.add(Text.literal(""));
+        tooltip.add(Text.empty());
         tooltip.add(Text.translatable("item.tlotd.hypoxia_proof_armor.tooltip").formatted(Formatting.GRAY));
         tooltip.add(Text.literal(" ").append(Text.translatable("item.tlotd.hypoxia_proof_armor.tooltip_2").formatted(Formatting.BLUE)));
         super.appendTooltip(stack, world, tooltip, context);

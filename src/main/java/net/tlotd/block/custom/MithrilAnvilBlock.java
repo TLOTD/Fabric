@@ -152,11 +152,11 @@ public class MithrilAnvilBlock extends BlockWithEntity implements BlockEntityPro
 
     @Override
     public void appendTooltip(ItemStack stack, @Nullable BlockView world, List<Text> tooltip, TooltipContext options) {
-        tooltip.add(Text.literal(""));
+        tooltip.add(Text.empty());
         if (ModConfigs.MITHRIL_ANVIL_NEEDS_DIRECT_MOONLIGHT) {
             tooltip.add(Text.translatable("block.tlotd.mithril_anvil.tooltip").formatted(Formatting.GRAY));
             tooltip.add(Text.literal(" ").append(Text.translatable("block.tlotd.mithril_anvil.tooltip_2").formatted(Formatting.BLUE)));
-            tooltip.add(Text.literal(""));
+            tooltip.add(Text.empty());
         }
         if (Screen.hasShiftDown()) {
             tooltip.add(Text.translatable("text.tlotd.recipe.ponder", Text.translatable("key.keyboard.shift").formatted(Formatting.WHITE)).formatted(Formatting.DARK_GRAY));

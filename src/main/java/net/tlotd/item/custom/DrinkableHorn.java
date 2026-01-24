@@ -30,9 +30,6 @@ public class DrinkableHorn extends Item {
     }
 
     public ItemStack finishUsing(ItemStack stack, World world, LivingEntity user) {
-        if (stack.isOf(ModItems.BEER_GOAT_HORN) || stack.isOf(ModItems.MEAD_GOAT_HORN)) {
-            user.addStatusEffect(new StatusEffectInstance(ModEffects.DRUNK, 600));
-        }
         super.finishUsing(stack, world, user);
         if (user instanceof ServerPlayerEntity serverPlayerEntity) {
             Criteria.CONSUME_ITEM.trigger(serverPlayerEntity, stack);

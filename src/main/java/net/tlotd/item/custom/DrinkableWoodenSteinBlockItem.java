@@ -33,9 +33,7 @@ public class DrinkableWoodenSteinBlockItem extends BlockItem {
     }
 
     public ItemStack finishUsing(ItemStack stack, World world, LivingEntity user) {
-        if (stack.isOf(ModBlocks.WOODEN_BEER_STEIN.asItem()) || stack.isOf(ModBlocks.WOODEN_MEAD_STEIN.asItem())) {
-            user.addStatusEffect(new StatusEffectInstance(ModEffects.DRUNK, 600));
-        } else if (stack.isOf(ModBlocks.WOODEN_MILK_STEIN.asItem())) {
+        if (stack.isOf(ModBlocks.WOODEN_MILK_STEIN.asItem())) {
             user.clearStatusEffects();
         } else if (stack.isOf(ModBlocks.WOODEN_CARAMEL_MILKSHAKE_STEIN.asItem()) || stack.isOf(ModBlocks.WOODEN_STRAWBERRY_MILKSHAKE_STEIN.asItem()) || stack.isOf(ModBlocks.WOODEN_ORANGE_MILKSHAKE_STEIN.asItem()) || stack.isOf(ModBlocks.WOODEN_CHOCOLATE_MILKSHAKE_STEIN.asItem()) || stack.isOf(ModBlocks.WOODEN_BLUE_BERRY_MILKSHAKE_STEIN.asItem())) {
             user.clearStatusEffects();

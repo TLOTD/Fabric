@@ -1,0 +1,15 @@
+{
+  "type": "tlotd:augmenting",
+  "ingredients": [
+    {
+      "tag": "c:armor"
+    },
+    {
+      "item": "tlotd:augment-airtight_seals"
+    }
+  ],
+  "augment": {
+    "item": "tlotd:augment-airtight_seals",
+    "count": 1
+  }
+}

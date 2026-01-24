@@ -37,7 +37,7 @@ public class ForgingHammerItem extends Item {
         } else if (stack.isIn(ModTags.Items.FORGING_HAMMERS_TIER2)) {
             level = 2;
         }
-        tooltip.add(Text.literal(""));
+        tooltip.add(Text.empty());
         tooltip.add(Text.translatable("item.tlotd.forging_hammer.tooltip").formatted(Formatting.GRAY));
         tooltip.add(Text.literal(" ").append(Text.translatable("item.tlotd.forging_hammer.tooltip_2", level)).formatted(Formatting.DARK_GREEN));
         super.appendTooltip(stack, world, tooltip, context);

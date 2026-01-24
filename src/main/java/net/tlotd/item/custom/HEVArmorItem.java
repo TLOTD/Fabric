@@ -18,10 +18,10 @@ public class HEVArmorItem extends ArmorItem {
 
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        tooltip.add(Text.literal(""));
+        tooltip.add(Text.empty());
         tooltip.add(Text.translatable("item.tlotd.radiaton_proof_armor.chargable").formatted(Formatting.GRAY));
         tooltip.add(Text.translatable("block.tlotd.hev_charger").formatted(Formatting.BLUE));
-        tooltip.add(Text.literal(""));
+        tooltip.add(Text.empty());
         tooltip.add(Text.translatable("item.tlotd.radiaton_proof_armor.tooltip").formatted(Formatting.GRAY));
         tooltip.add(Text.translatable("item.tlotd.radiaton_proof_armor.tooltip_2").formatted(Formatting.BLUE));
         super.appendTooltip(stack, world, tooltip, context);

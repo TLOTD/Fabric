@@ -1,0 +1,36 @@
+{
+  "type": "tlotd:augmenting",
+  "ingredients": [
+    {
+      "tag": "c:armor"
+    },
+    {
+      "tag": "c:gold_ingots"
+    },
+    {
+      "item": "minecraft:golden_apple"
+    },
+    {
+      "tag": "c:gold_ingots"
+    },
+    {
+      "item": "minecraft:golden_apple"
+    },
+    {
+      "item": "minecraft:golden_apple"
+    },
+    {
+      "tag": "c:gold_ingots"
+    },
+    {
+      "item": "minecraft:golden_apple"
+    },
+    {
+      "tag": "c:gold_ingots"
+    }
+  ],
+  "augment": {
+    "item": "tlotd:augment-slot_expansion",
+    "count": 1
+  }
+}

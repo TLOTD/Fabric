@@ -1,0 +1,36 @@
+{
+  "type": "tlotd:augmenting",
+  "ingredients": [
+    {
+      "tag": "c:chestplates"
+    },
+    {
+      "item": "minecraft:slime_ball"
+    },
+    {
+      "item": "minecraft:netherite_scrap"
+    },
+    {
+      "item": "minecraft:slime_ball"
+    },
+    {
+      "item": "tlotd:oxygen_tank"
+    },
+    {
+      "item": "tlotd:oxygen_tank"
+    },
+    {
+      "item": "minecraft:leather"
+    },
+    {
+      "item": "minecraft:netherite_scrap"
+    },
+    {
+      "item": "minecraft:leather"
+    }
+  ],
+  "augment": {
+    "item": "tlotd:augment-oxygen_tank",
+    "count": 4
+  }
+}

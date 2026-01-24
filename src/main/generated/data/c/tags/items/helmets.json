@@ -1,0 +1,25 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:leather_helmet",
+    "minecraft:chainmail_helmet",
+    "minecraft:iron_helmet",
+    "minecraft:golden_helmet",
+    "minecraft:diamond_helmet",
+    "minecraft:netherite_helmet",
+    "minecraft:turtle_helmet",
+    "tlotd:heliorite_helmet",
+    "tlotd:endurium_helmet",
+    "tlotd:palladium_helmet",
+    "tlotd:jurassoline_helmet",
+    "tlotd:cinnabar_helmet",
+    "tlotd:nebular_helmet",
+    "tlotd:mithril_helmet",
+    "tlotd:scientist_glasses",
+    "tlotd:astronaut_helmet",
+    "tlotd:cthonaut_helmet",
+    "tlotd:pickelhaube",
+    "tlotd:monocle",
+    "tlotd:emperors_crown"
+  ]
+}

@@ -9,8 +9,14 @@
   ],
   "replace": false,
   "values": [
-    "createaddition:bioethanol",
-    "createaddition:flowing_bioethanol",
+    {
+      "id": "createaddition:bioethanol",
+      "required": false
+    },
+    {
+      "id": "createaddition:flowing_bioethanol",
+      "required": false
+    },
     "tlotd:oil",
     "tlotd:flowing_oil"
   ]

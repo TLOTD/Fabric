@@ -73,6 +73,11 @@ public class ModBlocks {
     public static final Block ANCIENT_SOULBERRY_JAM_JAR = registerCompatJamJarBlock("ancient_soulberry_jam_jar",
             new PreservesJarBlock(FabricBlockSettings.create().mapColor(MapColor.WHITE).strength(0.3f, 0.3f).sounds(BlockSoundGroup.GLASS).nonOpaque()),"atm");
 
+    public static final Block STRAWBERRY_CRATE = registerBlock("strawberry_crate",
+            new Block(FabricBlockSettings.create().mapColor(MapColor.OAK_TAN).strength(2.0F, 3.0F)));
+    public static final Block ORANGE_CRATE = registerBlock("orange_crate",
+            new Block(FabricBlockSettings.create().mapColor(MapColor.OAK_TAN).strength(2.0F, 3.0F)));
+
     public static final Block TREX_EGG = registerBlock("t-rex_egg",
             new TRexEggBlock(FabricBlockSettings.create().mapColor(MapColor.BROWN).strength(0.5f, 0.5f).sounds(BlockSoundGroup.METAL).nonOpaque()));
     public static final Block INFECTED_TREX_EGG = registerCompatBlock("infected_t-rex_egg",
@@ -108,6 +113,9 @@ public class ModBlocks {
     public static final Block STRAWBERRY_CAKE = registerBlock("strawberry_cake", new CakeBlock(FabricBlockSettings.copyOf(Blocks.CAKE)));
     public static final Block ORANGE_CAKE = registerBlock("orange_cake", new CakeBlock(FabricBlockSettings.copyOf(Blocks.CAKE)));
 
+    public static final Block AUGMENTATION_TABLE = registerBlock("augmentation_table",
+            new AugmentationTableBlock(FabricBlockSettings.create().mapColor(MapColor.BROWN).strength(2.0F, 3.0F).nonOpaque()));
+
     public static final Block GRAVESTONE = registerBlock("gravestone",
             new GravestoneBlock(FabricBlockSettings.create().mapColor(MapColor.STONE_GRAY).requiresTool().strength(2.0F, 3.0F)));
     public static final Block MOSSY_GRAVESTONE = registerBlock("mossy_gravestone",
@@ -129,7 +137,7 @@ public class ModBlocks {
             new EffigiesBlock(FabricBlockSettings.create().mapColor(MapColor.BROWN).strength(2.0F, 3.0F).sounds(BlockSoundGroup.WOOD).pistonBehavior(PistonBehavior.DESTROY).nonOpaque().collidable(false).ticksRandomly()));
 
     public static final Block WITCHING_TABLE = registerBlock("witching_table",
-            new WitchingTableBlock(FabricBlockSettings.create().mapColor(MapColor.BROWN).strength(2.0F, 3.0F).sounds(BlockSoundGroup.WOOD).nonOpaque()));
+            new WitchingTableBlock(FabricBlockSettings.create().mapColor(MapColor.BLACK).strength(2.0F, 3.0F).sounds(BlockSoundGroup.WOOD).nonOpaque()));
 
     public static final Block OUIJA_BOARD = registerBlock("ouija_board",
             new OuijaBoardBlock(FabricBlockSettings.create().mapColor(MapColor.OAK_TAN).strength(1.0F, 1.0F).sounds(BlockSoundGroup.WOOL).pistonBehavior(PistonBehavior.DESTROY)));
@@ -468,9 +476,9 @@ public class ModBlocks {
             new WoodenSteinBlock(FabricBlockSettings.create().mapColor(MapColor.BROWN).strength(2.0F, 2.0F).sounds(BlockSoundGroup.WOOD).pistonBehavior(PistonBehavior.DESTROY).nonOpaque()),"");
     public static final Block WOODEN_ORANGE_JUICE_STEIN = registerDrinkableWoodenSteinBlock("wooden_orange_juice_stein",
             new WoodenSteinBlock(FabricBlockSettings.create().mapColor(MapColor.BROWN).strength(2.0F, 2.0F).sounds(BlockSoundGroup.WOOD).pistonBehavior(PistonBehavior.DESTROY).nonOpaque()),"");
-    public static final Block WOODEN_BEER_STEIN = registerRemainderSteinBlock("wooden_beer_stein",
+    public static final Block WOODEN_BEER_STEIN = registerDrunkRemainderSteinBlock("wooden_beer_stein",
             new WoodenSteinBlock(FabricBlockSettings.create().mapColor(MapColor.BROWN).strength(2.0F, 2.0F).sounds(BlockSoundGroup.WOOD).pistonBehavior(PistonBehavior.DESTROY).nonOpaque()),"");
-    public static final Block WOODEN_MEAD_STEIN = registerRemainderSteinBlock("wooden_mead_stein",
+    public static final Block WOODEN_MEAD_STEIN = registerDrunkRemainderSteinBlock("wooden_mead_stein",
             new WoodenSteinBlock(FabricBlockSettings.create().mapColor(MapColor.BROWN).strength(2.0F, 2.0F).sounds(BlockSoundGroup.WOOD).pistonBehavior(PistonBehavior.DESTROY).nonOpaque()),"");
     public static final Block WOODEN_MILK_STEIN = registerDrinkableWoodenSteinBlock("wooden_milk_stein",
             new WoodenSteinBlock(FabricBlockSettings.create().mapColor(MapColor.BROWN).strength(2.0F, 2.0F).sounds(BlockSoundGroup.WOOD).pistonBehavior(PistonBehavior.DESTROY).nonOpaque()),"");
@@ -882,6 +890,11 @@ public class ModBlocks {
         return Registry.register(Registries.BLOCK, new Identifier(TLOTD.MOD_ID, name), block);
     }
 
+    private static Block registerDrunkRemainderSteinBlock(String name, Block block, String compat) {
+        registerDrunkRemainderSteinBlockItem(name, block, compat);
+        return Registry.register(Registries.BLOCK, new Identifier(TLOTD.MOD_ID, name), block);
+    }
+
     private static Block registerIrradiatedBlock(String name, Block block) {
         registerIrradiatedBlockItem(name, block);
         return Registry.register(Registries.BLOCK, new Identifier(TLOTD.MOD_ID, name), block);
@@ -949,6 +962,11 @@ public class ModBlocks {
     private static Item registerRemainderSteinBlockItem(String name, Block block, String compat) {
         return Registry.register(Registries.ITEM, new Identifier(TLOTD.MOD_ID, name),
                 new DrinkableWoodenSteinBlockItem(block, new FabricItemSettings().food(ModFoodComponents.WOODEN_LIQUID_STEIN).maxCount(16).recipeRemainder(WOODEN_STEIN.asItem()),compat));
+    }
+
+    private static Item registerDrunkRemainderSteinBlockItem(String name, Block block, String compat) {
+        return Registry.register(Registries.ITEM, new Identifier(TLOTD.MOD_ID, name),
+                new DrinkableWoodenSteinBlockItem(block, new FabricItemSettings().food(ModFoodComponents.LARGE_BEER).maxCount(16).recipeRemainder(WOODEN_STEIN.asItem()),compat));
     }
 
     private static Item registerShelfableBlockItem(String name, Block block) {

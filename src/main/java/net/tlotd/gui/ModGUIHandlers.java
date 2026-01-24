@@ -12,6 +12,10 @@ public class ModGUIHandlers {
             Registry.register(Registries.SCREEN_HANDLER, new Identifier(TLOTD.MOD_ID, "mithril_anvil"),
                     new ExtendedScreenHandlerType<>(MithrilAnvilGUIHandler::new));
 
+    public static final ScreenHandlerType<AugmentationTableGUIHandler> AUGMENTATION_TABLE_GUI_HANDLER =
+            Registry.register(Registries.SCREEN_HANDLER, new Identifier(TLOTD.MOD_ID, "augmentation_table"),
+                    new ExtendedScreenHandlerType<>(AugmentationTableGUIHandler::new));
+
     public static final ScreenHandlerType<WitchingTableGUIHandler> WITCHING_TABLE_GUI_HANDLER =
             Registry.register(Registries.SCREEN_HANDLER, new Identifier(TLOTD.MOD_ID, "witching_table"),
                     new ExtendedScreenHandlerType<>(WitchingTableGUIHandler::new));

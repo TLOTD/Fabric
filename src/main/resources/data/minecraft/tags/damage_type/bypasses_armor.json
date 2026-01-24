@@ -3,6 +3,7 @@
     "values": [
         "tlotd:radiation",
         "tlotd:hypoxia",
+        "tlotd:subspace_sickness",
         "tlotd:silverthorn_arrow"
     ]
 }

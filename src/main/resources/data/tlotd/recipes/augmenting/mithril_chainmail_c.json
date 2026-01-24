@@ -1,0 +1,15 @@
+{
+  "type": "tlotd:augmenting",
+  "ingredients": [
+    {
+      "tag": "c:armor"
+    },
+    {
+      "item": "tlotd:augment-mithril_chainmail"
+    }
+  ],
+  "augment": {
+    "item": "tlotd:augment-mithril_chainmail",
+    "count": 3
+  }
+}

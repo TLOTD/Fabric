@@ -5,6 +5,8 @@ import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtElement;
 import net.minecraft.nbt.NbtList;
 
+import static net.tlotd.util.AugmentNbtHelper.getAugmentLevel;
+
 public class AdAstraOxygenNbtHelper {
     public static final String FLUID_ID = "ad_astra:oxygen";
     public static final long MAX_AMOUNT = 81000L;
@@ -13,6 +15,7 @@ public class AdAstraOxygenNbtHelper {
         if (stack.isIn(ModTags.Items.OXYGEN_STORING_4K)) return MAX_AMOUNT*4;
         if (stack.isIn(ModTags.Items.OXYGEN_STORING_2K)) return MAX_AMOUNT*2;
         if (stack.isIn(ModTags.Items.OXYGEN_STORING_1K)) return MAX_AMOUNT;
+        if (getAugmentLevel(stack, "tlotd:oxygen_tank") > 0) return MAX_AMOUNT*getAugmentLevel(stack, "tlotd:oxygen_tank");
         return 0;
     }
 

@@ -1,0 +1,15 @@
+{
+  "type": "tlotd:augmenting",
+  "ingredients": [
+    {
+      "tag": "tlotd:pickaxes_or_paxels"
+    },
+    {
+      "item": "tlotd:augment-extraction"
+    }
+  ],
+  "augment": {
+    "item": "tlotd:augment-extraction",
+    "count": 3
+  }
+}

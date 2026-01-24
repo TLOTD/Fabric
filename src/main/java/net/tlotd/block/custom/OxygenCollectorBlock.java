@@ -136,7 +136,7 @@ public class OxygenCollectorBlock extends BlockWithEntity implements BlockEntity
                 tooltip.add(Text.literal("\uE100 ").setStyle(style.withFont(TOOLTIP_FONT_ID)).append(Text.translatable("item.patchouli.guide_book.tlotd.guiding_grimoire.ponder", Text.translatable("key.keyboard.shift").formatted(Formatting.GRAY)).setStyle(style.withFont(DEFAULT_FONT_ID).withFormatting(Formatting.DARK_GRAY))));
             }
         }
-        tooltip.add(Text.literal(""));
+        tooltip.add(Text.empty());
         tooltip.add(Text.translatable("block.tlotd.oxygen_collector.tooltip").formatted(Formatting.GRAY));
         tooltip.add(Text.literal(" ").append(Text.translatable("block.tlotd.oxygen_collector.tooltip_2")).formatted(Formatting.BLUE));
         super.appendTooltip(stack, world, tooltip, options);

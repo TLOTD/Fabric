@@ -120,6 +120,18 @@ public class ModTags {
 
     public static class Items {
 
+        public static final TagKey<Item> EMPTY =
+                createTag("empty");
+
+        public static final TagKey<Item> ONE_AUGMENT_SLOT =
+                createTag("one_augment_slot");
+
+        public static final TagKey<Item> TWO_AUGMENT_SLOTS =
+                createTag("two_augment_slots");
+
+        public static final TagKey<Item> THREE_AUGMENT_SLOTS =
+                createTag("three_augment_slots");
+
         public static final TagKey<Item> DIVINE_ITEMS =
                 createTag("divine_items");
 
@@ -192,15 +204,6 @@ public class ModTags {
         public static final TagKey<Item> WOODEN_LIQUID_STEINS =
                 createTag("wooden_liquid_steins");
 
-        public static final TagKey<Item> EXTRACTION_PICKAXES =
-                createTag("extraction_pickaxes");
-
-        public static final TagKey<Item> EXTRACTION_II_PICKAXES =
-                createTag("extraction_ii_pickaxes");
-
-        public static final TagKey<Item> EXTRACTION_III_PICKAXES =
-                createTag("extraction_iii_pickaxes");
-
         public static final TagKey<Item> MOUTH_OF_THE_ABYSS =
                 createTag("mouth_of_the_abyss");
 
@@ -227,6 +230,12 @@ public class ModTags {
 
         public static final TagKey<Item> RADIATION_PROTECTION_WITHOUT_HELMET =
                 createTag("radiation_protection_without_helmet");
+
+        public static final TagKey<Item> SUBSPACE_PROTECTION =
+                createTag("subspace_protection");
+
+        public static final TagKey<Item> SUBSPACE_PROTECTION_WITHOUT_HELMET =
+                createTag("subspace_protection_without_helmet");
 
         public static final TagKey<Item> OXYGEN_STORING =
                 createTag("oxygen_storing");

@@ -27,6 +27,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 
 import static net.tlotd.block.custom.AlienControlPanelBlock.HARVESTED;
+import static net.tlotd.util.AugmentNbtHelper.getAugmentLevel;
 
 public class PaxelItem extends MiningToolItem {
     public PaxelItem(ToolMaterial material, int attackDamage, float attackSpeed, Item.Settings settings) {
@@ -67,7 +68,7 @@ public class PaxelItem extends MiningToolItem {
                     serverPlayerEntity.incrementStat(Stats.USED.getOrCreateStat(this));
                 }
                 return ActionResult.SUCCESS;
-            } else if (context.getStack().isIn(ModTags.Items.EXTRACTION_PICKAXES)) {
+            } else if (getAugmentLevel(context.getStack(), "tlotd:extraction") > 0) {
                 boolean compat = false;
                 if (player != null && !context.getWorld().isClient && player.getServer() != null) {
                     ModGlobalState globalState = ModGlobalState.get(player.getServer());
@@ -135,11 +136,10 @@ public class PaxelItem extends MiningToolItem {
                     }
                     context.getWorld().playSound(null, positionClicked, ModSounds.ITEM_PICKAXE_EXTRACT, SoundCategory.BLOCKS, 1.0f, 1.0f);
                     int extraction_damage = damage*20;
-                    if (context.getStack().isIn(ModTags.Items.EXTRACTION_II_PICKAXES)) {
-                        extraction_damage = damage*10;
-                    }
-                    if (context.getStack().isIn(ModTags.Items.EXTRACTION_III_PICKAXES)) {
+                    if (getAugmentLevel(context.getStack(), "tlotd:extraction") >= 3) {
                         extraction_damage = damage;
+                    } else if (getAugmentLevel(context.getStack(), "tlotd:extraction") == 2) {
+                        extraction_damage = damage*10;
                     }
                     context.getStack().damage(extraction_damage, player, playerEntity -> playerEntity.sendToolBreakStatus(playerEntity.getActiveHand()));
                     if (player instanceof ServerPlayerEntity serverPlayerEntity) {
@@ -151,22 +151,5 @@ public class PaxelItem extends MiningToolItem {
             }
         }
         return ActionResult.FAIL;
-    }
-
-    @Override
-    public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        if (stack.isIn(ModTags.Items.EXTRACTION_III_PICKAXES)) {
-            tooltip.add(Text.translatable("item.tlotd.extraction.tooltip").append(Text.literal(" ").append(Text.translatable("enchantment.level.3"))).formatted(Formatting.GRAY));
-        } else if (stack.isIn(ModTags.Items.EXTRACTION_II_PICKAXES)) {
-            tooltip.add(Text.translatable("item.tlotd.extraction.tooltip").append(Text.literal(" ").append(Text.translatable("enchantment.level.2"))).formatted(Formatting.GRAY));
-        } else if (stack.isIn(ModTags.Items.EXTRACTION_PICKAXES)) {
-            tooltip.add(Text.translatable("item.tlotd.extraction.tooltip").append(Text.literal(" ").append(Text.translatable("enchantment.level.1"))).formatted(Formatting.GRAY));
-        }
-        super.appendTooltip(stack, world, tooltip, context);
-    }
-
-    @Override
-    public boolean hasGlint(ItemStack stack) {
-        return stack.isIn(ModTags.Items.EXTRACTION_PICKAXES);
     }
 }

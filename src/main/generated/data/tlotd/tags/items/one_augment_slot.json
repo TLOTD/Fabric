@@ -1,0 +1,30 @@
+{
+  "replace": false,
+  "values": [
+    "#tlotd:two_augment_slots",
+    "tlotd:palladium_sword",
+    "tlotd:palladium_pickaxe",
+    "tlotd:palladium_axe",
+    "tlotd:palladium_shovel",
+    "tlotd:palladium_hoe",
+    "tlotd:palladium_paxel",
+    "tlotd:palladium_sickle",
+    "tlotd:palladium_forging_hammer",
+    "tlotd:palladium_helmet",
+    "tlotd:palladium_chestplate",
+    "tlotd:palladium_leggings",
+    "tlotd:palladium_boots",
+    "tlotd:jurassoline_sword",
+    "tlotd:jurassoline_pickaxe",
+    "tlotd:jurassoline_axe",
+    "tlotd:jurassoline_shovel",
+    "tlotd:jurassoline_hoe",
+    "tlotd:jurassoline_paxel",
+    "tlotd:jurassoline_sickle",
+    "tlotd:jurassoline_forging_hammer",
+    "tlotd:jurassoline_helmet",
+    "tlotd:jurassoline_chestplate",
+    "tlotd:jurassoline_leggings",
+    "tlotd:jurassoline_boots"
+  ]
+}

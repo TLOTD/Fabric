@@ -1,0 +1,18 @@
+{
+  "replace": false,
+  "values": [
+    "#c:tridents",
+    "#c:bows",
+    "#c:swords",
+    "#c:pickaxes",
+    "#c:axes",
+    "#c:shovels",
+    "#c:hoes",
+    "#c:shears",
+    "#c:paxels",
+    "#c:fishing_rods",
+    "#c:flint_and_steels",
+    "#c:brushes",
+    "#tlotd:forging_hammers"
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "replace": false,
+  "values": [
+    "#tlotd:three_augment_slots",
+    "tlotd:cinnabar_sword",
+    "tlotd:cinnabar_pickaxe",
+    "tlotd:cinnabar_axe",
+    "tlotd:cinnabar_shovel",
+    "tlotd:cinnabar_hoe",
+    "tlotd:cinnabar_paxel",
+    "tlotd:cinnabar_sickle",
+    "tlotd:cinnabar_forging_hammer",
+    "tlotd:cinnabar_helmet",
+    "tlotd:cinnabar_chestplate",
+    "tlotd:cinnabar_leggings",
+    "tlotd:cinnabar_boots",
+    "tlotd:nebular_sword",
+    "tlotd:nebular_pickaxe",
+    "tlotd:nebular_axe",
+    "tlotd:nebular_shovel",
+    "tlotd:nebular_hoe",
+    "tlotd:nebular_paxel",
+    "tlotd:nebular_sickle",
+    "tlotd:nebular_forging_hammer",
+    "tlotd:nebular_helmet",
+    "tlotd:nebular_chestplate",
+    "tlotd:nebular_leggings",
+    "tlotd:nebular_boots"
+  ]
+}

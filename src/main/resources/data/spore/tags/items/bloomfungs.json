@@ -9,7 +9,13 @@
   ],
   "replace": false,
   "values": [
-    "spore:blomfung",
-    "spore:bloomfung2"
+    {
+      "id": "spore:blomfung",
+      "required": false
+    },
+    {
+      "id": "spore:bloomfung2",
+      "required": false
+    }
   ]
 }

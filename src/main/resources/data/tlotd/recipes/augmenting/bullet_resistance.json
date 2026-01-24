@@ -1,0 +1,36 @@
+{
+  "type": "tlotd:augmenting",
+  "ingredients": [
+    {
+      "tag": "c:armor"
+    },
+    {
+      "tag": "c:bullets"
+    },
+    {
+      "item": "minecraft:netherite_scrap"
+    },
+    {
+      "tag": "c:bullets"
+    },
+    {
+      "item": "minecraft:netherite_scrap"
+    },
+    {
+      "item": "minecraft:netherite_scrap"
+    },
+    {
+      "tag": "c:bullets"
+    },
+    {
+      "item": "minecraft:netherite_scrap"
+    },
+    {
+      "tag": "c:bullets"
+    }
+  ],
+  "augment": {
+    "item": "tlotd:augment-bullet_resistance",
+    "count": 3
+  }
+}

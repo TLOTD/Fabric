@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:shield",
+    "tlotd:gondorian_shield",
+    "tlotd:gondorian_tower_shield",
+    "tlotd:gondorian_kings_guard_tower_shield",
+    "tlotd:gondorian_knight_shield",
+    "tlotd:gondorian_ornamented_knight_shield"
+  ]
+}

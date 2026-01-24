@@ -96,7 +96,7 @@ public class ModItems {
     public static final Item ORANGE = registerItem("orange", new Item(new FabricItemSettings().food(ModFoodComponents.ORANGE)));
     public static final Item ORANGE_MARMELADE_TOAST = registerItem("orange_marmelade_toast", new Item(new FabricItemSettings().food(ModFoodComponents.JAM_TOAST)));
     public static final Item ORANGE_JUICE_BOTTLE = registerItem("orange_juice_bottle", new DrinkableBottle(new FabricItemSettings().food(ModFoodComponents.WOODEN_LIQUID_STEIN).maxCount(16).recipeRemainder(Items.GLASS_BOTTLE)));
-    public static final Item SPEZI_BOTTLE = registerItem("spezi_bottle", new DrinkableBottle(new FabricItemSettings().food(ModFoodComponents.WOODEN_LIQUID_STEIN).maxCount(16).recipeRemainder(Items.GLASS_BOTTLE)));
+    public static final Item SPEZI_BOTTLE = registerItem("spezi_bottle", new DrinkableBottle(new FabricItemSettings().food(ModFoodComponents.SMALL_SPEZI).maxCount(16).recipeRemainder(Items.GLASS_BOTTLE)));
 
     public static final Item PIPE_WEED_SEEDS = registerItem("pipe_weed_seeds", new AliasedBlockItem(ModBlocks.PIPE_WEED_PLANT, new FabricItemSettings()));
     public static final Item PIPE_WEED = registerItem("pipe_weed", new Item(new FabricItemSettings()));
@@ -291,7 +291,7 @@ public class ModItems {
     public static final Item PALLADIUM_INGOT = registerItem("palladium_ingot", new Item(new FabricItemSettings()));
 
     public static final Item PALLADIUM_SWORD = registerItem("palladium_sword", new SwordItem(ModToolMaterial.PALLADIUM, 4, -2.4f, new FabricItemSettings()));
-    public static final Item PALLADIUM_PICKAXE = registerItem("palladium_pickaxe", new PickaxeItem(ModToolMaterial.PALLADIUM, 2, -2.8f, new FabricItemSettings()));
+    public static final Item PALLADIUM_PICKAXE = registerItem("palladium_pickaxe", new AugmentedPickaxeItem(ModToolMaterial.PALLADIUM, 2, -2.8f, new FabricItemSettings()));
     public static final Item PALLADIUM_AXE = registerItem("palladium_axe", new AxeItem(ModToolMaterial.PALLADIUM, 6, -3.0f, new FabricItemSettings()));
     public static final Item PALLADIUM_SHOVEL = registerItem("palladium_shovel", new ShovelItem(ModToolMaterial.PALLADIUM, 2.5f, -3.0f, new FabricItemSettings()));
     public static final Item PALLADIUM_HOE = registerItem("palladium_hoe", new HoeItem(ModToolMaterial.PALLADIUM, -5, 0.0f, new FabricItemSettings()));
@@ -310,7 +310,7 @@ public class ModItems {
     public static final Item JURASSOLINE_INGOT = registerItem("jurassoline_ingot", new Item(new FabricItemSettings()));
 
     public static final Item JURASSOLINE_SWORD = registerItem("jurassoline_sword", new SwordItem(ModToolMaterial.JURASSOLINE, 4, -2.4f, new FabricItemSettings()));
-    public static final Item JURASSOLINE_PICKAXE = registerItem("jurassoline_pickaxe", new PickaxeItem(ModToolMaterial.JURASSOLINE, 2, -2.8f, new FabricItemSettings()));
+    public static final Item JURASSOLINE_PICKAXE = registerItem("jurassoline_pickaxe", new AugmentedPickaxeItem(ModToolMaterial.JURASSOLINE, 2, -2.8f, new FabricItemSettings()));
     public static final Item JURASSOLINE_AXE = registerItem("jurassoline_axe", new AxeItem(ModToolMaterial.JURASSOLINE, 6, -3.0f, new FabricItemSettings()));
     public static final Item JURASSOLINE_SHOVEL = registerItem("jurassoline_shovel", new ShovelItem(ModToolMaterial.JURASSOLINE, 2.5f, -3.0f, new FabricItemSettings()));
     public static final Item JURASSOLINE_HOE = registerItem("jurassoline_hoe", new HoeItem(ModToolMaterial.JURASSOLINE, -5, 0.0f, new FabricItemSettings()));
@@ -329,7 +329,7 @@ public class ModItems {
     public static final Item CINNABAR_INGOT = registerItem("cinnabar_ingot", new Item(new FabricItemSettings()));
 
     public static final Item CINNABAR_SWORD = registerItem("cinnabar_sword", new SwordItem(ModToolMaterial.CINNABAR, 4, -2.4f, new FabricItemSettings()));
-    public static final Item CINNABAR_PICKAXE = registerItem("cinnabar_pickaxe", new ExtractionPickaxeItem(ModToolMaterial.CINNABAR, 2, -2.8f, new FabricItemSettings()));
+    public static final Item CINNABAR_PICKAXE = registerItem("cinnabar_pickaxe", new AugmentedPickaxeItem(ModToolMaterial.CINNABAR, 2, -2.8f, new FabricItemSettings()));
     public static final Item CINNABAR_AXE = registerItem("cinnabar_axe", new AxeItem(ModToolMaterial.CINNABAR, 6, -3.0f, new FabricItemSettings()));
     public static final Item CINNABAR_SHOVEL = registerItem("cinnabar_shovel", new ShovelItem(ModToolMaterial.CINNABAR, 2.5f, -3.0f, new FabricItemSettings()));
     public static final Item CINNABAR_HOE = registerItem("cinnabar_hoe", new HoeItem(ModToolMaterial.CINNABAR, -6, 0.0f, new FabricItemSettings()));
@@ -348,7 +348,7 @@ public class ModItems {
     public static final Item NEBULAR_INGOT = registerItem("nebular_ingot", new Item(new FabricItemSettings()));
 
     public static final Item NEBULAR_SWORD = registerItem("nebular_sword", new SwordItem(ModToolMaterial.NEBULAR, 4, -2.4f, new FabricItemSettings()));
-    public static final Item NEBULAR_PICKAXE = registerItem("nebular_pickaxe", new ExtractionPickaxeItem(ModToolMaterial.NEBULAR, 2, -2.8f, new FabricItemSettings()));
+    public static final Item NEBULAR_PICKAXE = registerItem("nebular_pickaxe", new AugmentedPickaxeItem(ModToolMaterial.NEBULAR, 2, -2.8f, new FabricItemSettings()));
     public static final Item NEBULAR_AXE = registerItem("nebular_axe", new AxeItem(ModToolMaterial.NEBULAR, 6, -3.0f, new FabricItemSettings()));
     public static final Item NEBULAR_SHOVEL = registerItem("nebular_shovel", new ShovelItem(ModToolMaterial.NEBULAR, 2.5f, -3.0f, new FabricItemSettings()));
     public static final Item NEBULAR_HOE = registerItem("nebular_hoe", new HoeItem(ModToolMaterial.NEBULAR, -6, 0.0f, new FabricItemSettings()));
@@ -368,8 +368,10 @@ public class ModItems {
     public static final Item MITHRIL_NUGGET = registerItem("mithril_nugget", new Item(new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof()));
     public static final Item MITHRIL_INGOT = registerItem("mithril_ingot", new Item(new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof()));
 
+    public static final Item MITHRIL_CHAINMAIL_CHUNK = registerItem("mithril_chainmail_chunk", new Item(new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof()));
+
     public static final Item MITHRIL_SWORD = registerItem("mithril_sword", new SwordItem(ModToolMaterial.MITHRIL, 4, -2.4f, new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof()));
-    public static final Item MITHRIL_PICKAXE = registerItem("mithril_pickaxe", new ExtractionPickaxeItem(ModToolMaterial.MITHRIL, 2, -2.8f, new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof()));
+    public static final Item MITHRIL_PICKAXE = registerItem("mithril_pickaxe", new AugmentedPickaxeItem(ModToolMaterial.MITHRIL, 2, -2.8f, new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof()));
     public static final Item MITHRIL_AXE = registerItem("mithril_axe", new AxeItem(ModToolMaterial.MITHRIL, 6, -3.0f, new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof()));
     public static final Item MITHRIL_SHOVEL = registerItem("mithril_shovel", new ShovelItem(ModToolMaterial.MITHRIL, 2.5f, -3.0f, new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof()));
     public static final Item MITHRIL_HOE = registerItem("mithril_hoe", new HoeItem(ModToolMaterial.MITHRIL, -7, 0.0f, new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof()));
@@ -410,7 +412,7 @@ public class ModItems {
     public static final Item ASTRAL_INGOT = registerItem("astral_ingot", new Item(new FabricItemSettings().rarity(Rarity.EPIC).fireproof()));
 
     public static final Item ASTRAL_SWORD = registerItem("astral_sword", new SwordItem(ModToolMaterial.ASTRAL, 4, -2.4f, new FabricItemSettings().rarity(Rarity.EPIC).fireproof()));
-    public static final Item ASTRAL_PICKAXE = registerItem("astral_pickaxe", new ExtractionPickaxeItem(ModToolMaterial.ASTRAL, 2, -2.8f, new FabricItemSettings().rarity(Rarity.EPIC).fireproof()));
+    public static final Item ASTRAL_PICKAXE = registerItem("astral_pickaxe", new AugmentedPickaxeItem(ModToolMaterial.ASTRAL, 2, -2.8f, new FabricItemSettings().rarity(Rarity.EPIC).fireproof()));
     public static final Item ASTRAL_AXE = registerItem("astral_axe", new AxeItem(ModToolMaterial.ASTRAL, 6, -3.0f, new FabricItemSettings().rarity(Rarity.EPIC).fireproof()));
     public static final Item ASTRAL_SHOVEL = registerItem("astral_shovel", new ShovelItem(ModToolMaterial.ASTRAL, 2.5f, -3.0f, new FabricItemSettings().rarity(Rarity.EPIC).fireproof()));
     public static final Item ASTRAL_HOE = registerItem("astral_hoe", new HoeItem(ModToolMaterial.ASTRAL, -8, 0.0f, new FabricItemSettings().rarity(Rarity.EPIC).fireproof()));
@@ -424,9 +426,9 @@ public class ModItems {
     public static final Item SOMBER_BLOOD_ORBS = registerItem("somber_blood_orbs", new NyiItem(new FabricItemSettings().rarity(Rarity.EPIC).fireproof()));
     public static final Item OTHERWORLDLY_WHISPERS = registerItem("otherworldly_whispers", new NyiItem(new FabricItemSettings().rarity(Rarity.EPIC).fireproof()));
 
-    public static final Item DIVINE_PICKAXE = registerItem("divine_pickaxe", new ExtractionPickaxeItem(ModToolMaterial.DIVINE, 2, -2.8f, new FabricItemSettings().rarity(Rarity.EPIC).fireproof()));
-    public static final Item CATACLYSMIC_PICKAXE = registerItem("cataclysmic_pickaxe", new ExtractionPickaxeItem(ModToolMaterial.CATACLYSMIC, 2, -2.8f, new FabricItemSettings().rarity(Rarity.EPIC).fireproof()));
-    public static final Item ELDRITCH_PICKAXE = registerItem("eldritch_pickaxe", new ExtractionPickaxeItem(ModToolMaterial.ELDRITCH, 2, -2.8f, new FabricItemSettings().rarity(Rarity.EPIC).fireproof()));
+    public static final Item DIVINE_PICKAXE = registerItem("divine_pickaxe", new AugmentedPickaxeItem(ModToolMaterial.DIVINE, 2, -2.8f, new FabricItemSettings().rarity(Rarity.EPIC).fireproof()));
+    public static final Item CATACLYSMIC_PICKAXE = registerItem("cataclysmic_pickaxe", new AugmentedPickaxeItem(ModToolMaterial.CATACLYSMIC, 2, -2.8f, new FabricItemSettings().rarity(Rarity.EPIC).fireproof()));
+    public static final Item ELDRITCH_PICKAXE = registerItem("eldritch_pickaxe", new AugmentedPickaxeItem(ModToolMaterial.ELDRITCH, 2, -2.8f, new FabricItemSettings().rarity(Rarity.EPIC).fireproof()));
 
     public static final Item GINKGO_SIGN = registerItem("ginkgo_sign", new SignItem(new FabricItemSettings().maxCount(16), ModBlocks.STANDING_GINKGO_SIGN, ModBlocks.WALL_GINKGO_SIGN));
     public static final Item HANGING_GINKGO_SIGN = registerItem("ginkgo_hanging_sign", new HangingSignItem(ModBlocks.HANGING_GINKGO_SIGN, ModBlocks.WALL_HANGING_GINKGO_SIGN, new FabricItemSettings().maxCount(16)));
@@ -457,15 +459,15 @@ public class ModItems {
     public static final Item SUSPICIOUS_MAULTASCHEN_BROTH = registerItem("suspicious_maultaschen_broth", new StewItem(new FabricItemSettings().maxCount(1).food(ModFoodComponents.SUSPICIOUS_MAULTASCHEN_BROTH).recipeRemainder(Items.BOWL)));
 
     public static final Item DRINK_CAN = registerItem("drink_can", new Item(new FabricItemSettings().maxCount(16)));
-    public static final Item SPEZI_CAN = registerItem("spezi_can", new DrinkableCan(new FabricItemSettings().food(ModFoodComponents.WOODEN_LIQUID_STEIN).maxCount(16).recipeRemainder(ModItems.DRINK_CAN)));
-    public static final Item BEER_CAN = registerItem("beer_can", new DrinkableCan(new FabricItemSettings().food(ModFoodComponents.WOODEN_LIQUID_STEIN).maxCount(16).recipeRemainder(ModItems.DRINK_CAN)));
+    public static final Item SPEZI_CAN = registerItem("spezi_can", new DrinkableCan(new FabricItemSettings().food(ModFoodComponents.SMALL_SPEZI).maxCount(16).recipeRemainder(ModItems.DRINK_CAN)));
+    public static final Item BEER_CAN = registerItem("beer_can", new DrinkableCan(new FabricItemSettings().food(ModFoodComponents.SMALL_BEER).maxCount(16).recipeRemainder(ModItems.DRINK_CAN)));
     public static final Item BOTTOMLESS_BEER_CAN = registerItem("bottomless_beer_can", new DrinkableCan(new FabricItemSettings().food(ModFoodComponents.WOODEN_LIQUID_STEIN).rarity(Rarity.EPIC).maxCount(1).recipeRemainder(ModItems.BOTTOMLESS_BEER_CAN)));
 
-    public static final Item BEER_BOTTLE = registerItem("beer_bottle", new DrinkableBottle(new FabricItemSettings().food(ModFoodComponents.WOODEN_LIQUID_STEIN).maxCount(16).recipeRemainder(Items.GLASS_BOTTLE)));
-    public static final Item BEER_GOAT_HORN = registerItem("beer_goat_horn", new DrinkableHorn(new FabricItemSettings().food(ModFoodComponents.WOODEN_LIQUID_STEIN).maxCount(16).recipeRemainder(Items.GOAT_HORN)));
+    public static final Item BEER_BOTTLE = registerItem("beer_bottle", new DrinkableBottle(new FabricItemSettings().food(ModFoodComponents.SMALL_BEER).maxCount(16).recipeRemainder(Items.GLASS_BOTTLE)));
+    public static final Item BEER_GOAT_HORN = registerItem("beer_goat_horn", new DrinkableHorn(new FabricItemSettings().food(ModFoodComponents.LARGE_BEER).maxCount(16).recipeRemainder(Items.GOAT_HORN)));
 
-    public static final Item MEAD_BOTTLE = registerItem("mead_bottle", new DrinkableBottle(new FabricItemSettings().food(ModFoodComponents.WOODEN_LIQUID_STEIN).maxCount(16).recipeRemainder(Items.GLASS_BOTTLE)));
-    public static final Item MEAD_GOAT_HORN = registerItem("mead_goat_horn", new DrinkableHorn(new FabricItemSettings().food(ModFoodComponents.WOODEN_LIQUID_STEIN).maxCount(16).recipeRemainder(Items.GOAT_HORN)));
+    public static final Item MEAD_BOTTLE = registerItem("mead_bottle", new DrinkableBottle(new FabricItemSettings().food(ModFoodComponents.SMALL_BEER).maxCount(16).recipeRemainder(Items.GLASS_BOTTLE)));
+    public static final Item MEAD_GOAT_HORN = registerItem("mead_goat_horn", new DrinkableHorn(new FabricItemSettings().food(ModFoodComponents.LARGE_BEER).maxCount(16).recipeRemainder(Items.GOAT_HORN)));
 
     public static final Item TINTED_GLASS_FLASK = registerItem("tinted_glass_flask", new EmptyFlaskItem(new FabricItemSettings()));
     public static final Item SOUL_FLASK = registerItem("soul_flask", new SoulFlaskItem(new FabricItemSettings().recipeRemainder(ModItems.TINTED_GLASS_FLASK).rarity(Rarity.RARE).maxCount(16)));
@@ -502,7 +504,21 @@ public class ModItems {
 
     public static final Item EMF_READER = registerItem("emf_reader", new Item(new FabricItemSettings().maxCount(1)));
 
-    public static final Item IRRADIATED_ICON = registerItem("irradiated_icon", new Item(new FabricItemSettings()));
+    public static final Item IRRADIATED_ICON = registerItem("irradiated_icon", new Item(new FabricItemSettings().maxCount(1)));
+
+    public static final Item AUGMENT_SLOT_EXPANSION = registerItem("augment-slot_expansion", new AugmentItem(new FabricItemSettings().rarity(Rarity.EPIC).maxCount(1)));
+
+    public static final Item AUGMENT_PHOTOSYNTHESIS = registerItem("augment-photosynthesis", new AugmentItem(new FabricItemSettings().maxCount(1)));
+    public static final Item AUGMENT_STARLIGHT_BLESSING = registerItem("augment-starlight_blessing", new AugmentItem(new FabricItemSettings().maxCount(1)));
+
+    public static final Item AUGMENT_EXTRACTION = registerItem("augment-extraction", new AugmentItem(new FabricItemSettings().maxCount(1)));
+    public static final Item AUGMENT_MITHRIL_CHAINMAIL = registerItem("augment-mithril_chainmail", new AugmentItem(new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof().maxCount(1)));
+    public static final Item AUGMENT_DRAGON_SCALE_PLATING = registerItem("augment-dragon_scale_plating", new AugmentItem(new FabricItemSettings().fireproof().maxCount(1)));
+    public static final Item AUGMENT_LEAD_PLATING = registerItem("augment-lead_plating", new AugmentItem(new FabricItemSettings().maxCount(1)));
+    public static final Item AUGMENT_DIMENSIONAL_COHESION = registerItem("augment-dimensional_cohesion", new AugmentItem(new FabricItemSettings().maxCount(1)));
+    public static final Item AUGMENT_OXYGEN_TANK = registerItem("augment-oxygen_tank", new AugmentItem(new FabricItemSettings().maxCount(1)));
+    public static final Item AUGMENT_AIRTIGHT_SEALS = registerItem("augment-airtight_seals", new AugmentItem(new FabricItemSettings().maxCount(1)));
+    public static final Item AUGMENT_BULLET_RESISTANCE = registerItem("augment-bullet_resistance", new AugmentItem(new FabricItemSettings().maxCount(1)));
 
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registries.ITEM, new Identifier(TLOTD.MOD_ID, name), item);

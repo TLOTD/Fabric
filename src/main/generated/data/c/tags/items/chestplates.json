@@ -1,0 +1,24 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:leather_chestplate",
+    "minecraft:chainmail_chestplate",
+    "minecraft:iron_chestplate",
+    "minecraft:golden_chestplate",
+    "minecraft:diamond_chestplate",
+    "minecraft:netherite_chestplate",
+    "minecraft:elytra",
+    "tlotd:heliorite_chestplate",
+    "tlotd:endurium_chestplate",
+    "tlotd:palladium_chestplate",
+    "tlotd:jurassoline_chestplate",
+    "tlotd:cinnabar_chestplate",
+    "tlotd:nebular_chestplate",
+    "tlotd:mithril_chestplate",
+    "tlotd:hev_suit_chestplate",
+    "tlotd:space_suit_chestplate",
+    "tlotd:depth_suit_chestplate",
+    "tlotd:imperial_german_uniform_mantle",
+    "tlotd:victorian_suit"
+  ]
+}

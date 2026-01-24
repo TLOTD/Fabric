@@ -71,6 +71,9 @@ public class TLOTDClient implements ClientModInitializer {
         HandledScreens.register(ModGUIHandlers.WITCHING_TABLE_GUI_HANDLER, WitchingTableGUI::new);
         BlockEntityRendererFactories.register(ModBlockEntities.WITCHING_TABLE_BLOCK_ENTITY, WitchingTableBlockEntityRenderer::new);
 
+        HandledScreens.register(ModGUIHandlers.AUGMENTATION_TABLE_GUI_HANDLER, AugmentationTableGUI::new);
+        BlockEntityRendererFactories.register(ModBlockEntities.AUGMENTATION_TABLE_BLOCK_ENTITY, AugmentationTableBlockEntityRenderer::new);
+
         HandledScreens.register(ModGUIHandlers.INCUBATOR_GUI_HANDLER, IncubatorGUI::new);
 
         HandledScreens.register(ModGUIHandlers.OXYGEN_COLLECTOR_GUI_HANDLER, OxygenCollectorGUI::new);

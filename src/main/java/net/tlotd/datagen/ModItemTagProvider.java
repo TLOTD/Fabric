@@ -24,6 +24,84 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
     @Override
     protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
 
+        getOrCreateTagBuilder(ModTags.Items.ONE_AUGMENT_SLOT)
+                .addTag(ModTags.Items.TWO_AUGMENT_SLOTS)
+                .add(ModItems.PALLADIUM_SWORD)
+                .add(ModItems.PALLADIUM_PICKAXE)
+                .add(ModItems.PALLADIUM_AXE)
+                .add(ModItems.PALLADIUM_SHOVEL)
+                .add(ModItems.PALLADIUM_HOE)
+                .add(ModItems.PALLADIUM_PAXEL)
+                .add(ModItems.PALLADIUM_SICKLE)
+                .add(ModItems.PALLADIUM_FORGING_HAMMER)
+                .add(ModItems.PALLADIUM_HELMET)
+                .add(ModItems.PALLADIUM_CHESTPLATE)
+                .add(ModItems.PALLADIUM_LEGGINGS)
+                .add(ModItems.PALLADIUM_BOOTS)
+                .add(ModItems.JURASSOLINE_SWORD)
+                .add(ModItems.JURASSOLINE_PICKAXE)
+                .add(ModItems.JURASSOLINE_AXE)
+                .add(ModItems.JURASSOLINE_SHOVEL)
+                .add(ModItems.JURASSOLINE_HOE)
+                .add(ModItems.JURASSOLINE_PAXEL)
+                .add(ModItems.JURASSOLINE_SICKLE)
+                .add(ModItems.JURASSOLINE_FORGING_HAMMER)
+                .add(ModItems.JURASSOLINE_HELMET)
+                .add(ModItems.JURASSOLINE_CHESTPLATE)
+                .add(ModItems.JURASSOLINE_LEGGINGS)
+                .add(ModItems.JURASSOLINE_BOOTS)
+        ;
+
+        getOrCreateTagBuilder(ModTags.Items.TWO_AUGMENT_SLOTS)
+                .addTag(ModTags.Items.THREE_AUGMENT_SLOTS)
+                .add(ModItems.CINNABAR_SWORD)
+                .add(ModItems.CINNABAR_PICKAXE)
+                .add(ModItems.CINNABAR_AXE)
+                .add(ModItems.CINNABAR_SHOVEL)
+                .add(ModItems.CINNABAR_HOE)
+                .add(ModItems.CINNABAR_PAXEL)
+                .add(ModItems.CINNABAR_SICKLE)
+                .add(ModItems.CINNABAR_FORGING_HAMMER)
+                .add(ModItems.CINNABAR_HELMET)
+                .add(ModItems.CINNABAR_CHESTPLATE)
+                .add(ModItems.CINNABAR_LEGGINGS)
+                .add(ModItems.CINNABAR_BOOTS)
+                .add(ModItems.NEBULAR_SWORD)
+                .add(ModItems.NEBULAR_PICKAXE)
+                .add(ModItems.NEBULAR_AXE)
+                .add(ModItems.NEBULAR_SHOVEL)
+                .add(ModItems.NEBULAR_HOE)
+                .add(ModItems.NEBULAR_PAXEL)
+                .add(ModItems.NEBULAR_SICKLE)
+                .add(ModItems.NEBULAR_FORGING_HAMMER)
+                .add(ModItems.NEBULAR_HELMET)
+                .add(ModItems.NEBULAR_CHESTPLATE)
+                .add(ModItems.NEBULAR_LEGGINGS)
+                .add(ModItems.NEBULAR_BOOTS)
+        ;
+
+        getOrCreateTagBuilder(ModTags.Items.THREE_AUGMENT_SLOTS)
+                .add(ModItems.MITHRIL_SWORD)
+                .add(ModItems.MITHRIL_PICKAXE)
+                .add(ModItems.MITHRIL_AXE)
+                .add(ModItems.MITHRIL_SHOVEL)
+                .add(ModItems.MITHRIL_HOE)
+                .add(ModItems.MITHRIL_PAXEL)
+                .add(ModItems.MITHRIL_SICKLE)
+                .add(ModItems.MITHRIL_FORGING_HAMMER)
+                .add(ModItems.MITHRIL_STAR_CATCHER)
+                .add(ModItems.MITHRIL_HELMET)
+                .add(ModItems.MITHRIL_CHESTPLATE)
+                .add(ModItems.MITHRIL_LEGGINGS)
+                .add(ModItems.MITHRIL_BOOTS)
+                .add(ModItems.ANDURIL)
+                .add(ModItems.GONDORIAN_SHIELD)
+                .add(ModItems.GONDORIAN_TOWER_SHIELD)
+                .add(ModItems.GONDORIAN_KINGS_GUARD_TOWER_SHIELD)
+                .add(ModItems.GONDORIAN_KNIGHT_SHIELD)
+                .add(ModItems.GONDORIAN_ORNAMENTED_KNIGHT_SHIELD)
+        ;
+
         getOrCreateTagBuilder(ModTags.Items.DIVINE_ITEMS)
                 .add(ModBlocks.STICK_CROSS.asItem())
                 .add(ModItems.DIVINE_PICKAXE)
@@ -453,33 +531,6 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModBlocks.HOT_WOODEN_MILK_STEIN.asItem())
         ;
 
-        getOrCreateTagBuilder(ModTags.Items.EXTRACTION_PICKAXES)
-                .add(ModItems.CINNABAR_PICKAXE)
-                .add(ModItems.CINNABAR_PAXEL)
-                .add(ModItems.NEBULAR_PICKAXE)
-                .add(ModItems.NEBULAR_PAXEL)
-                .add(ModItems.MITHRIL_PICKAXE)
-                .add(ModItems.MITHRIL_PAXEL)
-                .add(ModItems.ASTRAL_PICKAXE)
-                .add(ModItems.DIVINE_PICKAXE)
-                .add(ModItems.CATACLYSMIC_PICKAXE)
-        ;
-
-        getOrCreateTagBuilder(ModTags.Items.EXTRACTION_II_PICKAXES)
-                .add(ModItems.MITHRIL_PICKAXE)
-                .add(ModItems.MITHRIL_PAXEL)
-                .add(ModItems.ASTRAL_PICKAXE)
-                .add(ModItems.DIVINE_PICKAXE)
-                .add(ModItems.CATACLYSMIC_PICKAXE)
-                .add(ModItems.MITHRIL_COMMAND_BLOCK_PICKAXE)
-        ;
-
-        getOrCreateTagBuilder(ModTags.Items.EXTRACTION_III_PICKAXES)
-                .add(ModItems.ASTRAL_PICKAXE)
-                .add(ModItems.DIVINE_PICKAXE)
-                .add(ModItems.CATACLYSMIC_PICKAXE)
-        ;
-
         getOrCreateTagBuilder(ModTags.Items.MOUTH_OF_THE_ABYSS)
                 .add(ModItems.ELDRITCH_PICKAXE)
         ;
@@ -547,6 +598,18 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .addOptional(Identifier.tryParse("mekanism:hazmat_gown"))
                 .addOptional(Identifier.tryParse("mekanism:hazmat_pants"))
                 .addOptional(Identifier.tryParse("mekanism:hazmat_boots"))
+        ;
+
+        getOrCreateTagBuilder(ModTags.Items.SUBSPACE_PROTECTION_WITHOUT_HELMET)
+                .add(ModItems.HEV_SUIT_CHESTPLATE)
+                .add(ModItems.HEV_SUIT_LEGGINGS)
+                .add(ModItems.HEV_SUIT_BOOTS)
+        ;
+
+        getOrCreateTagBuilder(ModTags.Items.SUBSPACE_PROTECTION)
+                .add(ModItems.HEV_SUIT_CHESTPLATE)
+                .add(ModItems.HEV_SUIT_LEGGINGS)
+                .add(ModItems.HEV_SUIT_BOOTS)
         ;
 
         getOrCreateTagBuilder(ModTags.Items.OXYGEN_STORING)
@@ -737,6 +800,21 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModItems.ASTRAL_HOE)
         ;
 
+        getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "shears")))
+                .add(ModItems.COPPER_SICKLE)
+                .add(ModItems.GOLDEN_SICKLE)
+                .add(ModItems.STEEL_SICKLE)
+                .add(ModItems.NETHERITE_SICKLE)
+                .add(ModItems.HELIORITE_SICKLE)
+                .add(ModItems.ENDURIUM_SICKLE)
+                .add(ModItems.PALLADIUM_SICKLE)
+                .add(ModItems.JURASSOLINE_SICKLE)
+                .add(ModItems.CINNABAR_SICKLE)
+                .add(ModItems.NEBULAR_SICKLE)
+                .add(ModItems.MITHRIL_SICKLE)
+                .add(ModItems.ASTRAL_SICKLE)
+        ;
+
         getOrCreateTagBuilder(ModTags.Items.PAXELS)
                 .add(ModItems.HELIORITE_PAXEL)
                 .add(ModItems.ENDURIUM_PAXEL)
@@ -745,6 +823,64 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModItems.CINNABAR_PAXEL)
                 .add(ModItems.NEBULAR_PAXEL)
                 .add(ModItems.MITHRIL_PAXEL)
+        ;
+
+        getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "shields")))
+                .add(Items.SHIELD)
+                .add(ModItems.GONDORIAN_SHIELD)
+                .add(ModItems.GONDORIAN_TOWER_SHIELD)
+                .add(ModItems.GONDORIAN_KINGS_GUARD_TOWER_SHIELD)
+                .add(ModItems.GONDORIAN_KNIGHT_SHIELD)
+                .add(ModItems.GONDORIAN_ORNAMENTED_KNIGHT_SHIELD)
+        ;
+
+        getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "bows")))
+                .add(Items.BOW)
+        ;
+
+        getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "tridents")))
+                .add(Items.TRIDENT)
+        ;
+
+        getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "brushes")))
+                .add(Items.BRUSH)
+        ;
+
+        getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "fishing_rods")))
+                .add(Items.FISHING_ROD)
+                .add(Items.CARROT_ON_A_STICK)
+                .add(Items.WARPED_FUNGUS_ON_A_STICK)
+        ;
+
+        getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "flint_and_steels")))
+                .add(Items.FLINT_AND_STEEL)
+                .add(ModItems.FOSSIL_AND_STEEL)
+        ;
+
+        getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "tools")))
+                .addTag(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "tridents")))
+                .addTag(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "bows")))
+                .addTag(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "swords")))
+                .addTag(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "pickaxes")))
+                .addTag(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "axes")))
+                .addTag(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "shovels")))
+                .addTag(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "hoes")))
+                .addTag(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "shears")))
+                .addTag(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "paxels")))
+                .addTag(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "fishing_rods")))
+                .addTag(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "flint_and_steels")))
+                .addTag(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "brushes")))
+                .addTag(ModTags.Items.FORGING_HAMMERS)
+        ;
+
+        getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "damagable")))
+                .addTag(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "tools")))
+                .addTag(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "armor")))
+        ;
+
+        getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("tlotd", "pickaxes_or_paxels")))
+                .addTag(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "pickaxes")))
+                .addTag(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "paxels")))
         ;
 
         getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "quartz_blocks")))
@@ -804,6 +940,143 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModItems.STRAWBERRY_SEEDS)
                 .add(ModItems.ORANGE_SEEDS)
                 .add(ModItems.PIPE_WEED_SEEDS)
+        ;
+
+        getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "helmets")))
+                .add(Items.LEATHER_HELMET)
+                .add(Items.CHAINMAIL_HELMET)
+                .add(Items.IRON_HELMET)
+                .add(Items.GOLDEN_HELMET)
+                .add(Items.DIAMOND_HELMET)
+                .add(Items.NETHERITE_HELMET)
+
+                .add(Items.TURTLE_HELMET)
+
+                .add(ModItems.HELIORITE_HELMET)
+                .add(ModItems.ENDURIUM_HELMET)
+                .add(ModItems.PALLADIUM_HELMET)
+                .add(ModItems.JURASSOLINE_HELMET)
+                .add(ModItems.CINNABAR_HELMET)
+                .add(ModItems.NEBULAR_HELMET)
+                .add(ModItems.MITHRIL_HELMET)
+
+                .add(ModItems.SCIENTIST_GLASSES)
+                .add(ModItems.ASTRONAUT_HELMET)
+                .add(ModItems.CTHONAUT_HELMET)
+                .add(ModItems.PICKELHAUBE)
+                .add(ModItems.MONOCLE)
+
+                .add(ModItems.EMPERORS_CROWN)
+        ;
+
+        getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "chestplates")))
+                .add(Items.LEATHER_CHESTPLATE)
+                .add(Items.CHAINMAIL_CHESTPLATE)
+                .add(Items.IRON_CHESTPLATE)
+                .add(Items.GOLDEN_CHESTPLATE)
+                .add(Items.DIAMOND_CHESTPLATE)
+                .add(Items.NETHERITE_CHESTPLATE)
+
+                .add(Items.ELYTRA)
+
+                .add(ModItems.HELIORITE_CHESTPLATE)
+                .add(ModItems.ENDURIUM_CHESTPLATE)
+                .add(ModItems.PALLADIUM_CHESTPLATE)
+                .add(ModItems.JURASSOLINE_CHESTPLATE)
+                .add(ModItems.CINNABAR_CHESTPLATE)
+                .add(ModItems.NEBULAR_CHESTPLATE)
+                .add(ModItems.MITHRIL_CHESTPLATE)
+
+                .add(ModItems.HEV_SUIT_CHESTPLATE)
+                .add(ModItems.SPACE_SUIT_CHESTPLATE)
+                .add(ModItems.DEPTH_SUIT_CHESTPLATE)
+                .add(ModItems.IMPERIAL_GERMAN_UNIFORM_MANTLE)
+                .add(ModItems.VICTORIAN_SUIT)
+        ;
+
+        getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "leggings")))
+                .add(Items.LEATHER_LEGGINGS)
+                .add(Items.CHAINMAIL_LEGGINGS)
+                .add(Items.IRON_LEGGINGS)
+                .add(Items.GOLDEN_LEGGINGS)
+                .add(Items.DIAMOND_LEGGINGS)
+                .add(Items.NETHERITE_LEGGINGS)
+
+                .add(ModItems.HELIORITE_LEGGINGS)
+                .add(ModItems.ENDURIUM_LEGGINGS)
+                .add(ModItems.PALLADIUM_LEGGINGS)
+                .add(ModItems.JURASSOLINE_LEGGINGS)
+                .add(ModItems.CINNABAR_LEGGINGS)
+                .add(ModItems.NEBULAR_LEGGINGS)
+                .add(ModItems.MITHRIL_LEGGINGS)
+
+                .add(ModItems.HEV_SUIT_LEGGINGS)
+                .add(ModItems.SPACE_SUIT_LEGGINGS)
+                .add(ModItems.DEPTH_SUIT_LEGGINGS)
+                .add(ModItems.IMPERIAL_GERMAN_UNIFORM_PANTS)
+                .add(ModItems.VICTORIAN_PANTS)
+        ;
+
+        getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "boots")))
+                .add(Items.LEATHER_BOOTS)
+                .add(Items.CHAINMAIL_BOOTS)
+                .add(Items.IRON_BOOTS)
+                .add(Items.GOLDEN_BOOTS)
+                .add(Items.DIAMOND_BOOTS)
+                .add(Items.NETHERITE_BOOTS)
+
+                .add(ModItems.HELIORITE_BOOTS)
+                .add(ModItems.ENDURIUM_BOOTS)
+                .add(ModItems.PALLADIUM_BOOTS)
+                .add(ModItems.JURASSOLINE_BOOTS)
+                .add(ModItems.CINNABAR_BOOTS)
+                .add(ModItems.NEBULAR_BOOTS)
+                .add(ModItems.MITHRIL_BOOTS)
+
+                .add(ModItems.HEV_SUIT_BOOTS)
+                .add(ModItems.SPACE_SUIT_BOOTS)
+                .add(ModItems.DEPTH_SUIT_BOOTS)
+                .add(ModItems.IMPERIAL_GERMAN_UNIFORM_BOOTS)
+                .add(ModItems.VICTORIAN_BOOTS)
+        ;
+
+        getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "armor")))
+                .addTag(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "helmets")))
+                .addTag(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "chestplates")))
+                .addTag(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "leggings")))
+                .addTag(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "boots")))
+        ;
+
+        getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "dragon_scales")))
+                .addOptional(Identifier.tryParse("quark:dragon_scale"))
+                .addOptional(Identifier.tryParse("tconstruct:dragon_scale"))
+                .addOptional(Identifier.tryParse("mysticalagradditions:dragon_scale"))
+                .addOptionalTag(Identifier.tryParse("bookofdragons:dragon_scales"))
+        ;
+
+        getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "bullets")))
+                .addOptional(Identifier.tryParse("tacz:ammo"))
+
+                .addOptional(Identifier.tryParse("superbwarfare:handgun_ammo"))
+                .addOptional(Identifier.tryParse("superbwarfare:rifle_ammo"))
+                .addOptional(Identifier.tryParse("superbwarfare:sniper_ammo"))
+                .addOptional(Identifier.tryParse("superbwarfare:shotgun_ammo"))
+                .addOptional(Identifier.tryParse("superbwarfare:heavy_ammo"))
+
+                .addOptional(Identifier.tryParse("immersiveengineering:casull"))
+                .addOptional(Identifier.tryParse("immersiveengineering:armor_piercing"))
+                .addOptional(Identifier.tryParse("immersiveengineering:buckshot"))
+                .addOptional(Identifier.tryParse("immersiveengineering:he"))
+                .addOptional(Identifier.tryParse("immersiveengineering:silver"))
+                .addOptional(Identifier.tryParse("immersiveengineering:dragons_breath"))
+                .addOptional(Identifier.tryParse("immersiveengineering:potion"))
+                .addOptional(Identifier.tryParse("immersiveengineering:flare"))
+                .addOptional(Identifier.tryParse("immersiveengineering:firework"))
+                .addOptional(Identifier.tryParse("immersiveengineering:homing"))
+                .addOptional(Identifier.tryParse("immersiveengineering:wolfpack"))
+
+                .addOptional(Identifier.tryParse("scguns:standard_bullet"))
+                .addOptional(Identifier.tryParse("scguns:hardened_bullet"))
         ;
 
         getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "flour")))
@@ -905,6 +1178,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
         getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "aluminium_blocks"))).addOptionalTag(Identifier.tryParse("c:aluminum_blocks"));
         getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "aluminum_blocks"))).add(ModBlocks.ALUMINIUM_BLOCK.asItem());
         getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "aluminium_ores"))).addOptionalTag(Identifier.tryParse("c:aluminum_ores"));
+
         getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "aluminum_ores")))
                 .add(ModBlocks.ALUMINIUM_ORE.asItem())
                 .add(ModBlocks.DEEPSLATE_ALUMINIUM_ORE.asItem())
@@ -1036,21 +1310,6 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
         getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "fossils")))
                 .add(ModItems.FOSSILIZED_BONE)
                 .add(ModItems.PLANT_FOSSIL)
-        ;
-
-        getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "shears")))
-                .add(ModItems.COPPER_SICKLE)
-                .add(ModItems.GOLDEN_SICKLE)
-                .add(ModItems.STEEL_SICKLE)
-                .add(ModItems.NETHERITE_SICKLE)
-                .add(ModItems.HELIORITE_SICKLE)
-                .add(ModItems.ENDURIUM_SICKLE)
-                .add(ModItems.PALLADIUM_SICKLE)
-                .add(ModItems.JURASSOLINE_SICKLE)
-                .add(ModItems.CINNABAR_SICKLE)
-                .add(ModItems.NEBULAR_SICKLE)
-                .add(ModItems.MITHRIL_SICKLE)
-                .add(ModItems.ASTRAL_SICKLE)
         ;
 
         getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "foods")))

@@ -32,7 +32,7 @@ public class MithrilAnvilGUIHandler extends ScreenHandler {
         this.propertyDelegate = propertyDelegate;
         this.blockEntity = ((MithrilAnvilBlockEntity) blockEntity);
 
-        this.addSlot(new RestrictedSlot(inventory, 0, 86, 18, ModTags.Items.FORGING_HAMMERS));
+        this.addSlot(new TagSlot(inventory, 0, 86, 18, ModTags.Items.FORGING_HAMMERS));
         this.addSlot(new Slot(inventory, 1, 104, 27));
 
         this.addSlot(new Slot(inventory, 2, 32, 27));

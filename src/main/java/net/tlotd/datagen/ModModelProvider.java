@@ -556,6 +556,8 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.MITHRIL_NUGGET, Models.GENERATED);
         itemModelGenerator.register(ModItems.MITHRIL_INGOT, Models.GENERATED);
 
+        itemModelGenerator.register(ModItems.MITHRIL_CHAINMAIL_CHUNK, Models.GENERATED);
+
         itemModelGenerator.register(ModItems.MITHRIL_SWORD, Models.HANDHELD);
         itemModelGenerator.register(ModItems.MITHRIL_PICKAXE, Models.HANDHELD);
         itemModelGenerator.register(ModItems.MITHRIL_AXE, Models.HANDHELD);

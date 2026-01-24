@@ -1,0 +1,23 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:leather_leggings",
+    "minecraft:chainmail_leggings",
+    "minecraft:iron_leggings",
+    "minecraft:golden_leggings",
+    "minecraft:diamond_leggings",
+    "minecraft:netherite_leggings",
+    "tlotd:heliorite_leggings",
+    "tlotd:endurium_leggings",
+    "tlotd:palladium_leggings",
+    "tlotd:jurassoline_leggings",
+    "tlotd:cinnabar_leggings",
+    "tlotd:nebular_leggings",
+    "tlotd:mithril_leggings",
+    "tlotd:hev_suit_leggings",
+    "tlotd:space_suit_leggings",
+    "tlotd:depth_suit_leggings",
+    "tlotd:imperial_german_uniform_pants",
+    "tlotd:victorian_pants"
+  ]
+}

@@ -302,6 +302,9 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(ModItems.PIPE_WEED), conditionsFromItem(ModItems.PIPE_WEED))
                 .offerTo(exporter, new Identifier(getRecipeName(ModItems.HEMP_COOKIE)));
 
+        offerReversibleCompactingRecipes(exporter, RecipeCategory.MISC, ModItems.STRAWBERRY, RecipeCategory.BUILDING_BLOCKS, ModBlocks.STRAWBERRY_CRATE);
+        offerReversibleCompactingRecipes(exporter, RecipeCategory.MISC, ModItems.ORANGE, RecipeCategory.BUILDING_BLOCKS, ModBlocks.ORANGE_CRATE);
+
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.PRESERVES_JAR, 3)
                 .pattern("# #")
                 .pattern("###")
@@ -701,6 +704,15 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Items.WHEAT), conditionsFromItem(Items.WHEAT))
                 .offerTo(exporter, new Identifier(getRecipeName(ModItems.MAULTASCHE)));
 
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.AUGMENTATION_TABLE)
+                .pattern("G#G")
+                .pattern("###")
+                .input('G', TagKey.of(RegistryKeys.ITEM, new Identifier("c", "gold_ingots")))
+                .input('#', ModBlocks.MARBLE)
+                .criterion(hasItem(ModItems.CINNABAR_CRYSTAL), conditionsFromItem(ModItems.CINNABAR_CRYSTAL))
+                .criterion(hasItem(ModBlocks.MARBLE), conditionsFromItem(ModBlocks.MARBLE))
+                .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.AUGMENTATION_TABLE)));
+
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.TINTED_GLASS_FLASK)
                 .pattern("# #")
                 .pattern(" # ")
@@ -944,6 +956,14 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Items.GLASS), conditionsFromItem(Items.GLASS))
                 .criterion(hasItem(Items.ENDER_PEARL), conditionsFromItem(Items.ENDER_PEARL))
                 .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.GLASS_ELEVATOR_BASE)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.MITHRIL_CHAINMAIL_CHUNK)
+                .pattern(" ##")
+                .pattern("###")
+                .pattern("## ")
+                .input('#', ModItems.MITHRIL_NUGGET)
+                .criterion(hasItem(ModItems.MITHRIL_NUGGET), conditionsFromItem(ModItems.MITHRIL_NUGGET))
+                .offerTo(exporter, new Identifier(getRecipeName(ModItems.MITHRIL_CHAINMAIL_CHUNK)));
 
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.NARSIL_HANDLE)
                 .pattern("#")

@@ -190,7 +190,7 @@ public class RadioBlock extends Block {
     @Override
     public void appendTooltip(ItemStack stack, @Nullable BlockView world, List<Text> tooltip, TooltipContext opts) {
         if (!ModConfigs.ALL_SIGNALS_UNLOCKED) {
-            tooltip.add(Text.literal(""));
+            tooltip.add(Text.empty());
             tooltip.add(Text.translatable("block.tlotd.radio.tooltip").formatted(Formatting.GRAY));
             tooltip.add(Text.translatable("block.tlotd.radio.tooltip_2").formatted(Formatting.GRAY));
             tooltip.add(Text.literal(" ").append(Text.translatable("block.tlotd.signal_transmitter").formatted(Formatting.BLUE)));

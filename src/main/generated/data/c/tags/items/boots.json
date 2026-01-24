@@ -1,0 +1,23 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:leather_boots",
+    "minecraft:chainmail_boots",
+    "minecraft:iron_boots",
+    "minecraft:golden_boots",
+    "minecraft:diamond_boots",
+    "minecraft:netherite_boots",
+    "tlotd:heliorite_boots",
+    "tlotd:endurium_boots",
+    "tlotd:palladium_boots",
+    "tlotd:jurassoline_boots",
+    "tlotd:cinnabar_boots",
+    "tlotd:nebular_boots",
+    "tlotd:mithril_boots",
+    "tlotd:hev_suit_boots",
+    "tlotd:space_suit_boots",
+    "tlotd:depth_suit_boots",
+    "tlotd:imperial_german_uniform_boots",
+    "tlotd:victorian_boots"
+  ]
+}

@@ -6,6 +6,7 @@ import net.minecraft.block.Blocks;
 import net.minecraft.block.FireBlock;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
+import net.minecraft.item.ItemStack;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.network.ServerPlayerEntity;
@@ -14,8 +15,10 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.tlotd.config.ModConfigs;
 import net.tlotd.effect.ModEffects;
+import net.tlotd.util.ModTags;
 import net.tlotd.world.dimension.ModDimensions;
 
+import static net.tlotd.util.AugmentNbtHelper.getAugmentLevel;
 import static net.tlotd.world.dimension.ModDimensions.LUNA_LEVEL_KEY;
 
 public class ModServerTickEvents {
@@ -42,6 +45,34 @@ public class ModServerTickEvents {
                 }
                 if (tickCounter % 20 == 0) {
                     handleDimensionTransfer(player);
+                }
+                if (tickCounter % 40 == 0) {
+                    if (player.getWorld().isSkyVisible(player.getBlockPos())) {
+                        for (ItemStack armor : player.getArmorItems()) {
+                            if (getAugmentLevel(armor, "tlotd:photosynthesis") > 0 && player.getWorld().isDay()) {
+                                if (armor.getDamage() > 0) {
+                                    armor.setDamage(Math.max(armor.getDamage() - getAugmentLevel(armor, "tlotd:photosynthesis"), 0));
+                                }
+                            }
+                            if (getAugmentLevel(armor, "tlotd:starlight_blessing") > 0 && player.getWorld().isNight()) {
+                                if (armor.getDamage() > 0) {
+                                    armor.setDamage(Math.max(armor.getDamage() - getAugmentLevel(armor, "tlotd:starlight_blessing"), 0));
+                                }
+                            }
+                        }
+                        for (ItemStack hand : player.getHandItems()) {
+                            if (getAugmentLevel(hand, "tlotd:photosynthesis") > 0 && player.getWorld().isDay()) {
+                                if (hand.getDamage() > 0) {
+                                    hand.setDamage(Math.max(hand.getDamage() - getAugmentLevel(hand, "tlotd:photosynthesis"), 0));
+                                }
+                            }
+                            if (getAugmentLevel(hand, "tlotd:starlight_blessing") > 0 && player.getWorld().isNight()) {
+                                if (hand.getDamage() > 0) {
+                                    hand.setDamage(Math.max(hand.getDamage() - getAugmentLevel(hand, "tlotd:starlight_blessing"), 0));
+                                }
+                            }
+                        }
+                    }
                 }
             }
         });

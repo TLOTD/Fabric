@@ -9,8 +9,14 @@
   ],
   "replace": false,
   "values": [
-    "createaddition:seed_oil",
-    "createaddition:flowing_seed_oil",
+    {
+      "id": "createaddition:seed_oil",
+      "required": false
+    },
+    {
+      "id": "createaddition:flowing_seed_oil",
+      "required": false
+    },
     "tlotd:blood",
     "tlotd:flowing_blood"
   ]

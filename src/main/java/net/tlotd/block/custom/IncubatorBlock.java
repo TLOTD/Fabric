@@ -72,10 +72,10 @@ public class IncubatorBlock extends BlockWithEntity implements BlockEntityProvid
 
     @Override
     public void appendTooltip(ItemStack stack, @Nullable BlockView world, List<Text> tooltip, TooltipContext options) {
-        tooltip.add(Text.literal(""));
+        tooltip.add(Text.empty());
         tooltip.add(Text.translatable("block.tlotd.powered_by_computer.tooltip").formatted(Formatting.GRAY));
         tooltip.add(Text.literal(" ").append(Text.translatable("block.tlotd.computer").formatted(Formatting.BLUE)));
-        tooltip.add(Text.literal(""));
+        tooltip.add(Text.empty());
         if (Screen.hasShiftDown()) {
             tooltip.add(Text.translatable("text.tlotd.recipe.ponder", Text.translatable("key.keyboard.shift").formatted(Formatting.WHITE)).formatted(Formatting.DARK_GRAY));
             Style style = this.getName().getStyle();

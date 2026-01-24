@@ -18,7 +18,6 @@ import net.tlotd.block.entity.WitchingTableBlockEntity;
 
 public class WitchingTableBlockEntityRenderer implements BlockEntityRenderer<WitchingTableBlockEntity> {
     public WitchingTableBlockEntityRenderer(BlockEntityRendererFactory.Context context) {
-
     }
 
     @Override

@@ -4,6 +4,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.world.ServerWorld;
@@ -25,6 +26,17 @@ public class TlotdAPI {
         net.tlotd.util.EntityDataSaver data = (net.tlotd.util.EntityDataSaver) player;
         NbtCompound nbt = data.getPersistentData();
         return nbt.getInt("Enlightened");
+    }
+
+    //augments
+    public static boolean hasAugment(ItemStack stack, String augmentId) {
+        return net.tlotd.util.AugmentNbtHelper.getAugmentLevel(stack, augmentId) > 0;
+    }
+    public static int getAugmentLevel(ItemStack stack, String augmentId) {
+        return net.tlotd.util.AugmentNbtHelper.getAugmentLevel(stack, augmentId);
+    }
+    public static void addOrUpdateAugment(ItemStack stack, String augmentId, int newLevel, int max) {
+        net.tlotd.util.AugmentNbtHelper.addOrUpdateAugment(stack, augmentId, newLevel, max);
     }
 
     //Custom Texture Manager

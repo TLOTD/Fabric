@@ -1,0 +1,21 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "quark:dragon_scale",
+      "required": false
+    },
+    {
+      "id": "tconstruct:dragon_scale",
+      "required": false
+    },
+    {
+      "id": "mysticalagradditions:dragon_scale",
+      "required": false
+    },
+    {
+      "id": "#bookofdragons:dragon_scales",
+      "required": false
+    }
+  ]
+}

@@ -12,6 +12,11 @@ public class ModRecipies {
         Registry.register(Registries.RECIPE_TYPE, new Identifier(TLOTD.MOD_ID, MithrilSmithingRecipe.Type.ID),
                 MithrilSmithingRecipe.Type.INSTANCE);
 
+        Registry.register(Registries.RECIPE_SERIALIZER, new Identifier(TLOTD.MOD_ID, AugmentationRecipe.Serializer.ID),
+                AugmentationRecipe.Serializer.INSTANCE);
+        Registry.register(Registries.RECIPE_TYPE, new Identifier(TLOTD.MOD_ID, AugmentationRecipe.Type.ID),
+                AugmentationRecipe.Type.INSTANCE);
+
         Registry.register(Registries.RECIPE_SERIALIZER, new Identifier(TLOTD.MOD_ID, WitchingRecipe.Serializer.ID),
                 WitchingRecipe.Serializer.INSTANCE);
         Registry.register(Registries.RECIPE_TYPE, new Identifier(TLOTD.MOD_ID, WitchingRecipe.Type.ID),

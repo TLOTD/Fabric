@@ -1,0 +1,81 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "tacz:ammo",
+      "required": false
+    },
+    {
+      "id": "superbwarfare:handgun_ammo",
+      "required": false
+    },
+    {
+      "id": "superbwarfare:rifle_ammo",
+      "required": false
+    },
+    {
+      "id": "superbwarfare:sniper_ammo",
+      "required": false
+    },
+    {
+      "id": "superbwarfare:shotgun_ammo",
+      "required": false
+    },
+    {
+      "id": "superbwarfare:heavy_ammo",
+      "required": false
+    },
+    {
+      "id": "immersiveengineering:casull",
+      "required": false
+    },
+    {
+      "id": "immersiveengineering:armor_piercing",
+      "required": false
+    },
+    {
+      "id": "immersiveengineering:buckshot",
+      "required": false
+    },
+    {
+      "id": "immersiveengineering:he",
+      "required": false
+    },
+    {
+      "id": "immersiveengineering:silver",
+      "required": false
+    },
+    {
+      "id": "immersiveengineering:dragons_breath",
+      "required": false
+    },
+    {
+      "id": "immersiveengineering:potion",
+      "required": false
+    },
+    {
+      "id": "immersiveengineering:flare",
+      "required": false
+    },
+    {
+      "id": "immersiveengineering:firework",
+      "required": false
+    },
+    {
+      "id": "immersiveengineering:homing",
+      "required": false
+    },
+    {
+      "id": "immersiveengineering:wolfpack",
+      "required": false
+    },
+    {
+      "id": "scguns:standard_bullet",
+      "required": false
+    },
+    {
+      "id": "scguns:hardened_bullet",
+      "required": false
+    }
+  ]
+}

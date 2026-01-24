@@ -18,6 +18,8 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
+import static net.tlotd.util.AugmentNbtHelper.getAugmentLevel;
+
 public class OxygenTankItem extends Item {
     public OxygenTankItem(Settings settings) {
         super(settings);
@@ -81,7 +83,7 @@ public class OxygenTankItem extends Item {
         ItemStack itemStack = user.getStackInHand(hand);
         if (!world.isClient()) {
             ItemStack chest = user.getInventory().getArmorStack(2);
-            if (chest.isIn(ModTags.Items.OXYGEN_STORING)) {
+            if (chest.isIn(ModTags.Items.OXYGEN_STORING) || (getAugmentLevel(chest, "tlotd:oxygen_tank") > 0)) {
                 long tankOxygen = AdAstraOxygenNbtHelper.getOxygen(itemStack);
                 long chestOxygen = AdAstraOxygenNbtHelper.getOxygen(chest);
                 long maxChestOxygen = AdAstraOxygenNbtHelper.getMaxOxygenForChestplate(chest);

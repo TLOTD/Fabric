@@ -38,11 +38,6 @@ public class DrinkableCan extends Item {
     }
 
     public ItemStack finishUsing(ItemStack stack, World world, LivingEntity user) {
-        if (stack.isOf(ModItems.BEER_CAN) || stack.isOf(ModItems.BOTTOMLESS_BEER_CAN)) {
-            user.addStatusEffect(new StatusEffectInstance(ModEffects.DRUNK, 200));
-        } else if (stack.isOf(ModItems.SPEZI_CAN)) {
-            user.addStatusEffect(new StatusEffectInstance(StatusEffects.SPEED, 200));
-        }
         if (stack.isOf(ModItems.BOTTOMLESS_BEER_CAN)) {
             super.finishUsing(stack, world, user);
             if (user instanceof ServerPlayerEntity serverPlayerEntity) {

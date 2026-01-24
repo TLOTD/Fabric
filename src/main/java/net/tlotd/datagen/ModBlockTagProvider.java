@@ -545,6 +545,9 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
         getOrCreateTagBuilder(BlockTags.AXE_MINEABLE)
                 .addTag(ModTags.Blocks.WOODEN_STEINS)
+                .add(ModBlocks.STRAWBERRY_CRATE)
+                .add(ModBlocks.ORANGE_CRATE)
+                .add(ModBlocks.WHITE_JACK_O_LANTERN)
                 .add(ModBlocks.SULFUR_CAMPFIRE)
                 .add(ModBlocks.STICK_CROSS)
                 .add(ModBlocks.EFFIGIES)
@@ -578,6 +581,8 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
                 .add(ModBlocks.GARBAGE_CAN)
                 .add(ModBlocks.BENCH)
+
+                .add(ModBlocks.AUGMENTATION_TABLE)
 
                 .add(ModBlocks.GRAVESTONE)
                 .add(ModBlocks.MOSSY_GRAVESTONE)

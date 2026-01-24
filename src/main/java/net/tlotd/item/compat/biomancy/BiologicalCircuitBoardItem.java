@@ -42,7 +42,7 @@ public class BiologicalCircuitBoardItem extends Item {
             tooltip.add(Text.literal("\uE013 ").setStyle(Style.EMPTY.withFont(MODS_FONT_ID)).append(Text.translatable("mod.biomancy.name").setStyle(Style.EMPTY.withFont(DEFAULT_FONT_ID).withFormatting(Formatting.GRAY))));
             tooltip.add(Text.literal("\uE010 ").setStyle(Style.EMPTY.withFont(MODS_FONT_ID)).append(Text.translatable("mod.spore.name").setStyle(Style.EMPTY.withFont(DEFAULT_FONT_ID).withFormatting(Formatting.GRAY))));
             tooltip.add(Text.literal("\uE014 ").setStyle(Style.EMPTY.withFont(MODS_FONT_ID)).append(Text.translatable("mod.neepmeat.name").setStyle(Style.EMPTY.withFont(DEFAULT_FONT_ID).withFormatting(Formatting.GRAY))));
-            tooltip.add(Text.literal(""));
+            tooltip.add(Text.empty());
         }
         if (enlightened(player) >= 20 && Screen.hasShiftDown()) {
             tooltip.add(Text.literal("\uE005 ").setStyle(style.withFont(TOOLTIP_FONT_ID)).append(Text.translatable("item.tlotd.desc_enlightened").setStyle(style.withFont(DEFAULT_FONT_ID).withFormatting(Formatting.GOLD))));

@@ -31,7 +31,7 @@ public class StarCatcherItem extends Item {
 
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        tooltip.add(Text.literal(""));
+        tooltip.add(Text.empty());
         tooltip.add(Text.translatable("item.tlotd.star_catcher.tooltip").formatted(Formatting.GRAY));
         if (stack.getItem().equals(ModItems.MITHRIL_STAR_CATCHER)) {
             tooltip.add(Text.literal(" ").append(Text.translatable("item.tlotd.star_catcher.tooltip_2", "800+")).formatted(Formatting.DARK_GREEN));

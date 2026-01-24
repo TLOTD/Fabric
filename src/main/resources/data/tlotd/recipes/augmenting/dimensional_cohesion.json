@@ -1,0 +1,36 @@
+{
+  "type": "tlotd:augmenting",
+  "ingredients": [
+    {
+      "tag": "c:armor"
+    },
+    {
+      "item": "tlotd:yellow_wallpaper"
+    },
+    {
+      "item": "minecraft:netherite_scrap"
+    },
+    {
+      "item": "tlotd:yellow_wallpaper"
+    },
+    {
+      "item": "minecraft:netherite_scrap"
+    },
+    {
+      "item": "minecraft:netherite_scrap"
+    },
+    {
+      "item": "tlotd:yellow_wallpaper"
+    },
+    {
+      "item": "minecraft:netherite_scrap"
+    },
+    {
+      "item": "tlotd:yellow_wallpaper"
+    }
+  ],
+  "augment": {
+    "item": "tlotd:augment-dimensional_cohesion",
+    "count": 2
+  }
+}

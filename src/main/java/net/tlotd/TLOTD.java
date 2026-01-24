@@ -15,7 +15,7 @@ import net.tlotd.block.entity.ModBlockEntities;
 import net.tlotd.config.ModConfigs;
 import net.tlotd.effect.ModEffects;
 import net.tlotd.enchantments.ModEnchantments;
-import net.tlotd.entity.ModArmorProtection;
+import net.tlotd.util.ModArmorProtection;
 import net.tlotd.entity.ModBoats;
 import net.tlotd.entity.ModEntities;
 import net.tlotd.entity.custom.InfectedTRexEntity;
@@ -51,6 +51,7 @@ public class TLOTD implements ModInitializer {
 	public void onInitialize() {
 		ModConfigs.registerConfigs();
 		ModTelevisionSignals.registerSignals();
+		ModEffects.registerEffects();
 		ModItemGroups.registerItemGroups();
 		ModItems.registerModItems();
 		ModCompostingChances.registerCompostableItems();
@@ -69,7 +70,6 @@ public class TLOTD implements ModInitializer {
 		ModEnchantments.registerEnchants();
 		ModEntities.registerModEntities();
 		ModSounds.registerSounds();
-		ModEffects.registerEffects();
 		ModMessages.registerC2SPackets();
 		ModVillageAdditions.registerNewVillageStructures();
 		ModWorldGeneration.generateModWorldGen();

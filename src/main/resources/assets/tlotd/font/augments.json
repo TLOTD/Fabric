@@ -1,0 +1,17 @@
+{
+    "providers": [
+        { "type":"reference", "id":"minecraft:include/space" },
+        { "type":"bitmap", "file":"tlotd:item/augment/empty.png", "ascent":8, "chars": ["\uE000"]},
+        { "type":"bitmap", "file":"tlotd:item/augment/slot_expansion.png", "ascent":8, "chars": ["\uE001"]},
+        { "type":"bitmap", "file":"tlotd:item/augment/photosynthesis.png", "ascent":8, "chars": ["\uE002"]},
+        { "type":"bitmap", "file":"tlotd:item/augment/starlight_blessing.png", "ascent":8, "chars": ["\uE003"]},
+        { "type":"bitmap", "file":"tlotd:item/augment/extraction.png", "ascent":8, "chars": ["\uE004"]},
+        { "type":"bitmap", "file":"tlotd:item/augment/mithril_chainmail.png", "ascent":8, "chars": ["\uE020"]},
+        { "type":"bitmap", "file":"tlotd:item/augment/dragon_scale_plating.png", "ascent":8, "chars": ["\uE021"]},
+        { "type":"bitmap", "file":"tlotd:item/augment/lead_plating.png", "ascent":8, "chars": ["\uE022"]},
+        { "type":"bitmap", "file":"tlotd:item/augment/dimensional_cohesion.png", "ascent":8, "chars": ["\uE023"]},
+        { "type":"bitmap", "file":"tlotd:item/augment/oxygen_tank.png", "ascent":8, "chars": ["\uE024"]},
+        { "type":"bitmap", "file":"tlotd:item/augment/airtight_seals.png", "ascent":8, "chars": ["\uE025"]},
+        { "type":"bitmap", "file":"tlotd:item/augment/bullet_resistance.png", "ascent":8, "chars": ["\uE026"]}
+    ]
+}

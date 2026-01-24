@@ -1,6 +1,7 @@
 package net.tlotd.item.custom;
 
 import net.minecraft.client.item.TooltipContext;
+import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -11,6 +12,7 @@ import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
+import net.tlotd.effect.ModEffects;
 import net.tlotd.item.ModItems;
 import net.tlotd.world.ModChunkEvents;
 import net.tlotd.world.dimension.ModDimensions;
@@ -38,6 +40,7 @@ public class VHSCassetteItem extends Item {
         if (!world.isClient() && user instanceof ServerPlayerEntity serverPlayer) {
             if (itemStack.isOf(ModItems.VHS_CASSETTE_PROJECT_KV31) && !serverPlayer.getWorld().getRegistryKey().equals(ModDimensions.BACKROOMS_LEVEL_KEY)) {
                 ModChunkEvents.spawnBackroomsStructures(serverPlayer);
+                user.addStatusEffect(new StatusEffectInstance(ModEffects.SUBSPACE_RESISTANCE, 12000, 0,true,false));
                 return TypedActionResult.success(itemStack);
             }
         }

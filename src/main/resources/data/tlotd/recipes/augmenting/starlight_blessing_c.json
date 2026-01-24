@@ -1,0 +1,15 @@
+{
+  "type": "tlotd:augmenting",
+  "ingredients": [
+    {
+      "tag": "c:armor"
+    },
+    {
+      "item": "tlotd:augment-starlight_blessing"
+    }
+  ],
+  "augment": {
+    "item": "tlotd:augment-starlight_blessing",
+    "count": 4
+  }
+}

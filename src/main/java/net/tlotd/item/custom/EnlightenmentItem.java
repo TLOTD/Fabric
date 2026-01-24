@@ -76,7 +76,7 @@ public class EnlightenmentItem extends Item {
         } else if (stack.isOf(ModItems.EYE_OF_ENLIGHTENMENT)) {
             enlightened = 30;
         }
-        tooltip.add(Text.literal(""));
+        tooltip.add(Text.empty());
         tooltip.add(Text.translatable("item.tlotd.enlightenment.tooltip").formatted(Formatting.GRAY));
         tooltip.add(Text.translatable("item.tlotd.enlightenment.tooltip_2", enlightened).formatted(Formatting.BLUE));
         super.appendTooltip(stack, world, tooltip, context);

@@ -111,7 +111,7 @@ public class InterdimensionalReceiverBlock extends Block {
 
     @Override
     public void appendTooltip(ItemStack stack, @Nullable BlockView world, List<Text> tooltip, TooltipContext options) {
-        tooltip.add(Text.literal(""));
+        tooltip.add(Text.empty());
         tooltip.add(Text.translatable("block.tlotd.interdimensional_receiver.tooltip").formatted(Formatting.GRAY));
         tooltip.add(Text.literal(" ").append(Text.translatable("block.tlotd.television").formatted(Formatting.BLUE)));
         super.appendTooltip(stack, world, tooltip, options);

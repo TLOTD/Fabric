@@ -134,6 +134,8 @@ public class ModItemGroups {
                         entries.add(ModItems.MITHRIL_NUGGET);
                         entries.add(ModItems.MITHRIL_INGOT);
 
+                        entries.add(ModItems.MITHRIL_CHAINMAIL_CHUNK);
+
                         entries.add(ModItems.ASTRAL_NUGGET);
                         entries.add(ModItems.ASTRAL_INGOT);
 
@@ -197,6 +199,8 @@ public class ModItemGroups {
                         if (CompatModsCheck.ATM) {
                             entries.add(ModBlocks.ANCIENT_SOULBERRY_JAM_JAR);
                         }
+                        entries.add(ModBlocks.STRAWBERRY_CRATE);
+                        entries.add(ModBlocks.ORANGE_CRATE);
                         entries.add(ModItems.TOAST);
                         entries.add(ModItems.SWEET_BERRY_JAM_TOAST);
                         entries.add(ModItems.GLOW_BERRY_JAM_TOAST);
@@ -507,7 +511,6 @@ public class ModItemGroups {
                         if (CompatModsCheck.SPORE) {
                             entries.add(ModItems.INFECTED_TREX_SPAWN_EGG);
                         }
-
                         entries.add(addEnchantedBook(ModEnchantments.TRANSDIMENSIONAL, 1));
                         entries.add(addEnchantedBook(ModEnchantments.TRANSDIMENSIONAL, 2));
                         entries.add(addEnchantedBook(ModEnchantments.TRANSDIMENSIONAL, 3));
@@ -528,6 +531,18 @@ public class ModItemGroups {
                         entries.add(addEnchantedBook(ModEnchantments.REFILL_CHARGES, 1));
                         entries.add(addEnchantedBook(ModEnchantments.RESOURCEFUL_SMOKING, 1));
                         entries.add(addEnchantedBook(ModEnchantments.RESOURCEFUL_SMOKING, 2));
+
+                        entries.add(ModItems.AUGMENT_SLOT_EXPANSION);
+                        entries.add(ModItems.AUGMENT_PHOTOSYNTHESIS);
+                        entries.add(ModItems.AUGMENT_STARLIGHT_BLESSING);
+                        entries.add(ModItems.AUGMENT_EXTRACTION);
+                        entries.add(ModItems.AUGMENT_MITHRIL_CHAINMAIL);
+                        entries.add(ModItems.AUGMENT_DRAGON_SCALE_PLATING);
+                        entries.add(ModItems.AUGMENT_LEAD_PLATING);
+                        entries.add(ModItems.AUGMENT_DIMENSIONAL_COHESION);
+                        entries.add(ModItems.AUGMENT_OXYGEN_TANK);
+                        entries.add(ModItems.AUGMENT_AIRTIGHT_SEALS);
+                        entries.add(ModItems.AUGMENT_BULLET_RESISTANCE);
                     }).build());
 
     public static final ItemGroup TLOTD_3_BLOCKS_GROUP = Registry.register(Registries.ITEM_GROUP,
@@ -547,12 +562,13 @@ public class ModItemGroups {
                         entries.add(ModBlocks.SKELETON);
                         entries.add(ModBlocks.EMERGING_SKELETON);
 
-                        entries.add(ModBlocks.EFFIGIES);
-                        entries.add(ModBlocks.WITCHING_TABLE);
                         entries.add(ModBlocks.OUIJA_BOARD);
                         entries.add(ModBlocks.GOAT_HEAD);
 
-                        entries.add(ModBlocks.APPARATUS);
+                        entries.add(ModBlocks.EFFIGIES);
+                        entries.add(ModBlocks.WITCHING_TABLE);
+
+                        entries.add(ModBlocks.AUGMENTATION_TABLE);
 
                         entries.add(ModBlocks.GARBAGE_CAN);
                         entries.add(ModBlocks.BENCH);
@@ -577,6 +593,8 @@ public class ModItemGroups {
                         entries.add(ModBlocks.INTERDIMENSIONAL_RECEIVER);
                         entries.add(ModBlocks.TELEPORTER);
                         entries.add(ModBlocks.ALIEN_CONTROL_PANEL);
+
+                        entries.add(ModBlocks.APPARATUS);
 
                         entries.add(ModBlocks.CREEPER_PLUSHIE);
                         entries.add(ModBlocks.ZOMBIE_PLUSHIE);
@@ -1066,7 +1084,8 @@ public class ModItemGroups {
             content.addAfter(Items.CARTOGRAPHY_TABLE, ModBlocks.ARCHAEOLOGY_TABLE);
             content.addAfter(Items.SOUL_CAMPFIRE, ModBlocks.SULFUR_CAMPFIRE);
             content.addAfter(Items.DAMAGED_ANVIL, ModBlocks.MITHRIL_ANVIL);
-            content.addAfter(Items.ENCHANTING_TABLE, ModBlocks.WITCHING_TABLE);
+            content.addAfter(Items.ENCHANTING_TABLE, ModBlocks.AUGMENTATION_TABLE);
+            content.addAfter(ModBlocks.AUGMENTATION_TABLE, ModBlocks.WITCHING_TABLE);
             content.addAfter(Items.CHERRY_HANGING_SIGN, ModItems.GINKGO_SIGN);
             content.addAfter(ModItems.GINKGO_SIGN, ModItems.HANGING_GINKGO_SIGN);
             content.addAfter(Raid.getOminousBanner(), addBanner("gondor", Items.BLACK_BANNER, 0));

@@ -1,0 +1,24 @@
+{
+  "replace": false,
+  "values": [
+    "tlotd:mithril_sword",
+    "tlotd:mithril_pickaxe",
+    "tlotd:mithril_axe",
+    "tlotd:mithril_shovel",
+    "tlotd:mithril_hoe",
+    "tlotd:mithril_paxel",
+    "tlotd:mithril_sickle",
+    "tlotd:mithril_forging_hammer",
+    "tlotd:mithril_star_catcher",
+    "tlotd:mithril_helmet",
+    "tlotd:mithril_chestplate",
+    "tlotd:mithril_leggings",
+    "tlotd:mithril_boots",
+    "tlotd:anduril",
+    "tlotd:gondorian_shield",
+    "tlotd:gondorian_tower_shield",
+    "tlotd:gondorian_kings_guard_tower_shield",
+    "tlotd:gondorian_knight_shield",
+    "tlotd:gondorian_ornamented_knight_shield"
+  ]
+}

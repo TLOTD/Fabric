@@ -8,28 +8,14 @@ import net.minecraft.util.Identifier;
 import net.tlotd.TLOTD;
 
 public class ModEffects {
-    public static StatusEffect DRUNK;
-    public static StatusEffect STONED;
-    public static StatusEffect IRRADIATED;
-    public static StatusEffect HYPOXIA;
+    public static final StatusEffect DRUNK = Registry.register(Registries.STATUS_EFFECT, new Identifier(TLOTD.MOD_ID, "drunk"), new DrunkEffect(StatusEffectCategory.HARMFUL, 0xebba34));;
+    public static final StatusEffect STONED = Registry.register(Registries.STATUS_EFFECT, new Identifier(TLOTD.MOD_ID, "stoned"), new StonedEffect(StatusEffectCategory.HARMFUL, 0x5b754f));
+    public static final StatusEffect IRRADIATED = Registry.register(Registries.STATUS_EFFECT, new Identifier(TLOTD.MOD_ID, "irradiated"), new IrradiatedEffect(StatusEffectCategory.HARMFUL, 0x00ff8c));
+    public static final StatusEffect HYPOXIA = Registry.register(Registries.STATUS_EFFECT, new Identifier(TLOTD.MOD_ID, "hypoxia"), new HypoxiaEffect(StatusEffectCategory.HARMFUL, 0x000000));
 
-    public static StatusEffect registerDrunkEffect(String name) {
-        return Registry.register(Registries.STATUS_EFFECT, new Identifier(TLOTD.MOD_ID, name), new DrunkEffect(StatusEffectCategory.HARMFUL, 0xebba34));
-    }
-    public static StatusEffect registerStonedEffect(String name) {
-        return Registry.register(Registries.STATUS_EFFECT, new Identifier(TLOTD.MOD_ID, name), new StonedEffect(StatusEffectCategory.HARMFUL, 0x5b754f));
-    }
-    public static StatusEffect registerIrradiatedEffect(String name) {
-        return Registry.register(Registries.STATUS_EFFECT, new Identifier(TLOTD.MOD_ID, name), new IrradiatedEffect(StatusEffectCategory.HARMFUL, 0x00ff8c));
-    }
-    public static StatusEffect registerHypoxiaEffect(String name) {
-        return Registry.register(Registries.STATUS_EFFECT, new Identifier(TLOTD.MOD_ID, name), new HypoxiaEffect(StatusEffectCategory.HARMFUL, 0x000000));
-    }
+    public static final StatusEffect SUBSPACE_RESISTANCE = Registry.register(Registries.STATUS_EFFECT, new Identifier(TLOTD.MOD_ID, "subspace_resistance"), new SubspaceResistanceEffect(StatusEffectCategory.NEUTRAL, 0xffffff));
+    public static final StatusEffect SUBSPACE_SICKNESS = Registry.register(Registries.STATUS_EFFECT, new Identifier(TLOTD.MOD_ID, "subspace_sickness"), new SubspaceSicknessEffect(StatusEffectCategory.HARMFUL, 0x000000));
 
     public static void registerEffects() {
-        DRUNK = registerDrunkEffect("drunk");
-        STONED = registerStonedEffect("stoned");
-        IRRADIATED = registerIrradiatedEffect("irradiated");
-        HYPOXIA = registerHypoxiaEffect("hypoxia");
     }
 }
