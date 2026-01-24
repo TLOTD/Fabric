@@ -25,7 +25,7 @@ With [Sinytra Connector](https://modrinth.com/mod/connector)
 ## Supported Languages
 - 🇺🇸 [English (United States)](https://github.com/tlotd/Fabric/blob/1.20.1/src/main/resources/assets/tlotd/lang/en_us.json) [100%] - Translators: [@tlotd](https://github.com/tlotd), [@isla_nublar](https://github.com/Isla-Nublar)
 - 🇩🇪 [Deutsch (Deutschland)](https://github.com/tlotd/Fabric/blob/1.20.1/src/main/resources/assets/tlotd/lang/de_de.json) [100%] - Translators: [@isla_nublar](https://github.com/Isla-Nublar)
-- 🇩🇪 [Schwäbisch (s' Ländle)](https://github.com/tlotd/Fabric/blob/1.20.1/src/main/resources/assets/tlotd/lang/sch_de.json) [100%] - Translators: [@isla_nublar](https://github.com/Isla-Nublar) | [(Schwabenpatch Required)](https://github.com/tlotd/Schwabenpatch)
+- 🇩🇪 [Schwäbisch (s' Ländle)](https://github.com/tlotd/Fabric/blob/1.20.1/src/main/resources/assets/tlotd/lang/swg_de.json) [100%] - Translators: [@isla_nublar](https://github.com/Isla-Nublar) | [(Schwabenpatch Required)](https://github.com/tlotd/Schwabenpatch)
 - 🇲🇽 [Español (México)](https://github.com/tlotd/Fabric/blob/1.20.1/src/main/resources/assets/tlotd/lang/es_mx.json) [100%] - Translators: [@salsafox](https://github.com/Salsafox)
 
 ## Developer Notes
