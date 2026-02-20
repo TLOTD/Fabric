@@ -7,15 +7,18 @@ import net.minecraft.block.FireBlock;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NbtCompound;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.tlotd.compat.CompatModsCheck;
 import net.tlotd.config.ModConfigs;
 import net.tlotd.effect.ModEffects;
-import net.tlotd.util.ModTags;
+import net.tlotd.util.EnergyNbtHelper;
 import net.tlotd.world.dimension.ModDimensions;
 
 import static net.tlotd.util.AugmentNbtHelper.getAugmentLevel;
@@ -45,9 +48,11 @@ public class ModServerTickEvents {
                 }
                 if (tickCounter % 20 == 0) {
                     handleDimensionTransfer(player);
+                    if (CompatModsCheck.TOUGHASNAILS) {
+                        handleThermalAugments(player);
+                    }
                 }
-                if (tickCounter % 40 == 0) {
-                    if (player.getWorld().isSkyVisible(player.getBlockPos())) {
+                if (tickCounter % 40 == 0 && player.getWorld().isSkyVisible(player.getBlockPos())) {
                         for (ItemStack armor : player.getArmorItems()) {
                             if (getAugmentLevel(armor, "tlotd:photosynthesis") > 0 && player.getWorld().isDay()) {
                                 if (armor.getDamage() > 0) {
@@ -72,10 +77,43 @@ public class ModServerTickEvents {
                                 }
                             }
                         }
-                    }
+                }
+                if (tickCounter > 100) {
+                    tickCounter = 0;
                 }
             }
         });
+    }
+
+    private static void handleThermalAugments(ServerPlayerEntity player) {
+        NbtCompound tag = new NbtCompound();
+        player.writeCustomDataToNbt(tag);
+        if (!tag.contains("temperatureLevel")) return;
+        int temp = tag.getInt("temperatureLevel");
+        if (temp == 2) return;
+        boolean needsHeat = temp < 2;
+        boolean needsCool = temp > 2;
+        DefaultedList<ItemStack> armorInventory = player.getInventory().armor;
+        if (armorInventory.size() < 4) return;
+        for (int i = 0; i < 4; i++) {
+            ItemStack piece = armorInventory.get(i);
+            if (piece.isEmpty()) return;
+            int levelHeat = getAugmentLevel(piece, "tlotd:thermal_heating");
+            int levelCool = getAugmentLevel(piece, "tlotd:thermal_cooling");
+            boolean valid =
+                    (needsHeat && levelHeat > 0) ||
+                            (needsCool && levelCool > 0);
+            if (!valid) return;
+            long energy = EnergyNbtHelper.getEnergy(piece);
+            if (energy < 500) return;
+        }
+        for (int i = 0; i < 4; i++) {
+            ItemStack piece = armorInventory.get(i);
+            long energy = EnergyNbtHelper.getEnergy(piece);
+            EnergyNbtHelper.setEnergy(piece, energy - 500);
+        }
+        tag.putInt("temperatureLevel", 2);
+        player.readCustomDataFromNbt(tag);
     }
 
     private static void extinguishFireBlocksAroundPlayer(ServerWorld world, ServerPlayerEntity player) {

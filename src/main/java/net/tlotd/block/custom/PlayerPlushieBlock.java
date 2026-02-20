@@ -53,7 +53,7 @@ public class PlayerPlushieBlock extends HumanPlushieBlock {
             case "f31b18df-5db5-4e00-9adc-b66e89c69792" -> 17;
             case "4488478f-78d4-4885-be12-1f2179874912" -> 18;
             case "8365d4fc-c514-4c2e-a4e5-cf39fb26b0f0" -> 19;
-            case "1987a906-540f-4ae8-90df-43504c06a6e7" -> formerTLOTD ? 20 : 0; //GenosseNeuro
+            case "1987a906-540f-4ae8-90df-43504c06a6e7" -> 20;
             case "7af13cd9-4c28-4d48-a3f4-3cfbbce46438" -> 21;
             default -> 0;
         };
@@ -153,9 +153,7 @@ public class PlayerPlushieBlock extends HumanPlushieBlock {
             tooltip.add(Text.literal("\uE010").setStyle(style.withFont(PLAYERS_FONT_ID)).append(Text.literal(" TheVexTv").setStyle(style.withFont(DEFAULT_FONT_ID))));
             tooltip.add(Text.literal("\uE011").setStyle(style.withFont(PLAYERS_FONT_ID)).append(Text.literal(" Glamin").setStyle(style.withFont(DEFAULT_FONT_ID))));
             tooltip.add(Text.literal("\uE012").setStyle(style.withFont(PLAYERS_FONT_ID)).append(Text.literal(" Jakx444").setStyle(style.withFont(DEFAULT_FONT_ID))));
-            if (ClientGlobalConfig.formerTlotdRewards) {
-                tooltip.add(Text.literal("\uE013").setStyle(style.withFont(PLAYERS_FONT_ID)).append(Text.literal(" GenosseNeuro").setStyle(style.withFont(DEFAULT_FONT_ID))));
-            }
+            tooltip.add(Text.literal("\uE013").setStyle(style.withFont(PLAYERS_FONT_ID)).append(Text.literal(" GenosseNeuro").setStyle(style.withFont(DEFAULT_FONT_ID))));
             tooltip.add(Text.literal("\uE014").setStyle(style.withFont(PLAYERS_FONT_ID)).append(Text.literal(" Red_ice").setStyle(style.withFont(DEFAULT_FONT_ID))));
             //tooltip.add(Text.literal("\uE015").setStyle(style.withFont(PLAYERS_FONT_ID)).append(Text.literal(" Jxst_Freezy").setStyle(style.withFont(DEFAULT_FONT_ID)))); (dont know his ign)
             tooltip.add(Text.translatable("block.tlotd.player_plushie.tooltip_custom").formatted(Formatting.GRAY));

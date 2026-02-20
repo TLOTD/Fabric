@@ -54,7 +54,7 @@ public abstract class GameRendererMixin {
 
         if (client.player.hasStatusEffect(ModEffects.STONED)) {
             targetShader = new Identifier("minecraft", "shaders/post/blobs2.json");
-        } else if (client.player.hasStatusEffect(ModEffects.DRUNK)) {
+        } else if (client.player.hasStatusEffect(ModEffects.DRUNKENNESS)) {
             targetShader = new Identifier("minecraft", "shaders/post/phosphor.json");
         }
 

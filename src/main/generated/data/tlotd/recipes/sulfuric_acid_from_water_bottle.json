@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "sulfuric_acid",
+  "ingredients": [
+    {
+      "tag": "c:sulfur_dusts"
+    },
+    {
+      "item": "minecraft:potion"
+    }
+  ],
+  "result": {
+    "item": "tlotd:sulfuric_acid"
+  }
+}

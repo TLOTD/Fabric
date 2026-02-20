@@ -1,9 +1,5 @@
 {
-	"format_version": "1.9.0",
 	"credit": "Made by Isla_Nublar for the TLOTD Mod (https://tlotd.net)",
-	"textures": {
-		"0": "tlotd:block/t-rex/infected"
-	},
 	"elements": [
 		{
 			"from": [2, 3, -15.99],
@@ -110,12 +106,12 @@
 			}
 		},
 		{
-			"from": [15.77817, 8, 4.46447],
-			"to": [27.77817, 20, 4.46447],
-			"rotation": {"angle": 67.5, "axis": "y", "origin": [15.77817, 14, 4.46447]},
+			"from": [15.77817, 8, -7.53553],
+			"to": [15.77817, 20, 4.46447],
+			"rotation": {"angle": -22.5, "axis": "y", "origin": [15.77817, 14, 4.46447]},
 			"faces": {
-				"north": {"uv": [14.5, 0, 15.25, 0.75], "texture": "#0"},
-				"south": {"uv": [15.25, 0, 14.5, 0.75], "texture": "#0"}
+				"east": {"uv": [15.25, 0, 14.5, 0.75], "texture": "#0"},
+				"west": {"uv": [14.5, 0, 15.25, 0.75], "texture": "#0"}
 			}
 		},
 		{

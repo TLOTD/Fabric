@@ -19,6 +19,7 @@ import net.tlotd.compat.CompatModsCheck;
 import net.tlotd.enchantments.ModEnchantments;
 import net.tlotd.fluid.ModFluids;
 import net.tlotd.util.AdAstraOxygenNbtHelper;
+import net.tlotd.util.EnergyNbtHelper;
 
 import java.util.Map;
 
@@ -87,6 +88,8 @@ public class ModItemGroups {
                         entries.add(ModItems.COPPER_NUGGET);
 
                         entries.add(ModItems.SULFUR);
+                        entries.add(ModItems.SULFURIC_ACID);
+                        entries.add(ModItems.BATTERY);
 
                         entries.add(ModItems.RAW_ALUMINIUM);
                         entries.add(ModItems.ALUMINIUM_NUGGET);
@@ -348,9 +351,9 @@ public class ModItemGroups {
                         entries.add(ModItems.DEPTH_SUIT_BOOTS);
 
                         entries.add(ModItems.SCIENTIST_GLASSES);
-                        entries.add(ModItems.HEV_SUIT_CHESTPLATE);
-                        entries.add(ModItems.HEV_SUIT_LEGGINGS);
-                        entries.add(ModItems.HEV_SUIT_BOOTS);
+                        entries.add(addEnergyItem(ModItems.HEV_SUIT_CHESTPLATE));
+                        entries.add(addEnergyItem(ModItems.HEV_SUIT_LEGGINGS));
+                        entries.add(addEnergyItem(ModItems.HEV_SUIT_BOOTS));
 
                         entries.add(ModItems.COPPER_SICKLE);
                         entries.add(ModItems.GOLDEN_SICKLE);
@@ -505,6 +508,7 @@ public class ModItemGroups {
                         entries.add(ModBlocks.GLOBUS_CRUCIGER);
 
                         entries.add(ModItems.FOSSIL_AND_STEEL);
+                        entries.add(ModItems.JOINT);
                         entries.add(ModItems.PIPE);
                         entries.add(ModItems.PIPE_WEED_PIPE);
                         entries.add(ModItems.TREX_SPAWN_EGG);
@@ -536,6 +540,8 @@ public class ModItemGroups {
                         entries.add(ModItems.AUGMENT_PHOTOSYNTHESIS);
                         entries.add(ModItems.AUGMENT_STARLIGHT_BLESSING);
                         entries.add(ModItems.AUGMENT_EXTRACTION);
+                        entries.add(ModItems.AUGMENT_BATTERY_PACK);
+                        entries.add(ModItems.AUGMENT_ENERGY_SHIELD);
                         entries.add(ModItems.AUGMENT_MITHRIL_CHAINMAIL);
                         entries.add(ModItems.AUGMENT_DRAGON_SCALE_PLATING);
                         entries.add(ModItems.AUGMENT_LEAD_PLATING);
@@ -543,6 +549,11 @@ public class ModItemGroups {
                         entries.add(ModItems.AUGMENT_OXYGEN_TANK);
                         entries.add(ModItems.AUGMENT_AIRTIGHT_SEALS);
                         entries.add(ModItems.AUGMENT_BULLET_RESISTANCE);
+
+                        if (CompatModsCheck.TOUGHASNAILS) {
+                            entries.add(ModItems.AUGMENT_THERMAL_HEATING);
+                            entries.add(ModItems.AUGMENT_THERMAL_COOLING);
+                        }
                     }).build());
 
     public static final ItemGroup TLOTD_3_BLOCKS_GROUP = Registry.register(Registries.ITEM_GROUP,
@@ -1020,6 +1031,8 @@ public class ModItemGroups {
                         entries.add(ModItems.TRANSWOOD_BARK);
                         entries.add(ModItems.MINEWOOD_BARK);
                         entries.add(ModItems.SORTINGWOOD_BARK);
+                        entries.add(ModItems.AUGMENT_THERMAL_HEATING);
+                        entries.add(ModItems.AUGMENT_THERMAL_COOLING);
                     }).build());
 
     public static void registerItemGroups(){
@@ -1250,9 +1263,15 @@ public class ModItemGroups {
         TLOTD.LOGGER.info("Registering Item Groups for " + TLOTD.MOD_ID);
     }
 
-    public static ItemStack addOxygenItem(Item baseBanner) {
-        ItemStack itemStack = new ItemStack(baseBanner);
+    public static ItemStack addOxygenItem(Item baseItem) {
+        ItemStack itemStack = new ItemStack(baseItem);
         AdAstraOxygenNbtHelper.setOxygen(itemStack, AdAstraOxygenNbtHelper.MAX_AMOUNT);
+        return itemStack;
+    }
+
+    public static ItemStack addEnergyItem(Item baseItem) {
+        ItemStack itemStack = new ItemStack(baseItem);
+        EnergyNbtHelper.setEnergy(itemStack, EnergyNbtHelper.MAX_AMOUNT);
         return itemStack;
     }
 

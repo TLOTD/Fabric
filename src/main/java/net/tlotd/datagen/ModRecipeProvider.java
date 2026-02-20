@@ -80,6 +80,38 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(ModItems.SULFUR), conditionsFromItem(ModItems.SULFUR))
                 .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.SULFUR_CAMPFIRE)));
 
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.SULFURIC_ACID, 3)
+                .group("sulfuric_acid")
+                .input(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "sulfur_dusts")))
+                .input(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "sulfur_dusts")))
+                .input(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "sulfur_dusts")))
+                .input(Items.GLASS_BOTTLE)
+                .input(Items.GLASS_BOTTLE)
+                .input(Items.GLASS_BOTTLE)
+                .input(Items.WATER_BUCKET)
+                .criterion(hasItem(ModItems.SULFUR), conditionsFromItem(ModItems.SULFUR))
+                .criterion(hasItem(Items.WATER_BUCKET), conditionsFromItem(Items.WATER_BUCKET))
+                .criterion(hasItem(Items.GLASS_BOTTLE), conditionsFromItem(Items.GLASS_BOTTLE))
+                .offerTo(exporter, new Identifier(getRecipeName(ModItems.SULFURIC_ACID)));
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.SULFURIC_ACID)
+                .group("sulfuric_acid")
+                .input(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "sulfur_dusts")))
+                .input(Items.POTION)
+                .criterion(hasItem(Items.POTION), conditionsFromItem(Items.POTION))
+                .offerTo(exporter, new Identifier(getRecipeName(ModItems.SULFURIC_ACID) + "_from_water_bottle"));
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.BATTERY)
+                .input(ModTags.Items.WIRES)
+                .input(ModItems.SULFURIC_ACID)
+                .input(ModItems.ALUMINIUM_SHEET)
+                .input(Items.PAPER)
+                .criterion(hasItem(ModItems.COPPER_WIRE), conditionsFromItem(ModItems.COPPER_WIRE))
+                .criterion(hasItem(ModItems.SULFURIC_ACID), conditionsFromItem(ModItems.SULFURIC_ACID))
+                .criterion(hasItem(ModItems.ALUMINIUM_SHEET), conditionsFromItem(ModItems.ALUMINIUM_SHEET))
+                .criterion(hasItem(Items.PAPER), conditionsFromItem(Items.PAPER))
+                .offerTo(exporter, new Identifier(getRecipeName(ModItems.BATTERY)));
+
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.WHITE_PUMPKIN)
                 .pattern(" W ")
                 .pattern("W#W")
@@ -285,6 +317,20 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(ModItems.STEEL_ROD), conditionsFromItem(ModItems.STEEL_ROD))
                 .criterion(hasItem(Items.OAK_SLAB), conditionsFromItem(Items.OAK_SLAB))
                 .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.BENCH)));
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.JOINT)
+                .input(Items.PAPER)
+                .input(ModItems.PIPE_WEED)
+                .criterion(hasItem(Items.PAPER), conditionsFromItem(Items.PAPER))
+                .criterion(hasItem(ModItems.PIPE_WEED), conditionsFromItem(ModItems.PIPE_WEED))
+                .offerTo(exporter, new Identifier(getRecipeName(ModItems.JOINT)));
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.PIPE_WEED_PIPE)
+                .input(ModItems.PIPE)
+                .input(ModItems.PIPE_WEED)
+                .criterion(hasItem(ModItems.PIPE), conditionsFromItem(ModItems.PIPE))
+                .criterion(hasItem(ModItems.PIPE_WEED), conditionsFromItem(ModItems.PIPE_WEED))
+                .offerTo(exporter, new Identifier(getRecipeName(ModItems.PIPE_WEED_PIPE)));
 
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.PIPE)
                 .pattern("#-")
@@ -831,17 +877,22 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .offerTo(exporter, new Identifier(getRecipeName(ModItems.SUPERCONDUCTING_WIRE)));
 
         ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModBlocks.HEV_CHARGER)
-                .pattern("SXS")
-                .pattern("AAD")
-                .pattern("SXS")
+                .pattern("XSL")
+                .pattern("WCB")
+                .pattern("###")
                 .input('X', ModItems.XEN_CRYSTAL)
-                .input('D', ModItems.LIQUID_CRYSTAL_DISPLAY_PANEL)
-                .input('A', ModTags.Items.ADVANCED_CIRCUIT_BOARDS)
                 .input('S', TagKey.of(RegistryKeys.ITEM, new Identifier("c", "steel_ingots")))
+                .input('L', ModItems.LIQUID_CRYSTAL_DISPLAY_PANEL)
+                .input('W', ModTags.Items.WIRES_2)
+                .input('C', ModTags.Items.ADVANCED_CIRCUIT_BOARDS)
+                .input('B', ItemTags.BUTTONS)
+                .input('#', ModItems.BATTERY)
                 .criterion(hasItem(ModItems.XEN_CRYSTAL), conditionsFromItem(ModItems.XEN_CRYSTAL))
-                .criterion(hasItem(ModItems.LIQUID_CRYSTAL_DISPLAY_PANEL), conditionsFromItem(ModItems.LIQUID_CRYSTAL_DISPLAY_PANEL))
-                .criterion(hasItem(ModItems.ADVANCED_CIRCUIT_BOARD), conditionsFromItem(ModItems.ADVANCED_CIRCUIT_BOARD))
                 .criterion(hasItem(ModItems.STEEL_INGOT), conditionsFromItem(ModItems.STEEL_INGOT))
+                .criterion(hasItem(ModItems.LIQUID_CRYSTAL_DISPLAY_PANEL), conditionsFromItem(ModItems.LIQUID_CRYSTAL_DISPLAY_PANEL))
+                .criterion(hasItem(ModItems.GOLD_WIRE), conditionsFromItem(ModItems.GOLD_WIRE))
+                .criterion(hasItem(ModItems.ADVANCED_CIRCUIT_BOARD), conditionsFromItem(ModItems.ADVANCED_CIRCUIT_BOARD))
+                .criterion(hasItem(ModItems.BATTERY), conditionsFromItem(ModItems.BATTERY))
                 .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.HEV_CHARGER)));
 
         ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModBlocks.INCUBATOR)

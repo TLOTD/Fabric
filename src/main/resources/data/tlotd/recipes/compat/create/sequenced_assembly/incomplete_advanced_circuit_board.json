@@ -9,7 +9,7 @@
   ],
   "type": "create:sequenced_assembly",
   "ingredient": {
-    "item": "tlotd:circuit_board"
+    "item": "tlotd:battery"
   },
   "loops": 2,
   "results": [
@@ -25,7 +25,7 @@
           "item": "tlotd:incomplete_advanced_circuit_board"
         },
         {
-          "item": "minecraft:black_dye"
+          "item": "tlotd:circuit_board"
         }
       ],
       "results": [
@@ -41,7 +41,7 @@
           "item": "tlotd:incomplete_advanced_circuit_board"
         },
         {
-          "item": "tlotd:circuit_board"
+          "item": "minecraft:black_dye"
         }
       ],
       "results": [

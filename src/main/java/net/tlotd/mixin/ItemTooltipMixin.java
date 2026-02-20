@@ -13,9 +13,10 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.World;
+import net.tlotd.item.ModItems;
 import net.tlotd.util.AdAstraOxygenNbtHelper;
+import net.tlotd.util.EnergyNbtHelper;
 import net.tlotd.util.ModTags;
-import org.jetbrains.annotations.NotNull;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -38,25 +39,47 @@ public abstract class ItemTooltipMixin {
             TooltipContext context,
             CallbackInfo ci
     ) {
-        if (getAugmentLevel(stack, "tlotd:oxygen_tank") > 0) {
-            int maxOxygen = getAugmentLevel(stack, "tlotd:oxygen_tank");
-            String oxygen = "0 \uD83E\uDEA3 / " + maxOxygen + "K \uD83E\uDEA3";
+        if (stack.isOf(ModItems.HEV_SUIT_CHESTPLATE) || stack.isOf(ModItems.HEV_SUIT_LEGGINGS) || stack.isOf(ModItems.HEV_SUIT_BOOTS) || getAugmentLevel(stack, "tlotd:battery_pack") > 0) {
+            String formattedPower = "0";
+            String formattedMaxPower = "0";
             if (Screen.hasShiftDown()) {
-                oxygen = "0 \uD83E\uDEA3 / " + maxOxygen + ",000 \uD83E\uDEA3";
+                if (stack.hasNbt()) {
+                    long powerAmount = EnergyNbtHelper.getEnergy(stack);
+                    formattedPower = String.format("%,d", powerAmount);
+                    formattedMaxPower = String.format("%,d", EnergyNbtHelper.getMaxEnergyItem(stack));
+                }
+            } else {
+                if (stack.hasNbt()) {
+                    long powerAmount = EnergyNbtHelper.getEnergy(stack);
+                    formattedPower = EnergyNbtHelper.getEnergyString((int) powerAmount);
+                    formattedMaxPower = EnergyNbtHelper.getEnergyString((int) EnergyNbtHelper.getMaxEnergyItem(stack));
+                }
+            }
+            String formattedPower2 = formattedPower.replace(',', '.');
+            String formattedMaxPower2 = formattedMaxPower.replace(',', '.');
+            tooltip.add(Text.translatable("item.tlotd.power_level.tooltip", formattedPower, formattedMaxPower, formattedPower2, formattedMaxPower2).formatted(Formatting.YELLOW));
+        }
+        if (stack.isOf(ModItems.OXYGEN_TANK) || (stack.isOf(ModItems.SPACE_SUIT_CHESTPLATE) || getAugmentLevel(stack, "tlotd:oxygen_tank") > 0)) {
+            long maxOxygen = AdAstraOxygenNbtHelper.getMaxOxygenItem(stack)/AdAstraOxygenNbtHelper.MAX_AMOUNT;
+            String formattedOxygen = "0";
+            String formattedMaxOxygen = "0";
+            if (Screen.hasShiftDown()) {
                 if (stack.hasNbt()) {
                     long oxygenAmount = AdAstraOxygenNbtHelper.getOxygen(stack);
                     int displayAmount = (int) Math.round((double) oxygenAmount * 1000 / AdAstraOxygenNbtHelper.MAX_AMOUNT);
-                    String formattedOxygen = String.format("%,d", displayAmount);
-                    oxygen = formattedOxygen + " \uD83E\uDEA3 / " + maxOxygen + ",000 \uD83E\uDEA3";
+                    formattedOxygen = String.format("%,d", displayAmount);
+                    formattedMaxOxygen = maxOxygen + ",000";
                 }
             } else {
                 if (stack.hasNbt()) {
                     long oxygenAmount = AdAstraOxygenNbtHelper.getOxygen(stack);
-                    String formattedOxygen = getString((double) oxygenAmount);
-                    oxygen = formattedOxygen + " \uD83E\uDEA3 / " + maxOxygen + "K \uD83E\uDEA3";
+                    formattedOxygen = AdAstraOxygenNbtHelper.getOxygenString(oxygenAmount);
+                    formattedMaxOxygen = maxOxygen + "K";
                 }
             }
-            tooltip.add(Text.translatable("item.tlotd.oxygen_level.tooltip", oxygen).formatted(Formatting.GOLD));
+            String formattedOxygen2 = formattedOxygen.replace(',', '.');
+            String formattedMaxOxygen2 = formattedMaxOxygen.replace(',', '.');
+            tooltip.add(Text.translatable("item.tlotd.oxygen_level.tooltip", formattedOxygen, formattedMaxOxygen, formattedOxygen2, formattedMaxOxygen2).formatted(Formatting.GOLD));
         }
         int slots = 0;
         if (stack.isIn(ModTags.Items.THREE_AUGMENT_SLOTS)) {
@@ -106,22 +129,5 @@ public abstract class ItemTooltipMixin {
                 }
             }
         }
-    }
-
-    private static @NotNull String getString(double oxygenAmount) {
-        int displayAmount = (int) Math.round(oxygenAmount * 1000 / AdAstraOxygenNbtHelper.MAX_AMOUNT);
-        String formattedOxygen;
-        if (displayAmount >= 1000) {
-            int thousands = displayAmount / 1000;
-            int hundreds = (displayAmount % 1000) / 100;
-            if (hundreds == 0) {
-                formattedOxygen = thousands + "K";
-            } else {
-                formattedOxygen = thousands + "." + hundreds + "K";
-            }
-        } else {
-            formattedOxygen = String.valueOf(displayAmount);
-        }
-        return formattedOxygen;
     }
 }

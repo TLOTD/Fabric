@@ -1,14 +1,14 @@
 package net.tlotd.block.custom;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockRenderType;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.ShapeContext;
+import net.minecraft.block.*;
+import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.enums.WallMountLocation;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.ItemPlacementContext;
+import net.minecraft.item.ItemStack;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.DirectionProperty;
@@ -24,9 +24,18 @@ import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
+import net.tlotd.block.entity.HEVChargerBlockEntity;
+import net.tlotd.util.EnergyNbtHelper;
 import net.tlotd.util.ModTags;
+import org.jetbrains.annotations.Nullable;
 
-public class HEVChargerBlock extends Block {
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+import static net.tlotd.util.AugmentNbtHelper.getAugmentLevel;
+
+public class HEVChargerBlock extends Block implements BlockEntityProvider {
 
     public static final EnumProperty<WallMountLocation> FACE = Properties.WALL_MOUNT_LOCATION;
     public static final DirectionProperty FACING = Properties.FACING;
@@ -72,14 +81,14 @@ public class HEVChargerBlock extends Block {
         this.setDefaultState(this.stateManager.getDefaultState().with(FACE, WallMountLocation.WALL).with(FACING, Direction.NORTH).with(WATERLOGGED, false));
     }
 
-    public static final VoxelShape NORTH_SHAPE = Block.createCuboidShape(2, 0, 0, 14, 16, 2);
-    public static final VoxelShape EAST_SHAPE = Block.createCuboidShape(14, 0, 2, 16, 16, 14);
-    public static final VoxelShape SOUTH_SHAPE = Block.createCuboidShape(2, 0, 14, 14, 16, 16);
-    public static final VoxelShape WEST_SHAPE = Block.createCuboidShape(0, 0, 2, 2, 16, 14);
-    public static final VoxelShape DOWN_SHAPE = Block.createCuboidShape(0, 0, 2, 16, 2, 14);
-    public static final VoxelShape DOWN_SHAPE_2 = Block.createCuboidShape(2, 0, 0, 14, 2, 16);
-    public static final VoxelShape UP_SHAPE = Block.createCuboidShape(0, 14, 2, 16, 16, 14);
-    public static final VoxelShape UP_SHAPE_2 = Block.createCuboidShape(2, 14, 0, 14, 16, 16);
+    public static final VoxelShape NORTH_SHAPE = Block.createCuboidShape(2, 0, 0, 14, 16, 3);
+    public static final VoxelShape EAST_SHAPE = Block.createCuboidShape(13, 0, 2, 16, 16, 14);
+    public static final VoxelShape SOUTH_SHAPE = Block.createCuboidShape(2, 0, 13, 14, 16, 16);
+    public static final VoxelShape WEST_SHAPE = Block.createCuboidShape(0, 0, 2, 3, 16, 14);
+    public static final VoxelShape DOWN_SHAPE = Block.createCuboidShape(0, 0, 2, 16, 3, 14);
+    public static final VoxelShape DOWN_SHAPE_2 = Block.createCuboidShape(2, 0, 0, 14, 3, 16);
+    public static final VoxelShape UP_SHAPE = Block.createCuboidShape(0, 13, 2, 16, 16, 14);
+    public static final VoxelShape UP_SHAPE_2 = Block.createCuboidShape(2, 13, 0, 14, 16, 16);
 
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
@@ -121,40 +130,73 @@ public class HEVChargerBlock extends Block {
     }
 
     @Override
-    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        if (player.getInventory().getArmorStack(0).isIn(ModTags.Items.HEV_CHARGER_CHARGABLE) || player.getInventory().getArmorStack(1).isIn(ModTags.Items.HEV_CHARGER_CHARGABLE) || player.getInventory().getArmorStack(2).isIn(ModTags.Items.HEV_CHARGER_CHARGABLE) || player.getInventory().getArmorStack(3).isIn(ModTags.Items.HEV_CHARGER_CHARGABLE)) {
-            if (!world.isClient()) {
-                if (player.getInventory().getArmorStack(0).isIn(ModTags.Items.HEV_CHARGER_CHARGABLE)) {
-                    if (player.getInventory().getArmorStack(0).getDamage() > 30) {
-                        player.getInventory().getArmorStack(0).setDamage(player.getInventory().getArmorStack(0).getDamage()-30);
-                    } else {
-                        player.getInventory().getArmorStack(0).setDamage(0);
-                    }
+    public ActionResult onUse(BlockState state, World world, BlockPos pos,
+                              PlayerEntity player, Hand hand, BlockHitResult hit) {
+        if (world.isClient()) return ActionResult.SUCCESS;
+        BlockEntity be = world.getBlockEntity(pos);
+        if (!(be instanceof HEVChargerBlockEntity charger)) return ActionResult.PASS;
+        ItemStack held = player.getStackInHand(hand);
+        if (!held.isEmpty() && (getAugmentLevel(held, "tlotd:battery_pack") > 0 || held.isIn(ModTags.Items.HEV_CHARGER_CHARGABLE))) {
+            long current = EnergyNbtHelper.getEnergy(held);
+            long max = EnergyNbtHelper.getMaxEnergyItem(held);
+            if (current < max && charger.energy.amount > 0) {
+                long needed = max - current;
+                long transferable = Math.min(needed, charger.energy.amount);
+                EnergyNbtHelper.setEnergy(held, current + transferable);
+                charger.energy.amount -= transferable;
+                charger.markDirty();
+                return ActionResult.SUCCESS;
+            }
+            return ActionResult.PASS;
+        }
+        if (!held.isEmpty()) return ActionResult.PASS;
+        PlayerInventory inv = player.getInventory();
+        int[] slots = {3, 2, 1, 0};
+        List<ItemStack> chargeables = new ArrayList<>();
+        for (int slot : slots) {
+            ItemStack armor = inv.getArmorStack(slot);
+            if (armor.isEmpty()) continue;
+            if (!(getAugmentLevel(armor, "tlotd:battery_pack") > 0 || armor.isIn(ModTags.Items.HEV_CHARGER_CHARGABLE))) continue;
+            long current = EnergyNbtHelper.getEnergy(armor);
+            long max = EnergyNbtHelper.getMaxEnergyItem(armor);
+            if (current < max) {
+                chargeables.add(armor);
+            }
+        }
+        if (chargeables.isEmpty()) return ActionResult.PASS;
+        long transferablePoints = charger.energy.amount / 1000;
+        if (transferablePoints <= 0) return ActionResult.PASS;
+        distributeEnergyEvenly(chargeables, charger, transferablePoints);
+        charger.markDirty();
+        return ActionResult.SUCCESS;
+    }
+
+    private void distributeEnergyEvenly(List<ItemStack> stacks,
+                                        HEVChargerBlockEntity charger,
+                                        long maxPoints) {
+        long remaining = maxPoints;
+        while (remaining > 0 && !stacks.isEmpty()) {
+            Iterator<ItemStack> iterator = stacks.iterator();
+            while (iterator.hasNext() && remaining > 0) {
+                ItemStack stack = iterator.next();
+                long current = EnergyNbtHelper.getEnergy(stack);
+                long max = EnergyNbtHelper.getMaxEnergyItem(stack);
+                if (current >= max) {
+                    iterator.remove();
+                    continue;
                 }
-                if (player.getInventory().getArmorStack(1).isIn(ModTags.Items.HEV_CHARGER_CHARGABLE)) {
-                    if (player.getInventory().getArmorStack(1).getDamage() > 30) {
-                        player.getInventory().getArmorStack(1).setDamage(player.getInventory().getArmorStack(1).getDamage()-30);
-                    } else {
-                        player.getInventory().getArmorStack(1).setDamage(0);
-                    }
-                }
-                if (player.getInventory().getArmorStack(2).isIn(ModTags.Items.HEV_CHARGER_CHARGABLE)) {
-                    if (player.getInventory().getArmorStack(2).getDamage() > 30) {
-                        player.getInventory().getArmorStack(2).setDamage(player.getInventory().getArmorStack(2).getDamage()-30);
-                    } else {
-                        player.getInventory().getArmorStack(2).setDamage(0);
-                    }
-                }
-                if (player.getInventory().getArmorStack(3).isIn(ModTags.Items.HEV_CHARGER_CHARGABLE)) {
-                    if (player.getInventory().getArmorStack(3).getDamage() > 30) {
-                        player.getInventory().getArmorStack(3).setDamage(player.getInventory().getArmorStack(3).getDamage()-30);
-                    } else {
-                        player.getInventory().getArmorStack(3).setDamage(0);
-                    }
+                EnergyNbtHelper.setEnergy(stack, current + 1000);
+                charger.energy.amount -= 1000;
+                remaining--;
+                if (EnergyNbtHelper.getEnergy(stack) >= max) {
+                    iterator.remove();
                 }
             }
-            return ActionResult.SUCCESS;
         }
-        return ActionResult.FAIL;
+    }
+
+    @Override
+    public @Nullable BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
+        return new HEVChargerBlockEntity(pos, state);
     }
 }

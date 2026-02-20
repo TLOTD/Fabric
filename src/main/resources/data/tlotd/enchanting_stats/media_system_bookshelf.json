@@ -7,11 +7,11 @@
 		]
 	  }
 	],
-	"block": "tlotd:videocassette_recorder_bookshelf",
+	"block": "tlotd:media_system_bookshelf",
 	"stats": {
-		"maxEterna": 17.5,
-		"eterna": 2,
-		"quanta": -2,
+		"maxEterna": 22.5,
+		"eterna": 1.5,
+		"quanta": -1.5,
 		"arcana": 0,
 		"clues": 0
 	}

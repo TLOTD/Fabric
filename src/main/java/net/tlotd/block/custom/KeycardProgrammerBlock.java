@@ -70,6 +70,7 @@ public class KeycardProgrammerBlock extends BlockWithEntity implements BlockEnti
 
     public KeycardProgrammerBlock(Settings settings) {
         super(settings);
+        this.setDefaultState(this.stateManager.getDefaultState().with(FACING, Direction.NORTH).with(ON, false).with(WATERLOGGED, false));
     }
 
     public static final VoxelShape NORTH_SHAPE = Block.createCuboidShape(0, 0, 0, 14, 7.5, 14);

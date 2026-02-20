@@ -36,7 +36,7 @@ public class IncubatorBlock extends BlockWithEntity implements BlockEntityProvid
 
     public IncubatorBlock(Settings settings) {
         super(settings);
-        this.setDefaultState(this.stateManager.getDefaultState().with(FACING, Direction.NORTH));
+        this.setDefaultState(this.stateManager.getDefaultState().with(FACING, Direction.NORTH).with(ON, false));
     }
 
     @Override

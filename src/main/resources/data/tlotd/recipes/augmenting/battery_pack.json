@@ -1,0 +1,36 @@
+{
+  "type": "tlotd:augmenting",
+  "ingredients": [
+    {
+      "tag": "c:armor"
+    },
+    {
+      "item": "tlotd:battery"
+    },
+    {
+      "tag": "tlotd:wires"
+    },
+    {
+      "item": "tlotd:battery"
+    },
+    {
+      "tag": "tlotd:wires"
+    },
+    {
+      "tag": "tlotd:wires"
+    },
+    {
+      "item": "tlotd:battery"
+    },
+    {
+      "tag": "tlotd:wires"
+    },
+    {
+      "item": "tlotd:battery"
+    }
+  ],
+  "augment": {
+    "item": "tlotd:augment-battery_pack",
+    "count": 4
+  }
+}

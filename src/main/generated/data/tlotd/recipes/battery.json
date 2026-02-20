@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "tag": "tlotd:wires"
+    },
+    {
+      "item": "tlotd:sulfuric_acid"
+    },
+    {
+      "item": "tlotd:aluminium_sheet"
+    },
+    {
+      "item": "minecraft:paper"
+    }
+  ],
+  "result": {
+    "item": "tlotd:battery"
+  }
+}

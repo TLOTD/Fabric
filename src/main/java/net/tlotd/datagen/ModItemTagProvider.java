@@ -535,7 +535,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModItems.ELDRITCH_PICKAXE)
         ;
 
-        getOrCreateTagBuilder(ModTags.Items.WOODEN_LIQUID_STEINS)
+        getOrCreateTagBuilder(ModTags.Items.FILLED_WOODEN_STEINS)
                 .add(ModBlocks.WOODEN_WATER_STEIN.asItem())
                 .add(ModBlocks.WOODEN_BEER_STEIN.asItem())
                 .add(ModBlocks.WOODEN_MEAD_STEIN.asItem())
@@ -578,6 +578,25 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModItems.HEV_SUIT_CHESTPLATE)
                 .add(ModItems.HEV_SUIT_LEGGINGS)
                 .add(ModItems.HEV_SUIT_BOOTS)
+                .addTag(ModTags.Items.MEKANISM_CHARGABLE)
+        ;
+
+        getOrCreateTagBuilder(ModTags.Items.MEKANISM_CHARGABLE)
+                .addOptional(Identifier.tryParse("mekanism:seismic_reader"))
+                .addOptional(Identifier.tryParse("mekanism:configurator"))
+                .addOptional(Identifier.tryParse("mekanism:network_reader"))
+                .addOptional(Identifier.tryParse("mekanism:free_runners"))
+                .addOptional(Identifier.tryParse("mekanism:free_runners_armored"))
+                .addOptional(Identifier.tryParse("mekanism:robit"))
+                .addOptional(Identifier.tryParse("mekanism:electric_bow"))
+                .addOptional(Identifier.tryParse("mekanism:atomic_disassembler"))
+                .addOptional(Identifier.tryParse("mekanism:energy_tablet"))
+                .addOptional(Identifier.tryParse("mekanism:portable_teleporter"))
+                .addOptional(Identifier.tryParse("mekanism:meka_tool"))
+                .addOptional(Identifier.tryParse("mekanism:mekasuit_helmet"))
+                .addOptional(Identifier.tryParse("mekanism:mekasuit_bodyarmor"))
+                .addOptional(Identifier.tryParse("mekanism:mekasuit_pants"))
+                .addOptional(Identifier.tryParse("mekanism:mekasuit_boots"))
         ;
 
         getOrCreateTagBuilder(ModTags.Items.RADIATION_PROTECTION_WITHOUT_HELMET)
@@ -598,6 +617,18 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .addOptional(Identifier.tryParse("mekanism:hazmat_gown"))
                 .addOptional(Identifier.tryParse("mekanism:hazmat_pants"))
                 .addOptional(Identifier.tryParse("mekanism:hazmat_boots"))
+        ;
+
+        getOrCreateTagBuilder(ModTags.Items.ENERGY_SHIELD_WITHOUT_HELMET)
+                .add(ModItems.HEV_SUIT_CHESTPLATE)
+                .add(ModItems.HEV_SUIT_LEGGINGS)
+                .add(ModItems.HEV_SUIT_BOOTS)
+        ;
+
+        getOrCreateTagBuilder(ModTags.Items.ENERGY_SHIELD)
+                .add(ModItems.HEV_SUIT_CHESTPLATE)
+                .add(ModItems.HEV_SUIT_LEGGINGS)
+                .add(ModItems.HEV_SUIT_BOOTS)
         ;
 
         getOrCreateTagBuilder(ModTags.Items.SUBSPACE_PROTECTION_WITHOUT_HELMET)
@@ -1215,7 +1246,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModItems.SULFUR)
         ;
 
-        getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "raw_uranium")))
+        getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "uranium_raw_materials")))
                 .add(ModItems.URANIUM)
         ;
 
@@ -1356,6 +1387,48 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
         getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "caramel")))
                 .add(ModItems.CARAMEL)
                 .addOptional(Identifier.tryParse("alexscaves:caramel"))
+        ;
+
+        getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "ingots")))
+                .addTag(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "steel_ingots")))
+                .addTag(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "aluminium_ingots")))
+                .addTag(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "lead_ingots")))
+                .addTag(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "uranium_ingots")))
+                .addTag(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "mithril_ingots")))
+        ;
+
+        getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "nuggets")))
+                .addTag(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "steel_nuggets")))
+                .addTag(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "aluminium_nuggets")))
+                .addTag(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "lead_nuggets")))
+                .addTag(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "uranium_nuggets")))
+                .addTag(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "mithril_nuggets")))
+        ;
+
+        getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "raw_materials")))
+                .addTag(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "steel_raw_materials")))
+                .addTag(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "aluminium_raw_materials")))
+                .addTag(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "lead_raw_materials")))
+                .addTag(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "uranium_raw_materials")))
+                .addTag(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "mithril_raw_materials")))
+        ;
+
+        getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "storage_blocks")))
+                .addTag(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "steel_blocks")))
+                .addTag(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "aluminium_blocks")))
+                .addTag(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "raw_aluminium_blocks")))
+                .addTag(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "lead_blocks")))
+                .addTag(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "raw_lead_blocks")))
+                .addTag(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "uranium_blocks")))
+                .addTag(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "raw_uranium_blocks")))
+                .addTag(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "mithril_blocks")))
+                .addTag(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "raw_mithril_blocks")))
+        ;
+
+        getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "rods")))
+                .addTag(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "steel_rods")))
+                .add(ModItems.REINFORCED_TOOL_ROD)
+                .add(ModItems.FANCY_TOOL_ROD)
         ;
     }
 }

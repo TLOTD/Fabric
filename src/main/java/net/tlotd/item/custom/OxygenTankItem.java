@@ -1,23 +1,17 @@
 package net.tlotd.item.custom;
 
-import net.minecraft.client.gui.screen.Screen;
-import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
-import net.minecraft.text.Text;
-import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
 import net.tlotd.util.AdAstraOxygenNbtHelper;
 import net.tlotd.util.ModTags;
-import org.jetbrains.annotations.Nullable;
 
-import java.util.List;
-
+import static net.tlotd.util.AdAstraOxygenNbtHelper.getMaxOxygenItem;
 import static net.tlotd.util.AugmentNbtHelper.getAugmentLevel;
 
 public class OxygenTankItem extends Item {
@@ -32,36 +26,8 @@ public class OxygenTankItem extends Item {
         return base;
     }
 
-    @Override
-    public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        String oxygen = "0 \uD83E\uDEA3 / 1K \uD83E\uDEA3";
-        if (Screen.hasShiftDown()) {
-            oxygen = "0 \uD83E\uDEA3 / 1,000 \uD83E\uDEA3";
-            if (stack.hasNbt()) {
-                long oxygenAmount = AdAstraOxygenNbtHelper.getOxygen(stack);
-                int displayAmount = (int) Math.round((double) oxygenAmount * 1000 / AdAstraOxygenNbtHelper.MAX_AMOUNT);
-                String formattedOxygen = String.format("%,d", displayAmount);
-                oxygen = formattedOxygen + " \uD83E\uDEA3 / 1,000 \uD83E\uDEA3";
-            }
-        } else {
-            if (stack.hasNbt()) {
-                long oxygenAmount = AdAstraOxygenNbtHelper.getOxygen(stack);
-                int displayAmount = (int) Math.round((double) oxygenAmount * 1000 / AdAstraOxygenNbtHelper.MAX_AMOUNT);
-                String formattedOxygen;
-                if (displayAmount == 1000) {
-                    formattedOxygen = "1K";
-                } else {
-                    formattedOxygen = String.valueOf(displayAmount);
-                }
-                oxygen = formattedOxygen + " \uD83E\uDEA3 / 1K \uD83E\uDEA3";
-            }
-        }
-        tooltip.add(Text.translatable("item.tlotd.oxygen_level.tooltip", oxygen).formatted(Formatting.GOLD));
-        super.appendTooltip(stack, world, tooltip, context);
-    }
-
     public float getProgress(ItemStack stack) {
-        return AdAstraOxygenNbtHelper.MAX_AMOUNT - AdAstraOxygenNbtHelper.getOxygen(stack);
+        return getMaxOxygenItem(stack) - AdAstraOxygenNbtHelper.getOxygen(stack);
     }
 
     @Override
@@ -70,7 +36,7 @@ public class OxygenTankItem extends Item {
     }
 
     public int getItemBarStep(ItemStack stack) {
-        return Math.round(13.0f - getProgress(stack) * 13.0f / AdAstraOxygenNbtHelper.MAX_AMOUNT);
+        return Math.round(13.0f - getProgress(stack) * 13.0f / getMaxOxygenItem(stack));
     }
 
     @Override
@@ -86,7 +52,7 @@ public class OxygenTankItem extends Item {
             if (chest.isIn(ModTags.Items.OXYGEN_STORING) || (getAugmentLevel(chest, "tlotd:oxygen_tank") > 0)) {
                 long tankOxygen = AdAstraOxygenNbtHelper.getOxygen(itemStack);
                 long chestOxygen = AdAstraOxygenNbtHelper.getOxygen(chest);
-                long maxChestOxygen = AdAstraOxygenNbtHelper.getMaxOxygenForChestplate(chest);
+                long maxChestOxygen = AdAstraOxygenNbtHelper.getMaxOxygenItem(chest);
                 if (tankOxygen > 0 && chestOxygen < maxChestOxygen) {
                     long transfer = Math.min(tankOxygen, maxChestOxygen - chestOxygen);
                     AdAstraOxygenNbtHelper.setOxygen(chest, chestOxygen + transfer);

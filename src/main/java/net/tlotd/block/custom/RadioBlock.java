@@ -20,6 +20,7 @@ import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.DirectionProperty;
 import net.minecraft.state.property.IntProperty;
 import net.minecraft.state.property.Properties;
+import net.minecraft.text.MutableText;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.BlockRotation;
@@ -188,6 +189,16 @@ public class RadioBlock extends Block {
     }
 
     @Override
+    public MutableText getName() {
+        return Text.translatable("block.tlotd.radio");
+    }
+
+    @Override
+    public ItemStack getPickStack(BlockView world, BlockPos pos, BlockState state) {
+        return ModBlocks.RADIO.asItem().getDefaultStack();
+    }
+
+    @Override
     public void appendTooltip(ItemStack stack, @Nullable BlockView world, List<Text> tooltip, TooltipContext opts) {
         if (!ModConfigs.ALL_SIGNALS_UNLOCKED) {
             tooltip.add(Text.empty());
@@ -196,11 +207,6 @@ public class RadioBlock extends Block {
             tooltip.add(Text.literal(" ").append(Text.translatable("block.tlotd.signal_transmitter").formatted(Formatting.BLUE)));
         }
         super.appendTooltip(stack, world, tooltip, opts);
-    }
-
-    @Override
-    public ItemStack getPickStack(BlockView world, BlockPos pos, BlockState state) {
-        return ModBlocks.RADIO.asItem().getDefaultStack();
     }
 
     private void sendFrequencyMessageAndSound(PlayerEntity player, World world, BlockPos pos, int freq) {

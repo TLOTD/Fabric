@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "#c:steel_raw_materials",
+    "#c:aluminium_raw_materials",
+    "#c:lead_raw_materials",
+    "#c:uranium_raw_materials",
+    "#c:mithril_raw_materials"
+  ]
+}

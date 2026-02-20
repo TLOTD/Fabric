@@ -1,4 +1,4 @@
-// 1.20.1	2026-01-22T11:41:44.0222326	TLOTD/Block Loot Tables
+// 1.20.1	2026-02-12T16:43:04.1368334	TLOTD/Block Loot Tables
 0dd871eb1f6dca98007e63e98f65ad0ccb6b6316 data\tlotd\loot_tables\blocks\megaregolith_brick_stairs.json
 85aceab0c9bc45f79bce5aedfc27f27be5376cce data\tlotd\loot_tables\blocks\potted_athelas.json
 451a64eab353fea7d533301f5182966f9ef02a34 data\tlotd\loot_tables\blocks\red_deepslate.json
@@ -285,8 +285,8 @@ c2de96295f1803d29ed1bc14c244e5113702d23d data\tlotd\loot_tables\blocks\extinguis
 2ab8c9af239476502a2a4e8a5ce10c00673a8c2a data\tlotd\loot_tables\blocks\wooden_blue_berry_milkshake_stein.json
 04f51700dab94a7907e8b098ef0a657ed4f76477 data\tlotd\loot_tables\blocks\fancy_cherry_trapdoor.json
 df0175de78042c48161c18e5f72e5fcd813397ed data\tlotd\loot_tables\blocks\jurassoline_crystal_block.json
-849ad70b940182ef705f51a4869ffa9daeb585c5 data\tlotd\loot_tables\blocks\fancy_pale_oak_planks.json
 6a2ad51c08410f2d8f89c06e09b4a407d67a0de2 data\tlotd\loot_tables\blocks\emerging_skeleton.json
+849ad70b940182ef705f51a4869ffa9daeb585c5 data\tlotd\loot_tables\blocks\fancy_pale_oak_planks.json
 18d2241ddc724f74c52f49715aede08e3f1096aa data\tlotd\loot_tables\blocks\fancy_ginkgo_trapdoor.json
 9462b5fe4b60a924bd76f2afa71e5db5b4cde367 data\tlotd\loot_tables\blocks\raw_mithril_block.json
 c577646deea77b0577626db7f2ace5c85fe38dbe data\tlotd\loot_tables\blocks\framed_glass_tiled_pane.json

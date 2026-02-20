@@ -74,7 +74,7 @@ public class DrinkableHorn extends Item {
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
         if (stack.isOf(ModItems.BEER_GOAT_HORN) || stack.isOf(ModItems.MEAD_GOAT_HORN)) {
-            tooltip.add(Text.translatable("effect.tlotd.drunk").append(Text.literal(" (00:30)")).formatted(Formatting.RED));
+            tooltip.add(Text.translatable("effect.tlotd.drunkenness").append(Text.literal(" (00:30)")).formatted(Formatting.RED));
         }
         super.appendTooltip(stack, world, tooltip, context);
     }

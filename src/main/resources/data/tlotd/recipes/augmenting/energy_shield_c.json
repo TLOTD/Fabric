@@ -1,0 +1,15 @@
+{
+  "type": "tlotd:augmenting",
+  "ingredients": [
+    {
+      "tag": "c:armor"
+    },
+    {
+      "item": "tlotd:augment-energy_shield"
+    }
+  ],
+  "augment": {
+    "item": "tlotd:augment-energy_shield",
+    "count": 5
+  }
+}

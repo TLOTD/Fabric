@@ -93,7 +93,7 @@ public class DrinkableWoodenSteinBlockItem extends BlockItem {
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
         if (stack.isOf(ModBlocks.WOODEN_BEER_STEIN.asItem()) || stack.isOf(ModBlocks.WOODEN_MEAD_STEIN.asItem())) {
-            tooltip.add(Text.translatable("effect.tlotd.drunk").append(Text.literal(" (00:30)")).formatted(Formatting.RED));
+            tooltip.add(Text.translatable("effect.tlotd.drunkenness").append(Text.literal(" (00:30)")).formatted(Formatting.RED));
         }
         if (context.isCreative() && !compat.isEmpty()){
             Style style = this.getName().getStyle();

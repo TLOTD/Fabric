@@ -1,7 +1,0 @@
-{
-  "replace": false,
-  "values": [
-    "minecraft:glass_pane",
-    "#c:framed_colorless_glass_panes"
-  ]
-}

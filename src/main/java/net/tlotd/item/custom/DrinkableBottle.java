@@ -77,7 +77,7 @@ public class DrinkableBottle extends Item {
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
         if (stack.isOf(ModItems.BEER_BOTTLE) || stack.isOf(ModItems.MEAD_BOTTLE)) {
-            tooltip.add(Text.translatable("effect.tlotd.drunk").append(Text.literal(" (00:10)")).formatted(Formatting.RED));
+            tooltip.add(Text.translatable("effect.tlotd.drunkenness").append(Text.literal(" (00:10)")).formatted(Formatting.RED));
         } else if (stack.isOf(ModItems.SPEZI_BOTTLE)) {
             tooltip.add(Text.translatable("effect.minecraft.speed").append(Text.literal(" (00:10)")).formatted(Formatting.BLUE));
         }

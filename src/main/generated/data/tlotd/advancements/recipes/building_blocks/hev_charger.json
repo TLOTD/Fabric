@@ -13,6 +13,30 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
+    "has_battery": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "tlotd:battery"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_gold_wire": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "tlotd:gold_wire"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
     "has_liquid_crystal_display_panel": {
       "conditions": {
         "items": [
@@ -59,9 +83,11 @@
   "requirements": [
     [
       "has_xen_crystal",
-      "has_liquid_crystal_display_panel",
-      "has_advanced_circuit_board",
       "has_steel_ingot",
+      "has_liquid_crystal_display_panel",
+      "has_gold_wire",
+      "has_advanced_circuit_board",
+      "has_battery",
       "has_the_recipe"
     ]
   ],

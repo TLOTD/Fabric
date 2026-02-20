@@ -1,0 +1,15 @@
+{
+  "type": "tlotd:augmenting",
+  "ingredients": [
+    {
+      "tag": "c:armor"
+    },
+    {
+      "item": "tlotd:augment-thermal_cooling"
+    }
+  ],
+  "augment": {
+    "item": "tlotd:augment-thermal_cooling",
+    "count": 1
+  }
+}

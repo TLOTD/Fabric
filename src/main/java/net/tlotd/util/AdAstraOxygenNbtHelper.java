@@ -4,6 +4,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtElement;
 import net.minecraft.nbt.NbtList;
+import org.jetbrains.annotations.NotNull;
 
 import static net.tlotd.util.AugmentNbtHelper.getAugmentLevel;
 
@@ -11,12 +12,19 @@ public class AdAstraOxygenNbtHelper {
     public static final String FLUID_ID = "ad_astra:oxygen";
     public static final long MAX_AMOUNT = 81000L;
 
-    public static long getMaxOxygenForChestplate(ItemStack stack) {
-        if (stack.isIn(ModTags.Items.OXYGEN_STORING_4K)) return MAX_AMOUNT*4;
-        if (stack.isIn(ModTags.Items.OXYGEN_STORING_2K)) return MAX_AMOUNT*2;
-        if (stack.isIn(ModTags.Items.OXYGEN_STORING_1K)) return MAX_AMOUNT;
-        if (getAugmentLevel(stack, "tlotd:oxygen_tank") > 0) return MAX_AMOUNT*getAugmentLevel(stack, "tlotd:oxygen_tank");
-        return 0;
+    public static long getMaxOxygenItem(ItemStack stack) {
+        int max = 0;
+        if (stack.isIn(ModTags.Items.OXYGEN_STORING_4K)) {
+            max = 4;
+        } else if (stack.isIn(ModTags.Items.OXYGEN_STORING_2K)) {
+            max = 2;
+        } else if (stack.isIn(ModTags.Items.OXYGEN_STORING_1K)) {
+            max = 1;
+        }
+        if (getAugmentLevel(stack, "tlotd:oxygen_tank") > 0) {
+            max = max + getAugmentLevel(stack, "tlotd:oxygen_tank");
+        }
+        return max*MAX_AMOUNT;
     }
 
     public static long getOxygen(ItemStack stack) {
@@ -33,7 +41,7 @@ public class AdAstraOxygenNbtHelper {
     }
 
     public static void setOxygen(ItemStack stack, long amount) {
-        amount = Math.min(amount, getMaxOxygenForChestplate(stack));
+        amount = Math.min(amount, getMaxOxygenItem(stack));
         amount = Math.max(amount, 0);
         NbtCompound root = stack.getOrCreateNbt();
         NbtCompound botarium = root.getCompound("BotariumData");
@@ -51,5 +59,22 @@ public class AdAstraOxygenNbtHelper {
         botarium.put("StoredFluids", fluids);
         root.put("BotariumData", botarium);
         stack.setNbt(root);
+    }
+
+    public static @NotNull String getOxygenString(double oxygenAmount) {
+        int displayAmount = (int) Math.round(oxygenAmount * 1000 / AdAstraOxygenNbtHelper.MAX_AMOUNT);
+        String formattedOxygen;
+        if (displayAmount >= 1000) {
+            int thousands = displayAmount / 1000;
+            int hundreds = (displayAmount % 1000) / 100;
+            if (hundreds == 0) {
+                formattedOxygen = thousands + "K";
+            } else {
+                formattedOxygen = thousands + "." + hundreds + "K";
+            }
+        } else {
+            formattedOxygen = String.valueOf(displayAmount);
+        }
+        return formattedOxygen;
     }
 }

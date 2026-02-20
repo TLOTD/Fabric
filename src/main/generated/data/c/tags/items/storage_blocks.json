@@ -1,0 +1,14 @@
+{
+  "replace": false,
+  "values": [
+    "#c:steel_blocks",
+    "#c:aluminium_blocks",
+    "#c:raw_aluminium_blocks",
+    "#c:lead_blocks",
+    "#c:raw_lead_blocks",
+    "#c:uranium_blocks",
+    "#c:raw_uranium_blocks",
+    "#c:mithril_blocks",
+    "#c:raw_mithril_blocks"
+  ]
+}

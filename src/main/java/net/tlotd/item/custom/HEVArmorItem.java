@@ -1,15 +1,9 @@
 package net.tlotd.item.custom;
 
-import net.minecraft.client.item.TooltipContext;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ArmorMaterial;
 import net.minecraft.item.ItemStack;
-import net.minecraft.text.Text;
-import net.minecraft.util.Formatting;
-import net.minecraft.world.World;
-import org.jetbrains.annotations.Nullable;
-
-import java.util.List;
+import net.tlotd.util.EnergyNbtHelper;
 
 public class HEVArmorItem extends ArmorItem {
     public HEVArmorItem(ArmorMaterial material, Type type, Settings settings) {
@@ -17,14 +11,23 @@ public class HEVArmorItem extends ArmorItem {
     }
 
     @Override
-    public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        tooltip.add(Text.empty());
-        tooltip.add(Text.translatable("item.tlotd.radiaton_proof_armor.chargable").formatted(Formatting.GRAY));
-        tooltip.add(Text.translatable("block.tlotd.hev_charger").formatted(Formatting.BLUE));
-        tooltip.add(Text.empty());
-        tooltip.add(Text.translatable("item.tlotd.radiaton_proof_armor.tooltip").formatted(Formatting.GRAY));
-        tooltip.add(Text.translatable("item.tlotd.radiaton_proof_armor.tooltip_2").formatted(Formatting.BLUE));
-        super.appendTooltip(stack, world, tooltip, context);
+    public ItemStack getDefaultStack() {
+        ItemStack base = new ItemStack(this);
+        EnergyNbtHelper.setEnergy(base, 0);
+        return base;
+    }
+
+    public float getProgress(ItemStack stack) {
+        return EnergyNbtHelper.getMaxEnergyItem(stack) - EnergyNbtHelper.getEnergy(stack);
+    }
+
+    @Override
+    public boolean isItemBarVisible(ItemStack stack) {
+        return true;
+    }
+
+    public int getItemBarStep(ItemStack stack) {
+        return Math.round(13.0f - getProgress(stack) * 13.0f / EnergyNbtHelper.getMaxEnergyItem(stack));
     }
 
     @Override

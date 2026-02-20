@@ -5,8 +5,8 @@ import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemPlacementContext;
+import net.minecraft.nbt.NbtCompound;
 import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.DirectionProperty;
@@ -21,6 +21,7 @@ import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.tlotd.block.ModBlocks;
+import net.tlotd.compat.CompatModsCheck;
 import net.tlotd.effect.ModEffects;
 
 public class WoodenSteinBlock extends Block {
@@ -87,25 +88,48 @@ public class WoodenSteinBlock extends Block {
         if (!this.equals(ModBlocks.WOODEN_STEIN)) {
             player.getHungerManager().add(1,0.1f);
             if (this.equals(ModBlocks.WOODEN_BEER_STEIN) || this.equals(ModBlocks.WOODEN_MEAD_STEIN)) {
-                player.addStatusEffect(new StatusEffectInstance(ModEffects.DRUNK, 600));
+                player.addStatusEffect(new StatusEffectInstance(ModEffects.DRUNKENNESS, 600));
+                hydrate(player, 5);
             } else if (this.equals(ModBlocks.WOODEN_MILK_STEIN)) {
                 player.clearStatusEffects();
-            } else if (this.equals(ModBlocks.WOODEN_CARAMEL_MILKSHAKE_STEIN) || this.equals(ModBlocks.WOODEN_STRAWBERRY_MILKSHAKE_STEIN) || this.equals(ModBlocks.WOODEN_ORANGE_MILKSHAKE_STEIN) || this.equals(ModBlocks.WOODEN_CHOCOLATE_MILKSHAKE_STEIN) || this.equals(ModBlocks.WOODEN_BLUE_BERRY_MILKSHAKE_STEIN)) {
+                hydrate(player, 2);
+            } else if (this.equals(ModBlocks.WOODEN_CARAMEL_MILKSHAKE_STEIN) || this.equals(ModBlocks.WOODEN_STRAWBERRY_MILKSHAKE_STEIN) || this.equals(ModBlocks.WOODEN_ORANGE_MILKSHAKE_STEIN) || this.equals(ModBlocks.WOODEN_CHOCOLATE_MILKSHAKE_STEIN) || this.equals(ModBlocks.WOODEN_BLUE_BERRY_MILKSHAKE_STEIN) || this.equals(ModBlocks.WOODEN_TORCHBERRY_MILKSHAKE_STEIN)) {
                 player.clearStatusEffects();
                 player.addStatusEffect(new StatusEffectInstance(StatusEffects.RESISTANCE, 10, 0));
-            } else if (this.equals(ModBlocks.WOODEN_TORCHBERRY_MILKSHAKE_STEIN)) {
-                player.clearStatusEffects();
-                player.addStatusEffect(new StatusEffectInstance(StatusEffects.RESISTANCE, 10, 0));
-                player.addStatusEffect(new StatusEffectInstance(StatusEffects.GLOWING, 10, 0));
+                if (this.equals(ModBlocks.WOODEN_TORCHBERRY_MILKSHAKE_STEIN)) {
+                    player.addStatusEffect(new StatusEffectInstance(StatusEffects.GLOWING, 10, 0));
+                }
+                hydrate(player, 7);
             } else if (this.equals(ModBlocks.HOT_WOODEN_MILK_STEIN) || this.equals(ModBlocks.WOODEN_HOT_CHOCOLATE_STEIN)) {
                 player.clearStatusEffects();
                 player.addStatusEffect(new StatusEffectInstance(StatusEffects.REGENERATION, 1, 3));
+                if (this.equals(ModBlocks.HOT_WOODEN_MILK_STEIN)) {
+                    hydrate(player, 3);
+                } else {
+                    hydrate(player, 5);
+                }
+            } else if (this.equals(ModBlocks.WOODEN_WATER_STEIN)) {
+                hydrate(player, 4);
+            } else {
+                hydrate(player, 6);
             }
             world.playSound(null, pos, SoundEvents.ENTITY_GENERIC_DRINK, SoundCategory.BLOCKS, 1.0f, 1.0f);
             world.setBlockState(pos, ModBlocks.WOODEN_STEIN.getStateWithProperties(state));
             return ActionResult.SUCCESS;
         } else {
             return ActionResult.FAIL;
+        }
+    }
+
+    private void hydrate(PlayerEntity player, int amount) {
+        if (CompatModsCheck.TOUGHASNAILS) {
+            NbtCompound tag = new NbtCompound();
+            player.writeCustomDataToNbt(tag);
+            if (!tag.contains("thirstLevel")) return;
+            int hydration = tag.getInt("thirstLevel");
+            hydration = Math.max(0, Math.min(hydration+amount, 20));
+            tag.putInt("thirstLevel", hydration);
+            player.readCustomDataFromNbt(tag);
         }
     }
 }

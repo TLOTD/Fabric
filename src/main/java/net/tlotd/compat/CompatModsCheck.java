@@ -6,6 +6,8 @@ public class CompatModsCheck {
     public static final boolean FORGE = FabricLoader.getInstance().isModLoaded("forge");
     public static final boolean FABRIC = FabricLoader.getInstance().isModLoaded("fabric");
 
+    public static final boolean TOUGHASNAILS = FabricLoader.getInstance().isModLoaded("toughasnails");
+
     public static final boolean AETHER = FabricLoader.getInstance().isModLoaded("aether");
     public static final boolean ALEXSCAVES = FabricLoader.getInstance().isModLoaded("alexscaves");
     public static final boolean ATM = FabricLoader.getInstance().isModLoaded("allthemodium");
@@ -18,6 +20,7 @@ public class CompatModsCheck {
     public static final boolean SCULKHORDE = FabricLoader.getInstance().isModLoaded("sculkhorde");
     public static final boolean SPORE = FabricLoader.getInstance().isModLoaded("spore");
     public static final boolean THERMAL = FabricLoader.getInstance().isModLoaded("thermal");
+    public static final boolean TCONSTRUCT = FabricLoader.getInstance().isModLoaded("tconstruct");
     public static final boolean TWILIGHTFOREST = FabricLoader.getInstance().isModLoaded("twilightforest");
     public static final boolean UNDERGARDEN = FabricLoader.getInstance().isModLoaded("undergarden");
     public static final boolean WITHERSTORMMOD = FabricLoader.getInstance().isModLoaded("witherstormmod");

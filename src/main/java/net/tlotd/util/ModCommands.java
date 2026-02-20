@@ -3,10 +3,13 @@ package net.tlotd.util;
 import com.mojang.authlib.GameProfile;
 import com.mojang.brigadier.arguments.BoolArgumentType;
 import com.mojang.brigadier.arguments.IntegerArgumentType;
+import com.mojang.brigadier.arguments.StringArgumentType;
+import com.mojang.brigadier.context.CommandContext;
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.minecraft.command.argument.GameProfileArgumentType;
 import net.minecraft.command.argument.RegistryEntryArgumentType;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.entry.RegistryEntry;
@@ -32,15 +35,23 @@ public class ModCommands {
     public static void registerCommands() {
         CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> {
             dispatcher.register(CommandManager.literal("tlotd")
-                            .then(CommandManager.literal("debug")
-                                    .requires(source -> source.hasPermissionLevel(2))
-                                    .executes(context -> {
-                                        TelevisionSignalRegistry.debugDump();
+                    .then(CommandManager.literal("debug")
+                            .requires(source -> source.hasPermissionLevel(2))
+                            .executes(context -> {
+                                    TelevisionSignalRegistry.debugDump();
                                         VideoGameRegistry.debugDump();
                                         context.getSource().sendFeedback(() -> Text.literal("Dumped TV signal & Video Game registries to console."), false);
                                         return 1;
                                     })
                             )
+                    .then(CommandManager.literal("augment")
+                            .requires(source -> source.hasPermissionLevel(2))
+                            .then(CommandManager.literal("add")
+                                    .then(CommandManager.argument("id", StringArgumentType.string())
+                                            .then(CommandManager.argument("level", IntegerArgumentType.integer(1))
+                                                    .executes(ModCommands::addAugment)
+                                            )))
+                    )
                     .then(CommandManager.literal("signal")
                             .requires(source -> source.hasPermissionLevel(2))
                             .then(CommandManager.literal("add")
@@ -293,5 +304,22 @@ public class ModCommands {
                     )
             );
         });
+    }
+
+    private static int addAugment(CommandContext<ServerCommandSource> ctx) {
+        ServerPlayerEntity player = ctx.getSource().getPlayer();
+        ItemStack stack = player.getMainHandStack();
+        if (stack.isEmpty()) {
+            ctx.getSource().sendError(Text.literal("Hold an item first."));
+            return 0;
+        }
+        String id = StringArgumentType.getString(ctx, "id");
+        int level = IntegerArgumentType.getInteger(ctx, "level");
+        AugmentNbtHelper.addOrUpdateAugment(stack, id, level, 127);
+        ctx.getSource().sendFeedback(
+                () -> Text.literal("Added augment " + id + " level " + level),
+                false
+        );
+        return 1;
     }
 }

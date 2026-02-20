@@ -4,6 +4,7 @@ import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentTarget;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.ItemStack;
+import net.tlotd.item.ModItems;
 import net.tlotd.item.custom.MithrilMirrorItem;
 import net.tlotd.item.custom.PipeItem;
 
@@ -19,7 +20,7 @@ public class RefillChargesEnchantment extends Enchantment {
 
     @Override
     public boolean isAcceptableItem(ItemStack stack) {
-        return stack.getItem() instanceof PipeItem || stack.getItem() instanceof MithrilMirrorItem;
+        return (stack.getItem() instanceof PipeItem && !stack.isOf(ModItems.JOINT)) || stack.getItem() instanceof MithrilMirrorItem;
     }
 
     @Override

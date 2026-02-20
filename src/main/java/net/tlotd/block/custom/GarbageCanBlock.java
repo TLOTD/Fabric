@@ -25,10 +25,7 @@ import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
-import net.minecraft.world.event.GameEvent;
 import net.tlotd.block.entity.GarbageCanBlockEntity;
-import net.tlotd.block.entity.KeycardReaderBlockEntity;
-import net.tlotd.item.ModItems;
 import net.tlotd.sound.ModSounds;
 import org.jetbrains.annotations.Nullable;
 
@@ -78,7 +75,7 @@ public class GarbageCanBlock extends BlockWithEntity implements BlockEntityProvi
             Block.createCuboidShape(1, 13, 1, 15, 16, 3),
             Block.createCuboidShape(1, 13, 13, 15, 16, 15),
             Block.createCuboidShape(13, 13, 1, 15, 16, 15)
-            );
+    );
 
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
@@ -102,17 +99,15 @@ public class GarbageCanBlock extends BlockWithEntity implements BlockEntityProvi
         if (!world.isClient && blockEntity instanceof GarbageCanBlockEntity garbageCanBlockEntity) {
             if (player.isSneaking()) {
                 if (player.getInventory().getEmptySlot() == -1) {
-                    Block.dropStack(world, pos.up(), garbageCanBlockEntity.getStack(0));
+                    Block.dropStack(world, pos.up(), garbageCanBlockEntity.getStack(1));
                 } else {
-                    player.setStackInHand(hand, garbageCanBlockEntity.getStack(0));
+                    player.setStackInHand(hand, garbageCanBlockEntity.getStack(1));
                 }
-                garbageCanBlockEntity.setStack(0, garbageCanBlockEntity.getStack(1));
                 garbageCanBlockEntity.setStack(1, garbageCanBlockEntity.getStack(2));
-                garbageCanBlockEntity.setStack(2, ItemStack.EMPTY);
+                garbageCanBlockEntity.setStack(2, garbageCanBlockEntity.getStack(3));
+                garbageCanBlockEntity.setStack(3, ItemStack.EMPTY);
                 world.playSound(null,pos, ModSounds.BLOCK_GARBAGE_CAN_USED, SoundCategory.BLOCKS, 1.0f, 1.0f);
             } else if (!stack.isEmpty()) {
-                garbageCanBlockEntity.setStack(2, garbageCanBlockEntity.getStack(1));
-                garbageCanBlockEntity.setStack(1, garbageCanBlockEntity.getStack(0));
                 garbageCanBlockEntity.setStack(0, stack);
                 player.setStackInHand(hand, ItemStack.EMPTY);
                 world.playSound(null,pos, ModSounds.BLOCK_GARBAGE_CAN_USED, SoundCategory.BLOCKS, 1.0f, 1.0f);

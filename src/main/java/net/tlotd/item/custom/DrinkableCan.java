@@ -92,7 +92,7 @@ public class DrinkableCan extends Item {
             tooltip.add(Text.translatable("item.infinite").formatted(Formatting.GOLD));
         }
         if (stack.isOf(ModItems.BEER_CAN) || stack.isOf(ModItems.BOTTOMLESS_BEER_CAN)) {
-            tooltip.add(Text.translatable("effect.tlotd.drunk").append(Text.literal(" (00:10)")).formatted(Formatting.RED));
+            tooltip.add(Text.translatable("effect.tlotd.drunkenness").append(Text.literal(" (00:10)")).formatted(Formatting.RED));
         } else if (stack.isOf(ModItems.SPEZI_CAN)) {
             tooltip.add(Text.translatable("effect.minecraft.speed").append(Text.literal(" (00:10)")).formatted(Formatting.BLUE));
         }

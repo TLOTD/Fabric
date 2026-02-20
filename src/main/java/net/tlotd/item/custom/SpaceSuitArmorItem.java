@@ -1,19 +1,13 @@
 package net.tlotd.item.custom;
 
-import net.minecraft.client.gui.screen.Screen;
-import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ArmorMaterial;
 import net.minecraft.item.ItemStack;
 import net.minecraft.text.Text;
-import net.minecraft.util.Formatting;
 import net.minecraft.world.World;
 import net.tlotd.util.AdAstraOxygenNbtHelper;
-import org.jetbrains.annotations.Nullable;
-
-import java.util.List;
 
 public class SpaceSuitArmorItem extends ArmorItem {
     public SpaceSuitArmorItem(ArmorMaterial material, Type type, Settings settings) {
@@ -42,39 +36,8 @@ public class SpaceSuitArmorItem extends ArmorItem {
         }
     }
 
-    @Override
-    public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        String oxygen = "0 \uD83E\uDEA3 / 1K \uD83E\uDEA3";
-        if (Screen.hasShiftDown()) {
-            oxygen = "0 \uD83E\uDEA3 / 1,000 \uD83E\uDEA3";
-            if (stack.hasNbt()) {
-                long oxygenAmount = AdAstraOxygenNbtHelper.getOxygen(stack);
-                int displayAmount = (int) Math.round((double) oxygenAmount * 1000 / AdAstraOxygenNbtHelper.MAX_AMOUNT);
-                String formattedOxygen = String.format("%,d", displayAmount);
-                oxygen = formattedOxygen + " \uD83E\uDEA3 / 1,000 \uD83E\uDEA3";
-            }
-        } else {
-            if (stack.hasNbt()) {
-                long oxygenAmount = AdAstraOxygenNbtHelper.getOxygen(stack);
-                int displayAmount = (int) Math.round((double) oxygenAmount * 1000 / AdAstraOxygenNbtHelper.MAX_AMOUNT);
-                String formattedOxygen;
-                if (displayAmount == 1000) {
-                    formattedOxygen = "1K";
-                } else {
-                    formattedOxygen = String.valueOf(displayAmount);
-                }
-                oxygen = formattedOxygen + " \uD83E\uDEA3 / 1K \uD83E\uDEA3";
-            }
-        }
-        tooltip.add(Text.translatable("item.tlotd.oxygen_level.tooltip", oxygen).formatted(Formatting.GOLD));
-        tooltip.add(Text.empty());
-        tooltip.add(Text.translatable("item.tlotd.hypoxia_proof_armor.tooltip").formatted(Formatting.GRAY));
-        tooltip.add(Text.literal(" ").append(Text.translatable("item.tlotd.hypoxia_proof_armor.tooltip_2").formatted(Formatting.BLUE)));
-        super.appendTooltip(stack, world, tooltip, context);
-    }
-
     public float getProgress(ItemStack stack) {
-        return AdAstraOxygenNbtHelper.MAX_AMOUNT - AdAstraOxygenNbtHelper.getOxygen(stack);
+        return AdAstraOxygenNbtHelper.getMaxOxygenItem(stack) - AdAstraOxygenNbtHelper.getOxygen(stack);
     }
 
     @Override
@@ -83,7 +46,7 @@ public class SpaceSuitArmorItem extends ArmorItem {
     }
 
     public int getItemBarStep(ItemStack stack) {
-        return Math.round(13.0f - getProgress(stack) * 13.0f / AdAstraOxygenNbtHelper.MAX_AMOUNT);
+        return Math.round(13.0f - getProgress(stack) * 13.0f / AdAstraOxygenNbtHelper.getMaxOxygenItem(stack));
     }
 
     @Override

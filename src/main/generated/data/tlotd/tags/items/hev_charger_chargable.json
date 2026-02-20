@@ -3,6 +3,7 @@
   "values": [
     "tlotd:hev_suit_chestplate",
     "tlotd:hev_suit_leggings",
-    "tlotd:hev_suit_boots"
+    "tlotd:hev_suit_boots",
+    "#tlotd:mekanism_chargable"
   ]
 }

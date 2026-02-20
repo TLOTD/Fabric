@@ -68,32 +68,9 @@ public class TRexHeadBlock extends Block implements Equipment {
 
     private static final VoxelShape BASE_SHAPE = Block.createCuboidShape(2,0,2,14,15,14);
 
-    public static final VoxelShape WEST_SHAPE = VoxelShapes.union(
-            Block.createCuboidShape(14.0, 0.0, 2.0, 32.0, 14.0, 14.0),
-            BASE_SHAPE
-    );
-    public static final VoxelShape NORTH_SHAPE = VoxelShapes.union(
-            Block.createCuboidShape(2.0, 0.0, 14.0, 14.0, 14.0, 32.0),
-            BASE_SHAPE
-    );
-    public static final VoxelShape EAST_SHAPE = VoxelShapes.union(
-            Block.createCuboidShape(-16.0, 0.0, 2.0, 2.0, 14.0, 14.0),
-            BASE_SHAPE
-    );
-    public static final VoxelShape SOUTH_SHAPE = VoxelShapes.union(
-            Block.createCuboidShape(2.0, 0.0, -16.0, 14.0, 14.0, 2.0),
-            BASE_SHAPE
-    );
-
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        return switch (state.get(ROTATION)) {
-            case 15, 0, 1 -> SOUTH_SHAPE;
-            case 3, 4, 5 -> WEST_SHAPE;
-            case 7, 8, 9 -> NORTH_SHAPE;
-            case 11, 12, 13 -> EAST_SHAPE;
-            default -> BASE_SHAPE;
-        };
+        return BASE_SHAPE;
     }
 
     @Override

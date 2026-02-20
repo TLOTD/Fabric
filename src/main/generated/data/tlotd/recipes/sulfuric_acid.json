@@ -1,0 +1,32 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "sulfuric_acid",
+  "ingredients": [
+    {
+      "tag": "c:sulfur_dusts"
+    },
+    {
+      "tag": "c:sulfur_dusts"
+    },
+    {
+      "tag": "c:sulfur_dusts"
+    },
+    {
+      "item": "minecraft:glass_bottle"
+    },
+    {
+      "item": "minecraft:glass_bottle"
+    },
+    {
+      "item": "minecraft:glass_bottle"
+    },
+    {
+      "item": "minecraft:water_bucket"
+    }
+  ],
+  "result": {
+    "count": 3,
+    "item": "tlotd:sulfuric_acid"
+  }
+}

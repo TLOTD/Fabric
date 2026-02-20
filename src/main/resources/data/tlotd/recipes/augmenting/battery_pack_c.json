@@ -1,0 +1,15 @@
+{
+  "type": "tlotd:augmenting",
+  "ingredients": [
+    {
+      "tag": "c:armor"
+    },
+    {
+      "item": "tlotd:augment-battery_pack"
+    }
+  ],
+  "augment": {
+    "item": "tlotd:augment-battery_pack",
+    "count": 4
+  }
+}

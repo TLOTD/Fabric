@@ -2,14 +2,27 @@ package net.tlotd.block.entity;
 
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.fabricmc.fabric.api.transfer.v1.fluid.FluidStorage;
+import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntityType;
+import net.minecraft.block.enums.WallMountLocation;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.state.property.EnumProperty;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.math.Direction;
 import net.tlotd.TLOTD;
 import net.tlotd.block.ModBlocks;
+import net.tlotd.block.custom.HEVChargerBlock;
+import team.reborn.energy.api.EnergyStorage;
 
 public class ModBlockEntities {
+    public static final BlockEntityType<HEVChargerBlockEntity> HEV_CHARGER_BLOCK_ENTITY =
+            Registry.register(Registries.BLOCK_ENTITY_TYPE, new Identifier(TLOTD.MOD_ID, "hev_charger_block_entity"),
+                    FabricBlockEntityTypeBuilder.create(HEVChargerBlockEntity::new,
+                            ModBlocks.HEV_CHARGER).build());
+
+
+
     public static final BlockEntityType<MithrilAnvilBlockEntity> MITHRIL_ANVIL_BLOCK_ENTITY =
             Registry.register(Registries.BLOCK_ENTITY_TYPE, new Identifier(TLOTD.MOD_ID, "mithril_anvil_block_entity"),
                     FabricBlockEntityTypeBuilder.create(MithrilAnvilBlockEntity::new,
@@ -56,8 +69,30 @@ public class ModBlockEntities {
                             ModBlocks.TELEPORTER).build());
 
     public static void registerBlockEntities() {
-        FluidStorage.SIDED.registerForBlockEntity((blockEntity, direction) -> blockEntity.fluidStorage, WITCHING_TABLE_BLOCK_ENTITY);
-
+        FluidStorage.SIDED.registerForBlockEntity(
+                (blockEntity, direction) -> {
+                    if (direction == Direction.UP) {
+                        return null;
+                    } else return blockEntity.fluidStorage;
+                },
+                WITCHING_TABLE_BLOCK_ENTITY
+        );
+        EnergyStorage.SIDED.registerForBlockEntity(
+                (blockEntity, direction) -> {
+                    BlockState state = blockEntity.getCachedState();
+                    WallMountLocation face = state.get(HEVChargerBlock.FACE);
+                    Direction facing = state.get(HEVChargerBlock.FACING);
+                    Direction allowedSide = switch (face) {
+                        case CEILING -> Direction.UP;
+                        case FLOOR -> Direction.DOWN;
+                        case WALL -> facing;
+                    };
+                    return direction == allowedSide
+                            ? blockEntity.energy
+                            : null;
+                },
+                HEV_CHARGER_BLOCK_ENTITY
+        );
         TLOTD.LOGGER.info("Registering Block Entities for " + TLOTD.MOD_ID);
     }
 }

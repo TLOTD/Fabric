@@ -101,14 +101,14 @@ public class OxygenCollectorBlockEntity extends BlockEntity implements ExtendedS
     }
 
     private boolean canBeFilled() {
-        return (this.getStack(0).hasNbt() && this.getStack(0).getNbt().getInt("tlotd:oxygen") < AdAstraOxygenNbtHelper.getMaxOxygenForChestplate(this.getStack(0)) || !this.getStack(0).hasNbt());
+        return (this.getStack(0).hasNbt() && this.getStack(0).getNbt().getInt("tlotd:oxygen") < AdAstraOxygenNbtHelper.getMaxOxygenItem(this.getStack(0)) || !this.getStack(0).hasNbt());
     }
 
     private void fillOxygen() {
         ItemStack stack = this.getStack(0);
         if (stack.isEmpty()) return;
         long current = AdAstraOxygenNbtHelper.getOxygen(stack);
-        long next = Math.min(current + (quality * 81L), AdAstraOxygenNbtHelper.getMaxOxygenForChestplate(stack));
+        long next = Math.min(current + (quality * 81L), AdAstraOxygenNbtHelper.getMaxOxygenItem(stack));
         AdAstraOxygenNbtHelper.setOxygen(stack, next);
     }
 }

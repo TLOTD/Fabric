@@ -1,0 +1,65 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "mekanism:seismic_reader",
+      "required": false
+    },
+    {
+      "id": "mekanism:configurator",
+      "required": false
+    },
+    {
+      "id": "mekanism:network_reader",
+      "required": false
+    },
+    {
+      "id": "mekanism:free_runners",
+      "required": false
+    },
+    {
+      "id": "mekanism:free_runners_armored",
+      "required": false
+    },
+    {
+      "id": "mekanism:robit",
+      "required": false
+    },
+    {
+      "id": "mekanism:electric_bow",
+      "required": false
+    },
+    {
+      "id": "mekanism:atomic_disassembler",
+      "required": false
+    },
+    {
+      "id": "mekanism:energy_tablet",
+      "required": false
+    },
+    {
+      "id": "mekanism:portable_teleporter",
+      "required": false
+    },
+    {
+      "id": "mekanism:meka_tool",
+      "required": false
+    },
+    {
+      "id": "mekanism:mekasuit_helmet",
+      "required": false
+    },
+    {
+      "id": "mekanism:mekasuit_bodyarmor",
+      "required": false
+    },
+    {
+      "id": "mekanism:mekasuit_pants",
+      "required": false
+    },
+    {
+      "id": "mekanism:mekasuit_boots",
+      "required": false
+    }
+  ]
+}

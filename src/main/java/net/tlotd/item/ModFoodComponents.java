@@ -36,8 +36,8 @@ public class ModFoodComponents {
     public static final FoodComponent WOODEN_LIQUID_STEIN = (new FoodComponent.Builder()).hunger(1).saturationModifier(0.1F).build();
 
     public static final FoodComponent SMALL_SPEZI = (new FoodComponent.Builder()).hunger(1).saturationModifier(0.1F).statusEffect(new StatusEffectInstance(StatusEffects.SPEED, 200, 0), 1.0F).build();
-    public static final FoodComponent SMALL_BEER = (new FoodComponent.Builder()).hunger(1).saturationModifier(0.1F).statusEffect(new StatusEffectInstance(ModEffects.DRUNK, 200, 0), 1.0F).build();
-    public static final FoodComponent LARGE_BEER = (new FoodComponent.Builder()).hunger(1).saturationModifier(0.1F).statusEffect(new StatusEffectInstance(ModEffects.DRUNK, 600, 0), 1.0F).build();
+    public static final FoodComponent SMALL_BEER = (new FoodComponent.Builder()).hunger(1).saturationModifier(0.1F).statusEffect(new StatusEffectInstance(ModEffects.DRUNKENNESS, 200, 0), 1.0F).build();
+    public static final FoodComponent LARGE_BEER = (new FoodComponent.Builder()).hunger(1).saturationModifier(0.1F).statusEffect(new StatusEffectInstance(ModEffects.DRUNKENNESS, 600, 0), 1.0F).build();
 
     public static final FoodComponent CURED_MEAT = new FoodComponent.Builder().hunger(3).saturationModifier(0.3f).meat().build();
     public static final FoodComponent COOKED_MEAT = new FoodComponent.Builder().hunger(6).saturationModifier(0.6f).meat().build();

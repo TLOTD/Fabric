@@ -18,6 +18,7 @@ import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.DirectionProperty;
 import net.minecraft.state.property.Properties;
+import net.minecraft.text.MutableText;
 import net.minecraft.text.Text;
 import net.minecraft.util.*;
 import net.minecraft.util.hit.BlockHitResult;
@@ -110,6 +111,17 @@ public class TelevisionModifierBlock extends Block {
     }
 
     @Override
+    public MutableText getName() {
+        if (this.asBlock().equals(ModBlocks.VIDEOCASSETTE_RECORDER)) {
+            return Text.translatable("block.tlotd.videocassette_recorder");
+        } else if (this.asBlock().equals(ModBlocks.GAME_CONSOLE)) {
+            return Text.translatable("block.tlotd.game_console");
+        } else {
+            return Text.translatable("block.minecraft.chiseled_bookshelf");
+        }
+    }
+
+    @Override
     public ItemStack getPickStack(BlockView world, BlockPos pos, BlockState state) {
         if (state.getBlock().equals(ModBlocks.VIDEOCASSETTE_RECORDER)) {
             return ModBlocks.VIDEOCASSETTE_RECORDER.asItem().getDefaultStack();
@@ -135,10 +147,7 @@ public class TelevisionModifierBlock extends Block {
                             .with(CHANNEL, entry.channel());
                     world.setBlockState(tvPos, newState, 3);
                 } else if (stack.isOf(ModItems.VHS_CASSETTE)) {
-                        Optional<TelevisionSignalRegistry.SignalEntry> currentEntry =
-                                TelevisionSignalRegistry.getAll().stream()
-                                        .filter(e -> e.onBlock() == tvState.getBlock())
-                                        .findFirst();
+                        Optional<TelevisionSignalRegistry.SignalEntry> currentEntry = TelevisionSignalRegistry.getAll().stream().filter(e -> e.onBlock() == tvState.getBlock() && tvState.get(CHANNEL) == e.channel()).findFirst();
                         stack.decrement(1);
                         if (currentEntry.isPresent()) {
                             Identifier signalId = currentEntry.get().signalItem();

@@ -2,7 +2,7 @@
   "type": "tlotd:augmenting",
   "ingredients": [
     {
-      "tag": "c:armor"
+      "tag": "c:damagable"
     },
     {
       "item": "tlotd:augment-photosynthesis"

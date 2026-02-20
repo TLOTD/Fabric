@@ -16,7 +16,6 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.event.GameEvent;
 import net.tlotd.block.entity.KeycardReaderBlockEntity;
-import net.tlotd.item.ModItems;
 import net.tlotd.sound.ModSounds;
 import net.tlotd.util.ModTags;
 import org.jetbrains.annotations.Nullable;

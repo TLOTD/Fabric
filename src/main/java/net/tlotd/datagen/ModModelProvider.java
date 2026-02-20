@@ -253,6 +253,9 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.COPPER_NUGGET, Models.GENERATED);
         itemModelGenerator.register(ModItems.SULFUR, Models.GENERATED);
 
+        itemModelGenerator.register(ModItems.SULFURIC_ACID, Models.GENERATED);
+        itemModelGenerator.register(ModItems.BATTERY, Models.GENERATED);
+
         itemModelGenerator.register(ModItems.OAK_BARK, Models.GENERATED);
         itemModelGenerator.register(ModItems.SPRUCE_BARK, Models.GENERATED);
         itemModelGenerator.register(ModItems.BIRCH_BARK, Models.GENERATED);

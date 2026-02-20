@@ -13,11 +13,14 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "B": {
+    "D": {
       "item": "minecraft:black_dye"
     },
     "C": {
       "item": "tlotd:circuit_board"
+    },
+    "B": {
+      "item": "tlotd:battery"
     },
     "G": {
       "tag": "tlotd:wires_2"
@@ -27,9 +30,9 @@
     }
   },
   "pattern": [
-    "BIG",
-    "CCC",
-    "IGB"
+    "DIG",
+    "CBC",
+    "IGD"
   ],
   "result": {
     "item": "tlotd:advanced_circuit_board"

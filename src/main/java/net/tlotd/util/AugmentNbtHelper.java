@@ -88,6 +88,8 @@ public class AugmentNbtHelper {
             return;
         }
         nbt.remove("Augments");
+        nbt.remove("mekData");
+        nbt.remove("BotariumData");
         if (nbt.isEmpty()) {
             stack.setNbt(null);
         }

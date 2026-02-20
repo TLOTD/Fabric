@@ -897,6 +897,26 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.WHITE_JACK_O_LANTERN)
         ;
 
+        getOrCreateTagBuilder(TagKey.of(RegistryKeys.BLOCK, new Identifier("c", "framed_colorless_glass")))
+                .add(ModBlocks.FRAMED_GLASS)
+                .add(ModBlocks.FRAMED_GLASS_BOTTOM)
+                .add(ModBlocks.FRAMED_GLASS_MIDDLE)
+                .add(ModBlocks.FRAMED_GLASS_TOP)
+                .add(ModBlocks.FRAMED_GLASS_ROUND)
+                .add(ModBlocks.FRAMED_GLASS_SPLIT)
+                .add(ModBlocks.FRAMED_GLASS_TILED)
+        ;
+
+        getOrCreateTagBuilder(TagKey.of(RegistryKeys.BLOCK, new Identifier("c", "framed_colorless_glass_panes")))
+                .add(ModBlocks.FRAMED_GLASS_PANE)
+                .add(ModBlocks.FRAMED_GLASS_BOTTOM_PANE)
+                .add(ModBlocks.FRAMED_GLASS_MIDDLE_PANE)
+                .add(ModBlocks.FRAMED_GLASS_TOP_PANE)
+                .add(ModBlocks.FRAMED_GLASS_ROUND_PANE)
+                .add(ModBlocks.FRAMED_GLASS_SPLIT_PANE)
+                .add(ModBlocks.FRAMED_GLASS_TILED_PANE)
+        ;
+
         getOrCreateTagBuilder(BlockTags.BEACON_BASE_BLOCKS)
                 .add(ModBlocks.ALUMINIUM_BLOCK)
                 .add(ModBlocks.HELIORITE_BLOCK)

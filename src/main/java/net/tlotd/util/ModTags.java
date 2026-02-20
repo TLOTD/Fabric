@@ -201,8 +201,8 @@ public class ModTags {
         public static final TagKey<Item> GINKGO_LOGS =
                 createTag("ginkgo_logs");
 
-        public static final TagKey<Item> WOODEN_LIQUID_STEINS =
-                createTag("wooden_liquid_steins");
+        public static final TagKey<Item> FILLED_WOODEN_STEINS =
+                createTag("filled_wooden_steins");
 
         public static final TagKey<Item> MOUTH_OF_THE_ABYSS =
                 createTag("mouth_of_the_abyss");
@@ -224,6 +224,15 @@ public class ModTags {
 
         public static final TagKey<Item> HEV_CHARGER_CHARGABLE =
                 createTag("hev_charger_chargable");
+
+        public static final TagKey<Item> ENERGY_SHIELD_WITHOUT_HELMET =
+                createTag("energy_shield_without_helmet");
+
+        public static final TagKey<Item> ENERGY_SHIELD =
+                createTag("energy_shield");
+
+        public static final TagKey<Item> MEKANISM_CHARGABLE =
+                createTag("mekanism_chargable");
 
         public static final TagKey<Item> RADIATION_PROTECTION =
                 createTag("radiation_protection");

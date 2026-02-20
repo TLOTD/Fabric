@@ -100,7 +100,7 @@ public class ModItems {
 
     public static final Item PIPE_WEED_SEEDS = registerItem("pipe_weed_seeds", new AliasedBlockItem(ModBlocks.PIPE_WEED_PLANT, new FabricItemSettings()));
     public static final Item PIPE_WEED = registerItem("pipe_weed", new Item(new FabricItemSettings()));
-
+    public static final Item JOINT = registerItem("joint", new PipeItem(new FabricItemSettings().maxCount(1)));
     public static final Item PIPE = registerItem("pipe", new PipeItem(new FabricItemSettings().maxCount(1)));
     public static final Item PIPE_WEED_PIPE = registerItem("pipe_weed_pipe", new PipeItem(new FabricItemSettings().maxCount(1)));
 
@@ -130,6 +130,7 @@ public class ModItems {
     public static final Item MUSIC_DISC_4 = registerItem("music_disc_4", new MusicDiscItem(1, ModSounds.RADIO_FREQUENCY_4, new FabricItemSettings().rarity(Rarity.RARE).maxCount(1),131));
 
     public static final Item VHS_CASSETTE = registerItem("vhs_cassette", new VHSCassetteItem(new FabricItemSettings().rarity(Rarity.RARE).maxCount(1)));
+    public static final Item VHS_CASSETTE_BROKEN = registerItem("vhs_cassette_broken", new VHSCassetteItem(new FabricItemSettings().rarity(Rarity.RARE).maxCount(1)));
     public static final Item VHS_CASSETTE_1 = registerItem("vhs_cassette_1", new VHSCassetteItem(new FabricItemSettings().rarity(Rarity.RARE).maxCount(1)));
     public static final Item VHS_CASSETTE_2 = registerItem("vhs_cassette_2", new VHSCassetteItem(new FabricItemSettings().rarity(Rarity.RARE).maxCount(1)));
     public static final Item VHS_CASSETTE_3 = registerItem("vhs_cassette_3", new VHSCassetteItem(new FabricItemSettings().rarity(Rarity.RARE).maxCount(1)));
@@ -140,7 +141,6 @@ public class ModItems {
     public static final Item VHS_CASSETTE_8 = registerItem("vhs_cassette_8", new VHSCassetteItem(new FabricItemSettings().rarity(Rarity.RARE).maxCount(1)));
     public static final Item VHS_CASSETTE_9 = registerItem("vhs_cassette_9", new VHSCassetteItem(new FabricItemSettings().rarity(Rarity.RARE).maxCount(1)));
     public static final Item VHS_CASSETTE_PROJECT_KV31 = registerItem("vhs_cassette_project_kv31", new VHSCassetteItem(new FabricItemSettings().rarity(Rarity.RARE).maxCount(1)));
-    public static final Item VHS_CASSETTE_BROKEN = registerItem("vhs_cassette_broken", new VHSCassetteItem(new FabricItemSettings().rarity(Rarity.RARE).maxCount(1)));
 
     public static final Item GAME_CARTRIDGE = registerItem("game_cartridge", new GameCartridgeItem(new FabricItemSettings().rarity(Rarity.RARE).maxCount(1)));
     public static final Item GAME_CARTRIDGE_1 = registerItem("game_cartridge_1", new GameCartridgeItem(new FabricItemSettings().rarity(Rarity.RARE).maxCount(1)));
@@ -220,6 +220,8 @@ public class ModItems {
     public static final Item COPPER_NUGGET = registerItem("copper_nugget", new Item(new FabricItemSettings()));
 
     public static final Item SULFUR = registerItem("sulfur", new Item(new FabricItemSettings()));
+    public static final Item SULFURIC_ACID = registerItem("sulfuric_acid", new Item(new FabricItemSettings().recipeRemainder(Items.GLASS_BOTTLE)));
+    public static final Item BATTERY = registerItem("battery", new Item(new FabricItemSettings()));
 
     public static final Item RAW_ALUMINIUM = registerItem("raw_aluminium", new Item(new FabricItemSettings()));
     public static final Item ALUMINIUM_NUGGET = registerItem("aluminium_nugget", new Item(new FabricItemSettings()));
@@ -461,7 +463,7 @@ public class ModItems {
     public static final Item DRINK_CAN = registerItem("drink_can", new Item(new FabricItemSettings().maxCount(16)));
     public static final Item SPEZI_CAN = registerItem("spezi_can", new DrinkableCan(new FabricItemSettings().food(ModFoodComponents.SMALL_SPEZI).maxCount(16).recipeRemainder(ModItems.DRINK_CAN)));
     public static final Item BEER_CAN = registerItem("beer_can", new DrinkableCan(new FabricItemSettings().food(ModFoodComponents.SMALL_BEER).maxCount(16).recipeRemainder(ModItems.DRINK_CAN)));
-    public static final Item BOTTOMLESS_BEER_CAN = registerItem("bottomless_beer_can", new DrinkableCan(new FabricItemSettings().food(ModFoodComponents.WOODEN_LIQUID_STEIN).rarity(Rarity.EPIC).maxCount(1).recipeRemainder(ModItems.BOTTOMLESS_BEER_CAN)));
+    public static final Item BOTTOMLESS_BEER_CAN = registerItem("bottomless_beer_can", new DrinkableCan(new FabricItemSettings().food(ModFoodComponents.SMALL_BEER).rarity(Rarity.EPIC).maxCount(1).recipeRemainder(ModItems.BOTTOMLESS_BEER_CAN)));
 
     public static final Item BEER_BOTTLE = registerItem("beer_bottle", new DrinkableBottle(new FabricItemSettings().food(ModFoodComponents.SMALL_BEER).maxCount(16).recipeRemainder(Items.GLASS_BOTTLE)));
     public static final Item BEER_GOAT_HORN = registerItem("beer_goat_horn", new DrinkableHorn(new FabricItemSettings().food(ModFoodComponents.LARGE_BEER).maxCount(16).recipeRemainder(Items.GOAT_HORN)));
@@ -512,6 +514,8 @@ public class ModItems {
     public static final Item AUGMENT_STARLIGHT_BLESSING = registerItem("augment-starlight_blessing", new AugmentItem(new FabricItemSettings().maxCount(1)));
 
     public static final Item AUGMENT_EXTRACTION = registerItem("augment-extraction", new AugmentItem(new FabricItemSettings().maxCount(1)));
+    public static final Item AUGMENT_BATTERY_PACK = registerItem("augment-battery_pack", new AugmentItem(new FabricItemSettings().maxCount(1)));
+    public static final Item AUGMENT_ENERGY_SHIELD = registerItem("augment-energy_shield", new AugmentItem(new FabricItemSettings().maxCount(1)));
     public static final Item AUGMENT_MITHRIL_CHAINMAIL = registerItem("augment-mithril_chainmail", new AugmentItem(new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof().maxCount(1)));
     public static final Item AUGMENT_DRAGON_SCALE_PLATING = registerItem("augment-dragon_scale_plating", new AugmentItem(new FabricItemSettings().fireproof().maxCount(1)));
     public static final Item AUGMENT_LEAD_PLATING = registerItem("augment-lead_plating", new AugmentItem(new FabricItemSettings().maxCount(1)));
@@ -519,6 +523,9 @@ public class ModItems {
     public static final Item AUGMENT_OXYGEN_TANK = registerItem("augment-oxygen_tank", new AugmentItem(new FabricItemSettings().maxCount(1)));
     public static final Item AUGMENT_AIRTIGHT_SEALS = registerItem("augment-airtight_seals", new AugmentItem(new FabricItemSettings().maxCount(1)));
     public static final Item AUGMENT_BULLET_RESISTANCE = registerItem("augment-bullet_resistance", new AugmentItem(new FabricItemSettings().maxCount(1)));
+
+    public static final Item AUGMENT_THERMAL_HEATING = registerItem("augment-thermal_heating", new AugmentItem(new FabricItemSettings().maxCount(1)));
+    public static final Item AUGMENT_THERMAL_COOLING = registerItem("augment-thermal_cooling", new AugmentItem(new FabricItemSettings().maxCount(1)));
 
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registries.ITEM, new Identifier(TLOTD.MOD_ID, name), item);
