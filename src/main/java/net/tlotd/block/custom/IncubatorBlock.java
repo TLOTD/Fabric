@@ -75,19 +75,6 @@ public class IncubatorBlock extends BlockWithEntity implements BlockEntityProvid
         tooltip.add(Text.empty());
         tooltip.add(Text.translatable("block.tlotd.powered_by_computer.tooltip").formatted(Formatting.GRAY));
         tooltip.add(Text.literal(" ").append(Text.translatable("block.tlotd.computer").formatted(Formatting.BLUE)));
-        tooltip.add(Text.empty());
-        if (Screen.hasShiftDown()) {
-            tooltip.add(Text.translatable("text.tlotd.recipe.ponder", Text.translatable("key.keyboard.shift").formatted(Formatting.WHITE)).formatted(Formatting.DARK_GRAY));
-            Style style = this.getName().getStyle();
-            tooltip.add(Text.literal("\uE030\uE000\uE033\uE031\uE034\uE032\uE035").setStyle(style.withFont(RECIPIES_FONT_ID)));
-            tooltip.add(Text.literal("\uE030\uE000\uE033\uE031\uE036\uE032\uE037").setStyle(style.withFont(RECIPIES_FONT_ID)));
-            tooltip.add(Text.literal("\uE030\uE000\uE033\uE031\uE038\uE032\uE039").setStyle(style.withFont(RECIPIES_FONT_ID)));
-            if (CompatModsCheck.SPORE) {
-                tooltip.add(Text.literal("\uE030\uE000\uE039\uE031\uE03A\uE032\uE03B").setStyle(style.withFont(RECIPIES_FONT_ID)));
-            }
-        } else {
-            tooltip.add(Text.translatable("text.tlotd.recipe.ponder", Text.translatable("key.keyboard.shift").formatted(Formatting.GRAY)).formatted(Formatting.DARK_GRAY));
-        }
         super.appendTooltip(stack, world, tooltip, options);
     }
 

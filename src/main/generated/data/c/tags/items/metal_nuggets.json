@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "#c:copper_nuggets",
+    "#c:iron_nuggets",
+    "#c:gold_nuggets",
+    "#c:steel_nuggets",
+    "#c:aluminium_nuggets",
+    "#c:lead_nuggets",
+    "#c:mithril_nuggets"
+  ]
+}

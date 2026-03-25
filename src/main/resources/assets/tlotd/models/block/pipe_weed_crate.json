@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "tlotd:block/crate_bottom",
+    "side": "tlotd:block/pipe_weed_crate_side",
+    "top": "tlotd:block/pipe_weed_crate_top"
+  }
+}

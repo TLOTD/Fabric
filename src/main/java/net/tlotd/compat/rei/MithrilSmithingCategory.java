@@ -19,7 +19,7 @@ import java.util.List;
 
 public class MithrilSmithingCategory implements DisplayCategory<BasicDisplay> {
 
-    public static final Identifier TEXTURE = new Identifier(TLOTD.MOD_ID, "textures/gui/mithril_anvil.png");
+    public static final Identifier TEXTURE = new Identifier(TLOTD.MOD_ID, "textures/gui/rei/mithril_anvil.png");
     public static final CategoryIdentifier<MithrilSmithingDisplay> MITHRIL_SMITHING = CategoryIdentifier.of(TLOTD.MOD_ID, "mithril_smithing");
 
     @Override
@@ -39,24 +39,24 @@ public class MithrilSmithingCategory implements DisplayCategory<BasicDisplay> {
 
     @Override
     public List<Widget> setupDisplay(BasicDisplay display, Rectangle bounds) {
-        final Point startPoint = new Point(bounds.getCenterX() - 87, bounds.getCenterY() - 35);
+        final Point startPoint = new Point(bounds.getCenterX() - 70, bounds.getCenterY() - 25);
         List<Widget> widgets = new LinkedList<>();
-        widgets.add(Widgets.createTexturedWidget(TEXTURE, new Rectangle(startPoint.x, startPoint.y, 175, 82)));
+        widgets.add(Widgets.createTexturedWidget(TEXTURE, new Rectangle(startPoint.x, startPoint.y, 142, 52)));
 
-        widgets.add(Widgets.createSlot(new Point(startPoint.x + 32, startPoint.y + 27))
-                .entries(display.getInputEntries().get(0)));
-        widgets.add(Widgets.createSlot(new Point(startPoint.x + 50, startPoint.y + 18))
-                .entries(display.getInputEntries().get(1)));
-        widgets.add(Widgets.createSlot(new Point(startPoint.x + 50, startPoint.y + 36))
+        widgets.add(Widgets.createSlot(new Point(startPoint.x + 9, startPoint.y + 18))
                 .entries(display.getInputEntries().get(2)));
-        widgets.add(Widgets.createSlot(new Point(startPoint.x + 68, startPoint.y + 27))
+        widgets.add(Widgets.createSlot(new Point(startPoint.x + 27, startPoint.y + 9))
                 .entries(display.getInputEntries().get(3)));
-        widgets.add(Widgets.createSlot(new Point(startPoint.x + 86, startPoint.y + 18))
+        widgets.add(Widgets.createSlot(new Point(startPoint.x + 27, startPoint.y + 27))
                 .entries(display.getInputEntries().get(4)));
-        widgets.add(Widgets.createSlot(new Point(startPoint.x + 104, startPoint.y + 27))
+        widgets.add(Widgets.createSlot(new Point(startPoint.x + 45, startPoint.y + 18))
                 .entries(display.getInputEntries().get(5)));
+        widgets.add(Widgets.createSlot(new Point(startPoint.x + 63, startPoint.y + 9))
+                .entries(display.getInputEntries().get(0)));
+        widgets.add(Widgets.createSlot(new Point(startPoint.x + 81, startPoint.y + 18))
+                .entries(display.getInputEntries().get(1)));
 
-        widgets.add(Widgets.createSlot(new Point(startPoint.x + 140, startPoint.y + 27))
+        widgets.add(Widgets.createSlot(new Point(startPoint.x + 117, startPoint.y + 18))
                 .markOutput().entries(display.getOutputEntries().get(0)));
 
         return widgets;
@@ -64,6 +64,6 @@ public class MithrilSmithingCategory implements DisplayCategory<BasicDisplay> {
 
     @Override
     public int getDisplayHeight() {
-        return 98;
+        return 52;
     }
 }

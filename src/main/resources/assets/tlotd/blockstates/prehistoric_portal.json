@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "tlotd:block/prehistoric_portal_ns"
+    },
+    "axis=z": {
+      "model": "tlotd:block/prehistoric_portal_ew"
+    }
+  }
+}

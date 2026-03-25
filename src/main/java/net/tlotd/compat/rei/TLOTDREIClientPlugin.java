@@ -13,12 +13,36 @@ import net.tlotd.block.ModBlocks;
 import net.tlotd.compat.CompatModsCheck;
 import net.tlotd.fluid.ModFluids;
 import net.tlotd.item.ModItems;
+import net.tlotd.recipe.AugmentationRecipe;
+import net.tlotd.recipe.IncubatonRecipe;
 import net.tlotd.recipe.MithrilSmithingRecipe;
+import net.tlotd.recipe.WitchingRecipe;
 
 public class TLOTDREIClientPlugin implements REIClientPlugin {
 
     @Override
+    public void registerCategories(CategoryRegistry registry) {
+        registry.add(new MithrilSmithingCategory());
+        registry.add(new WitchingTableCategory());
+        registry.add(new AugmentingTableCategory());
+        registry.add(new IncubatorCategory());
+        registry.addWorkstations(MithrilSmithingCategory.MITHRIL_SMITHING, EntryStacks.of(ModBlocks.MITHRIL_ANVIL));
+        registry.addWorkstations(WitchingTableCategory.WITCHING, EntryStacks.of(ModBlocks.WITCHING_TABLE));
+        registry.addWorkstations(AugmentingTableCategory.AUGMENTING, EntryStacks.of(ModBlocks.AUGMENTATION_TABLE));
+        registry.addWorkstations(IncubatorCategory.INCUBATING, EntryStacks.of(ModBlocks.INCUBATOR));
+    }
+
+    @Override
+    public void registerDisplays(DisplayRegistry registry) {
+        registry.registerRecipeFiller(MithrilSmithingRecipe.class, MithrilSmithingRecipe.Type.INSTANCE, MithrilSmithingDisplay::new);
+        registry.registerRecipeFiller(WitchingRecipe.class, WitchingRecipe.Type.INSTANCE, WitchingTableDisplay::new);
+        registry.registerRecipeFiller(AugmentationRecipe.class, AugmentationRecipe.Type.INSTANCE, AugmentingTableDisplay::new);
+        registry.registerRecipeFiller(IncubatonRecipe.class, IncubatonRecipe.Type.INSTANCE, IncubatorDisplay::new);
+    }
+
+    @Override
     public void registerEntries(EntryRegistry registry) {
+        registry.removeEntry(EntryStacks.of(ModItems.BACKROOMS_SIGNAL));
         registry.removeEntry(EntryStacks.of(ModItems.IRRADIATED_ICON));
         registry.removeEntry(EntryStacks.of(ModItems.INCOMPLETE_ALUMINIUM_WIRE));
         registry.removeEntry(EntryStacks.of(ModItems.INCOMPLETE_COPPER_WIRE));
@@ -275,16 +299,5 @@ public class TLOTDREIClientPlugin implements REIClientPlugin {
                 EntryStacks.of(ModItems.AUGMENT_THERMAL_HEATING),
                 EntryStacks.of(ModItems.AUGMENT_THERMAL_COOLING)
         );
-    }
-
-    @Override
-    public void registerCategories(CategoryRegistry registry) {
-        registry.add(new MithrilSmithingCategory());
-        registry.addWorkstations(MithrilSmithingCategory.MITHRIL_SMITHING, EntryStacks.of(ModBlocks.MITHRIL_ANVIL));
-    }
-
-    @Override
-    public void registerDisplays(DisplayRegistry registry) {
-        registry.registerRecipeFiller(MithrilSmithingRecipe.class, MithrilSmithingRecipe.Type.INSTANCE, MithrilSmithingDisplay::new);
     }
 }

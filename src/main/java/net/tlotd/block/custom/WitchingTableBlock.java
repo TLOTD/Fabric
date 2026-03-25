@@ -103,7 +103,6 @@ public class WitchingTableBlock extends BlockWithEntity implements BlockEntityPr
     public static final Identifier DEFAULT_FONT_ID = new Identifier("minecraft", "default");
     public static final Identifier ILLAGER_FONT_ID = new Identifier("minecraft", "illageralt");
     public static final Identifier TOOLTIP_FONT_ID = new Identifier("tlotd", "tooltip");
-    public static final Identifier RECIPIES_FONT_ID = new Identifier("tlotd", "recipies");
 
     @Override
     public void appendTooltip(ItemStack stack, @Nullable BlockView world, List<Text> tooltip, TooltipContext options) {
@@ -151,18 +150,7 @@ public class WitchingTableBlock extends BlockWithEntity implements BlockEntityPr
                 tooltip.add(Text.translatable("block.tlotd.witching_table.tooltip_2").setStyle(style.withFont(ILLAGER_FONT_ID)).formatted(Formatting.GRAY));
             }
         }
-        if (Screen.hasShiftDown()) {
-            tooltip.add(Text.translatable("item.tlotd.desc_occult").formatted(Formatting.RED));
-            tooltip.add(Text.empty());
-            tooltip.add(Text.translatable("text.tlotd.recipe.ponder", Text.translatable("key.keyboard.shift").formatted(Formatting.WHITE)).formatted(Formatting.DARK_GRAY));
-            tooltip.add(Text.literal("\uE020\uE000\uE022\uE021\uE023").setStyle(style.withFont(RECIPIES_FONT_ID)));
-            tooltip.add(Text.literal("\uE020\uE000\uE026\uE024\uE025\uE027\uE021\uE028").setStyle(style.withFont(RECIPIES_FONT_ID)));
-            tooltip.add(Text.literal("\uE020\uE000\uE029\uE02A\uE023\uE02A\uE021\uE02B").setStyle(style.withFont(RECIPIES_FONT_ID)));
-        } else {
-            tooltip.add(Text.translatable("item.tlotd.desc_occult").formatted(Formatting.RED));
-            tooltip.add(Text.empty());
-            tooltip.add(Text.translatable("text.tlotd.recipe.ponder", Text.translatable("key.keyboard.shift").formatted(Formatting.GRAY)).formatted(Formatting.DARK_GRAY));
-        }
+        tooltip.add(Text.translatable("item.tlotd.desc_occult").formatted(Formatting.RED));
         super.appendTooltip(stack, world, tooltip, options);
     }
 }

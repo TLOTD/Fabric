@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "connection=none": {
+      "model": "tlotd:block/framed_glass"
+    },
+    "connection=upper": {
+      "model": "tlotd:block/vertical_framed_glass_upper"
+    },
+    "connection=middle": {
+      "model": "tlotd:block/vertical_framed_glass_middle"
+    },
+    "connection=lower": {
+      "model": "tlotd:block/vertical_framed_glass_lower"
+    }
+  }
+}

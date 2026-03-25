@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "tlotd:block/dark_metal_tile",
+    "side": "tlotd:block/dark_metal_tile_upper"
+  }
+}

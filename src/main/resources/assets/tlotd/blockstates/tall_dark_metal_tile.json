@@ -1,0 +1,6 @@
+{
+  "variants": {
+    "half=upper":{"model":"tlotd:block/tall_dark_metal_tile_upper"},
+    "half=lower":{"model":"tlotd:block/tall_dark_metal_tile_lower"}
+  }
+}

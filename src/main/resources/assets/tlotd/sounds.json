@@ -10,6 +10,7 @@
   "radio_frequency_2":{"sounds":[{"name":"tlotd:block/radio_frequency_2","stream":true}]},
   "radio_frequency_3":{"sounds":[{"name":"tlotd:block/radio_frequency_3","stream":true}]},
   "radio_frequency_4":{"sounds":[{"name":"tlotd:block/radio_frequency_4","stream":true}]},
+  "signal_backrooms":{"sounds":[{"name":"tlotd:signal/backrooms","stream":true}]},
   "block_television_switch_channel":{"subtitle":"sounds.tlotd.block_television_switch_channel","sounds":["tlotd:block/television_switch_channel"]},
   "block_television_static_channel":{"subtitle":"sounds.tlotd.block_television_static_channel","sounds":["tlotd:block/television_static_channel"]},
   "block_videocassette_recorder":{"subtitle":"sounds.tlotd.block_videocassette_recorder","sounds":["tlotd:block/videocassette_recorder"]},

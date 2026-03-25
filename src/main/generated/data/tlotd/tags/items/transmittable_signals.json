@@ -1,7 +1,7 @@
 {
   "replace": false,
   "values": [
-    "#tlotd:music_discs",
+    "#minecraft:music_discs",
     "#tlotd:vhs_cassettes",
     "#tlotd:game_cartridges"
   ]

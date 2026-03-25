@@ -15,6 +15,7 @@ import net.minecraft.util.math.Vec3i;
 import net.minecraft.world.chunk.ChunkStatus;
 import net.tlotd.TLOTD;
 import net.tlotd.compat.CompatModsCheck;
+import net.tlotd.item.ModItems;
 import net.tlotd.world.dimension.ModDimensions;
 
 import java.util.Optional;
@@ -65,29 +66,13 @@ public class ModChunkEvents {
     public static void spawnBackroomsStructures(ServerPlayerEntity player) {
         ServerWorld targetWorld = player.getServer().getWorld(ModDimensions.BACKROOMS_LEVEL_KEY);
         if (targetWorld == null) return;
-        StructurePlacedPersistentState state = StructurePlacedPersistentState.get(targetWorld);
-        if (!state.isPlaced()) {
-            player.teleport(targetWorld, 0.5, 28.1, 0.5, 0.0F, 0.5F);
-            for (int cx = -1; cx <= 0; cx++) {
-                for (int cz = -1; cz <= 0; cz++) {
-                    BlockPos lowerPos = new BlockPos(cx * 16, 0, cz * 16);
-                    BlockPos upperPos = new BlockPos(cx * 16, 10, cz * 16);
-                    targetWorld.getChunk(lowerPos.getX() >> 4, lowerPos.getZ() >> 4, ChunkStatus.FULL, true);
-                    targetWorld.getChunk(upperPos.getX() >> 4, upperPos.getZ() >> 4, ChunkStatus.FULL, true);
-                    String compat = "";
-                    if (cx == -1 && CompatModsCheck.CREATE) {
-                        compat = "_create";
-                    }
-                    Identifier lowerId = new Identifier(TLOTD.MOD_ID, "backrooms_lower_" + cx + "_" + cz);
-                    Identifier upperId = new Identifier(TLOTD.MOD_ID, "backrooms_upper_" + cx + "_" + cz + compat);
-                    placeStructure(targetWorld, lowerId, lowerPos);
-                    placeStructure(targetWorld, upperId, upperPos);
-                }
-            }
-            state.setPlaced(true);
-            state.markDirty();
-        } else {
-            player.teleport(targetWorld, 0.5, 28.1, 0.5, 0.0F, 0.5F);
+        SignalTrackingArray tracker = SignalTrackingArray.get(targetWorld);
+        if (!tracker.hasSignal(ModItems.BACKROOMS_SIGNAL)) {
+            tracker.addSignal(ModItems.BACKROOMS_SIGNAL);
         }
+        if (!tracker.hasSignal(ModItems.VHS_CASSETTE_PROJECT_KV31)) {
+            tracker.addSignal(ModItems.VHS_CASSETTE_PROJECT_KV31);
+        }
+        player.teleport(targetWorld, -9.5, -1, 2.5, 0.0F, 0.5F);
     }
 }

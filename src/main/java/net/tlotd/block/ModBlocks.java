@@ -23,6 +23,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
 import net.tlotd.TLOTD;
 import net.tlotd.block.custom.*;
+import net.tlotd.block.enum_property.NoClipable;
 import net.tlotd.item.ModFoodComponents;
 import net.tlotd.item.compat.CompatBlockItem;
 import net.tlotd.item.custom.*;
@@ -76,6 +77,8 @@ public class ModBlocks {
     public static final Block STRAWBERRY_CRATE = registerBlock("strawberry_crate",
             new Block(FabricBlockSettings.create().mapColor(MapColor.OAK_TAN).strength(2.0F, 3.0F)));
     public static final Block ORANGE_CRATE = registerBlock("orange_crate",
+            new Block(FabricBlockSettings.create().mapColor(MapColor.OAK_TAN).strength(2.0F, 3.0F)));
+    public static final Block PIPE_WEED_CRATE = registerBlock("pipe_weed_crate",
             new Block(FabricBlockSettings.create().mapColor(MapColor.OAK_TAN).strength(2.0F, 3.0F)));
 
     public static final Block TREX_EGG = registerBlock("t-rex_egg",
@@ -157,6 +160,12 @@ public class ModBlocks {
             new ButtonBlock(FabricBlockSettings.create().mapColor(MapColor.WHITE).requiresTool().strength(0.5F, 0.5F).collidable(false), BlockSetType.STONE, 20, false));
     public static final Block MARBLE_PRESSURE_PLATE = registerBlock("marble_pressure_plate",
             new PressurePlateBlock(PressurePlateBlock.ActivationRule.MOBS, FabricBlockSettings.create().mapColor(MapColor.WHITE).requiresTool().strength(0.5F, 0.5F).collidable(false), BlockSetType.STONE));
+    public static final Block CHISELED_MARBLE = registerBlock("chiseled_marble",
+            new Block(FabricBlockSettings.create().mapColor(MapColor.WHITE).requiresTool().strength(2.75F, 6.0F)));
+    public static final Block CHISELED_MARBLE_2 = registerBlock("chiseled_marble_2",
+            new Block(FabricBlockSettings.create().mapColor(MapColor.WHITE).requiresTool().strength(2.75F, 6.0F)));
+    public static final Block MARBLE_PILLAR = registerBlock("marble_pillar",
+            new PillarBlock(FabricBlockSettings.create().mapColor(MapColor.WHITE).requiresTool().strength(2.75F, 6.0F)));
 
     public static final Block LIMESTONE = registerBlock("limestone",
             new Block(FabricBlockSettings.create().mapColor(MapColor.PALE_YELLOW).requiresTool().strength(1.75F, 3.0F)));
@@ -297,7 +306,6 @@ public class ModBlocks {
             new Block(FabricBlockSettings.create().mapColor(MapColor.WHITE).requiresTool().strength(3.0F, 9.0F)));
     public static final Block MEGAREGOLITH_LUNAR_CALLAINUS_ORE = registerBlock("megaregolith_lunar_callainus_ore",
             new Block(FabricBlockSettings.create().mapColor(MapColor.WHITE).requiresTool().strength(3.0F, 9.0F)));
-
     public static final Block MEGAREGOLITH_BRICKS = registerBlock("megaregolith_bricks",
             new Block(FabricBlockSettings.create().mapColor(MapColor.WHITE).requiresTool().strength(3.0F, 9.0F)));
     public static final Block MEGAREGOLITH_BRICK_STAIRS = registerBlock("megaregolith_brick_stairs",
@@ -306,9 +314,21 @@ public class ModBlocks {
             new SlabBlock(FabricBlockSettings.create().mapColor(MapColor.WHITE).requiresTool().strength(3.0F, 9.0F)));
     public static final Block MEGAREGOLITH_BRICK_WALL = registerBlock("megaregolith_brick_wall",
             new WallBlock(FabricBlockSettings.create().mapColor(MapColor.WHITE).requiresTool().strength(3.0F, 9.0F)));
-
     public static final Block LUNAR_BEDROCK = registerBlock("lunar_bedrock",
             new Block(FabricBlockSettings.create().mapColor(MapColor.LIGHT_GRAY).strength(-1.0F, 3600000.0F)));
+
+    public static final Block TALL_MEGAREGOLITH_TILE = registerBlock("tall_megaregolith_tile",
+            new TallTileBlock(FabricBlockSettings.create().mapColor(MapColor.WHITE).requiresTool().strength(3.0F, 9.0F)));
+    public static final Block MEGAREGOLITH_TILE = registerBlock("megaregolith_tile",
+            new Block(FabricBlockSettings.create().mapColor(MapColor.WHITE).requiresTool().strength(3.0F, 9.0F)));
+    public static final Block MEGAREGOLITH_TILES = registerBlock("megaregolith_tiles",
+            new Block(FabricBlockSettings.create().mapColor(MapColor.WHITE).requiresTool().strength(3.0F, 9.0F)));
+    public static final Block TALL_DARK_METAL_TILE = registerBlock("tall_dark_metal_tile",
+            new TallTileBlock(FabricBlockSettings.create().mapColor(MapColor.WHITE).requiresTool().strength(3.0F, 9.0F).sounds(BlockSoundGroup.NETHERITE)));
+    public static final Block DARK_METAL_TILE = registerBlock("dark_metal_tile",
+            new Block(FabricBlockSettings.create().mapColor(MapColor.WHITE).requiresTool().strength(3.0F, 9.0F).sounds(BlockSoundGroup.NETHERITE)));
+    public static final Block DARK_METAL_TILES = registerBlock("dark_metal_tiles",
+            new Block(FabricBlockSettings.create().mapColor(MapColor.WHITE).requiresTool().strength(3.0F, 9.0F).sounds(BlockSoundGroup.NETHERITE)));
 
     public static final Block ALIEN_GATE = registerRarityBlock("alien_gate",
             new Block(FabricBlockSettings.create().mapColor(MapColor.LIGHT_GRAY).strength(-1.0F, 3600000.0F)), Rarity.EPIC);
@@ -324,33 +344,31 @@ public class ModBlocks {
             new WallBlock(FabricBlockSettings.create().mapColor(MapColor.LIGHT_GRAY).strength(-1.0F, 3600000.0F)), Rarity.EPIC);
 
     public static final Block YELLOW_WALLPAPERED_WALL = registerBlockWithoutItem("yellow_wallpapered_wall",
-            new PillarBlock(FabricBlockSettings.create().mapColor(MapColor.PALE_YELLOW).strength(-1.0F, 3600000.0F).sounds(BlockSoundGroup.AZALEA_LEAVES)));
+            new NoClipPillarBlock(FabricBlockSettings.create().mapColor(MapColor.PALE_YELLOW).strength(-1.0F, 3600000.0F).sounds(BlockSoundGroup.AZALEA_LEAVES).emissiveLighting((state, view, blockPos) -> !state.get(NoClipPillarBlock.NOCLIPABLE).equals(NoClipable.SOLID))));
     public static final Block STRIPPED_YELLOW_WALLPAPERED_WALL = registerBlockWithoutItem("stripped_yellow_wallpapered_wall",
-            new PillarBlock(FabricBlockSettings.create().mapColor(MapColor.PALE_YELLOW).strength(-1.0F, 3600000.0F)));
-    public static final Block NOCLIPABLE_YELLOW_WALLPAPERED_WALL = registerBlockWithoutItem("noclipable_yellow_wallpapered_wall",
-            new NoClipPillarBlock(FabricBlockSettings.create().mapColor(MapColor.PALE_YELLOW).strength(-1.0F, 3600000.0F).sounds(BlockSoundGroup.AZALEA_LEAVES).postProcess(Blocks::always).emissiveLighting(Blocks::always)));
+            new NoClipPillarBlock(FabricBlockSettings.create().mapColor(MapColor.PALE_YELLOW).strength(-1.0F, 3600000.0F).emissiveLighting((state, view, blockPos) -> !state.get(NoClipPillarBlock.NOCLIPABLE).equals(NoClipable.SOLID))));
     public static final Block CEILING_LIGHT = registerBlockWithoutItem("ceiling_light",
             new RedstoneLampBlock(FabricBlockSettings.create().mapColor(MapColor.LIGHT_GRAY).strength(-1.0F, 3600000.0F).sounds(BlockSoundGroup.GLASS).luminance(createLightLevelFromLitBlockState(15))));
     public static final Block CEILING_TILE = registerBlockWithoutItem("ceiling_tile",
-            new Block(FabricBlockSettings.create().mapColor(MapColor.LIGHT_GRAY).strength(-1.0F, 3600000.0F)));
+            new NoClipBlock(FabricBlockSettings.create().mapColor(MapColor.LIGHT_GRAY).strength(-1.0F, 3600000.0F).emissiveLighting((state, view, blockPos) -> !state.get(NoClipPillarBlock.NOCLIPABLE).equals(NoClipable.SOLID))));
     public static final Block CEILING_TILE_STAIRS = registerBlockWithoutItem("ceiling_tile_stairs",
             new StairsBlock(ModBlocks.CEILING_TILE.getDefaultState(), FabricBlockSettings.create().mapColor(MapColor.LIGHT_GRAY).strength(-1.0F, 3600000.0F)));
     public static final Block HORIZONTAL_CEILING_TILE_STAIRS = registerBlockWithoutItem("horizontal_ceiling_tile_stairs",
             new HorizontalStairBlock(FabricBlockSettings.create().mapColor(MapColor.LIGHT_GRAY).strength(-1.0F, 3600000.0F)));
     public static final Block MOIST_CARPET = registerBlockWithoutItem("moist_carpet",
-            new RotatableCarpetBlock(FabricBlockSettings.create().mapColor(MapColor.YELLOW).strength(-1.0F, 3600000.0F).sounds(BlockSoundGroup.WOOL)));
+            new NoClipMoistCarpetBlock(FabricBlockSettings.create().mapColor(MapColor.YELLOW).strength(-1.0F, 3600000.0F).sounds(BlockSoundGroup.WOOL).emissiveLighting((state, view, blockPos) -> !state.get(NoClipPillarBlock.NOCLIPABLE).equals(NoClipable.SOLID))));
     public static final Block MOIST_CARPET_STAIRS = registerBlockWithoutItem("moist_carpet_stairs",
             new StairsBlock(ModBlocks.MOIST_CARPET.getDefaultState(), FabricBlockSettings.create().mapColor(MapColor.YELLOW).strength(-1.0F, 3600000.0F).sounds(BlockSoundGroup.WOOL)));
     public static final Block HORIZONTAL_MOIST_CARPET_STAIRS = registerBlockWithoutItem("horizontal_moist_carpet_stairs",
             new HorizontalStairBlock(FabricBlockSettings.create().mapColor(MapColor.YELLOW).strength(-1.0F, 3600000.0F).sounds(BlockSoundGroup.WOOL)));
     public static final Block FLOOR_TILE = registerBlockWithoutItem("floor_tile",
-            new Block(FabricBlockSettings.create().mapColor(MapColor.LIGHT_GRAY).strength(-1.0F, 3600000.0F)));
+            new NoClipBlock(FabricBlockSettings.create().mapColor(MapColor.LIGHT_GRAY).strength(-1.0F, 3600000.0F).emissiveLighting((state, view, blockPos) -> !state.get(NoClipPillarBlock.NOCLIPABLE).equals(NoClipable.SOLID))));
     public static final Block BACKROOMS_ELEVATOR_CONTROLLER = registerBlockWithoutItem("backrooms_elevator_controller",
             new ElevatorControllerBlock(FabricBlockSettings.create().mapColor(MapColor.PALE_YELLOW).requiresTool().strength(-1.0F, 3600000.0F).sounds(BlockSoundGroup.AZALEA_LEAVES)));
     public static final Block BACKROOMS_ELEVATOR_BASE = registerBlockWithoutItem("backrooms_elevator_base",
             new ElevatorBaseBlock(FabricBlockSettings.create().mapColor(MapColor.PALE_YELLOW).requiresTool().strength(-1.0F, 3600000.0F).sounds(BlockSoundGroup.AZALEA_LEAVES)));
     public static final Block VOID = registerBlockWithoutItem("void",
-            new Block(FabricBlockSettings.create().mapColor(MapColor.BLACK).strength(-1.0F, 3600000.0F)));
+            new NoClipBlock(FabricBlockSettings.create().mapColor(MapColor.BLACK).strength(-1.0F, 3600000.0F).emissiveLighting((state, view, blockPos) -> !state.get(NoClipPillarBlock.NOCLIPABLE).equals(NoClipable.SOLID))));
     public static final Block FRAGILE_LIGHT_SWITCH = registerBlockWithoutItem("fragile_light_switch",
             new BackroomsLightSwitchBlock(FabricBlockSettings.create().strength(0.5F).pistonBehavior(PistonBehavior.DESTROY).collidable(false)));
 
@@ -520,9 +538,7 @@ public class ModBlocks {
             new BenchBlock(FabricBlockSettings.create().mapColor(MapColor.BROWN).requiresTool().strength(2.0F, 2.0F).nonOpaque()));
 
     public static final Block RADIO = registerBlock("radio",
-            new RadioBlock(FabricBlockSettings.create().mapColor(MapColor.BROWN).requiresTool().strength(2.0F, 2.0F).nonOpaque()));
-    public static final Block RADIO_ON = registerBlockWithoutItem("radio_on",
-            new RadioBlock(FabricBlockSettings.create().mapColor(MapColor.BROWN).requiresTool().strength(2.0F, 2.0F).nonOpaque().luminance(7)));
+            new RadioBlock(FabricBlockSettings.create().mapColor(MapColor.BROWN).requiresTool().strength(2.0F, 2.0F).luminance((state) -> state.get(RadioBlock.ON) ? 15 : 0).nonOpaque()));
     public static final Block TELEVISION = registerBlock("television",
             new TelevisionBlock(FabricBlockSettings.create().mapColor(MapColor.BLACK).requiresTool().strength(2.0F, 2.0F)));
     public static final Block TELEVISION_ON = registerBlockWithoutItem("television_on",
@@ -693,35 +709,23 @@ public class ModBlocks {
             new GlassBlock(FabricBlockSettings.create().mapColor(MapColor.GRAY).strength(1.0F, 1.0F).sounds(BlockSoundGroup.GLASS).nonOpaque()));
     public static final Block FRAMED_GLASS_PANE = registerBlock("framed_glass_pane",
             new PaneBlock(FabricBlockSettings.create().mapColor(MapColor.GRAY).strength(1.0F, 1.0F).sounds(BlockSoundGroup.GLASS).nonOpaque()));
-
-    public static final Block FRAMED_GLASS_BOTTOM = registerBlock("framed_glass_bottom",
+    public static final Block VERTICAL_FRAMED_GLASS = registerBlock("vertical_framed_glass",
+            new VerticalGlassBlock(FabricBlockSettings.create().mapColor(MapColor.GRAY).strength(1.0F, 1.0F).sounds(BlockSoundGroup.GLASS).nonOpaque()));
+    public static final Block VERTICAL_FRAMED_GLASS_PANE = registerBlock("vertical_framed_glass_pane",
+            new VerticalGlassPaneBlock(FabricBlockSettings.create().mapColor(MapColor.GRAY).strength(1.0F, 1.0F).sounds(BlockSoundGroup.GLASS).nonOpaque()));
+    public static final Block ROUND_FRAMED_GLASS = registerBlock("round_framed_glass",
             new GlassBlock(FabricBlockSettings.create().mapColor(MapColor.GRAY).strength(1.0F, 1.0F).sounds(BlockSoundGroup.GLASS).nonOpaque()));
-    public static final Block FRAMED_GLASS_BOTTOM_PANE = registerBlock("framed_glass_bottom_pane",
+    public static final Block ROUND_FRAMED_GLASS_PANE = registerBlock("round_framed_glass_pane",
             new PaneBlock(FabricBlockSettings.create().mapColor(MapColor.GRAY).strength(1.0F, 1.0F).sounds(BlockSoundGroup.GLASS).nonOpaque()));
-    public static final Block FRAMED_GLASS_MIDDLE = registerBlock("framed_glass_middle",
+    public static final Block SPLIT_FRAMED_GLASS = registerBlock("split_framed_glass",
             new GlassBlock(FabricBlockSettings.create().mapColor(MapColor.GRAY).strength(1.0F, 1.0F).sounds(BlockSoundGroup.GLASS).nonOpaque()));
-    public static final Block FRAMED_GLASS_MIDDLE_PANE = registerBlock("framed_glass_middle_pane",
+    public static final Block SPLIT_FRAMED_GLASS_PANE = registerBlock("split_framed_glass_pane",
             new PaneBlock(FabricBlockSettings.create().mapColor(MapColor.GRAY).strength(1.0F, 1.0F).sounds(BlockSoundGroup.GLASS).nonOpaque()));
-    public static final Block FRAMED_GLASS_TOP = registerBlock("framed_glass_top",
+    public static final Block TILED_FRAMED_GLASS = registerBlock("tiled_framed_glass",
             new GlassBlock(FabricBlockSettings.create().mapColor(MapColor.GRAY).strength(1.0F, 1.0F).sounds(BlockSoundGroup.GLASS).nonOpaque()));
-    public static final Block FRAMED_GLASS_TOP_PANE = registerBlock("framed_glass_top_pane",
-            new PaneBlock(FabricBlockSettings.create().mapColor(MapColor.GRAY).strength(1.0F, 1.0F).sounds(BlockSoundGroup.GLASS).nonOpaque()));
-
-    public static final Block FRAMED_GLASS_ROUND = registerBlock("framed_glass_round",
-            new GlassBlock(FabricBlockSettings.create().mapColor(MapColor.GRAY).strength(1.0F, 1.0F).sounds(BlockSoundGroup.GLASS).nonOpaque()));
-    public static final Block FRAMED_GLASS_ROUND_PANE = registerBlock("framed_glass_round_pane",
+    public static final Block TILED_FRAMED_GLASS_PANE = registerBlock("tiled_framed_glass_pane",
             new PaneBlock(FabricBlockSettings.create().mapColor(MapColor.GRAY).strength(1.0F, 1.0F).sounds(BlockSoundGroup.GLASS).nonOpaque()));
 
-    public static final Block FRAMED_GLASS_SPLIT = registerBlock("framed_glass_split",
-            new GlassBlock(FabricBlockSettings.create().mapColor(MapColor.GRAY).strength(1.0F, 1.0F).sounds(BlockSoundGroup.GLASS).nonOpaque()));
-    public static final Block FRAMED_GLASS_SPLIT_PANE = registerBlock("framed_glass_split_pane",
-            new PaneBlock(FabricBlockSettings.create().mapColor(MapColor.GRAY).strength(1.0F, 1.0F).sounds(BlockSoundGroup.GLASS).nonOpaque()));
-
-    public static final Block FRAMED_GLASS_TILED = registerBlock("framed_glass_tiled",
-            new GlassBlock(FabricBlockSettings.create().mapColor(MapColor.GRAY).strength(1.0F, 1.0F).sounds(BlockSoundGroup.GLASS).nonOpaque()));
-    public static final Block FRAMED_GLASS_TILED_PANE = registerBlock("framed_glass_tiled_pane",
-            new PaneBlock(FabricBlockSettings.create().mapColor(MapColor.GRAY).strength(1.0F, 1.0F).sounds(BlockSoundGroup.GLASS).nonOpaque()));
-    
     public static final Block FANCY_OAK_PLANKS = registerBlock("fancy_oak_planks",
             new Block(FabricBlockSettings.create().mapColor(MapColor.OAK_TAN).instrument(Instrument.BASS).strength(2.0F, 3.0F).sounds(BlockSoundGroup.WOOD).burnable()));
     public static final Block FANCY_OAK_STAIRS = registerBlock("fancy_oak_stairs",
@@ -849,6 +853,9 @@ public class ModBlocks {
             new TrapdoorBlock(FabricBlockSettings.create().mapColor(MapColor.DEEPSLATE_GRAY).instrument(Instrument.BASS).strength(1.0F, 1.5F).sounds(BlockSoundGroup.WOOD), BlockSetType.OAK));
     public static final Block RITUALISTIC_FANCY_CHARRED_PLANKS = registerBlockWithoutItem("ritualistic_fancy_charred_planks",
             new RitualisticCircleBlock(FabricBlockSettings.create().mapColor(MapColor.DEEPSLATE_GRAY).instrument(Instrument.BASS).strength(1.0F, 1.5F).sounds(BlockSoundGroup.WOOD)));
+
+    public static final Block PREHISTORIC_PORTAL = registerBlockWithoutItem("prehistoric_portal",
+            new PrehistoricPortalBlock(FabricBlockSettings.create().mapColor(MapColor.DULL_RED).noCollision().strength(-1.0F, 3600000.0F).sounds(BlockSoundGroup.GLASS)));
 
     private static Block registerBlock(String name, Block block) {
         registerBlockItem(name, block);

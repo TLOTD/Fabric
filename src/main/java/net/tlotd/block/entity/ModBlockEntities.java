@@ -7,7 +7,6 @@ import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.block.enums.WallMountLocation;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
-import net.minecraft.state.property.EnumProperty;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Direction;
 import net.tlotd.TLOTD;
@@ -21,7 +20,10 @@ public class ModBlockEntities {
                     FabricBlockEntityTypeBuilder.create(HEVChargerBlockEntity::new,
                             ModBlocks.HEV_CHARGER).build());
 
-
+    public static final BlockEntityType<RadioBlockEntity> RADIO_BLOCK_ENTITY =
+            Registry.register(Registries.BLOCK_ENTITY_TYPE, new Identifier(TLOTD.MOD_ID, "radio_block_entity"),
+                    FabricBlockEntityTypeBuilder.create(RadioBlockEntity::new,
+                            ModBlocks.RADIO).build());
 
     public static final BlockEntityType<MithrilAnvilBlockEntity> MITHRIL_ANVIL_BLOCK_ENTITY =
             Registry.register(Registries.BLOCK_ENTITY_TYPE, new Identifier(TLOTD.MOD_ID, "mithril_anvil_block_entity"),

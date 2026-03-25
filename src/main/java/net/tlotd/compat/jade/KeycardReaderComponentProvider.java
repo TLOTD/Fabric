@@ -26,8 +26,7 @@ public enum KeycardReaderComponentProvider implements IBlockComponentProvider, I
     @Override
     public void appendServerData(NbtCompound nbtCompound, BlockAccessor blockAccessor) {
         KeycardReaderBlockEntity keycard_reader = (KeycardReaderBlockEntity) blockAccessor.getBlockEntity();
-        boolean password_set = !keycard_reader.password.isEmpty();
-        nbtCompound.putBoolean("password_set", password_set);
+        nbtCompound.putBoolean("password_set", !keycard_reader.hasPassword());
     }
 
     @Override

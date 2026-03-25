@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "B": {
+      "item": "minecraft:black_dye"
+    },
+    "C": {
+      "tag": "c:coals"
+    },
+    "M": {
+      "tag": "c:metal_nuggets"
+    }
+  },
+  "pattern": [
+    "CMC",
+    "MBM",
+    "CMC"
+  ],
+  "result": {
+    "item": "tlotd:dark_metal_tile"
+  },
+  "show_notification": true
+}

@@ -18,6 +18,8 @@ import net.minecraft.server.command.CommandManager;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.text.ClickEvent;
+import net.minecraft.text.HoverEvent;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
@@ -35,15 +37,34 @@ public class ModCommands {
     public static void registerCommands() {
         CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> {
             dispatcher.register(CommandManager.literal("tlotd")
+                    .then(CommandManager.literal("wiki")
+                            .executes(context -> {
+                                Text message = Text.literal("https://tlotd.net/wiki/mc-mod/")
+                                        .styled(style -> style
+                                                .withColor(Formatting.GOLD)
+                                                .withUnderline(true)
+                                                .withClickEvent(new ClickEvent(
+                                                        ClickEvent.Action.OPEN_URL,
+                                                        "https://tlotd.net/wiki/mc-mod/"
+                                                ))
+                                                .withHoverEvent(new HoverEvent(
+                                                        HoverEvent.Action.SHOW_TEXT,
+                                                        Text.literal("Open in browser")
+                                                ))
+                                        );
+                                context.getSource().sendFeedback(() -> message, false);
+                                return 1;
+                            })
+                    )
                     .then(CommandManager.literal("debug")
                             .requires(source -> source.hasPermissionLevel(2))
                             .executes(context -> {
                                     TelevisionSignalRegistry.debugDump();
-                                        VideoGameRegistry.debugDump();
-                                        context.getSource().sendFeedback(() -> Text.literal("Dumped TV signal & Video Game registries to console."), false);
-                                        return 1;
-                                    })
-                            )
+                                    VideoGameRegistry.debugDump();
+                                    context.getSource().sendFeedback(() -> Text.literal("Dumped TV signal & Video Game registries to console."), false);
+                                    return 1;
+                            })
+                    )
                     .then(CommandManager.literal("augment")
                             .requires(source -> source.hasPermissionLevel(2))
                             .then(CommandManager.literal("add")

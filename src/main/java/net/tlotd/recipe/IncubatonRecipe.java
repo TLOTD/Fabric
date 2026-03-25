@@ -18,6 +18,11 @@ public class IncubatonRecipe implements Recipe<SimpleInventory> {
     private final ItemStack output;
     private final DefaultedList<Ingredient> recipeItems;
 
+    @Override
+    public DefaultedList<Ingredient> getIngredients() {
+        return recipeItems;
+    }
+
     public IncubatonRecipe(Identifier id, ItemStack output, DefaultedList<Ingredient> recipeItems) {
         this.id = id;
         this.output = output;

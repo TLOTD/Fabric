@@ -7,7 +7,6 @@
   "itemgroup.tlotd.compat": "TLOTD Compatibility",
 
   "key.keyboard.shift": "Shift",
-  "text.tlotd.recipe.ponder": "Hold [%1$s] for Recipies",
   "text.tlotd.player_plushie.ponder": "Hold [%1$s] for a list",
 
   "item.infinite": "Infinite",
@@ -128,7 +127,7 @@
   "gui.tlotd.tooltip.liquid_amount_with_capacity": "§f%s§7: %smB/%smB",
   "gui.tlotd.oxygen_collector": "Oxygen Fueling",
   "gui.tlotd.keycard_programmer": "Program Keycard",
-  "gui.tlotd.incubator": "Incubator",
+  "gui.tlotd.incubating": "Incubating",
 
   "enchantment.tlotd.transdimensional": "Transdimensional",
   "enchantment.tlotd.transdimensional.desc": "Allows the mithril mirror to cross dimensions. The higher the level the lower the cost.",
@@ -162,12 +161,6 @@
   "generic.tlotd.ouija_message_10": "what is this?",
   "generic.tlotd.ouija_message_11": "it's dark down here",
   "generic.tlotd.ouija_message_12": "...",
-
-  "messages.tlotd.radio.frequency.0": "Scanning for a signal",
-  "messages.tlotd.radio.frequency.1": "Frequency: 97.7 MHz",
-  "messages.tlotd.radio.frequency.2": "Frequency: 98.1 MHz",
-  "messages.tlotd.radio.frequency.3": "Frequency: 98.9 MHz",
-  "messages.tlotd.radio.frequency.4": "Frequency: 99.4 MHz",
 
   "effect.tlotd.drunkenness": "Drunkenness",
   "effect.tlotd.drunkenness.desc": "Smears vison & increases melee damage.",
@@ -268,8 +261,8 @@
   "advancements.tlotd.oxygen_collector.desc": "Create an oxygen collector",
   "advancements.tlotd.lunar_return": "To the moon and back!",
   "advancements.tlotd.lunar_return.desc": "Return from a trip to the moon.",
-  "advancements.tlotd.radio_star": "Radio Star",
-  "advancements.tlotd.radio_star.desc": "Listen to some music using the radio",
+  "advancements.tlotd.play_radio": "Radio Star",
+  "advancements.tlotd.play_radio.desc": "Listen to some music using the radio",
   "advancements.tlotd.television": "Now in Color!",
   "advancements.tlotd.television.desc": "Own a Television",
   "advancements.tlotd.computer": "Grabbing a Byte",
@@ -326,6 +319,12 @@
   "advancements.tlotd.all_steins.desc": "Obtain all wooden steins",
   "advancements.tlotd.all_jams": "Jamming Out",
   "advancements.tlotd.all_jams.desc": "Obtain all jams and marmalades",
+
+  "advancements.tlotd.play_radio_backrooms": "Strange Signal",
+  "advancements.tlotd.play_radio_backrooms.desc": "Play the Radio in the §kBackrooms§r",
+
+  "advancements.tlotd.return_of_the_king": "Return of the King",
+  "advancements.tlotd.return_of_the_king.desc": "Obtain Andúril as the ruler of Gondor.",
 
   "painting.tlotd.t.title": "T",
   "painting.tlotd.t.author": "Isla_Nublar",
@@ -462,6 +461,8 @@
   "item.tlotd.music_disc_3.desc": "Valve - Triangle at Dawn",
   "item.tlotd.music_disc_4": "Music Disc",
   "item.tlotd.music_disc_4.desc": "Howard Shore - The Lord of the Rings",
+  "item.tlotd.backrooms_signal": "Unknown",
+  "item.tlotd.backrooms_signal.desc": "Strange Signal",
 
   "item.tlotd.vhs_cassette": "VHS Cassette",
   "item.tlotd.vhs_cassette.desc": "Empty",
@@ -878,6 +879,8 @@
 
   "item.tlotd.emf_reader": "EMF Reader",
 
+  "item.tlotd.ender_dragon_scales": "Ender Dragon Scales",
+
   "item.tlotd.t-rex_spawn_egg": "T-Rex Spawn Egg",
   "item.tlotd.infected_t-rex_spawn_egg": "Infected T-Rex",
 
@@ -893,6 +896,7 @@
   "block.tlotd.orange_cake": "Orange Cake",
 
   "block.tlotd.pipe_weed_plant": "Pipe-Weed Plant",
+  "block.tlotd.pipe_weed_crate": "Pipe-Weed Crate",
 
   "block.tlotd.bw_sticker": "Sticker",
   "block.tlotd.bw_sticker.tooltip": "Nice here.",
@@ -1055,6 +1059,9 @@
   "block.tlotd.marble_wall": "Marble Wall",
   "block.tlotd.marble_pressure_plate": "Marble Pressure Plate",
   "block.tlotd.marble_button": "Marble Button",
+  "block.tlotd.chiseled_marble": "Chiseled Marble",
+  "block.tlotd.chiseled_marble_2": "Chiseled Marble",
+  "block.tlotd.marble_pillar": "Marble Pillar",
   "block.tlotd.limestone": "Limestone",
   "block.tlotd.limestone_stairs": "Limestone Stairs",
   "block.tlotd.limestone_slab": "Limestone Slab",
@@ -1097,6 +1104,7 @@
   "block.tlotd.cracked_cobbled_red_deepslate_bricks": "Cracked Cobbled Red Deepslate Bricks",
 
   "block.tlotd.reinforced_red_deepslate": "Reinforced Red Deepslate",
+  "block.tlotd.prehistoric_portal": "Prehistoric Portal",
 
   "block.tlotd.red_deepslate_fossil": "Red Deepslate Fossil",
 
@@ -1132,11 +1140,18 @@
   "block.tlotd.megaregolith_coal_ore": "Megaregolith Coal Ore",
   "block.tlotd.megaregolith_iron_ore": "Megaregolith Iron Ore",
   "block.tlotd.megaregolith_lunar_callainus_ore": "Megaregolith Lunar Callainus Ore",
+  "block.tlotd.tall_megaregolith_tile": "Tall Megaregolith Tile",
+  "block.tlotd.megaregolith_tile": "Megaregolith Tile",
+  "block.tlotd.megaregolith_tiles": "Megaregolith Tiles",
   "block.tlotd.megaregolith_bricks": "Megaregolith Bricks",
   "block.tlotd.megaregolith_brick_stairs": "Megaregolith Brick Stairs",
   "block.tlotd.megaregolith_brick_slab": "Megaregolith Brick Slab",
   "block.tlotd.megaregolith_brick_wall": "Megaregolith Brick Wall",
   "block.tlotd.lunar_bedrock": "Lunar Bedrock",
+
+  "block.tlotd.tall_dark_metal_tile": "Tall Dark Metal Tile",
+  "block.tlotd.dark_metal_tile": "Dark Metal Tile",
+  "block.tlotd.dark_metal_tiles": "Dark Metal Tiles",
 
   "block.tlotd.alien_gate": "Alien Gate",
   "block.tlotd.alien_pillar": "Alien Pillar",
@@ -1147,7 +1162,6 @@
 
   "block.tlotd.yellow_wallpapered_wall": "",
   "block.tlotd.stripped_yellow_wallpapered_wall": "",
-  "block.tlotd.noclipable_yellow_wallpapered_wall": "",
   "block.tlotd.ceiling_light": "",
   "block.tlotd.ceiling_tile": "",
   "block.tlotd.ceiling_tile_stairs": "",
@@ -1292,19 +1306,15 @@
 
   "block.tlotd.framed_glass": "Framed Glass",
   "block.tlotd.framed_glass_pane": "Framed Glass Pane",
-  "block.tlotd.framed_glass_bottom": "Framed Glass (Bottom)",
-  "block.tlotd.framed_glass_bottom_pane": "Framed Glass Pane (Bottom)",
-  "block.tlotd.framed_glass_middle": "Framed Glass (Middle)",
-  "block.tlotd.framed_glass_middle_pane": "Framed Glass Pane (Middle)",
-  "block.tlotd.framed_glass_top": "Framed Glass (Top)",
-  "block.tlotd.framed_glass_top_pane": "Framed Glass Pane (Top)",
-  "block.tlotd.framed_glass_round": "Framed Glass (Round)",
-  "block.tlotd.framed_glass_round_pane": "Framed Glass Pane (Round)",
-  "block.tlotd.framed_glass_split": "Framed Glass (Split)",
-  "block.tlotd.framed_glass_split_pane": "Framed Glass Pane (Split)",
-  "block.tlotd.framed_glass_tiled": "Framed Glass (Tiled)",
-  "block.tlotd.framed_glass_tiled_pane": "Framed Glass Pane (Tiled)",
-  
+  "block.tlotd.vertical_framed_glass": "Vertical Framed Glass",
+  "block.tlotd.vertical_framed_glass_pane": "Vertical Framed Glass Pane",
+  "block.tlotd.round_framed_glass": "Round Framed Glass",
+  "block.tlotd.round_framed_glass_pane": "Round Framed Glass Pane",
+  "block.tlotd.split_framed_glass": "Split Framed Glass",
+  "block.tlotd.split_framed_glass_pane": "Split Framed Glass Pane",
+  "block.tlotd.tiled_framed_glass": "Tiled Framed Glass",
+  "block.tlotd.tiled_framed_glass_pane": "Tiled Framed Glass Pane",
+
   "block.tlotd.fancy_oak_planks": "Fancy Oak Planks",
   "block.tlotd.fancy_oak_stairs": "Fancy Oak Stairs",
   "block.tlotd.fancy_oak_slab": "Fancy Oak Slab",

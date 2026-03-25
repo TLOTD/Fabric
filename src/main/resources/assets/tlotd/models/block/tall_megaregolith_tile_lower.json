@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "tlotd:block/megaregolith_tile",
+    "side": "tlotd:block/megaregolith_tile"
+  }
+}

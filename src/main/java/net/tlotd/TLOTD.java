@@ -4,6 +4,7 @@ import net.fabricmc.api.ModInitializer;
 
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.fabricmc.fabric.api.registry.StrippableBlockRegistry;
+import net.kyrptonaught.customportalapi.CustomPortalBlock;
 import net.kyrptonaught.customportalapi.api.CustomPortalBuilder;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -77,6 +78,7 @@ public class TLOTD implements ModInitializer {
 		ModUseBlockCallback.interceptBlocks();
 		ModChunkEvents.generateModWorldGen();
 		ModCommands.registerCommands();
+		ModAdvancementTriggers.registerCriteria();
 
 		Registry.register(Registries.CHUNK_GENERATOR, new Identifier(TLOTD.MOD_ID, "prehistoric"), PrehistoricChunkGenerator.CODEC);
 		Registry.register(Registries.CHUNK_GENERATOR, new Identifier(TLOTD.MOD_ID, "luna"), LunarChunkGenerator.CODEC);
@@ -94,6 +96,7 @@ public class TLOTD implements ModInitializer {
 
 		CustomPortalBuilder.beginPortal()
 			.frameBlock(ModBlocks.REINFORCED_RED_DEEPSLATE)
+			.customPortalBlock((CustomPortalBlock) ModBlocks.PREHISTORIC_PORTAL)
 			.lightWithItem(ModItems.FOSSIL_AND_STEEL)
 			.destDimID(new Identifier(TLOTD.MOD_ID, "prehistoric"))
 			.tintColor(0x925240)

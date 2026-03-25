@@ -495,15 +495,8 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModItems.MUSIC_DISC_4)
         ;
 
-        getOrCreateTagBuilder(ModTags.Items.MUSIC_DISCS)
-                .add(ModItems.MUSIC_DISC_1)
-                .add(ModItems.MUSIC_DISC_2)
-                .add(ModItems.MUSIC_DISC_3)
-                .add(ModItems.MUSIC_DISC_4)
-        ;
-
         getOrCreateTagBuilder(ModTags.Items.TRANSMITTABLE_SIGNALS)
-                .addTag(ModTags.Items.MUSIC_DISCS)
+                .addTag(ItemTags.MUSIC_DISCS)
                 .addTag(ModTags.Items.VHS_CASSETTES)
                 .addTag(ModTags.Items.GAME_CARTRIDGES)
         ;
@@ -929,22 +922,18 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
 
         getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "framed_colorless_glass")))
                 .add(ModBlocks.FRAMED_GLASS.asItem())
-                .add(ModBlocks.FRAMED_GLASS_BOTTOM.asItem())
-                .add(ModBlocks.FRAMED_GLASS_MIDDLE.asItem())
-                .add(ModBlocks.FRAMED_GLASS_TOP.asItem())
-                .add(ModBlocks.FRAMED_GLASS_ROUND.asItem())
-                .add(ModBlocks.FRAMED_GLASS_SPLIT.asItem())
-                .add(ModBlocks.FRAMED_GLASS_TILED.asItem())
+                .add(ModBlocks.VERTICAL_FRAMED_GLASS.asItem())
+                .add(ModBlocks.ROUND_FRAMED_GLASS.asItem())
+                .add(ModBlocks.SPLIT_FRAMED_GLASS.asItem())
+                .add(ModBlocks.TILED_FRAMED_GLASS.asItem())
         ;
 
         getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "framed_colorless_glass_panes")))
                 .add(ModBlocks.FRAMED_GLASS_PANE.asItem())
-                .add(ModBlocks.FRAMED_GLASS_BOTTOM_PANE.asItem())
-                .add(ModBlocks.FRAMED_GLASS_MIDDLE_PANE.asItem())
-                .add(ModBlocks.FRAMED_GLASS_TOP_PANE.asItem())
-                .add(ModBlocks.FRAMED_GLASS_ROUND_PANE.asItem())
-                .add(ModBlocks.FRAMED_GLASS_SPLIT_PANE.asItem())
-                .add(ModBlocks.FRAMED_GLASS_TILED_PANE.asItem())
+                .add(ModBlocks.VERTICAL_FRAMED_GLASS_PANE.asItem())
+                .add(ModBlocks.ROUND_FRAMED_GLASS_PANE.asItem())
+                .add(ModBlocks.SPLIT_FRAMED_GLASS_PANE.asItem())
+                .add(ModBlocks.TILED_FRAMED_GLASS_PANE.asItem())
         ;
 
         getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "bones")))
@@ -1079,6 +1068,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
         ;
 
         getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "dragon_scales")))
+                .add(ModItems.ENDER_DRAGON_SCALES)
                 .addOptional(Identifier.tryParse("quark:dragon_scale"))
                 .addOptional(Identifier.tryParse("tconstruct:dragon_scale"))
                 .addOptional(Identifier.tryParse("mysticalagradditions:dragon_scale"))
@@ -1246,6 +1236,11 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModItems.SULFUR)
         ;
 
+        getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "coals")))
+                .add(Items.COAL)
+                .add(Items.CHARCOAL)
+        ;
+
         getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "uranium_raw_materials")))
                 .add(ModItems.URANIUM)
         ;
@@ -1398,10 +1393,23 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
         ;
 
         getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "nuggets")))
+                .addTag(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "copper_nuggets")))
+                .addTag(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "iron_nuggets")))
+                .addTag(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "gold_nuggets")))
                 .addTag(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "steel_nuggets")))
                 .addTag(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "aluminium_nuggets")))
                 .addTag(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "lead_nuggets")))
                 .addTag(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "uranium_nuggets")))
+                .addTag(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "mithril_nuggets")))
+        ;
+
+        getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "metal_nuggets")))
+                .addTag(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "copper_nuggets")))
+                .addTag(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "iron_nuggets")))
+                .addTag(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "gold_nuggets")))
+                .addTag(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "steel_nuggets")))
+                .addTag(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "aluminium_nuggets")))
+                .addTag(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "lead_nuggets")))
                 .addTag(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "mithril_nuggets")))
         ;
 

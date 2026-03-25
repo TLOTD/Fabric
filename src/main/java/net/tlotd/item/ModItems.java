@@ -129,6 +129,8 @@ public class ModItems {
     public static final Item MUSIC_DISC_3 = registerItem("music_disc_3", new MusicDiscItem(1, ModSounds.RADIO_FREQUENCY_3, new FabricItemSettings().rarity(Rarity.RARE).maxCount(1),43));
     public static final Item MUSIC_DISC_4 = registerItem("music_disc_4", new MusicDiscItem(1, ModSounds.RADIO_FREQUENCY_4, new FabricItemSettings().rarity(Rarity.RARE).maxCount(1),131));
 
+    public static final Item BACKROOMS_SIGNAL = registerItem("backrooms_signal", new MusicDiscItem(1, ModSounds.BACKROOMS_SIGNAL, new FabricItemSettings().maxCount(1),52));
+
     public static final Item VHS_CASSETTE = registerItem("vhs_cassette", new VHSCassetteItem(new FabricItemSettings().rarity(Rarity.RARE).maxCount(1)));
     public static final Item VHS_CASSETTE_BROKEN = registerItem("vhs_cassette_broken", new VHSCassetteItem(new FabricItemSettings().rarity(Rarity.RARE).maxCount(1)));
     public static final Item VHS_CASSETTE_1 = registerItem("vhs_cassette_1", new VHSCassetteItem(new FabricItemSettings().rarity(Rarity.RARE).maxCount(1)));
@@ -505,6 +507,8 @@ public class ModItems {
     public static final Item HEV_SUIT_BOOTS = registerItem("hev_suit_boots", new HEVArmorItem(ModArmorMaterial.HEV_SUIT, ArmorItem.Type.BOOTS, new FabricItemSettings().fireproof()));
 
     public static final Item EMF_READER = registerItem("emf_reader", new Item(new FabricItemSettings().maxCount(1)));
+
+    public static final Item ENDER_DRAGON_SCALES = registerItem("ender_dragon_scales", new Item(new FabricItemSettings()));
 
     public static final Item IRRADIATED_ICON = registerItem("irradiated_icon", new Item(new FabricItemSettings().maxCount(1)));
 

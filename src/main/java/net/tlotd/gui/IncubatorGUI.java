@@ -14,7 +14,7 @@ public class IncubatorGUI extends HandledScreen<IncubatorGUIHandler> {
     private static final Identifier TEXTURE = new Identifier(TLOTD.MOD_ID, "textures/gui/incubator.png");
 
     public IncubatorGUI(IncubatorGUIHandler handler, PlayerInventory inventory, Text title) {
-        super(handler, inventory, Text.translatable("gui.tlotd.incubator"));
+        super(handler, inventory, Text.translatable("gui.tlotd.incubating"));
     }
 
     @Override

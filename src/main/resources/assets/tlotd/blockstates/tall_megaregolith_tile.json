@@ -1,0 +1,6 @@
+{
+  "variants": {
+    "half=upper":{"model":"tlotd:block/tall_megaregolith_tile_upper"},
+    "half=lower":{"model":"tlotd:block/tall_megaregolith_tile_lower"}
+  }
+}

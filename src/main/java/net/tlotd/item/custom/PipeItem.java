@@ -174,7 +174,7 @@ public class PipeItem extends Item {
         boolean empty = stack.isOf(ModItems.PIPE);
         String pictogram = getChargeGlyphs(remaining, max, empty);
         tooltip.add(Text.literal(pictogram).setStyle(Style.EMPTY.withFont(SOUL_CHARGES_FONT_ID).withColor(Formatting.WHITE)));
-        if (stack.isOf(ModItems.PIPE_WEED_PIPE)) {
+        if (stack.isOf(ModItems.JOINT) || stack.isOf(ModItems.PIPE_WEED_PIPE)) {
             tooltip.add(Text.translatable("effect.tlotd.stoned").append(Text.literal(" (00:30)")).formatted(Formatting.RED));
         }
         super.appendTooltip(stack, world, tooltip, context);

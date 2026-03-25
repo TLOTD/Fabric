@@ -5,7 +5,6 @@
   "itemgroup.tlotd.compat": "TLOTD Kompatibilität",
 
   "key.keyboard.shift": "Umschalt",
-  "text.tlotd.recipe.ponder": "Halte [%1$s] gedrückt für Rezepte",
   "text.tlotd.player_plushie.ponder": "Halte [%1$s] gedrückt für eine Liste",
 
   "item.infinite": "Endlos",
@@ -80,12 +79,13 @@
   "augment.tlotd.thermal_cooling.desc": "Schützt den Träger",
   "augment.tlotd.thermal_cooling.desc2": "vor dem Überhitzen.",
 
-  "gui.tlotd.mithril_smithing": "Mithrilschmiede",
-  "gui.tlotd.witching": "Hexentisch",
+  "gui.tlotd.mithril_smithing": "Mithrilschmieden",
+  "gui.tlotd.augmenting": "Augmentieren",
+  "gui.tlotd.witching": "Hexen",
   "gui.tlotd.tooltip.liquid_amount_with_capacity": "§f%s§7: %smB/%smB",
   "gui.tlotd.oxygen_collector": "Sauerstoffbetanker",
   "gui.tlotd.keycard_programmer": "Schlüsselkarte Programmieren",
-  "gui.tlotd.incubator": "Brutkasten",
+  "gui.tlotd.incubating": "Brüten",
 
   "enchantment.tlotd.transdimensional": "Transdimensional",
   "enchantment.tlotd.depth_of_the_abyss": "Tiefen des Abgrundes",
@@ -212,9 +212,9 @@
   "advancements.tlotd.oxygen_collector": "Sauerstoffsammler",
   "advancements.tlotd.oxygen_collector.desc": "Baue einen Sauerstoffsammler",
   "advancements.tlotd.lunar_return": "Zum Mond und wieder zurück!",
-  "advancements.tlotd.lunar_return.desc": "Kehre zurück von einer Reise zum Mond.",
-  "advancements.tlotd.radio_star": "Radio Star",
-  "advancements.tlotd.radio_star.desc": "Höre etwas Musik mittels des Radios",
+  "advancements.tlotd.lunar_return.desc": "Kehre zurück von einer Reise zum Mond",
+  "advancements.tlotd.play_radio": "Radio Star",
+  "advancements.tlotd.play_radio.desc": "Höre nach einem Signal mittels des Radios",
   "advancements.tlotd.television": "Endlich in Farbe!",
   "advancements.tlotd.television.desc": "Gelange an einen Fernseher",
   "advancements.tlotd.computer": "Nimm dir ein Bit",
@@ -271,6 +271,9 @@
   "advancements.tlotd.all_steins.desc": "Erlange alle Holzkrüge",
   "advancements.tlotd.all_jams": "Schmier dir Eins",
   "advancements.tlotd.all_jams.desc": "Erlange alle Marmeladen",
+
+  "advancements.tlotd.play_radio_backrooms": "Seltsames Signal",
+  "advancements.tlotd.play_radio_backrooms.desc": "Spiel das Radio in den §kBackrooms§r",
 
   "painting.tlotd.t.title": "T",
   "painting.tlotd.t.author": "Isla_Nublar",
@@ -394,6 +397,8 @@
   "item.tlotd.music_disc_3.desc": "Valve - Triangle at Dawn",
   "item.tlotd.music_disc_4": "Schallplatte",
   "item.tlotd.music_disc_4.desc": "Howard Shore - Der Herr der Ringe",
+  "item.tlotd.backrooms_signal": "Unbekannt",
+  "item.tlotd.backrooms_signal.desc": "Seltsames Signal",
 
   "item.tlotd.vhs_cassette": "VHS-Kassette",
   "item.tlotd.vhs_cassette.desc": "Leer",
@@ -799,6 +804,8 @@
 
   "item.tlotd.emf_reader": "EMF-Lesegerät",
 
+  "item.tlotd.ender_dragon_scales": "Enderdrachenschuppen",
+
   "item.tlotd.t-rex_spawn_egg": "T-Rex-Spawn-Ei",
   "item.tlotd.infected_t-rex_spawn_egg": "Infizierter T-Rex",
 
@@ -814,6 +821,7 @@
   "block.tlotd.orange_cake": "Orangenkuchen",
 
   "block.tlotd.pipe_weed_plant": "Pfeifenkrautpflanze",
+  "block.tlotd.pipe_weed_crate": "Pfeifenkrautkiste",
 
   "block.tlotd.bw_sticker": "Sticker",
   "block.tlotd.bw_sticker.tooltip": "Nett hier.",
@@ -972,6 +980,9 @@
   "block.tlotd.marble_wall": "Marmormauer",
   "block.tlotd.marble_pressure_plate": "Marmordruckplatte",
   "block.tlotd.marble_button": "Marmorknopf",
+  "block.tlotd.chiseled_marble": "Gemeiselter Marmor",
+  "block.tlotd.chiseled_marble_2": "Gemeiselter Marmor",
+  "block.tlotd.marble_pillar": "Marmorsäule",
   "block.tlotd.limestone": "Kalkstein",
   "block.tlotd.limestone_stairs": "Kalksteintreppe",
   "block.tlotd.limestone_slab": "Kalksteinstufe",
@@ -1014,6 +1025,7 @@
   "block.tlotd.cracked_cobbled_red_deepslate_bricks": "Rissige Rote Bruchtiefenschieferziegel",
 
   "block.tlotd.reinforced_red_deepslate": "Verstärkter Roter Tiefenschiefer",
+  "block.tlotd.prehistoric_portal": "Prähistorisches Portal",
 
   "block.tlotd.red_deepslate_fossil": "Rotes-Tiefenschiefer-Fossil",
 
@@ -1049,11 +1061,18 @@
   "block.tlotd.megaregolith_coal_ore": "Megaregolith-Steinkohle",
   "block.tlotd.megaregolith_iron_ore": "Megaregolith-Eisenerz",
   "block.tlotd.megaregolith_lunar_callainus_ore": "Megaregolith-Lunar-Callainus-Erz",
+  "block.tlotd.tall_megaregolith_tile": "Megaregolithhochfliese",
+  "block.tlotd.megaregolith_tile": "Megaregolithfliese",
+  "block.tlotd.megaregolith_tiles": "Megaregolithfliesen",
   "block.tlotd.megaregolith_bricks": "Megaregolithziegel",
   "block.tlotd.megaregolith_brick_stairs": "Megaregolithziegeltreppe",
   "block.tlotd.megaregolith_brick_slab": "Megaregolithziegelstufe",
   "block.tlotd.megaregolith_brick_wall": "Megaregolithziegelmauer",
   "block.tlotd.lunar_bedrock": "Mondgrundgestein",
+
+  "block.tlotd.tall_dark_metal_tile": "Schwarzmetallhochfliese",
+  "block.tlotd.dark_metal_tile": "Schwarzmetallfliese",
+  "block.tlotd.dark_metal_tiles": "Schwarzmetallhochfliesen",
 
   "block.tlotd.alien_gate": "Alientor",
   "block.tlotd.alien_pillar": "Aliensäule",
@@ -1194,18 +1213,14 @@
 
   "block.tlotd.framed_glass": "Eingerahmtes Glas",
   "block.tlotd.framed_glass_pane": "Eingerahmte Glasscheibe",
-  "block.tlotd.framed_glass_bottom": "Eingerahmtes Glas (Unten)",
-  "block.tlotd.framed_glass_bottom_pane": "Eingerahmte Glasscheibe (Unten)",
-  "block.tlotd.framed_glass_middle": "Eingerahmtes Glas (Mitte)",
-  "block.tlotd.framed_glass_middle_pane": "Eingerahmte Glasscheibe (Mitte)",
-  "block.tlotd.framed_glass_top": "Eingerahmtes Glas (Oben)",
-  "block.tlotd.framed_glass_top_pane": "Eingerahmte Glasscheibe (Oben)",
-  "block.tlotd.framed_glass_round": "Eingerahmtes Glas (Rund)",
-  "block.tlotd.framed_glass_round_pane": "Eingerahmte Glasscheibe (Rund)",
-  "block.tlotd.framed_glass_split": "Eingerahmtes Glas (Geteilt)",
-  "block.tlotd.framed_glass_split_pane": "Eingerahmte Glasscheibe (Geteilt)",
-  "block.tlotd.framed_glass_tiled": "Eingerahmtes Glas (Gekachelt)",
-  "block.tlotd.framed_glass_tiled_pane": "Eingerahmte Glasscheibe (Gekachelt)",
+  "block.tlotd.vertical_framed_glass": "Vertikales Eingerahmtes Glas",
+  "block.tlotd.vertical_framed_glass_pane": "Vertikale Eingerahmte Glasscheibe",
+  "block.tlotd.round_framed_glass": "Rundes Eingerahmtes Glas",
+  "block.tlotd.round_framed_glass_pane": "Runde Eingerahmte Glasscheibe",
+  "block.tlotd.split_framed_glass": "Geteiltes Eingerahmtes Glas",
+  "block.tlotd.split_framed_glass_pane": "Geteilte Eingerahmte Glasscheibe",
+  "block.tlotd.tiled_framed_glass": "Gekacheltes Eingerahmtes Glas",
+  "block.tlotd.tiled_framed_glass_pane": "Gekachelte Eingerahmte Glasscheibe",
 
   "block.tlotd.fancy_oak_planks": "Schicke Eichenholzbretter",
   "block.tlotd.fancy_oak_stairs": "Schicke Eichenholztreppe",

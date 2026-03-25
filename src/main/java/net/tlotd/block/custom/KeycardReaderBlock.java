@@ -45,14 +45,14 @@ public class KeycardReaderBlock extends ButtonBlock implements BlockEntityProvid
                 world.playSound(null, pos, SoundEvents.ENTITY_VILLAGER_NO, SoundCategory.BLOCKS, 1.0f, 1.0f);
             }
             else {
-                if (keycardReaderBlockEntity.password.isEmpty()) {
-                    keycardReaderBlockEntity.password = stack.getNbt().getString("password");
+                if (keycardReaderBlockEntity.hasPassword()) {
+                    keycardReaderBlockEntity.setPassword(stack.getNbt().getString("password"));
                     keycardReaderBlockEntity.markDirty();
                     world.playSound(null, pos, ModSounds.BLOCK_KEYCARD_READER_PLING, SoundCategory.BLOCKS, 1.0f, 1.0f);
                     player.sendMessage(Text.translatable("block.tlotd.keycard_reader.password_set"), true);
                 }
                 else {
-                    if (keycardReaderBlockEntity.password.equals(stack.getNbt().getString("password"))) {
+                    if (keycardReaderBlockEntity.getPassword().equals(stack.getNbt().getString("password"))) {
                         if (state.get(POWERED)) {
                             return ActionResult.CONSUME;
                         }

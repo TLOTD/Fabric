@@ -128,23 +128,25 @@ public class RichGrassBlock extends SnowyBlock implements Fertilizable {
 
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        if (!world.isClient()) {
-            if (player.getMainHandStack().isIn(ItemTags.HOES) || player.getOffHandStack().isIn(ItemTags.HOES) || player.getMainHandStack().isIn(ModTags.Items.PAXELS) || player.getOffHandStack().isIn(ModTags.Items.PAXELS)) {
+        if (player.getMainHandStack().isIn(ItemTags.HOES) || player.getOffHandStack().isIn(ItemTags.HOES) || player.getMainHandStack().isIn(ModTags.Items.PAXELS) || player.getOffHandStack().isIn(ModTags.Items.PAXELS)) {
+            if (!world.isClient()) {
                 world.setBlockState(pos, ModBlocks.RICH_FARMLAND.getStateWithProperties(state));
                 if (player.getMainHandStack().isIn(ItemTags.HOES) || player.getMainHandStack().isIn(ModTags.Items.PAXELS)) {
-                    player.getMainHandStack().damage(1,player,e -> e.sendEquipmentBreakStatus(EquipmentSlot.MAINHAND));
+                    player.getMainHandStack().damage(1, player, e -> e.sendEquipmentBreakStatus(EquipmentSlot.MAINHAND));
                 } else if (player.getOffHandStack().isIn(ItemTags.HOES) || player.getOffHandStack().isIn(ModTags.Items.PAXELS)) {
-                    player.getMainHandStack().damage(1,player,e -> e.sendEquipmentBreakStatus(EquipmentSlot.OFFHAND));
+                    player.getMainHandStack().damage(1, player, e -> e.sendEquipmentBreakStatus(EquipmentSlot.OFFHAND));
                 }
                 world.playSound(null, pos, SoundEvents.ITEM_HOE_TILL, SoundCategory.PLAYERS, 1.0f, 1.0f);
                 return ActionResult.SUCCESS;
             }
-            if (player.getMainHandStack().isIn(ItemTags.SHOVELS) || player.getOffHandStack().isIn(ItemTags.SHOVELS)) {
+        }
+        if (player.getMainHandStack().isIn(ItemTags.SHOVELS) || player.getOffHandStack().isIn(ItemTags.SHOVELS)) {
+            if (!world.isClient()) {
                 world.setBlockState(pos, ModBlocks.RICH_DIRT_PATH.getStateWithProperties(state));
                 if (player.getMainHandStack().isIn(ItemTags.SHOVELS)) {
-                    player.getMainHandStack().damage(1,player,e -> e.sendEquipmentBreakStatus(EquipmentSlot.MAINHAND));
+                    player.getMainHandStack().damage(1, player, e -> e.sendEquipmentBreakStatus(EquipmentSlot.MAINHAND));
                 } else if (player.getOffHandStack().isIn(ItemTags.SHOVELS)) {
-                    player.getMainHandStack().damage(1,player,e -> e.sendEquipmentBreakStatus(EquipmentSlot.OFFHAND));
+                    player.getMainHandStack().damage(1, player, e -> e.sendEquipmentBreakStatus(EquipmentSlot.OFFHAND));
                 }
                 world.playSound(null, pos, SoundEvents.ITEM_SHOVEL_FLATTEN, SoundCategory.PLAYERS, 1.0f, 1.0f);
                 return ActionResult.SUCCESS;

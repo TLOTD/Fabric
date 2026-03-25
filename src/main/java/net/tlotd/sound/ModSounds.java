@@ -17,10 +17,13 @@ public class ModSounds {
 
     public static final SoundEvent BLOCK_ELEVATOR_PLING = registerSoundEvent("block_elevator_pling");
     public static final SoundEvent BLOCK_RADIO_SWITCH_FREQUENCY = registerSoundEvent("block_radio_switch_frequency");
+
     public static final SoundEvent RADIO_FREQUENCY_1 = registerSoundEvent("radio_frequency_1");
     public static final SoundEvent RADIO_FREQUENCY_2 = registerSoundEvent("radio_frequency_2");
     public static final SoundEvent RADIO_FREQUENCY_3 = registerSoundEvent("radio_frequency_3");
     public static final SoundEvent RADIO_FREQUENCY_4 = registerSoundEvent("radio_frequency_4");
+
+    public static final SoundEvent BACKROOMS_SIGNAL = registerSoundEvent("signal_backrooms");
 
     public static final SoundEvent BLOCK_TELEVISION_SWITCH_CHANNEL = registerSoundEvent("block_television_switch_channel");
     public static final SoundEvent BLOCK_TELEVISION_STATIC_CHANNEL = registerSoundEvent("block_television_static_channel");

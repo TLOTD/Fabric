@@ -1,0 +1,29 @@
+{
+  "display": {
+    "icon": {
+      "item": "tlotd:anduril"
+    },
+    "title": {
+      "translate": "advancements.tlotd.return_of_the_king"
+    },
+    "description": {
+      "translate": "advancements.tlotd.return_of_the_king.desc"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": true
+  },
+  "criteria": {
+    "hold_item_specific_player": {
+      "trigger": "tlotd:player_holds_item",
+      "conditions": {
+        "item": "tlotd:anduril",
+        "uuids": [
+          "67148bd0-1a00-4bca-9d9e-ec246afbcf51"
+        ]
+      }
+    }
+  },
+  "parent": "tlotd:anduril"
+}

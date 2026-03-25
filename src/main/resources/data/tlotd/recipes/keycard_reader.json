@@ -24,12 +24,15 @@
     },
     "P": {
       "item": "tlotd:liquid_crystal_display_panel"
+    },
+    "B": {
+      "item": "tlotd:battery"
     }
   },
   "pattern": [
     "IPI",
     "#C#",
-    "###"
+    "#B#"
   ],
   "result": {
     "item": "tlotd:keycard_reader"

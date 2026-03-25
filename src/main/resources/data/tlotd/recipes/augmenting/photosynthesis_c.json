@@ -10,6 +10,6 @@
   ],
   "augment": {
     "item": "tlotd:augment-photosynthesis",
-    "count": 3
+    "count": 1
   }
 }

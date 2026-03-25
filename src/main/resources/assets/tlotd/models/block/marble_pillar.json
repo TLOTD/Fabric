@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "tlotd:block/marble_pillar_top",
+    "side": "tlotd:block/marble_pillar"
+  }
+}

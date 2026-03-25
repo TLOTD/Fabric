@@ -18,6 +18,11 @@ public class AugmentationRecipe implements Recipe<SimpleInventory> {
     private final ItemStack output;
     private final DefaultedList<Ingredient> recipeItems;
 
+    @Override
+    public DefaultedList<Ingredient> getIngredients() {
+        return recipeItems;
+    }
+
     public AugmentationRecipe(Identifier id, ItemStack output, DefaultedList<Ingredient> recipeItems) {
         this.id = id;
         this.output = output;

@@ -95,6 +95,10 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.MEGAREGOLITH_COAL_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.MEGAREGOLITH_IRON_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.MEGAREGOLITH_LUNAR_CALLAINUS_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.MEGAREGOLITH_TILE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.MEGAREGOLITH_TILES);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DARK_METAL_TILE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DARK_METAL_TILES);
         BlockStateModelGenerator.BlockTexturePool megaregolithBrickPool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.MEGAREGOLITH_BRICKS);
         megaregolithBrickPool.stairs(ModBlocks.MEGAREGOLITH_BRICK_STAIRS);
         megaregolithBrickPool.slab(ModBlocks.MEGAREGOLITH_BRICK_SLAB);
@@ -671,5 +675,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.GAME_CARTRIDGE_3, Models.GENERATED);
 
         itemModelGenerator.register(ModItems.FLASH_DRIVE, Models.GENERATED);
+
+        itemModelGenerator.register(ModItems.ENDER_DRAGON_SCALES, Models.GENERATED);
     }
 }

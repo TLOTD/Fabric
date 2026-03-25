@@ -204,6 +204,7 @@ public class ModItemGroups {
                         }
                         entries.add(ModBlocks.STRAWBERRY_CRATE);
                         entries.add(ModBlocks.ORANGE_CRATE);
+                        entries.add(ModBlocks.PIPE_WEED_CRATE);
                         entries.add(ModItems.TOAST);
                         entries.add(ModItems.SWEET_BERRY_JAM_TOAST);
                         entries.add(ModItems.GLOW_BERRY_JAM_TOAST);
@@ -679,6 +680,13 @@ public class ModItemGroups {
                         entries.add(ModBlocks.MEGAREGOLITH_BRICK_WALL);
                         entries.add(ModBlocks.LUNAR_BEDROCK);
 
+                        entries.add(ModBlocks.TALL_MEGAREGOLITH_TILE);
+                        entries.add(ModBlocks.MEGAREGOLITH_TILE);
+                        entries.add(ModBlocks.MEGAREGOLITH_TILES);
+                        entries.add(ModBlocks.TALL_DARK_METAL_TILE);
+                        entries.add(ModBlocks.DARK_METAL_TILE);
+                        entries.add(ModBlocks.DARK_METAL_TILES);
+
                         entries.add(ModBlocks.ALIEN_GATE);
                         entries.add(ModBlocks.ALIEN_PILLAR);
                         entries.add(ModBlocks.ALIEN_BRICKS);
@@ -694,6 +702,9 @@ public class ModItemGroups {
                         entries.add(ModBlocks.MARBLE_WALL);
                         entries.add(ModBlocks.MARBLE_PRESSURE_PLATE);
                         entries.add(ModBlocks.MARBLE_BUTTON);
+                        entries.add(ModBlocks.CHISELED_MARBLE);
+                        entries.add(ModBlocks.CHISELED_MARBLE_2);
+                        entries.add(ModBlocks.MARBLE_PILLAR);
                         entries.add(ModBlocks.LIMESTONE);
                         entries.add(ModBlocks.LIMESTONE_STAIRS);
                         entries.add(ModBlocks.LIMESTONE_SLAB);
@@ -862,20 +873,16 @@ public class ModItemGroups {
                         entries.add(ModItems.HANGING_GINKGO_SIGN);
 
                         entries.add(ModBlocks.FRAMED_GLASS);
-                        entries.add(ModBlocks.FRAMED_GLASS_BOTTOM);
-                        entries.add(ModBlocks.FRAMED_GLASS_MIDDLE);
-                        entries.add(ModBlocks.FRAMED_GLASS_TOP);
-                        entries.add(ModBlocks.FRAMED_GLASS_ROUND);
-                        entries.add(ModBlocks.FRAMED_GLASS_SPLIT);
-                        entries.add(ModBlocks.FRAMED_GLASS_TILED);
+                        entries.add(ModBlocks.VERTICAL_FRAMED_GLASS);
+                        entries.add(ModBlocks.ROUND_FRAMED_GLASS);
+                        entries.add(ModBlocks.SPLIT_FRAMED_GLASS);
+                        entries.add(ModBlocks.TILED_FRAMED_GLASS);
 
                         entries.add(ModBlocks.FRAMED_GLASS_PANE);
-                        entries.add(ModBlocks.FRAMED_GLASS_BOTTOM_PANE);
-                        entries.add(ModBlocks.FRAMED_GLASS_MIDDLE_PANE);
-                        entries.add(ModBlocks.FRAMED_GLASS_TOP_PANE);
-                        entries.add(ModBlocks.FRAMED_GLASS_ROUND_PANE);
-                        entries.add(ModBlocks.FRAMED_GLASS_SPLIT_PANE);
-                        entries.add(ModBlocks.FRAMED_GLASS_TILED_PANE);
+                        entries.add(ModBlocks.VERTICAL_FRAMED_GLASS_PANE);
+                        entries.add(ModBlocks.ROUND_FRAMED_GLASS_PANE);
+                        entries.add(ModBlocks.SPLIT_FRAMED_GLASS_PANE);
+                        entries.add(ModBlocks.TILED_FRAMED_GLASS_PANE);
 
                         entries.add(ModBlocks.FANCY_OAK_PLANKS);
                         entries.add(ModBlocks.FANCY_OAK_STAIRS);

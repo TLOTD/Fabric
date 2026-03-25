@@ -26,13 +26,11 @@ public class SignalTrackingArray extends PersistentState {
     public static SignalTrackingArray createFromNbt(NbtCompound nbt) {
         SignalTrackingArray state = new SignalTrackingArray();
         NbtList list = nbt.getList("signals", NbtElement.STRING_TYPE);
-
         for (NbtElement elem : list) {
             String idStr = elem.asString();
             Identifier id = Identifier.tryParse(idStr);
             if (id != null) state.signals.add(id);
         }
-
         return state;
     }
 

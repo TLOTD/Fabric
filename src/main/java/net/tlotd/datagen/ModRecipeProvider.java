@@ -291,13 +291,16 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Items.GOLD_NUGGET), conditionsFromItem(Items.GOLD_NUGGET))
                 .offerTo(exporter, new Identifier(getRecipeName(ModItems.LOTR_BANNER_PATTERN)));
 
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.APPARATUS)
-                .input(ModItems.URANIUM)
-                .input(Items.GLOWSTONE)
-                .input(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "steel_ingots")))
-                .criterion(hasItem(ModItems.URANIUM), conditionsFromItem(ModItems.URANIUM))
-                .criterion(hasItem(Items.GLOWSTONE), conditionsFromItem(Items.GLOWSTONE))
-                .criterion(hasItem(ModItems.STEEL_INGOT), conditionsFromItem(ModItems.STEEL_INGOT))
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.APPARATUS)
+                .pattern("UBU")
+                .pattern("RBS")
+                .pattern("UBU")
+                .input('U', TagKey.of(RegistryKeys.ITEM, new Identifier("c", "uranium_raw_materials")))
+                .input('B', ModItems.BATTERY)
+                .input('S', TagKey.of(RegistryKeys.ITEM, new Identifier("c", "steel_ingots")))
+                .input('R', Items.REDSTONE_LAMP)
+                .criterion(hasItem(ModItems.STEEL_ROD), conditionsFromItem(ModItems.STEEL_ROD))
+                .criterion(hasItem(Items.OAK_SLAB), conditionsFromItem(Items.OAK_SLAB))
                 .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.APPARATUS)));
 
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.GARBAGE_CAN)
@@ -350,6 +353,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 
         offerReversibleCompactingRecipes(exporter, RecipeCategory.MISC, ModItems.STRAWBERRY, RecipeCategory.BUILDING_BLOCKS, ModBlocks.STRAWBERRY_CRATE);
         offerReversibleCompactingRecipes(exporter, RecipeCategory.MISC, ModItems.ORANGE, RecipeCategory.BUILDING_BLOCKS, ModBlocks.ORANGE_CRATE);
+        offerReversibleCompactingRecipes(exporter, RecipeCategory.MISC, ModItems.PIPE_WEED, RecipeCategory.BUILDING_BLOCKS, ModBlocks.PIPE_WEED_CRATE);
 
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.PRESERVES_JAR, 3)
                 .pattern("# #")
@@ -1124,6 +1128,9 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.MARBLE_STAIRS, ModBlocks.MARBLE);
         offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.MARBLE_SLAB, ModBlocks.MARBLE,2);
         offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.MARBLE_WALL, ModBlocks.MARBLE);
+        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.CHISELED_MARBLE, ModBlocks.MARBLE);
+        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.CHISELED_MARBLE_2, ModBlocks.MARBLE);
+        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.MARBLE_PILLAR, ModBlocks.MARBLE);
         ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModBlocks.MARBLE_BUTTON)
                 .input(ModBlocks.MARBLE)
                 .criterion(hasItem(ModBlocks.MARBLE), conditionsFromItem(ModBlocks.MARBLE))
@@ -1675,14 +1682,12 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('#', ModBlocks.LUNAR_REGOLITH)
                 .criterion(hasItem(ModBlocks.LUNAR_REGOLITH), conditionsFromItem(ModBlocks.LUNAR_REGOLITH))
                 .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.MEGAREGOLITH)));
-
         ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModBlocks.MEGAREGOLITH_BRICKS, 4)
                 .pattern("##")
                 .pattern("##")
                 .input('#', ModBlocks.MEGAREGOLITH)
                 .criterion(hasItem(ModBlocks.MEGAREGOLITH), conditionsFromItem(ModBlocks.MEGAREGOLITH))
                 .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.MEGAREGOLITH_BRICKS)));
-
         createStairsRecipe(ModBlocks.MEGAREGOLITH_BRICK_STAIRS, Ingredient.ofItems(ModBlocks.MEGAREGOLITH_BRICKS))
                 .criterion(hasItem(ModBlocks.MEGAREGOLITH_BRICKS), conditionsFromItem(ModBlocks.MEGAREGOLITH_BRICKS))
                 .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.MEGAREGOLITH_BRICK_STAIRS)));
@@ -1695,6 +1700,53 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('#', ModBlocks.MEGAREGOLITH_BRICKS)
                 .criterion(hasItem(ModBlocks.MEGAREGOLITH_BRICKS), conditionsFromItem(ModBlocks.MEGAREGOLITH_BRICKS))
                 .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.MEGAREGOLITH_BRICK_WALL)));
+        offerSmelting(exporter, List.of(ModBlocks.MEGAREGOLITH), RecipeCategory.MISC, ModBlocks.MEGAREGOLITH_TILE, 0.1f, 200, "megaregolith");
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModBlocks.TALL_MEGAREGOLITH_TILE, 2)
+                .pattern("#")
+                .pattern("#")
+                .input('#', ModBlocks.MEGAREGOLITH_TILE)
+                .criterion(hasItem(ModBlocks.MEGAREGOLITH_TILE), conditionsFromItem(ModBlocks.MEGAREGOLITH_TILE))
+                .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.TALL_MEGAREGOLITH_TILE)));
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModBlocks.MEGAREGOLITH_TILES, 4)
+                .pattern("##")
+                .pattern("##")
+                .input('#', ModBlocks.MEGAREGOLITH_TILE)
+                .criterion(hasItem(ModBlocks.MEGAREGOLITH_TILE), conditionsFromItem(ModBlocks.MEGAREGOLITH_TILE))
+                .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.MEGAREGOLITH_TILES)));
+        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.TALL_MEGAREGOLITH_TILE, ModBlocks.MEGAREGOLITH_TILE);
+        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.MEGAREGOLITH_TILES, ModBlocks.MEGAREGOLITH_TILE);
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModBlocks.DARK_METAL_TILE)
+                .pattern("CMC")
+                .pattern("MBM")
+                .pattern("CMC")
+                .input('C', TagKey.of(RegistryKeys.ITEM, new Identifier("c", "coals")))
+                .input('M', TagKey.of(RegistryKeys.ITEM, new Identifier("c", "metal_nuggets")))
+                .input('B', Items.BLACK_DYE)
+                .criterion(hasItem(Items.COAL), conditionsFromItem(Items.COAL))
+                .criterion(hasItem(Items.IRON_NUGGET), conditionsFromItem(Items.IRON_NUGGET))
+                .criterion(hasItem(Items.BLACK_DYE), conditionsFromItem(Items.BLACK_DYE))
+                .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.DARK_METAL_TILE)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModBlocks.TALL_DARK_METAL_TILE, 2)
+                .pattern("#")
+                .pattern("#")
+                .input('#', ModBlocks.DARK_METAL_TILE)
+                .criterion(hasItem(ModBlocks.DARK_METAL_TILE), conditionsFromItem(ModBlocks.DARK_METAL_TILE))
+                .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.TALL_DARK_METAL_TILE)));
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModBlocks.DARK_METAL_TILES, 4)
+                .pattern("##")
+                .pattern("##")
+                .input('#', ModBlocks.DARK_METAL_TILE)
+                .criterion(hasItem(ModBlocks.DARK_METAL_TILE), conditionsFromItem(ModBlocks.DARK_METAL_TILE))
+                .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.DARK_METAL_TILES)));
+        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.TALL_DARK_METAL_TILE, ModBlocks.DARK_METAL_TILE);
+        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.DARK_METAL_TILES, ModBlocks.DARK_METAL_TILE);
+
+        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.MEGAREGOLITH_BRICKS, ModBlocks.MEGAREGOLITH);
+        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.MEGAREGOLITH_BRICK_SLAB, ModBlocks.MEGAREGOLITH_BRICKS, 2);
+        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.MEGAREGOLITH_BRICK_STAIRS, ModBlocks.MEGAREGOLITH_BRICKS);
+        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.MEGAREGOLITH_BRICK_WALL, ModBlocks.MEGAREGOLITH_BRICKS);
 
         offerFoodCookingRecipe(exporter, "campfire", RecipeSerializer.CAMPFIRE_COOKING, 600, Items.SUGAR, ModItems.CARAMEL, 0.5f);
         offerFoodCookingRecipe(exporter, "smoker", RecipeSerializer.SMOKING, 100, Items.SUGAR, ModItems.CARAMEL, 0.5f);
@@ -3307,11 +3359,13 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .offerTo(exporter, new Identifier(getRecipeName(ModItems.MITHRIL_FORGING_HAMMER)));
 
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.MITHRIL_STAR_CATCHER)
-                .pattern("  #")
-                .pattern(" I ")
-                .pattern("I  ")
-                .input('#', ModItems.MITHRIL_INGOT)
-                .input('I', ModItems.FANCY_TOOL_ROD)
+                .pattern("  I")
+                .pattern(" /#")
+                .pattern("/  ")
+                .input('#', ModItems.MITHRIL_CHAINMAIL_CHUNK)
+                .input('I', ModItems.MITHRIL_INGOT)
+                .input('/', ModItems.FANCY_TOOL_ROD)
+                .criterion(hasItem(ModItems.MITHRIL_CHAINMAIL_CHUNK), conditionsFromItem(ModItems.MITHRIL_CHAINMAIL_CHUNK))
                 .criterion(hasItem(ModItems.MITHRIL_INGOT), conditionsFromItem(ModItems.MITHRIL_INGOT))
                 .criterion(hasItem(ModItems.FANCY_TOOL_ROD), conditionsFromItem(ModItems.FANCY_TOOL_ROD))
                 .offerTo(exporter, new Identifier(getRecipeName(ModItems.MITHRIL_STAR_CATCHER)));

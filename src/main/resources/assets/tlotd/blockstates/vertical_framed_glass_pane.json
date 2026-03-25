@@ -1,0 +1,75 @@
+{
+    "multipart": [
+        {
+        "when": { "north": false, "east": false, "south": false, "west": false },
+        "apply": { "model": "tlotd:block/framed_glass_pane_post" }
+        },
+        {
+        "when": { "connection": "none", "north": true },
+        "apply": { "model": "tlotd:block/framed_glass_pane_side" }
+        },
+        {
+        "when": { "connection": "none", "east": true },
+        "apply": { "model": "tlotd:block/framed_glass_pane_side", "y": 90, "uvlock": true }
+        },
+        {
+        "when": { "connection": "none", "south": true },
+        "apply": { "model": "tlotd:block/framed_glass_pane_side_alt" }
+        },
+        {
+        "when": { "connection": "none", "west": true },
+        "apply": { "model": "tlotd:block/framed_glass_pane_side_alt", "y": 90, "uvlock": true }
+        },
+
+        {
+        "when": { "connection": "upper", "north": true },
+        "apply": { "model": "tlotd:block/vertical_framed_glass_upper_pane_side" }
+        },
+        {
+        "when": { "connection": "upper", "east": true },
+        "apply": { "model": "tlotd:block/vertical_framed_glass_upper_pane_side", "y": 90, "uvlock": true }
+        },
+        {
+        "when": { "connection": "upper", "south": true },
+        "apply": { "model": "tlotd:block/vertical_framed_glass_upper_pane_side_alt" }
+        },
+        {
+        "when": { "connection": "upper", "west": true },
+        "apply": { "model": "tlotd:block/vertical_framed_glass_upper_pane_side_alt", "y": 90, "uvlock": true }
+        },
+
+        {
+        "when": { "connection": "middle", "north": true },
+        "apply": { "model": "tlotd:block/vertical_framed_glass_middle_pane_side" }
+        },
+        {
+        "when": { "connection": "middle", "east": true },
+        "apply": { "model": "tlotd:block/vertical_framed_glass_middle_pane_side", "y": 90, "uvlock": true }
+        },
+        {
+        "when": { "connection": "middle", "south": true },
+        "apply": { "model": "tlotd:block/vertical_framed_glass_middle_pane_side_alt" }
+        },
+        {
+        "when": { "connection": "middle", "west": true },
+        "apply": { "model": "tlotd:block/vertical_framed_glass_middle_pane_side_alt", "y": 90, "uvlock": true }
+        },
+
+        {
+        "when": { "connection": "lower", "north": true },
+        "apply": { "model": "tlotd:block/vertical_framed_glass_lower_pane_side" }
+        },
+        {
+        "when": { "connection": "lower", "east": true },
+        "apply": { "model": "tlotd:block/vertical_framed_glass_lower_pane_side", "y": 90, "uvlock": true }
+        },
+        {
+        "when": { "connection": "lower", "south": true },
+        "apply": { "model": "tlotd:block/vertical_framed_glass_lower_pane_side_alt" }
+        },
+        {
+        "when": { "connection": "lower", "west": true },
+        "apply": { "model": "tlotd:block/vertical_framed_glass_lower_pane_side_alt", "y": 90, "uvlock": true }
+        }
+    ]
+}

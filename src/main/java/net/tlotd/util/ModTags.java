@@ -273,9 +273,6 @@ public class ModTags {
         public static final TagKey<Item> VHS_CASSETTES =
                 createTag("vhs_cassettes");
 
-        public static final TagKey<Item> MUSIC_DISCS =
-                createTag("music_discs");
-
         public static final TagKey<Item> TRANSMITTABLE_SIGNALS =
                 createTag("transmittable_signals");
 

@@ -1,6 +1,7 @@
 package net.tlotd.block.custom;
 
 import net.minecraft.block.*;
+import net.minecraft.block.enums.DoubleBlockHalf;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
@@ -8,7 +9,9 @@ import net.minecraft.item.ItemConvertible;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
+import net.minecraft.state.property.EnumProperty;
 import net.minecraft.state.property.IntProperty;
+import net.minecraft.state.property.Properties;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.Vec3d;
@@ -22,14 +25,14 @@ import net.tlotd.item.ModItems;
 
 public class OrangeTreeBlock extends CropBlock {
     public static final IntProperty AGE = IntProperty.of("age",0,9);
-    public static final BooleanProperty UPPER = BooleanProperty.of("upper");
+    public static final EnumProperty<DoubleBlockHalf> HALF = Properties.DOUBLE_BLOCK_HALF;
     public static final BooleanProperty IGNORE = BooleanProperty.of("ignore");
 
     public static final int TOP_START = 5;
 
     public OrangeTreeBlock(Settings settings) {
         super(settings);
-        this.setDefaultState(this.stateManager.getDefaultState().with(AGE, 0).with(UPPER, false).with(IGNORE, false));
+        this.setDefaultState(this.stateManager.getDefaultState().with(AGE, 0).with(HALF, DoubleBlockHalf.LOWER).with(IGNORE, false));
     }
 
     @Override
@@ -56,9 +59,9 @@ public class OrangeTreeBlock extends CropBlock {
                 if (random.nextInt((int)(25.0F / f) + 1) == 0) {
                     if(currentAge < TOP_START-1) {
                         world.setBlockState(pos, this.withAge(currentAge + 1), 2);
-                    } else if(!world.getBlockState(pos).get(UPPER) && (world.getBlockState(pos.up(1)).isReplaceable() || world.getBlockState(pos.up(1)).isOf(this))) {
+                    } else if(!world.getBlockState(pos).get(HALF).equals(DoubleBlockHalf.UPPER) && (world.getBlockState(pos.up(1)).isReplaceable() || world.getBlockState(pos.up(1)).isOf(this))) {
                         world.setBlockState(pos, this.withAge(currentAge + 1).with(IGNORE,true), 0);
-                        world.setBlockState(pos.up(1), this.withAge(currentAge + 1).with(UPPER,true), 2);
+                        world.setBlockState(pos.up(1), this.withAge(currentAge + 1).with(HALF, DoubleBlockHalf.UPPER), 2);
                         world.setBlockState(pos, this.withAge(currentAge + 1).with(IGNORE,false), 2);
                     }
                 }
@@ -83,14 +86,14 @@ public class OrangeTreeBlock extends CropBlock {
         }
         if (nextAge < TOP_START) {
             world.setBlockState(pos, this.withAge(nextAge), 2);
-        } else if(!world.getBlockState(pos).get(UPPER) && (world.getBlockState(pos.up(1)).isReplaceable() || world.getBlockState(pos.up(1)).isOf(this))) {
-            world.setBlockState(pos, this.withAge(nextAge).with(UPPER,false).with(IGNORE,true), 0);
-            world.setBlockState(pos.up(1), this.withAge(nextAge).with(UPPER,true), 2);
-            world.setBlockState(pos, this.withAge(nextAge).with(UPPER,false).with(IGNORE,false), 2);
-        } else if (world.getBlockState(pos).get(UPPER)) {
-            world.setBlockState(pos.down(1), this.withAge(nextAge).with(UPPER,false).with(IGNORE,true), 0);
-            world.setBlockState(pos, this.withAge(nextAge).with(UPPER,true), 2);
-            world.setBlockState(pos.down(1), this.withAge(nextAge).with(UPPER,false).with(IGNORE,false), 2);
+        } else if(world.getBlockState(pos).get(HALF).equals(DoubleBlockHalf.LOWER) && (world.getBlockState(pos.up(1)).isReplaceable() || world.getBlockState(pos.up(1)).isOf(this))) {
+            world.setBlockState(pos, this.withAge(nextAge).with(HALF, DoubleBlockHalf.LOWER).with(IGNORE,true), 0);
+            world.setBlockState(pos.up(1), this.withAge(nextAge).with(HALF, DoubleBlockHalf.UPPER), 2);
+            world.setBlockState(pos, this.withAge(nextAge).with(HALF, DoubleBlockHalf.LOWER).with(IGNORE,false), 2);
+        } else if (world.getBlockState(pos).get(HALF).equals(DoubleBlockHalf.UPPER)) {
+            world.setBlockState(pos.down(1), this.withAge(nextAge).with(HALF, DoubleBlockHalf.LOWER).with(IGNORE,true), 0);
+            world.setBlockState(pos, this.withAge(nextAge).with(HALF, DoubleBlockHalf.UPPER), 2);
+            world.setBlockState(pos.down(1), this.withAge(nextAge).with(HALF, DoubleBlockHalf.LOWER).with(IGNORE,false), 2);
         }
     }
 
@@ -99,7 +102,7 @@ public class OrangeTreeBlock extends CropBlock {
         return (super.canPlaceAt(state, world, pos) && world.getBlockState(pos).isReplaceable()) ||
                 (super.canPlaceAt(state, world, pos) && world.getBlockState(pos).isOf(this) && world.getBlockState(pos).get(AGE) < TOP_START) ||
                 (super.canPlaceAt(state, world, pos) && world.getBlockState(pos).isOf(this) && world.getBlockState(pos).get(AGE) >= TOP_START && (world.getBlockState(pos).get(IGNORE) || world.getBlockState(pos.up(1)).isOf(this) && world.getBlockState(pos.up(1)).get(AGE) >= TOP_START)) ||
-                (world.getBlockState(pos).isOf(this) && world.getBlockState(pos).get(UPPER) && (world.getBlockState(pos.down(1)).isOf(this) && !world.getBlockState(pos.down(1)).get(UPPER)) && world.getBlockState(pos.down(1)).get(AGE) >= TOP_START);
+                (world.getBlockState(pos).isOf(this) && world.getBlockState(pos).get(HALF).equals(DoubleBlockHalf.UPPER) && (world.getBlockState(pos.down(1)).isOf(this) && !world.getBlockState(pos.down(1)).get(HALF).equals(DoubleBlockHalf.UPPER)) && world.getBlockState(pos.down(1)).get(AGE) >= TOP_START);
     }
 
     @Override
@@ -109,7 +112,7 @@ public class OrangeTreeBlock extends CropBlock {
 
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        builder.add(AGE, UPPER, IGNORE);
+        builder.add(AGE, HALF, IGNORE);
     }
 
     public static final VoxelShape STAGE_0 = Block.createCuboidShape(5, 0, 5, 11, 5, 11);
@@ -131,10 +134,10 @@ public class OrangeTreeBlock extends CropBlock {
             case 2 -> STAGE_2;
             case 3 -> STAGE_3;
             case 4 -> STAGE_4;
-            case 5 -> {if(state.get(UPPER)){yield STAGE_5;}else{yield DEFAULT;}}
-            case 6 -> {if(state.get(UPPER)){yield STAGE_6;}else{yield DEFAULT;}}
-            case 7 -> {if(state.get(UPPER)){yield STAGE_7;}else{yield DEFAULT;}}
-            case 8,9 -> {if(state.get(UPPER)){yield STAGE_8;}else{yield DEFAULT;}}
+            case 5 -> {if(state.get(HALF).equals(DoubleBlockHalf.UPPER)){yield STAGE_5;}else{yield DEFAULT;}}
+            case 6 -> {if(state.get(HALF).equals(DoubleBlockHalf.UPPER)){yield STAGE_6;}else{yield DEFAULT;}}
+            case 7 -> {if(state.get(HALF).equals(DoubleBlockHalf.UPPER)){yield STAGE_7;}else{yield DEFAULT;}}
+            case 8,9 -> {if(state.get(HALF).equals(DoubleBlockHalf.UPPER)){yield STAGE_8;}else{yield DEFAULT;}}
             default -> DEFAULT;
         };
     }

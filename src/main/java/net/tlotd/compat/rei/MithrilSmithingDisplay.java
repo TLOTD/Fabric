@@ -4,10 +4,13 @@ import me.shedaniel.rei.api.common.category.CategoryIdentifier;
 import me.shedaniel.rei.api.common.display.basic.BasicDisplay;
 import me.shedaniel.rei.api.common.entry.EntryIngredient;
 import me.shedaniel.rei.api.common.util.EntryIngredients;
+import net.minecraft.item.ItemStack;
+import net.minecraft.recipe.Ingredient;
+import net.minecraft.util.collection.DefaultedList;
 import net.tlotd.recipe.MithrilSmithingRecipe;
 
 import java.util.ArrayList;
-import java.util.Collections;
+import java.util.Arrays;
 import java.util.List;
 
 public class MithrilSmithingDisplay extends BasicDisplay {
@@ -17,9 +20,17 @@ public class MithrilSmithingDisplay extends BasicDisplay {
     }
 
     private static List<EntryIngredient> getInputList(MithrilSmithingRecipe recipe) {
-        if (recipe == null) return Collections.emptyList();
-        List<EntryIngredient> input = new ArrayList<>(EntryIngredients.ofIngredients(recipe.getIngredients()));
-        return input;
+        List<EntryIngredient> list = new ArrayList<>();
+        DefaultedList<Ingredient> ingredients = recipe.getIngredients();
+        for (int i = 0; i < 6; i++) {
+            if (i < ingredients.size() && !ingredients.get(i).isEmpty()) {
+                ItemStack[] matching = ingredients.get(i).getMatchingStacks();
+                list.add(EntryIngredients.ofItemStacks(Arrays.asList(matching)));
+            } else {
+                list.add(EntryIngredient.empty());
+            }
+        }
+        return list;
     }
 
     @Override

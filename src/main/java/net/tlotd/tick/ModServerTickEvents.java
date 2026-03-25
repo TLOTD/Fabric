@@ -19,6 +19,7 @@ import net.tlotd.compat.CompatModsCheck;
 import net.tlotd.config.ModConfigs;
 import net.tlotd.effect.ModEffects;
 import net.tlotd.util.EnergyNbtHelper;
+import net.tlotd.util.ModAdvancementTriggers;
 import net.tlotd.world.dimension.ModDimensions;
 
 import static net.tlotd.util.AugmentNbtHelper.getAugmentLevel;
@@ -32,6 +33,7 @@ public class ModServerTickEvents {
         ServerTickEvents.END_SERVER_TICK.register(server -> {
             tickCounter++;
             for (ServerPlayerEntity player : server.getPlayerManager().getPlayerList()) {
+                ModAdvancementTriggers.HOLD_ITEM.trigger(player);
                 if (player.getWorld().getRegistryKey().equals(LUNA_LEVEL_KEY)) {
                     if (player.isOnFire()) {
                         player.extinguish();

@@ -15,6 +15,7 @@
     "client.CreativeInventoryScreenAccessor",
     "client.CustomCreativeTabMixin",
     "client.HandledScreenAccessor",
-    "client.GameRendererMixin"
+    "client.GameRendererMixin",
+    "client.WorldRendererMixin"
   ]
 }

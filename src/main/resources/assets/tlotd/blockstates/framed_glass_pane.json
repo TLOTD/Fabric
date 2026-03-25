@@ -3,45 +3,6 @@
         {   "when": { "north": false, "east": false, "south": false, "west": false },
             "apply": { "model": "tlotd:block/framed_glass_pane_post" }
         },
-        {   "when": { "north": true, "east": false, "south": false, "west": false },
-            "apply": { "model": "tlotd:block/framed_glass_pane_post" }
-        },
-        {   "when": { "north": false, "east": true, "south": false, "west": false },
-            "apply": { "model": "tlotd:block/framed_glass_pane_post" }
-        },
-        {   "when": { "north": false, "east": false, "south": true, "west": false },
-            "apply": { "model": "tlotd:block/framed_glass_pane_post" }
-        },
-        {   "when": { "north": false, "east": false, "south": false, "west": true },
-            "apply": { "model": "tlotd:block/framed_glass_pane_post" }
-        },
-		{   "when": { "north": false, "east": true, "south": true, "west": true },
-            "apply": { "model": "tlotd:block/framed_glass_pane_post" }
-        },
-		{   "when": { "north": true, "east": false, "south": true, "west": true },
-            "apply": { "model": "tlotd:block/framed_glass_pane_post" }
-        },
-		{   "when": { "north": true, "east": true, "south": false, "west": true },
-            "apply": { "model": "tlotd:block/framed_glass_pane_post" }
-        },
-		{   "when": { "north": true, "east": true, "south": true, "west": false },
-            "apply": { "model": "tlotd:block/framed_glass_pane_post" }
-        },
-		{   "when": { "north": true, "east": true, "south": true, "west": true },
-            "apply": { "model": "tlotd:block/framed_glass_pane_post" }
-        },
-		{   "when": { "north": true, "east": true, "south": false, "west": false },
-            "apply": { "model": "tlotd:block/framed_glass_pane_post" }
-        },
-		{   "when": { "north": false, "east": true, "south": true, "west": false },
-            "apply": { "model": "tlotd:block/framed_glass_pane_post" }
-        },
-		{   "when": { "north": false, "east": false, "south": true, "west": true },
-            "apply": { "model": "tlotd:block/framed_glass_pane_post" }
-        },
-		{   "when": { "north": true, "east": false, "south": false, "west": true },
-            "apply": { "model": "tlotd:block/framed_glass_pane_post" }
-        },
         {   "when": { "north": true },
             "apply": { "model": "tlotd:block/framed_glass_pane_side" }
         },

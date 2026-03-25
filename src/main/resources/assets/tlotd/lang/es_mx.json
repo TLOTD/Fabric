@@ -5,7 +5,6 @@
   "itemgroup.tlotd.compat": "TLOTD Compatibilidad",
 
   "key.keyboard.shift": "Tecla Mayús",
-  "text.tlotd.recipe.ponder": "Mantén pulsada la tecla [%1$s] para las recetas",
   "text.tlotd.player_plushie.ponder": "Mantenga pulsado [%1$s] para ver la lista",
 
   "item.infinite": "Infinito",
@@ -80,12 +79,13 @@
   "augment.tlotd.thermal_cooling.desc": "Evita que el usuario sufra",
   "augment.tlotd.thermal_cooling.desc2": "un sobrecalentamiento.",
 
-  "gui.tlotd.mithril_smithing": "Herrería de Mithril",
-  "gui.tlotd.witching": "Brujas",
+  "gui.tlotd.mithril_smithing": "Forja de mithril",
+  "gui.tlotd.augmenting": "Aumentando",
+  "gui.tlotd.witching": "Brujería",
   "gui.tlotd.tooltip.liquid_amount_with_capacity": "§f%s§7: %smB/%smB",
   "gui.tlotd.oxygen_collector": "Tanque de oxígeno",
   "gui.tlotd.keycard_programmer": "Programar una tarjeta",
-  "gui.tlotd.incubator": "Incubadora",
+  "gui.tlotd.incubating": "Incubación",
 
   "enchantment.tlotd.transdimensional": "Transdimensional",
   "enchantment.tlotd.depth_of_the_abyss": "Profundidad del abismo",
@@ -212,9 +212,9 @@
   "advancements.tlotd.oxygen_collector": "Captador de aire",
   "advancements.tlotd.oxygen_collector.desc": "Crear un colector de oxígeno",
   "advancements.tlotd.lunar_return": "¡A la luna y vuelta!",
-  "advancements.tlotd.lunar_return.desc": "Regreso de un viaje a la luna.",
-  "advancements.tlotd.radio_star": "Estrella de la radio",
-  "advancements.tlotd.radio_star.desc": "Escuchar música con la radio",
+  "advancements.tlotd.lunar_return.desc": "Regreso de un viaje a la luna",
+  "advancements.tlotd.play_radio": "Estrella de la radio",
+  "advancements.tlotd.play_radio.desc": "Escuchar una señal usando la radio",
   "advancements.tlotd.television": "¡Ahora en color!",
   "advancements.tlotd.television.desc": "Poseer un televisor",
   "advancements.tlotd.computer": "Captura de un byte",
@@ -271,6 +271,9 @@
   "advancements.tlotd.all_steins.desc": "Recoge todas las jarras de madera",
   "advancements.tlotd.all_jams": "A tope",
   "advancements.tlotd.all_jams.desc": "Obtener todas las confituras y mermeladas",
+
+  "advancements.tlotd.play_radio_backrooms": "Señal extraña",
+  "advancements.tlotd.play_radio_backrooms.desc": "Reproduce la radio en §kBackrooms§r",
 
   "painting.tlotd.t.title": "T",
   "painting.tlotd.t.author": "Isla_Nublar",
@@ -394,6 +397,8 @@
   "item.tlotd.music_disc_3.desc": "Valve: Triangle at Dawn",
   "item.tlotd.music_disc_4": "Disco",
   "item.tlotd.music_disc_4.desc": "Howard Shore: El Señor de los Anillos",
+  "item.tlotd.backrooms_signal": "Desconocido",
+  "item.tlotd.backrooms_signal.desc": "Señal extraña",
 
   "item.tlotd.vhs_cassette": "Cassette VHS",
   "item.tlotd.vhs_cassette.desc": "Vacío",
@@ -787,6 +792,8 @@
 
   "item.tlotd.emf_reader": "Lector EMF",
 
+  "item.tlotd.ender_dragon_scales": "Escamas de dragón ender",
+
   "item.tlotd.t-rex_spawn_egg": "Generar T-Rex",
   "item.tlotd.infected_t-rex_spawn_egg": "T-Rex infectado",
 
@@ -802,6 +809,7 @@
   "block.tlotd.orange_cake": "Pastel de naranja",
 
   "block.tlotd.pipe_weed_plant": "Planta de hierba para pipa",
+  "block.tlotd.pipe_weed_crate": "Caja de hierba para pipa",
 
   "block.tlotd.bw_sticker": "Pegatina",
   "block.tlotd.bw_sticker.tooltip": "Bonito aquí.",
@@ -962,6 +970,9 @@
   "block.tlotd.marble_wall": "Pared de mármol",
   "block.tlotd.marble_pressure_plate": "Placa de presión de mármol",
   "block.tlotd.marble_button": "Botón de mármol",
+  "block.tlotd.chiseled_marble": "Mármol cincelado",
+  "block.tlotd.chiseled_marble_2": "Mármol cincelado",
+  "block.tlotd.marble_pillar": "Pilar de mármol",
   "block.tlotd.limestone": "Piedra caliza",
   "block.tlotd.limestone_stairs": "Escaleras de piedra caliza",
   "block.tlotd.limestone_slab": "Losa de piedra caliza",
@@ -1004,6 +1015,7 @@
   "block.tlotd.cracked_cobbled_red_deepslate_bricks": "Ladrillos de pizarra profunda labrada roja rotos",
 
   "block.tlotd.reinforced_red_deepslate": "Pizarra profunda reforzada roja",
+  "block.tlotd.prehistoric_portal": "Portal prehistórico",
 
   "block.tlotd.red_deepslate_fossil": "Fósil de pizarra profunda roja",
 
@@ -1039,11 +1051,18 @@
   "block.tlotd.megaregolith_coal_ore": "Megaregolito mineral de carbón",
   "block.tlotd.megaregolith_iron_ore": "Megaregolito mineral de hierro",
   "block.tlotd.megaregolith_lunar_callainus_ore": "Megaregolito mineral de lunar callainus",
+  "block.tlotd.tall_megaregolith_tile": "Azulejo alto Megaregolito",
+  "block.tlotd.megaregolith_tile": "Azulejo Megaregolito",
+  "block.tlotd.megaregolith_tiles": "Azulejos Megaregolith",
   "block.tlotd.megaregolith_bricks": "Ladrillos de megaregolito",
   "block.tlotd.megaregolith_brick_stairs": "Escaleras de ladrillos de megaregolito",
   "block.tlotd.megaregolith_brick_slab": "Losa de ladrillos de megaregolito",
   "block.tlotd.megaregolith_brick_wall": "Pared de ladrillos de megaregolito",
   "block.tlotd.lunar_bedrock": "Lecho rocoso lunar",
+
+  "block.tlotd.tall_dark_metal_tile": "Azulejo alto de metal oscuro",
+  "block.tlotd.dark_metal_tile": "Azulejo de metal oscuro",
+  "block.tlotd.dark_metal_tiles": "Azulejos de metal oscuro",
 
   "block.tlotd.alien_gate": "Puerta alienígena",
   "block.tlotd.alien_pillar": "Pilar alienígena",
@@ -1184,18 +1203,14 @@
 
   "block.tlotd.framed_glass": "Vidrio enmarcado",
   "block.tlotd.framed_glass_pane": "Panel de vidrio enmarcado",
-  "block.tlotd.framed_glass_bottom": "Vidrio enmarcado (Fondo)",
-  "block.tlotd.framed_glass_bottom_pane": "Panel de vidrio enmarcado (Fondo)",
-  "block.tlotd.framed_glass_middle": "Vidrio enmarcado (Centro)",
-  "block.tlotd.framed_glass_middle_pane": "Panel de vidrio enmarcado (Centro)",
-  "block.tlotd.framed_glass_top": "Vidrio enmarcado (Arriba)",
-  "block.tlotd.framed_glass_top_pane": "Panel de vidrio enmarcado (Arriba)",
-  "block.tlotd.framed_glass_round": "Vidrio enmarcado (Ronda)",
-  "block.tlotd.framed_glass_round_pane": "Panel de vidrio enmarcado (Ronda)",
-  "block.tlotd.framed_glass_split": "Vidrio enmarcado (Dividir)",
-  "block.tlotd.framed_glass_split_pane": "Panel de vidrio enmarcado (Dividir)",
-  "block.tlotd.framed_glass_tiled": "Vidrio enmarcado (Azulejos)",
-  "block.tlotd.framed_glass_tiled_pane": "Panel de vidrio enmarcado (Azulejos)",
+  "block.tlotd.vertical_framed_glass": "Vidrio con marco vertical",
+  "block.tlotd.vertical_framed_glass_pane": "Panel de vidrio con marco vertical",
+  "block.tlotd.round_framed_glass": "Vidrio con marco redondo",
+  "block.tlotd.round_framed_glass_pane": "Panel de vidrio con marco redondo",
+  "block.tlotd.split_framed_glass": "Vidrio con marco dividido",
+  "block.tlotd.split_framed_glass_pane": "Panel de vidrio con marco dividido",
+  "block.tlotd.tiled_framed_glass": "Vidrio con marco de azulejos",
+  "block.tlotd.tiled_framed_glass_pane": "Panel de vidrio con marco de azulejos",
 
   "block.tlotd.fancy_oak_planks": "Tablones de roble de lujo",
   "block.tlotd.fancy_oak_stairs": "Escaleras de roble de lujo",

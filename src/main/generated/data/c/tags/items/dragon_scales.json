@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
+    "tlotd:ender_dragon_scales",
     {
       "id": "quark:dragon_scale",
       "required": false

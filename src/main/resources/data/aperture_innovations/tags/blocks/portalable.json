@@ -1,0 +1,16 @@
+{
+  "replace": false,
+  "values": [
+    "tlotd:lunar_regolith",
+    "tlotd:suspicious_lunar_regolith",
+    "tlotd:megaregolith",
+    "tlotd:megaregolith_coal_ore",
+    "tlotd:megaregolith_iron_ore",
+    "tlotd:megaregolith_lunar_callainus_ore",
+    "tlotd:megaregolith_bricks",
+    "tlotd:lunar_bedrock",
+    "tlotd:tall_megaregolith_tile",
+    "tlotd:megaregolith_tile",
+    "tlotd:megaregolith_tiles"
+  ]
+}

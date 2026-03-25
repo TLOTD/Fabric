@@ -1,6 +1,7 @@
 package net.tlotd.block.custom;
 
 import net.minecraft.block.*;
+import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.PlayerEntity;
@@ -9,11 +10,13 @@ import net.minecraft.fluid.Fluids;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.MusicDiscItem;
+import net.minecraft.registry.Registries;
 import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.registry.tag.TagKey;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
@@ -22,10 +25,7 @@ import net.minecraft.state.property.IntProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.text.MutableText;
 import net.minecraft.text.Text;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.BlockRotation;
-import net.minecraft.util.Formatting;
-import net.minecraft.util.Hand;
+import net.minecraft.util.*;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
@@ -34,9 +34,10 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 import net.tlotd.block.ModBlocks;
+import net.tlotd.block.entity.RadioBlockEntity;
 import net.tlotd.config.ModConfigs;
-import net.tlotd.item.ModItems;
 import net.tlotd.sound.ModSounds;
+import net.tlotd.util.ModAdvancementTriggers;
 import net.tlotd.util.ModTags;
 import net.tlotd.world.SignalTrackingArray;
 import org.jetbrains.annotations.Nullable;
@@ -44,8 +45,8 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 import java.util.Map;
 
-public class RadioBlock extends Block {
-
+public class RadioBlock extends Block implements BlockEntityProvider {
+    public static final BooleanProperty ON = BooleanProperty.of("on");
     public static final IntProperty FREQUENCY = IntProperty.of("frequency", 0, 4);
     public static final IntProperty WOOD_TYPE = IntProperty.of("wood_type", 1, 28);
     public static final BooleanProperty MODDED = BooleanProperty.of("modded");
@@ -54,21 +55,6 @@ public class RadioBlock extends Block {
 
     private static final VoxelShape Z_SHAPE = Block.createCuboidShape(4.0, 0.0, 0.0, 12.0, 11.0, 16.0);
     private static final VoxelShape X_SHAPE = Block.createCuboidShape(0.0, 0.0, 4.0, 16.0, 11.0, 12.0);
-
-    private static final Text[] FREQUENCY_MESSAGES = new Text[]{
-            Text.translatable("messages.tlotd.radio.frequency.0"),
-            Text.translatable("messages.tlotd.radio.frequency.1"),
-            Text.translatable("messages.tlotd.radio.frequency.2"),
-            Text.translatable("messages.tlotd.radio.frequency.3"),
-            Text.translatable("messages.tlotd.radio.frequency.4")
-    };
-    private static final SoundEvent[] FREQUENCY_SOUNDS = new SoundEvent[]{
-            null,
-            ModSounds.RADIO_FREQUENCY_1,
-            ModSounds.RADIO_FREQUENCY_2,
-            ModSounds.RADIO_FREQUENCY_3,
-            ModSounds.RADIO_FREQUENCY_4
-    };
 
     private static final Map<TagKey<Item>, Integer> WOOD_TYPE_MAP = Map.ofEntries(
             Map.entry(ItemTags.OAK_LOGS, 1),
@@ -118,23 +104,42 @@ public class RadioBlock extends Block {
             new ModdedWoodRule("biomesoplenty", "empyreal", 28)
     );
 
-    private static Item[] FREQUENCY_DISC_KEYS = null;
-
-    private static Item[] getFrequencyDiscKeys() {
-        if (FREQUENCY_DISC_KEYS == null) {
-            FREQUENCY_DISC_KEYS = new Item[]{
-                    ModItems.MUSIC_DISC_1,
-                    ModItems.MUSIC_DISC_2,
-                    ModItems.MUSIC_DISC_3,
-                    ModItems.MUSIC_DISC_4
-            };
+    private Identifier findNextDisc(SignalTrackingArray tracker, @Nullable Identifier current) {
+        List<Identifier> sorted = tracker.getAllSignals().stream().sorted().toList();
+        if (sorted.isEmpty()) return null;
+        int startIndex = 0;
+        if (current != null) {
+            int idx = sorted.indexOf(current);
+            if (idx >= 0) startIndex = (idx + 1) % sorted.size();
         }
-        return FREQUENCY_DISC_KEYS;
+        for (int i = 0; i < sorted.size(); i++) {
+            Identifier id = sorted.get((startIndex + i) % sorted.size());
+            Item item = Registries.ITEM.get(id);
+            if (item instanceof MusicDiscItem) {
+                return id;
+            }
+        }
+        return null;
+    }
+
+    private void playDisc(World world, BlockPos pos, Identifier id) {
+        Item item = Registries.ITEM.get(id);
+        if (item instanceof MusicDiscItem disc) {
+            world.playSound(
+                    null,
+                    pos,
+                    disc.getSound(),
+                    SoundCategory.RECORDS,
+                    1.0f,
+                    1.0f
+            );
+        }
     }
 
     public RadioBlock(Settings settings) {
         super(settings);
         this.setDefaultState(this.stateManager.getDefaultState()
+                .with(ON, false)
                 .with(FACING, Direction.NORTH)
                 .with(WATERLOGGED, false)
                 .with(FREQUENCY, 0)
@@ -145,6 +150,7 @@ public class RadioBlock extends Block {
     @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {
         return this.getDefaultState()
+                .with(ON, false)
                 .with(FACING, ctx.getHorizontalPlayerFacing())
                 .with(WATERLOGGED, ctx.getWorld().getFluidState(ctx.getBlockPos()).isOf(Fluids.WATER))
                 .with(FREQUENCY, 0)
@@ -172,7 +178,7 @@ public class RadioBlock extends Block {
 
     @Override
     public void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        builder.add(FACING, WATERLOGGED, FREQUENCY, WOOD_TYPE, MODDED);
+        builder.add(ON, FACING, WATERLOGGED, FREQUENCY, WOOD_TYPE, MODDED);
     }
 
     @Override
@@ -209,13 +215,6 @@ public class RadioBlock extends Block {
         super.appendTooltip(stack, world, tooltip, opts);
     }
 
-    private void sendFrequencyMessageAndSound(PlayerEntity player, World world, BlockPos pos, int freq) {
-        player.sendMessage(FREQUENCY_MESSAGES[freq], true);
-        if (freq > 0) {
-            world.playSound(null, pos, FREQUENCY_SOUNDS[freq], SoundCategory.RECORDS, 1.0f, 1.0f);
-        }
-    }
-
     private void tryUpdateWood(World world, BlockPos pos, PlayerEntity player) {
         ItemStack stack = player.getMainHandStack();
         for (var entry : WOOD_TYPE_MAP.entrySet()) {
@@ -235,33 +234,48 @@ public class RadioBlock extends Block {
 
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        int freq = state.get(FREQUENCY);
         if (player.isSneaking()) {
             MinecraftClient.getInstance().getSoundManager().stopAll();
             if (!world.isClient) {
                 ServerWorld serverWorld = (ServerWorld) world;
                 SignalTrackingArray tracker = SignalTrackingArray.get(serverWorld);
-                boolean radioOff = state.getBlock().equals(ModBlocks.RADIO);
-                if (radioOff) {
-                    if (ModConfigs.ALL_SIGNALS_UNLOCKED) {
-                        world.setBlockState(pos, ModBlocks.RADIO_ON.getStateWithProperties(state));
-                        sendFrequencyMessageAndSound(player, world, pos, freq);
-                    } else if (tracker.hasAnySignals()) {
-                        for (int i = 1; i <= 4; i++) {
-                            if (tracker.hasSignal(getFrequencyDiscKeys()[i - 1]) && freq <= i) {
-                                world.setBlockState(pos, ModBlocks.RADIO_ON.getStateWithProperties(state).with(FREQUENCY, i));
-                                sendFrequencyMessageAndSound(player, world, pos, i);
-                                return ActionResult.SUCCESS;
+                if (!state.get(ON)) {
+                    world.setBlockState(pos, ModBlocks.RADIO.getStateWithProperties(state).with(ON, true));
+                    RadioBlockEntity be = (RadioBlockEntity) world.getBlockEntity(pos);
+                    if (be == null) return ActionResult.SUCCESS;
+                    if (!tracker.hasAnySignals()) {
+                        player.sendMessage(Text.translatable("block.tlotd.signal_transmitter.list_empty"), true);
+                    } else {
+                        Identifier current = be.getCurrentTrack();
+                        Identifier toPlay = null;
+                        if (current != null && tracker.hasSignal(current)) {
+                            Item item = Registries.ITEM.get(current);
+                            if (item instanceof MusicDiscItem) {
+                                toPlay = current;
                             }
                         }
-                        world.setBlockState(pos, ModBlocks.RADIO_ON.getStateWithProperties(state).with(FREQUENCY, 0));
-                        sendFrequencyMessageAndSound(player, world, pos, 0);
-                    } else {
-                        world.setBlockState(pos, ModBlocks.RADIO_ON.getStateWithProperties(state).with(FREQUENCY, 0));
-                        sendFrequencyMessageAndSound(player, world, pos, 0);
+                        if (toPlay == null) {
+                            toPlay = findNextDisc(tracker, current);
+                        }
+                        if (toPlay != null) {
+                            be.setCurrentTrack(toPlay);
+                            playDisc(world, pos, toPlay);
+                            ModAdvancementTriggers.PLAY_RADIO.trigger(
+                                    (ServerPlayerEntity) player,
+                                    (ServerWorld) world,
+                                    toPlay
+                            );
+                            int newFreq = state.get(FREQUENCY) == 0 ? 1 : state.get(FREQUENCY);
+                            world.setBlockState(pos, ModBlocks.RADIO.getStateWithProperties(state).with(ON, true).with(FREQUENCY, newFreq));
+                            player.sendMessage(Text.translatable(Registries.ITEM.get(toPlay).getTranslationKey() + ".desc"), true);
+                        } else {
+                            be.setCurrentTrack(null);
+                            world.setBlockState(pos, ModBlocks.RADIO.getStateWithProperties(state).with(ON, true).with(FREQUENCY, 0));
+                            player.sendMessage(Text.translatable("block.tlotd.signal_transmitter.list_empty"), true);
+                        }
                     }
                 } else {
-                    world.setBlockState(pos, ModBlocks.RADIO.getStateWithProperties(state));
+                    world.setBlockState(pos, ModBlocks.RADIO.getStateWithProperties(state).with(ON, false));
                 }
             }
             world.playSound(null, pos, ModSounds.BLOCK_RADIO_SWITCH_FREQUENCY, SoundCategory.BLOCKS, 1.0f, 1.0f);
@@ -275,31 +289,31 @@ public class RadioBlock extends Block {
             world.playSound(null, pos, SoundEvents.BLOCK_WOOD_PLACE, SoundCategory.BLOCKS, 1.0f, 1.0f);
             return ActionResult.SUCCESS;
         }
-        if (state.getBlock().equals(ModBlocks.RADIO_ON)) {
+        if (state.get(ON)) {
             MinecraftClient.getInstance().getSoundManager().stopAll();
             if (!world.isClient) {
                 ServerWorld serverWorld = (ServerWorld) world;
                 SignalTrackingArray tracker = SignalTrackingArray.get(serverWorld);
-                if (ModConfigs.ALL_SIGNALS_UNLOCKED) {
-                    int newFreq = freq < 4 ? freq + 1 : 1;
-                    world.setBlockState(pos, ModBlocks.RADIO_ON.getStateWithProperties(state.with(FREQUENCY, newFreq)));
-                    sendFrequencyMessageAndSound(player, world, pos, newFreq);
-                } else if (tracker.hasAnySignals()) {
-                    boolean updated = false;
-                    for (int i = 1; i <= 4; i++) {
-                        if (tracker.hasSignal(getFrequencyDiscKeys()[i - 1]) && freq < i) {
-                            world.setBlockState(pos, ModBlocks.RADIO_ON.getStateWithProperties(state).with(FREQUENCY, i));
-                            sendFrequencyMessageAndSound(player, world, pos, i);
-                            updated = true;
-                            break;
-                        }
-                    }
-                    if (!updated) {
-                        world.setBlockState(pos, ModBlocks.RADIO_ON.getStateWithProperties(state).with(FREQUENCY, 0));
-                        sendFrequencyMessageAndSound(player, world, pos, 0);
-                    }
+                if (!tracker.hasAnySignals()) {
+                    player.sendMessage(Text.translatable("block.tlotd.signal_transmitter.list_empty"), true);
+                    return ActionResult.SUCCESS;
+                }
+                RadioBlockEntity be = (RadioBlockEntity) world.getBlockEntity(pos);
+                if (be == null) return ActionResult.SUCCESS;
+                Identifier next = findNextDisc(tracker, be.getCurrentTrack());
+                if (next != null) {
+                    be.setCurrentTrack(next);
+                    playDisc(world, pos, next);
+                    ModAdvancementTriggers.PLAY_RADIO.trigger(
+                            (ServerPlayerEntity) player,
+                            (ServerWorld) world,
+                            next
+                    );
+                    int newFreq = state.get(FREQUENCY) < 4 ? state.get(FREQUENCY) + 1 : 1;
+                    world.setBlockState(pos, state.with(FREQUENCY, newFreq));
+                    player.sendMessage(Text.translatable(Registries.ITEM.get(next).getTranslationKey() + ".desc"), true);
                 } else {
-                    sendFrequencyMessageAndSound(player, world, pos, 0);
+                    player.sendMessage(Text.translatable("block.tlotd.signal_transmitter.list_empty"), true);
                 }
             }
             world.playSound(null, pos, ModSounds.BLOCK_RADIO_SWITCH_FREQUENCY, SoundCategory.BLOCKS, 1.0f, 1.0f);
@@ -317,5 +331,10 @@ public class RadioBlock extends Block {
         MinecraftClient.getInstance().getSoundManager().stopAll();
         world.playSound(null, pos, SoundEvents.BLOCK_STONE_BREAK, SoundCategory.BLOCKS, 1.0f, 1.0f);
         super.onBreak(world, pos, state, player);
+    }
+
+    @Override
+    public @Nullable BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
+        return new RadioBlockEntity(pos, state);
     }
 }

@@ -5,7 +5,6 @@
   "itemgroup.tlotd.compat": "TLOTD Kompatiblität",
 
   "key.keyboard.shift": "Oschalt",
-  "text.tlotd.recipe.ponder": "Halt [%1$s] gedrickt fir Rezepte",
   "text.tlotd.player_plushie.ponder": "Halt [%1$s] gedrickt fir a Lischtn",
 
   "item.infinite": "Endlos",
@@ -80,12 +79,13 @@
   "augment.tlotd.thermal_cooling.desc": "Schitzt n Träger",
   "augment.tlotd.thermal_cooling.desc2": "vorm Iberhitzn.",
 
-  "gui.tlotd.mithril_smithing": "Mithrilschmiede",
-  "gui.tlotd.witching": "Hexadisch",
+  "gui.tlotd.mithril_smithing": "Mithrilschmiedn",
+  "gui.tlotd.augmenting": "Augmentiern",
+  "gui.tlotd.witching": "Hexn",
   "gui.tlotd.tooltip.liquid_amount_with_capacity": "§f%s§7: %smB/%smB",
   "gui.tlotd.oxygen_collector": "Sauerstoffbetanker",
   "gui.tlotd.keycard_programmer": "Schlisslkartn Programmiern",
-  "gui.tlotd.incubator": "Brutkaschtn",
+  "gui.tlotd.incubating": "Briaden",
 
   "enchantment.tlotd.transdimensional": "Transdimensional",
   "enchantment.tlotd.depth_of_the_abyss": "Tiefn des Abgrunds",
@@ -212,9 +212,9 @@
   "advancements.tlotd.oxygen_collector": "Sauerstoffsammler",
   "advancements.tlotd.oxygen_collector.desc": "Baue einen Sauerstoffsammler",
   "advancements.tlotd.lunar_return": "Zum Mond und wiedr zurigg!",
-  "advancements.tlotd.lunar_return.desc": "Kehr zrigg von ra Reisn zum Mond.",
-  "advancements.tlotd.radio_star": "Radio Schtar",
-  "advancements.tlotd.radio_star.desc": "Her a bissl Musik durchs Radios",
+  "advancements.tlotd.lunar_return.desc": "Kehr zrigg von ra Reisn zum Mond",
+  "advancements.tlotd.play_radio": "Radio Schtar",
+  "advancements.tlotd.play_radio.desc": "Horch nach am a Signal mitm Radio",
   "advancements.tlotd.television": "Endlich in Farb!",
   "advancements.tlotd.television.desc": "Gelang annena Fernsehar",
   "advancements.tlotd.computer": "Nimm dir a Bit",
@@ -271,6 +271,9 @@
   "advancements.tlotd.all_steins.desc": "Erlange alle Holzkrüge",
   "advancements.tlotd.all_jams": "Schmier dir Ois",
   "advancements.tlotd.all_jams.desc": "Erlang alle Marmeladn",
+
+  "advancements.tlotd.play_radio_backrooms": "Seltsams Signal",
+  "advancements.tlotd.play_radio_backrooms.desc": "Schpiel s' Radio in den §kBackrooms§r",
 
   "painting.tlotd.t.title": "T",
   "painting.tlotd.t.author": "Isla_Nublar",
@@ -394,6 +397,8 @@
   "item.tlotd.music_disc_3.desc": "Valve - Triangle at Dawn",
   "item.tlotd.music_disc_4": "Schallplattn",
   "item.tlotd.music_disc_4.desc": "Howard Shore - Dr Herr dr Ringe",
+  "item.tlotd.backrooms_signal": "Obekannt",
+  "item.tlotd.backrooms_signal.desc": "Seltsams Signal",
 
   "item.tlotd.vhs_cassette": "VHS-Kassettn",
   "item.tlotd.vhs_cassette.desc": "Lea",
@@ -799,6 +804,8 @@
 
   "item.tlotd.emf_reader": "EMF-Lesegerät",
 
+  "item.tlotd.ender_dragon_scales": "Endrdrachnschuppa",
+
   "item.tlotd.t-rex_spawn_egg": "Tireggs-Spawn-Oi",
   "item.tlotd.infected_t-rex_spawn_egg": "Infizierdr Tireggs",
 
@@ -814,6 +821,7 @@
   "block.tlotd.orange_cake": "Orangekuacha",
 
   "block.tlotd.pipe_weed_plant": "Pfeifakrautpflanzn",
+  "block.tlotd.pipe_weed_crate": "Pfeifakrautkistn",
 
   "block.tlotd.bw_sticker": "Schtigger",
   "block.tlotd.bw_sticker.tooltip": "Nett hier.",
@@ -972,6 +980,9 @@
   "block.tlotd.marble_wall": "Marmormaua",
   "block.tlotd.marble_pressure_plate": "Marmordruggpladdn",
   "block.tlotd.marble_button": "Marmorknopf",
+  "block.tlotd.chiseled_marble": "Gemeiselter Marmor",
+  "block.tlotd.chiseled_marble_2": "Gemeiselter Marmor",
+  "block.tlotd.marble_pillar": "Marmorseile",
   "block.tlotd.limestone": "Kalkschtoi",
   "block.tlotd.limestone_stairs": "Kalkschtoitreppn",
   "block.tlotd.limestone_slab": "Kalkschtoischtuafa",
@@ -1014,6 +1025,7 @@
   "block.tlotd.cracked_cobbled_red_deepslate_bricks": "Rissige Rote Bruchtiefnschiefrziegel",
 
   "block.tlotd.reinforced_red_deepslate": "Vrschtärgder Rotr Tiefnschiefr",
+  "block.tlotd.prehistoric_portal": "Prähistorischs Portal",
 
   "block.tlotd.red_deepslate_fossil": "Rods-Tiefnschiefr-Fossil",
 
@@ -1049,11 +1061,18 @@
   "block.tlotd.megaregolith_coal_ore": "Megaregolith-Schtoikohle",
   "block.tlotd.megaregolith_iron_ore": "Megaregolith-Eiseerz",
   "block.tlotd.megaregolith_lunar_callainus_ore": "Megaregolith-Lunar-Callainus-Erz",
+  "block.tlotd.tall_megaregolith_tile": "Megaregolithhochfliesn",
+  "block.tlotd.megaregolith_tile": "Megaregolithfliesn",
+  "block.tlotd.megaregolith_tiles": "Megaregolithfliesen",
   "block.tlotd.megaregolith_bricks": "Megaregolithziegel",
   "block.tlotd.megaregolith_brick_stairs": "Megaregolithziegeltreppn",
   "block.tlotd.megaregolith_brick_slab": "Megaregolithziegelschtuafa",
   "block.tlotd.megaregolith_brick_wall": "Megaregolithziegelmaua",
   "block.tlotd.lunar_bedrock": "Mondgrundgeschtain",
+
+  "block.tlotd.tall_dark_metal_tile": "Schwarzmetallhochfliesn",
+  "block.tlotd.dark_metal_tile": "Schwarzmetallfliesn",
+  "block.tlotd.dark_metal_tiles": "Schwarzmetallhochfliesen",
 
   "block.tlotd.alien_gate": "Aliator",
   "block.tlotd.alien_pillar": "Aliaseile",
@@ -1194,18 +1213,14 @@
 
   "block.tlotd.framed_glass": "Oigrahmts Glas",
   "block.tlotd.framed_glass_pane": "Oigrahmte Glasscheibn",
-  "block.tlotd.framed_glass_bottom": "Oigrahmts Glas (Unda)",
-  "block.tlotd.framed_glass_bottom_pane": "Oigrahmte Glasscheibn (Unda)",
-  "block.tlotd.framed_glass_middle": "Oigrahmts Glas (Midde)",
-  "block.tlotd.framed_glass_middle_pane": "Oigrahmte Glasscheibn (Midde)",
-  "block.tlotd.framed_glass_top": "Oigrahmts Glas (Oba)",
-  "block.tlotd.framed_glass_top_pane": "Oigrahmte Glasscheibn (Oba)",
-  "block.tlotd.framed_glass_round": "Oigrahmts Glas (Rund)",
-  "block.tlotd.framed_glass_round_pane": "Oigrahmte Glasscheibn (Rund)",
-  "block.tlotd.framed_glass_split": "Oigrahmts Glas (Geteilt)",
-  "block.tlotd.framed_glass_split_pane": "Oigrahmte Glasscheibn (Geteilt)",
-  "block.tlotd.framed_glass_tiled": "Oigrahmts Glas (Gekachelt)",
-  "block.tlotd.framed_glass_tiled_pane": "Oigrahmte Glasscheibn (Gekachelt)",
+  "block.tlotd.vertical_framed_glass": "Vertikals Oigrahmts Glas",
+  "block.tlotd.vertical_framed_glass_pane": "Vertikale Oigrahmte Glasscheibn",
+  "block.tlotd.round_framed_glass": "Runds Oigrahmts Glas",
+  "block.tlotd.round_framed_glass_pane": "Runde Oigrahmte Glasscheibn",
+  "block.tlotd.split_framed_glass": "Geteilts Oigrahmts Glas",
+  "block.tlotd.split_framed_glass_pane": "Geteilte Oigrahmte Glasscheibn",
+  "block.tlotd.tiled_framed_glass": "Gekachelts Oigrahmts Glas",
+  "block.tlotd.tiled_framed_glass_pane": "Gekachelte Oigrahmte Glasscheibn",
 
   "block.tlotd.fancy_oak_planks": "Schicke Oichaholzbreddr",
   "block.tlotd.fancy_oak_stairs": "Schicke Oichaholztreppn",

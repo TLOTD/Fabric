@@ -24,16 +24,14 @@
     "tlotd:garbage_can",
 
     "tlotd:framed_glass",
-    "tlotd:framed_glass_bottom",
-    "tlotd:framed_glass_middle",
-    "tlotd:framed_glass_top",
-    "tlotd:framed_glass_split",
-    "tlotd:framed_glass_tiled",
+    "tlotd:vertical_framed_glass",
+    "tlotd:round_framed_glass",
+    "tlotd:split_framed_glass",
+    "tlotd:tiled_framed_glass",
     "tlotd:framed_glass_pane",
-    "tlotd:framed_glass_bottom_pane",
-    "tlotd:framed_glass_middle_pane",
-    "tlotd:framed_glass_top_pane",
-    "tlotd:framed_glass_split_pane",
-    "tlotd:framed_glass_tiled_pane"
+    "tlotd:vertical_framed_glass_pane",
+    "tlotd:round_framed_glass_pane",
+    "tlotd:split_framed_glass_pane",
+    "tlotd:tiled_framed_glass_pane"
   ]
 }

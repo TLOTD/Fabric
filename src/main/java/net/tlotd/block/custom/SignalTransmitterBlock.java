@@ -5,6 +5,7 @@ import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.registry.Registries;
@@ -26,6 +27,7 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 import net.tlotd.block.ModBlocks;
+import net.tlotd.item.ModItems;
 import net.tlotd.sound.ModSounds;
 import net.tlotd.util.ModTags;
 import net.tlotd.world.SignalTrackingArray;
@@ -122,7 +124,8 @@ public class SignalTransmitterBlock extends Block {
         }
         ItemStack stack = player.getMainHandStack();
         if (!stack.isEmpty() && stack.isIn(ModTags.Items.TRANSMITTABLE_SIGNALS)) {
-            Identifier id = Registries.ITEM.getId(stack.getItem());
+            Item item = stack.getItem();
+            Identifier id = Registries.ITEM.getId(item);
             if (tracker.hasSignal(id)) {
                 tracker.removeSignal(id);
                 player.sendMessage(Text.translatable("block.tlotd.signal_transmitter.removed"), true);

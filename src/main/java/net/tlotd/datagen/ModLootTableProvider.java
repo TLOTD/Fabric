@@ -29,21 +29,18 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
 
         addDrop(ModBlocks.STRAWBERRY_CRATE);
         addDrop(ModBlocks.ORANGE_CRATE);
+        addDrop(ModBlocks.PIPE_WEED_CRATE);
 
         addDrop(ModBlocks.FRAMED_GLASS);
         addDrop(ModBlocks.FRAMED_GLASS_PANE);
-        addDrop(ModBlocks.FRAMED_GLASS_TOP);
-        addDrop(ModBlocks.FRAMED_GLASS_TOP_PANE);
-        addDrop(ModBlocks.FRAMED_GLASS_MIDDLE);
-        addDrop(ModBlocks.FRAMED_GLASS_MIDDLE_PANE);
-        addDrop(ModBlocks.FRAMED_GLASS_BOTTOM);
-        addDrop(ModBlocks.FRAMED_GLASS_BOTTOM_PANE);
-        addDrop(ModBlocks.FRAMED_GLASS_ROUND);
-        addDrop(ModBlocks.FRAMED_GLASS_ROUND_PANE);
-        addDrop(ModBlocks.FRAMED_GLASS_SPLIT);
-        addDrop(ModBlocks.FRAMED_GLASS_SPLIT_PANE);
-        addDrop(ModBlocks.FRAMED_GLASS_TILED);
-        addDrop(ModBlocks.FRAMED_GLASS_TILED_PANE);
+        addDrop(ModBlocks.VERTICAL_FRAMED_GLASS);
+        addDrop(ModBlocks.VERTICAL_FRAMED_GLASS_PANE);
+        addDrop(ModBlocks.ROUND_FRAMED_GLASS);
+        addDrop(ModBlocks.ROUND_FRAMED_GLASS_PANE);
+        addDrop(ModBlocks.SPLIT_FRAMED_GLASS);
+        addDrop(ModBlocks.SPLIT_FRAMED_GLASS_PANE);
+        addDrop(ModBlocks.TILED_FRAMED_GLASS);
+        addDrop(ModBlocks.TILED_FRAMED_GLASS_PANE);
 
         addDrop(ModBlocks.WHITE_PUMPKIN);
         addDrop(ModBlocks.CARVED_WHITE_PUMPKIN);
@@ -93,6 +90,9 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.MARBLE_WALL);
         addDrop(ModBlocks.MARBLE_PRESSURE_PLATE);
         addDrop(ModBlocks.MARBLE_BUTTON);
+        addDrop(ModBlocks.CHISELED_MARBLE);
+        addDrop(ModBlocks.CHISELED_MARBLE_2);
+        addDrop(ModBlocks.MARBLE_PILLAR);
         addDrop(ModBlocks.LIMESTONE);
         addDrop(ModBlocks.LIMESTONE_STAIRS);
         addDrop(ModBlocks.LIMESTONE_SLAB, slabDrops(ModBlocks.MARBLE_SLAB));
@@ -154,11 +154,17 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.MEGAREGOLITH_COAL_ORE, drops(ModBlocks.MEGAREGOLITH_COAL_ORE, Items.COAL));
         addDrop(ModBlocks.MEGAREGOLITH_IRON_ORE, drops(ModBlocks.MEGAREGOLITH_IRON_ORE, Items.RAW_IRON));
         addDrop(ModBlocks.MEGAREGOLITH_LUNAR_CALLAINUS_ORE, drops(ModBlocks.MEGAREGOLITH_LUNAR_CALLAINUS_ORE, ModItems.LUNAR_CALLAINUS_LUMP));
-
+        addDrop(ModBlocks.TALL_MEGAREGOLITH_TILE);
+        addDrop(ModBlocks.MEGAREGOLITH_TILE);
+        addDrop(ModBlocks.MEGAREGOLITH_TILES);
         addDrop(ModBlocks.MEGAREGOLITH_BRICKS);
         addDrop(ModBlocks.MEGAREGOLITH_BRICK_STAIRS);
         addDrop(ModBlocks.MEGAREGOLITH_BRICK_SLAB, slabDrops(ModBlocks.MEGAREGOLITH_BRICK_SLAB));
         addDrop(ModBlocks.MEGAREGOLITH_BRICK_WALL);
+
+        addDrop(ModBlocks.TALL_DARK_METAL_TILE);
+        addDrop(ModBlocks.DARK_METAL_TILE);
+        addDrop(ModBlocks.DARK_METAL_TILES);
 
         addDrop(ModBlocks.FRAGILE_LIGHT_SWITCH, drops(ModBlocks.LIGHT_SWITCH));
         addDrop(ModBlocks.LIGHT_SWITCH);
@@ -248,7 +254,6 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.PLAYER_PLUSHIE);
 
         addDrop(ModBlocks.RADIO);
-        addDrop(ModBlocks.RADIO_ON, drops(ModBlocks.RADIO));
         addDrop(ModBlocks.TELEVISION);
         addDrop(ModBlocks.TELEVISION_ON, drops(ModBlocks.TELEVISION));
         addDrop(ModBlocks.TELEVISION_GAME, drops(ModBlocks.TELEVISION));
@@ -285,6 +290,9 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.SCULK_TREX_HEAD);
         addDrop(ModBlocks.INFECTED_TREX_HEAD);
         addDrop(ModBlocks.SICKENED_TREX_HEAD);
+
+        addDrop(ModBlocks.TREX_EGG);
+        addDrop(ModBlocks.INFECTED_TREX_EGG);
 
         addDrop(ModBlocks.ROSE);
         addPottedPlantDrops(ModBlocks.POTTED_ROSE);

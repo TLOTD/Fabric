@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:smelting",
+  "category": "blocks",
+  "cookingtime": 200,
+  "experience": 0.1,
+  "group": "megaregolith",
+  "ingredient": {
+    "item": "tlotd:megaregolith"
+  },
+  "result": "tlotd:megaregolith_tile"
+}

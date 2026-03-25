@@ -17,6 +17,7 @@ import net.tlotd.world.biome.ModBiomes;
 import java.util.OptionalLong;
 
 public class ModDimensions {
+
     public static final RegistryKey<DimensionOptions> PREHISTORIC_KEY = RegistryKey.of(RegistryKeys.DIMENSION,
             new Identifier(TLOTD.MOD_ID, "prehistoric"));
     public static final RegistryKey<World> PREHISTORIC_LEVEL_KEY = RegistryKey.of(RegistryKeys.WORLD,
@@ -39,56 +40,9 @@ public class ModDimensions {
             new Identifier(TLOTD.MOD_ID, "backrooms"));
 
     public static void bootstrapType(Registerable<DimensionType> context) {
-        context.register(PREHISTORIC_TYPE, new DimensionType(
-                OptionalLong.of(12000), // fixedTime
-                true, // hasSkylight
-                false, // hasCeiling
-                false, // ultraWarm
-                true, // natural
-                1.0, // coordinateScale
-                true, // bedWorks
-                true, // respawnAnchorWorks
-                -64, // minY
-                384, // height
-                320, // logicalHeight
-                ModTags.Blocks.INFINIBURN_PREHISTORIC, // infiniburn
-                DimensionTypes.OVERWORLD_ID, // effectsLocation
-                0f, // ambientLight
-                new DimensionType.MonsterSettings(false, false, UniformIntProvider.create(0, 0), 0)));
-
-        context.register(LUNA_TYPE, new DimensionType(
-                OptionalLong.of(0),
-                true,
-                false,
-                false,
-                false,
-                1.0,
-                false,
-                true,
-                -128,
-                448,
-                320,
-                ModTags.Blocks.INFINIBURN_LUNA,
-                DimensionTypes.THE_END_ID,
-                0f,
-                new DimensionType.MonsterSettings(false, false, UniformIntProvider.create(0, 0), 0)));
-
-        context.register(BACKROOMS_TYPE, new DimensionType(
-                OptionalLong.of(0),
-                true,
-                false,
-                false,
-                false,
-                1.0,
-                false,
-                false,
-                -128,
-                448,
-                320,
-                ModTags.Blocks.INFINIBURN_BACKROOMS,
-                DimensionTypes.THE_END_ID,
-                0f,
-                new DimensionType.MonsterSettings(false, false, UniformIntProvider.create(0, 0), 0)));
+        context.register(PREHISTORIC_TYPE, new DimensionType(OptionalLong.of(12000), true, false, false, true, 1.0, true, true, -64, 384, 320, ModTags.Blocks.INFINIBURN_PREHISTORIC, DimensionTypes.OVERWORLD_ID, 0f, new DimensionType.MonsterSettings(false, false, UniformIntProvider.create(0, 0), 0)));
+        context.register(LUNA_TYPE, new DimensionType(OptionalLong.of(0), true, false, false, false, 1.0, false, true, -128, 448, 320, ModTags.Blocks.INFINIBURN_LUNA, DimensionTypes.THE_END_ID, 0f, new DimensionType.MonsterSettings(false, false, UniformIntProvider.create(0, 0), 0)));
+        context.register(BACKROOMS_TYPE, new DimensionType(OptionalLong.of(0), true, false, false, false, 1.0, false, false, -128, 448, 320, ModTags.Blocks.INFINIBURN_BACKROOMS, DimensionTypes.THE_END_ID, 0f, new DimensionType.MonsterSettings(false, false, UniformIntProvider.create(0, 0), 0)));
     }
 
     public static void bootstrapDimension(Registerable<DimensionOptions> context) {

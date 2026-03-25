@@ -148,24 +148,12 @@ public class MithrilAnvilBlock extends BlockWithEntity implements BlockEntityPro
         }
     }
 
-    public static final Identifier RECIPIES_FONT_ID = new Identifier("tlotd", "recipies");
-
     @Override
     public void appendTooltip(ItemStack stack, @Nullable BlockView world, List<Text> tooltip, TooltipContext options) {
         tooltip.add(Text.empty());
         if (ModConfigs.MITHRIL_ANVIL_NEEDS_DIRECT_MOONLIGHT) {
             tooltip.add(Text.translatable("block.tlotd.mithril_anvil.tooltip").formatted(Formatting.GRAY));
             tooltip.add(Text.literal(" ").append(Text.translatable("block.tlotd.mithril_anvil.tooltip_2").formatted(Formatting.BLUE)));
-            tooltip.add(Text.empty());
-        }
-        if (Screen.hasShiftDown()) {
-            tooltip.add(Text.translatable("text.tlotd.recipe.ponder", Text.translatable("key.keyboard.shift").formatted(Formatting.WHITE)).formatted(Formatting.DARK_GRAY));
-            Style style = this.getName().getStyle();
-            tooltip.add(Text.literal("\uE010\uE000\uE018\uE019\uE01A\uE01B\uE011\uE013\uE014\uE012\uE016").setStyle(style.withFont(RECIPIES_FONT_ID)));
-            tooltip.add(Text.literal("\uE010\uE000\uE015\uE011\uE013\uE016\uE012\uE017").setStyle(style.withFont(RECIPIES_FONT_ID)));
-
-        } else {
-            tooltip.add(Text.translatable("text.tlotd.recipe.ponder", Text.translatable("key.keyboard.shift").formatted(Formatting.GRAY)).formatted(Formatting.DARK_GRAY));
         }
         super.appendTooltip(stack, world, tooltip, options);
     }
