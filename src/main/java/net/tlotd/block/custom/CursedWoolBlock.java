@@ -1,5 +1,7 @@
 package net.tlotd.block.custom;
 
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.block.Block;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.Screen;
@@ -27,6 +29,7 @@ public class CursedWoolBlock extends Block {
     public static final Identifier TOOLTIP_FONT_ID = new Identifier("tlotd", "tooltip");
 
     @Override
+    @Environment(EnvType.CLIENT)
     public void appendTooltip(ItemStack stack, @Nullable BlockView world, List<Text> tooltip, TooltipContext options) {
         Style style = getName().getStyle();
         PlayerEntity player = MinecraftClient.getInstance().player;

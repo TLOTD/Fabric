@@ -1,0 +1,6 @@
+{
+  "parent": "tlotd:block/modern_radio",
+  "textures": {
+    "0": "tlotd:block/modern_radio_on"
+  }
+}

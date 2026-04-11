@@ -99,6 +99,7 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.MEGAREGOLITH_TILES);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DARK_METAL_TILE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DARK_METAL_TILES);
+        blockStateModelGenerator.registerDoor(ModBlocks.METAL_PUSH_DOOR);
         BlockStateModelGenerator.BlockTexturePool megaregolithBrickPool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.MEGAREGOLITH_BRICKS);
         megaregolithBrickPool.stairs(ModBlocks.MEGAREGOLITH_BRICK_STAIRS);
         megaregolithBrickPool.slab(ModBlocks.MEGAREGOLITH_BRICK_SLAB);
@@ -308,6 +309,8 @@ public class ModModelProvider extends FabricModelProvider {
 
         itemModelGenerator.register(ModItems.OXYGEN_TANK, Models.GENERATED);
 
+        itemModelGenerator.register(ModItems.STRAWBERRY_COOKIE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.ORANGE_COOKIE, Models.GENERATED);
         itemModelGenerator.register(ModItems.HEMP_COOKIE, Models.GENERATED);
 
         itemModelGenerator.register(ModItems.TOAST, Models.GENERATED);
@@ -565,8 +568,6 @@ public class ModModelProvider extends FabricModelProvider {
 
         itemModelGenerator.register(ModItems.MITHRIL_CHAINMAIL_CHUNK, Models.GENERATED);
 
-        itemModelGenerator.register(ModItems.MITHRIL_SWORD, Models.HANDHELD);
-        itemModelGenerator.register(ModItems.MITHRIL_PICKAXE, Models.HANDHELD);
         itemModelGenerator.register(ModItems.MITHRIL_AXE, Models.HANDHELD);
         itemModelGenerator.register(ModItems.MITHRIL_SHOVEL, Models.HANDHELD);
         itemModelGenerator.register(ModItems.MITHRIL_HOE, Models.HANDHELD);

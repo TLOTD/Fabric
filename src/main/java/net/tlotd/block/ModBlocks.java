@@ -324,11 +324,19 @@ public class ModBlocks {
     public static final Block MEGAREGOLITH_TILES = registerBlock("megaregolith_tiles",
             new Block(FabricBlockSettings.create().mapColor(MapColor.WHITE).requiresTool().strength(3.0F, 9.0F)));
     public static final Block TALL_DARK_METAL_TILE = registerBlock("tall_dark_metal_tile",
-            new TallTileBlock(FabricBlockSettings.create().mapColor(MapColor.WHITE).requiresTool().strength(3.0F, 9.0F).sounds(BlockSoundGroup.NETHERITE)));
+            new TallTileBlock(FabricBlockSettings.create().mapColor(MapColor.DEEPSLATE_GRAY).requiresTool().strength(3.0F, 9.0F).sounds(BlockSoundGroup.NETHERITE)));
     public static final Block DARK_METAL_TILE = registerBlock("dark_metal_tile",
-            new Block(FabricBlockSettings.create().mapColor(MapColor.WHITE).requiresTool().strength(3.0F, 9.0F).sounds(BlockSoundGroup.NETHERITE)));
+            new Block(FabricBlockSettings.create().mapColor(MapColor.DEEPSLATE_GRAY).requiresTool().strength(3.0F, 9.0F).sounds(BlockSoundGroup.NETHERITE)));
     public static final Block DARK_METAL_TILES = registerBlock("dark_metal_tiles",
-            new Block(FabricBlockSettings.create().mapColor(MapColor.WHITE).requiresTool().strength(3.0F, 9.0F).sounds(BlockSoundGroup.NETHERITE)));
+            new Block(FabricBlockSettings.create().mapColor(MapColor.DEEPSLATE_GRAY).requiresTool().strength(3.0F, 9.0F).sounds(BlockSoundGroup.NETHERITE)));
+
+    public static final Block DARK_METAL_LIGHTS = registerBlock("dark_metal_lights",
+            new DarkMetalLightBlock(FabricBlockSettings.create().mapColor(MapColor.WHITE).requiresTool().luminance(createLightLevelFromLitBlockState(15)).strength(3.0F, 9.0F)));
+
+    public static final Block HEAVY_METAL_DOOR = registerBlock("heavy_metal_door",
+            new HeavyDoorBlock(FabricBlockSettings.create().mapColor(MapColor.IRON_GRAY).requiresTool().strength(5.0F, 5.0F).sounds(BlockSoundGroup.METAL).nonOpaque().pistonBehavior(PistonBehavior.DESTROY), BlockSetType.IRON));
+    public static final Block METAL_PUSH_DOOR = registerBlock("metal_push_door",
+            new DoorBlock(FabricBlockSettings.create().mapColor(MapColor.IRON_GRAY).requiresTool().strength(5.0F, 5.0F).sounds(BlockSoundGroup.METAL).nonOpaque().pistonBehavior(PistonBehavior.DESTROY), BlockSetType.STONE));
 
     public static final Block ALIEN_GATE = registerRarityBlock("alien_gate",
             new Block(FabricBlockSettings.create().mapColor(MapColor.LIGHT_GRAY).strength(-1.0F, 3600000.0F)), Rarity.EPIC);
@@ -671,7 +679,7 @@ public class ModBlocks {
     public static final Block GINKGO_FENCE_GATE = registerBlock("ginkgo_fence_gate",
             new FenceGateBlock(FabricBlockSettings.create().mapColor(MapColor.PALE_GREEN).strength(2.0F, 3.0F).sounds(BlockSoundGroup.WOOD), WoodType.OAK));
     public static final Block GINKGO_DOOR = registerBlock("ginkgo_door",
-            new DoorBlock(FabricBlockSettings.create().mapColor(MapColor.PALE_GREEN).strength(2.0F, 3.0F).sounds(BlockSoundGroup.WOOD).nonOpaque(), BlockSetType.OAK));
+            new DoorBlock(FabricBlockSettings.create().mapColor(MapColor.PALE_GREEN).strength(2.0F, 3.0F).sounds(BlockSoundGroup.WOOD).nonOpaque().pistonBehavior(PistonBehavior.DESTROY), BlockSetType.OAK));
     public static final Block GINKGO_TRAPDOOR = registerBlock("ginkgo_trapdoor",
             new TrapdoorBlock(FabricBlockSettings.create().mapColor(MapColor.PALE_GREEN).strength(2.0F, 3.0F).sounds(BlockSoundGroup.WOOD).nonOpaque(), BlockSetType.OAK));
 
@@ -693,7 +701,7 @@ public class ModBlocks {
             .group("wooden").unlockCriterionName("has_planks").build();
 
     public static final Block GLASS_DOOR = registerBlock("glass_door",
-            new DoorBlock(FabricBlockSettings.create().mapColor(MapColor.LIGHT_BLUE).strength(0.3F, 0.3F).sounds(BlockSoundGroup.GLASS).nonOpaque(), BlockSetType.OAK));
+            new DoorBlock(FabricBlockSettings.create().mapColor(MapColor.LIGHT_BLUE).strength(0.3F, 0.3F).sounds(BlockSoundGroup.GLASS).nonOpaque().pistonBehavior(PistonBehavior.DESTROY), BlockSetType.OAK));
     public static final Block GLASS_TRAPDOOR = registerBlock("glass_trapdoor",
             new TrapdoorBlock(FabricBlockSettings.create().mapColor(MapColor.LIGHT_BLUE).strength(0.3F, 0.3F).sounds(BlockSoundGroup.GLASS).nonOpaque(), BlockSetType.OAK));
 

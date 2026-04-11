@@ -1,0 +1,29 @@
+{
+  "variants": {
+    "lit=false,facing=north,type=full":{"model":"tlotd:block/dark_metal_lights", "y": 180, "uvlock": true},
+    "lit=false,facing=north,type=upper":{"model":"tlotd:block/dark_metal_lights_upper", "y": 180, "uvlock": true},
+    "lit=false,facing=north,type=lower":{"model":"tlotd:block/dark_metal_lights_lower", "y": 180, "uvlock": true},
+    "lit=false,facing=east,type=full":{"model":"tlotd:block/dark_metal_lights", "y": 270, "uvlock": true},
+    "lit=false,facing=east,type=upper":{"model":"tlotd:block/dark_metal_lights_upper", "y": 270, "uvlock": true},
+    "lit=false,facing=east,type=lower":{"model":"tlotd:block/dark_metal_lights_lower", "y": 270, "uvlock": true},
+    "lit=false,facing=south,type=full":{"model":"tlotd:block/dark_metal_lights", "uvlock": true},
+    "lit=false,facing=south,type=upper":{"model":"tlotd:block/dark_metal_lights_upper", "uvlock": true},
+    "lit=false,facing=south,type=lower":{"model":"tlotd:block/dark_metal_lights_lower", "uvlock": true},
+    "lit=false,facing=west,type=full":{"model":"tlotd:block/dark_metal_lights", "y": 90, "uvlock": true},
+    "lit=false,facing=west,type=upper":{"model":"tlotd:block/dark_metal_lights_upper", "y": 90, "uvlock": true},
+    "lit=false,facing=west,type=lower":{"model":"tlotd:block/dark_metal_lights_lower", "y": 90, "uvlock": true},
+
+    "lit=true,facing=north,type=full":{"model":"tlotd:block/dark_metal_lights_on", "y": 180, "uvlock": true},
+    "lit=true,facing=north,type=upper":{"model":"tlotd:block/dark_metal_lights_on_upper", "y": 180, "uvlock": true},
+    "lit=true,facing=north,type=lower":{"model":"tlotd:block/dark_metal_lights_on_lower", "y": 180, "uvlock": true},
+    "lit=true,facing=east,type=full":{"model":"tlotd:block/dark_metal_lights_on", "y": 270, "uvlock": true},
+    "lit=true,facing=east,type=upper":{"model":"tlotd:block/dark_metal_lights_on_upper", "y": 270, "uvlock": true},
+    "lit=true,facing=east,type=lower":{"model":"tlotd:block/dark_metal_lights_on_lower", "y": 270, "uvlock": true},
+    "lit=true,facing=south,type=full":{"model":"tlotd:block/dark_metal_lights_on", "uvlock": true},
+    "lit=true,facing=south,type=upper":{"model":"tlotd:block/dark_metal_lights_on_upper", "uvlock": true},
+    "lit=true,facing=south,type=lower":{"model":"tlotd:block/dark_metal_lights_on_lower", "uvlock": true},
+    "lit=true,facing=west,type=full":{"model":"tlotd:block/dark_metal_lights_on", "y": 90, "uvlock": true},
+    "lit=true,facing=west,type=upper":{"model":"tlotd:block/dark_metal_lights_on_upper", "y": 90, "uvlock": true},
+    "lit=true,facing=west,type=lower":{"model":"tlotd:block/dark_metal_lights_on_lower", "y": 90, "uvlock": true}
+  }
+}

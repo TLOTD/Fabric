@@ -1,0 +1,47 @@
+{
+	"credit": "Made by Isla_Nublar for the TLOTD Mod (https://tlotd.net)",
+	"textures": {
+		"0": "tlotd:block/dark_metal_tile",
+		"1": "tlotd:block/heavy_door_top_right",
+		"particle": "tlotd:block/dark_metal_tile"
+	},
+	"elements": [
+		{
+			"name": "door",
+			"from": [1, 0, 2],
+			"to": [16, 15, 4],
+			"rotation": {"angle": 0, "axis": "y", "origin": [0, 0, 1]},
+			"faces": {
+				"north": {"uv": [0, 1, 15, 16], "texture": "#1"},
+				"east": {"uv": [0, 1, 2, 16], "texture": "#1"},
+				"south": {"uv": [15, 1, 0, 16], "texture": "#1"},
+				"down": {"uv": [0, 14, 15, 16], "rotation": 180, "texture": "#1"}
+			}
+		},
+		{
+			"name": "wall",
+			"from": [0, 0, 1],
+			"to": [1, 16, 5],
+			"faces": {
+				"north": {"uv": [15, 0, 16, 16], "texture": "#0"},
+				"east": {"uv": [0, 0, 4, 16], "texture": "#0"},
+				"south": {"uv": [0, 0, 1, 16], "texture": "#0"},
+				"west": {"uv": [0, 0, 4, 16], "texture": "#0"},
+				"up": {"uv": [15, 11, 16, 15], "rotation": 180, "texture": "#0"},
+				"down": {"uv": [0, 15, 4, 16], "rotation": 270, "texture": "#0"}
+			}
+		},
+		{
+			"name": "ceiling",
+			"from": [1, 15, 1],
+			"to": [16, 16, 5],
+			"faces": {
+				"north": {"uv": [0, 0, 15, 1], "texture": "#0"},
+				"east": {"uv": [11, 0, 15, 1], "texture": "#0"},
+				"south": {"uv": [1, 0, 16, 1], "texture": "#0"},
+				"up": {"uv": [0, 11, 15, 15], "rotation": 180, "texture": "#0"},
+				"down": {"uv": [0, 10, 15, 14], "rotation": 180, "texture": "#0"}
+			}
+		}
+	]
+}

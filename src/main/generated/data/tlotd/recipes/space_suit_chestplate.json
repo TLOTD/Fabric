@@ -5,8 +5,8 @@
     "#": {
       "item": "minecraft:leather"
     },
-    "O": {
-      "item": "tlotd:oxygen_tank"
+    "S": {
+      "item": "minecraft:slime_ball"
     },
     "W": {
       "item": "minecraft:white_dye"
@@ -14,7 +14,7 @@
   },
   "pattern": [
     "#W#",
-    "O#O",
+    "S#S",
     "###"
   ],
   "result": {

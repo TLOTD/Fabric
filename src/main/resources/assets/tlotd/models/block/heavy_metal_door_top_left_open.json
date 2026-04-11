@@ -1,0 +1,6 @@
+{
+  "parent": "tlotd:block/heavy_metal_door_top_left",
+  "textures": {
+    "1": "tlotd:block/empty"
+  }
+}

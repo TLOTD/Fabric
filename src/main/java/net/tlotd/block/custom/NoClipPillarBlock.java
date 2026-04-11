@@ -5,16 +5,9 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.PillarBlock;
 import net.minecraft.block.ShapeContext;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
-import net.minecraft.potion.PotionUtil;
-import net.minecraft.potion.Potions;
-import net.minecraft.registry.RegistryKeys;
-import net.minecraft.registry.tag.TagKey;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
@@ -24,7 +17,6 @@ import net.minecraft.state.StateManager;
 import net.minecraft.state.property.EnumProperty;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
-import net.minecraft.util.Identifier;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
@@ -34,12 +26,10 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.tlotd.block.ModBlocks;
 import net.tlotd.block.enum_property.NoClipable;
-import net.tlotd.config.ModConfigs;
 import net.tlotd.effect.ModEffects;
 import net.tlotd.item.ModItems;
+import net.tlotd.world.ModGlobalState;
 import net.tlotd.world.dimension.ModDimensions;
-
-import static net.tlotd.config.ModConfigs.TERRA_WARP_DESTINATION_HEIGHT;
 
 public class NoClipPillarBlock extends PillarBlock {
 
@@ -78,14 +68,24 @@ public class NoClipPillarBlock extends PillarBlock {
         if (state.get(NOCLIPABLE).equals(NoClipable.PORTALING)) {
             if (!world.isClient()) {
                 if (entity instanceof ServerPlayerEntity serverPlayer) {
+                    int warpHeightOutTerra;
+                    int terraResistance;
+                    if (serverPlayer.getServer() != null) {
+                        ModGlobalState globalState = ModGlobalState.get(serverPlayer.getServer());
+                        warpHeightOutTerra = globalState.warpHeightIntoTerra();
+                        terraResistance = globalState.terraResistance();
+                    } else {
+                        warpHeightOutTerra = 320;
+                        terraResistance = 400;
+                    }
                     if (serverPlayer.getWorld().getRegistryKey().equals(ModDimensions.BACKROOMS_LEVEL_KEY)) {
                         ServerWorld overworld = serverPlayer.getServer().getWorld(World.OVERWORLD);
                         if (overworld != null) {
                             serverPlayer.getServer().execute(() -> {
-                                serverPlayer.teleport(overworld, 0.5, TERRA_WARP_DESTINATION_HEIGHT, 0.5, 0.0F, 0.0F);
+                                serverPlayer.teleport(overworld, 0.5, warpHeightOutTerra, 0.5, 0.0F, 0.0F);
                                 serverPlayer.fallDistance = 0.0F;
-                                if (ModConfigs.TERRA_FALL_DISTANCE_RESISTANCE != 0) {
-                                    serverPlayer.addStatusEffect(new StatusEffectInstance(StatusEffects.RESISTANCE, ModConfigs.TERRA_FALL_DISTANCE_RESISTANCE, 4, false, false, true));
+                                if (terraResistance != 0) {
+                                    serverPlayer.addStatusEffect(new StatusEffectInstance(StatusEffects.RESISTANCE, terraResistance, 4, false, false, true));
                                 }
                                 serverPlayer.removeStatusEffect(ModEffects.SUBSPACE_RESISTANCE);
                                 serverPlayer.removeStatusEffect(ModEffects.SUBSPACE_SICKNESS);

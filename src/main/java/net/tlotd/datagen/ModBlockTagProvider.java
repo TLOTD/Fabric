@@ -20,6 +20,13 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
     @Override
     protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
+        getOrCreateTagBuilder(ModTags.Blocks.MITHRIL_REACTING)
+                .add(ModBlocks.BEDROCK_MITHRIL_ORE)
+                .add(ModBlocks.RAW_MITHRIL_BLOCK)
+                .add(ModBlocks.MITHRIL_BLOCK)
+                .add(ModBlocks.MITHRIL_ANVIL)
+                .add(ModBlocks.MITHRIL_BARS)
+        ;
         getOrCreateTagBuilder(ModTags.Blocks.STONE_EXTRACTABLE_BLOCKS)
                 .add(Blocks.COAL_ORE)
                 .add(Blocks.COPPER_ORE)
@@ -299,6 +306,12 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
         getOrCreateTagBuilder(BlockTags.WOODEN_DOORS)
                 .add(ModBlocks.GINKGO_DOOR)
+        ;
+
+        getOrCreateTagBuilder(BlockTags.DOORS)
+                .add(ModBlocks.HEAVY_METAL_DOOR)
+                .add(ModBlocks.METAL_PUSH_DOOR)
+                .add(ModBlocks.GLASS_DOOR)
         ;
 
         getOrCreateTagBuilder(BlockTags.WOODEN_FENCES)
@@ -716,6 +729,12 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.TALL_DARK_METAL_TILE)
                 .add(ModBlocks.DARK_METAL_TILE)
                 .add(ModBlocks.DARK_METAL_TILES)
+
+                .add(ModBlocks.DARK_METAL_LIGHTS)
+
+                .add(ModBlocks.HEAVY_METAL_DOOR)
+                .add(ModBlocks.METAL_PUSH_DOOR)
+                .add(ModBlocks.GLASS_DOOR)
 
                 .add(ModBlocks.STEEL_BLOCK)
 

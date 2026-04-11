@@ -26,6 +26,7 @@ import net.minecraft.world.World;
 import net.tlotd.config.ModConfigs;
 import net.tlotd.gui.MithrilAnvilGUIHandler;
 import net.tlotd.recipe.MithrilSmithingRecipe;
+import net.tlotd.world.ModGlobalState;
 import org.jetbrains.annotations.Nullable;
 
 
@@ -132,7 +133,12 @@ public class MithrilAnvilBlockEntity extends BlockEntity implements ExtendedScre
         if (world.isClient()) {
             return;
         }
-        if (isOutputSlotEmptyOrReceivable() && (world.getRegistryKey().equals(LUNA_LEVEL_KEY) || !ModConfigs.MITHRIL_ANVIL_NEEDS_DIRECT_MOONLIGHT || (world.isNight() && world.isSkyVisibleAllowingSea(pos)))) {
+        boolean starlightAnvil = true;
+        if (world.getServer() != null) {
+            ModGlobalState globalState = ModGlobalState.get(world.getServer());
+            starlightAnvil = globalState.starlightAnvil();
+        }
+        if (isOutputSlotEmptyOrReceivable() && (world.getRegistryKey().equals(LUNA_LEVEL_KEY) || !starlightAnvil || (world.isNight() && world.isSkyVisibleAllowingSea(pos)))) {
             if (this.hasRecipe()) {
                 progress++;
                 markDirty(world, pos, state);

@@ -59,7 +59,7 @@ public class MithrilMirrorItem extends Item {
         NbtCompound tag = stack.getNbt();
         int used = tag.getInt("ChargesUsed");
         int maxCharges = getMaxCharges(stack);
-        return 1.0f - ((float) used / (float) maxCharges);
+        return Math.max(1.0f - ((float) used / (float) maxCharges), 0);
     }
 
     @Override
@@ -316,7 +316,7 @@ public class MithrilMirrorItem extends Item {
         } else if (cursed) {
             tooltip.add(Text.translatable("item.tlotd.mithril_mirror.tooltip").setStyle(style.withFont(ILLAGER_FONT_ID)).formatted(Formatting.GRAY));
         } else {
-            tooltip.add(Text.translatable("item.tlotd.mithril_mirror.tooltip_quenya").setStyle(style.withFont(TENGWAR_FONT_ID)).formatted(Formatting.GRAY));
+            tooltip.add(Text.translatable("item.tlotd.mithril_mirror.tooltip_tengwar").setStyle(style.withFont(TENGWAR_FONT_ID)).formatted(Formatting.GRAY));
         }
         if (cursed) {
             tooltip.add(Text.translatable("item.tlotd.desc_occult").formatted(Formatting.RED));

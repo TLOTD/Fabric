@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "#c:copper_ingots",
+    "#c:iron_ingots",
+    "#c:gold_ingots",
+    "#c:steel_ingots",
+    "#c:aluminium_ingots",
+    "#c:lead_ingots",
+    "#c:mithril_ingots"
+  ]
+}

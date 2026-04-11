@@ -1,0 +1,107 @@
+{
+	"credit": "Made by Isla_Nublar for the TLOTD Mod (https://tlotd.net)",
+	"textures": {
+		"0": "tlotd:block/dark_metal_tile",
+		"light": "tlotd:block/dark_metal_lights",
+		"overlay": "tlotd:block/dark_metal_lights_overlay",
+		"side": "tlotd:block/dark_metal_tile",
+		"upper": "tlotd:block/dark_metal_tile",
+		"lower": "tlotd:block/dark_metal_tile",
+		"particle": "tlotd:block/dark_metal_tile"
+	},
+	"elements": [
+		{
+			"name": "main",
+			"from": [0, 0, 2],
+			"to": [16, 16, 16],
+			"faces": {
+				"north": {"uv": [0, 0, 16, 16], "texture": "#light"},
+				"east": {"uv": [0, 0, 14, 16], "texture": "#side"},
+				"south": {"uv": [0, 0, 16, 16], "texture": "#side"},
+				"west": {"uv": [2, 0, 16, 16], "texture": "#side"},
+				"up": {"uv": [0, 2, 16, 16], "texture": "#0"},
+				"down": {"uv": [0, 0, 16, 14], "texture": "#0"}
+			}
+		},
+		{
+			"from": [15.99, 0, 0],
+			"to": [16, 16, 2],
+			"faces": {
+				"east": {"uv": [14, 0, 16, 16], "texture": "#side"},
+				"west": {"uv": [0, 0, 2, 16], "texture": "#0"}
+			}
+		},
+		{
+			"from": [8, 0, 0],
+			"to": [8, 16, 2],
+			"faces": {
+				"east": {"uv": [14, 0, 16, 16], "texture": "#0"},
+				"west": {"uv": [0, 0, 2, 16], "texture": "#0"}
+			}
+		},
+		{
+			"from": [0, 0, 0],
+			"to": [0.01, 16, 2],
+			"faces": {
+				"east": {"uv": [14, 0, 16, 16], "texture": "#0"},
+				"west": {"uv": [0, 0, 2, 16], "texture": "#side"}
+			}
+		},
+		{
+			"from": [0, 0, 0],
+			"to": [16, 16, 0],
+			"faces": {
+				"north": {"uv": [0, 0, 16, 16], "texture": "#overlay"}
+			}
+		},
+		{
+			"name": "lower",
+			"from": [0, 0, 0],
+			"to": [16, 0.01, 2],
+			"faces": {
+				"up": {"uv": [0, 14, 16, 16], "texture": "#lower"},
+				"down": {"uv": [0, 14, 16, 16], "texture": "#lower"}
+			}
+		},
+		{
+			"name": "upper",
+			"from": [0, 15.99, 0],
+			"to": [16, 16, 2],
+			"faces": {
+				"up": {"uv": [0, 0, 16, 2], "texture": "#upper"},
+				"down": {"uv": [0, 14, 16, 16], "texture": "#upper"}
+			}
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [75, 135, 0],
+			"translation": [0, 2.5, 0],
+			"scale": [0.375, 0.375, 0.375]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [75, 135, 0],
+			"translation": [0, 2.5, 0],
+			"scale": [0.375, 0.375, 0.375]
+		},
+		"firstperson_righthand": {
+			"rotation": [0, 135, 0],
+			"scale": [0.4, 0.4, 0.4]
+		},
+		"firstperson_lefthand": {
+			"rotation": [0, 135, 0],
+			"scale": [0.4, 0.4, 0.4]
+		},
+		"ground": {
+			"translation": [0, 3, 0],
+			"scale": [0.25, 0.25, 0.25]
+		},
+		"gui": {
+			"rotation": [30, -135, 0],
+			"scale": [0.625, 0.625, 0.625]
+		},
+		"fixed": {
+			"scale": [0.5, 0.5, 0.5]
+		}
+	}
+}

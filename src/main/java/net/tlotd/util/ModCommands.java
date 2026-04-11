@@ -6,6 +6,7 @@ import com.mojang.brigadier.arguments.IntegerArgumentType;
 import com.mojang.brigadier.arguments.StringArgumentType;
 import com.mojang.brigadier.context.CommandContext;
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.command.argument.GameProfileArgumentType;
 import net.minecraft.command.argument.RegistryEntryArgumentType;
 import net.minecraft.item.Item;
@@ -53,6 +54,13 @@ public class ModCommands {
                                                 ))
                                         );
                                 context.getSource().sendFeedback(() -> message, false);
+                                return 1;
+                            })
+                    )
+                    .then(CommandManager.literal("version")
+                            .executes(context -> {
+                                String version = getModVersion();
+                                context.getSource().sendFeedback(() -> Text.literal("TLOTD version: " + version), false);
                                 return 1;
                             })
                     )
@@ -129,82 +137,239 @@ public class ModCommands {
                                     })
                             )
                     )
-                    .then(CommandManager.literal("strippingDropsBark")
+                    .then(CommandManager.literal("rules")
+                        .then(CommandManager.literal("strippingDropsBark")
+                                .executes(ctx -> {
+                                    boolean dropsBark = ModGlobalState.get(ctx.getSource().getServer()).strippingDropsBark();
+                                    ctx.getSource().sendFeedback(() -> Text.literal("Stripping wood with an axe " + (dropsBark ? "dropps" : "doesn't drop") + " bark."), false);
+                                    return 1;
+                                })
+                                .then(CommandManager.argument("value", BoolArgumentType.bool())
+                                        .requires(src -> src.hasPermissionLevel(2))
+                                        .executes(ctx -> {
+                                            boolean value = BoolArgumentType.getBool(ctx, "value");
+                                            ModGlobalState state = ModGlobalState.get(ctx.getSource().getServer());
+                                            state.setStrippingDropsBark(value);
+                                            ctx.getSource().sendFeedback(() -> Text.literal("Stripping wood with an axe " + (value ? "will" : "won't") + " drop bark."), true);
+                                            return 1;
+                                        })
+                                )
+                        )
+                        .then(CommandManager.literal("extractionOreCompat")
+                                .executes(ctx -> {
+                                    boolean extraction = ModGlobalState.get(ctx.getSource().getServer()).extractionOreCompat();
+                                    ctx.getSource().sendFeedback(() -> Text.literal("Experimental extraction compat " + (extraction ? "is" : "isn't") + " enabled."), false);
+                                    return 1;
+                                })
+                                .then(CommandManager.argument("value", BoolArgumentType.bool())
+                                        .requires(src -> src.hasPermissionLevel(2))
+                                        .executes(ctx -> {
+                                            boolean value = BoolArgumentType.getBool(ctx, "value");
+                                            ModGlobalState state = ModGlobalState.get(ctx.getSource().getServer());
+                                            state.setExtractionOreCompat(value);
+                                            ctx.getSource().sendFeedback(() -> Text.literal("Experimental extraction compat " + (value ? "will" : "won't") + " be enabled."), true);
+                                            return 1;
+                                        })
+                                )
+                        )
+                        .then(CommandManager.literal("elevatorMaxDistance")
+                                .executes(ctx -> {
+                                    int distance = ModGlobalState.get(ctx.getSource().getServer()).elevatorMaxDistance();
+                                    ctx.getSource().sendFeedback(() -> Text.literal("The elevator can raise players up to " + distance + " blocks."), false);
+                                    return 1;
+                                })
+                                .then(CommandManager.argument("value", IntegerArgumentType.integer(0, 8192))
+                                        .requires(src -> src.hasPermissionLevel(2))
+                                        .executes(ctx -> {
+                                            int value = IntegerArgumentType.getInteger(ctx, "value");
+                                            ModGlobalState state = ModGlobalState.get(ctx.getSource().getServer());
+                                            state.setElevatorMaxDistance(value);
+                                            ctx.getSource().sendFeedback(() -> Text.literal("The elevator will raise players up to " + value + " blocks."), true);
+                                            return 1;
+                                        })
+                                )
+                        )
+                        .then(CommandManager.literal("starlightAnvil")
+                                .executes(ctx -> {
+                                    boolean moonlight = ModGlobalState.get(ctx.getSource().getServer()).starlightAnvil();
+                                    ctx.getSource().sendFeedback(() -> Text.literal("Mithril Anvils " + (moonlight ? "require" : "don't require") + " direct moonlight exposure to smith."), false);
+                                    return 1;
+                                })
+                                .then(CommandManager.argument("value", BoolArgumentType.bool())
+                                        .requires(src -> src.hasPermissionLevel(2))
+                                        .executes(ctx -> {
+                                            boolean value = BoolArgumentType.getBool(ctx, "value");
+                                            ModGlobalState state = ModGlobalState.get(ctx.getSource().getServer());
+                                            state.setStarlightAnvil(value);
+                                            JoinDataSync.syncAll(ctx.getSource().getWorld());
+                                            ctx.getSource().sendFeedback(() -> Text.literal("Mithril Anvils now " + (value ? "will" : "won't") + " require direct moonlight exposure to smith."), true);
+                                            return 1;
+                                        })
+                                )
+                        )
+                        .then(CommandManager.literal("bloodWitching")
+                                .executes(ctx -> {
+                                    boolean blood = ModGlobalState.get(ctx.getSource().getServer()).bloodWitching();
+                                    ctx.getSource().sendFeedback(() -> Text.literal("Witching Tables " + (blood ? "require" : "don't require") + " blood to witch."), false);
+                                    return 1;
+                                })
+                                .then(CommandManager.argument("value", BoolArgumentType.bool())
+                                        .requires(src -> src.hasPermissionLevel(2))
+                                        .executes(ctx -> {
+                                            boolean value = BoolArgumentType.getBool(ctx, "value");
+                                            ModGlobalState state = ModGlobalState.get(ctx.getSource().getServer());
+                                            state.setBloodWitching(value);
+                                            JoinDataSync.syncAll(ctx.getSource().getWorld());
+                                            ctx.getSource().sendFeedback(() -> Text.literal("Witching Tables now " + (value ? "will" : "won't") + " require blood to witch."), true);
+                                            return 1;
+                                        })
+                                )
+                        )
+                        .then(CommandManager.literal("soulWitching")
+                                .executes(ctx -> {
+                                    boolean souls = ModGlobalState.get(ctx.getSource().getServer()).soulWitching();
+                                    ctx.getSource().sendFeedback(() -> Text.literal("Witching Tables " + (souls ? "require" : "don't require") + " souls to witch."), false);
+                                    return 1;
+                                })
+                                .then(CommandManager.argument("value", BoolArgumentType.bool())
+                                        .requires(src -> src.hasPermissionLevel(2))
+                                        .executes(ctx -> {
+                                            boolean value = BoolArgumentType.getBool(ctx, "value");
+                                            ModGlobalState state = ModGlobalState.get(ctx.getSource().getServer());
+                                            state.setSoulWitching(value);
+                                            JoinDataSync.syncAll(ctx.getSource().getWorld());
+                                            ctx.getSource().sendFeedback(() -> Text.literal("Witching Tables now " + (value ? "will" : "won't") + " require souls to witch."), true);
+                                            return 1;
+                                        })
+                                )
+                        )
+                        .then(CommandManager.literal("warpHeightOutOfTerra")
                             .executes(ctx -> {
-                                boolean dropsBark = ModGlobalState.get(ctx.getSource().getServer()).strippingDropsBark();
-                                ctx.getSource().sendFeedback(() ->
-                                        Text.literal("Stripping wood with an axe " + (dropsBark ? "dropps" : "doesn't drop") + " bark."), false);
-                                return 1;
-                            })
-                            .then(CommandManager.argument("value", BoolArgumentType.bool())
-                                    .requires(src -> src.hasPermissionLevel(2))
-                                    .executes(ctx -> {
-                                        boolean value = BoolArgumentType.getBool(ctx, "value");
-                                        ModGlobalState state = ModGlobalState.get(ctx.getSource().getServer());
-                                        state.setStrippingDropsBark(value);
-                                        ctx.getSource().sendFeedback(() ->
-                                                Text.literal("Stripping wood with an axe " + (value ? "will" : "won't") + " drop bark."), true);
-                                        return 1;
-                                    })
-                            )
-                    )
-                    .then(CommandManager.literal("extractionOreCompat")
-                            .executes(ctx -> {
-                                boolean extraction = ModGlobalState.get(ctx.getSource().getServer()).extractionOreCompat();
-                                ctx.getSource().sendFeedback(() ->
-                                        Text.literal("Experimental extraction compat " + (extraction ? "is" : "isn't") + " enabled."), false);
-                                return 1;
-                            })
-                            .then(CommandManager.argument("value", BoolArgumentType.bool())
-                                    .requires(src -> src.hasPermissionLevel(2))
-                                    .executes(ctx -> {
-                                        boolean value = BoolArgumentType.getBool(ctx, "value");
-                                        ModGlobalState state = ModGlobalState.get(ctx.getSource().getServer());
-                                        state.setExtractionOreCompat(value);
-                                        ctx.getSource().sendFeedback(() ->
-                                                Text.literal("Experimental extraction compat " + (value ? "will" : "won't") + " be enabled."), true);
-                                        return 1;
-                                    })
-                            )
-                    )
-                    .then(CommandManager.literal("elevatorMaxDistance")
-                            .executes(ctx -> {
-                                int distance = ModGlobalState.get(ctx.getSource().getServer()).elevatorMaxDistance();
-                                ctx.getSource().sendFeedback(() ->
-                                        Text.literal("The elevator can raise players up to " + distance + " blocks."), false);
-                                return 1;
-                            })
-                            .then(CommandManager.argument("value", IntegerArgumentType.integer(0, 1000))
-                                    .requires(src -> src.hasPermissionLevel(2))
-                                    .executes(ctx -> {
-                                        int value = IntegerArgumentType.getInteger(ctx, "value");
-                                        ModGlobalState state = ModGlobalState.get(ctx.getSource().getServer());
-                                        state.setElevatorMaxDistance(value);
-                                        ctx.getSource().sendFeedback(() ->
-                                                Text.literal("The elevator will raise players up to " + value + " blocks."), true);
-                                        return 1;
-                                    })
-                            )
-                    )
-                    .then(CommandManager.literal("vanishedRepresentativeRewards")
-                            .executes(ctx -> {
-                                boolean rewards = ModGlobalState.get(ctx.getSource().getServer()).formerTlotdRewards();
-                                ctx.getSource().sendFeedback(() ->
-                                        Text.literal("Vanished representatives " + (rewards ? "are" : "aren't") + " rewarded."), false);
-                                return 1;
-                            })
-                            .then(CommandManager.argument("value", BoolArgumentType.bool())
-                                    .requires(src -> src.hasPermissionLevel(2))
-                                    .executes(ctx -> {
-                                          boolean value = BoolArgumentType.getBool(ctx, "value");
-                                          ModGlobalState state = ModGlobalState.get(ctx.getSource().getServer());
-                                          state.setFormerTlotdRewards(value);
-                                          JoinDataSync.syncAll(ctx.getSource().getWorld());
-                                          ctx.getSource().sendFeedback(() ->
-                                                  Text.literal("Vanished representatives " + (value ? "will" : "won't") + " be rewarded."), true);
-                                          return 1;
-                                    })
-                            )
+                                int distance = ModGlobalState.get(ctx.getSource().getServer()).warpHeightOutOfTerra();
+                                ctx.getSource().sendFeedback(() -> Text.literal("Players need to be " + distance + " blocks in the air to be teleported away from the Overworld."), false);
+                                    return 1;
+                                })
+                                .then(CommandManager.argument("value", IntegerArgumentType.integer(-8192, 8192))
+                                        .requires(src -> src.hasPermissionLevel(2))
+                                        .executes(ctx -> {
+                                            int value = IntegerArgumentType.getInteger(ctx, "value");
+                                            ModGlobalState state = ModGlobalState.get(ctx.getSource().getServer());
+                                            int into = ModGlobalState.get(ctx.getSource().getServer()).warpHeightIntoTerra();
+                                            if (value > into) {
+                                                state.setWarpHeightOutOfTerra(value);
+                                                ctx.getSource().sendFeedback(() -> Text.literal("Players will now need to be " + value + " blocks in the air to be teleported away from the Overworld."), true);
+                                                return 1;
+                                            } else {
+                                                ctx.getSource().sendFeedback(() -> Text.literal("Players will need to be more than " + into + " blocks in the air to be teleported away from the Overworld to prevent teleportation loops"), false);
+                                                return 0;
+                                            }
+                                        })
+                                )
+                        )
+                        .then(CommandManager.literal("warpHeightOutOfLuna")
+                                .executes(ctx -> {
+                                    int distance = ModGlobalState.get(ctx.getSource().getServer()).warpHeightOutOfLuna();
+                                    ctx.getSource().sendFeedback(() -> Text.literal("Players need to be " + distance + " blocks in the air to be teleported away from the Moon."), false);
+                                    return 1;
+                                })
+                                .then(CommandManager.argument("value", IntegerArgumentType.integer(-8192, 8192))
+                                        .requires(src -> src.hasPermissionLevel(2))
+                                        .executes(ctx -> {
+                                            int value = IntegerArgumentType.getInteger(ctx, "value");
+                                            ModGlobalState state = ModGlobalState.get(ctx.getSource().getServer());
+                                            int into = ModGlobalState.get(ctx.getSource().getServer()).warpHeightIntoLuna();
+                                            if (value > into) {
+                                                state.setWarpHeightOutOfLuna(value);
+                                                ctx.getSource().sendFeedback(() -> Text.literal("Players will now need to be " + value + " blocks in the air to be teleported away from the Moon."), true);
+                                                return 1;
+                                            } else {
+                                                ctx.getSource().sendFeedback(() -> Text.literal("Players will need to be more than " + into + " blocks in the air to be teleported away from the Moon to prevent teleportation loops"), false);
+                                                return 0;
+                                            }
+                                        })
+                                )
+                        )
+                        .then(CommandManager.literal("WarpHeightEnteringTerra")
+                                .executes(ctx -> {
+                                    int distance = ModGlobalState.get(ctx.getSource().getServer()).warpHeightIntoTerra();
+                                    ctx.getSource().sendFeedback(() -> Text.literal("Players get teleported to y " + distance + " when arriving in the Overworld."), false);
+                                    return 1;
+                                })
+                                .then(CommandManager.argument("value", IntegerArgumentType.integer(-8192, 8192))
+                                        .requires(src -> src.hasPermissionLevel(2))
+                                        .executes(ctx -> {
+                                            int value = IntegerArgumentType.getInteger(ctx, "value");
+                                            ModGlobalState state = ModGlobalState.get(ctx.getSource().getServer());
+                                            int outOf = ModGlobalState.get(ctx.getSource().getServer()).warpHeightOutOfTerra();
+                                            if (value < outOf) {
+                                                state.setWarpHeightIntoTerra(value);
+                                                ctx.getSource().sendFeedback(() -> Text.literal("Players will now get teleported to y " + value + " when arriving in the Overworld."), true);
+                                                return 1;
+                                            } else {
+                                                ctx.getSource().sendFeedback(() -> Text.literal("Players will need to arrive less than y " + outOf + " when arriving in the Overworld to prevent teleportation loops."), false);
+                                                return 0;
+                                            }
+                                        })
+                                )
+                        )
+                        .then(CommandManager.literal("warpHeightEnteringLuna")
+                                .executes(ctx -> {
+                                    int distance = ModGlobalState.get(ctx.getSource().getServer()).warpHeightIntoLuna();
+                                    ctx.getSource().sendFeedback(() -> Text.literal("Players get teleported to y " + distance + " when arriving on the Moon."), false);
+                                    return 1;
+                                })
+                                .then(CommandManager.argument("value", IntegerArgumentType.integer(-8192, 8192))
+                                        .requires(src -> src.hasPermissionLevel(2))
+                                        .executes(ctx -> {
+                                            int value = IntegerArgumentType.getInteger(ctx, "value");
+                                            ModGlobalState state = ModGlobalState.get(ctx.getSource().getServer());
+                                            int outOf = ModGlobalState.get(ctx.getSource().getServer()).warpHeightOutOfLuna();
+                                            if (value < outOf) {
+                                                state.setWarpHeightIntoLuna(value);
+                                                ctx.getSource().sendFeedback(() -> Text.literal("Players will now get teleported to y " + value + " when arriving on the Moon."), true);
+                                                return 1;
+                                            } else {
+                                                ctx.getSource().sendFeedback(() -> Text.literal("Players will need to arrive less than y " + outOf + " when arriving on the Moon to prevent teleportation loops."), false);
+                                                return 0;
+                                            }
+                                        })
+                                )
+                        )
+                        .then(CommandManager.literal("terraResistance")
+                                .executes(ctx -> {
+                                    int distance = ModGlobalState.get(ctx.getSource().getServer()).terraResistance();
+                                    ctx.getSource().sendFeedback(() -> Text.literal("Players get " + distance + " ticks of the Resistance effect when arriving in the Overworld."), false);
+                                    return 1;
+                                })
+                                .then(CommandManager.argument("value", IntegerArgumentType.integer(0, 1000))
+                                        .requires(src -> src.hasPermissionLevel(2))
+                                        .executes(ctx -> {
+                                            int value = IntegerArgumentType.getInteger(ctx, "value");
+                                            ModGlobalState state = ModGlobalState.get(ctx.getSource().getServer());
+                                            state.setTerraResistance(value);
+                                            ctx.getSource().sendFeedback(() -> Text.literal("Players will now get " + value + " ticks of the Resistance effect when arriving in the Overworld."), true);
+                                            return 1;
+                                        })
+                                )
+                        )
+                        .then(CommandManager.literal("vanishedRepresentativeRewards")
+                                .executes(ctx -> {
+                                    boolean rewards = ModGlobalState.get(ctx.getSource().getServer()).formerTlotdRewards();
+                                    ctx.getSource().sendFeedback(() -> Text.literal("Vanished representatives " + (rewards ? "are" : "aren't") + " rewarded."), false);
+                                    return 1;
+                                })
+                                .then(CommandManager.argument("value", BoolArgumentType.bool())
+                                        .requires(src -> src.hasPermissionLevel(2))
+                                        .executes(ctx -> {
+                                              boolean value = BoolArgumentType.getBool(ctx, "value");
+                                              ModGlobalState state = ModGlobalState.get(ctx.getSource().getServer());
+                                              state.setFormerTlotdRewards(value);
+                                              JoinDataSync.syncAll(ctx.getSource().getWorld());
+                                              ctx.getSource().sendFeedback(() -> Text.literal("Vanished representatives " + (value ? "will" : "won't") + " be rewarded."), true);
+                                              return 1;
+                                        })
+                                )
+                        )
                     )
                     .then(CommandManager.literal("textureID")
                         .then(CommandManager.literal("get")
@@ -218,8 +383,7 @@ public class ModCommands {
                                     CustomTextureManager manager = CustomTextureManager.get(source.getServer());
                                     int id = manager.getTexture(player.getUuid());
                                     if (id >= 0) {
-                                        source.sendFeedback(() ->
-                                                Text.literal("Your custom texture ID is " + id + "."), false);
+                                        source.sendFeedback(() -> Text.literal("Your custom texture ID is " + id + "."), false);
                                     } else {
                                         source.sendFeedback(() -> Text.literal("You don’t have a custom texture ID assigned."), false);
                                     }
@@ -233,11 +397,9 @@ public class ModCommands {
                                             for (GameProfile profile : profiles) {
                                                 int id = manager.getTexture(profile.getId());
                                                 if (id >= 0) {
-                                                    source.sendFeedback(() ->
-                                                            Text.literal(profile.getName() + " has custom texture ID " + id + " assigned."), false);
+                                                    source.sendFeedback(() -> Text.literal(profile.getName() + " has custom texture ID " + id + " assigned."), false);
                                                 } else {
-                                                    source.sendFeedback(() ->
-                                                            Text.literal(profile.getName() + " has no custom texture ID assigned."), false);
+                                                    source.sendFeedback(() -> Text.literal(profile.getName() + " has no custom texture ID assigned."), false);
                                                 }
                                             }
                                             return 1;
@@ -257,8 +419,7 @@ public class ModCommands {
                                                         manager.setTexture(profile.getId(), id);
                                                     }
                                                     JoinDataSync.syncAll(ctx.getSource().getWorld());
-                                                    source.sendFeedback(() ->
-                                                            Text.literal("Set custom texture ID to " + id + " for " + profiles.size() + " player(s)."), true);
+                                                    source.sendFeedback(() -> Text.literal("Set custom texture ID to " + id + " for " + profiles.size() + " player(s)."), true);
                                                     return 1;
                                                 })
                                         )
@@ -280,9 +441,7 @@ public class ModCommands {
                                         String name = server.getUserCache().getByUuid(entry.getKey())
                                                 .map(GameProfile::getName)
                                                 .orElse(entry.getKey().toString());
-                                        source.sendFeedback(() ->
-                                                        Text.literal("- " + name + ": ").append(Text.literal(String.valueOf(entry.getValue())).formatted(Formatting.AQUA)),
-                                                false);
+                                        source.sendFeedback(() -> Text.literal("- " + name + ": ").append(Text.literal(String.valueOf(entry.getValue())).formatted(Formatting.AQUA)), false);
                                     }
                                     return 1;
                                 })
@@ -298,25 +457,17 @@ public class ModCommands {
                                             for (GameProfile profile : profiles) {
                                                 if (manager.removeTexture(profile.getId())) {
                                                     removedCount[0]++;
-                                                    source.sendFeedback(
-                                                            () -> Text.literal("Removed custom texture ID for " + profile.getName() + "."),
-                                                            true
-                                                    );
+                                                    JoinDataSync.syncAll(ctx.getSource().getWorld());
+                                                    source.sendFeedback(() -> Text.literal("Removed custom texture ID for " + profile.getName() + "."), true);
                                                 } else {
-                                                    source.sendFeedback(
-                                                            () -> Text.literal(profile.getName() + " had no custom texture ID assigned."),
-                                                            false
-                                                    );
+                                                    source.sendFeedback(() -> Text.literal(profile.getName() + " had no custom texture ID assigned."), false);
                                                 }
                                             }
                                             if (removedCount[0] == 0) {
                                                 source.sendFeedback(() -> Text.literal("No entries were removed."), false);
                                             } else if (removedCount[0] > 1) {
                                                 int finalCount = removedCount[0];
-                                                source.sendFeedback(
-                                                        () -> Text.literal("Removed " + finalCount + " player entries."),
-                                                        true
-                                                );
+                                                source.sendFeedback(() -> Text.literal("Removed " + finalCount + " player entries."), true);
                                             }
                                             return 1;
                                         })
@@ -342,5 +493,12 @@ public class ModCommands {
                 false
         );
         return 1;
+    }
+
+    private static String getModVersion() {
+        return FabricLoader.getInstance()
+                .getModContainer("tlotd")
+                .map(mod -> mod.getMetadata().getVersion().getFriendlyString())
+                .orElse("unknown");
     }
 }

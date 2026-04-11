@@ -1,5 +1,7 @@
 package net.tlotd.item.custom;
 
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.advancement.criterion.Criteria;
 import net.minecraft.block.BlockState;
 import net.minecraft.client.MinecraftClient;
@@ -66,6 +68,7 @@ public class CursedFlaskItem extends Item {
     public static final Identifier TOOLTIP_FONT_ID = new Identifier("tlotd", "tooltip");
 
     @Override
+    @Environment(EnvType.CLIENT)
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
         Style style = getName().getStyle();
         PlayerEntity player = MinecraftClient.getInstance().player;

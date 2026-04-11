@@ -27,7 +27,7 @@ public class ModEntities {
     public static final EntityType<SeatEntity> SEAT = Registry.register(Registries.ENTITY_TYPE,
             new Identifier(TLOTD.MOD_ID, "seat"),
             FabricEntityTypeBuilder.create(SpawnGroup.MISC, SeatEntity::new)
-                    .dimensions(EntityDimensions.fixed(0.8f,0.5f)).build());
+                    .dimensions(EntityDimensions.fixed(0f,0f)).build());
 
     public static final EntityType<ArmorPiercingArrowEntity> ARMOR_PIERCING_ARROW =
             Registry.register(

@@ -10,6 +10,7 @@ import net.minecraft.nbt.NbtList;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.text.Text;
+import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
 import net.minecraft.village.raid.Raid;
@@ -18,6 +19,7 @@ import net.tlotd.block.ModBlocks;
 import net.tlotd.compat.CompatModsCheck;
 import net.tlotd.enchantments.ModEnchantments;
 import net.tlotd.fluid.ModFluids;
+import net.tlotd.item.custom.SpaceSuitArmorItem;
 import net.tlotd.util.AdAstraOxygenNbtHelper;
 import net.tlotd.util.EnergyNbtHelper;
 
@@ -175,11 +177,13 @@ public class ModItemGroups {
                         entries.add(ModItems.STRAWBERRY_SEEDS);
                         entries.add(ModItems.STRAWBERRY);
                         entries.add(ModItems.CHOCOLATE_STRAWBERRY);
+                        entries.add(ModItems.STRAWBERRY_COOKIE);
                         entries.add(ModBlocks.STRAWBERRY_CAKE);
 
                         entries.add(ModItems.ORANGE_SEEDS);
                         entries.add(ModItems.ORANGE);
                         entries.add(ModItems.ORANGE_JUICE_BOTTLE);
+                        entries.add(ModItems.ORANGE_COOKIE);
                         entries.add(ModBlocks.ORANGE_CAKE);
 
                         entries.add(ModItems.PIPE_WEED_SEEDS);
@@ -342,7 +346,7 @@ public class ModItemGroups {
                         entries.add(ModItems.IMPERIAL_GERMAN_UNIFORM_BOOTS);
 
                         entries.add(ModItems.ASTRONAUT_HELMET);
-                        entries.add(addOxygenItem(ModItems.SPACE_SUIT_CHESTPLATE));
+                        entries.add(fullSpaceSuit());
                         entries.add(ModItems.SPACE_SUIT_LEGGINGS);
                         entries.add(ModItems.SPACE_SUIT_BOOTS);
 
@@ -538,6 +542,7 @@ public class ModItemGroups {
                         entries.add(addEnchantedBook(ModEnchantments.RESOURCEFUL_SMOKING, 2));
 
                         entries.add(ModItems.AUGMENT_SLOT_EXPANSION);
+                        entries.add(ModItems.AUGMENT_ELDER_DAYS_ELVEN_FORGED);
                         entries.add(ModItems.AUGMENT_PHOTOSYNTHESIS);
                         entries.add(ModItems.AUGMENT_STARLIGHT_BLESSING);
                         entries.add(ModItems.AUGMENT_EXTRACTION);
@@ -686,6 +691,11 @@ public class ModItemGroups {
                         entries.add(ModBlocks.TALL_DARK_METAL_TILE);
                         entries.add(ModBlocks.DARK_METAL_TILE);
                         entries.add(ModBlocks.DARK_METAL_TILES);
+
+                        entries.add(ModBlocks.DARK_METAL_LIGHTS);
+
+                        entries.add(ModBlocks.HEAVY_METAL_DOOR);
+                        entries.add(ModBlocks.METAL_PUSH_DOOR);
 
                         entries.add(ModBlocks.ALIEN_GATE);
                         entries.add(ModBlocks.ALIEN_PILLAR);
@@ -1175,7 +1185,9 @@ public class ModItemGroups {
             if (CompatModsCheck.AETHER) {
                 content.addAfter(ModItems.ORANGE_MARMELADE_TOAST, ModItems.BLUE_BERRY_JAM_TOAST);
             }
-            content.addAfter(Items.COOKIE, ModItems.HEMP_COOKIE);
+            content.addAfter(Items.COOKIE, ModItems.STRAWBERRY_COOKIE);
+            content.addAfter(ModItems.STRAWBERRY_COOKIE, ModItems.ORANGE_COOKIE);
+            content.addAfter(ModItems.ORANGE_COOKIE, ModItems.HEMP_COOKIE);
             content.addAfter(ModItems.HEMP_COOKIE, ModItems.CHOCOLATE_STRAWBERRY);
             content.addAfter(Items.CAKE, ModBlocks.STRAWBERRY_CAKE);
             content.addAfter(ModBlocks.STRAWBERRY_CAKE, ModBlocks.ORANGE_CAKE);
@@ -1268,6 +1280,18 @@ public class ModItemGroups {
         });
 
         TLOTD.LOGGER.info("Registering Item Groups for " + TLOTD.MOD_ID);
+    }
+
+    public static ItemStack fullSpaceSuit() {
+        ItemStack suit = new ItemStack(ModItems.SPACE_SUIT_CHESTPLATE);
+        DefaultedList<ItemStack> tanks = DefaultedList.ofSize(2, ItemStack.EMPTY);
+        for (int i = 0; i < 2; i++) {
+            ItemStack tank = new ItemStack(ModItems.OXYGEN_TANK);
+            AdAstraOxygenNbtHelper.setOxygen(tank, AdAstraOxygenNbtHelper.getMaxOxygenItem(tank));
+            tanks.set(i, tank);
+        }
+        SpaceSuitArmorItem.setStoredStacks(suit, tanks);
+        return suit;
     }
 
     public static ItemStack addOxygenItem(Item baseItem) {

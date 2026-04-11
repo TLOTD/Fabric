@@ -127,6 +127,13 @@ public class BenchBlock extends Block {
             List<SeatEntity> entities = world.getEntitiesByType(ModEntities.SEAT, new Box(pos), chair -> true);
             if(entities.isEmpty()) {
                 entity = ModEntities.SEAT.spawn((ServerWorld) world, pos, SpawnReason.TRIGGERED);
+                if (entity != null) {
+                    entity.setPosition(
+                        pos.getX() + 0.5,
+                        pos.getY() + 0.5,
+                        pos.getZ() + 0.5
+                    );
+                }
             } else {
                 entity = entities.get(0);
             }

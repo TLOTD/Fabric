@@ -1,12 +1,14 @@
 package net.tlotd.block.custom;
 
 import net.minecraft.block.*;
+import net.minecraft.block.enums.WallMountLocation;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.DirectionProperty;
+import net.minecraft.state.property.EnumProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.BlockRotation;
 import net.minecraft.util.math.BlockPos;
@@ -15,16 +17,22 @@ import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.WorldAccess;
 
+import java.util.Objects;
+
 public class ExitSignBlock extends Block {
 
-    public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
+    public static final EnumProperty<WallMountLocation> FACE = Properties.WALL_MOUNT_LOCATION;
     public static final DirectionProperty FACING = HorizontalFacingBlock.FACING;
+    public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
 
     @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {
-        return this.getDefaultState()
-                .with(FACING, ctx.getHorizontalPlayerFacing())
-                .with(WATERLOGGED, ctx.getWorld().getFluidState(ctx.getBlockPos()).isOf(Fluids.WATER));
+        for (Direction direction : ctx.getPlacementDirections()) {
+            BlockState blockState = direction.getAxis() == Direction.Axis.Y ? this.getDefaultState().with(FACE, direction == Direction.UP ? WallMountLocation.CEILING : WallMountLocation.FLOOR).with(FACING, ctx.getHorizontalPlayerFacing()).with(WATERLOGGED, ctx.getWorld().getFluidState(ctx.getBlockPos()).isOf(Fluids.WATER)) : this.getDefaultState().with(FACE, WallMountLocation.WALL).with(FACING, direction).with(WATERLOGGED, ctx.getWorld().getFluidState(ctx.getBlockPos()).isOf(Fluids.WATER));
+            if (!blockState.canPlaceAt(ctx.getWorld(), ctx.getBlockPos())) continue;
+            return blockState;
+        }
+        return null;
     }
 
     @Override
@@ -48,21 +56,36 @@ public class ExitSignBlock extends Block {
 
     @Override
     public void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        builder.add(FACING, WATERLOGGED);
+        builder.add(FACE, FACING, WATERLOGGED);
     }
 
     public ExitSignBlock(Settings settings) {
         super(settings);
-        this.setDefaultState(this.stateManager.getDefaultState().with(FACING, Direction.NORTH).with(WATERLOGGED, false));
+        this.setDefaultState(this.stateManager.getDefaultState().with(FACE, WallMountLocation.WALL).with(FACING, Direction.NORTH).with(WATERLOGGED, false));
     }
 
     private static final VoxelShape X_AXIS_SHAPE = Block.createCuboidShape(6,6,0,10,16,16);
     private static final VoxelShape Z_AXIS_SHAPE = Block.createCuboidShape(0,6,6,16,16,10);
 
+    private static final VoxelShape EAST_SHAPE = Block.createCuboidShape(12,4,0,16,12,16);
+    private static final VoxelShape WEST_SHAPE = Block.createCuboidShape(0,4,0,4,12,16);
+    private static final VoxelShape SOUTH_SHAPE = Block.createCuboidShape(0,4,12,16,12,16);
+    private static final VoxelShape NORTH_SHAPE = Block.createCuboidShape(0,4,0,16,12,4);
+
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        Direction direction = state.get(FACING);
-        return direction.getAxis() == Direction.Axis.X ? X_AXIS_SHAPE : Z_AXIS_SHAPE;
+        if (Objects.requireNonNull(state.get(FACE)) == WallMountLocation.WALL) {
+            return switch (state.get(FACING)) {
+                case EAST -> EAST_SHAPE;
+                case WEST -> WEST_SHAPE;
+                case SOUTH -> SOUTH_SHAPE;
+                default -> NORTH_SHAPE;
+            };
+        }
+        if (Objects.requireNonNull(state.get(FACING).getAxis()) == Direction.Axis.X) {
+            return X_AXIS_SHAPE;
+        }
+        return Z_AXIS_SHAPE;
     }
 
     @Override

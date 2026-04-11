@@ -1,0 +1,13 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "tlotd:item/mithril_sword"
+  },
+  "overrides": [
+    { "predicate": { "tlotd:proximity": 0.2 }, "model": "tlotd:item/mithril_sword_1" },
+    { "predicate": { "tlotd:proximity": 0.4 }, "model": "tlotd:item/mithril_sword_2" },
+    { "predicate": { "tlotd:proximity": 0.6 }, "model": "tlotd:item/mithril_sword_3" },
+    { "predicate": { "tlotd:proximity": 0.8 }, "model": "tlotd:item/mithril_sword_4" },
+    { "predicate": { "tlotd:proximity": 1.0 }, "model": "tlotd:item/mithril_sword_5" }
+  ]
+}

@@ -27,7 +27,7 @@ public class OxygenTankItem extends Item {
     }
 
     public float getProgress(ItemStack stack) {
-        return getMaxOxygenItem(stack) - AdAstraOxygenNbtHelper.getOxygen(stack);
+        return Math.max(getMaxOxygenItem(stack) - AdAstraOxygenNbtHelper.getOxygen(stack), 0);
     }
 
     @Override

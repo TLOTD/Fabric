@@ -47,13 +47,13 @@ public class TLOTD implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		ModConfigs.registerConfigs();
-		ModTelevisionSignals.registerSignals();
 		ModEffects.registerEffects();
 		ModPotions.registerPotions();
 		ModItemGroups.registerItemGroups();
 		ModItems.registerModItems();
 		ModCompostingChances.registerCompostableItems();
 		ModBlocks.registerModBlocks();
+		ModTelevisionSignals.registerSignals();
 		ModFlammableBlocks.registerFlammableBlocks();
 		ModFluids.registerModFluids();
 		ModFuels.registerModFuels();

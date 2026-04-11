@@ -1,11 +1,13 @@
 package net.tlotd.block.custom;
 
 import net.minecraft.block.*;
+import net.minecraft.block.enums.DoubleBlockHalf;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
+import net.minecraft.state.property.EnumProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
@@ -17,18 +19,18 @@ import net.minecraft.world.WorldAccess;
 public class SignalTransmitterAntennaBlock extends Block {
 
     public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
-    public static final BooleanProperty UPPER = BooleanProperty.of("upper");
+    public static final EnumProperty<DoubleBlockHalf> HALF = Properties.DOUBLE_BLOCK_HALF;
 
     @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {
         if (ctx.getWorld().getBlockState(ctx.getBlockPos().down()).isOf(this)) {
             return this.getDefaultState()
                     .with(WATERLOGGED, ctx.getWorld().getFluidState(ctx.getBlockPos()).isOf(Fluids.WATER))
-                    .with(UPPER, true);
+                    .with(HALF, DoubleBlockHalf.UPPER);
         } else {
             return this.getDefaultState()
                     .with(WATERLOGGED, ctx.getWorld().getFluidState(ctx.getBlockPos()).isOf(Fluids.WATER))
-                    .with(UPPER, false);
+                    .with(HALF, DoubleBlockHalf.LOWER);
         }
     }
 
@@ -48,12 +50,12 @@ public class SignalTransmitterAntennaBlock extends Block {
 
     @Override
     public void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        builder.add(WATERLOGGED, UPPER);
+        builder.add(WATERLOGGED, HALF);
     }
 
     public SignalTransmitterAntennaBlock(Settings settings) {
         super(settings);
-        this.setDefaultState(this.stateManager.getDefaultState().with(WATERLOGGED, false).with(UPPER, false));
+        this.setDefaultState(this.stateManager.getDefaultState().with(WATERLOGGED, false).with(HALF, DoubleBlockHalf.LOWER));
     }
 
     public static final VoxelShape UPPER_SHAPE = VoxelShapes.union(
@@ -69,9 +71,9 @@ public class SignalTransmitterAntennaBlock extends Block {
 
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        if (state.get(UPPER)) {
-            return UPPER_SHAPE;
-        } else return LOWER_SHAPE;
+        if (state.get(HALF).equals(DoubleBlockHalf.LOWER)) {
+            return LOWER_SHAPE;
+        } else return UPPER_SHAPE;
     }
 
     @Override

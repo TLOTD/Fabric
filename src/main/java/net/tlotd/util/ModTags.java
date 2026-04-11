@@ -9,6 +9,8 @@ import net.tlotd.TLOTD;
 
 public class ModTags {
     public static class Blocks {
+        public static final TagKey<Block> MITHRIL_REACTING =
+                createTag("mithril_reacting");
         public static final TagKey<Block> EXTRACTABLE_BLOCKS =
                 createTag("extractable_blocks");
         public static final TagKey<Block> STONE_EXTRACTABLE_BLOCKS =
@@ -132,6 +134,9 @@ public class ModTags {
         public static final TagKey<Item> THREE_AUGMENT_SLOTS =
                 createTag("three_augment_slots");
 
+        public static final TagKey<Item> ELDER_DAYS_ELVEN_FORGABLE =
+                createTag("elder_days_elven_forgable");
+
         public static final TagKey<Item> DIVINE_ITEMS =
                 createTag("divine_items");
 
@@ -194,6 +199,9 @@ public class ModTags {
 
         public static final TagKey<Item> FORGING_HAMMERS_TIER9 =
                 createTag("forging_hammers_tier9");
+
+        public static final TagKey<Item> LUNAR_REGOLITHS =
+                createTag("lunar_regoliths");
 
         public static final TagKey<Item> WOODEN_BARK =
                 createTag("wooden_bark");

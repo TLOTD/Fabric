@@ -4,6 +4,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtElement;
 import net.minecraft.nbt.NbtList;
+import net.minecraft.util.collection.DefaultedList;
+import net.tlotd.item.custom.SpaceSuitArmorItem;
 import org.jetbrains.annotations.NotNull;
 
 import static net.tlotd.util.AugmentNbtHelper.getAugmentLevel;
@@ -76,5 +78,61 @@ public class AdAstraOxygenNbtHelper {
             formattedOxygen = String.valueOf(displayAmount);
         }
         return formattedOxygen;
+    }
+
+    public static long getOxygenFromSuit(ItemStack suit) {
+        long total = 0;
+        DefaultedList<ItemStack> tanks = SpaceSuitArmorItem.getStoredStacks(suit);
+        for (ItemStack tank : tanks) {
+            if (!tank.isEmpty()) {
+                total += getOxygen(tank);
+            }
+        }
+        return total;
+    }
+
+    public static long getMaxOxygenFromSuit(ItemStack suit) {
+        long total = 0;
+        DefaultedList<ItemStack> tanks = SpaceSuitArmorItem.getStoredStacks(suit);
+        for (ItemStack tank : tanks) {
+            if (!tank.isEmpty()) {
+                total += getMaxOxygenItem(tank);
+            }
+        }
+        return total;
+    }
+
+    public static long modifyOxygenInSuit(ItemStack suit, long delta) {
+        DefaultedList<ItemStack> tanks = SpaceSuitArmorItem.getStoredStacks(suit);
+        long remaining = delta;
+        if (delta > 0) {
+            for (ItemStack tank : tanks) {
+                if (tank.isEmpty()) continue;
+                long current = getOxygen(tank);
+                long max = getMaxOxygenItem(tank);
+                long space = max - current;
+                long toFill = Math.min(space, remaining);
+                if (toFill > 0) {
+                    setOxygen(tank, current + toFill);
+                    remaining -= toFill;
+                }
+                if (remaining <= 0) break;
+            }
+        } else if (delta < 0) {
+            remaining = -remaining;
+            for (ItemStack tank : tanks) {
+                if (tank.isEmpty()) continue;
+                long current = getOxygen(tank);
+                long toDrain = Math.min(current, remaining);
+                if (toDrain > 0) {
+                    setOxygen(tank, current - toDrain);
+                    remaining -= toDrain;
+                }
+                if (remaining <= 0) break;
+            }
+            remaining = -remaining;
+        }
+        SpaceSuitArmorItem.setStoredStacks(suit, tanks);
+        return delta - remaining;
     }
 }

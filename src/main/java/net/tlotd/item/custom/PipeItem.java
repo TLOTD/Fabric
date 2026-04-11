@@ -46,7 +46,7 @@ public class PipeItem extends Item {
         NbtCompound tag = stack.getNbt();
         int used = tag.getInt("ChargesUsed");
         int maxCharges = getMaxCharges(stack);
-        return 1.0f - ((float) used / (float) maxCharges);
+        return Math.max(1.0f - ((float) used / (float) maxCharges), 0);
     }
 
     @Override

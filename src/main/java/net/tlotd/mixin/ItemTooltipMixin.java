@@ -4,6 +4,7 @@ import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.PickaxeItem;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtElement;
 import net.minecraft.nbt.NbtList;
@@ -14,6 +15,7 @@ import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.World;
 import net.tlotd.item.ModItems;
+import net.tlotd.item.custom.SpaceSuitArmorItem;
 import net.tlotd.util.AdAstraOxygenNbtHelper;
 import net.tlotd.util.EnergyNbtHelper;
 import net.tlotd.util.ModTags;
@@ -59,23 +61,26 @@ public abstract class ItemTooltipMixin {
             String formattedMaxPower2 = formattedMaxPower.replace(',', '.');
             tooltip.add(Text.translatable("item.tlotd.power_level.tooltip", formattedPower, formattedMaxPower, formattedPower2, formattedMaxPower2).formatted(Formatting.YELLOW));
         }
-        if (stack.isOf(ModItems.OXYGEN_TANK) || (stack.isOf(ModItems.SPACE_SUIT_CHESTPLATE) || getAugmentLevel(stack, "tlotd:oxygen_tank") > 0)) {
-            long maxOxygen = AdAstraOxygenNbtHelper.getMaxOxygenItem(stack)/AdAstraOxygenNbtHelper.MAX_AMOUNT;
-            String formattedOxygen = "0";
-            String formattedMaxOxygen = "0";
-            if (Screen.hasShiftDown()) {
-                if (stack.hasNbt()) {
-                    long oxygenAmount = AdAstraOxygenNbtHelper.getOxygen(stack);
-                    int displayAmount = (int) Math.round((double) oxygenAmount * 1000 / AdAstraOxygenNbtHelper.MAX_AMOUNT);
-                    formattedOxygen = String.format("%,d", displayAmount);
-                    formattedMaxOxygen = maxOxygen + ",000";
-                }
+        if (stack.isOf(ModItems.OXYGEN_TANK) || stack.getItem() instanceof SpaceSuitArmorItem || getAugmentLevel(stack, "tlotd:oxygen_tank") > 0) {
+            long oxygenRaw;
+            long maxOxygenRaw;
+            if (stack.getItem() instanceof SpaceSuitArmorItem) {
+                oxygenRaw = AdAstraOxygenNbtHelper.getOxygenFromSuit(stack);
+                maxOxygenRaw = AdAstraOxygenNbtHelper.getMaxOxygenFromSuit(stack);
             } else {
-                if (stack.hasNbt()) {
-                    long oxygenAmount = AdAstraOxygenNbtHelper.getOxygen(stack);
-                    formattedOxygen = AdAstraOxygenNbtHelper.getOxygenString(oxygenAmount);
-                    formattedMaxOxygen = maxOxygen + "K";
-                }
+                oxygenRaw = stack.hasNbt() ? AdAstraOxygenNbtHelper.getOxygen(stack) : 0;
+                maxOxygenRaw = AdAstraOxygenNbtHelper.getMaxOxygenItem(stack);
+            }
+            long maxOxygen = maxOxygenRaw / AdAstraOxygenNbtHelper.MAX_AMOUNT;
+            String formattedOxygen;
+            String formattedMaxOxygen;
+            if (Screen.hasShiftDown()) {
+                int displayAmount = (int) Math.round((double) oxygenRaw * 1000 / AdAstraOxygenNbtHelper.MAX_AMOUNT);
+                formattedOxygen = String.format("%,d", displayAmount);
+                formattedMaxOxygen = maxOxygen > 0 ? maxOxygen + ",000" : "0";
+            } else {
+                formattedOxygen = AdAstraOxygenNbtHelper.getOxygenString(oxygenRaw);
+                formattedMaxOxygen = maxOxygen > 0 ? maxOxygen + "K" : "0";
             }
             String formattedOxygen2 = formattedOxygen.replace(',', '.');
             String formattedMaxOxygen2 = formattedMaxOxygen.replace(',', '.');
@@ -95,6 +100,7 @@ public abstract class ItemTooltipMixin {
         if (slots <= 0) return;
         final Identifier DEFAULT_FONT_ID = new Identifier("minecraft", "default");
         final Identifier AUGMENTS_FONT_ID = new Identifier("tlotd", "augments");
+        final Identifier TENGWAR_FONT_ID = new Identifier("tlotd", "tengwar");
         NbtList augments = new NbtList();
         tooltip.add(Text.empty());
         tooltip.add(Text.translatable("augments.tlotd.title").formatted(Formatting.GRAY));
@@ -112,15 +118,37 @@ public abstract class ItemTooltipMixin {
                 if (id.equals("tlotd:mithril_chainmail")) {
                     rarity = Formatting.YELLOW;
                 }
-                int level = augment.getInt("lvl");
-                MutableText line = Text.literal(" ").append(Text.translatable("augment." + id.replace(':', '.') + ".icon").setStyle(Style.EMPTY.withFont(AUGMENTS_FONT_ID)).append(Text.literal(" ")).append(Text.translatable("augment." + id.replace(':', '.')).setStyle(Style.EMPTY.withFont(DEFAULT_FONT_ID)).formatted(rarity)));
-                if (level > 1) {
-                    line.append(" ").append(Text.translatable("enchantment.level." + level).formatted(rarity));
-                }
-                tooltip.add(line);
-                if (Screen.hasShiftDown()) {
-                    tooltip.add(Text.literal(" ").append(Text.translatable("augment." + id.replace(':', '.') + ".desc").formatted(Formatting.DARK_GRAY)));
-                    tooltip.add(Text.literal(" ").append(Text.translatable("augment." + id.replace(':', '.') + ".desc2").formatted(Formatting.DARK_GRAY)));
+                if (id.equals("tlotd:elder_days_elven_forged")) {
+                    rarity = Formatting.AQUA;
+                    int level = augment.getInt("lvl");
+                    if (Screen.hasShiftDown()) {
+                        MutableText line = Text.literal(" ").append(Text.translatable("augment." + id.replace(':', '.') + ".icon").setStyle(Style.EMPTY.withFont(AUGMENTS_FONT_ID)).append(Text.literal(" ")).append(Text.translatable("augment." + id.replace(':', '.')).setStyle(Style.EMPTY.withFont(DEFAULT_FONT_ID)).formatted(rarity)));
+                        if (level > 1) {
+                            line.append(" ").append(Text.translatable("enchantment.level." + level).formatted(rarity));
+                        }
+                        tooltip.add(line);
+                        String type = "sword";
+                        if (stack.getItem() instanceof PickaxeItem) {type = "pickaxe";}
+                        tooltip.add(Text.literal(" ").append(Text.translatable("augment." + id.replace(':', '.') + '.' + type + ".desc").formatted(Formatting.DARK_GRAY)));
+                        tooltip.add(Text.literal(" ").append(Text.translatable("augment." + id.replace(':', '.') + '.' + type + ".desc2").formatted(Formatting.DARK_GRAY)));
+                    } else {
+                        MutableText line = Text.literal(" ").append(Text.translatable("augment." + id.replace(':', '.') + ".icon").setStyle(Style.EMPTY.withFont(AUGMENTS_FONT_ID)).append(Text.literal(" ")).append(Text.translatable("augment." + id.replace(':', '.') + ".tengwar").setStyle(Style.EMPTY.withFont(TENGWAR_FONT_ID)).formatted(rarity)));
+                        if (level > 1) {
+                            line.append(" ").append(Text.translatable("enchantment.level." + level).formatted(rarity));
+                        }
+                        tooltip.add(line);
+                    }
+                } else {
+                    int level = augment.getInt("lvl");
+                    MutableText line = Text.literal(" ").append(Text.translatable("augment." + id.replace(':', '.') + ".icon").setStyle(Style.EMPTY.withFont(AUGMENTS_FONT_ID)).append(Text.literal(" ")).append(Text.translatable("augment." + id.replace(':', '.')).setStyle(Style.EMPTY.withFont(DEFAULT_FONT_ID)).formatted(rarity)));
+                    if (level > 1) {
+                        line.append(" ").append(Text.translatable("enchantment.level." + level).formatted(rarity));
+                    }
+                    tooltip.add(line);
+                    if (Screen.hasShiftDown()) {
+                        tooltip.add(Text.literal(" ").append(Text.translatable("augment." + id.replace(':', '.') + ".desc").formatted(Formatting.DARK_GRAY)));
+                        tooltip.add(Text.literal(" ").append(Text.translatable("augment." + id.replace(':', '.') + ".desc2").formatted(Formatting.DARK_GRAY)));
+                    }
                 }
             } else {
                 tooltip.add(Text.literal(" ").append(Text.translatable("augment.tlotd.empty.icon").setStyle(Style.EMPTY.withFont(AUGMENTS_FONT_ID)).append(Text.literal(" ")).append(Text.translatable("augment.tlotd.empty").setStyle(Style.EMPTY.withFont(DEFAULT_FONT_ID).withFormatting(Formatting.DARK_GRAY)))));

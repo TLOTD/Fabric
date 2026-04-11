@@ -91,10 +91,12 @@ public class ModItems {
     public static final Item STRAWBERRY = registerItem("strawberry", new Item(new FabricItemSettings().food(ModFoodComponents.STRAWBERRY)));
     public static final Item CHOCOLATE_STRAWBERRY = registerItem("chocolate_strawberry", new Item(new FabricItemSettings().food(ModFoodComponents.CHOCOLATE_STRAWBERRY)));
     public static final Item STRAWBERRY_JAM_TOAST = registerItem("strawberry_jam_toast", new Item(new FabricItemSettings().food(ModFoodComponents.JAM_TOAST)));
+    public static final Item STRAWBERRY_COOKIE = registerItem("strawberry_cookie", new Item(new FabricItemSettings().food(FoodComponents.COOKIE)));
 
     public static final Item ORANGE_SEEDS = registerItem("orange_seeds", new AliasedBlockItem(ModBlocks.ORANGE_TREE, new FabricItemSettings()));
     public static final Item ORANGE = registerItem("orange", new Item(new FabricItemSettings().food(ModFoodComponents.ORANGE)));
     public static final Item ORANGE_MARMELADE_TOAST = registerItem("orange_marmelade_toast", new Item(new FabricItemSettings().food(ModFoodComponents.JAM_TOAST)));
+    public static final Item ORANGE_COOKIE = registerItem("orange_cookie", new Item(new FabricItemSettings().food(FoodComponents.COOKIE)));
     public static final Item ORANGE_JUICE_BOTTLE = registerItem("orange_juice_bottle", new DrinkableBottle(new FabricItemSettings().food(ModFoodComponents.WOODEN_LIQUID_STEIN).maxCount(16).recipeRemainder(Items.GLASS_BOTTLE)));
     public static final Item SPEZI_BOTTLE = registerItem("spezi_bottle", new DrinkableBottle(new FabricItemSettings().food(ModFoodComponents.SMALL_SPEZI).maxCount(16).recipeRemainder(Items.GLASS_BOTTLE)));
 
@@ -513,6 +515,8 @@ public class ModItems {
     public static final Item IRRADIATED_ICON = registerItem("irradiated_icon", new Item(new FabricItemSettings().maxCount(1)));
 
     public static final Item AUGMENT_SLOT_EXPANSION = registerItem("augment-slot_expansion", new AugmentItem(new FabricItemSettings().rarity(Rarity.EPIC).maxCount(1)));
+
+    public static final Item AUGMENT_ELDER_DAYS_ELVEN_FORGED = registerItem("augment-elder_days_elven_forged", new AugmentItem(new FabricItemSettings().rarity(Rarity.RARE).fireproof().maxCount(1)));
 
     public static final Item AUGMENT_PHOTOSYNTHESIS = registerItem("augment-photosynthesis", new AugmentItem(new FabricItemSettings().maxCount(1)));
     public static final Item AUGMENT_STARLIGHT_BLESSING = registerItem("augment-starlight_blessing", new AugmentItem(new FabricItemSettings().maxCount(1)));

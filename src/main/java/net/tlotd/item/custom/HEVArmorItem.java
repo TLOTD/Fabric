@@ -18,7 +18,7 @@ public class HEVArmorItem extends ArmorItem {
     }
 
     public float getProgress(ItemStack stack) {
-        return EnergyNbtHelper.getMaxEnergyItem(stack) - EnergyNbtHelper.getEnergy(stack);
+        return Math.max(EnergyNbtHelper.getMaxEnergyItem(stack) - EnergyNbtHelper.getEnergy(stack), 0);
     }
 
     @Override

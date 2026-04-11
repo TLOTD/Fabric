@@ -2,6 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
+    "G": {
+      "item": "minecraft:green_dye"
+    },
     "I": {
       "item": "minecraft:iron_nugget"
     },
@@ -12,7 +15,7 @@
   "pattern": [
     "I I",
     "IRI",
-    "III"
+    "IGI"
   ],
   "result": {
     "item": "tlotd:exit_sign"

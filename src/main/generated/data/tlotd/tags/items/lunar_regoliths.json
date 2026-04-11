@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "tlotd:lunar_regolith",
+    "tlotd:megaregolith",
+    "tlotd:megaregolith_bricks",
+    "tlotd:megaregolith_tiles",
+    "tlotd:megaregolith_tile",
+    "tlotd:tall_megaregolith_tile"
+  ]
+}

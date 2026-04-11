@@ -28,6 +28,7 @@ import net.minecraft.world.World;
 import net.tlotd.block.entity.MithrilAnvilBlockEntity;
 import net.tlotd.block.entity.ModBlockEntities;
 import net.tlotd.config.ModConfigs;
+import net.tlotd.networking.ClientGlobalConfig;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
@@ -150,8 +151,8 @@ public class MithrilAnvilBlock extends BlockWithEntity implements BlockEntityPro
 
     @Override
     public void appendTooltip(ItemStack stack, @Nullable BlockView world, List<Text> tooltip, TooltipContext options) {
-        tooltip.add(Text.empty());
-        if (ModConfigs.MITHRIL_ANVIL_NEEDS_DIRECT_MOONLIGHT) {
+        if (ClientGlobalConfig.starlightAnvil) {
+            tooltip.add(Text.empty());
             tooltip.add(Text.translatable("block.tlotd.mithril_anvil.tooltip").formatted(Formatting.GRAY));
             tooltip.add(Text.literal(" ").append(Text.translatable("block.tlotd.mithril_anvil.tooltip_2").formatted(Formatting.BLUE)));
         }

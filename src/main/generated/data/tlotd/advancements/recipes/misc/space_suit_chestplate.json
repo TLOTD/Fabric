@@ -13,12 +13,12 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_oxygen_tank": {
+    "has_slime_ball": {
       "conditions": {
         "items": [
           {
             "items": [
-              "tlotd:oxygen_tank"
+              "minecraft:slime_ball"
             ]
           }
         ]
@@ -48,7 +48,7 @@
     [
       "has_leather",
       "has_white_dye",
-      "has_oxygen_tank",
+      "has_slime_ball",
       "has_the_recipe"
     ]
   ],

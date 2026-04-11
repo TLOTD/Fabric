@@ -24,6 +24,9 @@ public class AugmentItem extends Item {
         if (stack.getRarity().equals(Rarity.EPIC)) {
             rarity = Formatting.GOLD;
         }
+        if (stack.getRarity().equals(Rarity.RARE)) {
+            rarity = Formatting.AQUA;
+        }
         if (stack.getRarity().equals(Rarity.UNCOMMON)) {
             rarity = Formatting.YELLOW;
         }

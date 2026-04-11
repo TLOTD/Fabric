@@ -1,0 +1,9 @@
+{
+	"parent": "tlotd:block/dark_metal_lights",
+	"textures": {
+		"light": "tlotd:block/dark_metal_lights_on_lower",
+		"overlay": "tlotd:block/dark_metal_lights_lower_overlay",
+		"side": "tlotd:block/dark_metal_tile",
+		"upper": "tlotd:block/empty"
+	}
+}

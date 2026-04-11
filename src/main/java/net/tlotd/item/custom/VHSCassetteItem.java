@@ -39,7 +39,6 @@ public class VHSCassetteItem extends Item {
         ItemStack itemStack = user.getStackInHand(hand);
         if (!world.isClient() && user instanceof ServerPlayerEntity serverPlayer) {
             if (itemStack.isOf(ModItems.VHS_CASSETTE_PROJECT_KV31) && !serverPlayer.getWorld().getRegistryKey().equals(ModDimensions.BACKROOMS_LEVEL_KEY)) {
-                ModChunkEvents.spawnBackroomsStructures(serverPlayer);
                 user.addStatusEffect(new StatusEffectInstance(ModEffects.SUBSPACE_RESISTANCE, 12000, 0,true,false));
                 return TypedActionResult.success(itemStack);
             }

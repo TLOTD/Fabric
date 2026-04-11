@@ -27,6 +27,10 @@ public class ModBlockRenderLayerMap {
 
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.APPARATUS, RenderLayer.getTranslucent());
 
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.DARK_METAL_LIGHTS, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.HEAVY_METAL_DOOR, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.METAL_PUSH_DOOR, RenderLayer.getCutout());
+
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.SULFUR_LANTERN, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.SULFUR_CAMPFIRE, RenderLayer.getCutout());
 

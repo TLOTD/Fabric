@@ -48,15 +48,19 @@ import java.util.Map;
 public class RadioBlock extends Block implements BlockEntityProvider {
     public static final BooleanProperty ON = BooleanProperty.of("on");
     public static final IntProperty FREQUENCY = IntProperty.of("frequency", 0, 4);
-    public static final IntProperty WOOD_TYPE = IntProperty.of("wood_type", 1, 28);
+    public static final IntProperty WOOD_TYPE = IntProperty.of("wood_type", 0, 28);
     public static final BooleanProperty MODDED = BooleanProperty.of("modded");
     public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
     public static final DirectionProperty FACING = HorizontalFacingBlock.FACING;
 
-    private static final VoxelShape Z_SHAPE = Block.createCuboidShape(4.0, 0.0, 0.0, 12.0, 11.0, 16.0);
-    private static final VoxelShape X_SHAPE = Block.createCuboidShape(0.0, 0.0, 4.0, 16.0, 11.0, 12.0);
+    private static final VoxelShape Z_SHAPE = Block.createCuboidShape(4, 0, 0, 12, 11, 16);
+    private static final VoxelShape X_SHAPE = Block.createCuboidShape(0, 0, 4, 16, 11, 12);
+
+    private static final VoxelShape SMALL_Z_SHAPE = Block.createCuboidShape(5.0, 0.0, 2.5, 11.0, 8.0, 13.5);
+    private static final VoxelShape SMALL_X_SHAPE = Block.createCuboidShape(2.5, 0.0, 5.0, 13.5, 8.0, 11.0);
 
     private static final Map<TagKey<Item>, Integer> WOOD_TYPE_MAP = Map.ofEntries(
+            Map.entry(ModTags.Items.LUNAR_REGOLITHS, 0),
             Map.entry(ItemTags.OAK_LOGS, 1),
             Map.entry(ItemTags.SPRUCE_LOGS, 2),
             Map.entry(ItemTags.BIRCH_LOGS, 3),
@@ -183,7 +187,12 @@ public class RadioBlock extends Block implements BlockEntityProvider {
 
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext ctx) {
-        return switch (state.get(FACING)) {
+        if (state.get(WOOD_TYPE).equals(0)) {
+            return switch (state.get(FACING)) {
+                case EAST, WEST -> SMALL_Z_SHAPE;
+                default -> SMALL_X_SHAPE;
+            };
+        } else return switch (state.get(FACING)) {
             case EAST, WEST -> Z_SHAPE;
             default -> X_SHAPE;
         };
@@ -206,12 +215,10 @@ public class RadioBlock extends Block implements BlockEntityProvider {
 
     @Override
     public void appendTooltip(ItemStack stack, @Nullable BlockView world, List<Text> tooltip, TooltipContext opts) {
-        if (!ModConfigs.ALL_SIGNALS_UNLOCKED) {
-            tooltip.add(Text.empty());
-            tooltip.add(Text.translatable("block.tlotd.radio.tooltip").formatted(Formatting.GRAY));
-            tooltip.add(Text.translatable("block.tlotd.radio.tooltip_2").formatted(Formatting.GRAY));
-            tooltip.add(Text.literal(" ").append(Text.translatable("block.tlotd.signal_transmitter").formatted(Formatting.BLUE)));
-        }
+        tooltip.add(Text.empty());
+        tooltip.add(Text.translatable("block.tlotd.radio.tooltip").formatted(Formatting.GRAY));
+        tooltip.add(Text.translatable("block.tlotd.radio.tooltip_2").formatted(Formatting.GRAY));
+        tooltip.add(Text.literal(" ").append(Text.translatable("block.tlotd.signal_transmitter").formatted(Formatting.BLUE)));
         super.appendTooltip(stack, world, tooltip, opts);
     }
 
@@ -282,7 +289,7 @@ public class RadioBlock extends Block implements BlockEntityProvider {
             return ActionResult.SUCCESS;
         }
         ItemStack held = player.getMainHandStack();
-        if (held.isIn(ItemTags.LOGS) || held.isIn(ItemTags.BAMBOO_BLOCKS) || held.isIn(ModTags.Items.GINKGO_LOGS)) {
+        if (held.isIn(ItemTags.LOGS) || held.isIn(ItemTags.BAMBOO_BLOCKS) || held.isIn(ModTags.Items.GINKGO_LOGS) || held.isIn(ModTags.Items.LUNAR_REGOLITHS)) {
             if (!world.isClient) {
                 tryUpdateWood(world, pos, player);
             }

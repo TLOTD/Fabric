@@ -1,5 +1,7 @@
 package net.tlotd.item.custom;
 
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.item.TooltipContext;
@@ -33,6 +35,7 @@ public class ArcaneCircuitBoardItem extends Item {
     public static final Identifier TOOLTIP_FONT_ID = new Identifier("tlotd", "tooltip");
 
     @Override
+    @Environment(EnvType.CLIENT)
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
         tooltip.add(Text.translatable("info.tlotd.not_yet_implemented").formatted(Formatting.RED));
         Style style = getName().getStyle();

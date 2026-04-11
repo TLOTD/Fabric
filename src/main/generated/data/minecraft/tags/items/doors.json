@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "tlotd:heavy_metal_door",
+    "tlotd:metal_push_door",
+    "tlotd:glass_door"
+  ]
+}

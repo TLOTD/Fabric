@@ -26,6 +26,7 @@ import net.tlotd.block.ModBlocks;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
+import java.util.Objects;
 
 public class StickerBlock extends Block {
 
@@ -49,7 +50,7 @@ public class StickerBlock extends Block {
     public BlockState getPlacementState(ItemPlacementContext ctx) {
         for (Direction direction : ctx.getPlacementDirections()) {
             BlockState blockState = direction.getAxis() == Direction.Axis.Y ? this.getDefaultState().with(FACE, direction == Direction.UP ? WallMountLocation.CEILING : WallMountLocation.FLOOR).with(FACING, ctx.getHorizontalPlayerFacing()).with(WATERLOGGED, ctx.getWorld().getFluidState(ctx.getBlockPos()).isOf(Fluids.WATER)) : this.getDefaultState().with(FACE, WallMountLocation.WALL).with(FACING, direction).with(WATERLOGGED, ctx.getWorld().getFluidState(ctx.getBlockPos()).isOf(Fluids.WATER));
-            if (!blockState.canPlaceAt(ctx.getWorld(), ctx.getBlockPos())) continue;
+                if (!blockState.canPlaceAt(ctx.getWorld(), ctx.getBlockPos())) continue;
             return blockState;
         }
         return null;
@@ -96,32 +97,22 @@ public class StickerBlock extends Block {
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
         switch (state.get(FACE)) {
             case FLOOR: {
-                switch (state.get(FACING).getAxis()) {
-                    case X: {
-                        return DOWN_SHAPE;
-                    }
+                if (Objects.requireNonNull(state.get(FACING).getAxis()) == Direction.Axis.X) {
+                    return DOWN_SHAPE;
                 }
                 return DOWN_SHAPE_2;
             }
             case WALL: {
-                switch (state.get(FACING)) {
-                    case EAST: {
-                        return EAST_SHAPE;
-                    }
-                    case WEST: {
-                        return WEST_SHAPE;
-                    }
-                    case SOUTH: {
-                        return SOUTH_SHAPE;
-                    }
-                }
-                return NORTH_SHAPE;
+                return switch (state.get(FACING)) {
+                    case EAST -> EAST_SHAPE;
+                    case WEST -> WEST_SHAPE;
+                    case SOUTH -> SOUTH_SHAPE;
+                    default -> NORTH_SHAPE;
+                };
             }
         }
-        switch (state.get(FACING).getAxis()) {
-            case X: {
-                return UP_SHAPE;
-            }
+        if (Objects.requireNonNull(state.get(FACING).getAxis()) == Direction.Axis.X) {
+            return UP_SHAPE;
         }
         return UP_SHAPE_2;
     }

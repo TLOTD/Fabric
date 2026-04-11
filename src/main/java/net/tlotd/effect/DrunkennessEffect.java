@@ -5,6 +5,7 @@ import net.minecraft.entity.attribute.AttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectCategory;
+import net.tlotd.entity.custom.SeatEntity;
 
 public class DrunkennessEffect extends StatusEffect {
     protected final double modifier;
@@ -17,7 +18,9 @@ public class DrunkennessEffect extends StatusEffect {
     @Override
     public void applyUpdateEffect(LivingEntity entity, int amplifier) {
         if(!entity.getWorld().isClient()) {
-            entity.stopRiding();
+            if (!(entity.getVehicle() instanceof SeatEntity)) {
+                entity.stopRiding();
+            }
         }
         super.applyUpdateEffect(entity, amplifier);
     }

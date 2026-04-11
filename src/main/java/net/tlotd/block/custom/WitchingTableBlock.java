@@ -1,5 +1,7 @@
 package net.tlotd.block.custom;
 
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
@@ -23,8 +25,8 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.tlotd.block.entity.WitchingTableBlockEntity;
 import net.tlotd.block.entity.ModBlockEntities;
-import net.tlotd.config.ModConfigs;
 import net.tlotd.item.ModItems;
+import net.tlotd.networking.ClientGlobalConfig;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
@@ -105,21 +107,22 @@ public class WitchingTableBlock extends BlockWithEntity implements BlockEntityPr
     public static final Identifier TOOLTIP_FONT_ID = new Identifier("tlotd", "tooltip");
 
     @Override
+    @Environment(EnvType.CLIENT)
     public void appendTooltip(ItemStack stack, @Nullable BlockView world, List<Text> tooltip, TooltipContext options) {
         Style style = getName().getStyle();
         PlayerEntity player = MinecraftClient.getInstance().player;
         if (player == null) return;
         if (enlightened(player) >= 10 && Screen.hasShiftDown()) {
             tooltip.add(Text.literal("\uE002 ").setStyle(style.withFont(TOOLTIP_FONT_ID)).append(Text.translatable("item.tlotd.desc_enlightened").setStyle(style.withFont(DEFAULT_FONT_ID).withFormatting(Formatting.GOLD))));
-            if (ModConfigs.WITCHING_TABLE_NEEDS_BLOOD && ModConfigs.WITCHING_TABLE_NEEDS_SOULS) {
+            if (ClientGlobalConfig.bloodWitching && ClientGlobalConfig.soulWitching) {
                 tooltip.add(Text.translatable("block.tlotd.witching_table.tooltip_bs").formatted(Formatting.GRAY));
                 tooltip.add(Text.translatable("block.tlotd.witching_table.tooltip_bs_2").formatted(Formatting.GRAY));
                 tooltip.add(Text.translatable("block.tlotd.witching_table.tooltip_bs_3").formatted(Formatting.GRAY));
-            } else if (ModConfigs.WITCHING_TABLE_NEEDS_BLOOD) {
+            } else if (ClientGlobalConfig.bloodWitching) {
                 tooltip.add(Text.translatable("block.tlotd.witching_table.tooltip_b").formatted(Formatting.GRAY));
                 tooltip.add(Text.translatable("block.tlotd.witching_table.tooltip_b_2").formatted(Formatting.GRAY));
                 tooltip.add(Text.translatable("block.tlotd.witching_table.tooltip_b_3").formatted(Formatting.GRAY));
-            } else if (ModConfigs.WITCHING_TABLE_NEEDS_SOULS) {
+            } else if (ClientGlobalConfig.soulWitching) {
                 tooltip.add(Text.translatable("block.tlotd.witching_table.tooltip_s").formatted(Formatting.GRAY));
                 tooltip.add(Text.translatable("block.tlotd.witching_table.tooltip_s_2").formatted(Formatting.GRAY));
                 tooltip.add(Text.translatable("block.tlotd.witching_table.tooltip_s_3").formatted(Formatting.GRAY));
@@ -133,15 +136,15 @@ public class WitchingTableBlock extends BlockWithEntity implements BlockEntityPr
             } else {
                 tooltip.add(Text.literal("\uE000 ").setStyle(style.withFont(TOOLTIP_FONT_ID)).append(Text.translatable("item.tlotd.desc_not_enlightened").setStyle(style.withFont(DEFAULT_FONT_ID).withFormatting(Formatting.DARK_GRAY))));
             }
-            if (ModConfigs.WITCHING_TABLE_NEEDS_BLOOD && ModConfigs.WITCHING_TABLE_NEEDS_SOULS) {
+            if (ClientGlobalConfig.bloodWitching && ClientGlobalConfig.soulWitching) {
                 tooltip.add(Text.translatable("block.tlotd.witching_table.tooltip_bs").setStyle(style.withFont(ILLAGER_FONT_ID)).formatted(Formatting.GRAY));
                 tooltip.add(Text.translatable("block.tlotd.witching_table.tooltip_bs_2").setStyle(style.withFont(ILLAGER_FONT_ID)).formatted(Formatting.GRAY));
                 tooltip.add(Text.translatable("block.tlotd.witching_table.tooltip_bs_3").setStyle(style.withFont(ILLAGER_FONT_ID)).formatted(Formatting.GRAY));
-            } else if (ModConfigs.WITCHING_TABLE_NEEDS_BLOOD) {
+            } else if (ClientGlobalConfig.bloodWitching) {
                 tooltip.add(Text.translatable("block.tlotd.witching_table.tooltip_b").setStyle(style.withFont(ILLAGER_FONT_ID)).formatted(Formatting.GRAY));
                 tooltip.add(Text.translatable("block.tlotd.witching_table.tooltip_b_2").setStyle(style.withFont(ILLAGER_FONT_ID)).formatted(Formatting.GRAY));
                 tooltip.add(Text.translatable("block.tlotd.witching_table.tooltip_b_3").setStyle(style.withFont(ILLAGER_FONT_ID)).formatted(Formatting.GRAY));
-            } else if (ModConfigs.WITCHING_TABLE_NEEDS_SOULS) {
+            } else if (ClientGlobalConfig.soulWitching) {
                 tooltip.add(Text.translatable("block.tlotd.witching_table.tooltip_s").setStyle(style.withFont(ILLAGER_FONT_ID)).formatted(Formatting.GRAY));
                 tooltip.add(Text.translatable("block.tlotd.witching_table.tooltip_s_2").setStyle(style.withFont(ILLAGER_FONT_ID)).formatted(Formatting.GRAY));
                 tooltip.add(Text.translatable("block.tlotd.witching_table.tooltip_s_3").setStyle(style.withFont(ILLAGER_FONT_ID)).formatted(Formatting.GRAY));

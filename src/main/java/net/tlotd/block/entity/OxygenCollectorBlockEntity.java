@@ -17,6 +17,7 @@ import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.tlotd.gui.OxygenCollectorGUIHandler;
+import net.tlotd.item.custom.SpaceSuitArmorItem;
 import net.tlotd.util.AdAstraOxygenNbtHelper;
 import net.tlotd.util.ModTags;
 import org.jetbrains.annotations.Nullable;
@@ -88,7 +89,6 @@ public class OxygenCollectorBlockEntity extends BlockEntity implements ExtendedS
         if(world.isClient()) {
             return;
         }
-
         if(oxygenChargable()) {
             if(canBeFilled()) {
                 this.fillOxygen();
@@ -101,14 +101,18 @@ public class OxygenCollectorBlockEntity extends BlockEntity implements ExtendedS
     }
 
     private boolean canBeFilled() {
-        return (this.getStack(0).hasNbt() && this.getStack(0).getNbt().getInt("tlotd:oxygen") < AdAstraOxygenNbtHelper.getMaxOxygenItem(this.getStack(0)) || !this.getStack(0).hasNbt());
+        return (this.getStack(0).getItem() instanceof SpaceSuitArmorItem || (this.getStack(0).hasNbt() && this.getStack(0).getNbt().getInt("tlotd:oxygen") < AdAstraOxygenNbtHelper.getMaxOxygenItem(this.getStack(0)) || !this.getStack(0).hasNbt()));
     }
 
     private void fillOxygen() {
         ItemStack stack = this.getStack(0);
         if (stack.isEmpty()) return;
-        long current = AdAstraOxygenNbtHelper.getOxygen(stack);
-        long next = Math.min(current + (quality * 81L), AdAstraOxygenNbtHelper.getMaxOxygenItem(stack));
-        AdAstraOxygenNbtHelper.setOxygen(stack, next);
+        if (stack.getItem() instanceof SpaceSuitArmorItem) {
+            AdAstraOxygenNbtHelper.modifyOxygenInSuit(stack, quality * 81L);
+        } else {
+            long current = AdAstraOxygenNbtHelper.getOxygen(stack);
+            long next = Math.min(current + (quality * 81L), AdAstraOxygenNbtHelper.getMaxOxygenItem(stack));
+            AdAstraOxygenNbtHelper.setOxygen(stack, next);
+        }
     }
 }

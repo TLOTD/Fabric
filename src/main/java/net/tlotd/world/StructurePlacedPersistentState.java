@@ -6,7 +6,7 @@ import net.minecraft.world.PersistentState;
 import net.minecraft.world.PersistentStateManager;
 
 public class StructurePlacedPersistentState extends PersistentState {
-    private boolean placed = false;
+    private boolean structurePlaced = false;
 
     public static StructurePlacedPersistentState get(ServerWorld world) {
         PersistentStateManager manager = world.getPersistentStateManager();
@@ -19,22 +19,22 @@ public class StructurePlacedPersistentState extends PersistentState {
 
     public static StructurePlacedPersistentState createFromNbt(NbtCompound nbt) {
         StructurePlacedPersistentState state = new StructurePlacedPersistentState();
-        state.placed = nbt.getBoolean("placed");
+        state.structurePlaced = nbt.getBoolean("structure_placed");
         return state;
     }
 
     @Override
     public NbtCompound writeNbt(NbtCompound nbt) {
-        nbt.putBoolean("placed", placed);
+        nbt.putBoolean("structure_placed", structurePlaced);
         return nbt;
     }
 
-    public boolean isPlaced() {
-        return placed;
+    public boolean isStructurePlaced() {
+        return structurePlaced;
     }
 
-    public void setPlaced(boolean placed) {
-        this.placed = placed;
+    public void setStructurePlaced(boolean structurePlaced) {
+        this.structurePlaced = structurePlaced;
         markDirty();
     }
 }

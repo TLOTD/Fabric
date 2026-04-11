@@ -1,6 +1,7 @@
 package net.tlotd.block.custom;
 
 import net.minecraft.block.*;
+import net.minecraft.block.enums.DoubleBlockHalf;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.FluidState;
@@ -8,6 +9,7 @@ import net.minecraft.fluid.Fluids;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.registry.Registries;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
@@ -27,7 +29,6 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 import net.tlotd.block.ModBlocks;
-import net.tlotd.item.ModItems;
 import net.tlotd.sound.ModSounds;
 import net.tlotd.util.ModTags;
 import net.tlotd.world.SignalTrackingArray;
@@ -105,6 +106,14 @@ public class SignalTransmitterBlock extends Block {
         super.appendTooltip(stack, world, tooltip, options);
     }
 
+    private void buildSignalTower(ItemStack stack, World world, BlockPos pos, BlockState state, PlayerEntity player) {
+        world.setBlockState(pos, state);
+        world.playSound(null, pos, SoundEvents.BLOCK_COPPER_PLACE, SoundCategory.BLOCKS, 1.0f, 1.0f);
+        if (!player.isCreative()) {
+            stack.decrement(1);
+        }
+    }
+
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         if (world.isClient) return ActionResult.SUCCESS;
@@ -113,16 +122,27 @@ public class SignalTransmitterBlock extends Block {
         boolean antennaCompleted =
                 world.getBlockState(pos.up()).isOf(ModBlocks.SIGNAL_TRANSMITTER_ANTENNA) &&
                         world.getBlockState(pos.up(2)).isOf(ModBlocks.SIGNAL_TRANSMITTER_ANTENNA) &&
-                        world.getBlockState(pos.up(2)).get(SignalTransmitterAntennaBlock.UPPER) &&
+                        world.getBlockState(pos.up(2)).get(SignalTransmitterAntennaBlock.HALF) == DoubleBlockHalf.UPPER &&
                         world.getBlockState(pos.up(3)).isOf(Blocks.LIGHTNING_ROD) &&
                         world.getBlockState(pos.up(3)).get(LightningRodBlock.FACING) == Direction.DOWN &&
-                        world.getBlockState(pos.up(4)).isOf(Blocks.LIGHTNING_ROD);
+                        world.getBlockState(pos.up(4)).isOf(Blocks.LIGHTNING_ROD) &&
+                        world.getBlockState(pos.up(4)).get(LightningRodBlock.FACING) == Direction.UP;
+        ItemStack stack = player.getMainHandStack();
         if (!antennaCompleted) {
-            player.sendMessage(Text.translatable("block.tlotd.signal_transmitter.incomplete"), false);
-            world.playSound(null, pos, SoundEvents.BLOCK_STONE_BUTTON_CLICK_ON, SoundCategory.BLOCKS, 1.0f, 1.0f);
+            if (world.getBlockState(pos.up()).getBlock() instanceof AirBlock && stack.isOf(ModBlocks.SIGNAL_TRANSMITTER_ANTENNA.asItem())) {
+                buildSignalTower(stack, world, pos.up(), ModBlocks.SIGNAL_TRANSMITTER_ANTENNA.getDefaultState(), player);
+            } else if (world.getBlockState(pos.up(2)).getBlock() instanceof AirBlock && stack.isOf(ModBlocks.SIGNAL_TRANSMITTER_ANTENNA.asItem())) {
+                buildSignalTower(stack, world, pos.up(2), ModBlocks.SIGNAL_TRANSMITTER_ANTENNA.getDefaultState().with(SignalTransmitterAntennaBlock.HALF, DoubleBlockHalf.UPPER), player);
+            } else if (world.getBlockState(pos.up(3)).getBlock() instanceof AirBlock && stack.isOf(Items.LIGHTNING_ROD)) {
+                buildSignalTower(stack, world, pos.up(3), Blocks.LIGHTNING_ROD.getDefaultState().with(LightningRodBlock.FACING, Direction.DOWN), player);
+            } else if (world.getBlockState(pos.up(4)).getBlock() instanceof AirBlock && stack.isOf(Items.LIGHTNING_ROD)) {
+                buildSignalTower(stack, world, pos.up(4), Blocks.LIGHTNING_ROD.getDefaultState(), player);
+            } else {
+                player.sendMessage(Text.translatable("block.tlotd.signal_transmitter.incomplete"), false);
+                world.playSound(null, pos, SoundEvents.BLOCK_STONE_BUTTON_CLICK_ON, SoundCategory.BLOCKS, 1.0f, 1.0f);
+            }
             return ActionResult.SUCCESS;
         }
-        ItemStack stack = player.getMainHandStack();
         if (!stack.isEmpty() && stack.isIn(ModTags.Items.TRANSMITTABLE_SIGNALS)) {
             Item item = stack.getItem();
             Identifier id = Registries.ITEM.getId(item);

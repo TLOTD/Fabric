@@ -1,5 +1,7 @@
 package net.tlotd.item.custom;
 
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.advancement.criterion.Criteria;
 import net.minecraft.block.Blocks;
 import net.minecraft.client.MinecraftClient;
@@ -37,6 +39,7 @@ public class OminousAlienKeyItem extends Item {
     public static final Identifier TOOLTIP_FONT_ID = new Identifier("tlotd", "tooltip");
 
     @Override
+    @Environment(EnvType.CLIENT)
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
         tooltip.add(Text.translatable("info.tlotd.not_yet_implemented").formatted(Formatting.RED));
         Style style = getName().getStyle();

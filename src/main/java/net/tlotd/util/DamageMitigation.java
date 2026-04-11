@@ -8,6 +8,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.random.Random;
 import net.tlotd.TLOTD;
 import net.tlotd.effect.ModEffects;
+import net.tlotd.item.custom.SpaceSuitArmorItem;
 
 import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -204,15 +205,25 @@ public class DamageMitigation {
                         oxygenTank = true;
                     }
                 }
-                if ((airtightArmor >= 4) && oxygenTank && AdAstraOxygenNbtHelper.getOxygen(player.getInventory().getArmorStack(2)) > 0) {
-                    if (oxygenTick.get() >= 20) {
-                        oxygenTick.set(0);
-                        long current = AdAstraOxygenNbtHelper.getOxygen(player.getInventory().getArmorStack(2));
-                        AdAstraOxygenNbtHelper.setOxygen(player.getInventory().getArmorStack(2), current - 10);
+                if ((airtightArmor >= 4) && oxygenTank && ((player.getInventory().getArmorStack(2).getItem() instanceof SpaceSuitArmorItem && AdAstraOxygenNbtHelper.getOxygenFromSuit(player.getInventory().getArmorStack(2)) > 0) || (AdAstraOxygenNbtHelper.getOxygen(player.getInventory().getArmorStack(2)) > 0))) {
+                    if (player.getInventory().getArmorStack(2).getItem() instanceof SpaceSuitArmorItem) {
+                        if (oxygenTick.get() >= 20) {
+                            oxygenTick.set(0);
+                            AdAstraOxygenNbtHelper.modifyOxygenInSuit(player.getInventory().getArmorStack(2), -10);
+                        } else {
+                            oxygenTick.getAndIncrement();
+                        }
+                        return false;
                     } else {
-                        oxygenTick.getAndIncrement();
+                        if (oxygenTick.get() >= 20) {
+                            oxygenTick.set(0);
+                            long current = AdAstraOxygenNbtHelper.getOxygen(player.getInventory().getArmorStack(2));
+                            AdAstraOxygenNbtHelper.setOxygen(player.getInventory().getArmorStack(2), current - 10);
+                        } else {
+                            oxygenTick.getAndIncrement();
+                        }
+                        return false;
                     }
-                    return false;
                 }
             } else if (damageSource.isOf(DamageTypes.LAVA) || damageSource.isOf(DamageTypes.ON_FIRE) || damageSource.isOf(DamageTypes.IN_FIRE) || damageSource.isOf(DamageTypes.HOT_FLOOR) || damageSource.getType().msgId().contains("fire") && !damageSource.getType().msgId().contains("gunfire")) {
                 int fireProtection = 0;

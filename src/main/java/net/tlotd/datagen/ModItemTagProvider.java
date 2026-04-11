@@ -102,6 +102,11 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModItems.GONDORIAN_ORNAMENTED_KNIGHT_SHIELD)
         ;
 
+        getOrCreateTagBuilder(ModTags.Items.ELDER_DAYS_ELVEN_FORGABLE)
+                .add(ModItems.MITHRIL_SWORD)
+                .add(ModItems.MITHRIL_PICKAXE)
+        ;
+
         getOrCreateTagBuilder(ModTags.Items.DIVINE_ITEMS)
                 .add(ModBlocks.STICK_CROSS.asItem())
                 .add(ModItems.DIVINE_PICKAXE)
@@ -230,6 +235,15 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModItems.ASTRAL_FORGING_HAMMER)
         ;
 
+        getOrCreateTagBuilder(ModTags.Items.LUNAR_REGOLITHS)
+                .add(ModBlocks.LUNAR_REGOLITH.asItem())
+                .add(ModBlocks.MEGAREGOLITH.asItem())
+                .add(ModBlocks.MEGAREGOLITH_BRICKS.asItem())
+                .add(ModBlocks.MEGAREGOLITH_TILES.asItem())
+                .add(ModBlocks.MEGAREGOLITH_TILE.asItem())
+                .add(ModBlocks.TALL_MEGAREGOLITH_TILE.asItem())
+        ;
+
         getOrCreateTagBuilder(ModTags.Items.WOODEN_BARK)
                 .add(ModItems.OAK_BARK)
                 .add(ModItems.SPRUCE_BARK)
@@ -348,6 +362,12 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
 
         getOrCreateTagBuilder(ItemTags.WOODEN_DOORS)
                 .add(ModBlocks.GINKGO_DOOR.asItem())
+        ;
+
+        getOrCreateTagBuilder(ItemTags.DOORS)
+                .add(ModBlocks.HEAVY_METAL_DOOR.asItem())
+                .add(ModBlocks.METAL_PUSH_DOOR.asItem())
+                .add(ModBlocks.GLASS_DOOR.asItem())
         ;
 
         getOrCreateTagBuilder(ItemTags.WOODEN_TRAPDOORS)
@@ -637,6 +657,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
         ;
 
         getOrCreateTagBuilder(ModTags.Items.OXYGEN_STORING)
+                .add(ModItems.SPACE_SUIT_CHESTPLATE)
                 .addTag(ModTags.Items.OXYGEN_STORING_1K)
                 .addTag(ModTags.Items.OXYGEN_STORING_2K)
                 .addTag(ModTags.Items.OXYGEN_STORING_4K)
@@ -644,7 +665,6 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
 
         getOrCreateTagBuilder(ModTags.Items.OXYGEN_STORING_1K)
                 .add(ModItems.OXYGEN_TANK)
-                .add(ModItems.SPACE_SUIT_CHESTPLATE)
                 .addOptional(Identifier.tryParse("ad_astra:space_suit"))
         ;
 
@@ -1357,6 +1377,8 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModItems.STRAWBERRY)
                 .add(ModItems.CHOCOLATE_STRAWBERRY)
                 .add(ModItems.ORANGE)
+                .add(ModItems.STRAWBERRY_COOKIE)
+                .add(ModItems.ORANGE_COOKIE)
                 .add(ModItems.HEMP_COOKIE)
                 .add(ModItems.TOAST)
                 .add(ModItems.STRAWBERRY_JAM_TOAST)
@@ -1385,6 +1407,9 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
         ;
 
         getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "ingots")))
+                .addTag(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "copper_ingots")))
+                .addTag(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "iron_ingots")))
+                .addTag(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "gold_ingots")))
                 .addTag(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "steel_ingots")))
                 .addTag(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "aluminium_ingots")))
                 .addTag(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "lead_ingots")))
@@ -1411,6 +1436,16 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .addTag(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "aluminium_nuggets")))
                 .addTag(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "lead_nuggets")))
                 .addTag(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "mithril_nuggets")))
+        ;
+
+        getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "metal_ingots")))
+                .addTag(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "copper_ingots")))
+                .addTag(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "iron_ingots")))
+                .addTag(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "gold_ingots")))
+                .addTag(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "steel_ingots")))
+                .addTag(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "aluminium_ingots")))
+                .addTag(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "lead_ingots")))
+                .addTag(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "mithril_ingots")))
         ;
 
         getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "raw_materials")))

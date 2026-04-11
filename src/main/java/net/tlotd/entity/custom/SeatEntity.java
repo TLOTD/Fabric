@@ -32,6 +32,6 @@ public class SeatEntity extends Entity {
     }
 
     public double getMountedHeightOffset() {
-        return 0.3F;
+        return -0.2F;
     }
 }

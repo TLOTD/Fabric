@@ -166,6 +166,11 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.DARK_METAL_TILE);
         addDrop(ModBlocks.DARK_METAL_TILES);
 
+        addDrop(ModBlocks.DARK_METAL_LIGHTS);
+
+        addDrop(ModBlocks.HEAVY_METAL_DOOR, doorDrops(ModBlocks.HEAVY_METAL_DOOR));
+        addDrop(ModBlocks.METAL_PUSH_DOOR, doorDrops(ModBlocks.METAL_PUSH_DOOR));
+
         addDrop(ModBlocks.FRAGILE_LIGHT_SWITCH, drops(ModBlocks.LIGHT_SWITCH));
         addDrop(ModBlocks.LIGHT_SWITCH);
 

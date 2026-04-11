@@ -282,6 +282,8 @@ public class TLOTDREIClientPlugin implements REIClientPlugin {
                 Text.translatable("rei.category.augments"),
                 EntryStacks.of(ModItems.AUGMENT_SLOT_EXPANSION),
 
+                EntryStacks.of(ModItems.AUGMENT_ELDER_DAYS_ELVEN_FORGED),
+
                 EntryStacks.of(ModItems.AUGMENT_PHOTOSYNTHESIS),
                 EntryStacks.of(ModItems.AUGMENT_STARLIGHT_BLESSING),
 

@@ -4,6 +4,8 @@ import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.FireBlock;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.ItemStack;
@@ -16,10 +18,10 @@ import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.tlotd.compat.CompatModsCheck;
-import net.tlotd.config.ModConfigs;
 import net.tlotd.effect.ModEffects;
 import net.tlotd.util.EnergyNbtHelper;
 import net.tlotd.util.ModAdvancementTriggers;
+import net.tlotd.world.ModGlobalState;
 import net.tlotd.world.dimension.ModDimensions;
 
 import static net.tlotd.util.AugmentNbtHelper.getAugmentLevel;
@@ -32,18 +34,20 @@ public class ModServerTickEvents {
     public static void registerServerTickEvents() {
         ServerTickEvents.END_SERVER_TICK.register(server -> {
             tickCounter++;
+            ServerWorld world = server.getWorld(LUNA_LEVEL_KEY);
+            if (world == null) return;
+            for (Entity entity : world.iterateEntities()) {
+                if (!(entity instanceof LivingEntity living)) continue;
+                if (living.isOnFire()) {
+                    living.extinguish();
+                }
+                living.addStatusEffect(new StatusEffectInstance(ModEffects.HYPOXIA, 220, 0, true, false, true));
+                living.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOW_FALLING, 220, 0, true, false, true));
+                living.addStatusEffect(new StatusEffectInstance(StatusEffects.JUMP_BOOST, 220, 2, true, false, true));
+            }
             for (ServerPlayerEntity player : server.getPlayerManager().getPlayerList()) {
                 ModAdvancementTriggers.HOLD_ITEM.trigger(player);
                 if (player.getWorld().getRegistryKey().equals(LUNA_LEVEL_KEY)) {
-                    if (player.isOnFire()) {
-                        player.extinguish();
-                    }
-                    StatusEffectInstance h = new StatusEffectInstance(ModEffects.HYPOXIA, 220, 0, true, false, true);
-                    StatusEffectInstance s = new StatusEffectInstance(StatusEffects.SLOW_FALLING, 220, 0, true, false, true);
-                    StatusEffectInstance j = new StatusEffectInstance(StatusEffects.JUMP_BOOST, 220, 2, true, false, true);
-                    player.addStatusEffect(h);
-                    player.addStatusEffect(s);
-                    player.addStatusEffect(j);
                     if (tickCounter % 20 == 0) {
                         extinguishFireBlocksAroundPlayer(player.getServerWorld(), player);
                     }
@@ -142,17 +146,32 @@ public class ModServerTickEvents {
         RegistryKey<World> lunaKey = ModDimensions.LUNA_LEVEL_KEY;
         RegistryKey<World> overworldKey = World.OVERWORLD;
         BlockPos pos = player.getBlockPos();
-        if (currentKey.equals(overworldKey) && pos.getY() > ModConfigs.TERRA_WARP_HEIGHT_THRESHOLD) {
+
+        int warpHeightTerra = 1000;
+        int warpHeightLuna = 1000;
+        int warpHeightOutTerra = 320;
+        int warpHeightOutLuna = 100;
+        int terraResistance = 400;
+        if (player.getServer() != null) {
+            ModGlobalState globalState = ModGlobalState.get(player.getServer());
+            warpHeightTerra = globalState.warpHeightOutOfTerra();
+            warpHeightLuna = globalState.warpHeightOutOfLuna();
+            warpHeightOutTerra = globalState.warpHeightIntoTerra();
+            warpHeightOutLuna = globalState.warpHeightIntoLuna();
+            terraResistance = globalState.terraResistance();
+        }
+
+        if (currentKey.equals(overworldKey) && pos.getY() > warpHeightTerra) {
             ServerWorld luna = server.getWorld(lunaKey);
             if (luna != null) {
-                teleportPlayer(player, luna, new BlockPos(pos.getX(), ModConfigs.LUNAR_WARP_DESTINATION_HEIGHT, pos.getZ()));
+                teleportPlayer(player, luna, new BlockPos(pos.getX(), warpHeightOutLuna, pos.getZ()));
             }
-        } else if (currentKey.equals(lunaKey) && pos.getY() > ModConfigs.LUNAR_WARP_HEIGHT_THRESHOLD) {
+        } else if (currentKey.equals(lunaKey) && pos.getY() > warpHeightLuna) {
             ServerWorld overworld = server.getWorld(overworldKey);
             if (overworld != null) {
-                teleportPlayer(player, overworld, new BlockPos(pos.getX(), ModConfigs.TERRA_WARP_DESTINATION_HEIGHT, pos.getZ()));
-                if (ModConfigs.TERRA_FALL_DISTANCE_RESISTANCE != 0) {
-                    player.addStatusEffect(new StatusEffectInstance(StatusEffects.RESISTANCE, ModConfigs.TERRA_FALL_DISTANCE_RESISTANCE, 4, false, false, true));
+                teleportPlayer(player, overworld, new BlockPos(pos.getX(), warpHeightOutTerra, pos.getZ()));
+                if (terraResistance != 0) {
+                    player.addStatusEffect(new StatusEffectInstance(StatusEffects.RESISTANCE, terraResistance, 4, false, false, true));
                 }
             }
         }

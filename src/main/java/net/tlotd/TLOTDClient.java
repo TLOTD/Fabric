@@ -7,6 +7,7 @@ import net.fabricmc.fabric.api.client.render.fluid.v1.FluidRenderHandlerRegistry
 import net.fabricmc.fabric.api.client.render.fluid.v1.SimpleFluidRenderHandler;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
+import net.fabricmc.fabric.api.client.rendering.v1.TooltipComponentCallback;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
 import net.minecraft.client.render.TexturedRenderLayers;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
@@ -17,6 +18,7 @@ import net.tlotd.block.entity.ModBlockEntities;
 import net.tlotd.block.entity.renderer.*;
 import net.tlotd.client.ModBlockRenderLayerMap;
 import net.tlotd.client.ModItemRenderLayerMap;
+import net.tlotd.client.SpaceSuitTooltipComponent;
 import net.tlotd.entity.ModBoats;
 import net.tlotd.entity.ModEntities;
 import net.tlotd.entity.client.*;
@@ -26,6 +28,7 @@ import net.tlotd.networking.GlobalConfigNetworking;
 import net.tlotd.networking.ModMessages;
 import net.tlotd.networking.PlayerDataSyncNetworking;
 import net.tlotd.networking.TextureSyncNetworking;
+import net.tlotd.util.SpaceSuitTooltipData;
 
 public class TLOTDClient implements ClientModInitializer {
     @Override
@@ -84,5 +87,12 @@ public class TLOTDClient implements ClientModInitializer {
         TextureSyncNetworking.registerClientReceiver();
         GlobalConfigNetworking.registerClientReceiver();
         PlayerDataSyncNetworking.registerClientReceiver();
+
+        TooltipComponentCallback.EVENT.register(data -> {
+            if (data instanceof SpaceSuitTooltipData suitData) {
+                return new SpaceSuitTooltipComponent(suitData);
+            }
+            return null;
+        });
     }
 }

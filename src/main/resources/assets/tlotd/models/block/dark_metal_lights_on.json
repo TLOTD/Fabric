@@ -1,0 +1,6 @@
+{
+	"parent": "tlotd:block/dark_metal_lights",
+	"textures": {
+		"light": "tlotd:block/dark_metal_lights_on"
+	}
+}

@@ -29,9 +29,9 @@ public class AndurilItem extends SwordItem {
             tooltip.add(Text.translatable("item.tlotd.anduril.tooltip_2").formatted(Formatting.GRAY));
             tooltip.add(Text.translatable("item.tlotd.anduril.tooltip_3").formatted(Formatting.GRAY).append(" ").append(Text.translatable("item.tlotd.narsil").formatted(Formatting.YELLOW)).append(Text.translatable("item.tlotd.anduril.tooltip_4").formatted(Formatting.GRAY)));
         } else {
-            tooltip.add(Text.translatable("item.tlotd.anduril.tooltip_quenya").setStyle(style.withFont(TENGWAR_FONT_ID).withColor(Formatting.GRAY)));
-            tooltip.add(Text.translatable("item.tlotd.anduril.tooltip_quenya_2").setStyle(style.withFont(TENGWAR_FONT_ID).withColor(Formatting.GRAY)));
-            tooltip.add(Text.translatable("item.tlotd.anduril.tooltip_quenya_3").setStyle(style.withFont(TENGWAR_FONT_ID).withColor(Formatting.GRAY)).append(" ").append(Text.translatable("item.tlotd.narsil_quenya").setStyle(style.withFont(TENGWAR_FONT_ID).withColor(Formatting.YELLOW))).append(Text.translatable("item.tlotd.anduril.tooltip_quenya_4").setStyle(style.withFont(TENGWAR_FONT_ID).withColor(Formatting.GRAY))));
+            tooltip.add(Text.translatable("item.tlotd.anduril.tooltip_tengwar").setStyle(style.withFont(TENGWAR_FONT_ID).withColor(Formatting.GRAY)));
+            tooltip.add(Text.translatable("item.tlotd.anduril.tooltip_tengwar_2").setStyle(style.withFont(TENGWAR_FONT_ID).withColor(Formatting.GRAY)));
+            tooltip.add(Text.translatable("item.tlotd.anduril.tooltip_tengwar_3").setStyle(style.withFont(TENGWAR_FONT_ID).withColor(Formatting.GRAY)).append(" ").append(Text.translatable("item.tlotd.narsil_tengwar").setStyle(style.withFont(TENGWAR_FONT_ID).withColor(Formatting.YELLOW))).append(Text.translatable("item.tlotd.anduril.tooltip_tengwar_4").setStyle(style.withFont(TENGWAR_FONT_ID).withColor(Formatting.GRAY))));
         }
         super.appendTooltip(stack, world, tooltip, context);
     }

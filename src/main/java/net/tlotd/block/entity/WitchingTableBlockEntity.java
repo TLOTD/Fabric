@@ -42,6 +42,7 @@ import net.tlotd.item.ModItems;
 import net.tlotd.networking.ModMessages;
 import net.tlotd.recipe.WitchingRecipe;
 import net.tlotd.util.ModTags;
+import net.tlotd.world.ModGlobalState;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Optional;
@@ -197,17 +198,23 @@ public class WitchingTableBlockEntity extends BlockEntity implements ExtendedScr
         if (world.isClient()) {
             return;
         }
-
+        boolean bloodWitching = true;
+        boolean soulWitching = true;
+        if (world.getServer() != null) {
+            ModGlobalState globalState = ModGlobalState.get(world.getServer());
+            bloodWitching = globalState.bloodWitching();
+            soulWitching = globalState.soulWitching();
+        }
         if (isOutputSlotEmptyOrReceivable()) {
-            if (hasRecipe() && (!ModConfigs.WITCHING_TABLE_NEEDS_BLOOD || hasEnoughFluid()) && (!ModConfigs.WITCHING_TABLE_NEEDS_SOULS || (state.get(SOUL_CHARGES)+state.get(CURSED_SOUL_CHARGES)+state.get(ABYSSAL_SOUL_CHARGES)) > 0)) {
+            if (hasRecipe() && (!bloodWitching || hasEnoughFluid()) && (!soulWitching || (state.get(SOUL_CHARGES)+state.get(CURSED_SOUL_CHARGES)+state.get(ABYSSAL_SOUL_CHARGES)) > 0)) {
                 increaseCraftProgress();
                 markDirty(world, pos, state);
                 if (hasCraftingFinished()) {
                     craftItem();
-                    if (ModConfigs.WITCHING_TABLE_NEEDS_BLOOD) {
+                    if (bloodWitching) {
                         extractFluid();
                     }
-                    if (ModConfigs.WITCHING_TABLE_NEEDS_SOULS) {
+                    if (soulWitching) {
                         consumeSoul(world,pos,state);
                     }
                     if (witchingTableBase()){

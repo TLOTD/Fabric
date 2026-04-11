@@ -1,5 +1,7 @@
 package net.tlotd.item.custom;
 
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.advancement.criterion.Criteria;
 import net.minecraft.block.BlockState;
 import net.minecraft.client.MinecraftClient;
@@ -71,6 +73,7 @@ public class AbyssFlaskItem extends Item {
     }
     
     @Override
+    @Environment(EnvType.CLIENT)
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
         Style style = getName().getStyle();
         PlayerEntity player = MinecraftClient.getInstance().player;

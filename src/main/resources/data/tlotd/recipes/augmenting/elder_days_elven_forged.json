@@ -1,0 +1,15 @@
+{
+  "type": "tlotd:augmenting",
+  "ingredients": [
+    {
+      "tag": "tlotd:elder_days_elven_forgable"
+    },
+    {
+      "item": "tlotd:augment-elder_days_elven_forged"
+    }
+  ],
+  "augment": {
+    "item": "tlotd:augment-elder_days_elven_forged",
+    "count": 1
+  }
+}

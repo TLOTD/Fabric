@@ -1,19 +1,49 @@
 {
   "variants": {
-    "facing=north": {
+    "face=ceiling,facing=north": {
       "model": "tlotd:block/exit_sign"
     },
-    "facing=east": {
+    "face=ceiling,facing=east": {
       "model": "tlotd:block/exit_sign",
       "y": 90
     },
-    "facing=south": {
+    "face=ceiling,facing=south": {
       "model": "tlotd:block/exit_sign",
       "y": 180
     },
-    "facing=west": {
+    "face=ceiling,facing=west": {
       "model": "tlotd:block/exit_sign",
       "y": 270
+    },
+    "face=floor,facing=north": {
+      "model": "tlotd:block/exit_sign"
+    },
+    "face=floor,facing=east": {
+      "model": "tlotd:block/exit_sign",
+      "y": 90
+    },
+    "face=floor,facing=south": {
+      "model": "tlotd:block/exit_sign",
+      "y": 180
+    },
+    "face=floor,facing=west": {
+      "model": "tlotd:block/exit_sign",
+      "y": 270
+    },
+    "face=wall,facing=north": {
+      "model": "tlotd:block/exit_wall_sign",
+      "y": 180
+    },
+    "face=wall,facing=east": {
+      "model": "tlotd:block/exit_wall_sign",
+      "y": 270
+    },
+    "face=wall,facing=south": {
+      "model": "tlotd:block/exit_wall_sign"
+    },
+    "face=wall,facing=west": {
+      "model": "tlotd:block/exit_wall_sign",
+      "y": 90
     }
   }
 }

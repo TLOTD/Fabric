@@ -113,7 +113,7 @@ public class TelevisionBlock extends Block {
         ServerWorld serverWorld = (ServerWorld) world;
         SignalTrackingArray tracker = SignalTrackingArray.get(serverWorld);
         int currentChannel = state.getOrEmpty(TelevisionBlock.CHANNEL).orElse(0);
-        boolean hasOverride = world.getBlockState(pos.up()).isIn(ModTags.Blocks.INTERDIMENSIONAL_RECEIVERS) || ModConfigs.ALL_SIGNALS_UNLOCKED;
+        boolean hasOverride = world.getBlockState(pos.up()).isIn(ModTags.Blocks.INTERDIMENSIONAL_RECEIVERS);
         if (player.isSneaking()) {
             Optional<TelevisionSignalRegistry.SignalEntry> currentEntry = TelevisionSignalRegistry.getAll().stream().filter(e -> (e.channel() == currentChannel) && (e.onBlock() == state.getBlock() || e.offBlock() == state.getBlock())).findFirst();
             BlockState newState;
@@ -158,10 +158,8 @@ public class TelevisionBlock extends Block {
     @Override
     public void appendTooltip(ItemStack stack, @Nullable BlockView world, List<Text> tooltip, TooltipContext options) {
         tooltip.add(Text.empty());
-        if (!ModConfigs.ALL_SIGNALS_UNLOCKED) {
-            tooltip.add(Text.translatable("block.tlotd.television.tooltip").formatted(Formatting.GRAY));
-            tooltip.add(Text.literal(" ").append(Text.translatable("block.tlotd.signal_transmitter").formatted(Formatting.BLUE)));
-        }
+        tooltip.add(Text.translatable("block.tlotd.television.tooltip").formatted(Formatting.GRAY));
+        tooltip.add(Text.literal(" ").append(Text.translatable("block.tlotd.signal_transmitter").formatted(Formatting.BLUE)));
         tooltip.add(Text.translatable("block.tlotd.television.tooltip_2").formatted(Formatting.GRAY));
         tooltip.add(Text.literal(" ").append(Text.translatable("block.tlotd.videocassette_recorder").formatted(Formatting.BLUE)));
         tooltip.add(Text.literal(" ").append(Text.translatable("block.tlotd.game_console").formatted(Formatting.BLUE)));
