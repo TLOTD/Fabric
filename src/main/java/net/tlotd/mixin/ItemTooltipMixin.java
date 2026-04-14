@@ -16,7 +16,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.world.World;
 import net.tlotd.item.ModItems;
 import net.tlotd.item.custom.SpaceSuitArmorItem;
-import net.tlotd.util.AdAstraOxygenNbtHelper;
+import net.tlotd.util.AdAstraGasNbtHelper;
 import net.tlotd.util.EnergyNbtHelper;
 import net.tlotd.util.ModTags;
 import org.spongepowered.asm.mixin.Mixin;
@@ -61,30 +61,36 @@ public abstract class ItemTooltipMixin {
             String formattedMaxPower2 = formattedMaxPower.replace(',', '.');
             tooltip.add(Text.translatable("item.tlotd.power_level.tooltip", formattedPower, formattedMaxPower, formattedPower2, formattedMaxPower2).formatted(Formatting.YELLOW));
         }
-        if (stack.isOf(ModItems.OXYGEN_TANK) || stack.getItem() instanceof SpaceSuitArmorItem || getAugmentLevel(stack, "tlotd:oxygen_tank") > 0) {
-            long oxygenRaw;
-            long maxOxygenRaw;
+        if (stack.isOf(ModItems.GAS_CYLINDER) || stack.getItem() instanceof SpaceSuitArmorItem || getAugmentLevel(stack, "tlotd:oxygen_tank") > 0) {
+            long gasRaw;
+            long maxGasRaw;
+            String gas;
             if (stack.getItem() instanceof SpaceSuitArmorItem) {
-                oxygenRaw = AdAstraOxygenNbtHelper.getOxygenFromSuit(stack);
-                maxOxygenRaw = AdAstraOxygenNbtHelper.getMaxOxygenFromSuit(stack);
+                gasRaw = AdAstraGasNbtHelper.getOxygenFromSuit(stack);
+                maxGasRaw = AdAstraGasNbtHelper.getMaxOxygenFromSuit(stack);
+                gas = AdAstraGasNbtHelper.AD_ASTRA_OXYGEN_ID;
             } else {
-                oxygenRaw = stack.hasNbt() ? AdAstraOxygenNbtHelper.getOxygen(stack) : 0;
-                maxOxygenRaw = AdAstraOxygenNbtHelper.getMaxOxygenItem(stack);
+                gas = stack.hasNbt() ? AdAstraGasNbtHelper.getGas(stack) : "empty";
+                gasRaw = stack.hasNbt() ? AdAstraGasNbtHelper.getGasAmount(stack, gas) : 0;
+                maxGasRaw = AdAstraGasNbtHelper.getMaxGasItem(stack);
             }
-            long maxOxygen = maxOxygenRaw / AdAstraOxygenNbtHelper.MAX_AMOUNT;
+            long maxOxygen = maxGasRaw / AdAstraGasNbtHelper.MAX_AMOUNT;
             String formattedOxygen;
             String formattedMaxOxygen;
             if (Screen.hasShiftDown()) {
-                int displayAmount = (int) Math.round((double) oxygenRaw * 1000 / AdAstraOxygenNbtHelper.MAX_AMOUNT);
+                int displayAmount = (int) Math.round((double) gasRaw * 1000 / AdAstraGasNbtHelper.MAX_AMOUNT);
                 formattedOxygen = String.format("%,d", displayAmount);
                 formattedMaxOxygen = maxOxygen > 0 ? maxOxygen + ",000" : "0";
             } else {
-                formattedOxygen = AdAstraOxygenNbtHelper.getOxygenString(oxygenRaw);
+                formattedOxygen = AdAstraGasNbtHelper.getOxygenString(gasRaw);
                 formattedMaxOxygen = maxOxygen > 0 ? maxOxygen + "K" : "0";
             }
             String formattedOxygen2 = formattedOxygen.replace(',', '.');
             String formattedMaxOxygen2 = formattedMaxOxygen.replace(',', '.');
-            tooltip.add(Text.translatable("item.tlotd.oxygen_level.tooltip", formattedOxygen, formattedMaxOxygen, formattedOxygen2, formattedMaxOxygen2).formatted(Formatting.GOLD));
+            if (gasRaw == 0) {
+                gas = "empty";
+            }
+            tooltip.add(Text.translatable("item.tlotd.gas_cylinder.tooltip", formattedOxygen, formattedMaxOxygen, formattedOxygen2, formattedMaxOxygen2, AdAstraGasNbtHelper.gasName(gas)).formatted(Formatting.GOLD));
         }
         int slots = 0;
         if (stack.isIn(ModTags.Items.THREE_AUGMENT_SLOTS)) {

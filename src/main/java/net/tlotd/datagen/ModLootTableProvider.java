@@ -154,17 +154,19 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.MEGAREGOLITH_COAL_ORE, drops(ModBlocks.MEGAREGOLITH_COAL_ORE, Items.COAL));
         addDrop(ModBlocks.MEGAREGOLITH_IRON_ORE, drops(ModBlocks.MEGAREGOLITH_IRON_ORE, Items.RAW_IRON));
         addDrop(ModBlocks.MEGAREGOLITH_LUNAR_CALLAINUS_ORE, drops(ModBlocks.MEGAREGOLITH_LUNAR_CALLAINUS_ORE, ModItems.LUNAR_CALLAINUS_LUMP));
-        addDrop(ModBlocks.TALL_MEGAREGOLITH_TILE);
-        addDrop(ModBlocks.MEGAREGOLITH_TILE);
         addDrop(ModBlocks.MEGAREGOLITH_TILES);
+        addDrop(ModBlocks.MEGAREGOLITH_TILE);
+        addDrop(ModBlocks.TALL_MEGAREGOLITH_TILE);
+        addDrop(ModBlocks.LARGE_MEGAREGOLITH_TILE);
         addDrop(ModBlocks.MEGAREGOLITH_BRICKS);
         addDrop(ModBlocks.MEGAREGOLITH_BRICK_STAIRS);
         addDrop(ModBlocks.MEGAREGOLITH_BRICK_SLAB, slabDrops(ModBlocks.MEGAREGOLITH_BRICK_SLAB));
         addDrop(ModBlocks.MEGAREGOLITH_BRICK_WALL);
 
-        addDrop(ModBlocks.TALL_DARK_METAL_TILE);
-        addDrop(ModBlocks.DARK_METAL_TILE);
         addDrop(ModBlocks.DARK_METAL_TILES);
+        addDrop(ModBlocks.DARK_METAL_TILE);
+        addDrop(ModBlocks.TALL_DARK_METAL_TILE);
+        addDrop(ModBlocks.LARGE_DARK_METAL_TILE);
 
         addDrop(ModBlocks.DARK_METAL_LIGHTS);
 

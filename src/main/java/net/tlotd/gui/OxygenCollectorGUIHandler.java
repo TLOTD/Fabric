@@ -32,7 +32,7 @@ public class OxygenCollectorGUIHandler extends ScreenHandler {
         this.propertyDelegate = propertyDelegate;
         this.blockEntity = ((OxygenCollectorBlockEntity) blockEntity);
 
-        this.addSlot(new TagAugmentSlot(playerInventory, 38, 62, 19, ModTags.Items.OXYGEN_STORING, "tlotd:oxygen_tank"));
+        this.addSlot(new TagAugmentNotTagSlot(playerInventory, 38, 62, 19, ModTags.Items.OXYGEN_STORING, "tlotd:oxygen_tank", ModTags.Items.GAS_CYLINDERS));
 
         this.addSlot(new TagAugmentSlot(inventory, 0, 98, 19, ModTags.Items.OXYGEN_STORING, "tlotd:oxygen_tank"));
 

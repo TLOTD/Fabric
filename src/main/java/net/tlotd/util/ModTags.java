@@ -80,11 +80,11 @@ public class ModTags {
         public static final TagKey<Block> COMPUTER_ACCESSORIES =
                 createTag("computer_accessories");
 
-        public static final TagKey<Block> LOGS_WITH_BARK =
-                createTag("logs_with_bark");
-
         public static final TagKey<Block> OXYGEN_PROVIDERS =
                 createTag("oxygen_providers");
+
+        public static final TagKey<Block> LOGS_WITH_BARK =
+                createTag("logs_with_bark");
 
         public static final TagKey<Block> INFINIBURN_PREHISTORIC =
                 createTag("infiniburn_prehistoric");
@@ -254,6 +254,9 @@ public class ModTags {
         public static final TagKey<Item> SUBSPACE_PROTECTION_WITHOUT_HELMET =
                 createTag("subspace_protection_without_helmet");
 
+        public static final TagKey<Item> GAS_CYLINDERS =
+                createTag("gas_cylinders");
+
         public static final TagKey<Item> OXYGEN_STORING =
                 createTag("oxygen_storing");
 
@@ -262,6 +265,9 @@ public class ModTags {
 
         public static final TagKey<Item> OXYGEN_STORING_2K =
                 createTag("oxygen_storing_2k");
+
+        public static final TagKey<Item> OXYGEN_STORING_3K =
+                createTag("oxygen_storing_3k");
 
         public static final TagKey<Item> OXYGEN_STORING_4K =
                 createTag("oxygen_storing_4k");

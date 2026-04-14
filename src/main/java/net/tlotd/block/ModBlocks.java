@@ -317,18 +317,23 @@ public class ModBlocks {
     public static final Block LUNAR_BEDROCK = registerBlock("lunar_bedrock",
             new Block(FabricBlockSettings.create().mapColor(MapColor.LIGHT_GRAY).strength(-1.0F, 3600000.0F)));
 
-    public static final Block TALL_MEGAREGOLITH_TILE = registerBlock("tall_megaregolith_tile",
-            new TallTileBlock(FabricBlockSettings.create().mapColor(MapColor.WHITE).requiresTool().strength(3.0F, 9.0F)));
-    public static final Block MEGAREGOLITH_TILE = registerBlock("megaregolith_tile",
-            new Block(FabricBlockSettings.create().mapColor(MapColor.WHITE).requiresTool().strength(3.0F, 9.0F)));
     public static final Block MEGAREGOLITH_TILES = registerBlock("megaregolith_tiles",
             new Block(FabricBlockSettings.create().mapColor(MapColor.WHITE).requiresTool().strength(3.0F, 9.0F)));
-    public static final Block TALL_DARK_METAL_TILE = registerBlock("tall_dark_metal_tile",
-            new TallTileBlock(FabricBlockSettings.create().mapColor(MapColor.DEEPSLATE_GRAY).requiresTool().strength(3.0F, 9.0F).sounds(BlockSoundGroup.NETHERITE)));
-    public static final Block DARK_METAL_TILE = registerBlock("dark_metal_tile",
-            new Block(FabricBlockSettings.create().mapColor(MapColor.DEEPSLATE_GRAY).requiresTool().strength(3.0F, 9.0F).sounds(BlockSoundGroup.NETHERITE)));
+    public static final Block MEGAREGOLITH_TILE = registerBlock("megaregolith_tile",
+            new Block(FabricBlockSettings.create().mapColor(MapColor.WHITE).requiresTool().strength(3.0F, 9.0F)));
+    public static final Block TALL_MEGAREGOLITH_TILE = registerBlock("tall_megaregolith_tile",
+            new TallTileBlock(FabricBlockSettings.create().mapColor(MapColor.WHITE).requiresTool().strength(3.0F, 9.0F)));
+    public static final Block LARGE_MEGAREGOLITH_TILE = registerBlock("large_megaregolith_tile",
+            new LargeTileBlock(FabricBlockSettings.create().mapColor(MapColor.WHITE).requiresTool().strength(3.0F, 9.0F)));
+
     public static final Block DARK_METAL_TILES = registerBlock("dark_metal_tiles",
             new Block(FabricBlockSettings.create().mapColor(MapColor.DEEPSLATE_GRAY).requiresTool().strength(3.0F, 9.0F).sounds(BlockSoundGroup.NETHERITE)));
+    public static final Block DARK_METAL_TILE = registerBlock("dark_metal_tile",
+            new Block(FabricBlockSettings.create().mapColor(MapColor.DEEPSLATE_GRAY).requiresTool().strength(3.0F, 9.0F).sounds(BlockSoundGroup.NETHERITE)));
+    public static final Block TALL_DARK_METAL_TILE = registerBlock("tall_dark_metal_tile",
+            new TallTileBlock(FabricBlockSettings.create().mapColor(MapColor.DEEPSLATE_GRAY).requiresTool().strength(3.0F, 9.0F).sounds(BlockSoundGroup.NETHERITE)));
+    public static final Block LARGE_DARK_METAL_TILE = registerBlock("large_dark_metal_tile",
+            new LargeTileBlock(FabricBlockSettings.create().mapColor(MapColor.DEEPSLATE_GRAY).requiresTool().strength(3.0F, 9.0F).sounds(BlockSoundGroup.NETHERITE)));
 
     public static final Block DARK_METAL_LIGHTS = registerBlock("dark_metal_lights",
             new DarkMetalLightBlock(FabricBlockSettings.create().mapColor(MapColor.WHITE).requiresTool().luminance(createLightLevelFromLitBlockState(15)).strength(3.0F, 9.0F)));

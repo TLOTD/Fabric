@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "up": "tlotd:block/megaregolith_tile_large_upper_left",
+    "down": "tlotd:block/megaregolith_tile_large_lower_left",
+    "north": "tlotd:block/megaregolith_tile_large_lower_right",
+    "east": "tlotd:block/megaregolith_tile",
+    "south": "tlotd:block/megaregolith_tile_large_lower_left",
+    "west": "tlotd:block/megaregolith_tile",
+    "particle": "tlotd:block/megaregolith_tile"
+  }
+}

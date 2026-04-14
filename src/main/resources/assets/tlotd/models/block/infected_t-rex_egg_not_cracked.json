@@ -1,5 +1,5 @@
 {
-  "parent": "tlotd:block/template_t-rex_egg",
+  "parent": "tlotd:block/template_infected_t-rex_egg",
   "textures": {
     "bottom": "tlotd:block/infected_t-rex_egg_not_cracked_bottom",
     "east": "tlotd:block/infected_t-rex_egg_not_cracked_east",

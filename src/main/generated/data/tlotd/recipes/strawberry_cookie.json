@@ -5,12 +5,12 @@
     "#": {
       "item": "minecraft:wheat"
     },
-    "C": {
+    "S": {
       "item": "tlotd:strawberry"
     }
   },
   "pattern": [
-    "#C#"
+    "#S#"
   ],
   "result": {
     "count": 8,

@@ -1,4 +1,4 @@
-// 1.20.1	2026-04-11T02:46:56.7843802	TLOTD/Tags for minecraft:block
+// 1.20.1	2026-04-14T15:30:27.2220824	TLOTD/Tags for minecraft:block
 ac1df89442e728e30ba3a539e796253f9389771e data\tlotd\tags\blocks\tuff_extractable_blocks.json
 08c68720aa5ba245f5ed77d9dbc48327c7799a2a data\minecraft\tags\blocks\foxes_spawnable_on.json
 1f972557027c192545de82f55f8604fc16a7d79f data\tlotd\tags\blocks\granite_extractable_blocks.json
@@ -15,6 +15,7 @@ ec9e8110a30cd07e5283a34474ccaa1cbadeb42f data\tlotd\tags\blocks\deepslate_extrac
 ed148b714e0d6c79521ce65d5f0845215065a075 data\tlotd\tags\blocks\red_deepslate_extractable_blocks.json
 70f38cf9fa625ebd712738b3b148ca25c54e444f data\minecraft\tags\blocks\dirt.json
 f3052ed19ca76c99dfed2e9e11e0bb89ea8dcc36 data\minecraft\tags\blocks\vibration_resonators.json
+fa52baba0ba71c62ecf479f65a71e04ff94ce92e data\tlotd\tags\blocks\oxygen_providers.json
 26055feb9b30aef9f1579f3d657212869580c84c data\minecraft\tags\blocks\fence_gates.json
 0dbcb95cd8296911c11c19bab1adcbc7a0509d27 data\minecraft\tags\blocks\wall_post_override.json
 1199e945a26f9fe928bed6eae27ee7d8381ae8f9 data\tlotd\tags\blocks\witching_table_base_blocks.json
@@ -25,6 +26,7 @@ f3052ed19ca76c99dfed2e9e11e0bb89ea8dcc36 data\minecraft\tags\blocks\vibration_re
 076ec86ea3f06812a5ed182906e44ee328dcf9fb data\c\tags\blocks\golem_heads.json
 68341cdc72ca620fa32eb30da99d1c1836b27636 data\tlotd\tags\blocks\interdimensional_receivers.json
 8a39ad0341680d328b76a58699f9dbef5a778f24 data\tlotd\tags\blocks\mithril_reacting.json
+1332b3a6a0fd69faaff6773584e50e33d240480f data\tlotd\tags\blocks\extractable_blocks.json
 98e831802972731c382f9916a609c026985a930b data\tlotd\tags\blocks\televisions.json
 ed07fcfa1a1eb7e9b5b7f186607cf9f64560c295 data\tlotd\tags\blocks\infiniburn_prehistoric.json
 9b1f4761d5940cf87c3e6148571db710b4b492c9 data\c\tags\blocks\clusters.json
@@ -81,7 +83,7 @@ e63347e30303a92b187629b15027db3606815d5c data\c\tags\blocks\framed_colorless_gla
 8a23702b05296c8af5014d6aa6e9265ded85c7d9 data\tlotd\tags\blocks\infiniburn_luna.json
 4b5e00153897479a4c786808624e3434cb438838 data\minecraft\tags\blocks\beacon_base_blocks.json
 4569a099bdbed57b57fbc04e1c9a46b2dae9d596 data\minecraft\tags\blocks\doors.json
-03d968483d6224d7b8f622c8de4ccb6d2c4e90e4 data\minecraft\tags\blocks\mineable\pickaxe.json
+640c71c87e8d32709e242093934bd7cb3bf59ca2 data\minecraft\tags\blocks\mineable\pickaxe.json
 8631ec2ad488ff1db12730cd1a578468367de046 data\tlotd\tags\blocks\stone_extractable_blocks.json
 08c68720aa5ba245f5ed77d9dbc48327c7799a2a data\minecraft\tags\blocks\valid_spawn.json
 d78d455730d2536f5a703ad961bd2ba1829760e2 data\minecraft\tags\blocks\flower_pots.json

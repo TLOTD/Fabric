@@ -6,6 +6,11 @@
     "#minecraft:flower_pots",
     "minecraft:fern",
     "minecraft:grass",
-    "minecraft:pink_petals"
+    "minecraft:pink_petals",
+    "minecraft:wheat",
+    "minecraft:carrots",
+    "minecraft:potatoes",
+    "minecraft:beetroots",
+    "minecraft:sweet_berry_bush"
   ]
 }

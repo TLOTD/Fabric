@@ -28,8 +28,8 @@ public class LunaSkyRenderer {
         renderBlackSky(matrices);
         renderStars(matrices, camera, tickDelta);
         if (!starsOnly) {
-            renderSun(matrices);
-            renderEarth(matrices, tickDelta);
+            renderSun(matrices, tickDelta);
+            renderEarth(matrices);
         }
         RenderSystem.enableCull();
         RenderSystem.depthMask(true);
@@ -83,16 +83,16 @@ public class LunaSkyRenderer {
         matrices.pop();
     }
 
-    private static void renderSun(MatrixStack matrices) {
+    private static void renderEarth(MatrixStack matrices) {
         RenderSystem.setShader(GameRenderer::getPositionTexProgram);
-        RenderSystem.setShaderTexture(0, SUN);
+        RenderSystem.setShaderTexture(0, EARTH);
         matrices.push();
         matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(-90f));
         matrices.multiply(RotationAxis.POSITIVE_X.rotationDegrees(67.5f));
         Matrix4f matrix = matrices.peek().getPositionMatrix();
         Tessellator tess = Tessellator.getInstance();
         BufferBuilder buffer = tess.getBuffer();
-        float size = 20f;
+        float size = 7.5f;
         buffer.begin(VertexFormat.DrawMode.QUADS, VertexFormats.POSITION_TEXTURE);
         buffer.vertex(matrix, -size, 100f, -size).texture(0f, 0f).next();
         buffer.vertex(matrix,  size, 100f, -size).texture(1f, 0f).next();
@@ -102,9 +102,9 @@ public class LunaSkyRenderer {
         matrices.pop();
     }
 
-    private static void renderEarth(MatrixStack matrices, float tickDelta) {
+    private static void renderSun(MatrixStack matrices, float tickDelta) {
         RenderSystem.setShader(GameRenderer::getPositionTexProgram);
-        RenderSystem.setShaderTexture(0, EARTH);
+        RenderSystem.setShaderTexture(0, SUN);
         matrices.push();
         float skyAngle = (MinecraftClient.getInstance().world.getTimeOfDay() % 24000L + tickDelta) / 24000f;
         matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(-90f));
@@ -112,7 +112,7 @@ public class LunaSkyRenderer {
         Matrix4f matrix = matrices.peek().getPositionMatrix();
         Tessellator tess = Tessellator.getInstance();
         BufferBuilder buffer = tess.getBuffer();
-        float size = 7.5f;
+        float size = 20;
         buffer.begin(VertexFormat.DrawMode.QUADS, VertexFormats.POSITION_TEXTURE);
         buffer.vertex(matrix, -size, 100f, -size).texture(0f, 0f).next();
         buffer.vertex(matrix,  size, 100f, -size).texture(1f, 0f).next();

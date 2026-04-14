@@ -340,13 +340,6 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(ModItems.PIPE_WEED), conditionsFromItem(ModItems.PIPE_WEED))
                 .offerTo(exporter, new Identifier(getRecipeName(ModItems.JOINT)));
 
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.PIPE_WEED_PIPE)
-                .input(ModItems.PIPE)
-                .input(ModItems.PIPE_WEED)
-                .criterion(hasItem(ModItems.PIPE), conditionsFromItem(ModItems.PIPE))
-                .criterion(hasItem(ModItems.PIPE_WEED), conditionsFromItem(ModItems.PIPE_WEED))
-                .offerTo(exporter, new Identifier(getRecipeName(ModItems.PIPE_WEED_PIPE)));
-
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.PIPE)
                 .pattern("#-")
                 .input('#', ItemTags.PLANKS)
@@ -355,26 +348,34 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Items.STICK), conditionsFromItem(Items.STICK))
                 .offerTo(exporter, new Identifier(getRecipeName(ModItems.PIPE)));
 
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.STRAWBERRY_COOKIE, 8)
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.CARAMEL_COOKIE, 8)
                 .pattern("#C#")
                 .input('#', Items.WHEAT)
-                .input('C', ModItems.STRAWBERRY)
+                .input('C', ModItems.CARAMEL)
+                .criterion(hasItem(Items.WHEAT), conditionsFromItem(Items.WHEAT))
+                .criterion(hasItem(ModItems.CARAMEL), conditionsFromItem(ModItems.CARAMEL))
+                .offerTo(exporter, new Identifier(getRecipeName(ModItems.CARAMEL_COOKIE)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.STRAWBERRY_COOKIE, 8)
+                .pattern("#S#")
+                .input('#', Items.WHEAT)
+                .input('S', ModItems.STRAWBERRY)
                 .criterion(hasItem(Items.WHEAT), conditionsFromItem(Items.WHEAT))
                 .criterion(hasItem(ModItems.STRAWBERRY), conditionsFromItem(ModItems.STRAWBERRY))
                 .offerTo(exporter, new Identifier(getRecipeName(ModItems.STRAWBERRY_COOKIE)));
 
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.ORANGE_COOKIE, 8)
-                .pattern("#C#")
+                .pattern("#O#")
                 .input('#', Items.WHEAT)
-                .input('C', ModItems.ORANGE)
+                .input('O', ModItems.ORANGE)
                 .criterion(hasItem(Items.WHEAT), conditionsFromItem(Items.WHEAT))
                 .criterion(hasItem(ModItems.ORANGE), conditionsFromItem(ModItems.ORANGE))
                 .offerTo(exporter, new Identifier(getRecipeName(ModItems.ORANGE_COOKIE)));
 
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.HEMP_COOKIE, 8)
-                .pattern("#C#")
+                .pattern("#P#")
                 .input('#', Items.WHEAT)
-                .input('C', ModItems.PIPE_WEED)
+                .input('P', ModItems.PIPE_WEED)
                 .criterion(hasItem(Items.WHEAT), conditionsFromItem(Items.WHEAT))
                 .criterion(hasItem(ModItems.PIPE_WEED), conditionsFromItem(ModItems.PIPE_WEED))
                 .offerTo(exporter, new Identifier(getRecipeName(ModItems.HEMP_COOKIE)));
@@ -1743,8 +1744,10 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('#', ModBlocks.MEGAREGOLITH_TILE)
                 .criterion(hasItem(ModBlocks.MEGAREGOLITH_TILE), conditionsFromItem(ModBlocks.MEGAREGOLITH_TILE))
                 .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.MEGAREGOLITH_TILES)));
-        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.TALL_MEGAREGOLITH_TILE, ModBlocks.MEGAREGOLITH_TILE);
+
         offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.MEGAREGOLITH_TILES, ModBlocks.MEGAREGOLITH_TILE);
+        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.TALL_MEGAREGOLITH_TILE, ModBlocks.MEGAREGOLITH_TILE);
+        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.LARGE_MEGAREGOLITH_TILE, ModBlocks.MEGAREGOLITH_TILE);
 
         ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModBlocks.DARK_METAL_TILE)
                 .pattern("CMC")
@@ -1795,8 +1798,9 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Items.LEVER), conditionsFromItem(Items.LEVER))
                 .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.METAL_PUSH_DOOR)));
 
-        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.TALL_DARK_METAL_TILE, ModBlocks.DARK_METAL_TILE);
         offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.DARK_METAL_TILES, ModBlocks.DARK_METAL_TILE);
+        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.TALL_DARK_METAL_TILE, ModBlocks.DARK_METAL_TILE);
+        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.LARGE_DARK_METAL_TILE, ModBlocks.DARK_METAL_TILE);
 
         offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.MEGAREGOLITH_BRICKS, ModBlocks.MEGAREGOLITH);
         offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.MEGAREGOLITH_BRICK_SLAB, ModBlocks.MEGAREGOLITH_BRICKS, 2);
@@ -2349,15 +2353,19 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(ModItems.STEEL_INGOT), conditionsFromItem(ModItems.STEEL_INGOT))
                 .offerTo(exporter, new Identifier(getRecipeName(ModItems.DEPTH_SUIT_BOOTS)));
 
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.OXYGEN_TANK)
-                .pattern(" A ")
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.GAS_CYLINDER)
+                .pattern("SAL")
                 .pattern("AGA")
                 .pattern(" A ")
                 .input('A', TagKey.of(RegistryKeys.ITEM, new Identifier("c", "aluminium_ingots")))
                 .input('G', TagKey.of(RegistryKeys.ITEM, new Identifier("c", "glass_panes")))
+                .input('L', Items.LEVER)
+                .input('S', Items.SLIME_BALL)
                 .criterion(hasItem(ModItems.ALUMINIUM_INGOT), conditionsFromItem(ModItems.ALUMINIUM_INGOT))
                 .criterion(hasItem(Items.GLASS_PANE), conditionsFromItem(Items.GLASS_PANE))
-                .offerTo(exporter, new Identifier(getRecipeName(ModItems.OXYGEN_TANK)));
+                .criterion(hasItem(Items.LEVER), conditionsFromItem(Items.LEVER))
+                .criterion(hasItem(Items.SLIME_BALL), conditionsFromItem(Items.SLIME_BALL))
+                .offerTo(exporter, new Identifier(getRecipeName(ModItems.GAS_CYLINDER)));
 
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.ASTRONAUT_HELMET)
                 .pattern("###")

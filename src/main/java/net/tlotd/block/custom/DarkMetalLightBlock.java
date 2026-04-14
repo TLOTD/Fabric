@@ -35,7 +35,7 @@ public class DarkMetalLightBlock extends TallTileBlock {
     public BlockState getPlacementState(ItemPlacementContext ctx) {
         BlockPos pos = ctx.getBlockPos();
         World world = ctx.getWorld();
-        BlockState state = this.getDefaultState().with(FACING, ctx.getHorizontalPlayerFacing());
+        BlockState state = this.getDefaultState().with(FACING, ctx.getHorizontalPlayerFacing()).with(LIT, ctx.getWorld().isReceivingRedstonePower(ctx.getBlockPos()));
         return updateConnection(state, world, pos);
     }
 

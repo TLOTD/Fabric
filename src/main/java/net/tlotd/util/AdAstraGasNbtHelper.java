@@ -4,20 +4,25 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtElement;
 import net.minecraft.nbt.NbtList;
+import net.minecraft.text.Text;
 import net.minecraft.util.collection.DefaultedList;
 import net.tlotd.item.custom.SpaceSuitArmorItem;
 import org.jetbrains.annotations.NotNull;
 
 import static net.tlotd.util.AugmentNbtHelper.getAugmentLevel;
 
-public class AdAstraOxygenNbtHelper {
-    public static final String FLUID_ID = "ad_astra:oxygen";
+public class AdAstraGasNbtHelper {
+    public static final String AD_ASTRA_OXYGEN_ID = "ad_astra:oxygen";
+    public static final String TLOTD_WITHERED_AIR = "tlotd:withered_air";
+    public static final String TLOTD_PIPE_WEED_SMOKE = "tlotd:pipe_weed_smoke";
     public static final long MAX_AMOUNT = 81000L;
 
-    public static long getMaxOxygenItem(ItemStack stack) {
+    public static long getMaxGasItem(ItemStack stack) {
         int max = 0;
         if (stack.isIn(ModTags.Items.OXYGEN_STORING_4K)) {
             max = 4;
+        } else if (stack.isIn(ModTags.Items.OXYGEN_STORING_3K)) {
+            max = 3;
         } else if (stack.isIn(ModTags.Items.OXYGEN_STORING_2K)) {
             max = 2;
         } else if (stack.isIn(ModTags.Items.OXYGEN_STORING_1K)) {
@@ -26,10 +31,23 @@ public class AdAstraOxygenNbtHelper {
         if (getAugmentLevel(stack, "tlotd:oxygen_tank") > 0) {
             max = max + getAugmentLevel(stack, "tlotd:oxygen_tank");
         }
-        return max*MAX_AMOUNT;
+        return max * MAX_AMOUNT;
     }
 
-    public static long getOxygen(ItemStack stack) {
+    public static String getGas(ItemStack stack) {
+        if (!stack.hasNbt()) return "empty";
+        NbtCompound root = stack.getNbt();
+        if (!root.contains("BotariumData")) return "empty";
+        NbtCompound botarium = root.getCompound("BotariumData");
+        if (!botarium.contains("StoredFluids")) return "empty";
+        NbtList fluids = botarium.getList("StoredFluids", NbtElement.COMPOUND_TYPE);
+        if (fluids.isEmpty()) return "empty";
+        NbtCompound fluidEntry = fluids.getCompound(0);
+        if (fluidEntry.getLong("Amount") == 0L) return "empty";
+        return fluidEntry.getString("Fluid");
+    }
+
+    public static long getGasAmount(ItemStack stack, String gasId) {
         if (!stack.hasNbt()) return 0L;
         NbtCompound root = stack.getNbt();
         if (!root.contains("BotariumData")) return 0L;
@@ -38,12 +56,11 @@ public class AdAstraOxygenNbtHelper {
         NbtList fluids = botarium.getList("StoredFluids", NbtElement.COMPOUND_TYPE);
         if (fluids.isEmpty()) return 0L;
         NbtCompound fluidEntry = fluids.getCompound(0);
-        if (!FLUID_ID.equals(fluidEntry.getString("Fluid"))) return 0L;
+        if (!gasId.equals(fluidEntry.getString("Fluid"))) return 0L;
         return fluidEntry.getLong("Amount");
     }
 
-    public static void setOxygen(ItemStack stack, long amount) {
-        amount = Math.min(amount, getMaxOxygenItem(stack));
+    public static void setGasAmount(ItemStack stack, String gasId, long amount) {
         amount = Math.max(amount, 0);
         NbtCompound root = stack.getOrCreateNbt();
         NbtCompound botarium = root.getCompound("BotariumData");
@@ -51,10 +68,11 @@ public class AdAstraOxygenNbtHelper {
         NbtCompound fluidEntry;
         if (fluids.isEmpty()) {
             fluidEntry = new NbtCompound();
-            fluidEntry.putString("Fluid", FLUID_ID);
+            fluidEntry.putString("Fluid", gasId);
             fluids.add(fluidEntry);
         } else {
             fluidEntry = fluids.getCompound(0);
+            fluidEntry.putString("Fluid", gasId);
         }
         fluidEntry.putLong("Amount", amount);
         fluids.set(0, fluidEntry);
@@ -63,8 +81,24 @@ public class AdAstraOxygenNbtHelper {
         stack.setNbt(root);
     }
 
+    public static Text gasName(String gas) {
+        if (gas == null || gas.equals("empty")) {
+            return Text.translatable("gas.empty");
+        }
+        String key = "gas." + gas.replace(':', '.');
+        return Text.translatable(key);
+    }
+
+    public static long getOxygen(ItemStack stack) {
+        return getGasAmount(stack, AD_ASTRA_OXYGEN_ID);
+    }
+
+    public static void setOxygen(ItemStack stack, long amount) {
+        setGasAmount(stack, AD_ASTRA_OXYGEN_ID, amount);
+    }
+
     public static @NotNull String getOxygenString(double oxygenAmount) {
-        int displayAmount = (int) Math.round(oxygenAmount * 1000 / AdAstraOxygenNbtHelper.MAX_AMOUNT);
+        int displayAmount = (int) Math.round(oxygenAmount * 1000 / AdAstraGasNbtHelper.MAX_AMOUNT);
         String formattedOxygen;
         if (displayAmount >= 1000) {
             int thousands = displayAmount / 1000;
@@ -96,36 +130,40 @@ public class AdAstraOxygenNbtHelper {
         DefaultedList<ItemStack> tanks = SpaceSuitArmorItem.getStoredStacks(suit);
         for (ItemStack tank : tanks) {
             if (!tank.isEmpty()) {
-                total += getMaxOxygenItem(tank);
+                total += getMaxGasItem(tank);
             }
         }
         return total;
     }
 
-    public static long modifyOxygenInSuit(ItemStack suit, long delta) {
+    public static long modifyGasInSuit(ItemStack suit, String gasId, long delta) {
         DefaultedList<ItemStack> tanks = SpaceSuitArmorItem.getStoredStacks(suit);
         long remaining = delta;
         if (delta > 0) {
             for (ItemStack tank : tanks) {
                 if (tank.isEmpty()) continue;
-                long current = getOxygen(tank);
-                long max = getMaxOxygenItem(tank);
+                String tankGas = getGas(tank);
+                if (!tankGas.equals("empty") && !tankGas.equals(gasId)) continue;
+                long current = getGasAmount(tank, gasId);
+                long max = getMaxGasItem(tank);
                 long space = max - current;
                 long toFill = Math.min(space, remaining);
                 if (toFill > 0) {
-                    setOxygen(tank, current + toFill);
+                    setGasAmount(tank, gasId, current + toFill);
                     remaining -= toFill;
                 }
                 if (remaining <= 0) break;
             }
+
         } else if (delta < 0) {
             remaining = -remaining;
             for (ItemStack tank : tanks) {
                 if (tank.isEmpty()) continue;
-                long current = getOxygen(tank);
+                if (!gasId.equals(getGas(tank))) continue;
+                long current = getGasAmount(tank, gasId);
                 long toDrain = Math.min(current, remaining);
                 if (toDrain > 0) {
-                    setOxygen(tank, current - toDrain);
+                    setGasAmount(tank, gasId, current - toDrain);
                     remaining -= toDrain;
                 }
                 if (remaining <= 0) break;

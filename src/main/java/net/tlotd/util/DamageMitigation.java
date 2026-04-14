@@ -205,11 +205,11 @@ public class DamageMitigation {
                         oxygenTank = true;
                     }
                 }
-                if ((airtightArmor >= 4) && oxygenTank && ((player.getInventory().getArmorStack(2).getItem() instanceof SpaceSuitArmorItem && AdAstraOxygenNbtHelper.getOxygenFromSuit(player.getInventory().getArmorStack(2)) > 0) || (AdAstraOxygenNbtHelper.getOxygen(player.getInventory().getArmorStack(2)) > 0))) {
+                if ((airtightArmor >= 4) && oxygenTank && ((player.getInventory().getArmorStack(2).getItem() instanceof SpaceSuitArmorItem && AdAstraGasNbtHelper.getOxygenFromSuit(player.getInventory().getArmorStack(2)) > 0) || (AdAstraGasNbtHelper.getOxygen(player.getInventory().getArmorStack(2)) > 0))) {
                     if (player.getInventory().getArmorStack(2).getItem() instanceof SpaceSuitArmorItem) {
                         if (oxygenTick.get() >= 20) {
                             oxygenTick.set(0);
-                            AdAstraOxygenNbtHelper.modifyOxygenInSuit(player.getInventory().getArmorStack(2), -10);
+                            AdAstraGasNbtHelper.modifyGasInSuit(player.getInventory().getArmorStack(2), "ad_astra:oxygen", -10);
                         } else {
                             oxygenTick.getAndIncrement();
                         }
@@ -217,8 +217,8 @@ public class DamageMitigation {
                     } else {
                         if (oxygenTick.get() >= 20) {
                             oxygenTick.set(0);
-                            long current = AdAstraOxygenNbtHelper.getOxygen(player.getInventory().getArmorStack(2));
-                            AdAstraOxygenNbtHelper.setOxygen(player.getInventory().getArmorStack(2), current - 10);
+                            long current = AdAstraGasNbtHelper.getOxygen(player.getInventory().getArmorStack(2));
+                            AdAstraGasNbtHelper.setOxygen(player.getInventory().getArmorStack(2), current - 10);
                         } else {
                             oxygenTick.getAndIncrement();
                         }

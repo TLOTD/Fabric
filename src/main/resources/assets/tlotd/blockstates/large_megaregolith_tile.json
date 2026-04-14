@@ -1,0 +1,12 @@
+{
+  "variants": {
+    "facing=north,half=bottom":{"model":"tlotd:block/large_megaregolith_tile_bottom_north"},
+    "facing=east,half=bottom":{"model":"tlotd:block/large_megaregolith_tile_bottom_east"},
+    "facing=south,half=bottom":{"model":"tlotd:block/large_megaregolith_tile_bottom_south"},
+    "facing=west,half=bottom":{"model":"tlotd:block/large_megaregolith_tile_bottom_west"},
+    "facing=north,half=top":{"model":"tlotd:block/large_megaregolith_tile_top_north"},
+    "facing=east,half=top":{"model":"tlotd:block/large_megaregolith_tile_top_east"},
+    "facing=south,half=top":{"model":"tlotd:block/large_megaregolith_tile_top_south"},
+    "facing=west,half=top":{"model":"tlotd:block/large_megaregolith_tile_top_west"}
+  }
+}

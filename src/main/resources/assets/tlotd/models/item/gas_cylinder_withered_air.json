@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "tlotd:item/foggy_mithril_mirror"
+    "layer0": "tlotd:item/gas_cylinder_withered_air"
   }
 }

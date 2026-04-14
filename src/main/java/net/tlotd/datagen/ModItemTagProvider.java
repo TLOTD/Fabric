@@ -242,6 +242,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModBlocks.MEGAREGOLITH_TILES.asItem())
                 .add(ModBlocks.MEGAREGOLITH_TILE.asItem())
                 .add(ModBlocks.TALL_MEGAREGOLITH_TILE.asItem())
+                .add(ModBlocks.LARGE_MEGAREGOLITH_TILE.asItem())
         ;
 
         getOrCreateTagBuilder(ModTags.Items.WOODEN_BARK)
@@ -656,20 +657,32 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModItems.HEV_SUIT_BOOTS)
         ;
 
+        getOrCreateTagBuilder(ModTags.Items.GAS_CYLINDERS)
+                .add(ModItems.GAS_CYLINDER)
+                .addOptional(Identifier.tryParse("ad_astra:gas_tank"))
+                .addOptional(Identifier.tryParse("ad_astra:large_gas_tank"))
+        ;
+
         getOrCreateTagBuilder(ModTags.Items.OXYGEN_STORING)
                 .add(ModItems.SPACE_SUIT_CHESTPLATE)
                 .addTag(ModTags.Items.OXYGEN_STORING_1K)
                 .addTag(ModTags.Items.OXYGEN_STORING_2K)
+                .addTag(ModTags.Items.OXYGEN_STORING_3K)
                 .addTag(ModTags.Items.OXYGEN_STORING_4K)
         ;
 
         getOrCreateTagBuilder(ModTags.Items.OXYGEN_STORING_1K)
-                .add(ModItems.OXYGEN_TANK)
+                .add(ModItems.GAS_CYLINDER)
+                .addOptional(Identifier.tryParse("ad_astra:gas_tank"))
                 .addOptional(Identifier.tryParse("ad_astra:space_suit"))
         ;
 
         getOrCreateTagBuilder(ModTags.Items.OXYGEN_STORING_2K)
                 .addOptional(Identifier.tryParse("ad_astra:netherite_space_suit"))
+        ;
+
+        getOrCreateTagBuilder(ModTags.Items.OXYGEN_STORING_3K)
+                .addOptional(Identifier.tryParse("ad_astra:large_gas_tank"))
         ;
 
         getOrCreateTagBuilder(ModTags.Items.OXYGEN_STORING_4K)
@@ -1374,6 +1387,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModBlocks.HOT_WOODEN_MILK_STEIN.asItem())
                 .add(ModBlocks.WOODEN_HOT_CHOCOLATE_STEIN.asItem())
                 .add(ModItems.CARAMEL)
+                .add(ModItems.CARAMEL_COOKIE)
                 .add(ModItems.STRAWBERRY)
                 .add(ModItems.CHOCOLATE_STRAWBERRY)
                 .add(ModItems.ORANGE)

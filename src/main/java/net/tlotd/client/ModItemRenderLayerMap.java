@@ -5,10 +5,13 @@ import net.minecraft.client.item.ModelPredicateProviderRegistry;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.mob.HostileEntity;
+import net.minecraft.nbt.NbtCompound;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.tlotd.TLOTD;
 import net.tlotd.item.ModItems;
+import net.tlotd.item.custom.MithrilMirrorItem;
+import net.tlotd.util.AdAstraGasNbtHelper;
 import net.tlotd.util.AugmentNbtHelper;
 import net.tlotd.util.ModTags;
 
@@ -16,6 +19,40 @@ import java.util.Comparator;
 
 public class ModItemRenderLayerMap {
     public static void registerItemRenderLayerMaps() {
+        ModelPredicateProviderRegistry.register(
+                ModItems.MITHRIL_MIRROR, new Identifier(TLOTD.MOD_ID, "charge"), (stack, world, entity, seed) -> {
+                    if (stack.isEmpty()) return 1.0f;
+                    if (!stack.hasNbt()) return 1.0f;
+                    NbtCompound tag = stack.getNbt();
+                    int used = tag.getInt("ChargesUsed");
+                    int maxCharges = MithrilMirrorItem.getMaxCharges(stack);
+                    return Math.max(1.0f - ((float) used / (float) maxCharges), 0);
+                }
+        );
+        ModelPredicateProviderRegistry.register(
+                ModItems.PIPE, new Identifier(TLOTD.MOD_ID, "content"), (stack, world, entity, seed) -> {
+                    if (stack.isEmpty()) return 0.0f;
+                    if (!stack.hasNbt()) return 0.0f;
+                    NbtCompound tag = stack.getNbt();
+                    String content = tag.getString("Content");
+                    return switch (content) {
+                        case "tlotd:pipe_weed" -> 0.1f;
+                        default -> 0.0f;
+                    };
+                }
+        );
+        ModelPredicateProviderRegistry.register(
+                ModItems.GAS_CYLINDER, new Identifier(TLOTD.MOD_ID, "gas"), (stack, world, entity, seed) -> {
+                    if (stack.isEmpty()) return 0.0f;
+                    String gas = AdAstraGasNbtHelper.getGas(stack);
+                    return switch (gas) {
+                        case AdAstraGasNbtHelper.AD_ASTRA_OXYGEN_ID -> 0.1f;
+                        case AdAstraGasNbtHelper.TLOTD_PIPE_WEED_SMOKE -> 0.2f;
+                        case AdAstraGasNbtHelper.TLOTD_WITHERED_AIR -> 0.3f;
+                        default -> 0.0f;
+                    };
+                }
+        );
         ModelPredicateProviderRegistry.register(
                 ModItems.EMF_READER, new Identifier(TLOTD.MOD_ID, "proximity"), (stack, world, entity, seed) -> {
                     if (entity == null || world == null) return 0.0f;

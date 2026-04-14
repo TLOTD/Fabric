@@ -81,6 +81,7 @@ public class ModItems {
     public static final Item HEMP_COOKIE = registerItem("hemp_cookie", new HempCookieItem(new FabricItemSettings().food(ModFoodComponents.HEMP_COOKIE)));
 
     public static final Item CARAMEL = registerItem("caramel", new Item(new FabricItemSettings().food(ModFoodComponents.CARAMEL)));
+    public static final Item CARAMEL_COOKIE = registerItem("caramel_cookie", new Item(new FabricItemSettings().food(FoodComponents.COOKIE)));
 
     public static final Item TOAST = registerItem("toast", new Item(new FabricItemSettings().food(ModFoodComponents.TOAST)));
 
@@ -104,7 +105,6 @@ public class ModItems {
     public static final Item PIPE_WEED = registerItem("pipe_weed", new Item(new FabricItemSettings()));
     public static final Item JOINT = registerItem("joint", new PipeItem(new FabricItemSettings().maxCount(1)));
     public static final Item PIPE = registerItem("pipe", new PipeItem(new FabricItemSettings().maxCount(1)));
-    public static final Item PIPE_WEED_PIPE = registerItem("pipe_weed_pipe", new PipeItem(new FabricItemSettings().maxCount(1)));
 
     public static final Item BLUE_BERRY_JAM_TOAST = registerItem("blue_berry_jam_toast", new CompatItem(new FabricItemSettings().food(ModFoodComponents.JAM_TOAST),"aet"));
     public static final Item DROOPFRUIT_JAM_TOAST = registerItem("droopfruit_jam_toast", new CompatItem(new FabricItemSettings().food(ModFoodComponents.DROOPFRUIT_JAM_TOAST),"udg"));
@@ -113,7 +113,6 @@ public class ModItems {
     public static final Item TOME_OF_ENLIGHTENMENT = registerItem("tome_of_enlightenment", new EnlightenmentItem(new FabricItemSettings().rarity(Rarity.EPIC).maxCount(1).fireproof()));
     public static final Item ARTIFACT_OF_ENLIGHTENMENT = registerItem("artifact_of_enlightenment", new EnlightenmentItem(new FabricItemSettings().rarity(Rarity.EPIC).maxCount(1).fireproof()));
     public static final Item EYE_OF_ENLIGHTENMENT = registerItem("eye_of_enlightenment", new EnlightenmentItem(new FabricItemSettings().rarity(Rarity.EPIC).maxCount(1).fireproof()));
-
 
     public static final Item BLOOD_BOTTLE = registerItem("blood_bottle", new Item(new FabricItemSettings().recipeRemainder(Items.GLASS_BOTTLE).maxCount(1)));
 
@@ -388,7 +387,6 @@ public class ModItems {
     public static final Item MITHRIL_STAR_CATCHER = registerItem("mithril_star_catcher", new StarCatcherItem(new FabricItemSettings().rarity(Rarity.UNCOMMON).maxDamage(30).fireproof()));
     public static final Item SOUL_MIRROR = registerItem("soul_mirror", new SoulMirrorItem(new FabricItemSettings().rarity(Rarity.RARE).maxCount(1)));
     public static final Item MITHRIL_MIRROR = registerItem("mithril_mirror", new MithrilMirrorItem(new FabricItemSettings().rarity(Rarity.UNCOMMON).maxCount(1).fireproof()));
-    public static final Item FOGGY_MITHRIL_MIRROR = registerItem("foggy_mithril_mirror", new MithrilMirrorItem(new FabricItemSettings().rarity(Rarity.UNCOMMON).maxCount(1).fireproof()));
 
     public static final Item SILVERTHORN_ARROW = registerItem("silverthorn_arrow", new ArmorPiercingArrowItem(new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof()));
 
@@ -492,7 +490,7 @@ public class ModItems {
     public static final Item IMPERIAL_GERMAN_UNIFORM_PANTS = registerItem("imperial_german_uniform_pants", new ArmorItem(ModArmorMaterial.IMPERIAL_GERMAN_UNIFORM, ArmorItem.Type.LEGGINGS, new FabricItemSettings()));
     public static final Item IMPERIAL_GERMAN_UNIFORM_BOOTS = registerItem("imperial_german_uniform_boots", new ArmorItem(ModArmorMaterial.IMPERIAL_GERMAN_UNIFORM, ArmorItem.Type.BOOTS, new FabricItemSettings()));
 
-    public static final Item OXYGEN_TANK = registerItem("oxygen_tank", new OxygenTankItem(new FabricItemSettings().maxCount(1)));
+    public static final Item GAS_CYLINDER = registerItem("gas_cylinder", new GasCylinderItem(new FabricItemSettings().maxCount(1)));
     public static final Item ASTRONAUT_HELMET = registerItem("astronaut_helmet", new HypoxiaProofArmorItem(ModArmorMaterial.ASTRONAUT, ArmorItem.Type.HELMET, new FabricItemSettings()));
     public static final Item SPACE_SUIT_CHESTPLATE = registerItem("space_suit_chestplate", new SpaceSuitArmorItem(ModArmorMaterial.SPACE_SUIT, ArmorItem.Type.CHESTPLATE, new FabricItemSettings()));
     public static final Item SPACE_SUIT_LEGGINGS = registerItem("space_suit_leggings", new HypoxiaProofArmorItem(ModArmorMaterial.SPACE_SUIT, ArmorItem.Type.LEGGINGS, new FabricItemSettings()));

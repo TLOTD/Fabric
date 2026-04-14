@@ -3,6 +3,9 @@
 	"textures": {
 		"layer0": "tlotd:item/pipe"
 	},
+	"overrides": [
+		{ "predicate": { "tlotd:content": 0.1 }, "model": "tlotd:item/pipe_weed_pipe" }
+	],
 	"display": {
 		"thirdperson_righthand": {
 			"rotation": [0, -125, 45],

@@ -1,4 +1,4 @@
-// 1.20.1	2026-04-11T02:46:56.8117509	TLOTD/Block Loot Tables
+// 1.20.1	2026-04-14T15:30:27.2551803	TLOTD/Block Loot Tables
 0dd871eb1f6dca98007e63e98f65ad0ccb6b6316 data\tlotd\loot_tables\blocks\megaregolith_brick_stairs.json
 85aceab0c9bc45f79bce5aedfc27f27be5376cce data\tlotd\loot_tables\blocks\potted_athelas.json
 451a64eab353fea7d533301f5182966f9ef02a34 data\tlotd\loot_tables\blocks\red_deepslate.json
@@ -151,6 +151,7 @@ d80798503163bd6678f880d60cedc57b7e7bf789 data\tlotd\loot_tables\blocks\ginkgo_wo
 84c12c3efa4cf4826bdfd805e9bce20091d210d7 data\tlotd\loot_tables\blocks\extinguished_soul_wall_torch.json
 788f24a9da34c2b9d4168303deec7c54381df3ff data\tlotd\loot_tables\blocks\t-rex_egg.json
 490ac3738fd76feaadd2fa9287e8fcf32521dc63 data\tlotd\loot_tables\blocks\ginkgo_button.json
+41622c95ab91bb2e758422248598695519c1e4d0 data\tlotd\loot_tables\blocks\large_megaregolith_tile.json
 d8ea6daacaabc7a194e217681fa9e02bf3a72b88 data\tlotd\loot_tables\blocks\mining_elevator_base.json
 8c17e3faf7bc580cd1fefd1f4a07195db022485f data\tlotd\loot_tables\blocks\garbage_can.json
 0d414c18b3ab46aaf0004c1470349280e3d01f32 data\tlotd\loot_tables\blocks\fancy_jungle_stairs.json
@@ -234,6 +235,7 @@ dd89444d64afd8164c5dd8b31f61a00ede9dd88e data\tlotd\loot_tables\blocks\fancy_che
 aa93c4312c0388220d56b9070336b58812da1ef2 data\tlotd\loot_tables\blocks\goat_head.json
 1d037446aaaed1b26a6da06fdc45b831c4d39ec5 data\tlotd\loot_tables\blocks\effigies.json
 d3a00a0c8c5283bbd9d27dcd24734864560f8efe data\tlotd\loot_tables\blocks\red_deepslate_brick_stairs.json
+1803c5f714018041d14daba8d825ae3922d376f4 data\tlotd\loot_tables\blocks\large_dark_metal_tile.json
 0757683d6a492bf5a5c5a5173fe376a04d2bc902 data\tlotd\loot_tables\blocks\red_deepslate_heliorite_ore.json
 2b9fe8749f57b526924531e3cd2798bfc4d9edad data\tlotd\loot_tables\blocks\wooden_stein.json
 b83b06f4070b6b21a5c1e251ad644bb347efaf1a data\tlotd\loot_tables\blocks\gray_t-rex_head.json

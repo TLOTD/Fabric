@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_strawberry": {
+    "has_pipe_weed": {
       "conditions": {
         "items": [
           {
             "items": [
-              "tlotd:strawberry"
+              "tlotd:pipe_weed"
             ]
           }
         ]
@@ -35,7 +35,7 @@
   "requirements": [
     [
       "has_wheat",
-      "has_strawberry",
+      "has_pipe_weed",
       "has_the_recipe"
     ]
   ],

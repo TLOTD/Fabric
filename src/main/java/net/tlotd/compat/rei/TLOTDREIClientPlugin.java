@@ -64,7 +64,6 @@ public class TLOTDREIClientPlugin implements REIClientPlugin {
         registry.removeEntry(EntryStacks.of(ModItems.INCOMPLETE_KEYCARD_READER));
         registry.removeEntry(EntryStacks.of(ModItems.INCOMPLETE_OXYGEN_COLLECTOR));
         registry.removeEntry(EntryStacks.of(ModItems.INCOMPLETE_MITHRIL_MIRROR));
-        registry.removeEntry(EntryStacks.of(ModItems.FOGGY_MITHRIL_MIRROR));
 
 
         if (!CompatModsCheck.AETHER) {

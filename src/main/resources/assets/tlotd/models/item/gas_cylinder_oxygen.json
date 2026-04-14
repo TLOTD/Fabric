@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "tlotd:item/oxygen_tank"
+    "layer0": "tlotd:item/gas_cylinder_oxygen"
   }
 }

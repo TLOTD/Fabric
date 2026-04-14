@@ -1,0 +1,9 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "tlotd:item/foggy_mithril_mirror"
+  },
+  "overrides": [
+    { "predicate": { "tlotd:charge": 0.1 }, "model": "tlotd:item/charged_mithril_mirror" }
+  ]
+}

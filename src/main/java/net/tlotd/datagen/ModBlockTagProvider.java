@@ -6,6 +6,7 @@ import net.minecraft.block.Blocks;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.BlockTags;
+import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.registry.tag.TagKey;
 import net.minecraft.util.Identifier;
 import net.tlotd.block.ModBlocks;
@@ -26,6 +27,34 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.MITHRIL_BLOCK)
                 .add(ModBlocks.MITHRIL_ANVIL)
                 .add(ModBlocks.MITHRIL_BARS)
+        ;
+        getOrCreateTagBuilder(ModTags.Blocks.EXTRACTABLE_BLOCKS)
+                .addTag(ModTags.Blocks.STONE_EXTRACTABLE_BLOCKS)
+                .addTag(ModTags.Blocks.ANDESITE_EXTRACTABLE_BLOCKS)
+                .addTag(ModTags.Blocks.DIORITE_EXTRACTABLE_BLOCKS)
+                .addTag(ModTags.Blocks.GRANITE_EXTRACTABLE_BLOCKS)
+                .addTag(ModTags.Blocks.TUFF_EXTRACTABLE_BLOCKS)
+                .addTag(ModTags.Blocks.CALCITE_EXTRACTABLE_BLOCKS)
+                .addTag(ModTags.Blocks.DEEPSLATE_EXTRACTABLE_BLOCKS)
+                .addTag(ModTags.Blocks.RED_DEEPSLATE_EXTRACTABLE_BLOCKS)
+                .addTag(ModTags.Blocks.BEDROCK_EXTRACTABLE_BLOCKS)
+                .addTag(ModTags.Blocks.END_STONE_EXTRACTABLE_BLOCKS)
+                .addTag(ModTags.Blocks.MOON_ROCK_EXTRACTABLE_BLOCKS)
+                .addTag(ModTags.Blocks.NETHERRACK_EXTRACTABLE_BLOCKS)
+                .addTag(ModTags.Blocks.BASALT_EXTRACTABLE_BLOCKS)
+                .addTag(ModTags.Blocks.BLACKSTONE_EXTRACTABLE_BLOCKS)
+                .add(Blocks.RAW_COPPER_BLOCK)
+                .add(Blocks.RAW_IRON_BLOCK)
+                .add(Blocks.RAW_GOLD_BLOCK)
+                .add(Blocks.ANCIENT_DEBRIS)
+                .add(ModBlocks.PREHISTORIC_DEBRIS)
+                .add(ModBlocks.RAW_LEAD_BLOCK)
+                .add(ModBlocks.RAW_ALUMINIUM_BLOCK)
+                .add(ModBlocks.RAW_URANIUM_BLOCK)
+                .add(ModBlocks.RAW_ENDURIUM_BLOCK)
+                .add(ModBlocks.RAW_NEBULAR_BLOCK)
+                .add(ModBlocks.RAW_PALLADIUM_BLOCK)
+                .add(ModBlocks.RAW_MITHRIL_BLOCK)
         ;
         getOrCreateTagBuilder(ModTags.Blocks.STONE_EXTRACTABLE_BLOCKS)
                 .add(Blocks.COAL_ORE)
@@ -416,6 +445,21 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.INCUBATOR)
         ;
 
+        getOrCreateTagBuilder(ModTags.Blocks.OXYGEN_PROVIDERS)
+                .addTag(BlockTags.SAPLINGS)
+                .addTag(BlockTags.SMALL_FLOWERS)
+                .addTag(BlockTags.FLOWER_POTS)
+                .add(Blocks.FERN)
+                .add(Blocks.GRASS)
+                .add(Blocks.PINK_PETALS)
+
+                .add(Blocks.WHEAT)
+                .add(Blocks.CARROTS)
+                .add(Blocks.POTATOES)
+                .add(Blocks.BEETROOTS)
+                .add(Blocks.SWEET_BERRY_BUSH)
+        ;
+
         getOrCreateTagBuilder(ModTags.Blocks.WOODEN_STEINS)
                 .add(ModBlocks.WOODEN_STEIN)
                 .add(ModBlocks.WOODEN_WATER_STEIN)
@@ -722,13 +766,15 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.MEGAREGOLITH_BRICK_STAIRS)
                 .add(ModBlocks.MEGAREGOLITH_BRICK_SLAB)
                 .add(ModBlocks.MEGAREGOLITH_BRICK_WALL)
-                .add(ModBlocks.TALL_MEGAREGOLITH_TILE)
-                .add(ModBlocks.MEGAREGOLITH_TILE)
                 .add(ModBlocks.MEGAREGOLITH_TILES)
+                .add(ModBlocks.MEGAREGOLITH_TILE)
+                .add(ModBlocks.TALL_MEGAREGOLITH_TILE)
+                .add(ModBlocks.LARGE_MEGAREGOLITH_TILE)
 
-                .add(ModBlocks.TALL_DARK_METAL_TILE)
-                .add(ModBlocks.DARK_METAL_TILE)
                 .add(ModBlocks.DARK_METAL_TILES)
+                .add(ModBlocks.DARK_METAL_TILE)
+                .add(ModBlocks.TALL_DARK_METAL_TILE)
+                .add(ModBlocks.LARGE_DARK_METAL_TILE)
 
                 .add(ModBlocks.DARK_METAL_LIGHTS)
 

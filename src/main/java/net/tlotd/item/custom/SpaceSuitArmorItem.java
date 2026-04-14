@@ -1,6 +1,5 @@
 package net.tlotd.item.custom;
 
-import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.item.TooltipData;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -19,10 +18,12 @@ import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.world.World;
 import net.tlotd.item.ModItems;
-import net.tlotd.util.AdAstraOxygenNbtHelper;
+import net.tlotd.util.AdAstraGasNbtHelper;
+import net.tlotd.util.ModTags;
 import net.tlotd.util.SpaceSuitTooltipData;
 
 import java.util.Optional;
+import java.util.function.Consumer;
 
 public class SpaceSuitArmorItem extends ArmorItem {
     public SpaceSuitArmorItem(ArmorMaterial material, Type type, Settings settings) {
@@ -33,17 +34,17 @@ public class SpaceSuitArmorItem extends ArmorItem {
     public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
         if (!world.isClient() && entity.isPlayer()) {
             if (stack == ((PlayerEntity) entity).getInventory().getArmorStack(2)) {
-                long maxOxygenRaw = AdAstraOxygenNbtHelper.getMaxOxygenFromSuit(stack);
-                long oxygenRaw = AdAstraOxygenNbtHelper.getOxygenFromSuit(stack);
-                long maxOxygen = maxOxygenRaw / AdAstraOxygenNbtHelper.MAX_AMOUNT;
+                long maxOxygenRaw = AdAstraGasNbtHelper.getMaxOxygenFromSuit(stack);
+                long oxygenRaw = AdAstraGasNbtHelper.getOxygenFromSuit(stack);
+                long maxOxygen = maxOxygenRaw / AdAstraGasNbtHelper.MAX_AMOUNT;
                 String formattedOxygen;
                 String formattedMaxOxygen;
                 if (entity.isSneaking()) {
-                    int displayAmount = (int) Math.round((double) oxygenRaw * 1000 / AdAstraOxygenNbtHelper.MAX_AMOUNT);
+                    int displayAmount = (int) Math.round((double) oxygenRaw * 1000 / AdAstraGasNbtHelper.MAX_AMOUNT);
                     formattedOxygen = String.format("%,d", displayAmount);
                     formattedMaxOxygen = maxOxygen + ",000";
                 } else {
-                    formattedOxygen = AdAstraOxygenNbtHelper.getOxygenString(oxygenRaw);
+                    formattedOxygen = AdAstraGasNbtHelper.getOxygenString(oxygenRaw);
                     formattedMaxOxygen = maxOxygen + "K";
                 }
                 if (maxOxygen == 0) {
@@ -51,13 +52,14 @@ public class SpaceSuitArmorItem extends ArmorItem {
                 }
                 String formattedOxygen2 = formattedOxygen.replace(',', '.');
                 String formattedMaxOxygen2 = formattedMaxOxygen.replace(',', '.');
-                ((PlayerEntity) entity).sendMessage(Text.translatable("item.tlotd.oxygen_level.tooltip", formattedOxygen, formattedMaxOxygen, formattedOxygen2, formattedMaxOxygen2).formatted(Formatting.GOLD), true);
+                String gas = AdAstraGasNbtHelper.AD_ASTRA_OXYGEN_ID;
+                ((PlayerEntity) entity).sendMessage(Text.translatable("item.tlotd.gas_cylinder.tooltip", formattedOxygen, formattedMaxOxygen, formattedOxygen2, formattedMaxOxygen2, AdAstraGasNbtHelper.gasName(gas)).formatted(Formatting.GOLD), true);
             }
         }
     }
 
     public float getProgress(ItemStack stack) {
-        return Math.max(AdAstraOxygenNbtHelper.getMaxOxygenFromSuit(stack) - AdAstraOxygenNbtHelper.getOxygenFromSuit(stack), 0);
+        return Math.max(AdAstraGasNbtHelper.getMaxOxygenFromSuit(stack) - AdAstraGasNbtHelper.getOxygenFromSuit(stack), 0);
     }
 
     @Override
@@ -66,7 +68,7 @@ public class SpaceSuitArmorItem extends ArmorItem {
     }
 
     public int getItemBarStep(ItemStack stack) {
-        return Math.round(13.0f - getProgress(stack) * 13.0f / AdAstraOxygenNbtHelper.getMaxOxygenFromSuit(stack));
+        return Math.round(13.0f - getProgress(stack) * 13.0f / AdAstraGasNbtHelper.getMaxOxygenFromSuit(stack));
     }
 
     @Override
@@ -103,53 +105,35 @@ public class SpaceSuitArmorItem extends ArmorItem {
     @Override
     public boolean onClicked(ItemStack stack, ItemStack otherStack, Slot slot, ClickType clickType, PlayerEntity player, StackReference cursorStackReference) {
         if (clickType != ClickType.RIGHT) return false;
-        DefaultedList<ItemStack> stored = getStoredStacks(stack);
-        if (otherStack.isEmpty()) {
-            for (int i = 0; i < stored.size(); i++) {
-                if (!stored.get(i).isEmpty()) {
-                    cursorStackReference.set(stored.get(i));
-                    stored.set(i, ItemStack.EMPTY);
-                    setStoredStacks(stack, stored);
-                    return true;
-                }
-            }
-            return false;
-        }
-        if (!isValidTank(otherStack)) return false;
-        for (int i = 0; i < stored.size(); i++) {
-            if (stored.get(i).isEmpty()) {
-                stored.set(i, otherStack.copyWithCount(1));
-                otherStack.decrement(1);
-                setStoredStacks(stack, stored);
-                return true;
-            }
-        }
-        return false;
+        return handleTankInteraction(stack, otherStack, cursorStackReference::set);
     }
 
     @Override
     public boolean onStackClicked(ItemStack stack, Slot slot, ClickType clickType, PlayerEntity player) {
         if (clickType != ClickType.RIGHT) return false;
-        ItemStack slotStack = slot.getStack();
-        DefaultedList<ItemStack> stored = getStoredStacks(stack);
-        if (slotStack.isEmpty()) {
+        return handleTankInteraction(stack, slot.getStack(), slot::setStack);
+    }
+
+    private boolean handleTankInteraction(ItemStack suit, ItemStack inputStack, Consumer<ItemStack> giveItem) {
+        DefaultedList<ItemStack> stored = getStoredStacks(suit);
+        if (inputStack.isEmpty()) {
             for (int i = 0; i < stored.size(); i++) {
                 if (!stored.get(i).isEmpty()) {
                     ItemStack extracted = stored.get(i);
                     stored.set(i, ItemStack.EMPTY);
-                    slot.setStack(extracted);
-                    setStoredStacks(stack, stored);
+                    giveItem.accept(extracted);
+                    setStoredStacks(suit, stored);
                     return true;
                 }
             }
             return false;
         }
-        if (!isValidTank(slotStack)) return false;
+        if (!isValidTank(inputStack)) return false;
         for (int i = 0; i < stored.size(); i++) {
             if (stored.get(i).isEmpty()) {
-                stored.set(i, slotStack.copyWithCount(1));
-                slotStack.decrement(1);
-                setStoredStacks(stack, stored);
+                stored.set(i, inputStack.copyWithCount(1));
+                inputStack.decrement(1);
+                setStoredStacks(suit, stored);
                 return true;
             }
         }
@@ -157,24 +141,11 @@ public class SpaceSuitArmorItem extends ArmorItem {
     }
 
     private boolean isValidTank(ItemStack stack) {
-        return stack.isOf(ModItems.OXYGEN_TANK);
+        return stack.isIn(ModTags.Items.OXYGEN_STORING);
     }
 
     @Override
     public Optional<TooltipData> getTooltipData(ItemStack stack) {
         return Optional.of(new SpaceSuitTooltipData(getStoredStacks(stack)));
-    }
-
-    @Override
-    public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
-        ItemStack stack = user.getStackInHand(hand);
-        DefaultedList<ItemStack> stored = getStoredStacks(stack);
-        for (ItemStack s : stored) {
-            if (!s.isEmpty()) {
-                user.dropItem(s, true);
-            }
-        }
-        setStoredStacks(stack, DefaultedList.ofSize(MAX_SLOTS, ItemStack.EMPTY));
-        return TypedActionResult.success(stack, world.isClient());
     }
 }

@@ -1,0 +1,11 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "tlotd:item/gas_cylinder"
+  },
+  "overrides": [
+    { "predicate": { "tlotd:gas": 0.1 }, "model": "tlotd:item/gas_cylinder_oxygen" },
+    { "predicate": { "tlotd:gas": 0.2 }, "model": "tlotd:item/gas_cylinder_pipe_weed_smoke" },
+    { "predicate": { "tlotd:gas": 0.3 }, "model": "tlotd:item/gas_cylinder_withered_air" }
+  ]
+}

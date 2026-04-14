@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "tlotd:megaregolith_tile"
+  },
+  "result": "tlotd:large_megaregolith_tile"
+}

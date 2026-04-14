@@ -20,7 +20,7 @@ import net.tlotd.compat.CompatModsCheck;
 import net.tlotd.enchantments.ModEnchantments;
 import net.tlotd.fluid.ModFluids;
 import net.tlotd.item.custom.SpaceSuitArmorItem;
-import net.tlotd.util.AdAstraOxygenNbtHelper;
+import net.tlotd.util.AdAstraGasNbtHelper;
 import net.tlotd.util.EnergyNbtHelper;
 
 import java.util.Map;
@@ -44,7 +44,10 @@ public class ModItemGroups {
                         entries.add(ModItems.DRAGON_BANNER_PATTERN);
                         entries.add(ModItems.LOTR_BANNER_PATTERN);
 
-                        entries.add(addOxygenItem(ModItems.OXYGEN_TANK));
+                        entries.add(ModItems.GAS_CYLINDER);
+                        entries.add(addGasItem(ModItems.GAS_CYLINDER, AdAstraGasNbtHelper.AD_ASTRA_OXYGEN_ID));
+                        entries.add(addGasItem(ModItems.GAS_CYLINDER, AdAstraGasNbtHelper.TLOTD_PIPE_WEED_SMOKE));
+                        entries.add(addGasItem(ModItems.GAS_CYLINDER, AdAstraGasNbtHelper.TLOTD_WITHERED_AIR));
 
                         entries.add(ModFluids.BEER_BUCKET);
                         entries.add(ModFluids.MEAD_BUCKET);
@@ -191,6 +194,7 @@ public class ModItemGroups {
                         entries.add(ModItems.HEMP_COOKIE);
 
                         entries.add(ModItems.CARAMEL);
+                        entries.add(ModItems.CARAMEL_COOKIE);
 
                         entries.add(ModBlocks.PRESERVES_JAR);
                         entries.add(ModBlocks.SWEET_BERRY_JAM_JAR);
@@ -515,7 +519,7 @@ public class ModItemGroups {
                         entries.add(ModItems.FOSSIL_AND_STEEL);
                         entries.add(ModItems.JOINT);
                         entries.add(ModItems.PIPE);
-                        entries.add(ModItems.PIPE_WEED_PIPE);
+                        entries.add(addPipeItem(ModItems.PIPE, "tlotd:pipe_weed"));
                         entries.add(ModItems.TREX_SPAWN_EGG);
                         if (CompatModsCheck.SPORE) {
                             entries.add(ModItems.INFECTED_TREX_SPAWN_EGG);
@@ -685,12 +689,14 @@ public class ModItemGroups {
                         entries.add(ModBlocks.MEGAREGOLITH_BRICK_WALL);
                         entries.add(ModBlocks.LUNAR_BEDROCK);
 
-                        entries.add(ModBlocks.TALL_MEGAREGOLITH_TILE);
-                        entries.add(ModBlocks.MEGAREGOLITH_TILE);
                         entries.add(ModBlocks.MEGAREGOLITH_TILES);
-                        entries.add(ModBlocks.TALL_DARK_METAL_TILE);
-                        entries.add(ModBlocks.DARK_METAL_TILE);
+                        entries.add(ModBlocks.MEGAREGOLITH_TILE);
+                        entries.add(ModBlocks.TALL_MEGAREGOLITH_TILE);
+                        entries.add(ModBlocks.LARGE_MEGAREGOLITH_TILE);
                         entries.add(ModBlocks.DARK_METAL_TILES);
+                        entries.add(ModBlocks.DARK_METAL_TILE);
+                        entries.add(ModBlocks.TALL_DARK_METAL_TILE);
+                        entries.add(ModBlocks.LARGE_DARK_METAL_TILE);
 
                         entries.add(ModBlocks.DARK_METAL_LIGHTS);
 
@@ -1185,7 +1191,8 @@ public class ModItemGroups {
             if (CompatModsCheck.AETHER) {
                 content.addAfter(ModItems.ORANGE_MARMELADE_TOAST, ModItems.BLUE_BERRY_JAM_TOAST);
             }
-            content.addAfter(Items.COOKIE, ModItems.STRAWBERRY_COOKIE);
+            content.addAfter(Items.COOKIE, ModItems.CARAMEL_COOKIE);
+            content.addAfter(ModItems.CARAMEL_COOKIE, ModItems.STRAWBERRY_COOKIE);
             content.addAfter(ModItems.STRAWBERRY_COOKIE, ModItems.ORANGE_COOKIE);
             content.addAfter(ModItems.ORANGE_COOKIE, ModItems.HEMP_COOKIE);
             content.addAfter(ModItems.HEMP_COOKIE, ModItems.CHOCOLATE_STRAWBERRY);
@@ -1286,17 +1293,17 @@ public class ModItemGroups {
         ItemStack suit = new ItemStack(ModItems.SPACE_SUIT_CHESTPLATE);
         DefaultedList<ItemStack> tanks = DefaultedList.ofSize(2, ItemStack.EMPTY);
         for (int i = 0; i < 2; i++) {
-            ItemStack tank = new ItemStack(ModItems.OXYGEN_TANK);
-            AdAstraOxygenNbtHelper.setOxygen(tank, AdAstraOxygenNbtHelper.getMaxOxygenItem(tank));
+            ItemStack tank = new ItemStack(ModItems.GAS_CYLINDER);
+            AdAstraGasNbtHelper.setOxygen(tank, AdAstraGasNbtHelper.getMaxGasItem(tank));
             tanks.set(i, tank);
         }
         SpaceSuitArmorItem.setStoredStacks(suit, tanks);
         return suit;
     }
 
-    public static ItemStack addOxygenItem(Item baseItem) {
+    public static ItemStack addGasItem(Item baseItem, String gas) {
         ItemStack itemStack = new ItemStack(baseItem);
-        AdAstraOxygenNbtHelper.setOxygen(itemStack, AdAstraOxygenNbtHelper.MAX_AMOUNT);
+        AdAstraGasNbtHelper.setGasAmount(itemStack, gas, AdAstraGasNbtHelper.getMaxGasItem(itemStack));
         return itemStack;
     }
 
@@ -1304,6 +1311,13 @@ public class ModItemGroups {
         ItemStack itemStack = new ItemStack(baseItem);
         EnergyNbtHelper.setEnergy(itemStack, EnergyNbtHelper.MAX_AMOUNT);
         return itemStack;
+    }
+
+    public static ItemStack addPipeItem(Item baseItem, String content) {
+        ItemStack stack = new ItemStack(baseItem);
+        stack.getOrCreateNbt().putString("Content", content);
+        stack.getOrCreateNbt().putInt("ChargesUsed", 0);
+        return stack;
     }
 
     private static ItemStack addEnchantedBook(Enchantment enchantment, int level) {

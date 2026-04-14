@@ -23,7 +23,7 @@
       "tag": "c:iron_ingots"
     },
     "O": {
-      "item": "tlotd:oxygen_tank"
+      "item": "tlotd:gas_cylinder"
     },
     "Q": {
       "tag": "c:quartz_blocks"

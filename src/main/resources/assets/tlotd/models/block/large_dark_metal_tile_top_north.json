@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "up": "tlotd:block/dark_metal_tile_large_upper_right",
+    "down": "tlotd:block/dark_metal_tile_large_lower_right",
+    "north": "tlotd:block/dark_metal_tile_upper",
+    "east": "tlotd:block/dark_metal_tile_large_upper_right",
+    "south": "tlotd:block/dark_metal_tile_upper",
+    "west": "tlotd:block/dark_metal_tile_large_upper_left",
+    "particle": "tlotd:block/dark_metal_tile"
+  }
+}

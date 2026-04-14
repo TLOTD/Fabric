@@ -2,20 +2,19 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "A": {
-      "tag": "c:aluminium_ingots"
+    "#": {
+      "item": "minecraft:wheat"
     },
-    "G": {
-      "tag": "c:glass_panes"
+    "C": {
+      "item": "tlotd:caramel"
     }
   },
   "pattern": [
-    " A ",
-    "AGA",
-    " A "
+    "#C#"
   ],
   "result": {
-    "item": "tlotd:oxygen_tank"
+    "count": 8,
+    "item": "tlotd:caramel_cookie"
   },
   "show_notification": true
 }

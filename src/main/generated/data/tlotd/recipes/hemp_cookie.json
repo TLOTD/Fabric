@@ -5,16 +5,16 @@
     "#": {
       "item": "minecraft:wheat"
     },
-    "C": {
-      "item": "tlotd:strawberry"
+    "P": {
+      "item": "tlotd:pipe_weed"
     }
   },
   "pattern": [
-    "#C#"
+    "#P#"
   ],
   "result": {
     "count": 8,
-    "item": "tlotd:strawberry_cookie"
+    "item": "tlotd:hemp_cookie"
   },
   "show_notification": true
 }
