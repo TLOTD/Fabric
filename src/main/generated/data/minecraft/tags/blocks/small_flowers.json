@@ -1,7 +1,9 @@
 {
   "replace": false,
   "values": [
-    "tlotd:rose",
+    "tlotd:red_rose",
+    "tlotd:blue_rose",
+    "tlotd:paeonia",
     "tlotd:iris",
     "tlotd:edelweiss",
     "tlotd:athelas"

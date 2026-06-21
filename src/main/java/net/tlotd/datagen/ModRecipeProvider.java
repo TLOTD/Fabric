@@ -30,13 +30,6 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 
     private static final List<ItemConvertible> URANIUM_BLASTABLES = List.of(ModItems.URANIUM, ModBlocks.URANIUM_ORE, ModBlocks.DEEPSLATE_URANIUM_ORE, ModBlocks.RED_DEEPSLATE_URANIUM_ORE);
 
-    private static final List<ItemConvertible> ENDURIUM_BLASTABLES = List.of(ModItems.ENDURIUM_CRYSTAL, ModBlocks.END_ENDURIUM_ORE);
-    private static final List<ItemConvertible> PALLADIUM_BLASTABLES = List.of(ModItems.RAW_PALLADIUM, ModBlocks.PALLADIUM_ORE, ModBlocks.DEEPSLATE_PALLADIUM_ORE, ModBlocks.RED_DEEPSLATE_PALLADIUM_ORE);
-    private static final List<ItemConvertible> JURASSOLINE_BLASTABLES = List.of(ModItems.JURASSOLINE_CRYSTAL, ModBlocks.JURASSOLINE_ORE, ModBlocks.DEEPSLATE_JURASSOLINE_ORE, ModBlocks.RED_DEEPSLATE_JURASSOLINE_ORE);
-    private static final List<ItemConvertible> CINNABAR_BLASTABLES = List.of(ModItems.CINNABAR_CRYSTAL, ModBlocks.CINNABAR_ORE, ModBlocks.DEEPSLATE_CINNABAR_ORE, ModBlocks. RED_DEEPSLATE_CINNABAR_ORE);
-    private static final List<ItemConvertible> NEBULAR_BLASTABLES = List.of(ModItems.NEBULAR_CRYSTAL, ModBlocks.NEBULAR_ORE, ModBlocks.DEEPSLATE_NEBULAR_ORE, ModBlocks. RED_DEEPSLATE_NEBULAR_ORE);
-    private static final List<ItemConvertible> MITHRIL_BLASTABLES = List.of(ModItems.RAW_MITHRIL, ModBlocks.BEDROCK_MITHRIL_ORE);
-
     public ModRecipeProvider(FabricDataOutput output) {
         super(output);
     }
@@ -148,6 +141,25 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(ModItems.SULFUR_TORCH), conditionsFromItem(ModItems.SULFUR_TORCH))
                 .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.WHITE_JACK_O_LANTERN)));
 
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.ARCADE_WOOL, 4)
+                .input(Items.BLACK_WOOL)
+                .input(Items.BLACK_WOOL)
+                .input(Items.BLACK_WOOL)
+                .input(Items.BLACK_WOOL)
+                .input(Items.RED_DYE)
+                .input(Items.PURPLE_DYE)
+                .input(Items.LIGHT_BLUE_DYE)
+                .input(Items.LIME_DYE)
+                .input(Items.YELLOW_DYE)
+                .criterion(hasItem(Items.BLACK_WOOL), conditionsFromItem(Items.BLACK_WOOL))
+                .criterion(hasItem(Items.RED_DYE), conditionsFromItem(Items.RED_DYE))
+                .criterion(hasItem(Items.PURPLE_DYE), conditionsFromItem(Items.PURPLE_DYE))
+                .criterion(hasItem(Items.LIGHT_BLUE_DYE), conditionsFromItem(Items.LIGHT_BLUE_DYE))
+                .criterion(hasItem(Items.LIME_DYE), conditionsFromItem(Items.LIME_DYE))
+                .criterion(hasItem(Items.YELLOW_DYE), conditionsFromItem(Items.YELLOW_DYE))
+                .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.ARCADE_WOOL)));
+
+        offerCarpetRecipe(exporter, ModBlocks.ARCADE_CARPET, ModBlocks.ARCADE_WOOL);
         offerCarpetRecipe(exporter, ModBlocks.CURSED_CARPET, ModBlocks.CURSED_WOOL);
 
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, Items.PAPER,3)
@@ -590,6 +602,16 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.MOSSY_GRAVESTONE_CROSS, Blocks.MOSSY_COBBLESTONE);
 
         offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.SMALL_GRAVESTONE, Blocks.COBBLESTONE);
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.STACKABLE_BOOK)
+                .input(Items.BOOK)
+                .criterion(hasItem(Items.BOOK), conditionsFromItem(Items.BOOK))
+                .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.STACKABLE_BOOK)));
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, Items.BOOK)
+                .input(ModBlocks.STACKABLE_BOOK)
+                .criterion(hasItem(ModBlocks.STACKABLE_BOOK), conditionsFromItem(ModBlocks.STACKABLE_BOOK))
+                .offerTo(exporter, new Identifier("book_from_stackable_book"));
 
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.SKELETON)
                 .input(Items.BONE).input(Items.SKELETON_SKULL).input(Items.BONE)
@@ -1115,10 +1137,22 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.ARCHAEOLOGY_TABLE)));
 
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, Items.RED_DYE)
-                .input(ModBlocks.ROSE)
+                .input(ModBlocks.RED_ROSE)
                 .group("red_dye")
-                .criterion(hasItem(ModBlocks.ROSE), conditionsFromItem(ModBlocks.ROSE))
+                .criterion(hasItem(ModBlocks.RED_ROSE), conditionsFromItem(ModBlocks.RED_ROSE))
                 .offerTo(exporter, new Identifier("red_dye_from_rose"));
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, Items.LIGHT_BLUE_DYE)
+                .input(ModBlocks.BLUE_ROSE)
+                .group("light_blue_dye")
+                .criterion(hasItem(ModBlocks.BLUE_ROSE), conditionsFromItem(ModBlocks.BLUE_ROSE))
+                .offerTo(exporter, new Identifier("light_blue_dye_from_rose"));
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, Items.PINK_DYE)
+                .input(ModBlocks.PAEONIA)
+                .group("pink_dye")
+                .criterion(hasItem(ModBlocks.PAEONIA), conditionsFromItem(ModBlocks.PAEONIA))
+                .offerTo(exporter, new Identifier("pink_dye_from_paeonia"));
 
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, Items.PURPLE_DYE)
                 .input(ModBlocks.IRIS)
@@ -2175,6 +2209,12 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(ModItems.KEYCARD), conditionsFromItem(ModItems.KEYCARD))
                 .offerTo(exporter, new Identifier(getRecipeName(ModItems.KEYCARD) + "_cleared"));
 
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.ENVELOPE)
+                .input(Items.PAPER)
+                .input(Items.PAPER)
+                .criterion(hasItem(Items.PAPER), conditionsFromItem(Items.PAPER))
+                .offerTo(exporter, new Identifier(getRecipeName(ModItems.ENVELOPE)));
+
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, Items.FLINT_AND_STEEL)
                 .input(ModTags.Items.IRON_OR_STEEL)
                 .input(Items.FLINT)
@@ -2233,6 +2273,20 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(ModItems.STEEL_INGOT), conditionsFromItem(ModItems.STEEL_INGOT))
                 .criterion(hasItem(Items.STICK), conditionsFromItem(Items.STICK))
                 .offerTo(exporter, new Identifier(getRecipeName(ModItems.STEEL_SICKLE)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.STEEL_TONGS)
+                .pattern("#")
+                .pattern("#")
+                .input('#', TagKey.of(RegistryKeys.ITEM, new Identifier("c", "steel_rods")))
+                .criterion(hasItem(ModItems.STEEL_ROD), conditionsFromItem(ModItems.STEEL_ROD))
+                .offerTo(exporter, new Identifier(getRecipeName(ModItems.STEEL_TONGS)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.REINFORCED_TONGS)
+                .pattern("#")
+                .pattern("#")
+                .input('#', ModItems.REINFORCED_TOOL_ROD)
+                .criterion(hasItem(ModItems.REINFORCED_TOOL_ROD), conditionsFromItem(ModItems.REINFORCED_TOOL_ROD))
+                .offerTo(exporter, new Identifier(getRecipeName(ModItems.REINFORCED_TONGS)));
 
         offerReversibleCompactingRecipes(exporter, RecipeCategory.MISC, ModItems.SULFUR, RecipeCategory.BUILDING_BLOCKS, ModBlocks.SULFUR_BLOCK);
 
@@ -2511,13 +2565,6 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .group(ModItems.BAMBOO_HOE.toString())
                 .offerTo(exporter, new Identifier(getRecipeName(ModItems.BAMBOO_HOE) + "2"));
 
-        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.HELIORITE_INGOT)
-                .input(ModItems.HELIORITE_COMB)
-                .input(Items.OBSIDIAN)
-                .criterion(hasItem(ModItems.HELIORITE_COMB), conditionsFromItem(ModItems.HELIORITE_COMB))
-                .criterion(hasItem(Items.OBSIDIAN), conditionsFromItem(Items.OBSIDIAN))
-                .offerTo(exporter, new Identifier(getRecipeName(ModItems.HELIORITE_INGOT) + "s"));
-
         offerReversibleCompactingRecipes(exporter, RecipeCategory.MISC, ModItems.HELIORITE_COMB, RecipeCategory.BUILDING_BLOCKS, ModBlocks.HELIORITE_COMB_BLOCK);
         offerReversibleNuggetCompactingRecipes(exporter, RecipeCategory.MISC, ModItems.HELIORITE_NUGGET, RecipeCategory.MISC, ModItems.HELIORITE_INGOT);
         offerReversibleCompactingRecipes(exporter, RecipeCategory.MISC, ModItems.HELIORITE_INGOT, RecipeCategory.BUILDING_BLOCKS, ModBlocks.HELIORITE_BLOCK);
@@ -2655,8 +2702,6 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(ModItems.HELIORITE_INGOT), conditionsFromItem(ModItems.HELIORITE_INGOT))
                 .offerTo(exporter, new Identifier(getRecipeName(ModItems.HELIORITE_BOOTS)));
 
-        offerBlasting(exporter, ENDURIUM_BLASTABLES, RecipeCategory.MISC, ModItems.ENDURIUM_INGOT, 0.7f, 200, "endurium_ingot");
-
         offerReversibleCompactingRecipes(exporter, RecipeCategory.MISC, ModItems.ENDURIUM_CRYSTAL, RecipeCategory.BUILDING_BLOCKS, ModBlocks.RAW_ENDURIUM_BLOCK);
         offerReversibleNuggetCompactingRecipes(exporter, RecipeCategory.MISC, ModItems.ENDURIUM_NUGGET, RecipeCategory.MISC, ModItems.ENDURIUM_INGOT);
         offerReversibleCompactingRecipes(exporter, RecipeCategory.MISC, ModItems.ENDURIUM_INGOT, RecipeCategory.BUILDING_BLOCKS, ModBlocks.ENDURIUM_BLOCK);
@@ -2793,8 +2838,6 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(ModItems.ENDURIUM_INGOT), conditionsFromItem(ModItems.ENDURIUM_INGOT))
                 .offerTo(exporter, new Identifier(getRecipeName(ModItems.ENDURIUM_BOOTS)));
 
-        offerBlasting(exporter, PALLADIUM_BLASTABLES, RecipeCategory.MISC, ModItems.PALLADIUM_INGOT, 0.7f, 200, "palladium_ingot");
-
         offerReversibleCompactingRecipes(exporter, RecipeCategory.MISC, ModItems.RAW_PALLADIUM, RecipeCategory.BUILDING_BLOCKS, ModBlocks.RAW_PALLADIUM_BLOCK);
         offerReversibleNuggetCompactingRecipes(exporter, RecipeCategory.MISC, ModItems.PALLADIUM_NUGGET, RecipeCategory.MISC, ModItems.PALLADIUM_INGOT);
         offerReversibleCompactingRecipes(exporter, RecipeCategory.MISC, ModItems.PALLADIUM_INGOT, RecipeCategory.BUILDING_BLOCKS, ModBlocks.PALLADIUM_BLOCK);
@@ -2922,8 +2965,6 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('#', ModItems.PALLADIUM_INGOT)
                 .criterion(hasItem(ModItems.PALLADIUM_INGOT), conditionsFromItem(ModItems.PALLADIUM_INGOT))
                 .offerTo(exporter, new Identifier(getRecipeName(ModItems.PALLADIUM_BOOTS)));
-
-        offerBlasting(exporter, JURASSOLINE_BLASTABLES, RecipeCategory.MISC, ModItems.JURASSOLINE_INGOT, 0.7f, 200, "jurassoline_ingot");
 
         offerReversibleCompactingRecipes(exporter, RecipeCategory.MISC, ModItems.JURASSOLINE_CRYSTAL, RecipeCategory.BUILDING_BLOCKS, ModBlocks.JURASSOLINE_CRYSTAL_BLOCK);
         offerReversibleNuggetCompactingRecipes(exporter, RecipeCategory.MISC, ModItems.JURASSOLINE_NUGGET, RecipeCategory.MISC, ModItems.JURASSOLINE_INGOT);
@@ -3053,8 +3094,6 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(ModItems.JURASSOLINE_INGOT), conditionsFromItem(ModItems.JURASSOLINE_INGOT))
                 .offerTo(exporter, new Identifier(getRecipeName(ModItems.JURASSOLINE_BOOTS)));
 
-        offerBlasting(exporter, CINNABAR_BLASTABLES, RecipeCategory.MISC, ModItems.CINNABAR_INGOT, 0.7f, 200, "cinnabar_ingot");
-
         offerReversibleCompactingRecipes(exporter, RecipeCategory.MISC, ModItems.CINNABAR_CRYSTAL, RecipeCategory.BUILDING_BLOCKS, ModBlocks.CINNABAR_CRYSTAL_BLOCK);
         offerReversibleNuggetCompactingRecipes(exporter, RecipeCategory.MISC, ModItems.CINNABAR_NUGGET, RecipeCategory.MISC, ModItems.CINNABAR_INGOT);
         offerReversibleCompactingRecipes(exporter, RecipeCategory.MISC, ModItems.CINNABAR_INGOT, RecipeCategory.BUILDING_BLOCKS, ModBlocks.CINNABAR_BLOCK);
@@ -3182,8 +3221,6 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('#', ModItems.CINNABAR_INGOT)
                 .criterion(hasItem(ModItems.CINNABAR_INGOT), conditionsFromItem(ModItems.CINNABAR_INGOT))
                 .offerTo(exporter, new Identifier(getRecipeName(ModItems.CINNABAR_BOOTS)));
-
-        offerBlasting(exporter, NEBULAR_BLASTABLES, RecipeCategory.MISC, ModItems.NEBULAR_INGOT, 0.7f, 200, "nebular_ingot");
 
         offerReversibleCompactingRecipes(exporter, RecipeCategory.MISC, ModItems.NEBULAR_CRYSTAL, RecipeCategory.BUILDING_BLOCKS, ModBlocks.RAW_NEBULAR_BLOCK);
         offerReversibleNuggetCompactingRecipes(exporter, RecipeCategory.MISC, ModItems.NEBULAR_NUGGET, RecipeCategory.MISC, ModItems.NEBULAR_INGOT);
@@ -3329,147 +3366,78 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(Items.GOLD_INGOT), conditionsFromItem(Items.GOLD_INGOT))
                 .offerTo(exporter, new Identifier(getRecipeName(ModItems.FANCY_TOOL_ROD)));
 
-        offerBlasting(exporter, MITHRIL_BLASTABLES, RecipeCategory.MISC, ModItems.MITHRIL_INGOT, 1.0f, 400, "mithril_ingot");
-        offerBlasting(exporter, List.of(ModBlocks.RAW_MITHRIL_BLOCK), RecipeCategory.MISC, ModBlocks.MITHRIL_BLOCK, 1.0f, 400, "mithril_block");
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.DWARVEN_FORGE)
+                .pattern("NNN")
+                .pattern("###")
+                .pattern("#C#")
+                .input('N', Items.NETHERITE_INGOT)
+                .input('#', Items.BLACKSTONE)
+                .input('C', Items.CAMPFIRE)
+                .criterion(hasItem(Items.NETHERITE_INGOT), conditionsFromItem(Items.NETHERITE_INGOT))
+                .criterion(hasItem(Items.BLACKSTONE), conditionsFromItem(Items.BLACKSTONE))
+                .criterion(hasItem(Items.CAMPFIRE), conditionsFromItem(Items.CAMPFIRE))
+                .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.DWARVEN_FORGE)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.NETHERITE_ANVIL)
+                .pattern("###")
+                .pattern(" I ")
+                .pattern("III")
+                .input('#', Items.NETHERITE_BLOCK)
+                .input('I', Items.NETHERITE_INGOT)
+                .criterion(hasItem(Items.NETHERITE_BLOCK), conditionsFromItem(Items.NETHERITE_BLOCK))
+                .criterion(hasItem(Items.NETHERITE_INGOT), conditionsFromItem(Items.NETHERITE_INGOT))
+                .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.NETHERITE_ANVIL)));
 
         offerReversibleCompactingRecipes(exporter, RecipeCategory.MISC, ModItems.RAW_MITHRIL, RecipeCategory.BUILDING_BLOCKS, ModBlocks.RAW_MITHRIL_BLOCK);
+        offerReversibleCompactingRecipes(exporter, RecipeCategory.MISC, ModItems.REFINED_RAW_MITHRIL, RecipeCategory.BUILDING_BLOCKS, ModBlocks.REFINED_RAW_MITHRIL_BLOCK);
         offerReversibleNuggetCompactingRecipes(exporter, RecipeCategory.MISC, ModItems.MITHRIL_NUGGET, RecipeCategory.MISC, ModItems.MITHRIL_INGOT);
+        offerReversibleCompactingRecipes(exporter, RecipeCategory.MISC, ModItems.ROUGH_MITHRIL_INGOT, RecipeCategory.BUILDING_BLOCKS, ModBlocks.ROUGH_MITHRIL_BLOCK);
         offerReversibleCompactingRecipes(exporter, RecipeCategory.MISC, ModItems.MITHRIL_INGOT, RecipeCategory.BUILDING_BLOCKS, ModBlocks.MITHRIL_BLOCK);
 
         offerBlasting(exporter, List.of(ModItems.MITHRIL_SWORD, ModItems.MITHRIL_PICKAXE, ModItems.MITHRIL_AXE, ModItems.MITHRIL_SHOVEL, ModItems.MITHRIL_HOE, ModItems.MITHRIL_SICKLE, ModItems.MITHRIL_FORGING_HAMMER, ModItems.MITHRIL_HELMET, ModItems.MITHRIL_CHESTPLATE, ModItems.MITHRIL_LEGGINGS, ModItems.MITHRIL_BOOTS), RecipeCategory.MISC, ModItems.MITHRIL_NUGGET, 0.7f, 400, "mithril_nugget");
 
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.MITHRIL_SWORD)
-                .pattern("#")
-                .pattern("#")
-                .pattern("I")
-                .input('#', ModItems.MITHRIL_INGOT)
-                .input('I', ModItems.FANCY_TOOL_ROD)
-                .criterion(hasItem(ModItems.MITHRIL_INGOT), conditionsFromItem(ModItems.MITHRIL_INGOT))
-                .criterion(hasItem(ModItems.FANCY_TOOL_ROD), conditionsFromItem(ModItems.FANCY_TOOL_ROD))
-                .offerTo(exporter, new Identifier(getRecipeName(ModItems.MITHRIL_SWORD)));
-
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.MITHRIL_PICKAXE)
-                .pattern("###")
-                .pattern(" I ")
-                .pattern(" I ")
-                .input('#', ModItems.MITHRIL_INGOT)
-                .input('I', ModItems.FANCY_TOOL_ROD)
-                .criterion(hasItem(ModItems.MITHRIL_INGOT), conditionsFromItem(ModItems.MITHRIL_INGOT))
-                .criterion(hasItem(ModItems.FANCY_TOOL_ROD), conditionsFromItem(ModItems.FANCY_TOOL_ROD))
-                .offerTo(exporter, new Identifier(getRecipeName(ModItems.MITHRIL_PICKAXE)));
-
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.MITHRIL_SHOVEL)
-                .pattern("#")
-                .pattern("I")
-                .pattern("I")
-                .input('#', ModItems.MITHRIL_INGOT)
-                .input('I', ModItems.FANCY_TOOL_ROD)
-                .criterion(hasItem(ModItems.MITHRIL_INGOT), conditionsFromItem(ModItems.MITHRIL_INGOT))
-                .criterion(hasItem(ModItems.FANCY_TOOL_ROD), conditionsFromItem(ModItems.FANCY_TOOL_ROD))
-                .offerTo(exporter, new Identifier(getRecipeName(ModItems.MITHRIL_SHOVEL)));
-
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.MITHRIL_AXE)
-                .pattern("##")
-                .pattern("#I")
-                .pattern(" I")
-                .input('#', ModItems.MITHRIL_INGOT)
-                .input('I', ModItems.FANCY_TOOL_ROD)
-                .criterion(hasItem(ModItems.MITHRIL_INGOT), conditionsFromItem(ModItems.MITHRIL_INGOT))
-                .criterion(hasItem(ModItems.FANCY_TOOL_ROD), conditionsFromItem(ModItems.FANCY_TOOL_ROD))
-                .group(ModItems.MITHRIL_AXE.toString())
-                .offerTo(exporter, new Identifier(getRecipeName(ModItems.MITHRIL_AXE)));
-
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.MITHRIL_AXE)
-                .pattern("##")
-                .pattern("I#")
-                .pattern("I ")
-                .input('#', ModItems.MITHRIL_INGOT)
-                .input('I', ModItems.FANCY_TOOL_ROD)
-                .criterion(hasItem(ModItems.MITHRIL_INGOT), conditionsFromItem(ModItems.MITHRIL_INGOT))
-                .criterion(hasItem(ModItems.FANCY_TOOL_ROD), conditionsFromItem(ModItems.FANCY_TOOL_ROD))
-                .group(ModItems.MITHRIL_AXE.toString())
-                .offerTo(exporter, new Identifier(getRecipeName(ModItems.MITHRIL_AXE) + "2"));
-
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.MITHRIL_HOE)
-                .pattern("##")
-                .pattern(" I")
-                .pattern(" I")
-                .input('#', ModItems.MITHRIL_INGOT)
-                .input('I', ModItems.FANCY_TOOL_ROD)
-                .criterion(hasItem(ModItems.MITHRIL_INGOT), conditionsFromItem(ModItems.MITHRIL_INGOT))
-                .criterion(hasItem(ModItems.FANCY_TOOL_ROD), conditionsFromItem(ModItems.FANCY_TOOL_ROD))
-                .group(ModItems.MITHRIL_HOE.toString())
-                .offerTo(exporter, new Identifier(getRecipeName(ModItems.MITHRIL_HOE)));
-
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.MITHRIL_HOE)
-                .pattern("##")
-                .pattern("I ")
-                .pattern("I ")
-                .input('#', ModItems.MITHRIL_INGOT)
-                .input('I', ModItems.FANCY_TOOL_ROD)
-                .criterion(hasItem(ModItems.MITHRIL_INGOT), conditionsFromItem(ModItems.MITHRIL_INGOT))
-                .criterion(hasItem(ModItems.FANCY_TOOL_ROD), conditionsFromItem(ModItems.FANCY_TOOL_ROD))
-                .group(ModItems.MITHRIL_HOE.toString())
-                .offerTo(exporter, new Identifier(getRecipeName(ModItems.MITHRIL_HOE) + "2"));
-
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.MITHRIL_FORGING_HAMMER)
-                .pattern("#")
-                .pattern("I")
-                .input('#', ModItems.MITHRIL_INGOT)
-                .input('I', ModItems.FANCY_TOOL_ROD)
-                .criterion(hasItem(ModItems.MITHRIL_INGOT), conditionsFromItem(ModItems.MITHRIL_INGOT))
-                .criterion(hasItem(ModItems.FANCY_TOOL_ROD), conditionsFromItem(ModItems.FANCY_TOOL_ROD))
-                .offerTo(exporter, new Identifier(getRecipeName(ModItems.MITHRIL_FORGING_HAMMER)));
-
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.MITHRIL_STAR_CATCHER)
-                .pattern("  I")
-                .pattern(" /#")
-                .pattern("/  ")
-                .input('#', ModItems.MITHRIL_CHAINMAIL_CHUNK)
-                .input('I', ModItems.MITHRIL_INGOT)
-                .input('/', ModItems.FANCY_TOOL_ROD)
-                .criterion(hasItem(ModItems.MITHRIL_CHAINMAIL_CHUNK), conditionsFromItem(ModItems.MITHRIL_CHAINMAIL_CHUNK))
-                .criterion(hasItem(ModItems.MITHRIL_INGOT), conditionsFromItem(ModItems.MITHRIL_INGOT))
-                .criterion(hasItem(ModItems.FANCY_TOOL_ROD), conditionsFromItem(ModItems.FANCY_TOOL_ROD))
-                .offerTo(exporter, new Identifier(getRecipeName(ModItems.MITHRIL_STAR_CATCHER)));
-
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.MITHRIL_SICKLE)
-                .pattern(" #")
-                .pattern("I ")
-                .input('#', ModItems.MITHRIL_INGOT)
-                .input('I', ModItems.FANCY_TOOL_ROD)
-                .criterion(hasItem(ModItems.MITHRIL_INGOT), conditionsFromItem(ModItems.MITHRIL_INGOT))
-                .criterion(hasItem(ModItems.FANCY_TOOL_ROD), conditionsFromItem(ModItems.FANCY_TOOL_ROD))
-                .offerTo(exporter, new Identifier(getRecipeName(ModItems.MITHRIL_SICKLE)));
-
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.MITHRIL_HELMET)
-                .pattern("###")
-                .pattern("# #")
-                .input('#', ModItems.MITHRIL_INGOT)
-                .criterion(hasItem(ModItems.MITHRIL_INGOT), conditionsFromItem(ModItems.MITHRIL_INGOT))
+                .pattern(" F ")
+                .pattern("G#G")
+                .pattern("#C#")
+                .input('#', ModItems.MITHRIL_PLATE)
+                .input('C', ModItems.MITHRIL_CHAINMAIL_CHUNK)
+                .input('G', TagKey.of(RegistryKeys.ITEM, new Identifier("c", "gold_nuggets")))
+                .input('F', Items.FEATHER)
+                .criterion(hasItem(ModItems.MITHRIL_PLATE), conditionsFromItem(ModItems.MITHRIL_PLATE))
+                .criterion(hasItem(ModItems.MITHRIL_CHAINMAIL_CHUNK), conditionsFromItem(ModItems.MITHRIL_CHAINMAIL_CHUNK))
                 .offerTo(exporter, new Identifier(getRecipeName(ModItems.MITHRIL_HELMET)));
 
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.MITHRIL_CHESTPLATE)
                 .pattern("# #")
-                .pattern("###")
-                .pattern("###")
-                .input('#', ModItems.MITHRIL_INGOT)
-                .criterion(hasItem(ModItems.MITHRIL_INGOT), conditionsFromItem(ModItems.MITHRIL_INGOT))
+                .pattern("C#C")
+                .pattern("#G#")
+                .input('#', ModItems.MITHRIL_PLATE)
+                .input('C', ModItems.MITHRIL_CHAINMAIL_CHUNK)
+                .input('G', TagKey.of(RegistryKeys.ITEM, new Identifier("c", "gold_ingots")))
+                .criterion(hasItem(ModItems.MITHRIL_PLATE), conditionsFromItem(ModItems.MITHRIL_PLATE))
+                .criterion(hasItem(ModItems.MITHRIL_CHAINMAIL_CHUNK), conditionsFromItem(ModItems.MITHRIL_CHAINMAIL_CHUNK))
                 .offerTo(exporter, new Identifier(getRecipeName(ModItems.MITHRIL_CHESTPLATE)));
 
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.MITHRIL_LEGGINGS)
-                .pattern("###")
+                .pattern("C#C")
                 .pattern("# #")
-                .pattern("# #")
-                .input('#', ModItems.MITHRIL_INGOT)
-                .criterion(hasItem(ModItems.MITHRIL_INGOT), conditionsFromItem(ModItems.MITHRIL_INGOT))
+                .pattern("C C")
+                .input('#', ModItems.MITHRIL_PLATE)
+                .input('C', ModItems.MITHRIL_CHAINMAIL_CHUNK)
+                .criterion(hasItem(ModItems.MITHRIL_PLATE), conditionsFromItem(ModItems.MITHRIL_PLATE))
+                .criterion(hasItem(ModItems.MITHRIL_CHAINMAIL_CHUNK), conditionsFromItem(ModItems.MITHRIL_CHAINMAIL_CHUNK))
                 .offerTo(exporter, new Identifier(getRecipeName(ModItems.MITHRIL_LEGGINGS)));
 
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.MITHRIL_BOOTS)
+                .pattern("G G")
+                .pattern("C C")
                 .pattern("# #")
-                .pattern("# #")
-                .input('#', ModItems.MITHRIL_INGOT)
-                .criterion(hasItem(ModItems.MITHRIL_INGOT), conditionsFromItem(ModItems.MITHRIL_INGOT))
+                .input('#', ModItems.MITHRIL_PLATE)
+                .input('C', ModItems.MITHRIL_CHAINMAIL_CHUNK)
+                .input('G', TagKey.of(RegistryKeys.ITEM, new Identifier("c", "gold_nuggets")))
+                .criterion(hasItem(ModItems.MITHRIL_PLATE), conditionsFromItem(ModItems.MITHRIL_PLATE))
+                .criterion(hasItem(ModItems.MITHRIL_CHAINMAIL_CHUNK), conditionsFromItem(ModItems.MITHRIL_CHAINMAIL_CHUNK))
                 .offerTo(exporter, new Identifier(getRecipeName(ModItems.MITHRIL_BOOTS)));
 
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.MITHRIL_HORSE_ARMOR)
@@ -3493,16 +3461,6 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(ModItems.FANCY_TOOL_ROD), conditionsFromItem(ModItems.FANCY_TOOL_ROD))
                 .criterion(hasItem(Items.FEATHER), conditionsFromItem(Items.FEATHER))
                 .offerTo(exporter, new Identifier(getRecipeName(ModItems.SILVERTHORN_ARROW)));
-
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.MITHRIL_ANVIL)
-                .pattern("###")
-                .pattern(" I ")
-                .pattern("III")
-                .input('#', ModBlocks.MITHRIL_BLOCK)
-                .input('I', ModItems.MITHRIL_INGOT)
-                .criterion(hasItem(ModBlocks.MITHRIL_BLOCK), conditionsFromItem(ModBlocks.MITHRIL_BLOCK))
-                .criterion(hasItem(ModItems.MITHRIL_INGOT), conditionsFromItem(ModItems.MITHRIL_INGOT))
-                .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.MITHRIL_ANVIL)));
 
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.MITHRIL_BARS,16)
                 .pattern("###")

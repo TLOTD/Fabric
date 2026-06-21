@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "#tlotd:burns_650",
+    "#tlotd:burns_1350",
+    "#tlotd:burns_1400",
+    "#tlotd:burns_3000",
+    "#tlotd:burns_6000"
+  ]
+}

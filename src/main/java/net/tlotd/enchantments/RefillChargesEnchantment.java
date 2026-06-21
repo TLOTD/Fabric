@@ -35,6 +35,16 @@ public class RefillChargesEnchantment extends Enchantment {
 
     @Override
     public int getMaxPower(int level) {
-        return 127;
+        return 30;
+    }
+
+    @Override
+    public boolean isAvailableForRandomSelection() {
+        return true;
+    }
+
+    @Override
+    public boolean isAvailableForEnchantedBookOffer() {
+        return true;
     }
 }

@@ -13,7 +13,7 @@ public class MithrilAnvilGUI extends HandledScreen<MithrilAnvilGUIHandler> {
     private static final Identifier TEXTURE = new Identifier(TLOTD.MOD_ID, "textures/gui/mithril_anvil.png");
 
     public MithrilAnvilGUI(MithrilAnvilGUIHandler handler, PlayerInventory inventory, Text title) {
-        super(handler, inventory, Text.translatable("gui.tlotd.mithril_smithing"));
+        super(handler, inventory, Text.translatable("gui.tlotd.mithril_metalworking"));
     }
 
     @Override

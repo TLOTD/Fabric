@@ -34,7 +34,6 @@ import static net.tlotd.api.TlotdAPI.enlightened;
 public class OuijaBoardBlock extends Block {
 
     public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
-
     public static final DirectionProperty FACING = HorizontalFacingBlock.FACING;
 
     @Override

@@ -16,6 +16,7 @@ import net.minecraft.util.Identifier;
 import net.tlotd.block.ModBlocks;
 import net.tlotd.block.entity.ModBlockEntities;
 import net.tlotd.block.entity.renderer.*;
+import net.tlotd.client.LetterTooltipComponent;
 import net.tlotd.client.ModBlockRenderLayerMap;
 import net.tlotd.client.ModItemRenderLayerMap;
 import net.tlotd.client.SpaceSuitTooltipComponent;
@@ -28,6 +29,7 @@ import net.tlotd.networking.GlobalConfigNetworking;
 import net.tlotd.networking.ModMessages;
 import net.tlotd.networking.PlayerDataSyncNetworking;
 import net.tlotd.networking.TextureSyncNetworking;
+import net.tlotd.util.EnvelopeTooltipData;
 import net.tlotd.util.SpaceSuitTooltipData;
 
 public class TLOTDClient implements ClientModInitializer {
@@ -68,6 +70,12 @@ public class TLOTDClient implements ClientModInitializer {
 
         TerraformBoatClientHelper.registerModelLayers(ModBoats.GINKGO_BOAT_ID, false);
 
+        HandledScreens.register(ModGUIHandlers.DWARVEN_FORGE_GUI_HANDLER, DwarvenForgeGUI::new);
+        BlockEntityRendererFactories.register(ModBlockEntities.DWARVEN_FORGE_BLOCK_ENTITY, DwarvenForgeBlockEntityRenderer::new);
+
+        HandledScreens.register(ModGUIHandlers.NETHERITE_ANVIL_GUI_HANDLER, NetheriteAnvilGUI::new);
+        BlockEntityRendererFactories.register(ModBlockEntities.NETHERITE_ANVIL_BLOCK_ENTITY, NetheriteAnvilBlockEntityRenderer::new);
+
         HandledScreens.register(ModGUIHandlers.MITHRIL_ANVIL_GUI_HANDLER, MithrilAnvilGUI::new);
         BlockEntityRendererFactories.register(ModBlockEntities.MITHRIL_ANVIL_BLOCK_ENTITY, MithrilAnvilBlockEntityRenderer::new);
 
@@ -89,7 +97,9 @@ public class TLOTDClient implements ClientModInitializer {
         PlayerDataSyncNetworking.registerClientReceiver();
 
         TooltipComponentCallback.EVENT.register(data -> {
-            if (data instanceof SpaceSuitTooltipData suitData) {
+            if (data instanceof EnvelopeTooltipData suitData) {
+                return new LetterTooltipComponent(suitData);
+            } else if (data instanceof SpaceSuitTooltipData suitData) {
                 return new SpaceSuitTooltipComponent(suitData);
             }
             return null;

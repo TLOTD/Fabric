@@ -1,0 +1,9 @@
+{
+	"parent": "item/generated",
+	"textures": {
+		"layer0": "tlotd:item/envelope"
+	},
+	"overrides": [
+		{ "predicate": { "tlotd:sealed": 0.1 }, "model": "tlotd:item/sealed_envelope" }
+	]
+}

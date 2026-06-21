@@ -10,7 +10,8 @@
 	"replace": false,
 	"values": [
 		"tlotd:ginkgo_sapling",
-		"tlotd:rose",
+		"tlotd:red_rose",
+		"tlotd:blue_rose",
 		"tlotd:edelweiss"
 	]
 }

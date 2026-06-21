@@ -3,12 +3,22 @@
   "category": "misc",
   "key": {
     "#": {
-      "item": "tlotd:mithril_ingot"
+      "item": "tlotd:mithril_plate"
+    },
+    "C": {
+      "item": "tlotd:mithril_chainmail_chunk"
+    },
+    "F": {
+      "item": "minecraft:feather"
+    },
+    "G": {
+      "tag": "c:gold_nuggets"
     }
   },
   "pattern": [
-    "###",
-    "# #"
+    " F ",
+    "G#G",
+    "#C#"
   ],
   "result": {
     "item": "tlotd:mithril_helmet"

@@ -8,6 +8,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.util.collection.DefaultedList;
 import net.tlotd.recipe.MithrilSmithingRecipe;
+import net.tlotd.util.ItemHeatHelper;
+import net.tlotd.util.ModTags;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -25,7 +27,17 @@ public class MithrilSmithingDisplay extends BasicDisplay {
         for (int i = 0; i < 6; i++) {
             if (i < ingredients.size() && !ingredients.get(i).isEmpty()) {
                 ItemStack[] matching = ingredients.get(i).getMatchingStacks();
-                list.add(EntryIngredients.ofItemStacks(Arrays.asList(matching)));
+                List<ItemStack> converted = Arrays.stream(matching)
+                        .map(stack -> {
+                            if (ItemHeatHelper.getSmithingTemperature(stack) > 0) {
+                                ItemStack heatedStack = new ItemStack(stack.copy().getItem(), stack.getCount());
+                                ItemHeatHelper.setTemperature(heatedStack, ItemHeatHelper.getSmithingTemperature(heatedStack));
+                                return heatedStack;
+                            }
+                            return stack.copy();
+                        })
+                        .toList();
+                list.add(EntryIngredients.ofItemStacks(converted));
             } else {
                 list.add(EntryIngredient.empty());
             }
@@ -35,6 +47,6 @@ public class MithrilSmithingDisplay extends BasicDisplay {
 
     @Override
     public CategoryIdentifier<?> getCategoryIdentifier() {
-        return MithrilSmithingCategory.MITHRIL_SMITHING;
+        return MithrilSmithingCategory.MITHRIL_METALWORKING;
     }
 }

@@ -131,6 +131,9 @@ public class ModBlocks {
     public static final Block SMALL_GRAVESTONE = registerBlock("small_gravestone",
             new SmallGravestoneBlock(FabricBlockSettings.create().mapColor(MapColor.STONE_GRAY).requiresTool().strength(2.0F, 3.0F)));
 
+    public static final Block STACKABLE_BOOK = registerBlock("stackable_book",
+            new BookStackBlock(FabricBlockSettings.create().mapColor(MapColor.BROWN).sounds(BlockSoundGroup.GRASS).pistonBehavior(PistonBehavior.DESTROY).strength(1.0F, 1.0F)));
+
     public static final Block SKELETON = registerBlock("skeleton",
             new SkeletonBlock(FabricBlockSettings.create().mapColor(MapColor.WHITE).noCollision().sounds(BlockSoundGroup.BONE).pistonBehavior(PistonBehavior.DESTROY).strength(1.0F, 1.0F)));
     public static final Block EMERGING_SKELETON = registerBlock("emerging_skeleton",
@@ -278,16 +281,16 @@ public class ModBlocks {
             new Block(FabricBlockSettings.create().mapColor(MapColor.GRAY).requiresTool().strength(3.0F, 3.0F).sounds(BlockSoundGroup.DEEPSLATE)));
     public static final Block RED_DEEPSLATE_URANIUM_ORE = registerIrradiatedBlock("red_deepslate_uranium_ore",
             new Block(FabricBlockSettings.create().mapColor(MapColor.EMERALD_GREEN).requiresTool().strength(3.0F, 3.0F).sounds(BlockSoundGroup.DEEPSLATE)));
-    public static final Block RED_DEEPSLATE_HELIORITE_ORE = registerBlock("red_deepslate_heliorite_ore",
-            new Block(FabricBlockSettings.create().mapColor(MapColor.MAGENTA).requiresTool().strength(16.0F, 1200.0F).sounds(BlockSoundGroup.DEEPSLATE)));
-    public static final Block RED_DEEPSLATE_PALLADIUM_ORE = registerBlock("red_deepslate_palladium_ore",
-            new Block(FabricBlockSettings.create().mapColor(MapColor.MAGENTA).requiresTool().strength(16.0F, 1200.0F).sounds(BlockSoundGroup.DEEPSLATE)));
-    public static final Block RED_DEEPSLATE_JURASSOLINE_ORE = registerBlock("red_deepslate_jurassoline_ore",
-            new Block(FabricBlockSettings.create().mapColor(MapColor.PALE_GREEN).requiresTool().strength(16.0F, 1200.0F).sounds(BlockSoundGroup.DEEPSLATE)));
-    public static final Block RED_DEEPSLATE_CINNABAR_ORE = registerBlock("red_deepslate_cinnabar_ore",
-            new Block(FabricBlockSettings.create().mapColor(MapColor.DARK_RED).requiresTool().strength(16.0F, 1200.0F).sounds(BlockSoundGroup.DEEPSLATE)));
-    public static final Block RED_DEEPSLATE_NEBULAR_ORE = registerBlock("red_deepslate_nebular_ore",
-            new Block(FabricBlockSettings.create().mapColor(MapColor.DARK_RED).requiresTool().strength(16.0F, 1200.0F).sounds(BlockSoundGroup.DEEPSLATE)));
+    public static final Block RED_DEEPSLATE_HELIORITE_ORE = registerHeatableBlock("red_deepslate_heliorite_ore",
+            new Block(FabricBlockSettings.create().mapColor(MapColor.MAGENTA).requiresTool().strength(16.0F, 1200.0F).sounds(BlockSoundGroup.DEEPSLATE)), Rarity.COMMON);
+    public static final Block RED_DEEPSLATE_PALLADIUM_ORE = registerHeatableBlock("red_deepslate_palladium_ore",
+            new Block(FabricBlockSettings.create().mapColor(MapColor.MAGENTA).requiresTool().strength(16.0F, 1200.0F).sounds(BlockSoundGroup.DEEPSLATE)), Rarity.COMMON);
+    public static final Block RED_DEEPSLATE_JURASSOLINE_ORE = registerHeatableBlock("red_deepslate_jurassoline_ore",
+            new Block(FabricBlockSettings.create().mapColor(MapColor.PALE_GREEN).requiresTool().strength(16.0F, 1200.0F).sounds(BlockSoundGroup.DEEPSLATE)), Rarity.COMMON);
+    public static final Block RED_DEEPSLATE_CINNABAR_ORE = registerHeatableBlock("red_deepslate_cinnabar_ore",
+            new Block(FabricBlockSettings.create().mapColor(MapColor.DARK_RED).requiresTool().strength(16.0F, 1200.0F).sounds(BlockSoundGroup.DEEPSLATE)), Rarity.COMMON);
+    public static final Block RED_DEEPSLATE_NEBULAR_ORE = registerHeatableBlock("red_deepslate_nebular_ore",
+            new Block(FabricBlockSettings.create().mapColor(MapColor.DARK_RED).requiresTool().strength(16.0F, 1200.0F).sounds(BlockSoundGroup.DEEPSLATE)), Rarity.COMMON);
     public static final Block XEN_CRYSTAL_CLUSTER = registerRarityBlock("xen_crystal_cluster",
             new AmethystClusterBlock(7, 3, FabricBlockSettings.create().mapColor(MapColor.ORANGE).requiresTool().strength(1.5F, 1.5F).sounds(BlockSoundGroup.AMETHYST_CLUSTER).nonOpaque()),Rarity.UNCOMMON);
     public static final Block XEN_CRYSTAL_BLOCK = registerRarityBlock("xen_crystal_block",
@@ -394,6 +397,9 @@ public class ModBlocks {
     public static final Block YELLOW_WALLPAPERED_WOOD = registerBlock("yellow_wallpapered_wood",
             new PillarBlock(FabricBlockSettings.create().mapColor(MapColor.PALE_YELLOW).strength(2.0F, 2.0F).sounds(BlockSoundGroup.WOOD)));
 
+    public static final Block DWARVEN_FORGE = registerRarityBlock("dwarven_forge",
+            new DwarvenForgeBlock(FabricBlockSettings.create().mapColor(MapColor.WHITE_GRAY).requiresTool().strength(10.0F, 1200.0F).luminance(DwarvenForgeBlock::lightLevel)), Rarity.UNCOMMON);
+
     public static final Block STEEL_BLOCK = registerBlock("steel_block",
             new Block(FabricBlockSettings.create().mapColor(MapColor.DEEPSLATE_GRAY).requiresTool().strength(6.0F, 12.0F).sounds(BlockSoundGroup.METAL)));
 
@@ -434,64 +440,71 @@ public class ModBlocks {
     public static final Block DEEPSLATE_FOSSIL = registerBlock("deepslate_fossil",
             new Block(FabricBlockSettings.create().mapColor(MapColor.PALE_YELLOW).requiresTool().strength(3.0F, 3.0F).sounds(BlockSoundGroup.DEEPSLATE)));
 
-    public static final Block HELIORITE_ORE = registerBlock("heliorite_ore",
-            new Block(FabricBlockSettings.create().mapColor(MapColor.MAGENTA).requiresTool().strength(16.0F, 1200.0F)));
-    public static final Block DEEPSLATE_HELIORITE_ORE = registerBlock("deepslate_heliorite_ore",
-            new Block(FabricBlockSettings.create().mapColor(MapColor.MAGENTA).requiresTool().strength(16.0F, 1200.0F).sounds(BlockSoundGroup.DEEPSLATE)));
-    public static final Block HELIORITE_COMB_BLOCK = registerBlock("heliorite_comb_block",
-            new Block(FabricBlockSettings.create().mapColor(MapColor.MAGENTA).requiresTool().strength(16.0F, 1200.0F)));
-    public static final Block HELIORITE_BLOCK = registerBlock("heliorite_block",
-            new Block(FabricBlockSettings.create().mapColor(MapColor.MAGENTA).requiresTool().strength(16.0F, 1200.0F).sounds(BlockSoundGroup.NETHERITE)));
+    public static final Block HELIORITE_ORE = registerHeatableBlock("heliorite_ore",
+            new Block(FabricBlockSettings.create().mapColor(MapColor.MAGENTA).requiresTool().strength(16.0F, 1200.0F)), Rarity.COMMON);
+    public static final Block DEEPSLATE_HELIORITE_ORE = registerHeatableBlock("deepslate_heliorite_ore",
+            new Block(FabricBlockSettings.create().mapColor(MapColor.MAGENTA).requiresTool().strength(16.0F, 1200.0F).sounds(BlockSoundGroup.DEEPSLATE)), Rarity.COMMON);
+    public static final Block HELIORITE_COMB_BLOCK = registerHeatableBlock("heliorite_comb_block",
+            new Block(FabricBlockSettings.create().mapColor(MapColor.MAGENTA).requiresTool().strength(16.0F, 1200.0F)), Rarity.COMMON);
+    public static final Block HELIORITE_BLOCK = registerHeatableBlock("heliorite_block",
+            new Block(FabricBlockSettings.create().mapColor(MapColor.MAGENTA).requiresTool().strength(16.0F, 1200.0F).sounds(BlockSoundGroup.NETHERITE)), Rarity.COMMON);
 
-    public static final Block END_ENDURIUM_ORE = registerBlock("end_endurium_ore",
-            new Block(FabricBlockSettings.create().mapColor(MapColor.DARK_AQUA).requiresTool().strength(16.0F, 1200.0F)));
-    public static final Block RAW_ENDURIUM_BLOCK = registerBlock("raw_endurium_block",
-            new Block(FabricBlockSettings.create().mapColor(MapColor.DARK_AQUA).requiresTool().strength(16.0F, 1200.0F)));
-    public static final Block ENDURIUM_BLOCK = registerBlock("endurium_block",
-            new Block(FabricBlockSettings.create().mapColor(MapColor.DARK_AQUA).requiresTool().strength(16.0F, 1200.0F).sounds(BlockSoundGroup.NETHERITE)));
+    public static final Block END_ENDURIUM_ORE = registerHeatableBlock("end_endurium_ore",
+            new Block(FabricBlockSettings.create().mapColor(MapColor.DARK_AQUA).requiresTool().strength(16.0F, 1200.0F)), Rarity.COMMON);
+    public static final Block RAW_ENDURIUM_BLOCK = registerHeatableBlock("raw_endurium_block",
+            new Block(FabricBlockSettings.create().mapColor(MapColor.DARK_AQUA).requiresTool().strength(16.0F, 1200.0F)), Rarity.COMMON);
+    public static final Block ENDURIUM_BLOCK = registerHeatableBlock("endurium_block",
+            new Block(FabricBlockSettings.create().mapColor(MapColor.DARK_AQUA).requiresTool().strength(16.0F, 1200.0F).sounds(BlockSoundGroup.NETHERITE)), Rarity.COMMON);
 
-    public static final Block PALLADIUM_ORE = registerBlock("palladium_ore",
-            new Block(FabricBlockSettings.create().mapColor(MapColor.ORANGE).requiresTool().strength(16.0F, 1200.0F)));
-    public static final Block DEEPSLATE_PALLADIUM_ORE = registerBlock("deepslate_palladium_ore",
-            new Block(FabricBlockSettings.create().mapColor(MapColor.ORANGE).requiresTool().strength(16.0F, 1200.0F).sounds(BlockSoundGroup.DEEPSLATE)));
-    public static final Block RAW_PALLADIUM_BLOCK = registerBlock("raw_palladium_block",
-            new Block(FabricBlockSettings.create().mapColor(MapColor.ORANGE).requiresTool().strength(16.0F, 1200.0F)));
-    public static final Block PALLADIUM_BLOCK = registerBlock("palladium_block",
-            new Block(FabricBlockSettings.create().mapColor(MapColor.ORANGE).requiresTool().strength(16.0F, 1200.0F).sounds(BlockSoundGroup.NETHERITE)));
+    public static final Block PALLADIUM_ORE = registerHeatableBlock("palladium_ore",
+            new Block(FabricBlockSettings.create().mapColor(MapColor.ORANGE).requiresTool().strength(16.0F, 1200.0F)), Rarity.COMMON);
+    public static final Block DEEPSLATE_PALLADIUM_ORE = registerHeatableBlock("deepslate_palladium_ore",
+            new Block(FabricBlockSettings.create().mapColor(MapColor.ORANGE).requiresTool().strength(16.0F, 1200.0F).sounds(BlockSoundGroup.DEEPSLATE)), Rarity.COMMON);
+    public static final Block RAW_PALLADIUM_BLOCK = registerHeatableBlock("raw_palladium_block",
+            new Block(FabricBlockSettings.create().mapColor(MapColor.ORANGE).requiresTool().strength(16.0F, 1200.0F)), Rarity.COMMON);
+    public static final Block PALLADIUM_BLOCK = registerHeatableBlock("palladium_block",
+            new Block(FabricBlockSettings.create().mapColor(MapColor.ORANGE).requiresTool().strength(16.0F, 1200.0F).sounds(BlockSoundGroup.NETHERITE)), Rarity.COMMON);
 
-    public static final Block JURASSOLINE_ORE = registerBlock("jurassoline_ore",
-            new Block(FabricBlockSettings.create().mapColor(MapColor.PALE_GREEN).requiresTool().strength(16.0F, 1200.0F)));
-    public static final Block DEEPSLATE_JURASSOLINE_ORE = registerBlock("deepslate_jurassoline_ore",
-            new Block(FabricBlockSettings.create().mapColor(MapColor.PALE_GREEN).requiresTool().strength(16.0F, 1200.0F).sounds(BlockSoundGroup.DEEPSLATE)));
-    public static final Block JURASSOLINE_CRYSTAL_BLOCK = registerBlock("jurassoline_crystal_block",
-            new Block(FabricBlockSettings.create().mapColor(MapColor.PALE_GREEN).requiresTool().strength(16.0F, 1200.0F).sounds(BlockSoundGroup.AMETHYST_BLOCK)));
-    public static final Block JURASSOLINE_BLOCK = registerBlock("jurassoline_block",
-            new Block(FabricBlockSettings.create().mapColor(MapColor.PALE_GREEN).requiresTool().strength(16.0F, 1200.0F).sounds(BlockSoundGroup.NETHERITE)));
+    public static final Block JURASSOLINE_ORE = registerHeatableBlock("jurassoline_ore",
+            new Block(FabricBlockSettings.create().mapColor(MapColor.PALE_GREEN).requiresTool().strength(16.0F, 1200.0F)), Rarity.COMMON);
+    public static final Block DEEPSLATE_JURASSOLINE_ORE = registerHeatableBlock("deepslate_jurassoline_ore",
+            new Block(FabricBlockSettings.create().mapColor(MapColor.PALE_GREEN).requiresTool().strength(16.0F, 1200.0F).sounds(BlockSoundGroup.DEEPSLATE)), Rarity.COMMON);
+    public static final Block JURASSOLINE_CRYSTAL_BLOCK = registerHeatableBlock("jurassoline_crystal_block",
+            new Block(FabricBlockSettings.create().mapColor(MapColor.PALE_GREEN).requiresTool().strength(16.0F, 1200.0F).sounds(BlockSoundGroup.AMETHYST_BLOCK)), Rarity.COMMON);
+    public static final Block JURASSOLINE_BLOCK = registerHeatableBlock("jurassoline_block",
+            new Block(FabricBlockSettings.create().mapColor(MapColor.PALE_GREEN).requiresTool().strength(16.0F, 1200.0F).sounds(BlockSoundGroup.NETHERITE)), Rarity.COMMON);
 
-    public static final Block CINNABAR_ORE = registerBlock("cinnabar_ore",
-            new Block(FabricBlockSettings.create().mapColor(MapColor.DARK_RED).requiresTool().strength(16.0F, 1200.0F)));
-    public static final Block DEEPSLATE_CINNABAR_ORE = registerBlock("deepslate_cinnabar_ore",
-            new Block(FabricBlockSettings.create().mapColor(MapColor.DARK_RED).requiresTool().strength(16.0F, 1200.0F).sounds(BlockSoundGroup.DEEPSLATE)));
-    public static final Block CINNABAR_CRYSTAL_BLOCK = registerBlock("cinnabar_crystal_block",
-            new Block(FabricBlockSettings.create().mapColor(MapColor.DARK_RED).requiresTool().strength(16.0F, 1200.0F).sounds(BlockSoundGroup.AMETHYST_BLOCK)));
-    public static final Block CINNABAR_BLOCK = registerBlock("cinnabar_block",
-            new Block(FabricBlockSettings.create().mapColor(MapColor.DARK_RED).requiresTool().strength(16.0F, 1200.0F).sounds(BlockSoundGroup.NETHERITE)));
+    public static final Block CINNABAR_ORE = registerHeatableBlock("cinnabar_ore",
+            new Block(FabricBlockSettings.create().mapColor(MapColor.DARK_RED).requiresTool().strength(16.0F, 1200.0F)), Rarity.COMMON);
+    public static final Block DEEPSLATE_CINNABAR_ORE = registerHeatableBlock("deepslate_cinnabar_ore",
+            new Block(FabricBlockSettings.create().mapColor(MapColor.DARK_RED).requiresTool().strength(16.0F, 1200.0F).sounds(BlockSoundGroup.DEEPSLATE)), Rarity.COMMON);
+    public static final Block CINNABAR_CRYSTAL_BLOCK = registerHeatableBlock("cinnabar_crystal_block",
+            new Block(FabricBlockSettings.create().mapColor(MapColor.DARK_RED).requiresTool().strength(16.0F, 1200.0F).sounds(BlockSoundGroup.AMETHYST_BLOCK)), Rarity.COMMON);
+    public static final Block CINNABAR_BLOCK = registerHeatableBlock("cinnabar_block",
+            new Block(FabricBlockSettings.create().mapColor(MapColor.DARK_RED).requiresTool().strength(16.0F, 1200.0F).sounds(BlockSoundGroup.NETHERITE)), Rarity.COMMON);
 
-    public static final Block NEBULAR_ORE = registerBlock("nebular_ore",
-            new Block(FabricBlockSettings.create().mapColor(MapColor.DARK_AQUA).requiresTool().strength(16.0F, 1200.0F)));
-    public static final Block DEEPSLATE_NEBULAR_ORE = registerBlock("deepslate_nebular_ore",
-            new Block(FabricBlockSettings.create().mapColor(MapColor.DARK_AQUA).requiresTool().strength(16.0F, 1200.0F).sounds(BlockSoundGroup.DEEPSLATE)));
-    public static final Block RAW_NEBULAR_BLOCK = registerBlock("raw_nebular_block",
-            new Block(FabricBlockSettings.create().mapColor(MapColor.DARK_AQUA).requiresTool().strength(16.0F, 1200.0F)));
-    public static final Block NEBULAR_BLOCK = registerBlock("nebular_block",
-            new Block(FabricBlockSettings.create().mapColor(MapColor.DARK_AQUA).requiresTool().strength(16.0F, 1200.0F).sounds(BlockSoundGroup.NETHERITE)));
+    public static final Block NEBULAR_ORE = registerHeatableBlock("nebular_ore",
+            new Block(FabricBlockSettings.create().mapColor(MapColor.DARK_AQUA).requiresTool().strength(16.0F, 1200.0F)), Rarity.COMMON);
+    public static final Block DEEPSLATE_NEBULAR_ORE = registerHeatableBlock("deepslate_nebular_ore",
+            new Block(FabricBlockSettings.create().mapColor(MapColor.DARK_AQUA).requiresTool().strength(16.0F, 1200.0F).sounds(BlockSoundGroup.DEEPSLATE)), Rarity.COMMON);
+    public static final Block RAW_NEBULAR_BLOCK = registerHeatableBlock("raw_nebular_block",
+            new Block(FabricBlockSettings.create().mapColor(MapColor.DARK_AQUA).requiresTool().strength(16.0F, 1200.0F)), Rarity.COMMON);
+    public static final Block NEBULAR_BLOCK = registerHeatableBlock("nebular_block",
+            new Block(FabricBlockSettings.create().mapColor(MapColor.DARK_AQUA).requiresTool().strength(16.0F, 1200.0F).sounds(BlockSoundGroup.NETHERITE)), Rarity.COMMON);
 
-    public static final Block BEDROCK_MITHRIL_ORE = registerRarityBlock("bedrock_mithril_ore",
+    public static final Block BEDROCK_MITHRIL_ORE = registerHeatableBlock("bedrock_mithril_ore",
             new MithrilBlock(FabricBlockSettings.create().mapColor(MapColor.WHITE_GRAY).requiresTool().strength(-1.0F, 3600000.0F)), Rarity.UNCOMMON);
-    public static final Block RAW_MITHRIL_BLOCK = registerRarityBlock("raw_mithril_block",
+    public static final Block RAW_MITHRIL_BLOCK = registerHeatableBlock("raw_mithril_block",
             new MithrilBlock(FabricBlockSettings.create().mapColor(MapColor.WHITE_GRAY).requiresTool().strength(10.0F, 1200.0F).sounds(BlockSoundGroup.NETHERITE)), Rarity.UNCOMMON);
-    public static final Block MITHRIL_BLOCK = registerRarityBlock("mithril_block",
+    public static final Block REFINED_RAW_MITHRIL_BLOCK = registerHeatableBlock("refined_raw_mithril_block",
+            new Block(FabricBlockSettings.create().mapColor(MapColor.WHITE_GRAY).requiresTool().strength(10.0F, 1200.0F).sounds(BlockSoundGroup.NETHERITE)), Rarity.UNCOMMON);
+    public static final Block ROUGH_MITHRIL_BLOCK = registerHeatableBlock("rough_mithril_block",
+            new Block(FabricBlockSettings.create().mapColor(MapColor.WHITE_GRAY).requiresTool().strength(10.0F, 1200.0F).sounds(BlockSoundGroup.NETHERITE)), Rarity.UNCOMMON);
+    public static final Block MITHRIL_BLOCK = registerHeatableBlock("mithril_block",
             new MithrilBlock(FabricBlockSettings.create().mapColor(MapColor.WHITE_GRAY).requiresTool().strength(10.0F, 1200.0F).sounds(BlockSoundGroup.NETHERITE)), Rarity.UNCOMMON);
+
+    public static final Block NETHERITE_ANVIL = registerBlock("netherite_anvil",
+            new NetheriteAnvilBlock(FabricBlockSettings.create().mapColor(MapColor.DEEPSLATE_GRAY).requiresTool().strength(10.0F, 1200.0F).sounds(BlockSoundGroup.ANVIL)));
 
     public static final Block MITHRIL_ANVIL = registerRarityBlock("mithril_anvil",
             new MithrilAnvilBlock(FabricBlockSettings.create().mapColor(MapColor.WHITE_GRAY).requiresTool().strength(10.0F, 1200.0F).sounds(BlockSoundGroup.ANVIL)), Rarity.UNCOMMON);
@@ -631,10 +644,19 @@ public class ModBlocks {
     public static final Block SICKENED_TREX_HEAD = registerCompatBlock("sickened_t-rex_head",
             new TRexHeadBlock(FabricBlockSettings.create().mapColor(MapColor.BLACK).strength(1.0F, 1.0F).nonOpaque()), Rarity.UNCOMMON, "wsm");
 
-    public static final Block ROSE = registerBlock("rose",
+    public static final Block RED_ROSE = registerBlock("red_rose",
             new ModFlowerBlock(StatusEffects.INSTANT_HEALTH, 10, FabricBlockSettings.create().breakInstantly().nonOpaque().sounds(BlockSoundGroup.GRASS).noCollision().pistonBehavior(PistonBehavior.DESTROY)));
-    public static final Block POTTED_ROSE = Registry.register(Registries.BLOCK, new Identifier(TLOTD.MOD_ID, "potted_rose"),
-            new FlowerPotBlock(ROSE, FabricBlockSettings.create().breakInstantly().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
+    public static final Block POTTED_RED_ROSE = Registry.register(Registries.BLOCK, new Identifier(TLOTD.MOD_ID, "potted_red_rose"),
+            new FlowerPotBlock(RED_ROSE, FabricBlockSettings.create().breakInstantly().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
+    public static final Block BLUE_ROSE = registerBlock("blue_rose",
+            new ModFlowerBlock(StatusEffects.INSTANT_HEALTH, 10, FabricBlockSettings.create().breakInstantly().nonOpaque().sounds(BlockSoundGroup.GRASS).noCollision().pistonBehavior(PistonBehavior.DESTROY)));
+    public static final Block POTTED_BLUE_ROSE = Registry.register(Registries.BLOCK, new Identifier(TLOTD.MOD_ID, "potted_blue_rose"),
+            new FlowerPotBlock(BLUE_ROSE, FabricBlockSettings.create().breakInstantly().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
+
+    public static final Block PAEONIA = registerBlock("paeonia",
+            new ModFlowerBlock(StatusEffects.REGENERATION, 10, FabricBlockSettings.create().breakInstantly().nonOpaque().sounds(BlockSoundGroup.GRASS).noCollision().pistonBehavior(PistonBehavior.DESTROY)));
+    public static final Block POTTED_PAEONIA = Registry.register(Registries.BLOCK, new Identifier(TLOTD.MOD_ID, "potted_paeonia"),
+            new FlowerPotBlock(PAEONIA, FabricBlockSettings.create().breakInstantly().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
 
     public static final Block IRIS = registerBlock("iris",
             new ModFlowerBlock(StatusEffects.POISON, 10, FabricBlockSettings.create().breakInstantly().nonOpaque().sounds(BlockSoundGroup.GRASS).noCollision().pistonBehavior(PistonBehavior.DESTROY)));
@@ -713,6 +735,10 @@ public class ModBlocks {
     public static final Block ARCHAEOLOGY_TABLE = registerBlock("archaeology_table",
             new ArchaeologyTableBlock(FabricBlockSettings.create().mapColor(MapColor.BROWN).strength(2.0F, 3.0F).sounds(BlockSoundGroup.WOOD)));
 
+    public static final Block ARCADE_WOOL = registerBlock("arcade_wool",
+            new Block(FabricBlockSettings.create().mapColor(MapColor.ORANGE).strength(0.8F, 0.8F).sounds(BlockSoundGroup.WOOL)));
+    public static final Block ARCADE_CARPET = registerBlock("arcade_carpet",
+            new CarpetBlock(FabricBlockSettings.create().mapColor(MapColor.ORANGE).strength(0.1F, 0.1F).sounds(BlockSoundGroup.WOOL)));
     public static final Block CURSED_WOOL = registerBlock("cursed_wool",
             new CursedWoolBlock(FabricBlockSettings.create().mapColor(MapColor.ORANGE).strength(0.8F, 0.8F).sounds(BlockSoundGroup.WOOL)));
     public static final Block CURSED_CARPET = registerBlock("cursed_carpet",
@@ -880,6 +906,11 @@ public class ModBlocks {
         return Registry.register(Registries.BLOCK, new Identifier(TLOTD.MOD_ID, name), block);
     }
 
+    private static Block registerHeatableBlock(String name, Block block, Rarity rarity) {
+        registerHeatableBlockItem(name, block, rarity);
+        return Registry.register(Registries.BLOCK, new Identifier(TLOTD.MOD_ID, name), block);
+    }
+
     private static Block registerSmallStackableBlock(Block block) {
         registerSmallStackBlockItem("preserves_jar", block);
         return Registry.register(Registries.BLOCK, new Identifier(TLOTD.MOD_ID, "preserves_jar"), block);
@@ -947,6 +978,11 @@ public class ModBlocks {
     private static Item registerRarityBlockItem(String name, Block block, Rarity rarity) {
         return Registry.register(Registries.ITEM, new Identifier(TLOTD.MOD_ID, name),
                 new BlockItem(block, new FabricItemSettings().rarity(rarity)));
+    }
+
+    private static Item registerHeatableBlockItem(String name, Block block, Rarity rarity) {
+        return Registry.register(Registries.ITEM, new Identifier(TLOTD.MOD_ID, name),
+                new HeatableBlockItem(block, new FabricItemSettings().rarity(rarity).fireproof()));
     }
 
     private static Item registerCompatBlockItem(String name, Block block, Rarity rarity, String compat) {

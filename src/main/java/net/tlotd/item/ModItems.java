@@ -152,6 +152,7 @@ public class ModItems {
 
     public static final Item FLASH_DRIVE = registerItem("flash_drive", new FlashDriveItem(new FabricItemSettings()));
     public static final Item KEYCARD = registerItem("keycard", new KeycardItem(new FabricItemSettings().maxCount(1)));
+    public static final Item ENVELOPE = registerItem("envelope", new EnvelopeItem(new FabricItemSettings().maxCount(1)));
 
     public static final Item ALUMINIUM_WIRE = registerItem("aluminium_wire", new Item(new FabricItemSettings()));
     public static final Item COPPER_WIRE = registerItem("copper_wire", new Item(new FabricItemSettings()));
@@ -203,6 +204,10 @@ public class ModItems {
     public static final Item STEEL_INGOT = registerItem("steel_ingot", new Item(new FabricItemSettings()));
     public static final Item STEEL_ROD = registerItem("steel_rod", new Item(new FabricItemSettings()));
     public static final Item REINFORCED_TOOL_ROD = registerItem("reinforced_tool_rod", new Item(new FabricItemSettings()));
+    public static final Item FANCY_TOOL_ROD = registerItem("fancy_tool_rod", new Item(new FabricItemSettings()));
+
+    public static final Item STEEL_TONGS = registerItem("steel_tongs", new Item(new FabricItemSettings()));
+    public static final Item REINFORCED_TONGS = registerItem("reinforced_tongs", new Item(new FabricItemSettings()));
 
     public static final Item STEEL_SICKLE = registerItem("steel_sickle", new SickleItem(new FabricItemSettings().maxDamage(512)));
 
@@ -245,9 +250,9 @@ public class ModItems {
     public static final Item BAMBOO_SHOVEL = registerItem("bamboo_shovel", new ShovelItem(ModToolMaterial.BAMBOO, 1.5f, -3.0f, new FabricItemSettings()));
     public static final Item BAMBOO_HOE = registerItem("bamboo_hoe", new HoeItem(ModToolMaterial.BAMBOO, 0, -3, new FabricItemSettings()));
 
-    public static final Item HELIORITE_COMB = registerItem("heliorite_comb", new Item(new FabricItemSettings()));
+    public static final Item HELIORITE_COMB = registerItem("heliorite_comb", new HeatableItem(new FabricItemSettings()));
     public static final Item HELIORITE_NUGGET = registerItem("heliorite_nugget", new Item(new FabricItemSettings()));
-    public static final Item HELIORITE_INGOT = registerItem("heliorite_ingot", new Item(new FabricItemSettings()));
+    public static final Item HELIORITE_INGOT = registerItem("heliorite_ingot", new HeatableItem(new FabricItemSettings()));
 
     public static final Item HELIORITE_UPGRADE_SMITHING_TEMPLATE = registerItem("heliorite_upgrade_smithing_template", new SmithingTemplateItem(Text.translatable("item.tlotd.heliorite_upgrade_smithing_template.tooltip_1").formatted(Formatting.BLUE),Text.translatable("item.tlotd.heliorite_upgrade_smithing_template.tooltip_2").formatted(Formatting.BLUE),Text.translatable("item.tlotd.heliorite_upgrade_smithing_template.tooltip").formatted(Formatting.GRAY),Text.translatable("item.tlotd.heliorite_upgrade_smithing_template.tooltip_3"),Text.translatable("item.tlotd.heliorite_upgrade_smithing_template.tooltip_4"), List.of(emptySlotPickaxeTexture), List.of(emptySlotPickaxeHeadTexture)));
 
@@ -268,9 +273,9 @@ public class ModItems {
     public static final Item HELIORITE_LEGGINGS = registerItem("heliorite_leggings", new ArmorItem(ModArmorMaterial.HELIORITE, ArmorItem.Type.LEGGINGS, new FabricItemSettings()));
     public static final Item HELIORITE_BOOTS = registerItem("heliorite_boots", new ArmorItem(ModArmorMaterial.HELIORITE, ArmorItem.Type.BOOTS, new FabricItemSettings()));
 
-    public static final Item ENDURIUM_CRYSTAL = registerItem("endurium_crystal", new Item(new FabricItemSettings()));
+    public static final Item ENDURIUM_CRYSTAL = registerItem("endurium_crystal", new HeatableItem(new FabricItemSettings()));
     public static final Item ENDURIUM_NUGGET = registerItem("endurium_nugget", new Item(new FabricItemSettings()));
-    public static final Item ENDURIUM_INGOT = registerItem("endurium_ingot", new Item(new FabricItemSettings()));
+    public static final Item ENDURIUM_INGOT = registerItem("endurium_ingot", new HeatableItem(new FabricItemSettings()));
 
     public static final Item ENDURIUM_UPGRADE_SMITHING_TEMPLATE = registerItem("endurium_upgrade_smithing_template", new SmithingTemplateItem(Text.translatable("item.tlotd.endurium_upgrade_smithing_template.tooltip_1").formatted(Formatting.BLUE),Text.translatable("item.tlotd.endurium_upgrade_smithing_template.tooltip_2").formatted(Formatting.BLUE),Text.translatable("item.tlotd.endurium_upgrade_smithing_template.tooltip").formatted(Formatting.GRAY),Text.translatable("item.tlotd.endurium_upgrade_smithing_template.tooltip_3"),Text.translatable("item.tlotd.endurium_upgrade_smithing_template.tooltip_4"), List.of(emptySlotPickaxeTexture), List.of(emptySlotPickaxeHeadTexture)));
     
@@ -291,9 +296,9 @@ public class ModItems {
     public static final Item ENDURIUM_LEGGINGS = registerItem("endurium_leggings", new ArmorItem(ModArmorMaterial.ENDURIUM, ArmorItem.Type.LEGGINGS, new FabricItemSettings()));
     public static final Item ENDURIUM_BOOTS = registerItem("endurium_boots", new ArmorItem(ModArmorMaterial.ENDURIUM, ArmorItem.Type.BOOTS, new FabricItemSettings()));
 
-    public static final Item RAW_PALLADIUM = registerItem("raw_palladium", new Item(new FabricItemSettings()));
+    public static final Item RAW_PALLADIUM = registerItem("raw_palladium", new HeatableItem(new FabricItemSettings()));
     public static final Item PALLADIUM_NUGGET = registerItem("palladium_nugget", new Item(new FabricItemSettings()));
-    public static final Item PALLADIUM_INGOT = registerItem("palladium_ingot", new Item(new FabricItemSettings()));
+    public static final Item PALLADIUM_INGOT = registerItem("palladium_ingot", new HeatableItem(new FabricItemSettings()));
 
     public static final Item PALLADIUM_SWORD = registerItem("palladium_sword", new SwordItem(ModToolMaterial.PALLADIUM, 4, -2.4f, new FabricItemSettings()));
     public static final Item PALLADIUM_PICKAXE = registerItem("palladium_pickaxe", new AugmentedPickaxeItem(ModToolMaterial.PALLADIUM, 2, -2.8f, new FabricItemSettings()));
@@ -310,9 +315,9 @@ public class ModItems {
     public static final Item PALLADIUM_LEGGINGS = registerItem("palladium_leggings", new ArmorItem(ModArmorMaterial.PALLADIUM, ArmorItem.Type.LEGGINGS, new FabricItemSettings()));
     public static final Item PALLADIUM_BOOTS = registerItem("palladium_boots", new ArmorItem(ModArmorMaterial.PALLADIUM, ArmorItem.Type.BOOTS, new FabricItemSettings()));
 
-    public static final Item JURASSOLINE_CRYSTAL = registerItem("jurassoline_crystal", new Item(new FabricItemSettings()));
+    public static final Item JURASSOLINE_CRYSTAL = registerItem("jurassoline_crystal", new HeatableItem(new FabricItemSettings()));
     public static final Item JURASSOLINE_NUGGET = registerItem("jurassoline_nugget", new Item(new FabricItemSettings()));
-    public static final Item JURASSOLINE_INGOT = registerItem("jurassoline_ingot", new Item(new FabricItemSettings()));
+    public static final Item JURASSOLINE_INGOT = registerItem("jurassoline_ingot", new HeatableItem(new FabricItemSettings()));
 
     public static final Item JURASSOLINE_SWORD = registerItem("jurassoline_sword", new SwordItem(ModToolMaterial.JURASSOLINE, 4, -2.4f, new FabricItemSettings()));
     public static final Item JURASSOLINE_PICKAXE = registerItem("jurassoline_pickaxe", new AugmentedPickaxeItem(ModToolMaterial.JURASSOLINE, 2, -2.8f, new FabricItemSettings()));
@@ -329,9 +334,9 @@ public class ModItems {
     public static final Item JURASSOLINE_LEGGINGS = registerItem("jurassoline_leggings", new ArmorItem(ModArmorMaterial.JURASSOLINE, ArmorItem.Type.LEGGINGS, new FabricItemSettings()));
     public static final Item JURASSOLINE_BOOTS = registerItem("jurassoline_boots", new ArmorItem(ModArmorMaterial.JURASSOLINE, ArmorItem.Type.BOOTS, new FabricItemSettings()));
 
-    public static final Item CINNABAR_CRYSTAL = registerItem("cinnabar_crystal", new Item(new FabricItemSettings()));
+    public static final Item CINNABAR_CRYSTAL = registerItem("cinnabar_crystal", new HeatableItem(new FabricItemSettings()));
     public static final Item CINNABAR_NUGGET = registerItem("cinnabar_nugget", new Item(new FabricItemSettings()));
-    public static final Item CINNABAR_INGOT = registerItem("cinnabar_ingot", new Item(new FabricItemSettings()));
+    public static final Item CINNABAR_INGOT = registerItem("cinnabar_ingot", new HeatableItem(new FabricItemSettings()));
 
     public static final Item CINNABAR_SWORD = registerItem("cinnabar_sword", new SwordItem(ModToolMaterial.CINNABAR, 4, -2.4f, new FabricItemSettings()));
     public static final Item CINNABAR_PICKAXE = registerItem("cinnabar_pickaxe", new AugmentedPickaxeItem(ModToolMaterial.CINNABAR, 2, -2.8f, new FabricItemSettings()));
@@ -348,9 +353,9 @@ public class ModItems {
     public static final Item CINNABAR_LEGGINGS = registerItem("cinnabar_leggings", new ArmorItem(ModArmorMaterial.CINNABAR, ArmorItem.Type.LEGGINGS, new FabricItemSettings()));
     public static final Item CINNABAR_BOOTS = registerItem("cinnabar_boots", new ArmorItem(ModArmorMaterial.CINNABAR, ArmorItem.Type.BOOTS, new FabricItemSettings()));
 
-    public static final Item NEBULAR_CRYSTAL = registerItem("nebular_crystal", new Item(new FabricItemSettings()));
+    public static final Item NEBULAR_CRYSTAL = registerItem("nebular_crystal", new HeatableItem(new FabricItemSettings()));
     public static final Item NEBULAR_NUGGET = registerItem("nebular_nugget", new Item(new FabricItemSettings()));
-    public static final Item NEBULAR_INGOT = registerItem("nebular_ingot", new Item(new FabricItemSettings()));
+    public static final Item NEBULAR_INGOT = registerItem("nebular_ingot", new HeatableItem(new FabricItemSettings()));
 
     public static final Item NEBULAR_SWORD = registerItem("nebular_sword", new SwordItem(ModToolMaterial.NEBULAR, 4, -2.4f, new FabricItemSettings()));
     public static final Item NEBULAR_PICKAXE = registerItem("nebular_pickaxe", new AugmentedPickaxeItem(ModToolMaterial.NEBULAR, 2, -2.8f, new FabricItemSettings()));
@@ -367,12 +372,13 @@ public class ModItems {
     public static final Item NEBULAR_LEGGINGS = registerItem("nebular_leggings", new ArmorItem(ModArmorMaterial.NEBULAR, ArmorItem.Type.LEGGINGS, new FabricItemSettings()));
     public static final Item NEBULAR_BOOTS = registerItem("nebular_boots", new ArmorItem(ModArmorMaterial.NEBULAR, ArmorItem.Type.BOOTS, new FabricItemSettings()));
 
-    public static final Item FANCY_TOOL_ROD = registerItem("fancy_tool_rod", new Item(new FabricItemSettings()));
-
     public static final Item RAW_MITHRIL = registerItem("raw_mithril", new Item(new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof()));
+    public static final Item REFINED_RAW_MITHRIL = registerItem("refined_raw_mithril", new HeatableItem(new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof()));
+    public static final Item ROUGH_MITHRIL_INGOT = registerItem("rough_mithril_ingot", new HeatableItem(new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof()));
+    public static final Item MITHRIL_INGOT = registerItem("mithril_ingot", new HeatableItem(new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof()));
     public static final Item MITHRIL_NUGGET = registerItem("mithril_nugget", new Item(new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof()));
-    public static final Item MITHRIL_INGOT = registerItem("mithril_ingot", new Item(new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof()));
 
+    public static final Item MITHRIL_PLATE = registerItem("mithril_plate", new HeatableItem(new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof()));
     public static final Item MITHRIL_CHAINMAIL_CHUNK = registerItem("mithril_chainmail_chunk", new Item(new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof()));
 
     public static final Item MITHRIL_SWORD = registerItem("mithril_sword", new SwordItem(ModToolMaterial.MITHRIL, 4, -2.4f, new FabricItemSettings().rarity(Rarity.UNCOMMON).fireproof()));

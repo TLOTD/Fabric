@@ -27,7 +27,6 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.tlotd.block.entity.MithrilAnvilBlockEntity;
 import net.tlotd.block.entity.ModBlockEntities;
-import net.tlotd.config.ModConfigs;
 import net.tlotd.networking.ClientGlobalConfig;
 import org.jetbrains.annotations.Nullable;
 

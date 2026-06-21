@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "tlotd:rough_mithril_ingot",
+    "tlotd:rough_mithril_block",
+    "tlotd:mithril_ingot",
+    "tlotd:mithril_block",
+    "tlotd:mithril_plate"
+  ]
+}

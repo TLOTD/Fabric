@@ -6,6 +6,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.registry.Registries;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.Hand;
@@ -64,6 +65,19 @@ public class TlotdAPI {
     public static BlockState handleTelevisionUse(BlockState state, World world, BlockPos pos, PlayerEntity player) {
         return net.tlotd.block.custom.TelevisionBlock.handleTelevisionUse(state, world, pos, player);
     }
+
+    public static Object handleTelevisionUseUnsafe(Object state, Object world, Object pos, Object player) {
+        try {
+            return net.tlotd.block.custom.TelevisionBlock.handleTelevisionUse(
+                    (BlockState) state, (World) world, (BlockPos) pos, (PlayerEntity) player);
+        } catch (ClassCastException e) {
+            throw new IllegalArgumentException(
+                    "Invalid parameter types supplied to handleTelevisionUseUnsafe",
+                    e
+            );
+        }
+    }
+
     public static Collection<TelevisionSignal> getAllTelevisionSignals() {
         return net.tlotd.util.TelevisionSignalRegistry.getAll().stream().map(e -> new TelevisionSignal(e.signalItem(), e.offBlock(), e.onBlock(), e.channel())).toList();
     }
@@ -71,20 +85,40 @@ public class TlotdAPI {
         return net.tlotd.util.TelevisionSignalRegistry.findBySignal(signalId).map(e -> new TelevisionSignal(e.signalItem(), e.offBlock(), e.onBlock(), e.channel()));
     }
     public static void registerTelevisionSignal(TelevisionSignal entry) {
-        net.tlotd.util.TelevisionSignalRegistry.register(new net.tlotd.util.TelevisionSignalRegistry.SignalEntry(
-                entry.signalItem(),
-                entry.offBlock(),
-                entry.onBlock(),
-                entry.channel()
-        ));
+        net.tlotd.util.TelevisionSignalRegistry.register(new net.tlotd.util.TelevisionSignalRegistry.SignalEntry(entry.signalItem(), entry.offBlock(), entry.onBlock(), entry.channel()));
     }
     public static void registerTelevisionSignalBatch(Identifier[] itemIds, Block offBlock, Block onBlock, int startingChannel) {
         net.tlotd.util.TelevisionSignalRegistry.registerBatch(itemIds, offBlock, onBlock, startingChannel);
     }
 
+    public static void registerTelevisionSignalBatchUnsafe(String[] itemModIds, String[] itemIds, String offBlockModId, String offBlockId, String onBlockModId, String onBlockId, int startingChannel) {
+        if (itemModIds.length != itemIds.length) {
+            throw new IllegalArgumentException("itemModIds and itemIds must have the same length");
+        }
+        Identifier[] identifiers = new Identifier[itemIds.length];
+        for (int i = 0; i < itemIds.length; i++) {
+            identifiers[i] = Identifier.of(itemModIds[i], itemIds[i]);
+        }
+        Block offBlock = Registries.BLOCK.get(Identifier.of(offBlockModId, offBlockId));
+        Block onBlock = Registries.BLOCK.get(Identifier.of(onBlockModId, onBlockId));
+        registerTelevisionSignalBatch(identifiers, offBlock, onBlock, startingChannel);
+    }
+
     //Video Game Registry
     public static BlockState handleComputerUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand) {
         return net.tlotd.block.custom.ComputerBlock.handleComputerUse(state, world, pos, player, hand);
+    }
+
+    public static Object handleComputerUseUnsafe(Object state, Object world, Object pos, Object player, Object hand) {
+        try {
+            return net.tlotd.block.custom.ComputerBlock.handleComputerUse(
+                    (BlockState) state, (World) world, (BlockPos) pos, (PlayerEntity) player, (Hand) hand);
+        } catch (ClassCastException e) {
+            throw new IllegalArgumentException(
+                    "Invalid parameter types supplied to handleTelevisionUseUnsafe",
+                    e
+            );
+        }
     }
 
     public static Collection<VideoGame> getAllVideoGames() {
@@ -103,6 +137,19 @@ public class TlotdAPI {
     }
     public static void registerVideoGameBatch(Identifier[] itemIds, Block offBlock, Block onBlock, int startingGameID) {
         net.tlotd.util.VideoGameRegistry.registerBatch(itemIds, offBlock, onBlock, startingGameID);
+    }
+
+    public static void registerVideoGameBatchUnsafe(String[] itemModIds, String[] itemIds, String offBlockModId, String offBlockId, String onBlockModId, String onBlockId, int startingGameID) {
+        if (itemModIds.length != itemIds.length) {
+            throw new IllegalArgumentException("itemModIds and itemIds must have the same length");
+        }
+        Identifier[] identifiers = new Identifier[itemIds.length];
+        for (int i = 0; i < itemIds.length; i++) {
+            identifiers[i] = Identifier.of(itemModIds[i], itemIds[i]);
+        }
+        Block offBlock = Registries.BLOCK.get(Identifier.of(offBlockModId, offBlockId));
+        Block onBlock = Registries.BLOCK.get(Identifier.of(onBlockModId, onBlockId));
+        net.tlotd.util.VideoGameRegistry.registerBatch(identifiers, offBlock, onBlock, startingGameID);
     }
 
     //Signals

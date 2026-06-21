@@ -3,13 +3,19 @@
   "category": "misc",
   "key": {
     "#": {
-      "item": "tlotd:mithril_ingot"
+      "item": "tlotd:mithril_plate"
+    },
+    "C": {
+      "item": "tlotd:mithril_chainmail_chunk"
+    },
+    "G": {
+      "tag": "c:gold_ingots"
     }
   },
   "pattern": [
     "# #",
-    "###",
-    "###"
+    "C#C",
+    "#G#"
   ],
   "result": {
     "item": "tlotd:mithril_chestplate"

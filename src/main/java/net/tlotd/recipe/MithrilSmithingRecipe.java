@@ -85,12 +85,12 @@ public class MithrilSmithingRecipe implements Recipe<SimpleInventory> {
     public static class Type implements RecipeType<MithrilSmithingRecipe> {
         private Type() { }
         public static final Type INSTANCE = new Type();
-        public static final String ID = "mithril_smithing";
+        public static final String ID = "mithril_metalworking";
     }
 
     public static class Serializer implements RecipeSerializer<MithrilSmithingRecipe> {
         public static final Serializer INSTANCE = new Serializer();
-        public static final String ID = "mithril_smithing";
+        public static final String ID = "mithril_metalworking";
 
         @Override
         public MithrilSmithingRecipe read(Identifier id, JsonObject json) {

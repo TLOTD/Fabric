@@ -1,0 +1,26 @@
+{
+  "type": "tlotd:metalworking",
+  "ingredients": [
+    {
+      "tag": "tlotd:forging_hammers_tier7"
+    },
+    {
+      "item": "tlotd:rough_mithril_block"
+    },
+    {
+      "item": "tlotd:rough_mithril_block"
+    },
+    {
+      "item": "tlotd:rough_mithril_block"
+    },
+    {
+      "item": "tlotd:rough_mithril_ingot"
+    },
+    {
+      "item": "tlotd:rough_mithril_block"
+    }
+  ],
+  "output": {
+    "item": "tlotd:mithril_anvil"
+  }
+}

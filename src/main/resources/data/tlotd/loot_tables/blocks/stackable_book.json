@@ -1,0 +1,63 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "tlotd:stackable_book",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "books": "2"
+                  }
+                }
+              ],
+              "count": 2.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "tlotd:stackable_book",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "books": "3"
+                  }
+                }
+              ],
+              "count": 3.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "tlotd:stackable_book",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "books": "4"
+                  }
+                }
+              ],
+              "count": 4.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "function": "minecraft:explosion_decay"
+            }
+          ],
+          "name": "tlotd:stackable_book"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "tlotd:blocks/stackable_book"
+}

@@ -6,6 +6,8 @@ public class CompatModsCheck {
     public static final boolean FORGE = FabricLoader.getInstance().isModLoaded("forge");
     public static final boolean FABRIC = FabricLoader.getInstance().isModLoaded("fabric");
 
+    public static final boolean ROADS_N_VEHICLES = FabricLoader.getInstance().isModLoaded("roads-n-vehicles");
+
     public static final boolean TOUGHASNAILS = FabricLoader.getInstance().isModLoaded("toughasnails");
 
     public static final boolean AETHER = FabricLoader.getInstance().isModLoaded("aether");

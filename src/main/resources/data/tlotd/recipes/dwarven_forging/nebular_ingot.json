@@ -1,0 +1,11 @@
+{
+  "type": "tlotd:dwarven_forging",
+  "ingredients": [
+    {
+      "tag": "tlotd:nebular_forgables"
+    }
+  ],
+  "output": {
+    "item": "tlotd:nebular_ingot"
+  }
+}

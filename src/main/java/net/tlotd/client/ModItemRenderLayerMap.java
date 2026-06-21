@@ -42,6 +42,18 @@ public class ModItemRenderLayerMap {
                 }
         );
         ModelPredicateProviderRegistry.register(
+                ModItems.ENVELOPE, new Identifier(TLOTD.MOD_ID, "sealed"), (stack, world, entity, seed) -> {
+                    if (stack.isEmpty()) return 0.0f;
+                    if (!stack.hasNbt()) return 0.0f;
+                    NbtCompound tag = stack.getNbt();
+                    if (tag.getBoolean("Sealed")) {
+                        return  0.1f;
+                    } else {
+                        return  0.0f;
+                    }
+                }
+        );
+        ModelPredicateProviderRegistry.register(
                 ModItems.GAS_CYLINDER, new Identifier(TLOTD.MOD_ID, "gas"), (stack, world, entity, seed) -> {
                     if (stack.isEmpty()) return 0.0f;
                     String gas = AdAstraGasNbtHelper.getGas(stack);
@@ -115,7 +127,7 @@ public class ModItemRenderLayerMap {
                                                 pos.getY() + 0.5,
                                                 pos.getZ() + 0.5
                                         ));
-                                        System.out.println("Proximity value: " + dist);
+                                        //System.out.println("Proximity value: " + dist);
                                         if (dist <= 2.0) return 1.0f;
                                         else if (dist <= 3.5) return 0.8f;
                                         else if (dist <= 4.5) return 0.6f;

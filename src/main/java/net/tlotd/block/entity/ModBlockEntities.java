@@ -25,6 +25,16 @@ public class ModBlockEntities {
                     FabricBlockEntityTypeBuilder.create(RadioBlockEntity::new,
                             ModBlocks.RADIO).build());
 
+    public static final BlockEntityType<DwarvenForgeBlockEntity> DWARVEN_FORGE_BLOCK_ENTITY =
+            Registry.register(Registries.BLOCK_ENTITY_TYPE, new Identifier(TLOTD.MOD_ID, "dwarven_forge_block_entity"),
+                    FabricBlockEntityTypeBuilder.create(DwarvenForgeBlockEntity::new,
+                            ModBlocks.DWARVEN_FORGE).build());
+
+    public static final BlockEntityType<NetheriteAnvilBlockEntity> NETHERITE_ANVIL_BLOCK_ENTITY =
+            Registry.register(Registries.BLOCK_ENTITY_TYPE, new Identifier(TLOTD.MOD_ID, "netherite_anvil_block_entity"),
+                    FabricBlockEntityTypeBuilder.create(NetheriteAnvilBlockEntity::new,
+                            ModBlocks.NETHERITE_ANVIL).build());
+
     public static final BlockEntityType<MithrilAnvilBlockEntity> MITHRIL_ANVIL_BLOCK_ENTITY =
             Registry.register(Registries.BLOCK_ENTITY_TYPE, new Identifier(TLOTD.MOD_ID, "mithril_anvil_block_entity"),
                     FabricBlockEntityTypeBuilder.create(MithrilAnvilBlockEntity::new,

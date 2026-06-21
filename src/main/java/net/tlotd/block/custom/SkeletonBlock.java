@@ -18,7 +18,6 @@ import net.minecraft.world.WorldAccess;
 public class SkeletonBlock extends Block {
 
     public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
-
     public static final DirectionProperty FACING = HorizontalFacingBlock.FACING;
 
     @Override

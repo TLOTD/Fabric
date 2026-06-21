@@ -3,13 +3,16 @@
   "category": "misc",
   "key": {
     "#": {
-      "item": "tlotd:mithril_ingot"
+      "item": "tlotd:mithril_plate"
+    },
+    "C": {
+      "item": "tlotd:mithril_chainmail_chunk"
     }
   },
   "pattern": [
-    "###",
+    "C#C",
     "# #",
-    "# #"
+    "C C"
   ],
   "result": {
     "item": "tlotd:mithril_leggings"

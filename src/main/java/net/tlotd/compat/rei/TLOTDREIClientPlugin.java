@@ -13,20 +13,22 @@ import net.tlotd.block.ModBlocks;
 import net.tlotd.compat.CompatModsCheck;
 import net.tlotd.fluid.ModFluids;
 import net.tlotd.item.ModItems;
-import net.tlotd.recipe.AugmentationRecipe;
-import net.tlotd.recipe.IncubatonRecipe;
-import net.tlotd.recipe.MithrilSmithingRecipe;
-import net.tlotd.recipe.WitchingRecipe;
+import net.tlotd.recipe.*;
 
 public class TLOTDREIClientPlugin implements REIClientPlugin {
 
     @Override
     public void registerCategories(CategoryRegistry registry) {
+        registry.add(new DwarvenForgingCategory());
+        registry.add(new NetheriteSmithingCategory());
         registry.add(new MithrilSmithingCategory());
         registry.add(new WitchingTableCategory());
         registry.add(new AugmentingTableCategory());
         registry.add(new IncubatorCategory());
-        registry.addWorkstations(MithrilSmithingCategory.MITHRIL_SMITHING, EntryStacks.of(ModBlocks.MITHRIL_ANVIL));
+        registry.addWorkstations(DwarvenForgingCategory.DWARVEN_FORGING, EntryStacks.of(ModBlocks.DWARVEN_FORGE));
+        registry.addWorkstations(NetheriteSmithingCategory.METALWORKING, EntryStacks.of(ModBlocks.NETHERITE_ANVIL));
+        registry.addWorkstations(NetheriteSmithingCategory.METALWORKING, EntryStacks.of(ModBlocks.MITHRIL_ANVIL));
+        registry.addWorkstations(MithrilSmithingCategory.MITHRIL_METALWORKING, EntryStacks.of(ModBlocks.MITHRIL_ANVIL));
         registry.addWorkstations(WitchingTableCategory.WITCHING, EntryStacks.of(ModBlocks.WITCHING_TABLE));
         registry.addWorkstations(AugmentingTableCategory.AUGMENTING, EntryStacks.of(ModBlocks.AUGMENTATION_TABLE));
         registry.addWorkstations(IncubatorCategory.INCUBATING, EntryStacks.of(ModBlocks.INCUBATOR));
@@ -34,6 +36,8 @@ public class TLOTDREIClientPlugin implements REIClientPlugin {
 
     @Override
     public void registerDisplays(DisplayRegistry registry) {
+        registry.registerRecipeFiller(DwarvenForgingRecipe.class, DwarvenForgingRecipe.Type.INSTANCE, DwarvenForgingDisplay::new);
+        registry.registerRecipeFiller(NetheriteSmithingRecipe.class, NetheriteSmithingRecipe.Type.INSTANCE, NetheriteSmithingDisplay::new);
         registry.registerRecipeFiller(MithrilSmithingRecipe.class, MithrilSmithingRecipe.Type.INSTANCE, MithrilSmithingDisplay::new);
         registry.registerRecipeFiller(WitchingRecipe.class, WitchingRecipe.Type.INSTANCE, WitchingTableDisplay::new);
         registry.registerRecipeFiller(AugmentationRecipe.class, AugmentationRecipe.Type.INSTANCE, AugmentingTableDisplay::new);

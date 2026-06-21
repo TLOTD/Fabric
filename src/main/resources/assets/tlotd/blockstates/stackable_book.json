@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "books=1,facing=south": {"model": "tlotd:block/stackable_book"},
+    "books=1,facing=west": {"model": "tlotd:block/stackable_book","y": 90},
+    "books=1,facing=north": {"model": "tlotd:block/stackable_book","y": 180},
+    "books=1,facing=east": {"model": "tlotd:block/stackable_book","y": 270},
+    "books=2,facing=south": {"model": "tlotd:block/stackable_book2"},
+    "books=2,facing=west": {"model": "tlotd:block/stackable_book2","y": 90},
+    "books=2,facing=north": {"model": "tlotd:block/stackable_book2","y": 180},
+    "books=2,facing=east": {"model": "tlotd:block/stackable_book2","y": 270},
+    "books=3,facing=south": {"model": "tlotd:block/stackable_book3"},
+    "books=3,facing=west": {"model": "tlotd:block/stackable_book3","y": 90},
+    "books=3,facing=north": {"model": "tlotd:block/stackable_book3","y": 180},
+    "books=3,facing=east": {"model": "tlotd:block/stackable_book3","y": 270},
+    "books=4,facing=south": {"model": "tlotd:block/stackable_book4"},
+    "books=4,facing=west": {"model": "tlotd:block/stackable_book4","y": 90},
+    "books=4,facing=north": {"model": "tlotd:block/stackable_book4","y": 180},
+    "books=4,facing=east": {"model": "tlotd:block/stackable_book4","y": 270}
+  }
+}

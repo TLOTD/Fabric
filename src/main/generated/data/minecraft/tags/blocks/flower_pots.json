@@ -1,7 +1,9 @@
 {
   "replace": false,
   "values": [
-    "tlotd:potted_rose",
+    "tlotd:potted_red_rose",
+    "tlotd:potted_blue_rose",
+    "tlotd:potted_paeonia",
     "tlotd:potted_iris",
     "tlotd:potted_edelweiss",
     "tlotd:potted_athelas",

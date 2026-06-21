@@ -1,0 +1,14 @@
+{
+  "type": "tlotd:dwarven_forging",
+  "ingredients": [
+    {
+      "tag": "tlotd:heliorite_forgables"
+    },
+    {
+      "item": "minecraft:obsidian"
+    }
+  ],
+  "output": {
+    "item": "tlotd:heliorite_ingot"
+  }
+}

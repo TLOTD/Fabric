@@ -1,0 +1,14 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:obsidian",
+    "#tlotd:forging_heat_6000",
+    "#tlotd:forging_heat_4500",
+    "#tlotd:forging_heat_3000",
+    "#tlotd:forging_heat_2200",
+    "#tlotd:smithing_heat_5800",
+    "#tlotd:smithing_heat_4200",
+    "#tlotd:smithing_heat_2600",
+    "#tlotd:smithing_heat_1800"
+  ]
+}

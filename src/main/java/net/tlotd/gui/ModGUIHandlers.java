@@ -8,6 +8,14 @@ import net.minecraft.util.Identifier;
 import net.tlotd.TLOTD;
 
 public class ModGUIHandlers {
+    public static final ScreenHandlerType<DwarvenForgeGUIHandler> DWARVEN_FORGE_GUI_HANDLER =
+            Registry.register(Registries.SCREEN_HANDLER, new Identifier(TLOTD.MOD_ID, "dwarven_forge"),
+                    new ExtendedScreenHandlerType<>(DwarvenForgeGUIHandler::new));
+
+    public static final ScreenHandlerType<NetheriteAnvilGUIHandler> NETHERITE_ANVIL_GUI_HANDLER =
+            Registry.register(Registries.SCREEN_HANDLER, new Identifier(TLOTD.MOD_ID, "netherite_anvil"),
+                    new ExtendedScreenHandlerType<>(NetheriteAnvilGUIHandler::new));
+
     public static final ScreenHandlerType<MithrilAnvilGUIHandler> MITHRIL_ANVIL_GUI_HANDLER =
             Registry.register(Registries.SCREEN_HANDLER, new Identifier(TLOTD.MOD_ID, "mithril_anvil"),
                     new ExtendedScreenHandlerType<>(MithrilAnvilGUIHandler::new));

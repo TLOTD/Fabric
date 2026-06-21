@@ -88,7 +88,9 @@
   "augment.tlotd.thermal_cooling.desc": "Schützt den Träger",
   "augment.tlotd.thermal_cooling.desc2": "vor dem Überhitzen.",
 
-  "gui.tlotd.mithril_smithing": "Mithrilschmieden",
+  "gui.tlotd.dwarven_forging": "Schmiede",
+  "gui.tlotd.metalworking": "Metallbearbeitung",
+  "gui.tlotd.mithril_metalworking": "Mithril-Metallbearbeitung",
   "gui.tlotd.augmenting": "Augmentieren",
   "gui.tlotd.witching": "Hexen",
   "gui.tlotd.tooltip.liquid_amount_with_capacity": "§f%s§7: %smB/%smB",
@@ -454,6 +456,14 @@
   "item.tlotd.flash_drive.coordinates": "block.pos",
   "item.tlotd.flash_drive.position": "Position",
 
+  "item.tlotd.envelope": "Umschlag",
+  "item.tlotd.letter": "Brief",
+  "item.tlotd.letter.author": "von %1$s",
+  "item.tlotd.letter.author_unknown": "von Unbekannt",
+  "item.tlotd.letter.opener": "Geöffnet",
+  "item.tlotd.letter.opener_unknown": "Geöffnet",
+  "item.tlotd.letter.sealed": "Versiegelt",
+
   "item.tlotd.aluminium_wire": "Aluminiumkabel",
   "item.tlotd.copper_wire": "Kupferkabel",
   "item.tlotd.gold_wire": "Goldkabel",
@@ -531,6 +541,8 @@
   "item.tlotd.steel_ingot": "Stahlbarren",
   "item.tlotd.steel_rod": "Stahlstange",
   "item.tlotd.steel_sickle": "Stahlsichel",
+  "item.tlotd.steel_tongs": "Stahlzange",
+  "item.tlotd.reinforced_tongs": "Verstärkte Zange",
 
   "item.tlotd.fossilized_bone": "Versteinerter Knochen",
   "item.tlotd.plant_fossil": "Versteinerte Pflanze",
@@ -737,9 +749,11 @@
   "item.tlotd.fancy_tool_rod": "Schicke Werkzeugstange",
 
   "item.tlotd.raw_mithril": "Rohmithril",
-  "item.tlotd.mithril_nugget": "Mithrilklumpen",
+  "item.tlotd.refined_raw_mithril": "Verfeinertes Rohmithril",
+  "item.tlotd.rough_mithril_ingot": "Grobmithrilbarren",
   "item.tlotd.mithril_ingot": "Mithrilbarren",
-
+  "item.tlotd.mithril_nugget": "Mithrilklumpen",
+  "item.tlotd.mithril_plate": "Mithrilplatte",
   "item.tlotd.mithril_chainmail_chunk": "Mithrilkettenstück",
 
   "item.tlotd.mithril_sword": "Mithrilschwert",
@@ -910,6 +924,8 @@
   "block.tlotd.white_pumpkin": "Weißer Kürbis",
   "block.tlotd.carved_white_pumpkin": "Geschnitzter Weißer Kürbis",
   "block.tlotd.white_jack_o_lantern": "Weiße Kürbislaterne",
+
+  "block.tlotd.stackable_book": "Stapelbares Buch",
 
   "block.tlotd.effigies": "Bildnisse",
   "block.tlotd.effigies.tooltip": "Könnte Blut",
@@ -1176,14 +1192,19 @@
   "block.tlotd.nebular_block": "Nebularblock",
 
   "block.tlotd.bedrock_mithril_ore": "Grundgestein-Mithrilerz",
-  "block.tlotd.raw_mithril_block": "Rohmithrilerz",
+  "block.tlotd.raw_mithril_block": "Rohmithrilblock",
+  "block.tlotd.refined_raw_mithril_block": "Verfeinerter Rohmithrilblock",
+  "block.tlotd.rough_mithril_block": "Grobmithrilblock",
   "block.tlotd.mithril_block": "Mithrilblock",
 
-  "block.tlotd.mithril_anvil": "Mithrilamboss",
-  "block.tlotd.mithril_bars": "Mithrilgitter",
+  "block.tlotd.dwarven_forge": "Zwergenschmiede",
 
+  "block.tlotd.netherite_anvil": "Netheritamboss",
+
+  "block.tlotd.mithril_anvil": "Mithrilamboss",
   "block.tlotd.mithril_anvil.tooltip": "Schmiedet unter:",
   "block.tlotd.mithril_anvil.tooltip_2": "Direktem Sternenlicht",
+  "block.tlotd.mithril_bars": "Mithrilgitter",
 
   "block.tlotd.witching_table": "Hexentisch",
   "block.tlotd.witching_table.tooltip_bs": "Ermöglicht seelengeladene",
@@ -1198,13 +1219,17 @@
   "block.tlotd.witching_table.tooltip": "Ermöglicht",
   "block.tlotd.witching_table.tooltip_2": "Materienmanipulation",
 
+  "block.tlotd.arcade_wool": "Spielhallenwolle",
+  "block.tlotd.arcade_carpet": "Spielhallenteppich",
   "block.tlotd.cursed_wool": "Verfluchte Wolle",
   "block.tlotd.cursed_carpet": "Verfluchter Teppich",
   "block.tlotd.cursed_carpet.tooltip": "All die Arbeit ",
   "block.tlotd.cursed_carpet.tooltip_2": "und kein Spiel lassen",
   "block.tlotd.cursed_carpet.tooltip_3": "Jack irre werden",
 
-  "block.tlotd.rose": "Rose",
+  "block.tlotd.red_rose": "Rote Rose",
+  "block.tlotd.blue_rose": "Blaue Rose",
+  "block.tlotd.paeonia": "Pfingstrose",
   "block.tlotd.iris": "Schwertlilie",
   "block.tlotd.edelweiss": "Edelweiss",
   "block.tlotd.athelas": "Athelas",

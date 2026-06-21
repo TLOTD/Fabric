@@ -44,7 +44,17 @@ public class ModTrades {
 
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(ModItems.FOSSILIZED_BONE, 3),
-                            new ItemStack(ModBlocks.ROSE, 1),
+                            new ItemStack(ModBlocks.RED_ROSE, 1),
+                            6, 2, 0.1f));
+
+                    factories.add((entity, random) -> new TradeOffer(
+                            new ItemStack(ModItems.FOSSILIZED_BONE, 3),
+                            new ItemStack(ModBlocks.BLUE_ROSE, 1),
+                            6, 2, 0.1f));
+
+                    factories.add((entity, random) -> new TradeOffer(
+                            new ItemStack(ModItems.FOSSILIZED_BONE, 3),
+                            new ItemStack(ModBlocks.PAEONIA, 1),
                             6, 2, 0.1f));
 
                     factories.add((entity, random) -> new TradeOffer(
@@ -141,7 +151,15 @@ public class ModTrades {
                             1, 5, 0.1f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(Items.EMERALD, 3),
-                            new ItemStack(ModBlocks.ROSE, 1),
+                            new ItemStack(ModBlocks.RED_ROSE, 1),
+                            1, 5, 0.1f));
+                    factories.add((entity, random) -> new TradeOffer(
+                            new ItemStack(Items.EMERALD, 3),
+                            new ItemStack(ModBlocks.BLUE_ROSE, 1),
+                            1, 5, 0.1f));
+                    factories.add((entity, random) -> new TradeOffer(
+                            new ItemStack(Items.EMERALD, 3),
+                            new ItemStack(ModBlocks.PAEONIA, 1),
                             1, 5, 0.1f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(Items.EMERALD, 3),

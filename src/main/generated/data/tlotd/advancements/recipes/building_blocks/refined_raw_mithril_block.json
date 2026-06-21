@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_refined_raw_mithril": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "tlotd:refined_raw_mithril"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:refined_raw_mithril_block"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_refined_raw_mithril",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:refined_raw_mithril_block"
+    ]
+  },
+  "sends_telemetry_event": false
+}

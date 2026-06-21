@@ -1,0 +1,11 @@
+{
+  "type": "tlotd:dwarven_forging",
+  "ingredients": [
+    {
+      "item": "tlotd:cinnabar_crystal_block"
+    }
+  ],
+  "output": {
+    "item": "tlotd:cinnabar_block"
+  }
+}

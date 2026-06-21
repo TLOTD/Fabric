@@ -1,0 +1,11 @@
+{
+  "type": "tlotd:dwarven_forging",
+  "ingredients": [
+    {
+      "tag": "tlotd:palladium_forgables"
+    }
+  ],
+  "output": {
+    "item": "tlotd:palladium_ingot"
+  }
+}

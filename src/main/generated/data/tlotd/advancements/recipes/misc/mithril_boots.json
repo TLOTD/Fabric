@@ -1,12 +1,24 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_mithril_ingot": {
+    "has_mithril_chainmail_chunk": {
       "conditions": {
         "items": [
           {
             "items": [
-              "tlotd:mithril_ingot"
+              "tlotd:mithril_chainmail_chunk"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_mithril_plate": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "tlotd:mithril_plate"
             ]
           }
         ]
@@ -22,7 +34,8 @@
   },
   "requirements": [
     [
-      "has_mithril_ingot",
+      "has_mithril_plate",
+      "has_mithril_chainmail_chunk",
       "has_the_recipe"
     ]
   ],

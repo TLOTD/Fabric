@@ -1,0 +1,14 @@
+{
+  "type": "tlotd:metalworking",
+  "ingredients": [
+    {
+      "tag": "tlotd:forging_hammers"
+    },
+    {
+      "tag": "c:aluminium_ingots"
+    }
+  ],
+  "output": {
+    "item": "tlotd:aluminium_sheet"
+  }
+}

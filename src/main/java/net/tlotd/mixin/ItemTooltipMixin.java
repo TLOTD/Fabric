@@ -14,10 +14,12 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.World;
+import net.tlotd.block.ModBlocks;
 import net.tlotd.item.ModItems;
 import net.tlotd.item.custom.SpaceSuitArmorItem;
 import net.tlotd.util.AdAstraGasNbtHelper;
 import net.tlotd.util.EnergyNbtHelper;
+import net.tlotd.util.ItemHeatHelper;
 import net.tlotd.util.ModTags;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -41,6 +43,43 @@ public abstract class ItemTooltipMixin {
             TooltipContext context,
             CallbackInfo ci
     ) {
+        if (stack.isIn(ModTags.Items.BURNS_IN_FORGE)){
+            int minTemp = ItemHeatHelper.getMinBurningTemperature(stack);
+            int maxtemp = ItemHeatHelper.getMaxBurningTemperature(stack);
+            if (minTemp!=0){
+                tooltip.add(Text.translatable("temperature.tlotd.starts_burning_at", ItemHeatHelper.getTemperatureText(minTemp)).formatted(Formatting.GRAY));
+            }
+            tooltip.add(Text.translatable("temperature.tlotd.burns_at", ItemHeatHelper.getTemperatureText(maxtemp), ItemHeatHelper.getBurningTime(maxtemp)).formatted(Formatting.GRAY));
+        }
+        if (stack.isIn(ModTags.Items.FIRE_BASE_FORGE)){
+            int minTemp = ItemHeatHelper.getMinBurningBaseTemperature(stack);
+            int maxTemp = ItemHeatHelper.getMaxBurningBaseTemperature(stack);
+            if (minTemp!=0){
+                tooltip.add(Text.translatable("temperature.tlotd.starts_burning_at", ItemHeatHelper.getTemperatureText(minTemp)).formatted(Formatting.GRAY));
+            }
+            tooltip.add(Text.translatable("temperature.tlotd.allows_burning_to", ItemHeatHelper.getTemperatureText(maxTemp)).formatted(Formatting.GRAY));
+        }
+        if (ItemHeatHelper.getTemperature(stack) >= 500) {
+            tooltip.add(Text.translatable("temperature.tlotd.too_hot").formatted(Formatting.RED));
+        }
+        if (ItemHeatHelper.hasTemperature(stack)) {
+            tooltip.add(ItemHeatHelper.getTemperatureText(ItemHeatHelper.getTemperature(stack)));
+        }
+        int forgingTemp = ItemHeatHelper.getForgingTemperature(stack);
+        int smithingTemp = ItemHeatHelper.getSmithingTemperature(stack);
+        if (forgingTemp > 0) {
+            tooltip.add(Text.translatable("temperature.tlotd.forge", ModBlocks.DWARVEN_FORGE.getName().formatted(Formatting.YELLOW), ItemHeatHelper.getTemperatureText(forgingTemp)).formatted(Formatting.GRAY));
+            tooltip.add(Text.translatable("temperature.tlotd.forge_at", ItemHeatHelper.getTemperatureText(forgingTemp), ModBlocks.DWARVEN_FORGE.getName().formatted(Formatting.YELLOW)).formatted(Formatting.GRAY));
+        }
+        if (smithingTemp > 0) {
+            if (stack.isOf(ModItems.MITHRIL_INGOT) || stack.isOf(ModItems.MITHRIL_PLATE)) {
+                tooltip.add(Text.translatable("temperature.tlotd.anvil", ModBlocks.MITHRIL_ANVIL.getName().formatted(Formatting.YELLOW), ItemHeatHelper.getTemperatureText(smithingTemp)).formatted(Formatting.GRAY));
+                tooltip.add(Text.translatable("temperature.tlotd.anvil_at", ItemHeatHelper.getTemperatureText(smithingTemp), ModBlocks.MITHRIL_ANVIL.getName().formatted(Formatting.YELLOW)).formatted(Formatting.GRAY));
+            } else {
+                tooltip.add(Text.translatable("temperature.tlotd.anvil", ModBlocks.NETHERITE_ANVIL.getName().formatted(Formatting.WHITE), ItemHeatHelper.getTemperatureText(smithingTemp)).formatted(Formatting.GRAY));
+                tooltip.add(Text.translatable("temperature.tlotd.anvil_at", ItemHeatHelper.getTemperatureText(smithingTemp), ModBlocks.NETHERITE_ANVIL.getName().formatted(Formatting.WHITE)).formatted(Formatting.GRAY));
+            }
+        }
         if (stack.isOf(ModItems.HEV_SUIT_CHESTPLATE) || stack.isOf(ModItems.HEV_SUIT_LEGGINGS) || stack.isOf(ModItems.HEV_SUIT_BOOTS) || getAugmentLevel(stack, "tlotd:battery_pack") > 0) {
             String formattedPower = "0";
             String formattedMaxPower = "0";
@@ -113,55 +152,69 @@ public abstract class ItemTooltipMixin {
         if (stack.hasNbt() && stack.getNbt().contains("Augments", NbtElement.LIST_TYPE)) {
             augments = stack.getNbt().getList("Augments", NbtElement.COMPOUND_TYPE);
         }
-        for (int slot = 0; slot < slots; slot++) {
-            if (slot < augments.size()) {
-                NbtCompound augment = augments.getCompound(slot);
-                String id = augment.getString("id");
-                Formatting rarity = Formatting.GRAY;
-                if (id.equals("tlotd:slot_expansion")) {
-                    rarity = Formatting.GOLD;
-                }
-                if (id.equals("tlotd:mithril_chainmail")) {
-                    rarity = Formatting.YELLOW;
-                }
-                if (id.equals("tlotd:elder_days_elven_forged")) {
-                    rarity = Formatting.AQUA;
-                    int level = augment.getInt("lvl");
-                    if (Screen.hasShiftDown()) {
+        MutableText iconRow = Text.literal(" ");
+        if (Screen.hasShiftDown()) {
+            for (int slot = 0; slot < slots; slot++) {
+                if (slot < augments.size()) {
+                    NbtCompound augment = augments.getCompound(slot);
+                    String id = augment.getString("id");
+                    Formatting rarity = Formatting.GRAY;
+                    if (id.equals("tlotd:slot_expansion")) {
+                        rarity = Formatting.GOLD;
+                    }
+                    if (id.equals("tlotd:mithril_chainmail")) {
+                        rarity = Formatting.YELLOW;
+                    }
+                    if (id.equals("tlotd:elder_days_elven_forged")) {
+                        rarity = Formatting.AQUA;
+                        int level = augment.getInt("lvl");
+                        if (Screen.hasControlDown()) {
+                            MutableText line = Text.literal(" ").append(Text.translatable("augment." + id.replace(':', '.') + ".icon").setStyle(Style.EMPTY.withFont(AUGMENTS_FONT_ID)).append(Text.literal(" ")).append(Text.translatable("augment." + id.replace(':', '.')).setStyle(Style.EMPTY.withFont(DEFAULT_FONT_ID)).formatted(rarity)));
+                            if (level > 1) {
+                                line.append(" ").append(Text.translatable("enchantment.level." + level).formatted(rarity));
+                            }
+                            tooltip.add(line);
+                            String type = "sword";
+                            if (stack.getItem() instanceof PickaxeItem) {type = "pickaxe";}
+                            tooltip.add(Text.literal(" ").append(Text.translatable("augment." + id.replace(':', '.') + '.' + type + ".desc").formatted(Formatting.DARK_GRAY)));
+                            tooltip.add(Text.literal(" ").append(Text.translatable("augment." + id.replace(':', '.') + '.' + type + ".desc2").formatted(Formatting.DARK_GRAY)));
+                        } else {
+                            MutableText line = Text.literal(" ").append(Text.translatable("augment." + id.replace(':', '.') + ".icon").setStyle(Style.EMPTY.withFont(AUGMENTS_FONT_ID)).append(Text.literal(" ")).append(Text.translatable("augment." + id.replace(':', '.') + ".tengwar").setStyle(Style.EMPTY.withFont(TENGWAR_FONT_ID)).formatted(rarity)));
+                            if (level > 1) {
+                                line.append(" ").append(Text.translatable("enchantment.level." + level).formatted(rarity));
+                            }
+                            tooltip.add(line);
+                        }
+                    } else {
+                        int level = augment.getInt("lvl");
                         MutableText line = Text.literal(" ").append(Text.translatable("augment." + id.replace(':', '.') + ".icon").setStyle(Style.EMPTY.withFont(AUGMENTS_FONT_ID)).append(Text.literal(" ")).append(Text.translatable("augment." + id.replace(':', '.')).setStyle(Style.EMPTY.withFont(DEFAULT_FONT_ID)).formatted(rarity)));
                         if (level > 1) {
                             line.append(" ").append(Text.translatable("enchantment.level." + level).formatted(rarity));
                         }
                         tooltip.add(line);
-                        String type = "sword";
-                        if (stack.getItem() instanceof PickaxeItem) {type = "pickaxe";}
-                        tooltip.add(Text.literal(" ").append(Text.translatable("augment." + id.replace(':', '.') + '.' + type + ".desc").formatted(Formatting.DARK_GRAY)));
-                        tooltip.add(Text.literal(" ").append(Text.translatable("augment." + id.replace(':', '.') + '.' + type + ".desc2").formatted(Formatting.DARK_GRAY)));
-                    } else {
-                        MutableText line = Text.literal(" ").append(Text.translatable("augment." + id.replace(':', '.') + ".icon").setStyle(Style.EMPTY.withFont(AUGMENTS_FONT_ID)).append(Text.literal(" ")).append(Text.translatable("augment." + id.replace(':', '.') + ".tengwar").setStyle(Style.EMPTY.withFont(TENGWAR_FONT_ID)).formatted(rarity)));
-                        if (level > 1) {
-                            line.append(" ").append(Text.translatable("enchantment.level." + level).formatted(rarity));
+                        if (Screen.hasControlDown()) {
+                            tooltip.add(Text.literal(" ").append(Text.translatable("augment." + id.replace(':', '.') + ".desc").formatted(Formatting.DARK_GRAY)));
+                            tooltip.add(Text.literal(" ").append(Text.translatable("augment." + id.replace(':', '.') + ".desc2").formatted(Formatting.DARK_GRAY)));
                         }
-                        tooltip.add(line);
                     }
                 } else {
-                    int level = augment.getInt("lvl");
-                    MutableText line = Text.literal(" ").append(Text.translatable("augment." + id.replace(':', '.') + ".icon").setStyle(Style.EMPTY.withFont(AUGMENTS_FONT_ID)).append(Text.literal(" ")).append(Text.translatable("augment." + id.replace(':', '.')).setStyle(Style.EMPTY.withFont(DEFAULT_FONT_ID)).formatted(rarity)));
-                    if (level > 1) {
-                        line.append(" ").append(Text.translatable("enchantment.level." + level).formatted(rarity));
+                    tooltip.add(Text.literal(" ").append(Text.translatable("augment.tlotd.empty.icon").setStyle(Style.EMPTY.withFont(AUGMENTS_FONT_ID)).append(Text.literal(" ")).append(Text.translatable("augment.tlotd.empty").setStyle(Style.EMPTY.withFont(DEFAULT_FONT_ID).withFormatting(Formatting.DARK_GRAY)))));
+                    if (Screen.hasControlDown()) {
+                        tooltip.add(Text.literal(" ").append(Text.translatable("augment.tlotd.empty.desc").formatted(Formatting.DARK_GRAY)));
                     }
-                    tooltip.add(line);
-                    if (Screen.hasShiftDown()) {
-                        tooltip.add(Text.literal(" ").append(Text.translatable("augment." + id.replace(':', '.') + ".desc").formatted(Formatting.DARK_GRAY)));
-                        tooltip.add(Text.literal(" ").append(Text.translatable("augment." + id.replace(':', '.') + ".desc2").formatted(Formatting.DARK_GRAY)));
-                    }
-                }
-            } else {
-                tooltip.add(Text.literal(" ").append(Text.translatable("augment.tlotd.empty.icon").setStyle(Style.EMPTY.withFont(AUGMENTS_FONT_ID)).append(Text.literal(" ")).append(Text.translatable("augment.tlotd.empty").setStyle(Style.EMPTY.withFont(DEFAULT_FONT_ID).withFormatting(Formatting.DARK_GRAY)))));
-                if (Screen.hasShiftDown()) {
-                    tooltip.add(Text.literal(" ").append(Text.translatable("augment.tlotd.empty.desc").formatted(Formatting.DARK_GRAY)));
                 }
             }
+        } else {
+            for (int slot = 0; slot < slots; slot++) {
+                if (slot < augments.size()) {
+                    String id = augments.getCompound(slot).getString("id");
+                    iconRow.append(Text.translatable("augment." + id.replace(':', '.') + ".icon").setStyle(Style.EMPTY.withFont(AUGMENTS_FONT_ID)));
+                } else {
+                    iconRow.append(Text.translatable("augment.tlotd.empty.icon").setStyle(Style.EMPTY.withFont(AUGMENTS_FONT_ID)));
+                }
+                iconRow.append(" ");
+            }
+            tooltip.add(iconRow);
         }
     }
 }

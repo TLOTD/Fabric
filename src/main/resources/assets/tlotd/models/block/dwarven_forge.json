@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "front": "tlotd:block/dwarven_forge_front",
+    "side": "tlotd:block/dwarven_forge_side",
+    "top": "tlotd:block/dwarven_forge_top",
+    "bottom": "minecraft:block/blackstone"
+  }
+}

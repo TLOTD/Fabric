@@ -1,0 +1,7 @@
+{
+  "parent": "tlotd:block/dwarven_forge",
+  "textures": {
+    "front": "tlotd:block/dwarven_forge_front_soulfire",
+    "top": "tlotd:block/dwarven_forge_top_soulfire"
+  }
+}

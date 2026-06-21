@@ -10,6 +10,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtList;
 import net.minecraft.screen.slot.Slot;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
 import net.minecraft.util.ClickType;
 import net.minecraft.util.Formatting;
@@ -105,16 +107,16 @@ public class SpaceSuitArmorItem extends ArmorItem {
     @Override
     public boolean onClicked(ItemStack stack, ItemStack otherStack, Slot slot, ClickType clickType, PlayerEntity player, StackReference cursorStackReference) {
         if (clickType != ClickType.RIGHT) return false;
-        return handleTankInteraction(stack, otherStack, cursorStackReference::set);
+        return handleTankInteraction(stack, otherStack, cursorStackReference::set, player);
     }
 
     @Override
     public boolean onStackClicked(ItemStack stack, Slot slot, ClickType clickType, PlayerEntity player) {
         if (clickType != ClickType.RIGHT) return false;
-        return handleTankInteraction(stack, slot.getStack(), slot::setStack);
+        return handleTankInteraction(stack, slot.getStack(), slot::setStack, player);
     }
 
-    private boolean handleTankInteraction(ItemStack suit, ItemStack inputStack, Consumer<ItemStack> giveItem) {
+    private boolean handleTankInteraction(ItemStack suit, ItemStack inputStack, Consumer<ItemStack> giveItem, PlayerEntity player) {
         DefaultedList<ItemStack> stored = getStoredStacks(suit);
         if (inputStack.isEmpty()) {
             for (int i = 0; i < stored.size(); i++) {
@@ -123,6 +125,7 @@ public class SpaceSuitArmorItem extends ArmorItem {
                     stored.set(i, ItemStack.EMPTY);
                     giveItem.accept(extracted);
                     setStoredStacks(suit, stored);
+                    player.playSound(SoundEvents.ITEM_BUNDLE_REMOVE_ONE, SoundCategory.PLAYERS, 0.8F, 0.8F + player.getWorld().getRandom().nextFloat() * 0.4F);
                     return true;
                 }
             }
@@ -134,6 +137,7 @@ public class SpaceSuitArmorItem extends ArmorItem {
                 stored.set(i, inputStack.copyWithCount(1));
                 inputStack.decrement(1);
                 setStoredStacks(suit, stored);
+                player.playSound(SoundEvents.ITEM_BUNDLE_INSERT, SoundCategory.PLAYERS, 0.8F, 0.8F + player.getWorld().getRandom().nextFloat() * 0.4F);
                 return true;
             }
         }

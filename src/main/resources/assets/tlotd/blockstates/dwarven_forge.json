@@ -1,0 +1,23 @@
+{
+  "variants": {
+    "fire=extinguished,facing=east": { "model": "tlotd:block/dwarven_forge", "y": 90 },
+    "fire=extinguished,facing=north": { "model": "tlotd:block/dwarven_forge" },
+    "fire=extinguished,facing=south": { "model": "tlotd:block/dwarven_forge", "y": 180 },
+    "fire=extinguished,facing=west": { "model": "tlotd:block/dwarven_forge", "y": 270 },
+
+    "fire=burning,facing=east": { "model": "tlotd:block/dwarven_forge_burning", "y": 90 },
+    "fire=burning,facing=north": { "model": "tlotd:block/dwarven_forge_burning" },
+    "fire=burning,facing=south": { "model": "tlotd:block/dwarven_forge_burning", "y": 180 },
+    "fire=burning,facing=west": { "model": "tlotd:block/dwarven_forge_burning", "y": 270 },
+
+    "fire=soul,facing=east": { "model": "tlotd:block/dwarven_forge_soulfire", "y": 90 },
+    "fire=soul,facing=north": { "model": "tlotd:block/dwarven_forge_soulfire" },
+    "fire=soul,facing=south": { "model": "tlotd:block/dwarven_forge_soulfire", "y": 180 },
+    "fire=soul,facing=west": { "model": "tlotd:block/dwarven_forge_soulfire", "y": 270 },
+
+    "fire=dragon,facing=east": { "model": "tlotd:block/dwarven_forge_dragonfire", "y": 90 },
+    "fire=dragon,facing=north": { "model": "tlotd:block/dwarven_forge_dragonfire" },
+    "fire=dragon,facing=south": { "model": "tlotd:block/dwarven_forge_dragonfire", "y": 180 },
+    "fire=dragon,facing=west": { "model": "tlotd:block/dwarven_forge_dragonfire", "y": 270 }
+  }
+}

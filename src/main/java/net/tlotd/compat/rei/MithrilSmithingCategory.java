@@ -20,16 +20,16 @@ import java.util.List;
 public class MithrilSmithingCategory implements DisplayCategory<BasicDisplay> {
 
     public static final Identifier TEXTURE = new Identifier(TLOTD.MOD_ID, "textures/gui/rei/mithril_anvil.png");
-    public static final CategoryIdentifier<MithrilSmithingDisplay> MITHRIL_SMITHING = CategoryIdentifier.of(TLOTD.MOD_ID, "mithril_smithing");
+    public static final CategoryIdentifier<MithrilSmithingDisplay> MITHRIL_METALWORKING = CategoryIdentifier.of(TLOTD.MOD_ID, "mithril_metalworking");
 
     @Override
     public CategoryIdentifier<? extends BasicDisplay> getCategoryIdentifier() {
-        return MITHRIL_SMITHING;
+        return MITHRIL_METALWORKING;
     }
 
     @Override
     public Text getTitle() {
-        return Text.translatable("gui.tlotd.mithril_smithing");
+        return Text.translatable("gui.tlotd.mithril_metalworking");
     }
 
     @Override

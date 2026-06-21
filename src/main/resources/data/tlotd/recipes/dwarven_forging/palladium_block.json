@@ -1,0 +1,11 @@
+{
+  "type": "tlotd:dwarven_forging",
+  "ingredients": [
+    {
+      "item": "tlotd:raw_palladium_block"
+    }
+  ],
+  "output": {
+    "item": "tlotd:palladium_block"
+  }
+}

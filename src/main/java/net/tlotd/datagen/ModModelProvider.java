@@ -165,9 +165,13 @@ public class ModModelProvider extends FabricModelProvider {
 
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.BEDROCK_MITHRIL_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RAW_MITHRIL_BLOCK);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.REFINED_RAW_MITHRIL_BLOCK);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.ROUGH_MITHRIL_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.MITHRIL_BLOCK);
 
-        blockStateModelGenerator.registerFlowerPotPlant(ModBlocks.ROSE, ModBlocks.POTTED_ROSE, BlockStateModelGenerator.TintType.NOT_TINTED);
+        blockStateModelGenerator.registerFlowerPotPlant(ModBlocks.RED_ROSE, ModBlocks.POTTED_RED_ROSE, BlockStateModelGenerator.TintType.NOT_TINTED);
+        blockStateModelGenerator.registerFlowerPotPlant(ModBlocks.BLUE_ROSE, ModBlocks.POTTED_BLUE_ROSE, BlockStateModelGenerator.TintType.NOT_TINTED);
+        blockStateModelGenerator.registerFlowerPotPlant(ModBlocks.PAEONIA, ModBlocks.POTTED_PAEONIA, BlockStateModelGenerator.TintType.NOT_TINTED);
         blockStateModelGenerator.registerFlowerPotPlant(ModBlocks.IRIS, ModBlocks.POTTED_IRIS, BlockStateModelGenerator.TintType.NOT_TINTED);
         blockStateModelGenerator.registerFlowerPotPlant(ModBlocks.EDELWEISS, ModBlocks.POTTED_EDELWEISS, BlockStateModelGenerator.TintType.NOT_TINTED);
 
@@ -191,6 +195,7 @@ public class ModModelProvider extends FabricModelProvider {
 
         blockStateModelGenerator.registerDoor(ModBlocks.GLASS_DOOR);
 
+        blockStateModelGenerator.registerWoolAndCarpet(ModBlocks.ARCADE_WOOL, ModBlocks.ARCADE_CARPET);
         blockStateModelGenerator.registerWoolAndCarpet(ModBlocks.CURSED_WOOL, ModBlocks.CURSED_CARPET);
 
         BlockStateModelGenerator.BlockTexturePool fancyOakPool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.FANCY_OAK_PLANKS);
@@ -426,6 +431,9 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.REINFORCED_TOOL_ROD, Models.HANDHELD);
         itemModelGenerator.register(ModItems.FANCY_TOOL_ROD, Models.HANDHELD);
 
+        itemModelGenerator.register(ModItems.STEEL_TONGS, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.REINFORCED_TONGS, Models.HANDHELD);
+
         itemModelGenerator.register(ModItems.STEEL_SICKLE, Models.HANDHELD);
 
         itemModelGenerator.register(ModItems.FOSSILIZED_BONE, Models.HANDHELD);
@@ -560,8 +568,11 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.registerArmor(((ArmorItem) ModItems.NEBULAR_BOOTS));
 
         itemModelGenerator.register(ModItems.RAW_MITHRIL, Models.GENERATED);
-        itemModelGenerator.register(ModItems.MITHRIL_NUGGET, Models.GENERATED);
+        itemModelGenerator.register(ModItems.REFINED_RAW_MITHRIL, Models.GENERATED);
+        itemModelGenerator.register(ModItems.ROUGH_MITHRIL_INGOT, Models.GENERATED);
         itemModelGenerator.register(ModItems.MITHRIL_INGOT, Models.GENERATED);
+        itemModelGenerator.register(ModItems.MITHRIL_NUGGET, Models.GENERATED);
+        itemModelGenerator.register(ModItems.MITHRIL_PLATE, Models.GENERATED);
 
         itemModelGenerator.register(ModItems.MITHRIL_CHAINMAIL_CHUNK, Models.GENERATED);
 

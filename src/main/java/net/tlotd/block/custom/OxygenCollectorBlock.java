@@ -39,7 +39,6 @@ import java.util.List;
 public class OxygenCollectorBlock extends BlockWithEntity implements BlockEntityProvider {
 
     public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
-
     public static final DirectionProperty FACING = HorizontalFacingBlock.FACING;
 
     @Override

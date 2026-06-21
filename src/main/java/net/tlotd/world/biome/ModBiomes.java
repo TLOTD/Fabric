@@ -91,10 +91,7 @@ public class ModBiomes {
     public static Biome lunarHighlands(Registerable<Biome> context) {
 
         SpawnSettings.Builder spawnBuilder = new SpawnSettings.Builder();
-
         GenerationSettings.LookupBackedBuilder biomeBuilder = new GenerationSettings.LookupBackedBuilder(context.getRegistryLookup(RegistryKeys.PLACED_FEATURE), context.getRegistryLookup(RegistryKeys.CONFIGURED_CARVER));
-
-        DefaultBiomeFeatures.addLandCarvers(biomeBuilder);
         DefaultBiomeFeatures.addMineables(biomeBuilder);
 
         return new Biome.Builder()

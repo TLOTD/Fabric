@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "tlotd:endurium_ingot",
+    "tlotd:endurium_block",
+    "tlotd:heliorite_ingot",
+    "tlotd:heliorite_block"
+  ]
+}

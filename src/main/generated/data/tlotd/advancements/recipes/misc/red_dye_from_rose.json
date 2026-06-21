@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_rose": {
+    "has_red_rose": {
       "conditions": {
         "items": [
           {
             "items": [
-              "tlotd:rose"
+              "tlotd:red_rose"
             ]
           }
         ]
@@ -22,7 +22,7 @@
   },
   "requirements": [
     [
-      "has_rose",
+      "has_red_rose",
       "has_the_recipe"
     ]
   ],

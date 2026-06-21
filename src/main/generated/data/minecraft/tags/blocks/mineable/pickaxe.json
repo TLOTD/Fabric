@@ -151,6 +151,8 @@
     "tlotd:uranium_block",
     "tlotd:fossil",
     "tlotd:deepslate_fossil",
+    "tlotd:dwarven_forge",
+    "tlotd:netherite_anvil",
     "tlotd:heliorite_ore",
     "tlotd:deepslate_heliorite_ore",
     "tlotd:heliorite_comb_block",
@@ -176,6 +178,8 @@
     "tlotd:nebular_block",
     "tlotd:bedrock_mithril_ore",
     "tlotd:raw_mithril_block",
+    "tlotd:refined_raw_mithril_block",
+    "tlotd:rough_mithril_block",
     "tlotd:mithril_block",
     "tlotd:mithril_anvil",
     "tlotd:mithril_bars"

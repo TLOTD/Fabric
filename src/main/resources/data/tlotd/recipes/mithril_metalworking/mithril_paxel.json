@@ -1,0 +1,26 @@
+{
+  "type": "tlotd:mithril_metalworking",
+  "ingredients": [
+    {
+      "tag": "tlotd:forging_hammers_tier7"
+    },
+    {
+      "tag": "c:mithril_ingots"
+    },
+    {
+      "item": "tlotd:mithril_pickaxe"
+    },
+    {
+      "item": "tlotd:mithril_axe"
+    },
+    {
+      "item": "tlotd:mithril_shovel"
+    },
+    {
+      "item": "tlotd:mithril_hoe"
+    }
+  ],
+  "output": {
+    "item": "tlotd:mithril_paxel"
+  }
+}

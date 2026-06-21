@@ -1,11 +1,5 @@
 {
-  "carvers": {
-    "air": [
-      "minecraft:cave",
-      "minecraft:cave_extra_underground",
-      "minecraft:canyon"
-    ]
-  },
+  "carvers": {},
   "downfall": 0.0,
   "effects": {
     "fog_color": 0,
@@ -29,10 +23,7 @@
   },
   "features": [
     [],
-    [
-      "minecraft:lake_lava_underground",
-      "minecraft:lake_lava_surface"
-    ],
+    [],
     [],
     [],
     [],

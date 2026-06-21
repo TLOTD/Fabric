@@ -3,6 +3,7 @@ package net.tlotd.datagen;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.minecraft.block.Blocks;
+import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.RegistryWrapper;
@@ -23,6 +24,220 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
 
     @Override
     protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
+
+        getOrCreateTagBuilder(ModTags.Items.LAVA_CLEANSING)
+                .add(ModItems.RAW_MITHRIL)
+                .add(ModBlocks.RAW_MITHRIL_BLOCK.asItem())
+        ;
+
+        getOrCreateTagBuilder(ModTags.Items.HELIORITE_FORGABLES)
+                .add(ModItems.HELIORITE_COMB)
+                .add(ModBlocks.HELIORITE_ORE.asItem())
+                .add(ModBlocks.DEEPSLATE_HELIORITE_ORE.asItem())
+                .add(ModBlocks.RED_DEEPSLATE_HELIORITE_ORE.asItem())
+        ;
+
+        getOrCreateTagBuilder(ModTags.Items.ENDURIUM_FORGABLES)
+                .add(ModItems.ENDURIUM_CRYSTAL)
+                .add(ModBlocks.END_ENDURIUM_ORE.asItem())
+        ;
+
+        getOrCreateTagBuilder(ModTags.Items.PALLADIUM_FORGABLES)
+                .add(ModItems.RAW_PALLADIUM)
+                .add(ModBlocks.PALLADIUM_ORE.asItem())
+                .add(ModBlocks.DEEPSLATE_PALLADIUM_ORE.asItem())
+                .add(ModBlocks.RED_DEEPSLATE_PALLADIUM_ORE.asItem())
+        ;
+
+        getOrCreateTagBuilder(ModTags.Items.JURASSOLINE_FORGABLES)
+                .add(ModItems.JURASSOLINE_CRYSTAL)
+                .add(ModBlocks.JURASSOLINE_ORE.asItem())
+                .add(ModBlocks.DEEPSLATE_JURASSOLINE_ORE.asItem())
+                .add(ModBlocks.RED_DEEPSLATE_JURASSOLINE_ORE.asItem())
+        ;
+
+        getOrCreateTagBuilder(ModTags.Items.CINNABAR_FORGABLES)
+                .add(ModItems.CINNABAR_CRYSTAL)
+                .add(ModBlocks.CINNABAR_ORE.asItem())
+                .add(ModBlocks.DEEPSLATE_CINNABAR_ORE.asItem())
+                .add(ModBlocks.RED_DEEPSLATE_CINNABAR_ORE.asItem())
+        ;
+
+        getOrCreateTagBuilder(ModTags.Items.NEBULAR_FORGABLES)
+                .add(ModItems.NEBULAR_CRYSTAL)
+                .add(ModBlocks.NEBULAR_ORE.asItem())
+                .add(ModBlocks.DEEPSLATE_NEBULAR_ORE.asItem())
+                .add(ModBlocks.RED_DEEPSLATE_NEBULAR_ORE.asItem())
+        ;
+
+        getOrCreateTagBuilder(ModTags.Items.ENVELOPE_BLACKLIST)
+                .add(ModItems.ENVELOPE)
+                .add(Items.BUNDLE)
+                .add(Items.SHULKER_BOX)
+                .add(Items.WHITE_SHULKER_BOX)
+                .add(Items.ORANGE_SHULKER_BOX)
+                .add(Items.MAGENTA_SHULKER_BOX)
+                .add(Items.LIGHT_BLUE_SHULKER_BOX)
+                .add(Items.YELLOW_SHULKER_BOX)
+                .add(Items.LIME_SHULKER_BOX)
+                .add(Items.PINK_SHULKER_BOX)
+                .add(Items.GRAY_SHULKER_BOX)
+                .add(Items.LIGHT_GRAY_SHULKER_BOX)
+                .add(Items.CYAN_SHULKER_BOX)
+                .add(Items.PURPLE_SHULKER_BOX)
+                .add(Items.BLUE_SHULKER_BOX)
+                .add(Items.BROWN_SHULKER_BOX)
+                .add(Items.GREEN_SHULKER_BOX)
+                .add(Items.RED_SHULKER_BOX)
+                .add(Items.BLACK_SHULKER_BOX)
+                .addOptional(Identifier.tryParse("sophisticatedbackpacks:backpack"))
+                .addOptional(Identifier.tryParse("sophisticatedbackpacks:copper_backpack"))
+                .addOptional(Identifier.tryParse("sophisticatedbackpacks:iron_backpack"))
+                .addOptional(Identifier.tryParse("sophisticatedbackpacks:gold_backpack"))
+                .addOptional(Identifier.tryParse("sophisticatedbackpacks:diamond_backpack"))
+                .addOptional(Identifier.tryParse("sophisticatedbackpacks:netherite_backpack"))
+                .addOptional(Identifier.tryParse("industrialforegoing:infinity_backpack"))
+        ;
+
+        getOrCreateTagBuilder(ModTags.Items.HIDES_IDENTITY)
+                .add(Items.CARVED_PUMPKIN)
+                .add(ModBlocks.CARVED_WHITE_PUMPKIN.asItem())
+        ;
+
+        getOrCreateTagBuilder(ModTags.Items.TONGS)
+                .addTag(ModTags.Items.REINFORCED_TONGS)
+                .add(ModItems.STEEL_TONGS)
+        ;
+
+        getOrCreateTagBuilder(ModTags.Items.REINFORCED_TONGS)
+                .add(ModItems.REINFORCED_TONGS)
+        ;
+
+        getOrCreateTagBuilder(ModTags.Items.BURNS_IN_FORGE)
+                .addTag(ModTags.Items.BURNS_650)
+                .addTag(ModTags.Items.BURNS_1350)
+                .addTag(ModTags.Items.BURNS_1400)
+                .addTag(ModTags.Items.BURNS_3000)
+                .addTag(ModTags.Items.BURNS_6000)
+        ;
+
+        getOrCreateTagBuilder(ModTags.Items.BURNS_650)
+                .addTag(ItemTags.LOGS_THAT_BURN)
+        ;
+
+        getOrCreateTagBuilder(ModTags.Items.BURNS_1350)
+                .add(Items.CHARCOAL)
+        ;
+
+        getOrCreateTagBuilder(ModTags.Items.BURNS_1400)
+                .add(Items.COAL)
+        ;
+
+        getOrCreateTagBuilder(ModTags.Items.BURNS_3000)
+                .add(Items.BLAZE_POWDER)
+        ;
+
+        getOrCreateTagBuilder(ModTags.Items.BURNS_6000)
+                .add(Items.DRAGON_BREATH)
+        ;
+
+        getOrCreateTagBuilder(ModTags.Items.FIRE_BASE_FORGE)
+                .addTag(ModTags.Items.FIRE_BASE_3000)
+                .addTag(ModTags.Items.FIRE_BASE_6000)
+        ;
+
+        getOrCreateTagBuilder(ModTags.Items.FIRE_BASE_3000)
+                .add(Items.SOUL_SAND)
+                .add(Items.SOUL_SOIL)
+        ;
+
+        getOrCreateTagBuilder(ModTags.Items.FIRE_BASE_6000)
+                .add(Items.ECHO_SHARD)
+        ;
+
+        getOrCreateTagBuilder(ModTags.Items.HEATABLE_ITEM)
+                .add(Items.OBSIDIAN)
+                .addTag(ModTags.Items.FORGING_HEAT_6000)
+                .addTag(ModTags.Items.FORGING_HEAT_4500)
+                .addTag(ModTags.Items.FORGING_HEAT_3000)
+                .addTag(ModTags.Items.FORGING_HEAT_2200)
+                .addTag(ModTags.Items.SMITHING_HEAT_5800)
+                .addTag(ModTags.Items.SMITHING_HEAT_4200)
+                .addTag(ModTags.Items.SMITHING_HEAT_2600)
+                .addTag(ModTags.Items.SMITHING_HEAT_1800)
+        ;
+
+        getOrCreateTagBuilder(ModTags.Items.FORGING_HEAT_6000)
+                .add(ModItems.REFINED_RAW_MITHRIL)
+                .add(ModBlocks.REFINED_RAW_MITHRIL_BLOCK.asItem())
+        ;
+
+        getOrCreateTagBuilder(ModTags.Items.FORGING_HEAT_4500)
+                .add(ModItems.NEBULAR_CRYSTAL)
+                .add(ModBlocks.RAW_NEBULAR_BLOCK.asItem())
+                .add(ModBlocks.RED_DEEPSLATE_NEBULAR_ORE.asItem())
+                .add(ModBlocks.DEEPSLATE_NEBULAR_ORE.asItem())
+                .add(ModBlocks.NEBULAR_ORE.asItem())
+                .add(ModItems.CINNABAR_CRYSTAL)
+                .add(ModBlocks.CINNABAR_CRYSTAL_BLOCK.asItem())
+                .add(ModBlocks.RED_DEEPSLATE_CINNABAR_ORE.asItem())
+                .add(ModBlocks.DEEPSLATE_CINNABAR_ORE.asItem())
+                .add(ModBlocks.CINNABAR_ORE.asItem())
+        ;
+
+        getOrCreateTagBuilder(ModTags.Items.FORGING_HEAT_3000)
+                .add(ModItems.JURASSOLINE_CRYSTAL)
+                .add(ModBlocks.JURASSOLINE_CRYSTAL_BLOCK.asItem())
+                .add(ModBlocks.RED_DEEPSLATE_JURASSOLINE_ORE.asItem())
+                .add(ModBlocks.DEEPSLATE_JURASSOLINE_ORE.asItem())
+                .add(ModBlocks.JURASSOLINE_ORE.asItem())
+                .add(ModItems.RAW_PALLADIUM)
+                .add(ModBlocks.RAW_PALLADIUM_BLOCK.asItem())
+                .add(ModBlocks.RED_DEEPSLATE_PALLADIUM_ORE.asItem())
+                .add(ModBlocks.DEEPSLATE_PALLADIUM_ORE.asItem())
+                .add(ModBlocks.PALLADIUM_ORE.asItem())
+        ;
+
+        getOrCreateTagBuilder(ModTags.Items.FORGING_HEAT_2200)
+                .add(ModItems.ENDURIUM_CRYSTAL)
+                .add(ModBlocks.RAW_ENDURIUM_BLOCK.asItem())
+                .add(ModBlocks.END_ENDURIUM_ORE.asItem())
+                .add(ModBlocks.ENDURIUM_BLOCK.asItem())
+                .add(ModItems.HELIORITE_COMB)
+                .add(ModBlocks.HELIORITE_COMB_BLOCK.asItem())
+                .add(ModBlocks.RED_DEEPSLATE_HELIORITE_ORE.asItem())
+                .add(ModBlocks.DEEPSLATE_HELIORITE_ORE.asItem())
+                .add(ModBlocks.HELIORITE_ORE.asItem())
+        ;
+
+        getOrCreateTagBuilder(ModTags.Items.SMITHING_HEAT_5800)
+                .add(ModItems.ROUGH_MITHRIL_INGOT)
+                .add(ModBlocks.ROUGH_MITHRIL_BLOCK.asItem())
+                .add(ModItems.MITHRIL_INGOT)
+                .add(ModBlocks.MITHRIL_BLOCK.asItem())
+                .add(ModItems.MITHRIL_PLATE)
+        ;
+
+        getOrCreateTagBuilder(ModTags.Items.SMITHING_HEAT_4200)
+                .add(ModItems.CINNABAR_INGOT)
+                .add(ModBlocks.CINNABAR_BLOCK.asItem())
+                .add(ModItems.NEBULAR_INGOT)
+                .add(ModBlocks.NEBULAR_BLOCK.asItem())
+        ;
+
+        getOrCreateTagBuilder(ModTags.Items.SMITHING_HEAT_2600)
+                .add(ModItems.JURASSOLINE_INGOT)
+                .add(ModBlocks.JURASSOLINE_BLOCK.asItem())
+                .add(ModItems.PALLADIUM_INGOT)
+                .add(ModBlocks.PALLADIUM_BLOCK.asItem())
+        ;
+
+        getOrCreateTagBuilder(ModTags.Items.SMITHING_HEAT_1800)
+                .add(ModItems.ENDURIUM_INGOT)
+                .add(ModBlocks.ENDURIUM_BLOCK.asItem())
+                .add(ModItems.HELIORITE_INGOT)
+                .add(ModBlocks.HELIORITE_BLOCK.asItem())
+        ;
 
         getOrCreateTagBuilder(ModTags.Items.ONE_AUGMENT_SLOT)
                 .addTag(ModTags.Items.TWO_AUGMENT_SLOTS)
@@ -420,7 +635,9 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
         ;
 
         getOrCreateTagBuilder(ItemTags.SMALL_FLOWERS)
-                .add(ModBlocks.ROSE.asItem())
+                .add(ModBlocks.RED_ROSE.asItem())
+                .add(ModBlocks.BLUE_ROSE.asItem())
+                .add(ModBlocks.PAEONIA.asItem())
                 .add(ModBlocks.IRIS.asItem())
                 .add(ModBlocks.EDELWEISS.asItem())
                 .add(ModBlocks.ATHELAS.asItem())
@@ -469,10 +686,12 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
         ;
 
         getOrCreateTagBuilder(ItemTags.WOOL)
+                .add(ModBlocks.ARCADE_WOOL.asItem())
                 .add(ModBlocks.CURSED_WOOL.asItem())
         ;
 
         getOrCreateTagBuilder(ItemTags.WOOL_CARPETS)
+                .add(ModBlocks.ARCADE_CARPET.asItem())
                 .add(ModBlocks.CURSED_CARPET.asItem())
         ;
 
@@ -495,9 +714,11 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
         ;
 
         getOrCreateTagBuilder(ItemTags.SMALL_FLOWERS)
-                .add(ModBlocks.ROSE.asItem())
+                .add(ModBlocks.RED_ROSE.asItem())
+                .add(ModBlocks.BLUE_ROSE.asItem())
+                .add(ModBlocks.PAEONIA.asItem())
                 .add(ModBlocks.IRIS.asItem())
-                .add(ModBlocks.ROSE.asItem())
+                .add(ModBlocks.EDELWEISS.asItem())
                 .add(ModBlocks.ATHELAS.asItem())
         ;
 
@@ -734,9 +955,13 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
 
         getOrCreateTagBuilder(ModTags.Items.TRANSCENDENT_CIRCUIT_BOARDS)
                 .add(ModItems.TRANSCENDENT_CIRCUIT_BOARD)
-                .add(ModItems.FUTURISTIC_CIRCUIT_BOARD)
                 .add(ModItems.ARCANE_CIRCUIT_BOARD)
                 .add(ModItems.BIOLOGICAL_CIRCUIT_BOARD)
+                .addTag(ModTags.Items.FUTURISTIC_CIRCUIT_BOARDS)
+        ;
+
+        getOrCreateTagBuilder(ModTags.Items.FUTURISTIC_CIRCUIT_BOARDS)
+                .add(ModItems.FUTURISTIC_CIRCUIT_BOARD)
         ;
 
         getOrCreateTagBuilder(ModTags.Items.KEYCARDS)
@@ -1352,6 +1577,10 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
 
         getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "mithril_ingots")))
                 .add(ModItems.MITHRIL_INGOT)
+        ;
+
+        getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "mithril_plates")))
+                .add(ModItems.MITHRIL_PLATE)
         ;
 
         getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "raw_mithril_blocks")))

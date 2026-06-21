@@ -79,6 +79,7 @@ public class TLOTD implements ModInitializer {
 		ModChunkEvents.generateModWorldGen();
 		ModCommands.registerCommands();
 		ModAdvancementTriggers.registerCriteria();
+		ItemEntityTickHandler.register();
 
 		Registry.register(Registries.CHUNK_GENERATOR, new Identifier(TLOTD.MOD_ID, "prehistoric"), PrehistoricChunkGenerator.CODEC);
 		Registry.register(Registries.CHUNK_GENERATOR, new Identifier(TLOTD.MOD_ID, "luna"), LunarChunkGenerator.CODEC);

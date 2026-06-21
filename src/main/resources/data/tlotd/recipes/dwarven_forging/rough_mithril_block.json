@@ -1,0 +1,11 @@
+{
+  "type": "tlotd:dwarven_forging",
+  "ingredients": [
+    {
+      "item": "tlotd:refined_raw_mithril_block"
+    }
+  ],
+  "output": {
+    "item": "tlotd:rough_mithril_block"
+  }
+}

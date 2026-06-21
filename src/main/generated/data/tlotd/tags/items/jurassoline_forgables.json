@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "tlotd:jurassoline_crystal",
+    "tlotd:jurassoline_ore",
+    "tlotd:deepslate_jurassoline_ore",
+    "tlotd:red_deepslate_jurassoline_ore"
+  ]
+}

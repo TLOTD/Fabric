@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:blackstone"
+    },
+    "C": {
+      "item": "minecraft:campfire"
+    },
+    "N": {
+      "item": "minecraft:netherite_ingot"
+    }
+  },
+  "pattern": [
+    "NNN",
+    "###",
+    "#C#"
+  ],
+  "result": {
+    "item": "tlotd:dwarven_forge"
+  },
+  "show_notification": true
+}

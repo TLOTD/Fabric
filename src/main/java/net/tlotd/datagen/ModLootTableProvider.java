@@ -183,6 +183,9 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
 
         addDrop(ModBlocks.STEEL_BLOCK);
 
+        addDrop(ModBlocks.DWARVEN_FORGE);
+        addDrop(ModBlocks.NETHERITE_ANVIL);
+
         addDrop(ModBlocks.NETHER_SULFUR_ORE, drops(ModBlocks.NETHER_SULFUR_ORE, ModItems.SULFUR));
         addDrop(ModBlocks.SULFUR_BLOCK);
 
@@ -232,6 +235,8 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
 
         addDrop(ModBlocks.BEDROCK_MITHRIL_ORE, drops(ModBlocks.BEDROCK_MITHRIL_ORE, ModItems.RAW_MITHRIL));
         addDrop(ModBlocks.RAW_MITHRIL_BLOCK);
+        addDrop(ModBlocks.REFINED_RAW_MITHRIL_BLOCK);
+        addDrop(ModBlocks.ROUGH_MITHRIL_BLOCK);
         addDrop(ModBlocks.MITHRIL_BLOCK);
 
         addDrop(ModBlocks.MITHRIL_ANVIL);
@@ -301,8 +306,12 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.TREX_EGG);
         addDrop(ModBlocks.INFECTED_TREX_EGG);
 
-        addDrop(ModBlocks.ROSE);
-        addPottedPlantDrops(ModBlocks.POTTED_ROSE);
+        addDrop(ModBlocks.RED_ROSE);
+        addPottedPlantDrops(ModBlocks.POTTED_RED_ROSE);
+        addDrop(ModBlocks.BLUE_ROSE);
+        addPottedPlantDrops(ModBlocks.POTTED_BLUE_ROSE);
+        addDrop(ModBlocks.PAEONIA);
+        addPottedPlantDrops(ModBlocks.POTTED_PAEONIA);
         addDrop(ModBlocks.IRIS);
         addPottedPlantDrops(ModBlocks.POTTED_IRIS);
         addDrop(ModBlocks.EDELWEISS);
@@ -405,6 +414,8 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
 
         addDrop(ModBlocks.ARCHAEOLOGY_TABLE);
 
+        addDrop(ModBlocks.ARCADE_WOOL);
+        addDrop(ModBlocks.ARCADE_CARPET);
         addDrop(ModBlocks.CURSED_WOOL);
         addDrop(ModBlocks.CURSED_CARPET);
     }

@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
+    "tlotd:arcade_carpet",
     "tlotd:cursed_carpet"
   ]
 }

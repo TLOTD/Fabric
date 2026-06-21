@@ -6,7 +6,6 @@ import net.minecraft.block.Blocks;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.BlockTags;
-import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.registry.tag.TagKey;
 import net.minecraft.util.Identifier;
 import net.tlotd.block.ModBlocks;
@@ -24,6 +23,8 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         getOrCreateTagBuilder(ModTags.Blocks.MITHRIL_REACTING)
                 .add(ModBlocks.BEDROCK_MITHRIL_ORE)
                 .add(ModBlocks.RAW_MITHRIL_BLOCK)
+                .add(ModBlocks.REFINED_RAW_MITHRIL_BLOCK)
+                .add(ModBlocks.ROUGH_MITHRIL_BLOCK)
                 .add(ModBlocks.MITHRIL_BLOCK)
                 .add(ModBlocks.MITHRIL_ANVIL)
                 .add(ModBlocks.MITHRIL_BARS)
@@ -55,6 +56,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.RAW_NEBULAR_BLOCK)
                 .add(ModBlocks.RAW_PALLADIUM_BLOCK)
                 .add(ModBlocks.RAW_MITHRIL_BLOCK)
+                .add(ModBlocks.REFINED_RAW_MITHRIL_BLOCK)
         ;
         getOrCreateTagBuilder(ModTags.Blocks.STONE_EXTRACTABLE_BLOCKS)
                 .add(Blocks.COAL_ORE)
@@ -817,6 +819,9 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.FOSSIL)
                 .add(ModBlocks.DEEPSLATE_FOSSIL)
 
+                .add(ModBlocks.DWARVEN_FORGE)
+                .add(ModBlocks.NETHERITE_ANVIL)
+
                 .add(ModBlocks.HELIORITE_ORE)
                 .add(ModBlocks.DEEPSLATE_HELIORITE_ORE)
                 .add(ModBlocks.HELIORITE_COMB_BLOCK)
@@ -848,6 +853,8 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
                 .add(ModBlocks.BEDROCK_MITHRIL_ORE)
                 .add(ModBlocks.RAW_MITHRIL_BLOCK)
+                .add(ModBlocks.REFINED_RAW_MITHRIL_BLOCK)
+                .add(ModBlocks.ROUGH_MITHRIL_BLOCK)
                 .add(ModBlocks.MITHRIL_BLOCK)
 
                 .add(ModBlocks.MITHRIL_ANVIL)
@@ -892,14 +899,18 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         ;
 
         getOrCreateTagBuilder(BlockTags.SMALL_FLOWERS)
-                .add(ModBlocks.ROSE)
+                .add(ModBlocks.RED_ROSE)
+                .add(ModBlocks.BLUE_ROSE)
+                .add(ModBlocks.PAEONIA)
                 .add(ModBlocks.IRIS)
                 .add(ModBlocks.EDELWEISS)
                 .add(ModBlocks.ATHELAS)
         ;
 
         getOrCreateTagBuilder(BlockTags.FLOWER_POTS)
-                .add(ModBlocks.POTTED_ROSE)
+                .add(ModBlocks.POTTED_RED_ROSE)
+                .add(ModBlocks.POTTED_BLUE_ROSE)
+                .add(ModBlocks.POTTED_PAEONIA)
                 .add(ModBlocks.POTTED_IRIS)
                 .add(ModBlocks.POTTED_EDELWEISS)
                 .add(ModBlocks.POTTED_ATHELAS)
@@ -1033,13 +1044,16 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
         getOrCreateTagBuilder(BlockTags.NEEDS_DIAMOND_TOOL)
                 .add(ModBlocks.PREHISTORIC_DEBRIS)
+                .add(ModBlocks.NETHERITE_ANVIL)
         ;
 
         getOrCreateTagBuilder(BlockTags.WOOL)
+                .add(ModBlocks.ARCADE_WOOL)
                 .add(ModBlocks.CURSED_WOOL)
         ;
 
         getOrCreateTagBuilder(BlockTags.WOOL_CARPETS)
+                .add(ModBlocks.ARCADE_CARPET)
                 .add(ModBlocks.CURSED_CARPET)
         ;
 
@@ -1054,6 +1068,8 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.LUNAR_BEDROCK)
                 .add(ModBlocks.BEDROCK_MITHRIL_ORE)
                 .add(ModBlocks.RAW_MITHRIL_BLOCK)
+                .add(ModBlocks.REFINED_RAW_MITHRIL_BLOCK)
+                .add(ModBlocks.ROUGH_MITHRIL_BLOCK)
                 .add(ModBlocks.MITHRIL_BLOCK)
                 .add(ModBlocks.MITHRIL_ANVIL)
                 .add(ModBlocks.MITHRIL_BARS)
@@ -1089,6 +1105,8 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.LUNAR_BEDROCK)
                 .add(ModBlocks.BEDROCK_MITHRIL_ORE)
                 .add(ModBlocks.RAW_MITHRIL_BLOCK)
+                .add(ModBlocks.REFINED_RAW_MITHRIL_BLOCK)
+                .add(ModBlocks.ROUGH_MITHRIL_BLOCK)
                 .add(ModBlocks.MITHRIL_BLOCK)
                 .add(ModBlocks.MITHRIL_ANVIL)
                 .add(ModBlocks.MITHRIL_BARS)
@@ -1163,6 +1181,8 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         getOrCreateTagBuilder(ModTags.Blocks.TOOL_LEVEL_7)
                 .add(ModBlocks.BEDROCK_MITHRIL_ORE)
                 .add(ModBlocks.RAW_MITHRIL_BLOCK)
+                .add(ModBlocks.REFINED_RAW_MITHRIL_BLOCK)
+                .add(ModBlocks.ROUGH_MITHRIL_BLOCK)
                 .add(ModBlocks.MITHRIL_BLOCK)
                 .add(ModBlocks.MITHRIL_ANVIL)
                 .add(ModBlocks.MITHRIL_BARS)

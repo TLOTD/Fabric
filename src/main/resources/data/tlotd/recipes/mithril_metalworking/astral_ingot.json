@@ -1,0 +1,26 @@
+{
+  "type": "tlotd:mithril_metalworking",
+  "ingredients": [
+    {
+      "tag": "tlotd:forging_hammers_tier8"
+    },
+    {
+      "tag": "c:mithril_ingots"
+    },
+    {
+      "item": "tlotd:xen_crystal"
+    },
+    {
+      "item": "tlotd:meteorite_chunk"
+    },
+    {
+      "item": "tlotd:star_fragment"
+    },
+    {
+      "item": "tlotd:lunar_callainus_lump"
+    }
+  ],
+  "output": {
+    "item": "tlotd:astral_ingot"
+  }
+}

@@ -3,6 +3,8 @@
   "values": [
     "tlotd:bedrock_mithril_ore",
     "tlotd:raw_mithril_block",
+    "tlotd:refined_raw_mithril_block",
+    "tlotd:rough_mithril_block",
     "tlotd:mithril_block",
     "tlotd:mithril_anvil",
     "tlotd:mithril_bars"

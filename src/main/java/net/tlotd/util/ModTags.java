@@ -122,6 +122,88 @@ public class ModTags {
 
     public static class Items {
 
+        public static final TagKey<Item> LAVA_CLEANSING =
+                createTag("lava_cleansing");
+
+        public static final TagKey<Item> HELIORITE_FORGABLES =
+                createTag("heliorite_forgables");
+        public static final TagKey<Item> ENDURIUM_FORGABLES =
+                createTag("endurium_forgables");
+        public static final TagKey<Item> PALLADIUM_FORGABLES =
+                createTag("palladium_forgables");
+        public static final TagKey<Item> JURASSOLINE_FORGABLES =
+                createTag("jurassoline_forgables");
+        public static final TagKey<Item> CINNABAR_FORGABLES =
+                createTag("cinnabar_forgables");
+        public static final TagKey<Item> NEBULAR_FORGABLES =
+                createTag("nebular_forgables");
+
+        public static final TagKey<Item> ENVELOPE_BLACKLIST =
+                createTag("envelope_blacklist");
+
+        public static final TagKey<Item> HIDES_IDENTITY =
+                createTag("hides_identity");
+
+        public static final TagKey<Item> TONGS =
+                createTag("tongs");
+
+        public static final TagKey<Item> REINFORCED_TONGS =
+                createTag("reinforced_tongs");
+
+        public static final TagKey<Item> BURNS_IN_FORGE =
+                createTag("burns_in_forge");
+
+        public static final TagKey<Item> BURNS_650 =
+                createTag("burns_650");
+
+        public static final TagKey<Item> BURNS_1350 =
+                createTag("burns_1350");
+
+        public static final TagKey<Item> BURNS_1400 =
+                createTag("burns_1400");
+
+        public static final TagKey<Item> BURNS_3000 =
+                createTag("burns_3000");
+
+        public static final TagKey<Item> BURNS_6000 =
+                createTag("burns_6000");
+
+        public static final TagKey<Item> FIRE_BASE_FORGE =
+                createTag("fire_base_forge");
+
+        public static final TagKey<Item> FIRE_BASE_3000 =
+                createTag("fire_base_3000");
+
+        public static final TagKey<Item> FIRE_BASE_6000 =
+                createTag("fire_base_6000");
+
+        public static final TagKey<Item> HEATABLE_ITEM =
+                createTag("heatable_item");
+
+        public static final TagKey<Item> FORGING_HEAT_6000 =
+                createTag("forging_heat_6000");
+
+        public static final TagKey<Item> FORGING_HEAT_4500 =
+                createTag("forging_heat_4500");
+
+        public static final TagKey<Item> FORGING_HEAT_3000 =
+                createTag("forging_heat_3000");
+
+        public static final TagKey<Item> FORGING_HEAT_2200 =
+                createTag("forging_heat_2200");
+
+        public static final TagKey<Item> SMITHING_HEAT_5800 =
+                createTag("smithing_heat_5800");
+
+        public static final TagKey<Item> SMITHING_HEAT_4200 =
+                createTag("smithing_heat_4200");
+
+        public static final TagKey<Item> SMITHING_HEAT_2600 =
+                createTag("smithing_heat_2600");
+
+        public static final TagKey<Item> SMITHING_HEAT_1800 =
+                createTag("smithing_heat_1800");
+
         public static final TagKey<Item> EMPTY =
                 createTag("empty");
 
@@ -307,6 +389,9 @@ public class ModTags {
 
         public static final TagKey<Item> TRANSCENDENT_CIRCUIT_BOARDS =
                 createTag("transcendent_circuit_boards");
+
+        public static final TagKey<Item> FUTURISTIC_CIRCUIT_BOARDS =
+                createTag("futuristic_circuit_boards");
 
         public static final TagKey<Item> GAME_CARTRIDGES =
                 createTag("game_cartridges");

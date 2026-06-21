@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:netherite_block"
+    },
+    "I": {
+      "item": "minecraft:netherite_ingot"
+    }
+  },
+  "pattern": [
+    "###",
+    " I ",
+    "III"
+  ],
+  "result": {
+    "item": "tlotd:netherite_anvil"
+  },
+  "show_notification": true
+}

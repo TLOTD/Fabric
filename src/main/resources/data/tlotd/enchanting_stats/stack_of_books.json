@@ -1,0 +1,18 @@
+{
+	"fabric:load_conditions": [
+	  {
+		"condition": "fabric:all_mods_loaded",
+		"values": [
+		  "apotheosis"
+		]
+	  }
+	],
+	"block": "tlotd:stack_of_books",
+	"stats": {
+		"maxEterna": 15,
+		"eterna": 1,
+		"quanta": 0,
+		"arcana": 0,
+		"clues": 0
+	}
+}

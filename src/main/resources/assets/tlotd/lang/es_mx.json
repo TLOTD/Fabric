@@ -88,7 +88,9 @@
   "augment.tlotd.thermal_cooling.desc": "Evita que el usuario sufra",
   "augment.tlotd.thermal_cooling.desc2": "un sobrecalentamiento.",
 
-  "gui.tlotd.mithril_smithing": "Forja de mithril",
+  "gui.tlotd.dwarven_forging": "Forja",
+  "gui.tlotd.metalworking": "Forja",
+  "gui.tlotd.mithril_metalworking": "Forja",
   "gui.tlotd.augmenting": "Aumentando",
   "gui.tlotd.witching": "Brujería",
   "gui.tlotd.tooltip.liquid_amount_with_capacity": "§f%s§7: %smB/%smB",
@@ -454,6 +456,14 @@
   "item.tlotd.flash_drive.coordinates": "block.pos",
   "item.tlotd.flash_drive.position": "Posición",
 
+  "item.tlotd.envelope": "Sobre",
+  "item.tlotd.letter": "Carta",
+  "item.tlotd.letter.author": "por %1$s",
+  "item.tlotd.letter.author_unknown": "por Desconocido",
+  "item.tlotd.letter.opener": "Abierto",
+  "item.tlotd.letter.opener_unknown": "Abierto",
+  "item.tlotd.letter.sealed": "Sellado",
+
   "item.tlotd.aluminium_wire": "Alambre de aluminio",
   "item.tlotd.copper_wire": "Alambre de cobre",
   "item.tlotd.gold_wire": "Alambre de oro",
@@ -531,6 +541,8 @@
   "item.tlotd.steel_ingot": "Lingote de acero",
   "item.tlotd.steel_rod": "Varilla de acero",
   "item.tlotd.steel_sickle": "Hoz de acero",
+  "item.tlotd.steel_tongs": "Pinzas de acero",
+  "item.tlotd.reinforced_tongs": "Pinzas reforzada",
 
   "item.tlotd.fossilized_bone": "Hueso fosilizado",
   "item.tlotd.plant_fossil": "Fósil vegetal",
@@ -737,9 +749,11 @@
   "item.tlotd.fancy_tool_rod": "Barra de herramientas de lujo",
 
   "item.tlotd.raw_mithril": "Mithril en bruto",
-  "item.tlotd.mithril_nugget": "Pepita de mithril",
+  "item.tlotd.refined_raw_mithril": "Mitril en bruto refinado",
+  "item.tlotd.rough_mithril_ingot": "Lingote de mithril en bruto",
   "item.tlotd.mithril_ingot": "Lingote de mithril",
-
+  "item.tlotd.mithril_nugget": "Pepita de mithril",
+  "item.tlotd.mithril_plate": "Placa de mithril",
   "item.tlotd.mithril_chainmail_chunk": "Trozo de cota de malla de mithril",
 
   "item.tlotd.mithril_sword": "Espada de mithril",
@@ -900,6 +914,8 @@
   "block.tlotd.white_pumpkin": "Calabaza blanca",
   "block.tlotd.carved_white_pumpkin": "Calabaza blanca tallada",
   "block.tlotd.white_jack_o_lantern": "Calabaza blanca de Halloween",
+
+  "block.tlotd.stackable_book": "Libro apilable",
 
   "block.tlotd.effigies": "Efigies",
   "block.tlotd.effigies.tooltip": "Puede gotear",
@@ -1167,13 +1183,18 @@
 
   "block.tlotd.bedrock_mithril_ore": "Mineral de mithril de piedra madre",
   "block.tlotd.raw_mithril_block": "Bloque de mithril en bruto",
+  "block.tlotd.refined_raw_mithril_block": "Bloque de mitril en bruto refinado",
+  "block.tlotd.rough_mithril_block": "Bloque de mitril en bruto",
   "block.tlotd.mithril_block": "Bloque de mithril",
 
-  "block.tlotd.mithril_anvil": "Yunque de mithril",
-  "block.tlotd.mithril_bars": "Barras de mithril",
+  "block.tlotd.netherite_anvil": "Yunque de netherite",
 
+  "block.tlotd.mithril_anvil": "Yunque de mithril",
   "block.tlotd.mithril_anvil.tooltip": "Forja sólo bajo:",
   "block.tlotd.mithril_anvil.tooltip_2": "Luz directa de las estrellas",
+  "block.tlotd.mithril_bars": "Barras de mithril",
+
+  "block.tlotd.dwarven_forge": "Forja de los Enanos",
 
   "block.tlotd.witching_table": "Mesa Bruja",
   "block.tlotd.witching_table.tooltip_bs": "Permite manipular",
@@ -1188,13 +1209,17 @@
   "block.tlotd.witching_table.tooltip": "Permite manipular",
   "block.tlotd.witching_table.tooltip_2": "la materia",
 
+  "block.tlotd.arcade_wool": "Lana arcade",
+  "block.tlotd.arcade_carpet": "Alfombra arcade",
   "block.tlotd.cursed_wool": "Lana maldita",
   "block.tlotd.cursed_carpet": "Alfombra maldita",
   "block.tlotd.cursed_carpet.tooltip": "Tanto trabajo y nada de",
   "block.tlotd.cursed_carpet.tooltip_2": "juego hacen de Jack",
   "block.tlotd.cursed_carpet.tooltip_3": "un chico aburrido",
 
-  "block.tlotd.rose": "Rosa",
+  "block.tlotd.red_rose": "Rosa roja",
+  "block.tlotd.blue_rose": "Rosa azul",
+  "block.tlotd.paeonia": "Peonía",
   "block.tlotd.iris": "Iris",
   "block.tlotd.edelweiss": "Edelweiss",
   "block.tlotd.athelas": "Athelas",

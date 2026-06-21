@@ -80,6 +80,8 @@ public class ModItemGroups {
                         entries.add(ModItems.FLASH_DRIVE);
                         entries.add(ModItems.KEYCARD);
 
+                        entries.add(ModItems.ENVELOPE);
+
                         entries.add(ModItems.STEEL_INGREDIENTS);
                         entries.add(ModItems.STEEL_NUGGET);
                         entries.add(ModItems.STEEL_INGOT);
@@ -139,13 +141,17 @@ public class ModItemGroups {
                         entries.add(ModItems.NEBULAR_INGOT);
 
                         entries.add(ModItems.RAW_MITHRIL);
-                        entries.add(ModItems.MITHRIL_NUGGET);
+                        entries.add(ModItems.REFINED_RAW_MITHRIL);
+                        entries.add(ModItems.ROUGH_MITHRIL_INGOT);
                         entries.add(ModItems.MITHRIL_INGOT);
-
+                        entries.add(ModItems.MITHRIL_NUGGET);
+                        entries.add(ModItems.MITHRIL_PLATE);
                         entries.add(ModItems.MITHRIL_CHAINMAIL_CHUNK);
 
                         entries.add(ModItems.ASTRAL_NUGGET);
                         entries.add(ModItems.ASTRAL_INGOT);
+
+                        entries.add(ModItems.ENDER_DRAGON_SCALES);
 
                         entries.add(ModItems.XEN_CRYSTAL);
                         entries.add(ModItems.METEORITE_CHUNK);
@@ -368,6 +374,8 @@ public class ModItemGroups {
                         entries.add(ModItems.GOLDEN_SICKLE);
                         entries.add(ModItems.STEEL_SICKLE);
                         entries.add(ModItems.NETHERITE_SICKLE);
+                        entries.add(ModItems.STEEL_TONGS);
+                        entries.add(ModItems.REINFORCED_TONGS);
                         entries.add(ModItems.NETHERITE_FORGING_HAMMER);
 
                         entries.add(ModItems.BAMBOO_SWORD);
@@ -582,6 +590,8 @@ public class ModItemGroups {
 
                         entries.add(ModBlocks.SKELETON);
                         entries.add(ModBlocks.EMERGING_SKELETON);
+
+                        entries.add(ModBlocks.STACKABLE_BOOK);
 
                         entries.add(ModBlocks.OUIJA_BOARD);
                         entries.add(ModBlocks.GOAT_HEAD);
@@ -798,6 +808,9 @@ public class ModItemGroups {
                         entries.add(ModBlocks.SULFUR_LANTERN);
                         entries.add(ModBlocks.SULFUR_CAMPFIRE);
 
+                        entries.add(ModBlocks.DWARVEN_FORGE);
+                        entries.add(ModBlocks.NETHERITE_ANVIL);
+
                         entries.add(ModBlocks.ALUMINIUM_ORE);
                         entries.add(ModBlocks.DEEPSLATE_ALUMINIUM_ORE);
                         entries.add(ModBlocks.RAW_ALUMINIUM_BLOCK);
@@ -847,15 +860,21 @@ public class ModItemGroups {
 
                         entries.add(ModBlocks.BEDROCK_MITHRIL_ORE);
                         entries.add(ModBlocks.RAW_MITHRIL_BLOCK);
+                        entries.add(ModBlocks.REFINED_RAW_MITHRIL_BLOCK);
+                        entries.add(ModBlocks.ROUGH_MITHRIL_BLOCK);
                         entries.add(ModBlocks.MITHRIL_BLOCK);
 
                         entries.add(ModBlocks.MITHRIL_ANVIL);
                         entries.add(ModBlocks.MITHRIL_BARS);
 
+                        entries.add(ModBlocks.ARCADE_WOOL);
+                        entries.add(ModBlocks.ARCADE_CARPET);
                         entries.add(ModBlocks.CURSED_WOOL);
                         entries.add(ModBlocks.CURSED_CARPET);
 
-                        entries.add(ModBlocks.ROSE);
+                        entries.add(ModBlocks.RED_ROSE);
+                        entries.add(ModBlocks.BLUE_ROSE);
+                        entries.add(ModBlocks.PAEONIA);
                         entries.add(ModBlocks.IRIS);
                         entries.add(ModBlocks.EDELWEISS);
                         entries.add(ModBlocks.ATHELAS);
@@ -1101,8 +1120,10 @@ public class ModItemGroups {
             content.addAfter(Items.CHERRY_LOG, ModBlocks.GINKGO_LOG);
             content.addAfter(Items.CHERRY_LEAVES, ModBlocks.GINKGO_LEAVES);
             content.addAfter(Items.CHERRY_SAPLING, ModBlocks.GINKGO_SAPLING);
-            content.addAfter(Items.LILY_OF_THE_VALLEY, ModBlocks.ROSE);
-            content.addAfter(ModBlocks.ROSE, ModBlocks.IRIS);
+            content.addAfter(Items.LILY_OF_THE_VALLEY, ModBlocks.RED_ROSE);
+            content.addAfter(ModBlocks.RED_ROSE, ModBlocks.BLUE_ROSE);
+            content.addAfter(ModBlocks.BLUE_ROSE, ModBlocks.PAEONIA);
+            content.addAfter(ModBlocks.PAEONIA, ModBlocks.IRIS);
             content.addAfter(ModBlocks.IRIS, ModBlocks.EDELWEISS);
             content.addAfter(ModBlocks.EDELWEISS, ModBlocks.ATHELAS);
             content.addAfter(Items.SNIFFER_EGG, ModBlocks.TREX_EGG);
@@ -1119,7 +1140,8 @@ public class ModItemGroups {
             content.addAfter(Items.SOUL_LANTERN, ModBlocks.SULFUR_LANTERN);
             content.addAfter(Items.CARTOGRAPHY_TABLE, ModBlocks.ARCHAEOLOGY_TABLE);
             content.addAfter(Items.SOUL_CAMPFIRE, ModBlocks.SULFUR_CAMPFIRE);
-            content.addAfter(Items.DAMAGED_ANVIL, ModBlocks.MITHRIL_ANVIL);
+            content.addAfter(Items.DAMAGED_ANVIL, ModBlocks.NETHERITE_ANVIL);
+            content.addAfter(ModBlocks.NETHERITE_ANVIL, ModBlocks.MITHRIL_ANVIL);
             content.addAfter(Items.ENCHANTING_TABLE, ModBlocks.AUGMENTATION_TABLE);
             content.addAfter(ModBlocks.AUGMENTATION_TABLE, ModBlocks.WITCHING_TABLE);
             content.addAfter(Items.CHERRY_HANGING_SIGN, ModItems.GINKGO_SIGN);
@@ -1236,6 +1258,7 @@ public class ModItemGroups {
             content.addAfter(ModItems.RAW_ALUMINIUM, ModItems.RAW_LEAD);
             content.addAfter(ModItems.RAW_LEAD, ModItems.RAW_PALLADIUM);
             content.addAfter(ModItems.RAW_PALLADIUM, ModItems.RAW_MITHRIL);
+            content.addAfter(ModItems.RAW_MITHRIL, ModItems.REFINED_RAW_MITHRIL);
             content.addAfter(Items.DIAMOND, ModItems.URANIUM);
             content.addAfter(ModItems.URANIUM, ModItems.HELIORITE_COMB);
             content.addAfter(ModItems.HELIORITE_COMB, ModItems.ENDURIUM_CRYSTAL);
@@ -1269,7 +1292,8 @@ public class ModItemGroups {
             content.addAfter(ModItems.PALLADIUM_INGOT, ModItems.JURASSOLINE_INGOT);
             content.addAfter(ModItems.JURASSOLINE_INGOT, ModItems.CINNABAR_INGOT);
             content.addAfter(ModItems.CINNABAR_INGOT, ModItems.NEBULAR_INGOT);
-            content.addAfter(ModItems.NEBULAR_INGOT, ModItems.MITHRIL_INGOT);
+            content.addAfter(ModItems.NEBULAR_INGOT, ModItems.ROUGH_MITHRIL_INGOT);
+            content.addAfter(ModItems.ROUGH_MITHRIL_INGOT, ModItems.MITHRIL_INGOT);
             content.addAfter(ModItems.MITHRIL_INGOT, ModItems.ASTRAL_INGOT);
             content.addAfter(Items.STICK, ModItems.STEEL_ROD);
             content.addAfter(ModItems.STEEL_ROD, ModItems.REINFORCED_TOOL_ROD);

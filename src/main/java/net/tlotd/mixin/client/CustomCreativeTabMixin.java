@@ -3,6 +3,8 @@ package net.tlotd.mixin.client;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.ingame.CreativeInventoryScreen;
 import net.minecraft.item.ItemGroup;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.RegistryKey;
 import net.minecraft.util.Identifier;
 import net.tlotd.TLOTD;
 import net.tlotd.compat.CompatModsCheck;
@@ -20,11 +22,19 @@ public abstract class CustomCreativeTabMixin {
 
     @Shadow private static ItemGroup selectedTab;
     @Unique private static final Identifier TAB_TLOTD_BG = new Identifier(TLOTD.MOD_ID, "textures/gui/container/creative_inventory/tab_tlotd.png");
-    @Unique private static final Identifier SCROLL = new Identifier(TLOTD.MOD_ID, "textures/gui/container/creative_inventory/scrollbar.png");
+    @Unique private static final Identifier TAB_TLOTD_SCROLL = new Identifier(TLOTD.MOD_ID, "textures/gui/container/creative_inventory/tab_tlotd_scrollbar.png");
     @Unique private static final Identifier TAB_TOP_SELECTED = new Identifier(TLOTD.MOD_ID, "textures/gui/container/creative_inventory/tab_tlotd_top_selected.png");
     @Unique private static final Identifier TAB_TOP_INACTIVE = new Identifier(TLOTD.MOD_ID, "textures/gui/container/creative_inventory/tab_tlotd_top_inactive.png");
     @Unique private static final Identifier TAB_BOTTOM_SELECTED = new Identifier(TLOTD.MOD_ID, "textures/gui/container/creative_inventory/tab_tlotd_bottom_selected.png");
     @Unique private static final Identifier TAB_BOTTOM_INACTIVE = new Identifier(TLOTD.MOD_ID, "textures/gui/container/creative_inventory/tab_tlotd_bottom_inactive.png");
+    @Unique private static final Identifier TAB_TLOTD_RNV_BG = new Identifier(TLOTD.MOD_ID, "textures/gui/container/creative_inventory/tab_tlotd_roads_n_vehicles.png");
+    @Unique private static final Identifier TAB_TLOTD_RNV_SCROLL = new Identifier(TLOTD.MOD_ID, "textures/gui/container/creative_inventory/tab_tlotd_roads_n_vehicles_scrollbar.png");
+    @Unique private static final Identifier TAB_TOP_RNV_SELECTED = new Identifier(TLOTD.MOD_ID, "textures/gui/container/creative_inventory/tab_tlotd_roads_n_vehicles_top_selected.png");
+    @Unique private static final Identifier TAB_TOP_RNV_INACTIVE = new Identifier(TLOTD.MOD_ID, "textures/gui/container/creative_inventory/tab_tlotd_roads_n_vehicles_top_inactive.png");
+    @Unique private static final Identifier TAB_BOTTOM_RNV_SELECTED = new Identifier(TLOTD.MOD_ID, "textures/gui/container/creative_inventory/tab_tlotd_roads_n_vehicles_bottom_selected.png");
+    @Unique private static final Identifier TAB_BOTTOM_RNV_INACTIVE = new Identifier(TLOTD.MOD_ID, "textures/gui/container/creative_inventory/tab_tlotd_roads_n_vehicles_bottom_inactive.png");
+
+    ItemGroup TLOTD_4_ROADS_N_VEHICLES_GROUP = Registries.ITEM_GROUP.get(new Identifier("roads-n-vehicles", "4_items"));
 
     @Inject(
             method = "drawBackground",
@@ -42,8 +52,9 @@ public abstract class CustomCreativeTabMixin {
         int y = hs.getY();
         int bgW = hs.getBackgroundWidth();
         int bgH = hs.getBackgroundHeight();
-        if (selectedTab == ModItemGroups.TLOTD_1_MATERIALS_GROUP || selectedTab == ModItemGroups.TLOTD_2_WEAPONS_TOOLS_UTILITIES_GROUP || selectedTab == ModItemGroups.TLOTD_3_BLOCKS_GROUP || selectedTab == ModItemGroups.TLOTD_9_COMPAT_GROUP) {
-            context.drawTexture(TAB_TLOTD_BG, x, y, 0, 0, bgW, bgH);
+        boolean rnv = CompatModsCheck.ROADS_N_VEHICLES && (selectedTab == TLOTD_4_ROADS_N_VEHICLES_GROUP);
+        if (selectedTab == ModItemGroups.TLOTD_1_MATERIALS_GROUP || selectedTab == ModItemGroups.TLOTD_2_WEAPONS_TOOLS_UTILITIES_GROUP || selectedTab == ModItemGroups.TLOTD_3_BLOCKS_GROUP || selectedTab == ModItemGroups.TLOTD_9_COMPAT_GROUP || rnv) {
+            context.drawTexture(rnv ? TAB_TLOTD_RNV_BG : TAB_TLOTD_BG, x, y, 0, 0, bgW, bgH);
             int scrollbarX = x + 175;
             int scrollbarY = y + 18;
             int trackHeight = 112;
@@ -52,13 +63,14 @@ public abstract class CustomCreativeTabMixin {
             int scrollBarOffset = (int) (scrollPos * (maxOffset - 2));
             if (scrollBarOffset < 0) scrollBarOffset = 0;
             if (scrollBarOffset > maxOffset) scrollBarOffset = maxOffset;
-            context.drawTexture(SCROLL, scrollbarX, scrollbarY + scrollBarOffset, 0, 0, 12, 15, 16, 16);
+            context.drawTexture(rnv ? TAB_TLOTD_RNV_SCROLL : TAB_TLOTD_SCROLL, scrollbarX, scrollbarY + scrollBarOffset, 0, 0, 12, 15, 16, 16);
         }
     }
 
     @Inject(method = "renderTabIcon", at = @At("HEAD"), cancellable = true)
     private void mymod$drawCustomTabIcon(DrawContext context, ItemGroup group, CallbackInfo ci) {
-        if (!CompatModsCheck.FORGE && (group == ModItemGroups.TLOTD_1_MATERIALS_GROUP || group == ModItemGroups.TLOTD_2_WEAPONS_TOOLS_UTILITIES_GROUP || group == ModItemGroups.TLOTD_3_BLOCKS_GROUP || group == ModItemGroups.TLOTD_9_COMPAT_GROUP)) {
+        boolean rnv = CompatModsCheck.ROADS_N_VEHICLES && (group == TLOTD_4_ROADS_N_VEHICLES_GROUP);
+        if (!CompatModsCheck.FORGE && (group == ModItemGroups.TLOTD_1_MATERIALS_GROUP || group == ModItemGroups.TLOTD_2_WEAPONS_TOOLS_UTILITIES_GROUP || group == ModItemGroups.TLOTD_3_BLOCKS_GROUP || group == ModItemGroups.TLOTD_9_COMPAT_GROUP || rnv)) {
                 int currentPage = (selectedTab instanceof FabricItemGroup)
                         ? ((FabricItemGroup) selectedTab).getPage()
                         : 0;
@@ -76,8 +88,8 @@ public abstract class CustomCreativeTabMixin {
                 int tabX = x + column * 27;
                 int tabY = y + (topRow ? -28 : (bgHeight - 6));
                 Identifier texture = (selectedTab == group)
-                        ? (topRow ? TAB_TOP_SELECTED : TAB_BOTTOM_SELECTED)
-                        : (topRow ? TAB_TOP_INACTIVE : TAB_BOTTOM_INACTIVE);
+                        ? (topRow ? (rnv ? TAB_TOP_RNV_SELECTED : TAB_TOP_SELECTED) : (rnv ? TAB_BOTTOM_RNV_SELECTED : TAB_BOTTOM_SELECTED))
+                        : (topRow ? (rnv ? TAB_TOP_RNV_INACTIVE : TAB_TOP_INACTIVE) : (rnv ? TAB_BOTTOM_RNV_INACTIVE : TAB_BOTTOM_INACTIVE));
                 context.drawTexture(texture, tabX, tabY, 0, 0, 26, 32, 32, 32);
                 context.drawItem(group.getIcon(), tabX + 5, tabY + 9);
                 ci.cancel();

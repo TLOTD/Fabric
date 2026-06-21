@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "tlotd:nebular_crystal",
+    "tlotd:nebular_ore",
+    "tlotd:deepslate_nebular_ore",
+    "tlotd:red_deepslate_nebular_ore"
+  ]
+}

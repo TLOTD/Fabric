@@ -88,7 +88,9 @@
   "augment.tlotd.thermal_cooling.desc": "Schitzt n Träger",
   "augment.tlotd.thermal_cooling.desc2": "vorm Iberhitzn.",
 
-  "gui.tlotd.mithril_smithing": "Mithrilschmiedn",
+  "gui.tlotd.dwarven_forging": "Schmiede",
+  "gui.tlotd.metalworking": "Metallbearbeitung",
+  "gui.tlotd.mithril_metalworking": "Mithril-Metallbearbeitung",
   "gui.tlotd.augmenting": "Augmentiern",
   "gui.tlotd.witching": "Hexn",
   "gui.tlotd.tooltip.liquid_amount_with_capacity": "§f%s§7: %smB/%smB",
@@ -454,6 +456,14 @@
   "item.tlotd.flash_drive.coordinates": "block.pos",
   "item.tlotd.flash_drive.position": "Position",
 
+  "item.tlotd.envelope": "Oschlag",
+  "item.tlotd.letter": "Brief",
+  "item.tlotd.letter.author": "von %1$s",
+  "item.tlotd.letter.author_unknown": "von Obekannt",
+  "item.tlotd.letter.opener": "Geöffnet",
+  "item.tlotd.letter.opener_unknown": "Geöffnet",
+  "item.tlotd.letter.sealed": "Vrsieglt",
+
   "item.tlotd.aluminium_wire": "Aluminiumkabl",
   "item.tlotd.copper_wire": "Kupfrkabl",
   "item.tlotd.gold_wire": "Goldkabl",
@@ -531,6 +541,8 @@
   "item.tlotd.steel_ingot": "Schtahlbarrn",
   "item.tlotd.steel_rod": "Stahlschtange",
   "item.tlotd.steel_sickle": "Schtahlsichl",
+  "item.tlotd.steel_tongs": "Schtahlzangn",
+  "item.tlotd.reinforced_tongs": "Verstärkte Zangn",
 
   "item.tlotd.fossilized_bone": "Vrschdeinedr Knocha",
   "item.tlotd.plant_fossil": "Vrschdeinede Pflanzn",
@@ -737,9 +749,11 @@
   "item.tlotd.fancy_tool_rod": "Schicke Werkzeigschtange",
 
   "item.tlotd.raw_mithril": "Rohmithril",
-  "item.tlotd.mithril_nugget": "Mithrilklumba",
+  "item.tlotd.refined_raw_mithril": "Verfeinerts Rohmithril",
+  "item.tlotd.rough_mithril_ingot": "Grobmithrilbarrn",
   "item.tlotd.mithril_ingot": "Mithrilbarrn",
-
+  "item.tlotd.mithril_nugget": "Mithrilklumba",
+  "item.tlotd.mithril_plate": "Mithrilplattn",
   "item.tlotd.mithril_chainmail_chunk": "Mithrilkettaschtigg",
 
   "item.tlotd.mithril_sword": "Mithrilschwerd",
@@ -910,6 +924,8 @@
   "block.tlotd.white_pumpkin": "Weißr Kirbis",
   "block.tlotd.carved_white_pumpkin": "Gschnitztr Weißr Kirbis",
   "block.tlotd.white_jack_o_lantern": "Weiße Kirbislaterne",
+
+  "block.tlotd.stackable_book": "Stapelbares Buach",
 
   "block.tlotd.effigies": "Bildnisse",
   "block.tlotd.effigies.tooltip": "Kennd Bluad",
@@ -1176,14 +1192,19 @@
   "block.tlotd.nebular_block": "Nebularblogg",
 
   "block.tlotd.bedrock_mithril_ore": "Grundschtoi-Mithrilerz",
-  "block.tlotd.raw_mithril_block": "Rohmithrilerz",
+  "block.tlotd.raw_mithril_block": "Rohmithrilblogg",
+  "block.tlotd.refined_raw_mithril_block": "Verfeinerter Rohmithrilblogg",
+  "block.tlotd.rough_mithril_block": "Grobmithrilblogg",
   "block.tlotd.mithril_block": "Mithrilblogg",
 
-  "block.tlotd.mithril_anvil": "Mithrilamboss",
-  "block.tlotd.mithril_bars": "Mithrilgittr",
+  "block.tlotd.netherite_anvil": "Netheritamboss",
 
+  "block.tlotd.mithril_anvil": "Mithrilamboss",
   "block.tlotd.mithril_anvil.tooltip": "Schmiedet undr:",
   "block.tlotd.mithril_anvil.tooltip_2": "Direktem Sternelicht",
+  "block.tlotd.mithril_bars": "Mithrilgittr",
+
+  "block.tlotd.dwarven_forge": "Zwergnschmiede",
 
   "block.tlotd.witching_table": "Hexatisch",
   "block.tlotd.witching_table.tooltip_bs": "Ermeglichd seelageladene",
@@ -1198,13 +1219,17 @@
   "block.tlotd.witching_table.tooltip": "Ermeglichd",
   "block.tlotd.witching_table.tooltip_2": "Materienmanipulation",
 
+  "block.tlotd.arcade_wool": "Spielhallenwolln",
+  "block.tlotd.arcade_carpet": "Spielhallendebbich",
   "block.tlotd.cursed_wool": "Vrfluchte Wolln",
   "block.tlotd.cursed_carpet": "Vrfluchter Debbich",
   "block.tlotd.cursed_carpet.tooltip": "All die Arbeit ",
   "block.tlotd.cursed_carpet.tooltip_2": "und koi Spiel lassed",
   "block.tlotd.cursed_carpet.tooltip_3": "Jack irre werda",
 
-  "block.tlotd.rose": "Rosn",
+  "block.tlotd.red_rose": "Rote Rosn",
+  "block.tlotd.blue_rose": "Blaue Rosn",
+  "block.tlotd.paeonia": "Pfingstrosn",
   "block.tlotd.iris": "Schwertlilie",
   "block.tlotd.edelweiss": "Edelweiss",
   "block.tlotd.athelas": "Athelas",

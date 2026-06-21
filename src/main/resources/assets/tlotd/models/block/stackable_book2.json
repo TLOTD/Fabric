@@ -1,0 +1,6 @@
+{
+    "parent": "tlotd:block/stackable_book",
+    "textures": {
+        "book2": "tlotd:block/book"
+    }
+}

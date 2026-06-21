@@ -1,0 +1,26 @@
+{
+  "type": "tlotd:metalworking",
+  "ingredients": [
+    {
+      "tag": "tlotd:forging_hammers_tier5"
+    },
+    {
+      "item": "tlotd:jurassoline_ingot"
+    },
+    {
+      "item": "tlotd:jurassoline_pickaxe"
+    },
+    {
+      "item": "tlotd:jurassoline_axe"
+    },
+    {
+      "item": "tlotd:jurassoline_shovel"
+    },
+    {
+      "item": "tlotd:jurassoline_hoe"
+    }
+  ],
+  "output": {
+    "item": "tlotd:jurassoline_paxel"
+  }
+}

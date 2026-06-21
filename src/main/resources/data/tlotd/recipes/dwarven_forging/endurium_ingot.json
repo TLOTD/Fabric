@@ -1,0 +1,11 @@
+{
+  "type": "tlotd:dwarven_forging",
+  "ingredients": [
+    {
+      "tag": "tlotd:endurium_forgables"
+    }
+  ],
+  "output": {
+    "item": "tlotd:endurium_ingot"
+  }
+}

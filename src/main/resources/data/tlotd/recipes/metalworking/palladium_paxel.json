@@ -1,0 +1,26 @@
+{
+  "type": "tlotd:metalworking",
+  "ingredients": [
+    {
+      "tag": "tlotd:forging_hammers_tier5"
+    },
+    {
+      "item": "tlotd:palladium_ingot"
+    },
+    {
+      "item": "tlotd:palladium_pickaxe"
+    },
+    {
+      "item": "tlotd:palladium_axe"
+    },
+    {
+      "item": "tlotd:palladium_shovel"
+    },
+    {
+      "item": "tlotd:palladium_hoe"
+    }
+  ],
+  "output": {
+    "item": "tlotd:palladium_paxel"
+  }
+}

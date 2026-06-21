@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "tlotd:prehistoric_debris"
+    "tlotd:prehistoric_debris",
+    "tlotd:netherite_anvil"
   ]
 }

@@ -14,6 +14,7 @@ import net.minecraft.network.PacketByteBuf;
 import net.minecraft.network.listener.ClientPlayPacketListener;
 import net.minecraft.network.packet.Packet;
 import net.minecraft.network.packet.s2c.play.BlockEntityUpdateS2CPacket;
+import net.minecraft.recipe.Ingredient;
 import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.server.network.ServerPlayerEntity;
@@ -23,9 +24,11 @@ import net.minecraft.text.Text;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.tlotd.config.ModConfigs;
 import net.tlotd.gui.MithrilAnvilGUIHandler;
 import net.tlotd.recipe.MithrilSmithingRecipe;
+import net.tlotd.recipe.NetheriteSmithingRecipe;
+import net.tlotd.util.ItemHeatHelper;
+import net.tlotd.util.ModTags;
 import net.tlotd.world.ModGlobalState;
 import org.jetbrains.annotations.Nullable;
 
@@ -138,19 +141,21 @@ public class MithrilAnvilBlockEntity extends BlockEntity implements ExtendedScre
             ModGlobalState globalState = ModGlobalState.get(world.getServer());
             starlightAnvil = globalState.starlightAnvil();
         }
-        if (isOutputSlotEmptyOrReceivable() && (world.getRegistryKey().equals(LUNA_LEVEL_KEY) || !starlightAnvil || (world.isNight() && world.isSkyVisibleAllowingSea(pos)))) {
-            if (this.hasRecipe()) {
+        if (isOutputSlotEmptyOrReceivable()) {
+            if (hasRecipe() && mrRequirements(starlightAnvil)) {
                 progress++;
                 markDirty(world, pos, state);
                 if (progress >= maxProgress) {
-                    this.craftItem();
-                    this.resetProgress();
+                    craftItem();
+                    resetProgress();
                 }
             } else {
-                this.resetProgress();
+                resetProgress();
+                tryCoolingItems();
             }
         } else {
-            this.resetProgress();
+            resetProgress();
+            tryCoolingItems();
             markDirty(world, pos, state);
         }
     }
@@ -159,32 +164,137 @@ public class MithrilAnvilBlockEntity extends BlockEntity implements ExtendedScre
         this.progress = 0;
     }
 
-    private void craftItem() {
-        Optional<MithrilSmithingRecipe> recipe = getCurrentRecipe();
+    private void tryCoolingItems() {
+        if (!this.getStack(1).isEmpty()) {
+            ItemHeatHelper.editTemperature(this.getStack(1), -1);
+        }
+        if (!this.getStack(2).isEmpty()) {
+            ItemHeatHelper.editTemperature(this.getStack(2), -1);
+        }
+        if (!this.getStack(3).isEmpty()) {
+            ItemHeatHelper.editTemperature(this.getStack(3), -1);
+        }
+        if (!this.getStack(4).isEmpty()) {
+            ItemHeatHelper.editTemperature(this.getStack(3), -1);
+        }
+        if (!this.getStack(5).isEmpty()) {
+            ItemHeatHelper.editTemperature(this.getStack(3), -1);
+        }
+    }
 
+    private void craftItem() {
+        Optional<MithrilSmithingRecipe> mithrilRecipe = getCurrentMithrilRecipe();
+        Optional<NetheriteSmithingRecipe> recipe = getCurrentRecipe();
         this.removeStack(1, 1);
         this.removeStack(2, 1);
         this.removeStack(3, 1);
         this.removeStack(4, 1);
         this.removeStack(5, 1);
-
-        this.setStack(OUTPUT_SLOT, new ItemStack(recipe.get().getOutput(null).getItem(), getStack(OUTPUT_SLOT).getCount() + recipe.get().getOutput(null).getCount()));
-
+        if (mithrilRecipe.isPresent()) {
+            this.setStack(OUTPUT_SLOT, new ItemStack(mithrilRecipe.get().getOutput(null).getItem(), getStack(OUTPUT_SLOT).getCount() + mithrilRecipe.get().getOutput(null).getCount()));
+        } else {
+            this.setStack(OUTPUT_SLOT, new ItemStack(recipe.get().getOutput(null).getItem(), getStack(OUTPUT_SLOT).getCount() + recipe.get().getOutput(null).getCount()));
+        }
         world.playSound(null, getPos(), SoundEvents.BLOCK_ANVIL_USE, SoundCategory.BLOCKS, 1.0f, 1.0f);
     }
 
     private boolean hasRecipe() {
-        Optional<MithrilSmithingRecipe> recipe = getCurrentRecipe();
-
-        return recipe.isPresent() && canInsertAmountIntoOutputSlot(recipe.get().getOutput(null)) && canInsertItemIntoOutputSlot(recipe.get().getOutput(null).getItem());
+        Optional<NetheriteSmithingRecipe> recipe = getCurrentRecipe();
+        Optional<MithrilSmithingRecipe> mithrilRecipe = getCurrentMithrilRecipe();
+        return (recipe.isPresent() && canInsertAmountIntoOutputSlot(recipe.get().getOutput(null)) && canInsertItemIntoOutputSlot(recipe.get().getOutput(null).getItem()) && hasRequiredHeat(recipe.get()))
+                || (mithrilRecipe.isPresent() && canInsertAmountIntoOutputSlot(mithrilRecipe.get().getOutput(null)) && canInsertItemIntoOutputSlot(mithrilRecipe.get().getOutput(null).getItem()) && hasRequiredHeat(mithrilRecipe.get()));
     }
 
-    private Optional<MithrilSmithingRecipe> getCurrentRecipe() {
+    private boolean mrRequirements(boolean starlightAnvil) {
+        Optional<MithrilSmithingRecipe> mithrilRecipe = getCurrentMithrilRecipe();
+        if (mithrilRecipe.isPresent()) {
+            return world.getRegistryKey().equals(LUNA_LEVEL_KEY) || !starlightAnvil || (world.isNight() && world.isSkyVisibleAllowingSea(pos));
+        } else return true;
+    }
+
+    private boolean hasRequiredHeat(NetheriteSmithingRecipe recipe) {
+        for (int i = 0; i < recipe.getIngredients().size(); i++) {
+            Ingredient ingredient = recipe.getIngredients().get(i);
+            if (ingredient.isEmpty()) {
+                continue;
+            }
+            ItemStack stack = getStack(i);
+            if (!ingredient.test(stack)) {
+                continue;
+            }
+            if (stack.isIn(ModTags.Items.SMITHING_HEAT_5800)) {
+                int temp = ItemHeatHelper.getTemperature(stack);
+                if (temp < 5800) {
+                    return false;
+                }
+            } else if (stack.isIn(ModTags.Items.SMITHING_HEAT_4200)) {
+                int temp = ItemHeatHelper.getTemperature(stack);
+                if (temp < 4200) {
+                    return false;
+                }
+            } else if (stack.isIn(ModTags.Items.SMITHING_HEAT_2600)) {
+                int temp = ItemHeatHelper.getTemperature(stack);
+                if (temp < 2600) {
+                    return false;
+                }
+            } else if (stack.isIn(ModTags.Items.SMITHING_HEAT_1800)) {
+                int temp = ItemHeatHelper.getTemperature(stack);
+                if (temp < 1800) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    private boolean hasRequiredHeat(MithrilSmithingRecipe recipe) {
+        for (int i = 0; i < recipe.getIngredients().size(); i++) {
+            Ingredient ingredient = recipe.getIngredients().get(i);
+            if (ingredient.isEmpty()) {
+                continue;
+            }
+            ItemStack stack = getStack(i);
+            if (!ingredient.test(stack)) {
+                continue;
+            }
+            if (stack.isIn(ModTags.Items.SMITHING_HEAT_5800)) {
+                int temp = ItemHeatHelper.getTemperature(stack);
+                if (temp < 5800) {
+                    return false;
+                }
+            } else if (stack.isIn(ModTags.Items.SMITHING_HEAT_4200)) {
+                int temp = ItemHeatHelper.getTemperature(stack);
+                if (temp < 4200) {
+                    return false;
+                }
+            } else if (stack.isIn(ModTags.Items.SMITHING_HEAT_2600)) {
+                int temp = ItemHeatHelper.getTemperature(stack);
+                if (temp < 2600) {
+                    return false;
+                }
+            } else if (stack.isIn(ModTags.Items.SMITHING_HEAT_1800)) {
+                int temp = ItemHeatHelper.getTemperature(stack);
+                if (temp < 1800) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    private Optional<NetheriteSmithingRecipe> getCurrentRecipe() {
         SimpleInventory inv = new SimpleInventory(this.size());
         for(int i = 0; i < this.size(); i++) {
             inv.setStack(i, this.getStack(i));
         }
+        return getWorld().getRecipeManager().getFirstMatch(NetheriteSmithingRecipe.Type.INSTANCE, inv, getWorld());
+    }
 
+    private Optional<MithrilSmithingRecipe> getCurrentMithrilRecipe() {
+        SimpleInventory inv = new SimpleInventory(this.size());
+        for(int i = 0; i < this.size(); i++) {
+            inv.setStack(i, this.getStack(i));
+        }
         return getWorld().getRecipeManager().getFirstMatch(MithrilSmithingRecipe.Type.INSTANCE, inv, getWorld());
     }
 

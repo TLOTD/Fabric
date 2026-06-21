@@ -26,6 +26,7 @@
     "tlotd:raw_endurium_block",
     "tlotd:raw_nebular_block",
     "tlotd:raw_palladium_block",
-    "tlotd:raw_mithril_block"
+    "tlotd:raw_mithril_block",
+    "tlotd:refined_raw_mithril_block"
   ]
 }

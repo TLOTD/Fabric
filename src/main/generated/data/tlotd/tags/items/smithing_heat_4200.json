@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "tlotd:cinnabar_ingot",
+    "tlotd:cinnabar_block",
+    "tlotd:nebular_ingot",
+    "tlotd:nebular_block"
+  ]
+}
