@@ -3,20 +3,20 @@
     {
       "condition": "fabric:all_mods_loaded",
       "values": [
-        "create"
+        "as_astra"
       ]
     }
   ],
-  "type": "tlotd:mithril_smithing",
+  "type": "tlotd:metalworking",
   "ingredients": [
     {
       "tag": "tlotd:forging_hammers"
     },
     {
-      "tag": "c:copper_ingots"
+      "item": "as_astra:carolite_ingot"
     }
   ],
   "output": {
-    "item": "create:copper_sheet"
+    "item": "as_astra:carolite_plate"
   }
 }

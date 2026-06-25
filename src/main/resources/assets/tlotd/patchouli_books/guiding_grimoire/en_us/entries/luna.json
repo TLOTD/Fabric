@@ -14,7 +14,7 @@
     {
       "type": "patchouli:crafting",
       "title": "Equipment",
-      "recipe": "tlotd:oxygen_tank",
+      "recipe": "tlotd:gas_cylinder",
       "recipe2": "tlotd:space_suit_chestplate",
       "text": "You'll need this."
     },

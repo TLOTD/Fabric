@@ -1,6 +1,5 @@
 {
   "display": {
-    "background": "tlotd:textures/gui/advancements/backgrounds/technology.png",
     "icon": {
       "item": "tlotd:copper_wire"
     },
@@ -11,8 +10,8 @@
       "translate": "advancements.tlotd.technology.desc"
     },
     "frame": "task",
-    "show_toast": false,
-    "announce_to_chat": false,
+    "show_toast": true,
+    "announce_to_chat": true,
     "hidden": false
   },
   "criteria": {
@@ -28,5 +27,6 @@
         ]
       }
     }
-  }
+  },
+  "parent": "tlotd:root"
 }

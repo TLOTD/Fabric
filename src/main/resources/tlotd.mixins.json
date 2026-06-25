@@ -5,7 +5,8 @@
   "mixins": [
     "PlayerEntityDataSaverMixin",
     "WoodStrippingItemDrop",
-    "ItemTooltipMixin"
+    "ItemTooltipMixin",
+    "LivingEntityMixin"
   ],
   "injectors": {
     "defaultRequire": 1

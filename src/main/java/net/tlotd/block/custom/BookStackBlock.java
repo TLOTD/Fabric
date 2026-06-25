@@ -7,6 +7,8 @@ import net.minecraft.fluid.Fluids;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.DirectionProperty;
@@ -94,6 +96,7 @@ public class BookStackBlock extends Block {
         }
         if (!world.isClient) {
             world.setBlockState(pos, state.with(BOOKS, books + 1), Block.NOTIFY_ALL);
+            world.playSound(null, pos, SoundEvents.BLOCK_GRASS_PLACE, SoundCategory.BLOCKS, 1.0f, 1.0f);
             if (!player.getAbilities().creativeMode) {
                 heldStack.decrement(1);
             }

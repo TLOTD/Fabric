@@ -9,7 +9,7 @@
     "description": {
       "translate": "advancements.tlotd.mithril.desc"
     },
-    "frame": "goal",
+    "frame": "task",
     "show_toast": true,
     "announce_to_chat": true,
     "hidden": false
@@ -28,5 +28,5 @@
       }
     }
   },
-  "parent": "tlotd:extraction"
+  "parent": "tlotd:refined_raw_mithril"
 }

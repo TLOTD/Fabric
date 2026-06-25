@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "tlotd:block/copper_wall_torch"
+    },
+    "facing=north": {
+      "model": "tlotd:block/copper_wall_torch",
+      "y": 270
+    },
+    "facing=south": {
+      "model": "tlotd:block/copper_wall_torch",
+      "y": 90
+    },
+    "facing=west": {
+      "model": "tlotd:block/copper_wall_torch",
+      "y": 180
+    }
+  }
+}

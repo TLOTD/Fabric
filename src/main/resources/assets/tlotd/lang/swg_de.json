@@ -194,9 +194,14 @@
   "sounds.tlotd.block_keycard_reader_pling": "Kartnleser wird gnutzt",
   "sounds.tlotd.block_garbage_can_used": "Mülloimr wird gnutzt",
 
+  "advancements.tlotd.root": "TLOTD",
+  "advancements.tlotd.root.desc": "Griaß Gott zur Mod",
+
   "advancements.tlotd.radioactive": "§eRadioactiv!§r",
   "advancements.tlotd.radioactive.desc": "Werd von ebbes verschtrahlt",
 
+  "advancements.tlotd.dwarven_forge": "Alte Schmiedn",
+  "advancements.tlotd.dwarven_forge.desc": "Bau a Zwergnschmiedn, um bessre Erze zu schmelzn",
   "advancements.tlotd.alloy_allies": "Legierungs Liebhabr",
   "advancements.tlotd.alloy_allies.desc": "Mach dr a Heliorit- odr a Enduriumbarrn",
   "advancements.tlotd.next_level": "Next Level!",
@@ -205,6 +210,8 @@
   "advancements.tlotd.rich_in_ingots.desc": "Mach dr a Zinnobr- odr a Nebularbarrn",
   "advancements.tlotd.extraction": "Vorsichtige Ausgrabung",
   "advancements.tlotd.extraction.desc": "Erlange oine Ausgrabungs-Schpitzhaggn",
+  "advancements.tlotd.refined_raw_mithril": "Lavabad",
+  "advancements.tlotd.refined_raw_mithril.desc": "Brenn die Vrunreinigung des Rohmithrils in Lava ab",
   "advancements.tlotd.mithril": "Reinstes der Metalle",
   "advancements.tlotd.mithril.desc": "Gelange an nen Barrn Silber-Stahl, au bekannt als Mithril",
   "advancements.tlotd.mithril_mirror": "Dahoam vrblasst",
@@ -222,8 +229,10 @@
   "advancements.tlotd.simple_circuitry.desc": "Gelang an a Platine",
   "advancements.tlotd.oxygen_collector": "Sauerstoffsammler",
   "advancements.tlotd.oxygen_collector.desc": "Baue einen Sauerstoffsammler",
-  "advancements.tlotd.lunar_return": "Zum Mond und wiedr zurigg!",
-  "advancements.tlotd.lunar_return.desc": "Kehr zrigg von ra Reisn zum Mond",
+  "advancements.tlotd.luna": "Zum Mond und wiedr zurigg!",
+  "advancements.tlotd.luna.desc": "Kehr zrigg von ra Reisn zum Mond",
+  "advancements.tlotd.lunar_callainus_lump": "Das tirkiese Juwel des Mondes",
+  "advancements.tlotd.lunar_callainus_lump.desc": "Gelang an a Lunar Callainus Klumpn",
   "advancements.tlotd.play_radio": "Radio Schtar",
   "advancements.tlotd.play_radio.desc": "Horch nach am a Signal mitm Radio",
   "advancements.tlotd.television": "Endlich in Farb!",
@@ -255,11 +264,6 @@
   "advancements.tlotd.jurassic.desc": "Jurazeiten erfordern jurassische Maßnahmen",
   "advancements.tlotd.kill_a_t-rex": "Häddesch vai ausschterba sodda!",
   "advancements.tlotd.kill_a_t-rex.desc": "Bekämpf und bezwing an T-Rex im Kampf",
-
-  "advancements.tlotd.luna": "Luna",
-  "advancements.tlotd.luna.desc": "Zum Mond und wiedr zrigg?",
-  "advancements.tlotd.lunar_callainus_lump": "Das tirkiese Juwel des Mondes",
-  "advancements.tlotd.lunar_callainus_lump.desc": "Gelang an a Lunar Callainus Klumpn",
 
   "advancements.tlotd.magic": "Magische Entfaltung",
   "advancements.tlotd.magic.desc": "Magie aißert sich in viela oinzigartiga Weise in diesr Weld",
@@ -1130,6 +1134,8 @@
 
   "block.tlotd.steel_block": "Stahlblogg",
 
+  "block.tlotd.copper_torch": "Kupfrfaggl",
+
   "block.tlotd.nether_sulfur_ore": "Netherschwefelerz",
   "block.tlotd.sulfur_block": "Schweflblogg",
   "block.tlotd.sulfur_torch": "Schweflfaggl",
@@ -1141,6 +1147,8 @@
   "block.tlotd.extinguished_wall_torch": "Erloschne Wandfaggl",
   "block.tlotd.extinguished_soul_torch": "Erloschne Seelafaggl",
   "block.tlotd.extinguished_soul_wall_torch": "Erloschne Seelawandfaggl",
+  "block.tlotd.extinguished_copper_torch": "Erloschne Kupfrfaggl",
+  "block.tlotd.extinguished_copper_wall_torch": "Erloschne Kupfrfaggl",
   "block.tlotd.extinguished_sulfur_torch": "Erloschne Schweflfaggl",
   "block.tlotd.extinguished_sulfur_wall_torch": "Erloschne Schweflwandfaggl",
 
@@ -1236,6 +1244,8 @@
 
   "block.tlotd.glass_door": "Glasdira",
   "block.tlotd.glass_trapdoor": "Glasfalldira",
+
+  "block.tlotd.shelf_mushroom": "Baumpülz",
 
   "block.tlotd.ginkgo_sapling": "Ginkgosetzling",
   "block.tlotd.ginkgo_log": "Ginkgostamm",

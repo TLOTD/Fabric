@@ -31,7 +31,7 @@ public class IrradiatedItem extends Item {
             if (entity.isPlayer()) {
                 ServerPlayerEntity player = (ServerPlayerEntity) entity;
                 if (!player.hasStatusEffect(ModEffects.IRRADIATED)) {
-                    player.addStatusEffect(new StatusEffectInstance(ModEffects.IRRADIATED, 60,0,true,false));
+                    player.addStatusEffect(new StatusEffectInstance(ModEffects.IRRADIATED, 60, 0, true, false, true));
                 }
             }
         }

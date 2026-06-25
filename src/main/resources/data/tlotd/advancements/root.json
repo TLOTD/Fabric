@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "item": "tlotd:mod_icon"
+    },
+    "title": {
+      "translate": "advancements.tlotd.root"
+    },
+    "description": {
+      "translate": "advancements.tlotd.root.desc"
+    },
+    "background": "tlotd:textures/gui/advancements/backgrounds/tlotd.png",
+    "frame": "task",
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:changed_dimension",
+      "conditions": {
+        "to": "tlotd:luna"
+      }
+    }
+  }
+}

@@ -1,7 +1,7 @@
 {
   "display": {
     "icon": {
-      "item": "tlotd:cinnabar_pickaxe"
+      "item": "tlotd:augment-extraction"
     },
     "title": {
       "translate": "advancements.tlotd.extraction"
@@ -15,14 +15,13 @@
     "hidden": false
   },
   "criteria": {
-    "requirement": {
-      "trigger": "minecraft:inventory_changed",
+    "hold_item_specific_player": {
+      "trigger": "tlotd:player_holds_item",
       "conditions": {
-        "items": [
-          {
-            "tag": "tlotd:extraction_pickaxes"
-          }
-        ]
+        "tag": "c:pickaxes",
+        "augments": {
+          "tlotd:extraction": 1
+        }
       }
     }
   },

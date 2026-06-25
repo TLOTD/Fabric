@@ -1,8 +1,11 @@
 package net.tlotd.networking;
 
 import net.minecraft.nbt.NbtCompound;
+import net.tlotd.util.TemperatureUnit;
 
 public class ClientGlobalConfig {
+    public static String defaultTemperatureUnit = TemperatureUnit.CELSIUS.asString();
+
     public static boolean axeStrippingBark = true;
     public static boolean extractionOreCompat = true;
     public static int elevatorMaxDistance = 100;
@@ -18,7 +21,11 @@ public class ClientGlobalConfig {
     public static int warpHeightIntoLuna = 100;
     public static int terraResistance = 400;
 
+    public static double noClipChance = 0.1;
+
     public static void update(NbtCompound nbt) {
+        defaultTemperatureUnit = nbt.getString("DefaultTemperatureUnit");
+
         axeStrippingBark = nbt.getBoolean("AxeStrippingBark");
         extractionOreCompat = nbt.getBoolean("ExtractionOreCompat");
         elevatorMaxDistance = nbt.getInt("ElevatorMaxDistance");
@@ -33,5 +40,7 @@ public class ClientGlobalConfig {
         warpHeightIntoTerra = nbt.getInt("WarpHeightIntoTerra");
         warpHeightIntoLuna = nbt.getInt("WarpHeightIntoLuna");
         terraResistance = nbt.getInt("TerraResistance");
+
+        noClipChance = nbt.getDouble("NoClipChance");
     }
 }

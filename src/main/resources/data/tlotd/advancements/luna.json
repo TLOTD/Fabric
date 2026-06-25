@@ -9,8 +9,7 @@
     "description": {
       "translate": "advancements.tlotd.luna.desc"
     },
-    "background": "tlotd:textures/gui/advancements/backgrounds/luna.png",
-    "frame": "task",
+    "frame": "goal",
     "show_toast": true,
     "announce_to_chat": true,
     "hidden": false
@@ -19,8 +18,10 @@
     "requirement": {
       "trigger": "minecraft:changed_dimension",
       "conditions": {
-        "to": "tlotd:luna"
+        "from": "tlotd:luna",
+        "to": "minecraft:overworld"
       }
     }
-  }
+  },
+  "parent": "tlotd:oxygen_collector"
 }

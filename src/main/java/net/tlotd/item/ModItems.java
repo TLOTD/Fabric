@@ -28,6 +28,7 @@ public class ModItems {
     static Identifier emptySlotPickaxeTexture = new Identifier("item/empty_slot_pickaxe");
     static Identifier emptySlotPickaxeHeadTexture = new Identifier(TLOTD.MOD_ID,"item/empty_slot_pickaxe_head");
 
+    public static final Item COPPER_TORCH = registerItem("copper_torch", new VerticallyAttachableBlockItem(ModBlocks.COPPER_TORCH, ModBlocks.COPPER_WALL_TORCH, new FabricItemSettings(), Direction.DOWN));
     public static final Item SULFUR_TORCH = registerItem("sulfur_torch", new VerticallyAttachableBlockItem(ModBlocks.SULFUR_TORCH, ModBlocks.SULFUR_WALL_TORCH, new FabricItemSettings(), Direction.DOWN));
 
     public static final Item OAK_BARK = registerItem("oak_bark", new Item(new FabricItemSettings()));
@@ -150,7 +151,7 @@ public class ModItems {
     public static final Item GAME_CARTRIDGE_2 = registerItem("game_cartridge_2", new GameCartridgeItem(new FabricItemSettings().rarity(Rarity.RARE).maxCount(1)));
     public static final Item GAME_CARTRIDGE_3 = registerItem("game_cartridge_3", new GameCartridgeItem(new FabricItemSettings().rarity(Rarity.RARE).maxCount(1)));
 
-    public static final Item FLASH_DRIVE = registerItem("flash_drive", new FlashDriveItem(new FabricItemSettings()));
+    public static final Item FLASH_DRIVE = registerItem("flash_drive", new FlashDriveItem(new FabricItemSettings().maxCount(1)));
     public static final Item KEYCARD = registerItem("keycard", new KeycardItem(new FabricItemSettings().maxCount(1)));
     public static final Item ENVELOPE = registerItem("envelope", new EnvelopeItem(new FabricItemSettings().maxCount(1)));
 
@@ -516,6 +517,7 @@ public class ModItems {
 
     public static final Item ENDER_DRAGON_SCALES = registerItem("ender_dragon_scales", new Item(new FabricItemSettings()));
 
+    public static final Item MOD_ICON = registerItem("mod_icon", new Item(new FabricItemSettings().maxCount(1)));
     public static final Item IRRADIATED_ICON = registerItem("irradiated_icon", new Item(new FabricItemSettings().maxCount(1)));
 
     public static final Item AUGMENT_SLOT_EXPANSION = registerItem("augment-slot_expansion", new AugmentItem(new FabricItemSettings().rarity(Rarity.EPIC).maxCount(1)));

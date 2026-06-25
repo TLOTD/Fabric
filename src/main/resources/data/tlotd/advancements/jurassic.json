@@ -9,7 +9,6 @@
     "description": {
       "translate": "advancements.tlotd.jurassic.desc"
     },
-    "background": "tlotd:textures/gui/advancements/backgrounds/jurassic.png",
     "frame": "task",
     "show_toast": true,
     "announce_to_chat": true,
@@ -22,5 +21,6 @@
         "to": "tlotd:prehistoric"
       }
     }
-  }
+  },
+  "parent": "tlotd:root"
 }

@@ -12,18 +12,17 @@ import net.minecraft.nbt.NbtList;
 import net.minecraft.screen.slot.Slot;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
+import net.minecraft.text.MutableText;
 import net.minecraft.text.Text;
 import net.minecraft.util.ClickType;
 import net.minecraft.util.Formatting;
-import net.minecraft.util.Hand;
-import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.world.World;
-import net.tlotd.item.ModItems;
 import net.tlotd.util.AdAstraGasNbtHelper;
 import net.tlotd.util.ModTags;
 import net.tlotd.util.SpaceSuitTooltipData;
 
+import java.util.Map;
 import java.util.Optional;
 import java.util.function.Consumer;
 
@@ -34,34 +33,44 @@ public class SpaceSuitArmorItem extends ArmorItem {
 
     @Override
     public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
-        if (!world.isClient() && entity.isPlayer()) {
-            if (stack == ((PlayerEntity) entity).getInventory().getArmorStack(2)) {
-                long maxOxygenRaw = AdAstraGasNbtHelper.getMaxOxygenFromSuit(stack);
-                long oxygenRaw = AdAstraGasNbtHelper.getOxygenFromSuit(stack);
-                long maxOxygen = maxOxygenRaw / AdAstraGasNbtHelper.MAX_AMOUNT;
-                String formattedOxygen;
-                String formattedMaxOxygen;
-                if (entity.isSneaking()) {
-                    int displayAmount = (int) Math.round((double) oxygenRaw * 1000 / AdAstraGasNbtHelper.MAX_AMOUNT);
-                    formattedOxygen = String.format("%,d", displayAmount);
-                    formattedMaxOxygen = maxOxygen + ",000";
+        if (!world.isClient() && entity instanceof PlayerEntity player) {
+            if (stack == player.getInventory().getArmorStack(2)) {
+                Map<String, AdAstraGasNbtHelper.GasInfo> gases = AdAstraGasNbtHelper.getSuitGasContents(stack);
+                MutableText display = Text.empty();
+                if (gases.isEmpty()) {
+                    display.append(Text.translatable("item.tlotd.gas_cylinder.tooltip", "0", "0", "0", "0", AdAstraGasNbtHelper.gasName("empty")));
                 } else {
-                    formattedOxygen = AdAstraGasNbtHelper.getOxygenString(oxygenRaw);
-                    formattedMaxOxygen = maxOxygen + "K";
+                    boolean first = true;
+                    for (Map.Entry<String, AdAstraGasNbtHelper.GasInfo> entry : gases.entrySet()) {
+                        String gas = entry.getKey();
+                        AdAstraGasNbtHelper.GasInfo info = entry.getValue();
+                        String formattedGas;
+                        String formattedMaxGas;
+                        if (entity.isSneaking()) {
+                            int displayAmount = (int) Math.round((double) info.amount * 1000 / AdAstraGasNbtHelper.MAX_AMOUNT);
+                            int displayMax = (int) Math.round((double) info.max * 1000 / AdAstraGasNbtHelper.MAX_AMOUNT);
+                            formattedGas = String.format("%,d", displayAmount);
+                            formattedMaxGas = String.format("%,d", displayMax);
+                        } else {
+                            formattedGas = AdAstraGasNbtHelper.getOxygenString(info.amount);
+                            formattedMaxGas = AdAstraGasNbtHelper.getOxygenString(info.max);
+                        }
+                        String formattedGas2 = formattedGas.replace(',', '.');
+                        String formattedMaxGas2 = formattedMaxGas.replace(',', '.');
+                        if (!first) {
+                            display.append(Text.literal(" | "));
+                        }
+                        display.append(Text.translatable("item.tlotd.gas_cylinder.tooltip", formattedGas, formattedMaxGas, formattedGas2, formattedMaxGas2, AdAstraGasNbtHelper.gasName(gas)));
+                        first = false;
+                    }
                 }
-                if (maxOxygen == 0) {
-                    formattedMaxOxygen = maxOxygen + "";
-                }
-                String formattedOxygen2 = formattedOxygen.replace(',', '.');
-                String formattedMaxOxygen2 = formattedMaxOxygen.replace(',', '.');
-                String gas = AdAstraGasNbtHelper.AD_ASTRA_OXYGEN_ID;
-                ((PlayerEntity) entity).sendMessage(Text.translatable("item.tlotd.gas_cylinder.tooltip", formattedOxygen, formattedMaxOxygen, formattedOxygen2, formattedMaxOxygen2, AdAstraGasNbtHelper.gasName(gas)).formatted(Formatting.GOLD), true);
+                player.sendMessage(display.formatted(Formatting.GOLD), true);
             }
         }
     }
 
     public float getProgress(ItemStack stack) {
-        return Math.max(AdAstraGasNbtHelper.getMaxOxygenFromSuit(stack) - AdAstraGasNbtHelper.getOxygenFromSuit(stack), 0);
+        return Math.max(AdAstraGasNbtHelper.getMaxGasFromSuit(stack) - AdAstraGasNbtHelper.getGasAmountFromSuit(stack, AdAstraGasNbtHelper.AD_ASTRA_OXYGEN_ID), 0);
     }
 
     @Override
@@ -70,7 +79,7 @@ public class SpaceSuitArmorItem extends ArmorItem {
     }
 
     public int getItemBarStep(ItemStack stack) {
-        return Math.round(13.0f - getProgress(stack) * 13.0f / AdAstraGasNbtHelper.getMaxOxygenFromSuit(stack));
+        return Math.round(13.0f - getProgress(stack) * 13.0f / AdAstraGasNbtHelper.getMaxGasFromSuit(stack));
     }
 
     @Override

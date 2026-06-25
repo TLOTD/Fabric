@@ -36,7 +36,7 @@ public class ModUseBlockCallback {
                         item.decrement(1);
                     }
                     return ActionResult.SUCCESS;
-                } else if (item.isOf(Items.TORCH) || item.isOf(Items.SOUL_TORCH) || item.isOf(ModItems.SULFUR_TORCH)) {
+                } else if (item.isOf(Items.TORCH) || item.isOf(Items.SOUL_TORCH) || item.isOf(ModItems.COPPER_TORCH) || item.isOf(ModItems.SULFUR_TORCH)) {
                     BlockPos pos = hitResult.getBlockPos();
                     BlockState hitState = world.getBlockState(pos);
                     Direction facing = hitResult.getSide();
@@ -52,6 +52,12 @@ public class ModUseBlockCallback {
                                 torchState = ModBlocks.EXTINGUISHED_SOUL_WALL_TORCH.getDefaultState().with(FACING, facing);
                             } else {
                                 torchState = ModBlocks.EXTINGUISHED_SOUL_TORCH.getDefaultState();
+                            }
+                        } else if (item.isOf(ModItems.COPPER_TORCH)) {
+                            if (facing.getAxis() != Direction.Axis.Y) {
+                                torchState = ModBlocks.EXTINGUISHED_COPPER_WALL_TORCH.getDefaultState().with(FACING, facing);
+                            } else {
+                                torchState = ModBlocks.EXTINGUISHED_COPPER_TORCH.getDefaultState();
                             }
                         } else if (item.isOf(ModItems.SULFUR_TORCH)) {
                             if (facing.getAxis() != Direction.Axis.Y) {

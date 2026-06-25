@@ -13,15 +13,14 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.math.intprovider.ConstantIntProvider;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.feature.size.TwoLayersFeatureSize;
-import net.minecraft.world.gen.foliage.BlobFoliagePlacer;
 import net.minecraft.world.gen.foliage.JungleFoliagePlacer;
-import net.minecraft.world.gen.foliage.LargeOakFoliagePlacer;
 import net.minecraft.world.gen.stateprovider.BlockStateProvider;
 import net.minecraft.world.gen.treedecorator.TrunkVineTreeDecorator;
 import net.minecraft.world.gen.trunk.GiantTrunkPlacer;
 import net.minecraft.world.gen.trunk.StraightTrunkPlacer;
 import net.tlotd.TLOTD;
 import net.tlotd.block.ModBlocks;
+import net.tlotd.world.tree.ShelfMushroomTreeDecorator;
 
 import java.util.List;
 
@@ -243,7 +242,10 @@ public class ModConfiguredFeatures {
                         ),
                         new TwoLayersFeatureSize(1, 1, 2))
                         .dirtProvider(BlockStateProvider.of(ModBlocks.RICH_DIRT))
-                        .decorators(ImmutableList.of(TrunkVineTreeDecorator.INSTANCE))
+                        .decorators(ImmutableList.of(
+                                ShelfMushroomTreeDecorator.INSTANCE,
+                                TrunkVineTreeDecorator.INSTANCE
+                        ))
                         .ignoreVines()
                         .build()
         );
@@ -259,7 +261,10 @@ public class ModConfiguredFeatures {
                         ),
                         new TwoLayersFeatureSize(1, 1, 2))
                         .dirtProvider(BlockStateProvider.of(ModBlocks.RICH_DIRT))
-                        .decorators(ImmutableList.of(TrunkVineTreeDecorator.INSTANCE))
+                        .decorators(ImmutableList.of(
+                                ShelfMushroomTreeDecorator.INSTANCE,
+                                TrunkVineTreeDecorator.INSTANCE
+                        ))
                         .ignoreVines()
                         .build()
         );

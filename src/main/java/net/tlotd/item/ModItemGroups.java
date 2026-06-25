@@ -802,6 +802,8 @@ public class ModItemGroups {
 
                         entries.add(ModBlocks.STEEL_BLOCK);
 
+                        entries.add(ModItems.COPPER_TORCH);
+
                         entries.add(ModBlocks.NETHER_SULFUR_ORE);
                         entries.add(ModBlocks.SULFUR_BLOCK);
                         entries.add(ModItems.SULFUR_TORCH);
@@ -886,6 +888,8 @@ public class ModItemGroups {
 
                         entries.add(ModBlocks.GLASS_DOOR);
                         entries.add(ModBlocks.GLASS_TRAPDOOR);
+
+                        entries.add(ModBlocks.SHELF_MUSHROOM);
 
                         entries.add(ModBlocks.GINKGO_SAPLING);
                         entries.add(ModBlocks.GINKGO_LEAVES);
@@ -1136,6 +1140,7 @@ public class ModItemGroups {
         });
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.FUNCTIONAL).register(content -> {
+            content.addAfter(Items.TORCH, ModItems.COPPER_TORCH);
             content.addAfter(Items.SOUL_TORCH, ModItems.SULFUR_TORCH);
             content.addAfter(Items.SOUL_LANTERN, ModBlocks.SULFUR_LANTERN);
             content.addAfter(Items.CARTOGRAPHY_TABLE, ModBlocks.ARCHAEOLOGY_TABLE);

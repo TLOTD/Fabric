@@ -4,8 +4,11 @@ import net.minecraft.nbt.NbtCompound;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.world.PersistentState;
+import net.tlotd.util.TemperatureUnit;
 
 public class ModGlobalState extends PersistentState {
+    private String defaultTemperatureUnit = TemperatureUnit.CELSIUS.asString();
+
     private boolean axeStrippingBark = true;
     private boolean extractionOreCompat = true;
     private int elevatorMaxDistance = 100;
@@ -21,6 +24,8 @@ public class ModGlobalState extends PersistentState {
     private int warpHeightIntoLuna = 100;
     private int terraResistance = 400;
 
+    private double noClipChance = 0.1;
+
     public static ModGlobalState get(MinecraftServer server) {
         ServerWorld overworld = server.getOverworld();
         return overworld.getPersistentStateManager().getOrCreate(ModGlobalState::fromNbt, ModGlobalState::new, "TLOTD_Data");
@@ -28,6 +33,8 @@ public class ModGlobalState extends PersistentState {
 
     private static ModGlobalState fromNbt(NbtCompound nbt) {
         ModGlobalState state = new ModGlobalState();
+        state.defaultTemperatureUnit = nbt.getString("DefaultTemperatureUnit");
+
         state.axeStrippingBark = nbt.getBoolean("AxeStrippingBark");
         state.extractionOreCompat = nbt.getBoolean("ExtractionOreCompat");
         state.elevatorMaxDistance = nbt.getInt("ElevatorMaxDistance");
@@ -42,11 +49,15 @@ public class ModGlobalState extends PersistentState {
         state.warpHeightIntoTerra = nbt.getInt("WarpHeightIntoTerra");
         state.warpHeightIntoLuna = nbt.getInt("WarpHeightIntoLuna");
         state.terraResistance = nbt.getInt("TerraResistance");
+
+        state.noClipChance = nbt.getDouble("NoClipChance");
         return state;
     }
 
     @Override
     public NbtCompound writeNbt(NbtCompound nbt) {
+        nbt.putString("DefaultTemperatureUnit", defaultTemperatureUnit);
+
         nbt.putBoolean("AxeStrippingBark", axeStrippingBark);
         nbt.putBoolean("ExtractionOreCompat", extractionOreCompat);
         nbt.putInt("ElevatorMaxDistance", elevatorMaxDistance);
@@ -61,7 +72,17 @@ public class ModGlobalState extends PersistentState {
         nbt.putInt("WarpHeightIntoTerra", warpHeightIntoTerra);
         nbt.putInt("WarpHeightIntoLuna", warpHeightIntoLuna);
         nbt.putInt("TerraResistance", terraResistance);
+
+        nbt.putDouble("NoClipChance", noClipChance);
         return nbt;
+    }
+
+    public TemperatureUnit defaultTemperatureUnit() {
+        return TemperatureUnit.fromString(defaultTemperatureUnit);
+    }
+    public void setDefaultTemperatureUnit(TemperatureUnit unit) {
+        this.defaultTemperatureUnit = unit.asString();
+        markDirty();
     }
 
     public boolean strippingDropsBark() {
@@ -159,6 +180,14 @@ public class ModGlobalState extends PersistentState {
     }
     public void setTerraResistance(int value) {
         this.terraResistance = value;
+        markDirty();
+    }
+
+    public double noClipChance() {
+        return noClipChance;
+    }
+    public void setNoClipChance(double value) {
+        this.noClipChance = value;
         markDirty();
     }
 }

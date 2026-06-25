@@ -27,6 +27,7 @@ import net.tlotd.block.enum_property.NoClipable;
 import net.tlotd.item.ModFoodComponents;
 import net.tlotd.item.compat.CompatBlockItem;
 import net.tlotd.item.custom.*;
+import net.tlotd.util.ModParticles;
 import net.tlotd.world.tree.GinkgoSaplingGenerator;
 
 import static net.minecraft.block.Blocks.createLightLevelFromLitBlockState;
@@ -42,13 +43,18 @@ public class ModBlocks {
     public static final Block WHITE_JACK_O_LANTERN = registerBlock("white_jack_o_lantern",
             new CarvedPumpkinBlock(FabricBlockSettings.create().mapColor(MapColor.WHITE).strength(1f, 1f).sounds(BlockSoundGroup.WOOD).luminance(14).allowsSpawning(Blocks::always).pistonBehavior(PistonBehavior.DESTROY)));
 
-    public static final Block SULFUR_TORCH = registerBlockWithoutItem("sulfur_torch", new TorchBlock(FabricBlockSettings.create().noCollision().breakInstantly().luminance(13).sounds(BlockSoundGroup.WOOD).pistonBehavior(PistonBehavior.DESTROY), ParticleTypes.SOUL_FIRE_FLAME));
-    public static final Block SULFUR_WALL_TORCH = registerBlockWithoutItem("sulfur_wall_torch", new WallTorchBlock(FabricBlockSettings.create().noCollision().breakInstantly().luminance(13).sounds(BlockSoundGroup.WOOD).pistonBehavior(PistonBehavior.DESTROY), ParticleTypes.SOUL_FIRE_FLAME));
+    public static final Block COPPER_TORCH = registerBlockWithoutItem("copper_torch", new TorchBlock(FabricBlockSettings.create().noCollision().breakInstantly().luminance(13).sounds(BlockSoundGroup.WOOD).pistonBehavior(PistonBehavior.DESTROY), ModParticles.COPPER_FIRE_FLAME));
+    public static final Block COPPER_WALL_TORCH = registerBlockWithoutItem("copper_wall_torch", new WallTorchBlock(FabricBlockSettings.create().noCollision().breakInstantly().luminance(13).sounds(BlockSoundGroup.WOOD).pistonBehavior(PistonBehavior.DESTROY), ModParticles.COPPER_FIRE_FLAME));
+
+    public static final Block SULFUR_TORCH = registerBlockWithoutItem("sulfur_torch", new TorchBlock(FabricBlockSettings.create().noCollision().breakInstantly().luminance(13).sounds(BlockSoundGroup.WOOD).pistonBehavior(PistonBehavior.DESTROY), ModParticles.SULPHUR_FIRE_FLAME));
+    public static final Block SULFUR_WALL_TORCH = registerBlockWithoutItem("sulfur_wall_torch", new WallTorchBlock(FabricBlockSettings.create().noCollision().breakInstantly().luminance(13).sounds(BlockSoundGroup.WOOD).pistonBehavior(PistonBehavior.DESTROY), ModParticles.SULPHUR_FIRE_FLAME));
 
     public static final Block EXTINGUISHED_TORCH = registerBlockWithoutItem("extinguished_torch", new ExtinguishedTorchBlock(FabricBlockSettings.create().noCollision().breakInstantly().sounds(BlockSoundGroup.WOOD).pistonBehavior(PistonBehavior.DESTROY), ParticleTypes.ASH));
     public static final Block EXTINGUISHED_WALL_TORCH = registerBlockWithoutItem("extinguished_wall_torch", new ExtinguishedWallTorchBlock(FabricBlockSettings.create().noCollision().breakInstantly().sounds(BlockSoundGroup.WOOD).pistonBehavior(PistonBehavior.DESTROY), ParticleTypes.ASH));
     public static final Block EXTINGUISHED_SOUL_TORCH = registerBlockWithoutItem("extinguished_soul_torch", new ExtinguishedTorchBlock(FabricBlockSettings.create().noCollision().breakInstantly().sounds(BlockSoundGroup.WOOD).pistonBehavior(PistonBehavior.DESTROY), ParticleTypes.ASH));
     public static final Block EXTINGUISHED_SOUL_WALL_TORCH = registerBlockWithoutItem("extinguished_soul_wall_torch", new ExtinguishedWallTorchBlock(FabricBlockSettings.create().noCollision().breakInstantly().sounds(BlockSoundGroup.WOOD).pistonBehavior(PistonBehavior.DESTROY), ParticleTypes.ASH));
+    public static final Block EXTINGUISHED_COPPER_TORCH = registerBlockWithoutItem("extinguished_copper_torch", new ExtinguishedTorchBlock(FabricBlockSettings.create().noCollision().breakInstantly().sounds(BlockSoundGroup.WOOD).pistonBehavior(PistonBehavior.DESTROY), ParticleTypes.ASH));
+    public static final Block EXTINGUISHED_COPPER_WALL_TORCH = registerBlockWithoutItem("extinguished_copper_wall_torch", new ExtinguishedWallTorchBlock(FabricBlockSettings.create().noCollision().breakInstantly().sounds(BlockSoundGroup.WOOD).pistonBehavior(PistonBehavior.DESTROY), ParticleTypes.ASH));
     public static final Block EXTINGUISHED_SULFUR_TORCH = registerBlockWithoutItem("extinguished_sulfur_torch", new ExtinguishedTorchBlock(FabricBlockSettings.create().noCollision().breakInstantly().sounds(BlockSoundGroup.WOOD).pistonBehavior(PistonBehavior.DESTROY), ParticleTypes.ASH));
     public static final Block EXTINGUISHED_SULFUR_WALL_TORCH = registerBlockWithoutItem("extinguished_sulfur_wall_torch", new ExtinguishedWallTorchBlock(FabricBlockSettings.create().noCollision().breakInstantly().sounds(BlockSoundGroup.WOOD).pistonBehavior(PistonBehavior.DESTROY), ParticleTypes.ASH));
 
@@ -184,16 +190,16 @@ public class ModBlocks {
             new PressurePlateBlock(PressurePlateBlock.ActivationRule.MOBS, FabricBlockSettings.create().mapColor(MapColor.PALE_YELLOW).requiresTool().strength(0.5F, 0.5F).collidable(false), BlockSetType.STONE));
 
     public static final Block RICH_DIRT = registerBlock("rich_dirt",
-            new RichDirtBlock(FabricBlockSettings.create().mapColor(MapColor.BROWN).requiresTool().strength(0.5F, 0.5F).sounds(BlockSoundGroup.GRAVEL)));
+            new RichDirtBlock(FabricBlockSettings.create().mapColor(MapColor.BROWN).strength(0.5F, 0.5F).sounds(BlockSoundGroup.GRAVEL)));
     public static final Block RICH_FARMLAND = registerBlock("rich_farmland",
-            new RichFarmlandBlock(FabricBlockSettings.create().mapColor(MapColor.BROWN).requiresTool().strength(0.5F, 0.5F).sounds(BlockSoundGroup.GRAVEL)));
+            new RichFarmlandBlock(FabricBlockSettings.create().mapColor(MapColor.BROWN).strength(0.5F, 0.5F).sounds(BlockSoundGroup.GRAVEL)));
     public static final Block RICH_DIRT_PATH = registerBlock("rich_dirt_path",
-            new RichDirtPathBlock(FabricBlockSettings.create().mapColor(MapColor.BROWN).requiresTool().strength(0.5F, 0.5F).sounds(BlockSoundGroup.GRAVEL)));
+            new RichDirtPathBlock(FabricBlockSettings.create().mapColor(MapColor.BROWN).strength(0.5F, 0.5F).sounds(BlockSoundGroup.GRAVEL)));
     public static final Block RICH_GRASS_BLOCK = registerBlock("rich_grass_block",
-            new RichGrassBlock(FabricBlockSettings.create().mapColor(MapColor.PALE_GREEN).requiresTool().strength(0.6F, 0.6F).sounds(BlockSoundGroup.GRASS).ticksRandomly()));
+            new RichGrassBlock(FabricBlockSettings.create().mapColor(MapColor.PALE_GREEN).strength(0.6F, 0.6F).sounds(BlockSoundGroup.GRASS).ticksRandomly()));
 
     public static final Block RED_GRAVEL = registerBlock("red_gravel",
-            new Block(FabricBlockSettings.create().mapColor(MapColor.DULL_RED).requiresTool().strength(0.6F, 0.6F).sounds(BlockSoundGroup.GRAVEL)));
+            new Block(FabricBlockSettings.create().mapColor(MapColor.DULL_RED).strength(0.6F, 0.6F).sounds(BlockSoundGroup.GRAVEL)));
     public static final Block RED_SANDY_DEEPSLATE = registerBlock("red_sandy_deepslate",
             new Block(FabricBlockSettings.create().mapColor(MapColor.DULL_RED).requiresTool().strength(2.75F, 6.0F).sounds(BlockSoundGroup.SAND)));
 
@@ -400,6 +406,10 @@ public class ModBlocks {
     public static final Block DWARVEN_FORGE = registerRarityBlock("dwarven_forge",
             new DwarvenForgeBlock(FabricBlockSettings.create().mapColor(MapColor.WHITE_GRAY).requiresTool().strength(10.0F, 1200.0F).luminance(DwarvenForgeBlock::lightLevel)), Rarity.UNCOMMON);
 
+    public static final Block NETHERITE_ANVIL = registerBlock("netherite_anvil",
+            new NetheriteAnvilBlock(FabricBlockSettings.create().mapColor(MapColor.DEEPSLATE_GRAY).requiresTool().strength(10.0F, 1200.0F).sounds(BlockSoundGroup.ANVIL)));
+
+
     public static final Block STEEL_BLOCK = registerBlock("steel_block",
             new Block(FabricBlockSettings.create().mapColor(MapColor.DEEPSLATE_GRAY).requiresTool().strength(6.0F, 12.0F).sounds(BlockSoundGroup.METAL)));
 
@@ -503,9 +513,6 @@ public class ModBlocks {
     public static final Block MITHRIL_BLOCK = registerHeatableBlock("mithril_block",
             new MithrilBlock(FabricBlockSettings.create().mapColor(MapColor.WHITE_GRAY).requiresTool().strength(10.0F, 1200.0F).sounds(BlockSoundGroup.NETHERITE)), Rarity.UNCOMMON);
 
-    public static final Block NETHERITE_ANVIL = registerBlock("netherite_anvil",
-            new NetheriteAnvilBlock(FabricBlockSettings.create().mapColor(MapColor.DEEPSLATE_GRAY).requiresTool().strength(10.0F, 1200.0F).sounds(BlockSoundGroup.ANVIL)));
-
     public static final Block MITHRIL_ANVIL = registerRarityBlock("mithril_anvil",
             new MithrilAnvilBlock(FabricBlockSettings.create().mapColor(MapColor.WHITE_GRAY).requiresTool().strength(10.0F, 1200.0F).sounds(BlockSoundGroup.ANVIL)), Rarity.UNCOMMON);
 
@@ -564,7 +571,7 @@ public class ModBlocks {
             new BenchBlock(FabricBlockSettings.create().mapColor(MapColor.BROWN).requiresTool().strength(2.0F, 2.0F).nonOpaque()));
 
     public static final Block RADIO = registerBlock("radio",
-            new RadioBlock(FabricBlockSettings.create().mapColor(MapColor.BROWN).requiresTool().strength(2.0F, 2.0F).luminance((state) -> state.get(RadioBlock.ON) ? 15 : 0).nonOpaque()));
+            new RadioBlock(FabricBlockSettings.create().mapColor(MapColor.BROWN).requiresTool().strength(2.0F, 2.0F).luminance((state) -> state.get(RadioBlock.ON) ? 7 : 0).nonOpaque()));
     public static final Block TELEVISION = registerBlock("television",
             new TelevisionBlock(FabricBlockSettings.create().mapColor(MapColor.BLACK).requiresTool().strength(2.0F, 2.0F)));
     public static final Block TELEVISION_ON = registerBlockWithoutItem("television_on",
@@ -672,6 +679,9 @@ public class ModBlocks {
             new ModFlowerBlock(StatusEffects.REGENERATION, 10, FabricBlockSettings.create().breakInstantly().nonOpaque().sounds(BlockSoundGroup.GRASS).noCollision().pistonBehavior(PistonBehavior.DESTROY)));
     public static final Block POTTED_ATHELAS = Registry.register(Registries.BLOCK, new Identifier(TLOTD.MOD_ID, "potted_athelas"),
             new FlowerPotBlock(ATHELAS, FabricBlockSettings.create().breakInstantly().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
+
+    public static final Block SHELF_MUSHROOM = registerBlock("shelf_mushroom",
+            new ShelfMushroomBlock(FabricBlockSettings.create().mapColor(MapColor.BROWN).ticksRandomly().breakInstantly().sounds(BlockSoundGroup.WOOD).pistonBehavior(PistonBehavior.DESTROY).nonOpaque()));
 
     public static final Block GINKGO_SAPLING = registerBlock("ginkgo_sapling",
             new SaplingBlock(new GinkgoSaplingGenerator(), FabricBlockSettings.create().mapColor(MapColor.PALE_GREEN).noCollision().strength(0F, 0F).sounds(BlockSoundGroup.GRASS).nonOpaque().ticksRandomly().pistonBehavior(PistonBehavior.DESTROY)));

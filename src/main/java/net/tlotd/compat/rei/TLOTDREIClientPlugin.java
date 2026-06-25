@@ -46,8 +46,9 @@ public class TLOTDREIClientPlugin implements REIClientPlugin {
 
     @Override
     public void registerEntries(EntryRegistry registry) {
-        registry.removeEntry(EntryStacks.of(ModItems.BACKROOMS_SIGNAL));
+        registry.removeEntry(EntryStacks.of(ModItems.MOD_ICON));
         registry.removeEntry(EntryStacks.of(ModItems.IRRADIATED_ICON));
+        registry.removeEntry(EntryStacks.of(ModItems.BACKROOMS_SIGNAL));
         registry.removeEntry(EntryStacks.of(ModItems.INCOMPLETE_ALUMINIUM_WIRE));
         registry.removeEntry(EntryStacks.of(ModItems.INCOMPLETE_COPPER_WIRE));
         registry.removeEntry(EntryStacks.of(ModItems.INCOMPLETE_GOLD_WIRE));

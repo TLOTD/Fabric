@@ -1,0 +1,32 @@
+{
+  "display": {
+    "icon": {
+      "item": "tlotd:refined_raw_mithril"
+    },
+    "title": {
+      "translate": "advancements.tlotd.refined_raw_mithril"
+    },
+    "description": {
+      "translate": "advancements.tlotd.refined_raw_mithril.desc"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "tlotd:refined_raw_mithril"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "parent": "tlotd:extraction"
+}

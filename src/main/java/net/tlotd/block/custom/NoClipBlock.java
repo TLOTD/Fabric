@@ -4,10 +4,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.ShapeContext;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.effect.StatusEffectInstance;
-import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.server.network.ServerPlayerEntity;
-import net.minecraft.server.world.ServerWorld;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.EnumProperty;
 import net.minecraft.util.math.BlockPos;
@@ -16,9 +13,7 @@ import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.tlotd.block.enum_property.NoClipable;
-import net.tlotd.effect.ModEffects;
-import net.tlotd.world.ModGlobalState;
-import net.tlotd.world.dimension.ModDimensions;
+import net.tlotd.util.NoclipTracker;
 
 public class NoClipBlock extends Block {
 
@@ -57,30 +52,7 @@ public class NoClipBlock extends Block {
         if (state.get(NOCLIPABLE).equals(NoClipable.PORTALING)) {
             if (!world.isClient()) {
                 if (entity instanceof ServerPlayerEntity serverPlayer) {
-                    int warpHeightOutTerra;
-                    int terraResistance;
-                    if (serverPlayer.getServer() != null) {
-                        ModGlobalState globalState = ModGlobalState.get(serverPlayer.getServer());
-                        warpHeightOutTerra = globalState.warpHeightIntoTerra();
-                        terraResistance = globalState.terraResistance();
-                    } else {
-                        warpHeightOutTerra = 320;
-                        terraResistance = 400;
-                    }
-                    if (serverPlayer.getWorld().getRegistryKey().equals(ModDimensions.BACKROOMS_LEVEL_KEY)) {
-                        ServerWorld overworld = serverPlayer.getServer().getWorld(World.OVERWORLD);
-                        if (overworld != null) {
-                            serverPlayer.getServer().execute(() -> {
-                                serverPlayer.teleport(overworld, 0.5, warpHeightOutTerra, 0.5, 0.0F, 0.0F);
-                                serverPlayer.fallDistance = 0.0F;
-                                if (terraResistance != 0) {
-                                    serverPlayer.addStatusEffect(new StatusEffectInstance(StatusEffects.RESISTANCE, terraResistance, 4, false, false, true));
-                                }
-                                serverPlayer.removeStatusEffect(ModEffects.SUBSPACE_RESISTANCE);
-                                serverPlayer.removeStatusEffect(ModEffects.SUBSPACE_SICKNESS);
-                            });
-                        }
-                    }
+                    NoclipTracker.noclip(serverPlayer);
                 }
             }
         }

@@ -21,6 +21,10 @@
     "minecraft:red_shulker_box",
     "minecraft:black_shulker_box",
     {
+      "id": "#travelersbackpack:custom_travelers_backpack",
+      "required": false
+    },
+    {
       "id": "sophisticatedbackpacks:backpack",
       "required": false
     },

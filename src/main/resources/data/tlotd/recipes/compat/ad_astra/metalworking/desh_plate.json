@@ -1,0 +1,22 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "as_astra"
+      ]
+    }
+  ],
+  "type": "tlotd:metalworking",
+  "ingredients": [
+    {
+      "tag": "tlotd:forging_hammers"
+    },
+    {
+      "item": "as_astra:desh_ingot"
+    }
+  ],
+  "output": {
+    "item": "as_astra:desh_plate"
+  }
+}

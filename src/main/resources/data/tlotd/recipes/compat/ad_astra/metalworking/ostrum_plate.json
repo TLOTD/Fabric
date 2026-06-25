@@ -3,20 +3,20 @@
     {
       "condition": "fabric:all_mods_loaded",
       "values": [
-        "create"
+        "as_astra"
       ]
     }
   ],
-  "type": "tlotd:mithril_smithing",
+  "type": "tlotd:metalworking",
   "ingredients": [
     {
       "tag": "tlotd:forging_hammers"
     },
     {
-      "tag": "c:iron_ingots"
+      "item": "as_astra:ostrum_ingot"
     }
   ],
   "output": {
-    "item": "create:iron_sheet"
+    "item": "as_astra:ostrum_plate"
   }
 }

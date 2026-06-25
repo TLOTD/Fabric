@@ -98,6 +98,22 @@
   "gui.tlotd.keycard_programmer": "Schlüsselkarte Programmieren",
   "gui.tlotd.incubating": "Brüten",
 
+  "temperature.tlotd.too_hot": "Zu heiß zu tragen!",
+  "temperature.tlotd.forge_at": "Schmiedebar bei %1$s",
+  "temperature.tlotd.forge": "in einem %1$s.",
+  "temperature.tlotd.anvil_at": "Bearbeitungfähig bei %1$s",
+  "temperature.tlotd.anvil": "in einem %1$s.",
+  "temperature.tlotd.burns_at": "Brennt bei %1$s für %2$s",
+  "temperature.tlotd.starts_burning_at": "Fängt an zu brennen bei %1$s",
+  "temperature.tlotd.allows_burning_to": "Erlaubt brennen bis zu %1$s",
+
+  "temperature.tlotd.dwarven_forge.max": "Brennt für %1$s zu %2$s",
+  "temperature.tlotd.dwarven_forge": "Momentan bei %1$s",
+
+  "temperature.tlotd.celsius": "%1$s °C",
+  "temperature.tlotd.fahrenheit": "%1$s °F",
+  "temperature.tlotd.kelvin": "%1$s K",
+
   "enchantment.tlotd.transdimensional": "Transdimensional",
   "enchantment.tlotd.depth_of_the_abyss": "Tiefen des Abgrundes",
   "enchantment.tlotd.sharper_lens": "Linsenschärfe",
@@ -194,9 +210,14 @@
   "sounds.tlotd.block_keycard_reader_pling": "Kartenleser wird genutzt",
   "sounds.tlotd.block_garbage_can_used": "Mülleimer wird genutzt",
 
+  "advancements.tlotd.root": "TLOTD",
+  "advancements.tlotd.root.desc": "Willkommen bei der Mod",
+
   "advancements.tlotd.radioactive": "§eRadioactiv!§r",
   "advancements.tlotd.radioactive.desc": "Werde von etwas verstrahlt",
 
+  "advancements.tlotd.dwarven_forge": "Alte Schmiede",
+  "advancements.tlotd.dwarven_forge.desc": "Baue eine Zwergenschmiede, um bessere Erze zu schmelzen",
   "advancements.tlotd.alloy_allies": "Legierungs Liebhaber",
   "advancements.tlotd.alloy_allies.desc": "Erschaffe ein Heliorit- oder Enduriumbarren",
   "advancements.tlotd.next_level": "Next Level!",
@@ -205,6 +226,8 @@
   "advancements.tlotd.rich_in_ingots.desc": "Gelange an ein Zinnober- oder Nebularbarren",
   "advancements.tlotd.extraction": "Vorsichtige Ausgrabung",
   "advancements.tlotd.extraction.desc": "Erlange eine Ausgrabungs-Spitzhacke",
+  "advancements.tlotd.refined_raw_mithril": "Lavabad",
+  "advancements.tlotd.refined_raw_mithril.desc": "Brenne die Verunreinigung des Rohmithrils in Lava ab",
   "advancements.tlotd.mithril": "Reinstes der Metalle",
   "advancements.tlotd.mithril.desc": "Gelange an ein Barren Silber-Stahl, besser bekannt als Mithril",
   "advancements.tlotd.mithril_mirror": "Daheim verblasst",
@@ -222,8 +245,10 @@
   "advancements.tlotd.simple_circuitry.desc": "Gelange an eine Platine",
   "advancements.tlotd.oxygen_collector": "Sauerstoffsammler",
   "advancements.tlotd.oxygen_collector.desc": "Baue einen Sauerstoffsammler",
-  "advancements.tlotd.lunar_return": "Zum Mond und wieder zurück!",
-  "advancements.tlotd.lunar_return.desc": "Kehre zurück von einer Reise zum Mond",
+  "advancements.tlotd.luna": "Zum Mond und wieder zurück!",
+  "advancements.tlotd.luna.desc": "Kehre zurück von einer Reise zum Mond",
+  "advancements.tlotd.lunar_callainus_lump": "Das türkiese Juwel des Mondes",
+  "advancements.tlotd.lunar_callainus_lump.desc": "Gelange an einen Lunar Callainus Klumpen",
   "advancements.tlotd.play_radio": "Radio Star",
   "advancements.tlotd.play_radio.desc": "Höre nach einem Signal mittels des Radios",
   "advancements.tlotd.television": "Endlich in Farbe!",
@@ -255,11 +280,6 @@
   "advancements.tlotd.jurassic.desc": "Jurazeiten erfordern jurassische Maßnahmen",
   "advancements.tlotd.kill_a_t-rex": "Hättest aussterben sollen!",
   "advancements.tlotd.kill_a_t-rex.desc": "Bekämpfe und bezwinge einen T-Rex im Kampf",
-
-  "advancements.tlotd.luna": "Luna",
-  "advancements.tlotd.luna.desc": "Zum Mond und wieder zurück?",
-  "advancements.tlotd.lunar_callainus_lump": "Das türkiese Juwel des Mondes",
-  "advancements.tlotd.lunar_callainus_lump.desc": "Gelange an einen Lunar Callainus Klumpen",
 
   "advancements.tlotd.magic": "Magische Entfaltung",
   "advancements.tlotd.magic.desc": "Magie äußert sich in vielen einzigartigen Weisen in dieser Welt",
@@ -1130,6 +1150,8 @@
 
   "block.tlotd.steel_block": "Stahlblock",
 
+  "block.tlotd.copper_torch": "Kupferfackel",
+
   "block.tlotd.nether_sulfur_ore": "Netherschwefelerz",
   "block.tlotd.sulfur_block": "Schwefelblock",
   "block.tlotd.sulfur_torch": "Schwefelfackel",
@@ -1141,6 +1163,8 @@
   "block.tlotd.extinguished_wall_torch": "Erloschene Wandfackel",
   "block.tlotd.extinguished_soul_torch": "Erloschene Seelenfackel",
   "block.tlotd.extinguished_soul_wall_torch": "Erloschene Seelenwandfackel",
+  "block.tlotd.extinguished_copper_torch": "Erloschene Kupferfackel",
+  "block.tlotd.extinguished_copper_wall_torch": "Erloschene Kupferfackel",
   "block.tlotd.extinguished_sulfur_torch": "Erloschene Schwefelfackel",
   "block.tlotd.extinguished_sulfur_wall_torch": "Erloschene Schwefelwandfackel",
 
@@ -1236,6 +1260,8 @@
 
   "block.tlotd.glass_door": "Glastür",
   "block.tlotd.glass_trapdoor": "Glasfalltür",
+
+  "block.tlotd.shelf_mushroom": "Baumpilz",
 
   "block.tlotd.ginkgo_sapling": "Ginkgosetzling",
   "block.tlotd.ginkgo_log": "Ginkgostamm",

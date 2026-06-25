@@ -17,14 +17,16 @@
       "text": "One of these two should be your next goal."
     },
     {
-      "type": "patchouli:crafting",
-      "recipe": "tlotd:heliorite_ingots",
-      "text": "With a $(item)Chunk of Heliorite$() and a $(item)Block of Obsidian$() you can create a new alloy: The $(item)Heliorite Ingot$()."
+      "type": "patchouli:spotlight",
+      "title": "Heliorite",
+      "item": "tlotd:heliorite_ingot",
+      "text": "$(thing)Forging$() a $(item)Chunk of Heliorite$() and a $(item)Block of Obsidian$() inside a $(item)Dwarven Forge$() together, you can create a new alloy: The $(item)Heliorite Ingot$()."
     },
     {
-      "type": "patchouli:blasting",
-      "recipe": "tlotd:endurium_ingot_from_blasting_endurium_crystal",
-      "text": "A $(item)Endurium Crystal$() or a $(item)End Endurium Ore$() can be $(thing)blasted$() into an $(item)Endurium Ingot$()."
+      "type": "patchouli:spotlight",
+      "title": "Endurium",
+      "item": "tlotd:endurium_ingot",
+      "text": "A $(item)Endurium Crystal$() or a $(item)End Endurium Ore$() can be $(thing)forged$() into an $(item)Endurium Ingot$() inside a $(item)Dwarven Forge$()."
     },
     {
       "type": "patchouli:crafting",

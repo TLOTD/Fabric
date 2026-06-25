@@ -7,16 +7,16 @@
       ]
     }
   ],
-  "type": "tlotd:mithril_smithing",
+  "type": "tlotd:metalworking",
   "ingredients": [
     {
       "tag": "tlotd:forging_hammers"
     },
     {
-      "tag": "c:brass_ingots"
+      "tag": "c:iron_ingots"
     }
   ],
   "output": {
-    "item": "create:brass_sheet"
+    "item": "create:iron_sheet"
   }
 }

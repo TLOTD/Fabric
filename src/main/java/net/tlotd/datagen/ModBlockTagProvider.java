@@ -1044,6 +1044,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
         getOrCreateTagBuilder(BlockTags.NEEDS_DIAMOND_TOOL)
                 .add(ModBlocks.PREHISTORIC_DEBRIS)
+                .add(ModBlocks.DWARVEN_FORGE)
                 .add(ModBlocks.NETHERITE_ANVIL)
         ;
 
@@ -1058,9 +1059,11 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         ;
 
         getOrCreateTagBuilder(BlockTags.WALL_POST_OVERRIDE)
+                .add(ModBlocks.COPPER_TORCH)
                 .add(ModBlocks.SULFUR_TORCH)
                 .add(ModBlocks.EXTINGUISHED_TORCH)
                 .add(ModBlocks.EXTINGUISHED_SOUL_TORCH)
+                .add(ModBlocks.EXTINGUISHED_COPPER_TORCH)
                 .add(ModBlocks.EXTINGUISHED_SULFUR_TORCH)
         ;
 

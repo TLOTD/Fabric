@@ -20,7 +20,7 @@ public class SubspaceResistanceEffect extends StatusEffect {
     @Override
     public void onRemoved(LivingEntity entity, AttributeContainer attributes, int amplifier) {
         if (entity.getWorld().getRegistryKey().equals(ModDimensions.BACKROOMS_LEVEL_KEY)) {
-            entity.addStatusEffect(new StatusEffectInstance(ModEffects.SUBSPACE_SICKNESS, -1, amplifier,true,false));
+            entity.addStatusEffect(new StatusEffectInstance(ModEffects.SUBSPACE_SICKNESS, -1, amplifier,true,false, true));
         }
     }
 }

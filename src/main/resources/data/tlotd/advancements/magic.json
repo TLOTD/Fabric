@@ -9,7 +9,6 @@
     "description": {
       "translate": "advancements.tlotd.magic.desc"
     },
-    "background": "tlotd:textures/gui/advancements/backgrounds/magic.png",
     "frame": "task",
     "show_toast": true,
     "announce_to_chat": true,
@@ -28,5 +27,6 @@
         ]
       }
     }
-  }
+  },
+  "parent": "tlotd:root"
 }

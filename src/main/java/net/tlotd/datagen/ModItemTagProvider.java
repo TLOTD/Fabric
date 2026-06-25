@@ -90,6 +90,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(Items.GREEN_SHULKER_BOX)
                 .add(Items.RED_SHULKER_BOX)
                 .add(Items.BLACK_SHULKER_BOX)
+                .addOptionalTag(Identifier.tryParse("travelersbackpack:custom_travelers_backpack"))
                 .addOptional(Identifier.tryParse("sophisticatedbackpacks:backpack"))
                 .addOptional(Identifier.tryParse("sophisticatedbackpacks:copper_backpack"))
                 .addOptional(Identifier.tryParse("sophisticatedbackpacks:iron_backpack"))
@@ -876,6 +877,10 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModItems.HEV_SUIT_CHESTPLATE)
                 .add(ModItems.HEV_SUIT_LEGGINGS)
                 .add(ModItems.HEV_SUIT_BOOTS)
+                .add(ModItems.CTHONAUT_HELMET)
+                .add(ModItems.DEPTH_SUIT_CHESTPLATE)
+                .add(ModItems.DEPTH_SUIT_LEGGINGS)
+                .add(ModItems.DEPTH_SUIT_BOOTS)
         ;
 
         getOrCreateTagBuilder(ModTags.Items.GAS_CYLINDERS)
@@ -1715,6 +1720,12 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .addTag(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "steel_rods")))
                 .add(ModItems.REINFORCED_TOOL_ROD)
                 .add(ModItems.FANCY_TOOL_ROD)
+        ;
+
+        getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "mushrooms")))
+                .add(Items.RED_MUSHROOM)
+                .add(Items.BROWN_MUSHROOM)
+                .add(ModBlocks.SHELF_MUSHROOM.asItem())
         ;
     }
 }

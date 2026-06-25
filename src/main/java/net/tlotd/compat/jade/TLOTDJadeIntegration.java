@@ -1,5 +1,6 @@
 package net.tlotd.compat.jade;
 
+import net.tlotd.block.ModBlocks;
 import net.tlotd.block.custom.*;
 import net.tlotd.block.entity.DwarvenForgeBlockEntity;
 import net.tlotd.block.entity.HEVChargerBlockEntity;
@@ -23,6 +24,12 @@ public class TLOTDJadeIntegration implements IWailaPlugin {
 
     @Override
     public void registerClient(IWailaClientRegistration registration) {
+        registration.hideTarget(ModBlocks.CEILING_TILE);
+        registration.hideTarget(ModBlocks.CEILING_LIGHT);
+        registration.hideTarget(ModBlocks.YELLOW_WALLPAPERED_WALL);
+        registration.hideTarget(ModBlocks.STRIPPED_YELLOW_WALLPAPERED_WALL);
+        registration.hideTarget(ModBlocks.MOIST_CARPET);
+        registration.hideTarget(ModBlocks.VOID);
         registration.registerBlockComponent(HEVChargerComponentProvider.INSTANCE, HEVChargerBlock.class);
         registration.registerBlockComponent(DwarvenForgeComponentProvider.INSTANCE, DwarvenForgeBlock.class);
         registration.registerBlockComponent(WitchingTableComponentProvider.INSTANCE, WitchingTableBlock.class);

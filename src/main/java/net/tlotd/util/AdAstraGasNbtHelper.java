@@ -9,6 +9,9 @@ import net.minecraft.util.collection.DefaultedList;
 import net.tlotd.item.custom.SpaceSuitArmorItem;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import static net.tlotd.util.AugmentNbtHelper.getAugmentLevel;
 
 public class AdAstraGasNbtHelper {
@@ -114,18 +117,46 @@ public class AdAstraGasNbtHelper {
         return formattedOxygen;
     }
 
-    public static long getOxygenFromSuit(ItemStack suit) {
+    public static boolean canMitigateDamage(ItemStack suit) {
+        boolean out = false;
+        if (getGasAmount(suit, AD_ASTRA_OXYGEN_ID) > 0) {
+            out = true;
+        } else if (getGasAmount(suit, TLOTD_PIPE_WEED_SMOKE) > 0) {
+            out = true;
+        } else if (suit.getItem() instanceof SpaceSuitArmorItem) {
+            out = getGasAmountFromSuit(suit, AD_ASTRA_OXYGEN_ID) > 0 || getGasAmountFromSuit(suit, TLOTD_PIPE_WEED_SMOKE) > 0;
+        }
+        return out;
+    }
+
+    public static boolean consumeMitigationGas(ItemStack suit, long amount) {
+        if (modifyGasInSuit(
+                suit,
+                AD_ASTRA_OXYGEN_ID,
+                -amount) != 0) {
+            return true;
+        }
+        if (modifyGasInSuit(
+                suit,
+                TLOTD_PIPE_WEED_SMOKE,
+                -amount) != 0) {
+            return true;
+        }
+        return false;
+    }
+
+    public static long getGasAmountFromSuit(ItemStack suit, String gasId) {
         long total = 0;
         DefaultedList<ItemStack> tanks = SpaceSuitArmorItem.getStoredStacks(suit);
         for (ItemStack tank : tanks) {
             if (!tank.isEmpty()) {
-                total += getOxygen(tank);
+                total += getGasAmount(tank, gasId);
             }
         }
         return total;
     }
 
-    public static long getMaxOxygenFromSuit(ItemStack suit) {
+    public static long getMaxGasFromSuit(ItemStack suit) {
         long total = 0;
         DefaultedList<ItemStack> tanks = SpaceSuitArmorItem.getStoredStacks(suit);
         for (ItemStack tank : tanks) {
@@ -172,5 +203,43 @@ public class AdAstraGasNbtHelper {
         }
         SpaceSuitArmorItem.setStoredStacks(suit, tanks);
         return delta - remaining;
+    }
+
+    public static Map<String, GasInfo> getSuitGasContents(ItemStack suit) {
+        Map<String, GasInfo> gases = new HashMap<>();
+        DefaultedList<ItemStack> tanks = SpaceSuitArmorItem.getStoredStacks(suit);
+        for (ItemStack tank : tanks) {
+            if (tank.isEmpty()) {
+                continue;
+            }
+            String gas = getGas(tank);
+            long amount;
+            long max = getMaxGasItem(tank);
+            if (!gas.equals("empty")) {
+                amount = getGasAmount(tank, gas);
+            } else {
+                amount = 0;
+            }
+            gases.compute(gas, (k, v) -> {
+                if (v == null) {
+                    return new GasInfo(amount, max);
+                }
+                v.amount += amount;
+                v.max += max;
+                return v;
+            });
+        }
+
+        return gases;
+    }
+
+    public static class GasInfo {
+        public long amount;
+        public long max;
+
+        public GasInfo(long amount, long max) {
+            this.amount = amount;
+            this.max = max;
+        }
     }
 }

@@ -29,5 +29,5 @@
       }
     }
   },
-  "parent": "minecraft:story/mine_diamond"
+  "parent": "tlotd:dwarven_forge"
 }

@@ -43,6 +43,16 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 
         offerSmelting(exporter, List.of(ModBlocks.MEGAREGOLITH_IRON_ORE), RecipeCategory.MISC, Items.IRON_INGOT, 0.25f,200, "iron_ingot");
 
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, Items.MUSHROOM_STEW)
+                .group("mushroom_stew")
+                .input(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "mushrooms")))
+                .input(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "mushrooms")))
+                .input(Items.BOWL)
+                .criterion(hasItem(Items.BROWN_MUSHROOM), conditionsFromItem(Items.BROWN_MUSHROOM))
+                .criterion(hasItem(Items.RED_MUSHROOM), conditionsFromItem(Items.RED_MUSHROOM))
+                .criterion(hasItem(Items.BOWL), conditionsFromItem(Items.BOWL))
+                .offerTo(exporter, new Identifier("universal_mushroom_stew"));
+
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, Items.GUNPOWDER, 6)
                 .input(Items.CHARCOAL)
                 .input(ModItems.SULFUR)
@@ -54,6 +64,18 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(ModItems.SULFUR), conditionsFromItem(ModItems.SULFUR))
                 .criterion(hasItem(Items.BONE_MEAL), conditionsFromItem(Items.BONE_MEAL))
                 .offerTo(exporter, new Identifier(getRecipeName(Items.GUNPOWDER)));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.COPPER_TORCH,4)
+                .pattern("C")
+                .pattern("#")
+                .pattern("I")
+                .input('C', TagKey.of(RegistryKeys.ITEM, new Identifier("c", "copper_nuggets")))
+                .input('#', TagKey.of(RegistryKeys.ITEM, new Identifier("c", "coals")))
+                .input('I', TagKey.of(RegistryKeys.ITEM, new Identifier("c", "wooden_rods")))
+                .criterion(hasItem(ModItems.COPPER_NUGGET), conditionsFromItem(ModItems.COPPER_NUGGET))
+                .criterion(hasItem(Items.COAL), conditionsFromItem(Items.COAL))
+                .criterion(hasItem(Items.STICK), conditionsFromItem(Items.STICK))
+                .offerTo(exporter, new Identifier(getRecipeName(ModItems.COPPER_TORCH)));
 
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.SULFUR_TORCH,4)
                 .pattern("#")

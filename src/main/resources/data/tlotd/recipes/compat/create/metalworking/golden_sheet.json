@@ -7,7 +7,7 @@
       ]
     }
   ],
-  "type": "tlotd:mithril_smithing",
+  "type": "tlotd:metalworking",
   "ingredients": [
     {
       "tag": "tlotd:forging_hammers"

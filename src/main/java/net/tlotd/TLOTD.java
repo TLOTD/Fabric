@@ -36,6 +36,7 @@ import net.tlotd.world.dimension.BackroomsChunkGenerator;
 import net.tlotd.world.dimension.LunarChunkGenerator;
 import net.tlotd.world.dimension.PrehistoricChunkGenerator;
 import net.tlotd.world.gen.ModWorldGeneration;
+import net.tlotd.world.tree.ModTreeDecoratorTypes;
 import net.tlotd.world.village.ModVillageAdditions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -52,7 +53,9 @@ public class TLOTD implements ModInitializer {
 		ModItemGroups.registerItemGroups();
 		ModItems.registerModItems();
 		ModCompostingChances.registerCompostableItems();
+		ModParticles.registerParticles();
 		ModBlocks.registerModBlocks();
+		ModTreeDecoratorTypes.registerDecorators();
 		ModTelevisionSignals.registerSignals();
 		ModFlammableBlocks.registerFlammableBlocks();
 		ModFluids.registerModFluids();
@@ -84,8 +87,6 @@ public class TLOTD implements ModInitializer {
 		Registry.register(Registries.CHUNK_GENERATOR, new Identifier(TLOTD.MOD_ID, "prehistoric"), PrehistoricChunkGenerator.CODEC);
 		Registry.register(Registries.CHUNK_GENERATOR, new Identifier(TLOTD.MOD_ID, "luna"), LunarChunkGenerator.CODEC);
 		Registry.register(Registries.CHUNK_GENERATOR, new Identifier(TLOTD.MOD_ID, "backrooms"), BackroomsChunkGenerator.CODEC);
-
-
 
 		StrippableBlockRegistry.register(ModBlocks.GINKGO_LOG, ModBlocks.STRIPPED_GINKGO_LOG);
 		StrippableBlockRegistry.register(ModBlocks.GINKGO_WOOD, ModBlocks.STRIPPED_GINKGO_WOOD);

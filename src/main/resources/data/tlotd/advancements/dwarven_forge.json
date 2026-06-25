@@ -1,0 +1,32 @@
+{
+  "display": {
+    "icon": {
+      "item": "tlotd:dwarven_forge"
+    },
+    "title": {
+      "translate": "advancements.tlotd.dwarven_forge"
+    },
+    "description": {
+      "translate": "advancements.tlotd.dwarven_forge.desc"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "tlotd:dwarven_forge"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "parent": "tlotd:root"
+}

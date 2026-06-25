@@ -258,6 +258,7 @@ public class ModModelProvider extends FabricModelProvider {
     @Override
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
 
+        itemModelGenerator.register(ModItems.MOD_ICON, Models.GENERATED);
         itemModelGenerator.register(ModItems.IRRADIATED_ICON, Models.GENERATED);
 
         itemModelGenerator.register(ModItems.COPPER_NUGGET, Models.GENERATED);

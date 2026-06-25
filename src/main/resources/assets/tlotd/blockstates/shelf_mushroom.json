@@ -1,0 +1,34 @@
+{
+  "variants": {
+    "age=0,facing=east": {
+      "model": "tlotd:block/shelf_mushroom",
+      "y": 90
+    },
+    "age=0,facing=north": {
+      "model": "tlotd:block/shelf_mushroom"
+    },
+    "age=0,facing=south": {
+      "model": "tlotd:block/shelf_mushroom",
+      "y": 180
+    },
+    "age=0,facing=west": {
+      "model": "tlotd:block/shelf_mushroom",
+      "y": 270
+    },
+    "age=1,facing=east": {
+      "model": "tlotd:block/big_shelf_mushroom",
+      "y": 90
+    },
+    "age=1,facing=north": {
+      "model": "tlotd:block/big_shelf_mushroom"
+    },
+    "age=1,facing=south": {
+      "model": "tlotd:block/big_shelf_mushroom",
+      "y": 180
+    },
+    "age=1,facing=west": {
+      "model": "tlotd:block/big_shelf_mushroom",
+      "y": 270
+    }
+  }
+}

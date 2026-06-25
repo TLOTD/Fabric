@@ -2,6 +2,7 @@ package net.tlotd.util;
 
 import com.mojang.authlib.GameProfile;
 import com.mojang.brigadier.arguments.BoolArgumentType;
+import com.mojang.brigadier.arguments.DoubleArgumentType;
 import com.mojang.brigadier.arguments.IntegerArgumentType;
 import com.mojang.brigadier.arguments.StringArgumentType;
 import com.mojang.brigadier.context.CommandContext;
@@ -38,38 +39,95 @@ public class ModCommands {
     public static void registerCommands() {
         CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> {
             dispatcher.register(CommandManager.literal("tlotd")
+                    .then(CommandManager.literal("temperatureUnit")
+                            .executes(ctx -> {
+                                String temp = ItemHeatHelper.getTemperatureUnit(ctx.getSource().getPlayer()).asString();
+                                String globalTemp = ModGlobalState.get(ctx.getSource().getServer()).defaultTemperatureUnit().asString();
+                                ctx.getSource().sendFeedback(() -> Text.literal("Temperature is displayed in " + temp + ". The default is " + globalTemp + "."), false);
+                                return 1;
+                            })
+                            .then(CommandManager.literal("Celsius")
+                                    .executes(ctx -> {
+                                        ItemHeatHelper.setTemperatureUnit(ctx.getSource().getPlayer(), TemperatureUnit.CELSIUS);
+                                        ctx.getSource().sendFeedback(() -> Text.literal("Now using Celsius temperature units."), false);
+                                        return 1;
+                                    })
+                                    .then(CommandManager.literal("setDefault")
+                                            .requires(src -> src.hasPermissionLevel(2))
+                                            .executes(ctx -> {
+                                                ItemHeatHelper.setGlobalTemperatureUnit(ctx.getSource().getServer(), TemperatureUnit.CELSIUS);
+                                                JoinDataSync.syncAll(ctx.getSource().getWorld());
+                                                ctx.getSource().sendFeedback(() -> Text.literal("Celsius is now the global default temperature unit."), false);
+                                                return 1;
+                                            })))
+                            .then(CommandManager.literal("Fahrenheit")
+                                    .executes(ctx -> {
+                                        ItemHeatHelper.setTemperatureUnit(ctx.getSource().getPlayer(), TemperatureUnit.FAHRENHEIT);
+                                        ctx.getSource().sendFeedback(() -> Text.literal("Now using Fahrenheit temperature units."), false);
+                                        return 1;
+                                    })
+                                    .then(CommandManager.literal("setDefault")
+                                            .requires(src -> src.hasPermissionLevel(2))
+                                            .executes(ctx -> {
+                                                ItemHeatHelper.setGlobalTemperatureUnit(ctx.getSource().getServer(), TemperatureUnit.FAHRENHEIT);
+                                                JoinDataSync.syncAll(ctx.getSource().getWorld());
+                                                ctx.getSource().sendFeedback(() -> Text.literal("Fahrenheit is now the global default temperature unit."), false);
+                                                return 1;
+                                            })))
+                            .then(CommandManager.literal("Kelvin")
+                                    .executes(ctx -> {
+                                        ItemHeatHelper.setTemperatureUnit(ctx.getSource().getPlayer(), TemperatureUnit.KELVIN);
+                                        ctx.getSource().sendFeedback(() -> Text.literal("Now using Kelvin temperature units."), false);
+                                        return 1;
+                                    }).then(CommandManager.literal("setDefault")
+                                            .requires(src -> src.hasPermissionLevel(2))
+                                            .executes(ctx -> {
+                                                ItemHeatHelper.setGlobalTemperatureUnit(ctx.getSource().getServer(), TemperatureUnit.KELVIN);
+                                                JoinDataSync.syncAll(ctx.getSource().getWorld());
+                                                ctx.getSource().sendFeedback(() -> Text.literal("Kelvin is now the global default temperature unit."), false);
+                                                return 1;
+                                            })))
+                            .then(CommandManager.literal("TerraFirmaCraft")
+                                    .executes(ctx -> {
+                                        ItemHeatHelper.setTemperatureUnit(ctx.getSource().getPlayer(), TemperatureUnit.TERRAFIRMACRAFT);
+                                        ctx.getSource().sendFeedback(() -> Text.literal("Now using TerraFirmaCraft temperature names."), false);
+                                        return 1;
+                                    })
+                                    .then(CommandManager.literal("setDefault")
+                                            .requires(src -> src.hasPermissionLevel(2))
+                                            .executes(ctx -> {
+                                                ItemHeatHelper.setGlobalTemperatureUnit(ctx.getSource().getServer(), TemperatureUnit.TERRAFIRMACRAFT);
+                                                JoinDataSync.syncAll(ctx.getSource().getWorld());
+                                                ctx.getSource().sendFeedback(() -> Text.literal("TerraFirmaCraft temperature names are now the global default temperature unit."), false);
+                                                return 1;
+                                            })))
+                    )
                     .then(CommandManager.literal("wiki")
-                            .executes(context -> {
+                            .executes(ctx -> {
                                 Text message = Text.literal("https://tlotd.net/wiki/mc-mod/")
                                         .styled(style -> style
                                                 .withColor(Formatting.GOLD)
                                                 .withUnderline(true)
-                                                .withClickEvent(new ClickEvent(
-                                                        ClickEvent.Action.OPEN_URL,
-                                                        "https://tlotd.net/wiki/mc-mod/"
-                                                ))
-                                                .withHoverEvent(new HoverEvent(
-                                                        HoverEvent.Action.SHOW_TEXT,
-                                                        Text.literal("Open in browser")
-                                                ))
+                                                .withClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://tlotd.net/wiki/mc-mod/"))
+                                                .withHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, Text.literal("Open in browser")))
                                         );
-                                context.getSource().sendFeedback(() -> message, false);
+                                ctx.getSource().sendFeedback(() -> message, false);
                                 return 1;
                             })
                     )
                     .then(CommandManager.literal("version")
-                            .executes(context -> {
+                            .executes(ctx -> {
                                 String version = getModVersion();
-                                context.getSource().sendFeedback(() -> Text.literal("TLOTD version: " + version), false);
+                                ctx.getSource().sendFeedback(() -> Text.literal("TLOTD version: " + version), false);
                                 return 1;
                             })
                     )
                     .then(CommandManager.literal("debug")
                             .requires(source -> source.hasPermissionLevel(2))
-                            .executes(context -> {
+                            .executes(ctx -> {
                                     TelevisionSignalRegistry.debugDump();
                                     VideoGameRegistry.debugDump();
-                                    context.getSource().sendFeedback(() -> Text.literal("Dumped TV signal & Video Game registries to console."), false);
+                                    ctx.getSource().sendFeedback(() -> Text.literal("Dumped TV signal & Video Game registries to console."), false);
                                     return 1;
                             })
                     )
@@ -367,6 +425,23 @@ public class ModCommands {
                                               JoinDataSync.syncAll(ctx.getSource().getWorld());
                                               ctx.getSource().sendFeedback(() -> Text.literal("Vanished representatives " + (value ? "will" : "won't") + " be rewarded."), true);
                                               return 1;
+                                        })
+                                )
+                        )
+                        .then(CommandManager.literal("noClipChance")
+                                .executes(ctx -> {
+                                    double chance = ModGlobalState.get(ctx.getSource().getServer()).noClipChance();
+                                    ctx.getSource().sendFeedback(() -> Text.literal("Players have a " + chance*100 + "% chance to noclip into or out of the Backrooms when suffocating."), false);
+                                    return 1;
+                                })
+                                .then(CommandManager.argument("value", DoubleArgumentType.doubleArg(0, 1))
+                                        .requires(src -> src.hasPermissionLevel(2))
+                                        .executes(ctx -> {
+                                            double value = DoubleArgumentType.getDouble(ctx, "value");
+                                            ModGlobalState state = ModGlobalState.get(ctx.getSource().getServer());
+                                            state.setNoClipChance(value);
+                                            ctx.getSource().sendFeedback(() -> Text.literal("Players will now have a " + value*100 + "% chance to noclip into or out of the Backrooms when suffocating."), true);
+                                            return 1;
                                         })
                                 )
                         )

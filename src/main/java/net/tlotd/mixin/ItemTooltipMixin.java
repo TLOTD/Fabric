@@ -1,7 +1,9 @@
 package net.tlotd.mixin;
 
+import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.item.TooltipContext;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.PickaxeItem;
@@ -17,16 +19,14 @@ import net.minecraft.world.World;
 import net.tlotd.block.ModBlocks;
 import net.tlotd.item.ModItems;
 import net.tlotd.item.custom.SpaceSuitArmorItem;
-import net.tlotd.util.AdAstraGasNbtHelper;
-import net.tlotd.util.EnergyNbtHelper;
-import net.tlotd.util.ItemHeatHelper;
-import net.tlotd.util.ModTags;
+import net.tlotd.util.*;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.List;
+import java.util.Map;
 
 import static net.tlotd.util.AugmentNbtHelper.getAugmentLevel;
 
@@ -36,48 +36,51 @@ public abstract class ItemTooltipMixin {
             method = "appendTooltip",
             at = @At("TAIL")
     )
-    private void addTestTooltip(
+    private void addItemTooltip(
             ItemStack stack,
             World world,
             List<Text> tooltip,
             TooltipContext context,
             CallbackInfo ci
     ) {
+        PlayerEntity player = MinecraftClient.getInstance().player;
+        if (player == null) return;
+        TemperatureUnit unit = ItemHeatHelper.getTemperatureUnit(player);
         if (stack.isIn(ModTags.Items.BURNS_IN_FORGE)){
             int minTemp = ItemHeatHelper.getMinBurningTemperature(stack);
             int maxtemp = ItemHeatHelper.getMaxBurningTemperature(stack);
             if (minTemp!=0){
-                tooltip.add(Text.translatable("temperature.tlotd.starts_burning_at", ItemHeatHelper.getTemperatureText(minTemp)).formatted(Formatting.GRAY));
+                tooltip.add(Text.translatable("temperature.tlotd.starts_burning_at", ItemHeatHelper.getTemperatureText(minTemp, unit)).formatted(Formatting.GRAY));
             }
-            tooltip.add(Text.translatable("temperature.tlotd.burns_at", ItemHeatHelper.getTemperatureText(maxtemp), ItemHeatHelper.getBurningTime(maxtemp)).formatted(Formatting.GRAY));
+            tooltip.add(Text.translatable("temperature.tlotd.burns_at", ItemHeatHelper.getTemperatureText(maxtemp, unit), ItemHeatHelper.getBurningTime(maxtemp)).formatted(Formatting.GRAY));
         }
         if (stack.isIn(ModTags.Items.FIRE_BASE_FORGE)){
             int minTemp = ItemHeatHelper.getMinBurningBaseTemperature(stack);
             int maxTemp = ItemHeatHelper.getMaxBurningBaseTemperature(stack);
             if (minTemp!=0){
-                tooltip.add(Text.translatable("temperature.tlotd.starts_burning_at", ItemHeatHelper.getTemperatureText(minTemp)).formatted(Formatting.GRAY));
+                tooltip.add(Text.translatable("temperature.tlotd.starts_burning_at", ItemHeatHelper.getTemperatureText(minTemp, unit)).formatted(Formatting.GRAY));
             }
-            tooltip.add(Text.translatable("temperature.tlotd.allows_burning_to", ItemHeatHelper.getTemperatureText(maxTemp)).formatted(Formatting.GRAY));
+            tooltip.add(Text.translatable("temperature.tlotd.allows_burning_to", ItemHeatHelper.getTemperatureText(maxTemp, unit)).formatted(Formatting.GRAY));
         }
         if (ItemHeatHelper.getTemperature(stack) >= 500) {
             tooltip.add(Text.translatable("temperature.tlotd.too_hot").formatted(Formatting.RED));
         }
         if (ItemHeatHelper.hasTemperature(stack)) {
-            tooltip.add(ItemHeatHelper.getTemperatureText(ItemHeatHelper.getTemperature(stack)));
+            tooltip.add(ItemHeatHelper.getTemperatureText(ItemHeatHelper.getTemperature(stack), unit));
         }
         int forgingTemp = ItemHeatHelper.getForgingTemperature(stack);
         int smithingTemp = ItemHeatHelper.getSmithingTemperature(stack);
         if (forgingTemp > 0) {
-            tooltip.add(Text.translatable("temperature.tlotd.forge", ModBlocks.DWARVEN_FORGE.getName().formatted(Formatting.YELLOW), ItemHeatHelper.getTemperatureText(forgingTemp)).formatted(Formatting.GRAY));
-            tooltip.add(Text.translatable("temperature.tlotd.forge_at", ItemHeatHelper.getTemperatureText(forgingTemp), ModBlocks.DWARVEN_FORGE.getName().formatted(Formatting.YELLOW)).formatted(Formatting.GRAY));
+            tooltip.add(Text.translatable("temperature.tlotd.forge_at", ItemHeatHelper.getTemperatureText(forgingTemp, unit), ModBlocks.DWARVEN_FORGE.getName().formatted(Formatting.YELLOW)).formatted(Formatting.GRAY));
+            tooltip.add(Text.translatable("temperature.tlotd.forge", ModBlocks.DWARVEN_FORGE.getName().formatted(Formatting.YELLOW), ItemHeatHelper.getTemperatureText(forgingTemp, unit)).formatted(Formatting.GRAY));
         }
         if (smithingTemp > 0) {
             if (stack.isOf(ModItems.MITHRIL_INGOT) || stack.isOf(ModItems.MITHRIL_PLATE)) {
-                tooltip.add(Text.translatable("temperature.tlotd.anvil", ModBlocks.MITHRIL_ANVIL.getName().formatted(Formatting.YELLOW), ItemHeatHelper.getTemperatureText(smithingTemp)).formatted(Formatting.GRAY));
-                tooltip.add(Text.translatable("temperature.tlotd.anvil_at", ItemHeatHelper.getTemperatureText(smithingTemp), ModBlocks.MITHRIL_ANVIL.getName().formatted(Formatting.YELLOW)).formatted(Formatting.GRAY));
+                tooltip.add(Text.translatable("temperature.tlotd.anvil_at", ItemHeatHelper.getTemperatureText(smithingTemp, unit), ModBlocks.MITHRIL_ANVIL.getName().formatted(Formatting.YELLOW)).formatted(Formatting.GRAY));
+                tooltip.add(Text.translatable("temperature.tlotd.anvil", ModBlocks.MITHRIL_ANVIL.getName().formatted(Formatting.YELLOW), ItemHeatHelper.getTemperatureText(smithingTemp, unit)).formatted(Formatting.GRAY));
             } else {
-                tooltip.add(Text.translatable("temperature.tlotd.anvil", ModBlocks.NETHERITE_ANVIL.getName().formatted(Formatting.WHITE), ItemHeatHelper.getTemperatureText(smithingTemp)).formatted(Formatting.GRAY));
-                tooltip.add(Text.translatable("temperature.tlotd.anvil_at", ItemHeatHelper.getTemperatureText(smithingTemp), ModBlocks.NETHERITE_ANVIL.getName().formatted(Formatting.WHITE)).formatted(Formatting.GRAY));
+                tooltip.add(Text.translatable("temperature.tlotd.anvil_at", ItemHeatHelper.getTemperatureText(smithingTemp, unit), ModBlocks.NETHERITE_ANVIL.getName().formatted(Formatting.WHITE)).formatted(Formatting.GRAY));
+                tooltip.add(Text.translatable("temperature.tlotd.anvil", ModBlocks.NETHERITE_ANVIL.getName().formatted(Formatting.WHITE), ItemHeatHelper.getTemperatureText(smithingTemp, unit)).formatted(Formatting.GRAY));
             }
         }
         if (stack.isOf(ModItems.HEV_SUIT_CHESTPLATE) || stack.isOf(ModItems.HEV_SUIT_LEGGINGS) || stack.isOf(ModItems.HEV_SUIT_BOOTS) || getAugmentLevel(stack, "tlotd:battery_pack") > 0) {
@@ -100,19 +103,34 @@ public abstract class ItemTooltipMixin {
             String formattedMaxPower2 = formattedMaxPower.replace(',', '.');
             tooltip.add(Text.translatable("item.tlotd.power_level.tooltip", formattedPower, formattedMaxPower, formattedPower2, formattedMaxPower2).formatted(Formatting.YELLOW));
         }
-        if (stack.isOf(ModItems.GAS_CYLINDER) || stack.getItem() instanceof SpaceSuitArmorItem || getAugmentLevel(stack, "tlotd:oxygen_tank") > 0) {
-            long gasRaw;
-            long maxGasRaw;
-            String gas;
-            if (stack.getItem() instanceof SpaceSuitArmorItem) {
-                gasRaw = AdAstraGasNbtHelper.getOxygenFromSuit(stack);
-                maxGasRaw = AdAstraGasNbtHelper.getMaxOxygenFromSuit(stack);
-                gas = AdAstraGasNbtHelper.AD_ASTRA_OXYGEN_ID;
-            } else {
-                gas = stack.hasNbt() ? AdAstraGasNbtHelper.getGas(stack) : "empty";
-                gasRaw = stack.hasNbt() ? AdAstraGasNbtHelper.getGasAmount(stack, gas) : 0;
-                maxGasRaw = AdAstraGasNbtHelper.getMaxGasItem(stack);
+        if (stack.getItem() instanceof SpaceSuitArmorItem) {
+            Map<String, AdAstraGasNbtHelper.GasInfo> gases = AdAstraGasNbtHelper.getSuitGasContents(stack);
+            if (gases.isEmpty()) {
+                tooltip.add(Text.translatable("item.tlotd.gas_cylinder.tooltip", "0", "0", "0", "0", AdAstraGasNbtHelper.gasName("empty")).formatted(Formatting.GOLD));
+                return;
             }
+            for (Map.Entry<String, AdAstraGasNbtHelper.GasInfo> entry : gases.entrySet()) {
+                String gas = entry.getKey();
+                AdAstraGasNbtHelper.GasInfo info = entry.getValue();
+                String formattedGas;
+                String formattedMaxGas;
+                if (Screen.hasShiftDown()) {
+                    int displayAmount = (int)Math.round((double)info.amount * 1000 / AdAstraGasNbtHelper.MAX_AMOUNT);
+                    int displayMax = (int)Math.round((double)info.max * 1000 / AdAstraGasNbtHelper.MAX_AMOUNT);
+                    formattedGas = String.format("%,d", displayAmount);
+                    formattedMaxGas = String.format("%,d", displayMax);
+                } else {
+                    formattedGas = AdAstraGasNbtHelper.getOxygenString(info.amount);
+                    formattedMaxGas = AdAstraGasNbtHelper.getOxygenString(info.max);
+                }
+                tooltip.add(Text.translatable("item.tlotd.gas_cylinder.tooltip", formattedGas, formattedMaxGas, formattedGas.replace(',', '.'), formattedMaxGas.replace(',', '.'), AdAstraGasNbtHelper.gasName(gas)).formatted(Formatting.GOLD));
+            }
+            return;
+        }
+        if (stack.isOf(ModItems.GAS_CYLINDER) || getAugmentLevel(stack, "tlotd:oxygen_tank") > 0) {
+            String gas = AdAstraGasNbtHelper.getGas(stack);
+            long gasRaw = stack.hasNbt() ? AdAstraGasNbtHelper.getGasAmount(stack, gas) : 0;
+            long maxGasRaw = AdAstraGasNbtHelper.getMaxGasItem(stack);
             long maxOxygen = maxGasRaw / AdAstraGasNbtHelper.MAX_AMOUNT;
             String formattedOxygen;
             String formattedMaxOxygen;

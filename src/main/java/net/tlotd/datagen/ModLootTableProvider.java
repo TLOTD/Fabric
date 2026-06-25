@@ -46,6 +46,9 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.CARVED_WHITE_PUMPKIN);
         addDrop(ModBlocks.WHITE_JACK_O_LANTERN);
 
+        addDrop(ModBlocks.COPPER_TORCH, drops(ModItems.COPPER_TORCH));
+        addDrop(ModBlocks.COPPER_WALL_TORCH, drops(ModItems.COPPER_TORCH));
+
         addDrop(ModBlocks.SULFUR_TORCH, drops(ModItems.SULFUR_TORCH));
         addDrop(ModBlocks.SULFUR_WALL_TORCH, drops(ModItems.SULFUR_TORCH));
 
@@ -54,6 +57,9 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
 
         addDrop(ModBlocks.EXTINGUISHED_SOUL_TORCH, drops(Items.SOUL_TORCH));
         addDrop(ModBlocks.EXTINGUISHED_SOUL_WALL_TORCH, drops(Items.SOUL_TORCH));
+
+        addDrop(ModBlocks.EXTINGUISHED_COPPER_TORCH, drops(ModItems.COPPER_TORCH));
+        addDrop(ModBlocks.EXTINGUISHED_COPPER_WALL_TORCH, drops(ModItems.COPPER_TORCH));
 
         addDrop(ModBlocks.EXTINGUISHED_SULFUR_TORCH, drops(ModItems.SULFUR_TORCH));
         addDrop(ModBlocks.EXTINGUISHED_SULFUR_WALL_TORCH, drops(ModItems.SULFUR_TORCH));

@@ -3,12 +3,14 @@ package net.tlotd;
 import com.terraformersmc.terraform.boat.api.client.TerraformBoatClientHelper;
 import com.terraformersmc.terraform.sign.SpriteIdentifierRegistry;
 import net.fabricmc.api.ClientModInitializer;
+import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
 import net.fabricmc.fabric.api.client.render.fluid.v1.FluidRenderHandlerRegistry;
 import net.fabricmc.fabric.api.client.render.fluid.v1.SimpleFluidRenderHandler;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.TooltipComponentCallback;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
+import net.minecraft.client.particle.FlameParticle;
 import net.minecraft.client.render.TexturedRenderLayers;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
 import net.minecraft.client.util.SpriteIdentifier;
@@ -30,11 +32,16 @@ import net.tlotd.networking.ModMessages;
 import net.tlotd.networking.PlayerDataSyncNetworking;
 import net.tlotd.networking.TextureSyncNetworking;
 import net.tlotd.util.EnvelopeTooltipData;
+import net.tlotd.util.ModParticles;
 import net.tlotd.util.SpaceSuitTooltipData;
 
 public class TLOTDClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
+
+        ParticleFactoryRegistry.getInstance().register(ModParticles.COPPER_FIRE_FLAME, FlameParticle.Factory::new);
+        ParticleFactoryRegistry.getInstance().register(ModParticles.SULPHUR_FIRE_FLAME, FlameParticle.Factory::new);
+
         FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.STILL_SPEZI, ModFluids.FLOWING_SPEZI, new SimpleFluidRenderHandler(new Identifier("tlotd:block/spezi_still"), new Identifier("tlotd:block/spezi_flow")));
         FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.STILL_BEER, ModFluids.FLOWING_BEER, new SimpleFluidRenderHandler(new Identifier("tlotd:block/beer_still"), new Identifier("tlotd:block/beer_flow")));
         FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.STILL_MEAD, ModFluids.FLOWING_MEAD, new SimpleFluidRenderHandler(new Identifier("tlotd:block/mead_still"), new Identifier("tlotd:block/mead_flow")));

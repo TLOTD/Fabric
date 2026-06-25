@@ -3,6 +3,9 @@
   "config": {
     "decorators": [
       {
+        "type": "tlotd:shelf_mushroom"
+      },
+      {
         "type": "minecraft:trunk_vine"
       }
     ],

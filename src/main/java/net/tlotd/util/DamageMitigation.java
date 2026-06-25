@@ -194,7 +194,7 @@ public class DamageMitigation {
                     }
                     return false;
                 }
-            } else if (damageSource.isOf(DamageTypes.DROWN) || damageSource.getType().msgId().contains("hypoxia") || damageSource.getType().msgId().contains("oxygen")) {
+            } else if (damageSource.getType().msgId().contains("hypoxia") || damageSource.getType().msgId().contains("oxygen")) {
                 int airtightArmor = 0;
                 boolean oxygenTank = false;
                 for (ItemStack armor : player.getArmorItems()) {
@@ -205,15 +205,15 @@ public class DamageMitigation {
                         oxygenTank = true;
                     }
                 }
-                if ((airtightArmor >= 4) && oxygenTank && ((player.getInventory().getArmorStack(2).getItem() instanceof SpaceSuitArmorItem && AdAstraGasNbtHelper.getOxygenFromSuit(player.getInventory().getArmorStack(2)) > 0) || (AdAstraGasNbtHelper.getOxygen(player.getInventory().getArmorStack(2)) > 0))) {
+                if ((airtightArmor >= 4) && oxygenTank && AdAstraGasNbtHelper.canMitigateDamage(player.getInventory().getArmorStack(2))) {
                     if (player.getInventory().getArmorStack(2).getItem() instanceof SpaceSuitArmorItem) {
+                        ItemStack suit = player.getInventory().getArmorStack(2);
                         if (oxygenTick.get() >= 20) {
                             oxygenTick.set(0);
-                            AdAstraGasNbtHelper.modifyGasInSuit(player.getInventory().getArmorStack(2), "ad_astra:oxygen", -10);
+                            AdAstraGasNbtHelper.consumeMitigationGas(player.getInventory().getArmorStack(2), 10);
                         } else {
                             oxygenTick.getAndIncrement();
                         }
-                        return false;
                     } else {
                         if (oxygenTick.get() >= 20) {
                             oxygenTick.set(0);
@@ -222,8 +222,8 @@ public class DamageMitigation {
                         } else {
                             oxygenTick.getAndIncrement();
                         }
-                        return false;
                     }
+                    return false;
                 }
             } else if (damageSource.isOf(DamageTypes.LAVA) || damageSource.isOf(DamageTypes.ON_FIRE) || damageSource.isOf(DamageTypes.IN_FIRE) || damageSource.isOf(DamageTypes.HOT_FLOOR) || damageSource.getType().msgId().contains("fire") && !damageSource.getType().msgId().contains("gunfire")) {
                 int fireProtection = 0;

@@ -1,9 +1,11 @@
 {
   "replace": false,
   "values": [
+    "tlotd:copper_torch",
     "tlotd:sulfur_torch",
     "tlotd:extinguished_torch",
     "tlotd:extinguished_soul_torch",
+    "tlotd:extinguished_copper_torch",
     "tlotd:extinguished_sulfur_torch"
   ]
 }

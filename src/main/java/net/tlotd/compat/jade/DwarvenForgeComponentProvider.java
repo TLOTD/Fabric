@@ -6,6 +6,7 @@ import net.minecraft.util.Identifier;
 import net.tlotd.TLOTD;
 import net.tlotd.block.entity.DwarvenForgeBlockEntity;
 import net.tlotd.util.ItemHeatHelper;
+import net.tlotd.util.TemperatureUnit;
 import snownee.jade.api.BlockAccessor;
 import snownee.jade.api.IBlockComponentProvider;
 import snownee.jade.api.IServerDataProvider;
@@ -17,14 +18,15 @@ public enum DwarvenForgeComponentProvider implements IBlockComponentProvider, IS
 
     @Override
     public void appendTooltip(ITooltip tooltip, BlockAccessor accessor, IPluginConfig config) {
+        TemperatureUnit unit = ItemHeatHelper.getTemperatureUnit(accessor.getPlayer());
         int temperatureTarget = accessor.getServerData().getInt("temperatureTarget");
         int temperature = accessor.getServerData().getInt("temperature");
         int burnTime = accessor.getServerData().getInt("burnTime");
         if ((temperatureTarget != 0) && (burnTime != 0)) {
-            tooltip.add(Text.translatable("temperature.tlotd.dwarven_forge.max", ItemHeatHelper.getTemperatureText(temperatureTarget), ItemHeatHelper.getBurningTime(burnTime)));
+            tooltip.add(Text.translatable("temperature.tlotd.dwarven_forge.max", ItemHeatHelper.getBurningTime(burnTime), ItemHeatHelper.getTemperatureText(temperatureTarget, unit)));
         }
         if (temperature != 0) {
-            tooltip.add(Text.translatable("temperature.tlotd.dwarven_forge", ItemHeatHelper.getTemperatureText(temperature)));
+            tooltip.add(Text.translatable("temperature.tlotd.dwarven_forge", ItemHeatHelper.getTemperatureText(temperature, unit)));
         }
     }
 

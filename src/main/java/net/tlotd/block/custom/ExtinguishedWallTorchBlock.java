@@ -19,6 +19,8 @@ public class ExtinguishedWallTorchBlock extends WallTorchBlock {
     public ItemStack getPickStack(BlockView world, BlockPos pos, BlockState state) {
         if (state.isOf(ModBlocks.EXTINGUISHED_SOUL_WALL_TORCH)) {
             return Items.SOUL_TORCH.getDefaultStack();
+        } else if (state.isOf(ModBlocks.EXTINGUISHED_COPPER_WALL_TORCH)) {
+            return ModItems.COPPER_TORCH.getDefaultStack();
         } else if (state.isOf(ModBlocks.EXTINGUISHED_SULFUR_WALL_TORCH)) {
             return ModItems.SULFUR_TORCH.getDefaultStack();
         } else return Items.TORCH.getDefaultStack();

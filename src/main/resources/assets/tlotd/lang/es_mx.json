@@ -194,9 +194,14 @@
   "sounds.tlotd.block_keycard_reader_pling": "Lector de tarjetas utilizada",
   "sounds.tlotd.block_garbage_can_used": "Cubo de basura utilizada",
 
+  "advancements.tlotd.root": "TLOTD",
+  "advancements.tlotd.root.desc": "Welcome to the Mod!",
+
   "advancements.tlotd.radioactive": "§eRadioactive!§r",
   "advancements.tlotd.radioactive.desc": "Get irradiated by something",
 
+  "advancements.tlotd.dwarven_forge": "Las forjas de antaño",
+  "advancements.tlotd.dwarven_forge.desc": "Construye un horno enano para fundir minerales de mayor nivel",
   "advancements.tlotd.alloy_allies": "Aliados de aleación",
   "advancements.tlotd.alloy_allies.desc": "Crear un lingote de aleación de heliorita o endurio",
   "advancements.tlotd.next_level": "¡Siguiente nivel!",
@@ -205,6 +210,8 @@
   "advancements.tlotd.rich_in_ingots.desc": "Adquirir un lingote de cinabrio o nebular",
   "advancements.tlotd.extraction": "Extracción cuidadosa",
   "advancements.tlotd.extraction.desc": "Obtener un pico de extracción",
+  "advancements.tlotd.refined_raw_mithril": "Baño de lava",
+  "advancements.tlotd.refined_raw_mithril.desc": "Quema las impurezas del mitril en bruto dentro de la lava",
   "advancements.tlotd.mithril": "El más puro de los metales",
   "advancements.tlotd.mithril.desc": "Consigue un lingote de acero plateado, más conocido como Mithril",
   "advancements.tlotd.mithril_mirror": "El hogar está detrás",
@@ -222,8 +229,10 @@
   "advancements.tlotd.simple_circuitry.desc": "Obtener una placa de circuito",
   "advancements.tlotd.oxygen_collector": "Captador de aire",
   "advancements.tlotd.oxygen_collector.desc": "Crear un colector de oxígeno",
-  "advancements.tlotd.lunar_return": "¡A la luna y vuelta!",
-  "advancements.tlotd.lunar_return.desc": "Regreso de un viaje a la luna",
+  "advancements.tlotd.luna": "¡A la luna y vuelta!",
+  "advancements.tlotd.luna.desc": "Regreso de un viaje a la luna",
+  "advancements.tlotd.lunar_callainus_lump": "La gema turquesa de la luna",
+  "advancements.tlotd.lunar_callainus_lump.desc": "Adquiera un trozo de callainus lunar",
   "advancements.tlotd.play_radio": "Estrella de la radio",
   "advancements.tlotd.play_radio.desc": "Escuchar una señal usando la radio",
   "advancements.tlotd.television": "¡Ahora en color!",
@@ -255,11 +264,6 @@
   "advancements.tlotd.jurassic.desc": "Tiempos jurásicos, exigen medidas jurásicas",
   "advancements.tlotd.kill_a_t-rex": "¡Debería haberse extinguido!",
   "advancements.tlotd.kill_a_t-rex.desc": "Lucha y vence a un T-Rex en combate",
-
-  "advancements.tlotd.luna": "Luna",
-  "advancements.tlotd.luna.desc": "¿A la luna y vuelta?",
-  "advancements.tlotd.lunar_callainus_lump": "La gema turquesa de la luna",
-  "advancements.tlotd.lunar_callainus_lump.desc": "Adquiera un trozo de callainus lunar",
 
   "advancements.tlotd.magic": "La magia se despliega",
   "advancements.tlotd.magic.desc": "La magia se expresa de muchas formas distintas en tu mundo",
@@ -1120,6 +1124,8 @@
 
   "block.tlotd.steel_block": "Bloque de acero",
 
+  "block.tlotd.copper_torch": "Antorcha de cobre",
+
   "block.tlotd.nether_sulfur_ore": "Mineral de azufre del Nether",
   "block.tlotd.sulfur_block": "Bloque de azufre",
   "block.tlotd.sulfur_torch": "Antorcha de azufre",
@@ -1131,6 +1137,8 @@
   "block.tlotd.extinguished_wall_torch": "Antorcha de pared apagada",
   "block.tlotd.extinguished_soul_torch": "Antorcha del alma extinguida",
   "block.tlotd.extinguished_soul_wall_torch": "Antorcha de pared del alma extinguida",
+  "block.tlotd.extinguished_copper_torch": "Antorcha de cobre apagada",
+  "block.tlotd.extinguished_copper_wall_torch": "Antorcha de pared de cobre apagada",
   "block.tlotd.extinguished_sulfur_torch": "Antorcha de azufre apagada",
   "block.tlotd.extinguished_sulfur_wall_torch": "Antorcha de pared de azufre extinguida",
 
@@ -1226,6 +1234,8 @@
 
   "block.tlotd.glass_door": "Puerta de vidrio",
   "block.tlotd.glass_trapdoor": "Trampilla de vidrio",
+
+  "block.tlotd.shelf_mushroom": "Poliporo",
 
   "block.tlotd.ginkgo_sapling": "Retoño de ginkgo",
   "block.tlotd.ginkgo_log": "Tronco de ginkgo",
