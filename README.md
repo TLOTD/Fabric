@@ -2,8 +2,8 @@
 
 *"Progress further than ever before, upgrade your gear past diamond and experience new types of food & drink."*
 
-[![TLOTD Icon](https://tlotd.net/minecraft/mod/tlotd-made.png)](https://tlotd.net)
-[![Isla_Nublar Icon](https://tlotd.net/minecraft/mod/isla_nublar_made.png)](https://isla-nublar.com)
+[![TLOTD Icon](https://tlotd.net/assets/projects/made_by_tlotd.png)](https://tlotd.net)
+[![Isla_Nublar Icon](https://tlotd.net/assets/projects/made_by_isla_nublar.png)](https://isla-nublar.com)
 
 # Mod Loaders
 [![Fabric Icon](https://tlotd.net/minecraft/mod/babric.png)](https://babric.github.io/)
