@@ -12,12 +12,14 @@ import net.minecraft.util.Identifier;
 import net.tlotd.banner.ModBanners;
 import net.tlotd.block.ModFlammableBlocks;
 import net.tlotd.block.ModUseBlockCallback;
+import net.tlotd.block.behaviour.ModCauldronBehaviors;
 import net.tlotd.block.entity.ModBlockEntities;
 import net.tlotd.config.ModConfigs;
 import net.tlotd.effect.ModEffects;
 import net.tlotd.effect.ModPotions;
 import net.tlotd.enchantments.ModEnchantments;
 import net.tlotd.entity.custom.*;
+import net.tlotd.particle.ModParticles;
 import net.tlotd.util.*;
 import net.tlotd.entity.*;
 import net.tlotd.fluid.ModFluids;
@@ -54,11 +56,12 @@ public class TLOTD implements ModInitializer {
 		ModItems.registerModItems();
 		ModCompostingChances.registerCompostableItems();
 		ModParticles.registerParticles();
+		ModFluids.registerModFluids();
+		ModCauldronBehaviors.register();
 		ModBlocks.registerModBlocks();
 		ModTreeDecoratorTypes.registerDecorators();
 		ModTelevisionSignals.registerSignals();
 		ModFlammableBlocks.registerFlammableBlocks();
-		ModFluids.registerModFluids();
 		ModFuels.registerModFuels();
 		BrewingRecipeBuilder.registerBrewingRecipes();
 		ModLootTableModifiers.modifyLootTables();
@@ -91,6 +94,7 @@ public class TLOTD implements ModInitializer {
 		StrippableBlockRegistry.register(ModBlocks.GINKGO_LOG, ModBlocks.STRIPPED_GINKGO_LOG);
 		StrippableBlockRegistry.register(ModBlocks.GINKGO_WOOD, ModBlocks.STRIPPED_GINKGO_WOOD);
 
+		StrippableBlockRegistry.register(ModBlocks.YELLOW_WALLPAPERED_WALL_WITH_BASEBOARD, ModBlocks.YELLOW_WALLPAPERED_WALL);
 		StrippableBlockRegistry.register(ModBlocks.YELLOW_WALLPAPERED_WALL, ModBlocks.STRIPPED_YELLOW_WALLPAPERED_WALL);
 
 		FabricDefaultAttributeRegistry.register(ModEntities.TREX, TRexEntity.createTRexAttributes());

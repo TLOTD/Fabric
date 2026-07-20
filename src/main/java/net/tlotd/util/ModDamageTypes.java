@@ -9,6 +9,8 @@ import net.minecraft.world.World;
 import net.tlotd.TLOTD;
 
 public class ModDamageTypes {
+    public static final RegistryKey<DamageType> BOILING = RegistryKey.of(RegistryKeys.DAMAGE_TYPE, new Identifier(TLOTD.MOD_ID, "boiling"));
+
     public static final RegistryKey<DamageType> SUBSPACE_SICKNESS = RegistryKey.of(RegistryKeys.DAMAGE_TYPE, new Identifier(TLOTD.MOD_ID, "subspace_sickness"));
 
     public static final RegistryKey<DamageType> RADIATION = RegistryKey.of(RegistryKeys.DAMAGE_TYPE, new Identifier(TLOTD.MOD_ID, "radiation"));

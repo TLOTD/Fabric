@@ -2,6 +2,7 @@
   "replace": false,
   "values": [
     "tlotd:ginkgo_stairs",
+    "tlotd:backshroom_stairs",
     "tlotd:fancy_oak_stairs",
     "tlotd:fancy_spruce_stairs",
     "tlotd:fancy_birch_stairs",
@@ -14,6 +15,7 @@
     "tlotd:fancy_bamboo_stairs",
     "tlotd:fancy_crimson_stairs",
     "tlotd:fancy_warped_stairs",
-    "tlotd:fancy_ginkgo_stairs"
+    "tlotd:fancy_ginkgo_stairs",
+    "tlotd:fancy_backshroom_stairs"
   ]
 }

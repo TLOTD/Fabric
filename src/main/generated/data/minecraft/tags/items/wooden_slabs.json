@@ -2,6 +2,7 @@
   "replace": false,
   "values": [
     "tlotd:ginkgo_slab",
+    "tlotd:backshroom_slab",
     "tlotd:fancy_oak_slab",
     "tlotd:fancy_spruce_slab",
     "tlotd:fancy_birch_slab",
@@ -15,6 +16,7 @@
     "tlotd:fancy_crimson_slab",
     "tlotd:fancy_warped_slab",
     "tlotd:fancy_ginkgo_slab",
+    "tlotd:fancy_backshroom_slab",
     "tlotd:fancy_charred_slab"
   ]
 }

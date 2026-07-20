@@ -31,8 +31,11 @@ import net.tlotd.networking.GlobalConfigNetworking;
 import net.tlotd.networking.ModMessages;
 import net.tlotd.networking.PlayerDataSyncNetworking;
 import net.tlotd.networking.TextureSyncNetworking;
+import net.tlotd.particle.BloodDrippingFactory;
+import net.tlotd.particle.BloodFallingFactory;
+import net.tlotd.particle.BloodLandingFactory;
 import net.tlotd.util.EnvelopeTooltipData;
-import net.tlotd.util.ModParticles;
+import net.tlotd.particle.ModParticles;
 import net.tlotd.util.SpaceSuitTooltipData;
 
 public class TLOTDClient implements ClientModInitializer {
@@ -42,11 +45,17 @@ public class TLOTDClient implements ClientModInitializer {
         ParticleFactoryRegistry.getInstance().register(ModParticles.COPPER_FIRE_FLAME, FlameParticle.Factory::new);
         ParticleFactoryRegistry.getInstance().register(ModParticles.SULPHUR_FIRE_FLAME, FlameParticle.Factory::new);
 
+        ParticleFactoryRegistry.getInstance().register(ModParticles.DRIPPING_BLOOD, BloodDrippingFactory::new);
+        ParticleFactoryRegistry.getInstance().register(ModParticles.FALLING_BLOOD, BloodFallingFactory::new);
+        ParticleFactoryRegistry.getInstance().register(ModParticles.LANDING_BLOOD, BloodLandingFactory::new);
+
+        FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.STILL_BOILING_WATER, ModFluids.FLOWING_BOILING_WATER, new SimpleFluidRenderHandler(new Identifier("tlotd:block/boiling_water_still"), new Identifier("tlotd:block/boiling_water_flow")));
         FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.STILL_SPEZI, ModFluids.FLOWING_SPEZI, new SimpleFluidRenderHandler(new Identifier("tlotd:block/spezi_still"), new Identifier("tlotd:block/spezi_flow")));
         FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.STILL_BEER, ModFluids.FLOWING_BEER, new SimpleFluidRenderHandler(new Identifier("tlotd:block/beer_still"), new Identifier("tlotd:block/beer_flow")));
         FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.STILL_MEAD, ModFluids.FLOWING_MEAD, new SimpleFluidRenderHandler(new Identifier("tlotd:block/mead_still"), new Identifier("tlotd:block/mead_flow")));
         FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.STILL_HOT_MILK, ModFluids.FLOWING_HOT_MILK, new SimpleFluidRenderHandler(new Identifier("tlotd:block/hot_milk_still"), new Identifier("tlotd:block/hot_milk_flow")));
         FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.STILL_HOT_CHOCOLATE, ModFluids.FLOWING_HOT_CHOCOLATE, new SimpleFluidRenderHandler(new Identifier("tlotd:block/hot_chocolate_still"), new Identifier("tlotd:block/hot_chocolate_flow")));
+        FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.STILL_HOT_COFFEE, ModFluids.FLOWING_HOT_COFFEE, new SimpleFluidRenderHandler(new Identifier("tlotd:block/hot_coffee_still"), new Identifier("tlotd:block/hot_coffee_flow")));
         FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.STILL_OIL, ModFluids.FLOWING_OIL, new SimpleFluidRenderHandler(new Identifier("tlotd:block/oil_still"), new Identifier("tlotd:block/oil_flow")));
         FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.STILL_BLOOD, ModFluids.FLOWING_BLOOD, new SimpleFluidRenderHandler(new Identifier("tlotd:block/blood_still"), new Identifier("tlotd:block/blood_flow")));
         FluidRenderHandlerRegistry.INSTANCE.register(ModFluids.STILL_CHEMICAL_WASTE, ModFluids.FLOWING_CHEMICAL_WASTE, new SimpleFluidRenderHandler(new Identifier("tlotd:block/chemical_waste_still"), new Identifier("tlotd:block/chemical_waste_flow")));

@@ -70,7 +70,6 @@ public class TLOTDREIClientPlugin implements REIClientPlugin {
         registry.removeEntry(EntryStacks.of(ModItems.INCOMPLETE_OXYGEN_COLLECTOR));
         registry.removeEntry(EntryStacks.of(ModItems.INCOMPLETE_MITHRIL_MIRROR));
 
-
         if (!CompatModsCheck.AETHER) {
             registry.removeEntry(EntryStacks.of(ModBlocks.BLUE_BERRY_JAM_JAR));
             registry.removeEntry(EntryStacks.of(ModItems.BLUE_BERRY_JAM_TOAST));
@@ -102,6 +101,8 @@ public class TLOTDREIClientPlugin implements REIClientPlugin {
         }
         if (!CompatModsCheck.CREATE) {
             registry.removeEntry(EntryStacks.of(ModBlocks.RED_DEEPSLATE_ZINC_ORE));
+            registry.removeEntry(EntryStacks.of(ModFluids.BOILING_WATER_BUCKET));
+            registry.removeEntry(EntryStacks.of(ModFluids.HOT_COFFEE_BUCKET));
             registry.removeEntry(EntryStacks.of(ModFluids.SPEZI_BUCKET));
             registry.removeEntry(EntryStacks.of(ModFluids.STILL_SPEZI));
             registry.removeEntry(EntryStacks.of(ModFluids.SWEET_BERRY_JAM_BUCKET));
@@ -113,7 +114,6 @@ public class TLOTDREIClientPlugin implements REIClientPlugin {
             registry.removeEntry(EntryStacks.of(ModFluids.ORANGE_MARMELADE_BUCKET));
             registry.removeEntry(EntryStacks.of(ModFluids.STILL_ORANGE_MARMELADE));
         }
-
         if (!(CompatModsCheck.CREATE && CompatModsCheck.AETHER)) {
             registry.removeEntry(EntryStacks.of(ModFluids.BLUE_BERRY_JAM_BUCKET));
             registry.removeEntry(EntryStacks.of(ModFluids.STILL_BLUE_BERRY_JAM));
@@ -126,7 +126,6 @@ public class TLOTDREIClientPlugin implements REIClientPlugin {
             registry.removeEntry(EntryStacks.of(ModFluids.DROOPFRUIT_JAM_BUCKET));
             registry.removeEntry(EntryStacks.of(ModFluids.STILL_DROOPFRUIT_JAM));
         }
-
         if (!CompatModsCheck.QUARK) {
             registry.removeEntry(EntryStacks.of(ModItems.ASHEN_BARK));
             registry.removeEntry(EntryStacks.of(ModItems.AZALEA_BARK));
@@ -194,7 +193,9 @@ public class TLOTDREIClientPlugin implements REIClientPlugin {
                 EntryStacks.of(ModBlocks.WOODEN_BLUE_BERRY_MILKSHAKE_STEIN.asItem()),
                 EntryStacks.of(ModBlocks.WOODEN_TORCHBERRY_MILKSHAKE_STEIN.asItem()),
                 EntryStacks.of(ModBlocks.HOT_WOODEN_MILK_STEIN.asItem()),
-                EntryStacks.of(ModBlocks.WOODEN_HOT_CHOCOLATE_STEIN.asItem())
+                EntryStacks.of(ModBlocks.WOODEN_HOT_CHOCOLATE_STEIN.asItem()),
+                EntryStacks.of(ModBlocks.WOODEN_BOILING_WATER_STEIN.asItem()),
+                EntryStacks.of(ModBlocks.WOODEN_HOT_COFFEE_STEIN.asItem())
         );
         registry.group(
                 Identifier.of(TLOTD.MOD_ID, "preserves_jars"),

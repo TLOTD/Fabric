@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "Block{tlotd:wooden_hot_coffee_stein}",
+  "ingredients": [
+    {
+      "item": "tlotd:wooden_boiling_water_stein"
+    },
+    {
+      "item": "tlotd:ground_coffee_beans"
+    }
+  ],
+  "result": {
+    "item": "tlotd:wooden_hot_coffee_stein"
+  }
+}

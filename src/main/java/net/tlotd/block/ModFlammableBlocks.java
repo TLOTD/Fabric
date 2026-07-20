@@ -16,6 +16,12 @@ public class ModFlammableBlocks {
         FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.GINKGO_FENCE, 5, 20);
         FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.GINKGO_FENCE_GATE, 5, 20);
 
+        FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.BACKSHROOM_PLANKS, 5, 20);
+        FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.BACKSHROOM_STAIRS, 5, 20);
+        FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.BACKSHROOM_SLAB, 5, 20);
+        FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.BACKSHROOM_FENCE, 5, 20);
+        FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.BACKSHROOM_FENCE_GATE, 5, 20);
+
         TLOTD.LOGGER.info("Registering Flammable Blocks for " + TLOTD.MOD_ID);
     }
 }

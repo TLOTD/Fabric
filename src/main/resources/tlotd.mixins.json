@@ -6,7 +6,9 @@
     "PlayerEntityDataSaverMixin",
     "WoodStrippingItemDrop",
     "ItemTooltipMixin",
-    "LivingEntityMixin"
+    "LivingEntityMixin",
+    "EndermanEntityMixin",
+    "CropBlockMixin"
   ],
   "injectors": {
     "defaultRequire": 1
@@ -17,6 +19,7 @@
     "client.CustomCreativeTabMixin",
     "client.HandledScreenAccessor",
     "client.GameRendererMixin",
-    "client.WorldRendererMixin"
+    "client.WorldRendererMixin",
+    "client.InGameHudMixin"
   ]
 }

@@ -3,7 +3,7 @@
     {
       "condition": "fabric:all_mods_loaded",
       "values": [
-        "as_astra"
+        "ad_astra"
       ]
     }
   ],
@@ -13,10 +13,10 @@
       "tag": "tlotd:forging_hammers"
     },
     {
-      "item": "as_astra:desh_ingot"
+      "item": "ad_astra:desh_ingot"
     }
   ],
   "output": {
-    "item": "as_astra:desh_plate"
+    "item": "ad_astra:desh_plate"
   }
 }

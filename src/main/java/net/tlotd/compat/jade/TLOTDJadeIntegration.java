@@ -26,6 +26,7 @@ public class TLOTDJadeIntegration implements IWailaPlugin {
     public void registerClient(IWailaClientRegistration registration) {
         registration.hideTarget(ModBlocks.CEILING_TILE);
         registration.hideTarget(ModBlocks.CEILING_LIGHT);
+        registration.hideTarget(ModBlocks.YELLOW_WALLPAPERED_WALL_WITH_BASEBOARD);
         registration.hideTarget(ModBlocks.YELLOW_WALLPAPERED_WALL);
         registration.hideTarget(ModBlocks.STRIPPED_YELLOW_WALLPAPERED_WALL);
         registration.hideTarget(ModBlocks.MOIST_CARPET);

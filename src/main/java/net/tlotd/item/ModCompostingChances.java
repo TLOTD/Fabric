@@ -50,6 +50,10 @@ public class ModCompostingChances {
 		ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModBlocks.GINKGO_LEAVES.asItem(), 0.3f);
 		ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModBlocks.GINKGO_SAPLING.asItem(), 0.3f);
 
+		ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModItems.COFFEE_BEANS, 0.3f);
+		ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModItems.GROUND_COFFEE_BEANS, 0.3f);
+		ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModItems.ROASTED_COFFEE_BEANS, 0.3f);
+
 		ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModItems.TOAST, 0.5f);
 		ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModItems.STRAWBERRY, 0.5f);
 		ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModItems.ORANGE, 0.5f);
@@ -67,6 +71,7 @@ public class ModCompostingChances {
 		ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModBlocks.CARVED_WHITE_PUMPKIN.asItem(), 0.65f);
 
 		ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModItems.CHOCOLATE_STRAWBERRY, 0.85f);
+		ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModItems.COFFEE_BEANS, 0.85f);
 		ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModItems.CARAMEL_COOKIE, 0.85f);
 		ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModItems.STRAWBERRY_COOKIE, 0.85f);
 		ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModItems.ORANGE_COOKIE, 0.85f);

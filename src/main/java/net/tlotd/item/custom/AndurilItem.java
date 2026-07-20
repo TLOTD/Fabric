@@ -2,13 +2,14 @@ package net.tlotd.item.custom;
 
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.item.TooltipContext;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.ShieldItem;
 import net.minecraft.item.SwordItem;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.text.Style;
 import net.minecraft.text.Text;
-import net.minecraft.util.Formatting;
-import net.minecraft.util.Identifier;
+import net.minecraft.util.*;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
@@ -17,6 +18,29 @@ import java.util.List;
 public class AndurilItem extends SwordItem {
     public AndurilItem(ToolMaterial toolMaterial, int attackDamage, float attackSpeed, Settings settings) {
         super(toolMaterial, attackDamage, attackSpeed, settings);
+    }
+
+    public UseAction getUseAction(ItemStack stack) {
+        return UseAction.BLOCK;
+    }
+
+    public int getMaxUseTime(ItemStack stack) {
+        return 72000;
+    }
+
+    public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
+        Hand hand2 = Hand.MAIN_HAND;
+        if (hand == Hand.MAIN_HAND) {
+            hand2 = Hand.OFF_HAND;
+        }
+        ItemStack stack = user.getStackInHand(hand);
+        ItemStack otherStack = user.getStackInHand(hand2);
+        if (otherStack.getItem() instanceof ShieldItem) {
+            user.setCurrentHand(hand2);
+            return TypedActionResult.pass(stack);
+        }
+        user.setCurrentHand(hand);
+        return TypedActionResult.consume(stack);
     }
 
     public static final Identifier TENGWAR_FONT_ID = new Identifier("tlotd", "tengwar");

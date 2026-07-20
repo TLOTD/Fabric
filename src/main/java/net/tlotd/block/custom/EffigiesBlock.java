@@ -32,18 +32,20 @@ import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 import net.minecraft.world.WorldView;
 import net.tlotd.block.ModBlocks;
+import net.tlotd.particle.ModParticles;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
 import static net.tlotd.api.TlotdAPI.enlightened;
-import static net.tlotd.block.custom.BloodCauldronBlock.LEVEL;
+import static net.tlotd.block.custom.ModCauldronBlock.LEVEL;
 
 public class EffigiesBlock extends Block {
 
@@ -66,8 +68,8 @@ public class EffigiesBlock extends Block {
         if (!world.isClient) {
             if (entity.isPlayer()) {
                 ServerPlayerEntity player = (ServerPlayerEntity) entity;
-                if (!player.hasStatusEffect(StatusEffects.BAD_OMEN) || !player.hasStatusEffect(StatusEffects.HERO_OF_THE_VILLAGE)) {
-                    player.addStatusEffect(new StatusEffectInstance(StatusEffects.BAD_OMEN, 60,0,true,false));
+                if (!player.hasStatusEffect(StatusEffects.WEAKNESS)) {
+                    player.addStatusEffect(new StatusEffectInstance(StatusEffects.WEAKNESS, 60,0,true,false));
                 }
             }
         }
@@ -113,20 +115,26 @@ public class EffigiesBlock extends Block {
     @Override
     public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
         super.randomTick(state, world, pos, random);
-        int search_y;
-        for(search_y = 0; search_y>=-10; search_y--){
-            if((world.getBlockState(pos.add(0, search_y,0)).isOf(Blocks.CAULDRON)) || (world.getBlockState(pos.add(0, search_y,0)).isOf(ModBlocks.BLOOD_CAULDRON) && world.getBlockState(pos.add(0, search_y,0)).get(LEVEL) < 3)) {
-                if (world.getBlockState(pos.add(0, search_y,0)).isOf(Blocks.CAULDRON)) {
-                    world.setBlockState(pos.add(0, search_y,0), ModBlocks.BLOOD_CAULDRON.getStateWithProperties(state));
-                } else if (world.getBlockState(pos.add(0, search_y,0)).isOf(ModBlocks.BLOOD_CAULDRON)) {
-                    if (world.getBlockState(pos.add(0, search_y,0)).get(LEVEL) == 1) {
-                        world.setBlockState(pos.add(0, search_y,0), ModBlocks.BLOOD_CAULDRON.getStateWithProperties(state).with(LEVEL,2));
-                    } else if (world.getBlockState(pos.add(0, search_y,0)).get(LEVEL) == 2) {
-                        world.setBlockState(pos.add(0, search_y,0), ModBlocks.BLOOD_CAULDRON.getStateWithProperties(state).with(LEVEL,3));
+        float f = random.nextFloat();
+        if (f <= 0.25F) {
+            long time = world.getTimeOfDay() % 24000L;
+            if (time >= 12800 && time < 23200) {
+                int search_y;
+                for(search_y = 0; search_y>=-10; search_y--){
+                    if((world.getBlockState(pos.add(0, search_y,0)).isOf(Blocks.CAULDRON)) || (world.getBlockState(pos.add(0, search_y,0)).isOf(ModBlocks.BLOOD_CAULDRON) && world.getBlockState(pos.add(0, search_y,0)).get(LEVEL) < 3)) {
+                        if (world.getBlockState(pos.add(0, search_y,0)).isOf(Blocks.CAULDRON)) {
+                            world.setBlockState(pos.add(0, search_y,0), ModBlocks.BLOOD_CAULDRON.getStateWithProperties(state));
+                        } else if (world.getBlockState(pos.add(0, search_y,0)).isOf(ModBlocks.BLOOD_CAULDRON)) {
+                            if (world.getBlockState(pos.add(0, search_y,0)).get(LEVEL) == 1) {
+                                world.setBlockState(pos.add(0, search_y,0), ModBlocks.BLOOD_CAULDRON.getStateWithProperties(state).with(LEVEL,2));
+                            } else if (world.getBlockState(pos.add(0, search_y,0)).get(LEVEL) == 2) {
+                                world.setBlockState(pos.add(0, search_y,0), ModBlocks.BLOOD_CAULDRON.getStateWithProperties(state).with(LEVEL,3));
+                            }
+                        }
+                        world.playSound(null, pos.add(0, search_y,0), SoundEvents.BLOCK_CHORUS_FLOWER_GROW, SoundCategory.BLOCKS, 1.0f, 1.0f);
+                        world.addParticle(ParticleTypes.DRIPPING_LAVA,pos.getX(), pos.getY(), pos.getZ(),0.0F, 0.5F, 0.0F);
                     }
                 }
-                world.playSound(null, pos.add(0, search_y,0), SoundEvents.BLOCK_CHORUS_FLOWER_GROW, SoundCategory.BLOCKS, 1.0f, 1.0f);
-                world.addParticle(ParticleTypes.DRIPPING_LAVA,pos.getX(), pos.getY(), pos.getZ(),0.0F, 0.5F, 0.0F);
             }
         }
     }
@@ -158,5 +166,26 @@ public class EffigiesBlock extends Block {
         }
         tooltip.add(Text.translatable("item.tlotd.desc_occult").formatted(Formatting.RED));
         super.appendTooltip(stack, world, tooltip, options);
+    }
+
+    public void randomDisplayTick(BlockState state, World world, BlockPos pos, Random random) {
+        float f = random.nextFloat();
+        if (f <= 0.25F) {
+            long time = world.getTimeOfDay() % 24000L;
+            if (time >= 12800 && time < 23200) {
+                createParticle(world, pos, state);
+            }
+        }
+    }
+
+    private static void createParticle(World world, BlockPos pos, BlockState state) {
+        Random random = world.random;
+        Vec3d offset = state.getModelOffset(world, pos);
+        double x = pos.getX() + 0.15 + random.nextDouble() * 0.70 + offset.x;
+        double y = pos.getY() + 0.25 + offset.y;
+        double z = pos.getZ() + 0.15 + random.nextDouble() * 0.70 + offset.z;
+        world.addParticle(
+                ModParticles.DRIPPING_BLOOD, x, y, z, 0.0, 0.0, 0.0
+        );
     }
 }

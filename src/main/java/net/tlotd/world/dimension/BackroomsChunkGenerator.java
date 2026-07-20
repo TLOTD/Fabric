@@ -31,7 +31,7 @@ import java.util.concurrent.Executor;
 
 import static net.minecraft.block.RedstoneLampBlock.LIT;
 import static net.tlotd.block.custom.NoClipBlock.NOCLIPABLE;
-import static net.tlotd.block.custom.NoClipMoistCarpetBlock.MOISTNESS;
+import static net.tlotd.block.custom.NoClipMoistCarpetBlock.MOISTURE;
 
 public class BackroomsChunkGenerator extends ChunkGenerator {
 
@@ -86,13 +86,14 @@ public class BackroomsChunkGenerator extends ChunkGenerator {
     @Override
     public CompletableFuture<Chunk> populateNoise(Executor executor, Blender blender, NoiseConfig noiseConfig, StructureAccessor structureAccessor, Chunk chunk) {
         long seed = ModConfigs.LUNAR_SEED;
-        BlockState air           = Blocks.AIR.getDefaultState();
-        BlockState wall          = ModBlocks.YELLOW_WALLPAPERED_WALL.getDefaultState();
+        BlockState air            = Blocks.AIR.getDefaultState();
+        BlockState wall           = ModBlocks.YELLOW_WALLPAPERED_WALL.getDefaultState();
+        BlockState baseboardWall  = ModBlocks.YELLOW_WALLPAPERED_WALL_WITH_BASEBOARD.getDefaultState();
         BlockState floorCorridor  = ModBlocks.MOIST_CARPET.getDefaultState();
         BlockState floorUnderWall = ModBlocks.FLOOR_TILE.getDefaultState();
-        BlockState ceiling       = ModBlocks.CEILING_TILE.getDefaultState();
-        BlockState lamp          = ModBlocks.CEILING_LIGHT.getDefaultState().with(LIT, true);
-        BlockState lampPower     = Blocks.REDSTONE_BLOCK.getDefaultState();
+        BlockState ceiling        = ModBlocks.CEILING_TILE.getDefaultState();
+        BlockState lamp           = ModBlocks.CEILING_LIGHT.getDefaultState().with(LIT, true);
+        BlockState lampPower      = Blocks.REDSTONE_BLOCK.getDefaultState();
         int logicalSize = 4;
         int renderSize  = 5;
         int wallHeight  = 3;
@@ -135,28 +136,36 @@ public class BackroomsChunkGenerator extends ChunkGenerator {
                                 + baseY * 15485863L;
                         net.minecraft.util.math.random.Random floorRand = net.minecraft.util.math.random.Random.create(floorSeed);
                         if (floorRand.nextDouble() < 0.001) {
-                            floorBlock = ModBlocks.MOIST_CARPET.getDefaultState().with(MOISTNESS, 1);
+                            floorBlock = ModBlocks.MOIST_CARPET.getDefaultState().with(MOISTURE, 1);
                         }
                     }
                     chunk.setBlockState(new BlockPos(dx, baseY, dz), floorBlock, false);
                     for (int y = wallBaseY; y < wallBaseY + wallHeight; y++) {
                         BlockState chosenWall = wall;
+                        BlockState bottomWall = baseboardWall;
                         if (isWall) {
-                            long segmentSeed = seed + layerIndex * 918273645231L + segmentX * 341873128712L + segmentZ * 132897987541L;
-                            net.minecraft.util.math.random.Random segmentRand = net.minecraft.util.math.random.Random.create(segmentSeed);
+                            long segmentSeed = seed + layerIndex * 918273645231L
+                                    + segmentX * 341873128712L
+                                    + segmentZ * 132897987541L;
+                            Random segmentRand = Random.create(segmentSeed);
                             boolean fullSegmentVariant = segmentRand.nextDouble() < 0.0005;
                             if (fullSegmentVariant) {
                                 chosenWall = ModBlocks.YELLOW_WALLPAPERED_WALL.getDefaultState().with(NOCLIPABLE, NoClipable.PORTALING);
+                                bottomWall = ModBlocks.YELLOW_WALLPAPERED_WALL_WITH_BASEBOARD.getDefaultState().with(NOCLIPABLE, NoClipable.PORTALING);
                             } else {
                                 long blockSeed = seed
                                         + layerIndex * 918273645231L
                                         + worldX * 7342871L
                                         + worldZ * 9127831L
                                         + y * 15485863L;
-                                net.minecraft.util.math.random.Random blockRand = net.minecraft.util.math.random.Random.create(blockSeed);
+                                Random blockRand = Random.create(blockSeed);
                                 if (blockRand.nextDouble() < 0.001) {
                                     chosenWall = ModBlocks.STRIPPED_YELLOW_WALLPAPERED_WALL.getDefaultState();
+                                    bottomWall = ModBlocks.YELLOW_WALLPAPERED_WALL_WITH_BASEBOARD.getDefaultState();
                                 }
+                            }
+                            if (y == wallBaseY) {
+                                chosenWall = bottomWall;
                             }
                         } else {
                             chosenWall = air;

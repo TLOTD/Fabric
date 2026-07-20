@@ -1,0 +1,11 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "tlotd:item/rough_mithril_ingot"
+  },
+  "overrides": [
+    { "predicate": { "tlotd:temperature": 0.1 }, "model": "tlotd:item/rough_mithril_ingot_fire" },
+    { "predicate": { "tlotd:temperature": 0.2 }, "model": "tlotd:item/rough_mithril_ingot_soul_fire" },
+    { "predicate": { "tlotd:temperature": 0.3 }, "model": "tlotd:item/rough_mithril_ingot_dragon_fire" }
+  ]
+}

@@ -85,7 +85,13 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.EMERGING_SKELETON);
 
         addDrop(ModBlocks.EFFIGIES);
+        addDrop(ModBlocks.BEER_CAULDRON, drops(Items.CAULDRON));
+        addDrop(ModBlocks.MEAD_CAULDRON, drops(Items.CAULDRON));
         addDrop(ModBlocks.BLOOD_CAULDRON, drops(Items.CAULDRON));
+        addDrop(ModBlocks.BOILING_WATER_CAULDRON, drops(Items.CAULDRON));
+        addDrop(ModBlocks.HOT_COFFEE_CAULDRON, drops(Items.CAULDRON));
+        addDrop(ModBlocks.HOT_MILK_CAULDRON, drops(Items.CAULDRON));
+        addDrop(ModBlocks.HOT_CHOCOLATE_CAULDRON, drops(Items.CAULDRON));
         addDrop(ModBlocks.WITCHING_TABLE);
         addDrop(ModBlocks.OUIJA_BOARD);
         addDrop(ModBlocks.GOAT_HEAD);
@@ -262,6 +268,8 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.WOODEN_CARAMEL_MILKSHAKE_STEIN);
         addDrop(ModBlocks.HOT_WOODEN_MILK_STEIN);
         addDrop(ModBlocks.WOODEN_HOT_CHOCOLATE_STEIN);
+        addDrop(ModBlocks.WOODEN_BOILING_WATER_STEIN);
+        addDrop(ModBlocks.WOODEN_HOT_COFFEE_STEIN);
 
         addDrop(ModBlocks.GLOBUS_CRUCIGER);
 
@@ -347,6 +355,20 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.GINKGO_SLAB, slabDrops(ModBlocks.GINKGO_SLAB));
         addDrop(ModBlocks.GINKGO_DOOR, doorDrops(ModBlocks.GINKGO_DOOR));
 
+        addDrop(ModBlocks.SHELF_BACKSHROOM);
+
+        addDrop(ModBlocks.BACKSHROOM_PLANKS);
+
+        addDrop(ModBlocks.BACKSHROOM_STAIRS);
+        addDrop(ModBlocks.BACKSHROOM_FENCE);
+        addDrop(ModBlocks.BACKSHROOM_FENCE_GATE);
+        addDrop(ModBlocks.BACKSHROOM_BUTTON);
+        addDrop(ModBlocks.BACKSHROOM_PRESSURE_PLATE);
+        addDrop(ModBlocks.BACKSHROOM_TRAPDOOR);
+
+        addDrop(ModBlocks.BACKSHROOM_SLAB, slabDrops(ModBlocks.BACKSHROOM_SLAB));
+        addDrop(ModBlocks.BACKSHROOM_DOOR, doorDrops(ModBlocks.BACKSHROOM_DOOR));
+
         addDrop(ModBlocks.FANCY_OAK_PLANKS);
         addDrop(ModBlocks.FANCY_OAK_STAIRS);
         addDrop(ModBlocks.FANCY_OAK_SLAB, slabDrops(ModBlocks.FANCY_OAK_SLAB));
@@ -411,6 +433,11 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.FANCY_GINKGO_STAIRS);
         addDrop(ModBlocks.FANCY_GINKGO_SLAB, slabDrops(ModBlocks.FANCY_GINKGO_SLAB));
         addDrop(ModBlocks.FANCY_GINKGO_TRAPDOOR);
+
+        addDrop(ModBlocks.FANCY_BACKSHROOM_PLANKS);
+        addDrop(ModBlocks.FANCY_BACKSHROOM_STAIRS);
+        addDrop(ModBlocks.FANCY_BACKSHROOM_SLAB, slabDrops(ModBlocks.FANCY_BACKSHROOM_SLAB));
+        addDrop(ModBlocks.FANCY_BACKSHROOM_TRAPDOOR);
 
         addDrop(ModBlocks.FANCY_CHARRED_PLANKS);
         addDrop(ModBlocks.FANCY_CHARRED_STAIRS);

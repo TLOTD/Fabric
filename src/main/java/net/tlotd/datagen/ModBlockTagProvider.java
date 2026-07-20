@@ -333,10 +333,12 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
         getOrCreateTagBuilder(BlockTags.BUTTONS)
                 .add(ModBlocks.GINKGO_BUTTON)
+                .add(ModBlocks.BACKSHROOM_BUTTON)
         ;
 
         getOrCreateTagBuilder(BlockTags.WOODEN_DOORS)
                 .add(ModBlocks.GINKGO_DOOR)
+                .add(ModBlocks.BACKSHROOM_DOOR)
         ;
 
         getOrCreateTagBuilder(BlockTags.DOORS)
@@ -347,14 +349,17 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
         getOrCreateTagBuilder(BlockTags.WOODEN_FENCES)
                 .add(ModBlocks.GINKGO_FENCE)
+                .add(ModBlocks.BACKSHROOM_FENCE)
         ;
 
         getOrCreateTagBuilder(BlockTags.FENCE_GATES)
                 .add(ModBlocks.GINKGO_FENCE_GATE)
+                .add(ModBlocks.BACKSHROOM_FENCE_GATE)
         ;
 
         getOrCreateTagBuilder(BlockTags.WOODEN_PRESSURE_PLATES)
                 .add(ModBlocks.GINKGO_PRESSURE_PLATE)
+                .add(ModBlocks.BACKSHROOM_PRESSURE_PLATE)
         ;
 
         getOrCreateTagBuilder(BlockTags.STONE_PRESSURE_PLATES)
@@ -365,6 +370,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
         getOrCreateTagBuilder(BlockTags.WOODEN_SLABS)
                 .add(ModBlocks.GINKGO_SLAB)
+                .add(ModBlocks.BACKSHROOM_SLAB)
                 .add(ModBlocks.FANCY_OAK_SLAB)
                 .add(ModBlocks.FANCY_SPRUCE_SLAB)
                 .add(ModBlocks.FANCY_BIRCH_SLAB)
@@ -378,10 +384,12 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.FANCY_CRIMSON_SLAB)
                 .add(ModBlocks.FANCY_WARPED_SLAB)
                 .add(ModBlocks.FANCY_GINKGO_SLAB)
+                .add(ModBlocks.FANCY_BACKSHROOM_SLAB)
         ;
 
         getOrCreateTagBuilder(BlockTags.WOODEN_STAIRS)
                 .add(ModBlocks.GINKGO_STAIRS)
+                .add(ModBlocks.BACKSHROOM_STAIRS)
                 .add(ModBlocks.FANCY_OAK_STAIRS)
                 .add(ModBlocks.FANCY_SPRUCE_STAIRS)
                 .add(ModBlocks.FANCY_BIRCH_STAIRS)
@@ -395,10 +403,12 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.FANCY_CRIMSON_STAIRS)
                 .add(ModBlocks.FANCY_WARPED_STAIRS)
                 .add(ModBlocks.FANCY_GINKGO_STAIRS)
+                .add(ModBlocks.FANCY_BACKSHROOM_STAIRS)
         ;
 
         getOrCreateTagBuilder(BlockTags.WOODEN_TRAPDOORS)
                 .add(ModBlocks.GINKGO_TRAPDOOR)
+                .add(ModBlocks.BACKSHROOM_TRAPDOOR)
                 .add(ModBlocks.FANCY_OAK_TRAPDOOR)
                 .add(ModBlocks.FANCY_SPRUCE_TRAPDOOR)
                 .add(ModBlocks.FANCY_BIRCH_TRAPDOOR)
@@ -412,6 +422,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.FANCY_CRIMSON_TRAPDOOR)
                 .add(ModBlocks.FANCY_WARPED_TRAPDOOR)
                 .add(ModBlocks.FANCY_GINKGO_TRAPDOOR)
+                .add(ModBlocks.FANCY_BACKSHROOM_TRAPDOOR)
         ;
 
         getOrCreateTagBuilder(BlockTags.LOGS_THAT_BURN)
@@ -427,6 +438,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
         getOrCreateTagBuilder(BlockTags.PLANKS)
                 .add(ModBlocks.GINKGO_PLANKS)
+                .add(ModBlocks.BACKSHROOM_PLANKS)
                 .add(ModBlocks.FANCY_OAK_PLANKS)
                 .add(ModBlocks.FANCY_SPRUCE_PLANKS)
                 .add(ModBlocks.FANCY_BIRCH_PLANKS)
@@ -440,6 +452,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.FANCY_CRIMSON_PLANKS)
                 .add(ModBlocks.FANCY_WARPED_PLANKS)
                 .add(ModBlocks.FANCY_GINKGO_PLANKS)
+                .add(ModBlocks.FANCY_BACKSHROOM_PLANKS)
         ;
 
         getOrCreateTagBuilder(ModTags.Blocks.COMPUTER_ACCESSORIES)
@@ -478,6 +491,8 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.WOODEN_CARAMEL_MILKSHAKE_STEIN)
                 .add(ModBlocks.HOT_WOODEN_MILK_STEIN)
                 .add(ModBlocks.WOODEN_HOT_CHOCOLATE_STEIN)
+                .add(ModBlocks.WOODEN_BOILING_WATER_STEIN)
+                .add(ModBlocks.WOODEN_HOT_COFFEE_STEIN)
         ;
 
         getOrCreateTagBuilder(ModTags.Blocks.LOGS_WITH_BARK)
@@ -564,6 +579,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .addOptional(Identifier.tryParse("twilightforest:sorting_log"))
                 .addOptional(Identifier.tryParse("twilightforest:sorting_wood"))
 
+                .add(ModBlocks.YELLOW_WALLPAPERED_WALL_WITH_BASEBOARD)
                 .add(ModBlocks.YELLOW_WALLPAPERED_WALL)
         ;
 
@@ -653,7 +669,13 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.SKELETON)
                 .add(ModBlocks.EMERGING_SKELETON)
 
+                .add(ModBlocks.BEER_CAULDRON)
+                .add(ModBlocks.MEAD_CAULDRON)
                 .add(ModBlocks.BLOOD_CAULDRON)
+                .add(ModBlocks.BOILING_WATER_CAULDRON)
+                .add(ModBlocks.HOT_COFFEE_CAULDRON)
+                .add(ModBlocks.HOT_MILK_CAULDRON)
+                .add(ModBlocks.HOT_CHOCOLATE_CAULDRON)
 
                 .add(ModBlocks.RADIO)
                 .add(ModBlocks.TELEVISION)
@@ -891,6 +913,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
         getOrCreateTagBuilder(BlockTags.WOODEN_BUTTONS)
                 .add(ModBlocks.GINKGO_BUTTON)
+                .add(ModBlocks.BACKSHROOM_BUTTON)
         ;
 
         getOrCreateTagBuilder(BlockTags.SAND)
@@ -959,7 +982,13 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         ;
 
         getOrCreateTagBuilder(BlockTags.CAULDRONS)
+                .add(ModBlocks.BEER_CAULDRON)
+                .add(ModBlocks.MEAD_CAULDRON)
                 .add(ModBlocks.BLOOD_CAULDRON)
+                .add(ModBlocks.BOILING_WATER_CAULDRON)
+                .add(ModBlocks.HOT_COFFEE_CAULDRON)
+                .add(ModBlocks.HOT_MILK_CAULDRON)
+                .add(ModBlocks.HOT_CHOCOLATE_CAULDRON)
         ;
 
         getOrCreateTagBuilder(TagKey.of(RegistryKeys.BLOCK, new Identifier("c", "bookshelves")))
@@ -1087,6 +1116,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.ALIEN_BRICK_WALL)
                 .add(ModBlocks.ALIEN_PILLAR)
 
+                .add(ModBlocks.YELLOW_WALLPAPERED_WALL_WITH_BASEBOARD)
                 .add(ModBlocks.YELLOW_WALLPAPERED_WALL)
                 .add(ModBlocks.STRIPPED_YELLOW_WALLPAPERED_WALL)
                 .add(ModBlocks.CEILING_LIGHT)
@@ -1121,6 +1151,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.ALIEN_BRICK_WALL)
                 .add(ModBlocks.ALIEN_PILLAR)
 
+                .add(ModBlocks.YELLOW_WALLPAPERED_WALL_WITH_BASEBOARD)
                 .add(ModBlocks.YELLOW_WALLPAPERED_WALL)
                 .add(ModBlocks.STRIPPED_YELLOW_WALLPAPERED_WALL)
                 .add(ModBlocks.CEILING_LIGHT)
@@ -1254,6 +1285,11 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         ;
 
         getOrCreateTagBuilder(ModTags.Blocks.INFINIBURN_LUNA)
+        ;
+
+        getOrCreateTagBuilder(TagKey.of(RegistryKeys.BLOCK, new Identifier("c", "farmland")))
+                .add(Blocks.FARMLAND)
+                .add(ModBlocks.RICH_FARMLAND)
         ;
     }
 }

@@ -31,6 +31,10 @@ public class ModTrades {
                             6, 5, 0.1f));
                     factories.add((entity, random) -> new TradeOffer(
                             new ItemStack(Items.EMERALD, 5),
+                            new ItemStack(ModItems.COFFEE_BEANS, 1),
+                            6, 5, 0.1f));
+                    factories.add((entity, random) -> new TradeOffer(
+                            new ItemStack(Items.EMERALD, 5),
                             new ItemStack(ModItems.PIPE_WEED_SEEDS, 1),
                             6, 5, 0.1f));
                 });

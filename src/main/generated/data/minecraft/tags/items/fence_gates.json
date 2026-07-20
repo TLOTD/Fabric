@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "tlotd:ginkgo_fence_gate"
+    "tlotd:ginkgo_fence_gate",
+    "tlotd:backshroom_fence_gate"
   ]
 }

@@ -1,7 +1,6 @@
 {
   "replace": false,
   "values": [
-    "tlotd:television",
-    "tlotd:computer"
+    "tlotd:television"
   ]
 }

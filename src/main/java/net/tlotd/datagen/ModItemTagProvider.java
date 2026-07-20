@@ -25,6 +25,11 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
     @Override
     protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
 
+        getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "carved_pumpkins")))
+                .add(Blocks.CARVED_PUMPKIN.asItem())
+                .add(ModBlocks.CARVED_WHITE_PUMPKIN.asItem())
+        ;
+
         getOrCreateTagBuilder(ModTags.Items.LAVA_CLEANSING)
                 .add(ModItems.RAW_MITHRIL)
                 .add(ModBlocks.RAW_MITHRIL_BLOCK.asItem())
@@ -530,11 +535,13 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
 
         getOrCreateTagBuilder(ItemTags.PLANKS)
                 .add(ModBlocks.GINKGO_PLANKS.asItem())
+                .add(ModBlocks.BACKSHROOM_PLANKS.asItem())
                 .addOptionalTag(Identifier.tryParse("c:fancy_planks"))
         ;
 
         getOrCreateTagBuilder(ItemTags.WOODEN_STAIRS)
                 .add(ModBlocks.GINKGO_STAIRS.asItem())
+                .add(ModBlocks.BACKSHROOM_STAIRS.asItem())
                 .add(ModBlocks.FANCY_OAK_STAIRS.asItem())
                 .add(ModBlocks.FANCY_SPRUCE_STAIRS.asItem())
                 .add(ModBlocks.FANCY_BIRCH_STAIRS.asItem())
@@ -548,11 +555,13 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModBlocks.FANCY_CRIMSON_STAIRS.asItem())
                 .add(ModBlocks.FANCY_WARPED_STAIRS.asItem())
                 .add(ModBlocks.FANCY_GINKGO_STAIRS.asItem())
+                .add(ModBlocks.FANCY_BACKSHROOM_STAIRS.asItem())
                 .add(ModBlocks.FANCY_CHARRED_STAIRS.asItem())
         ;
 
         getOrCreateTagBuilder(ItemTags.WOODEN_SLABS)
                 .add(ModBlocks.GINKGO_SLAB.asItem())
+                .add(ModBlocks.BACKSHROOM_SLAB.asItem())
                 .add(ModBlocks.FANCY_OAK_SLAB.asItem())
                 .add(ModBlocks.FANCY_SPRUCE_SLAB.asItem())
                 .add(ModBlocks.FANCY_BIRCH_SLAB.asItem())
@@ -566,19 +575,23 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModBlocks.FANCY_CRIMSON_SLAB.asItem())
                 .add(ModBlocks.FANCY_WARPED_SLAB.asItem())
                 .add(ModBlocks.FANCY_GINKGO_SLAB.asItem())
+                .add(ModBlocks.FANCY_BACKSHROOM_SLAB.asItem())
                 .add(ModBlocks.FANCY_CHARRED_SLAB.asItem())
         ;
 
         getOrCreateTagBuilder(ItemTags.WOODEN_FENCES)
                 .add(ModBlocks.GINKGO_FENCE.asItem())
+                .add(ModBlocks.BACKSHROOM_FENCE.asItem())
         ;
 
         getOrCreateTagBuilder(ItemTags.FENCE_GATES)
                 .add(ModBlocks.GINKGO_FENCE_GATE.asItem())
+                .add(ModBlocks.BACKSHROOM_FENCE_GATE.asItem())
         ;
 
         getOrCreateTagBuilder(ItemTags.WOODEN_DOORS)
                 .add(ModBlocks.GINKGO_DOOR.asItem())
+                .add(ModBlocks.BACKSHROOM_DOOR.asItem())
         ;
 
         getOrCreateTagBuilder(ItemTags.DOORS)
@@ -589,6 +602,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
 
         getOrCreateTagBuilder(ItemTags.WOODEN_TRAPDOORS)
                 .add(ModBlocks.GINKGO_TRAPDOOR.asItem())
+                .add(ModBlocks.BACKSHROOM_TRAPDOOR.asItem())
                 .add(ModBlocks.FANCY_OAK_TRAPDOOR.asItem())
                 .add(ModBlocks.FANCY_SPRUCE_TRAPDOOR.asItem())
                 .add(ModBlocks.FANCY_BIRCH_TRAPDOOR.asItem())
@@ -602,15 +616,18 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModBlocks.FANCY_CRIMSON_TRAPDOOR.asItem())
                 .add(ModBlocks.FANCY_WARPED_TRAPDOOR.asItem())
                 .add(ModBlocks.FANCY_GINKGO_TRAPDOOR.asItem())
+                .add(ModBlocks.FANCY_BACKSHROOM_TRAPDOOR.asItem())
                 .add(ModBlocks.FANCY_CHARRED_TRAPDOOR.asItem())
         ;
 
         getOrCreateTagBuilder(ItemTags.WOODEN_PRESSURE_PLATES)
                 .add(ModBlocks.GINKGO_PRESSURE_PLATE.asItem())
+                .add(ModBlocks.BACKSHROOM_PRESSURE_PLATE.asItem())
         ;
 
         getOrCreateTagBuilder(ItemTags.WOODEN_BUTTONS)
                 .add(ModBlocks.GINKGO_BUTTON.asItem())
+                .add(ModBlocks.BACKSHROOM_BUTTON.asItem())
         ;
 
         getOrCreateTagBuilder(ItemTags.SIGNS)
@@ -786,6 +803,8 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModBlocks.WOODEN_TORCHBERRY_MILKSHAKE_STEIN.asItem())
                 .add(ModBlocks.HOT_WOODEN_MILK_STEIN.asItem())
                 .add(ModBlocks.WOODEN_HOT_CHOCOLATE_STEIN.asItem())
+                .add(ModBlocks.WOODEN_BOILING_WATER_STEIN.asItem())
+                .add(ModBlocks.WOODEN_HOT_COFFEE_STEIN.asItem())
         ;
 
         getOrCreateTagBuilder(ModTags.Items.VHS_CASSETTES)
@@ -1206,6 +1225,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
         getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "seeds")))
                 .add(ModItems.STRAWBERRY_SEEDS)
                 .add(ModItems.ORANGE_SEEDS)
+                .add(ModItems.COFFEE_BEANS)
                 .add(ModItems.PIPE_WEED_SEEDS)
         ;
 
@@ -1222,6 +1242,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
         getOrCreateTagBuilder(ItemTags.VILLAGER_PLANTABLE_SEEDS)
                 .add(ModItems.STRAWBERRY_SEEDS)
                 .add(ModItems.ORANGE_SEEDS)
+                .add(ModItems.COFFEE_BEANS)
                 .add(ModItems.PIPE_WEED_SEEDS)
         ;
 
@@ -1620,6 +1641,9 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModBlocks.WOODEN_CARAMEL_MILKSHAKE_STEIN.asItem())
                 .add(ModBlocks.HOT_WOODEN_MILK_STEIN.asItem())
                 .add(ModBlocks.WOODEN_HOT_CHOCOLATE_STEIN.asItem())
+                .add(ModBlocks.WOODEN_BOILING_WATER_STEIN.asItem())
+                .add(ModBlocks.WOODEN_HOT_COFFEE_STEIN.asItem())
+                .add(ModItems.COFFEE_COOKIE)
                 .add(ModItems.CARAMEL)
                 .add(ModItems.CARAMEL_COOKIE)
                 .add(ModItems.STRAWBERRY)

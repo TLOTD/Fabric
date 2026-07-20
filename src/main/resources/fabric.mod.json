@@ -60,6 +60,9 @@
 		"rei_client": [
 			"net.tlotd.compat.rei.TLOTDREIClientPlugin"
 		],
+		"emi": [
+			"net.tlotd.compat.emi.TLOTDEMIPlugin"
+		],
 		"modmenu": [
 			"net.tlotd.compat.modmenu.TLOTDModMenuIntegration"
 		]

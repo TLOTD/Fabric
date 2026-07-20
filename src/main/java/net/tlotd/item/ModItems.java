@@ -75,11 +75,15 @@ public class ModItems {
     public static final Item MINEWOOD_BARK = registerItem("minewood_bark", new CompatItem(new FabricItemSettings(),"tlf"));
     public static final Item SORTINGWOOD_BARK = registerItem("sortingwood_bark", new CompatItem(new FabricItemSettings(),"tlf"));
 
+    public static final Item BACKSHROOM_BASEBOARD = registerItem("backshroom_baseboard", new Item(new FabricItemSettings()));
+
     public static final Item YELLOW_WALLPAPER = registerItem("yellow_wallpaper", new Item(new FabricItemSettings()));
 
     public static final Item APPLE_JUICE_BOTTLE = registerItem("apple_juice_bottle", new DrinkableBottle(new FabricItemSettings().food(ModFoodComponents.WOODEN_LIQUID_STEIN).maxCount(16).recipeRemainder(Items.GLASS_BOTTLE)));
 
     public static final Item HEMP_COOKIE = registerItem("hemp_cookie", new HempCookieItem(new FabricItemSettings().food(ModFoodComponents.HEMP_COOKIE)));
+
+    public static final Item COFFEE_COOKIE = registerItem("coffee_cookie", new Item(new FabricItemSettings().food(FoodComponents.COOKIE)));
 
     public static final Item CARAMEL = registerItem("caramel", new Item(new FabricItemSettings().food(ModFoodComponents.CARAMEL)));
     public static final Item CARAMEL_COOKIE = registerItem("caramel_cookie", new Item(new FabricItemSettings().food(FoodComponents.COOKIE)));
@@ -106,6 +110,10 @@ public class ModItems {
     public static final Item PIPE_WEED = registerItem("pipe_weed", new Item(new FabricItemSettings()));
     public static final Item JOINT = registerItem("joint", new PipeItem(new FabricItemSettings().maxCount(1)));
     public static final Item PIPE = registerItem("pipe", new PipeItem(new FabricItemSettings().maxCount(1)));
+
+    public static final Item COFFEE_BEANS = registerItem("coffee_beans", new Item(new FabricItemSettings()));
+    public static final Item ROASTED_COFFEE_BEANS = registerItem("roasted_coffee_beans", new Item(new FabricItemSettings()));
+    public static final Item GROUND_COFFEE_BEANS = registerItem("ground_coffee_beans", new Item(new FabricItemSettings()));
 
     public static final Item BLUE_BERRY_JAM_TOAST = registerItem("blue_berry_jam_toast", new CompatItem(new FabricItemSettings().food(ModFoodComponents.JAM_TOAST),"aet"));
     public static final Item DROOPFRUIT_JAM_TOAST = registerItem("droopfruit_jam_toast", new CompatItem(new FabricItemSettings().food(ModFoodComponents.DROOPFRUIT_JAM_TOAST),"udg"));

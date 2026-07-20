@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "tlotd:ginkgo_button"
+    "tlotd:ginkgo_button",
+    "tlotd:backshroom_button"
   ]
 }

@@ -1,0 +1,35 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "create"
+      ]
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "tlotd:fancy_charred_planks"
+    },
+    "C": {
+      "tag": "tlotd:cinnabar_or_nebular"
+    },
+    "T": {
+      "item": "tlotd:tinted_glass_flask"
+    },
+    "F": {
+      "item": "create:fluid_tank"
+    }
+  },
+  "pattern": [
+    "C#C",
+    "TTT",
+    "#F#"
+  ],
+  "result": {
+    "item": "tlotd:witching_table"
+  },
+  "show_notification": true
+}

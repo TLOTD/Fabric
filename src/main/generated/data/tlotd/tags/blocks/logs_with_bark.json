@@ -251,6 +251,7 @@
       "id": "twilightforest:sorting_wood",
       "required": false
     },
+    "tlotd:yellow_wallpapered_wall_with_baseboard",
     "tlotd:yellow_wallpapered_wall"
   ]
 }

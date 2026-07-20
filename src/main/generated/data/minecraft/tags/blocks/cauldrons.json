@@ -1,6 +1,12 @@
 {
   "replace": false,
   "values": [
-    "tlotd:blood_cauldron"
+    "tlotd:beer_cauldron",
+    "tlotd:mead_cauldron",
+    "tlotd:blood_cauldron",
+    "tlotd:boiling_water_cauldron",
+    "tlotd:hot_coffee_cauldron",
+    "tlotd:hot_milk_cauldron",
+    "tlotd:hot_chocolate_cauldron"
   ]
 }

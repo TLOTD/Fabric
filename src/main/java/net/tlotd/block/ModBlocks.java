@@ -22,12 +22,13 @@ import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
 import net.tlotd.TLOTD;
+import net.tlotd.block.behaviour.ModCauldronBehaviors;
 import net.tlotd.block.custom.*;
 import net.tlotd.block.enum_property.NoClipable;
 import net.tlotd.item.ModFoodComponents;
 import net.tlotd.item.compat.CompatBlockItem;
 import net.tlotd.item.custom.*;
-import net.tlotd.util.ModParticles;
+import net.tlotd.particle.ModParticles;
 import net.tlotd.world.tree.GinkgoSaplingGenerator;
 
 import static net.minecraft.block.Blocks.createLightLevelFromLitBlockState;
@@ -109,8 +110,20 @@ public class ModBlocks {
     public static final Block APPARATUS = registerIrradiatedBlock("apparatus",
             new ApparatusBlock(FabricBlockSettings.create().mapColor(MapColor.PALE_YELLOW).strength(2.0F, 2.0F).sounds(BlockSoundGroup.GLASS).nonOpaque().luminance(15)));
 
+    public static final Block BEER_CAULDRON = registerBlockWithoutItem("beer_cauldron",
+            new ModCauldronBlock(FabricBlockSettings.create().mapColor(MapColor.STONE_GRAY).requiresTool().strength(2.0F, 2.0F).nonOpaque(), ModCauldronBehaviors.BEER_CAULDRON_BEHAVIOR));
+    public static final Block MEAD_CAULDRON = registerBlockWithoutItem("mead_cauldron",
+            new ModCauldronBlock(FabricBlockSettings.create().mapColor(MapColor.STONE_GRAY).requiresTool().strength(2.0F, 2.0F).nonOpaque(), ModCauldronBehaviors.MEAD_CAULDRON_BEHAVIOR));
     public static final Block BLOOD_CAULDRON = registerBlockWithoutItem("blood_cauldron",
-            new BloodCauldronBlock(FabricBlockSettings.create().mapColor(MapColor.STONE_GRAY).requiresTool().strength(2.0F, 2.0F).nonOpaque()));
+            new ModCauldronBlock(FabricBlockSettings.create().mapColor(MapColor.STONE_GRAY).requiresTool().strength(2.0F, 2.0F).nonOpaque(), ModCauldronBehaviors.BLOOD_CAULDRON_BEHAVIOR));
+    public static final Block BOILING_WATER_CAULDRON = registerBlockWithoutItem("boiling_water_cauldron",
+            new ModCauldronBlock(FabricBlockSettings.create().mapColor(MapColor.STONE_GRAY).requiresTool().strength(2.0F, 2.0F).nonOpaque(), ModCauldronBehaviors.BOILING_WATER_CAULDRON_BEHAVIOR));
+    public static final Block HOT_COFFEE_CAULDRON = registerBlockWithoutItem("hot_coffee_cauldron",
+            new ModCauldronBlock(FabricBlockSettings.create().mapColor(MapColor.STONE_GRAY).requiresTool().strength(2.0F, 2.0F).nonOpaque(), ModCauldronBehaviors.HOT_COFFEE_CAULDRON_BEHAVIOR));
+    public static final Block HOT_MILK_CAULDRON = registerBlockWithoutItem("hot_milk_cauldron",
+            new ModCauldronBlock(FabricBlockSettings.create().mapColor(MapColor.STONE_GRAY).requiresTool().strength(2.0F, 2.0F).nonOpaque(), ModCauldronBehaviors.HOT_MILK_CAULDRON_BEHAVIOR));
+    public static final Block HOT_CHOCOLATE_CAULDRON = registerBlockWithoutItem("hot_chocolate_cauldron",
+            new ModCauldronBlock(FabricBlockSettings.create().mapColor(MapColor.STONE_GRAY).requiresTool().strength(2.0F, 2.0F).nonOpaque(), ModCauldronBehaviors.HOT_CHOCOLATE_CAULDRON_BEHAVIOR));
 
     public static final Block STRAWBERRY_BUSH = registerBlockWithoutItem("strawberry_bush",
             new StrawberryBushBlock(FabricBlockSettings.create().mapColor(MapColor.DARK_GREEN).noCollision().ticksRandomly().breakInstantly().sounds(BlockSoundGroup.CROP).pistonBehavior(PistonBehavior.DESTROY)));
@@ -365,33 +378,35 @@ public class ModBlocks {
     public static final Block ALIEN_BRICK_WALL = registerRarityBlock("alien_brick_wall",
             new WallBlock(FabricBlockSettings.create().mapColor(MapColor.LIGHT_GRAY).strength(-1.0F, 3600000.0F)), Rarity.EPIC);
 
-    public static final Block YELLOW_WALLPAPERED_WALL = registerBlockWithoutItem("yellow_wallpapered_wall",
+    public static final Block YELLOW_WALLPAPERED_WALL_WITH_BASEBOARD = registerBlock("yellow_wallpapered_wall_with_baseboard",
             new NoClipPillarBlock(FabricBlockSettings.create().mapColor(MapColor.PALE_YELLOW).strength(-1.0F, 3600000.0F).sounds(BlockSoundGroup.AZALEA_LEAVES).emissiveLighting((state, view, blockPos) -> !state.get(NoClipPillarBlock.NOCLIPABLE).equals(NoClipable.SOLID))));
-    public static final Block STRIPPED_YELLOW_WALLPAPERED_WALL = registerBlockWithoutItem("stripped_yellow_wallpapered_wall",
+    public static final Block YELLOW_WALLPAPERED_WALL = registerBlock("yellow_wallpapered_wall",
+            new NoClipPillarBlock(FabricBlockSettings.create().mapColor(MapColor.PALE_YELLOW).strength(-1.0F, 3600000.0F).sounds(BlockSoundGroup.AZALEA_LEAVES).emissiveLighting((state, view, blockPos) -> !state.get(NoClipPillarBlock.NOCLIPABLE).equals(NoClipable.SOLID))));
+    public static final Block STRIPPED_YELLOW_WALLPAPERED_WALL = registerBlock("stripped_yellow_wallpapered_wall",
             new NoClipPillarBlock(FabricBlockSettings.create().mapColor(MapColor.PALE_YELLOW).strength(-1.0F, 3600000.0F).emissiveLighting((state, view, blockPos) -> !state.get(NoClipPillarBlock.NOCLIPABLE).equals(NoClipable.SOLID))));
-    public static final Block CEILING_LIGHT = registerBlockWithoutItem("ceiling_light",
+    public static final Block CEILING_LIGHT = registerBlock("ceiling_light",
             new RedstoneLampBlock(FabricBlockSettings.create().mapColor(MapColor.LIGHT_GRAY).strength(-1.0F, 3600000.0F).sounds(BlockSoundGroup.GLASS).luminance(createLightLevelFromLitBlockState(15))));
-    public static final Block CEILING_TILE = registerBlockWithoutItem("ceiling_tile",
+    public static final Block CEILING_TILE = registerBlock("ceiling_tile",
             new NoClipBlock(FabricBlockSettings.create().mapColor(MapColor.LIGHT_GRAY).strength(-1.0F, 3600000.0F).emissiveLighting((state, view, blockPos) -> !state.get(NoClipPillarBlock.NOCLIPABLE).equals(NoClipable.SOLID))));
-    public static final Block CEILING_TILE_STAIRS = registerBlockWithoutItem("ceiling_tile_stairs",
+    public static final Block CEILING_TILE_STAIRS = registerBlock("ceiling_tile_stairs",
             new StairsBlock(ModBlocks.CEILING_TILE.getDefaultState(), FabricBlockSettings.create().mapColor(MapColor.LIGHT_GRAY).strength(-1.0F, 3600000.0F)));
-    public static final Block HORIZONTAL_CEILING_TILE_STAIRS = registerBlockWithoutItem("horizontal_ceiling_tile_stairs",
+    public static final Block HORIZONTAL_CEILING_TILE_STAIRS = registerBlock("horizontal_ceiling_tile_stairs",
             new HorizontalStairBlock(FabricBlockSettings.create().mapColor(MapColor.LIGHT_GRAY).strength(-1.0F, 3600000.0F)));
-    public static final Block MOIST_CARPET = registerBlockWithoutItem("moist_carpet",
+    public static final Block MOIST_CARPET = registerBlock("moist_carpet",
             new NoClipMoistCarpetBlock(FabricBlockSettings.create().mapColor(MapColor.YELLOW).strength(-1.0F, 3600000.0F).sounds(BlockSoundGroup.WOOL).emissiveLighting((state, view, blockPos) -> !state.get(NoClipPillarBlock.NOCLIPABLE).equals(NoClipable.SOLID))));
-    public static final Block MOIST_CARPET_STAIRS = registerBlockWithoutItem("moist_carpet_stairs",
+    public static final Block MOIST_CARPET_STAIRS = registerBlock("moist_carpet_stairs",
             new StairsBlock(ModBlocks.MOIST_CARPET.getDefaultState(), FabricBlockSettings.create().mapColor(MapColor.YELLOW).strength(-1.0F, 3600000.0F).sounds(BlockSoundGroup.WOOL)));
-    public static final Block HORIZONTAL_MOIST_CARPET_STAIRS = registerBlockWithoutItem("horizontal_moist_carpet_stairs",
+    public static final Block HORIZONTAL_MOIST_CARPET_STAIRS = registerBlock("horizontal_moist_carpet_stairs",
             new HorizontalStairBlock(FabricBlockSettings.create().mapColor(MapColor.YELLOW).strength(-1.0F, 3600000.0F).sounds(BlockSoundGroup.WOOL)));
-    public static final Block FLOOR_TILE = registerBlockWithoutItem("floor_tile",
+    public static final Block FLOOR_TILE = registerBlock("floor_tile",
             new NoClipBlock(FabricBlockSettings.create().mapColor(MapColor.LIGHT_GRAY).strength(-1.0F, 3600000.0F).emissiveLighting((state, view, blockPos) -> !state.get(NoClipPillarBlock.NOCLIPABLE).equals(NoClipable.SOLID))));
-    public static final Block BACKROOMS_ELEVATOR_CONTROLLER = registerBlockWithoutItem("backrooms_elevator_controller",
+    public static final Block BACKROOMS_ELEVATOR_CONTROLLER = registerBlock("backrooms_elevator_controller",
             new ElevatorControllerBlock(FabricBlockSettings.create().mapColor(MapColor.PALE_YELLOW).requiresTool().strength(-1.0F, 3600000.0F).sounds(BlockSoundGroup.AZALEA_LEAVES)));
-    public static final Block BACKROOMS_ELEVATOR_BASE = registerBlockWithoutItem("backrooms_elevator_base",
+    public static final Block BACKROOMS_ELEVATOR_BASE = registerBlock("backrooms_elevator_base",
             new ElevatorBaseBlock(FabricBlockSettings.create().mapColor(MapColor.PALE_YELLOW).requiresTool().strength(-1.0F, 3600000.0F).sounds(BlockSoundGroup.AZALEA_LEAVES)));
-    public static final Block VOID = registerBlockWithoutItem("void",
+    public static final Block VOID = registerBlock("void",
             new NoClipBlock(FabricBlockSettings.create().mapColor(MapColor.BLACK).strength(-1.0F, 3600000.0F).emissiveLighting((state, view, blockPos) -> !state.get(NoClipPillarBlock.NOCLIPABLE).equals(NoClipable.SOLID))));
-    public static final Block FRAGILE_LIGHT_SWITCH = registerBlockWithoutItem("fragile_light_switch",
+    public static final Block FRAGILE_LIGHT_SWITCH = registerBlock("fragile_light_switch",
             new BackroomsLightSwitchBlock(FabricBlockSettings.create().strength(0.5F).pistonBehavior(PistonBehavior.DESTROY).collidable(false)));
 
     public static final Block LIGHT_SWITCH = registerBlock("light_switch",
@@ -549,6 +564,10 @@ public class ModBlocks {
             new WoodenSteinBlock(FabricBlockSettings.create().mapColor(MapColor.BROWN).strength(2.0F, 2.0F).sounds(BlockSoundGroup.WOOD).pistonBehavior(PistonBehavior.DESTROY).nonOpaque()),"");
     public static final Block WOODEN_HOT_CHOCOLATE_STEIN = registerDrinkableWoodenSteinBlock("wooden_hot_chocolate_stein",
             new WoodenSteinBlock(FabricBlockSettings.create().mapColor(MapColor.BROWN).strength(2.0F, 2.0F).sounds(BlockSoundGroup.WOOD).pistonBehavior(PistonBehavior.DESTROY).nonOpaque()),"");
+    public static final Block WOODEN_BOILING_WATER_STEIN = registerDrinkableWoodenSteinBlock("wooden_boiling_water_stein",
+            new WoodenSteinBlock(FabricBlockSettings.create().mapColor(MapColor.BROWN).strength(2.0F, 2.0F).sounds(BlockSoundGroup.WOOD).pistonBehavior(PistonBehavior.DESTROY).nonOpaque()),"");
+    public static final Block WOODEN_HOT_COFFEE_STEIN = registerDrinkableWoodenSteinBlock("wooden_hot_coffee_stein",
+            new WoodenSteinBlock(FabricBlockSettings.create().mapColor(MapColor.BROWN).strength(2.0F, 2.0F).sounds(BlockSoundGroup.WOOD).pistonBehavior(PistonBehavior.DESTROY).nonOpaque()),"");
 
     public static final Block GLOBUS_CRUCIGER = registerBlock("globus_cruciger",
             new GlobusCrucigerBlock(FabricBlockSettings.create().mapColor(MapColor.GOLD).strength(2.0F, 2.0F).sounds(BlockSoundGroup.METAL).pistonBehavior(PistonBehavior.DESTROY).nonOpaque()));
@@ -682,6 +701,8 @@ public class ModBlocks {
 
     public static final Block SHELF_MUSHROOM = registerBlock("shelf_mushroom",
             new ShelfMushroomBlock(FabricBlockSettings.create().mapColor(MapColor.BROWN).ticksRandomly().breakInstantly().sounds(BlockSoundGroup.WOOD).pistonBehavior(PistonBehavior.DESTROY).nonOpaque()));
+    public static final Block SHELF_BACKSHROOM = registerBlock("shelf_backshroom",
+            new ShelfMushroomBlock(FabricBlockSettings.create().mapColor(MapColor.BROWN).ticksRandomly().breakInstantly().sounds(BlockSoundGroup.WOOD).pistonBehavior(PistonBehavior.DESTROY).nonOpaque()));
 
     public static final Block GINKGO_SAPLING = registerBlock("ginkgo_sapling",
             new SaplingBlock(new GinkgoSaplingGenerator(), FabricBlockSettings.create().mapColor(MapColor.PALE_GREEN).noCollision().strength(0F, 0F).sounds(BlockSoundGroup.GRASS).nonOpaque().ticksRandomly().pistonBehavior(PistonBehavior.DESTROY)));
@@ -735,6 +756,29 @@ public class ModBlocks {
 
     public static final BlockFamily GINKGO_FAMILY = BlockFamilies.register(ModBlocks.GINKGO_PLANKS)
             .sign(ModBlocks.STANDING_GINKGO_SIGN, ModBlocks.HANGING_GINKGO_SIGN)
+            .group("wooden").unlockCriterionName("has_planks").build();
+
+    public static final Block BACKSHROOM_PLANKS = registerBlock("backshroom_planks",
+            new Block(FabricBlockSettings.create().mapColor(MapColor.YELLOW).strength(2.0F, 3.0F).sounds(BlockSoundGroup.WOOD)));
+
+    public static final Block BACKSHROOM_STAIRS = registerBlock("backshroom_stairs",
+            new StairsBlock(ModBlocks.BACKSHROOM_PLANKS.getDefaultState(), FabricBlockSettings.create().mapColor(MapColor.YELLOW).strength(2.0F, 3.0F).sounds(BlockSoundGroup.WOOD)));
+    public static final Block BACKSHROOM_SLAB = registerBlock("backshroom_slab",
+            new SlabBlock(FabricBlockSettings.create().mapColor(MapColor.YELLOW).strength(2.0F, 3.0F).sounds(BlockSoundGroup.WOOD)));
+    public static final Block BACKSHROOM_BUTTON = registerBlock("backshroom_button",
+            new ButtonBlock(FabricBlockSettings.create().mapColor(MapColor.YELLOW).strength(0.5F, 0.5F).sounds(BlockSoundGroup.WOOD).collidable(false), BlockSetType.OAK, 30, true));
+    public static final Block BACKSHROOM_PRESSURE_PLATE = registerBlock("backshroom_pressure_plate",
+            new PressurePlateBlock(PressurePlateBlock.ActivationRule.EVERYTHING, FabricBlockSettings.create().mapColor(MapColor.YELLOW).strength(0.5F, 0.5F).collidable(false).sounds(BlockSoundGroup.WOOD), BlockSetType.OAK));
+    public static final Block BACKSHROOM_FENCE = registerBlock("backshroom_fence",
+            new FenceBlock(FabricBlockSettings.create().mapColor(MapColor.YELLOW).strength(2.0F, 3.0F).sounds(BlockSoundGroup.WOOD)));
+    public static final Block BACKSHROOM_FENCE_GATE = registerBlock("backshroom_fence_gate",
+            new FenceGateBlock(FabricBlockSettings.create().mapColor(MapColor.YELLOW).strength(2.0F, 3.0F).sounds(BlockSoundGroup.WOOD), WoodType.OAK));
+    public static final Block BACKSHROOM_DOOR = registerBlock("backshroom_door",
+            new DoorBlock(FabricBlockSettings.create().mapColor(MapColor.YELLOW).strength(2.0F, 3.0F).sounds(BlockSoundGroup.WOOD).nonOpaque().pistonBehavior(PistonBehavior.DESTROY), BlockSetType.OAK));
+    public static final Block BACKSHROOM_TRAPDOOR = registerBlock("backshroom_trapdoor",
+            new TrapdoorBlock(FabricBlockSettings.create().mapColor(MapColor.YELLOW).strength(2.0F, 3.0F).sounds(BlockSoundGroup.WOOD).nonOpaque(), BlockSetType.OAK));
+
+    public static final BlockFamily BACKSHROOM_FAMILY = BlockFamilies.register(ModBlocks.BACKSHROOM_PLANKS)
             .group("wooden").unlockCriterionName("has_planks").build();
 
     public static final Block GLASS_DOOR = registerBlock("glass_door",
@@ -891,6 +935,15 @@ public class ModBlocks {
             new SlabBlock(FabricBlockSettings.create().mapColor(MapColor.PALE_GREEN).instrument(Instrument.BASS).strength(2.0F, 3.0F).sounds(BlockSoundGroup.WOOD).burnable()));
     public static final Block FANCY_GINKGO_TRAPDOOR = registerBlock("fancy_ginkgo_trapdoor",
             new TrapdoorBlock(FabricBlockSettings.create().mapColor(MapColor.PALE_GREEN).instrument(Instrument.BASS).strength(2.0F, 3.0F).sounds(BlockSoundGroup.WOOD).burnable(), BlockSetType.OAK));
+
+    public static final Block FANCY_BACKSHROOM_PLANKS = registerBlock("fancy_backshroom_planks",
+            new Block(FabricBlockSettings.create().mapColor(MapColor.YELLOW).instrument(Instrument.BASS).strength(2.0F, 3.0F).sounds(BlockSoundGroup.WOOD).burnable()));
+    public static final Block FANCY_BACKSHROOM_STAIRS = registerBlock("fancy_backshroom_stairs",
+            new StairsBlock(ModBlocks.FANCY_BACKSHROOM_PLANKS.getDefaultState(), FabricBlockSettings.create().mapColor(MapColor.YELLOW).instrument(Instrument.BASS).strength(2.0F, 3.0F).sounds(BlockSoundGroup.WOOD).burnable()));
+    public static final Block FANCY_BACKSHROOM_SLAB = registerBlock("fancy_backshroom_slab",
+            new SlabBlock(FabricBlockSettings.create().mapColor(MapColor.YELLOW).instrument(Instrument.BASS).strength(2.0F, 3.0F).sounds(BlockSoundGroup.WOOD).burnable()));
+    public static final Block FANCY_BACKSHROOM_TRAPDOOR = registerBlock("fancy_backshroom_trapdoor",
+            new TrapdoorBlock(FabricBlockSettings.create().mapColor(MapColor.YELLOW).instrument(Instrument.BASS).strength(2.0F, 3.0F).sounds(BlockSoundGroup.WOOD).burnable(), BlockSetType.OAK));
 
     public static final Block FANCY_CHARRED_PLANKS = registerBlock("fancy_charred_planks",
             new Block(FabricBlockSettings.create().mapColor(MapColor.DEEPSLATE_GRAY).instrument(Instrument.BASS).strength(1.0F, 1.5F).sounds(BlockSoundGroup.WOOD)));

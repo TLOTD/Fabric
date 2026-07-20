@@ -27,16 +27,16 @@ import net.tlotd.block.enum_property.NoClipable;
 
 public class NoClipMoistCarpetBlock extends NoClipBlock {
 
-    public static final IntProperty MOISTNESS = IntProperty.of("moistness", 0,3);
+    public static final IntProperty MOISTURE = IntProperty.of("moisture", 0,3);
 
     public NoClipMoistCarpetBlock(Settings settings) {
         super(settings);
-        this.setDefaultState(this.getDefaultState().with(NOCLIPABLE, NoClipable.SOLID).with(MOISTNESS, 0));
+        this.setDefaultState(this.getDefaultState().with(NOCLIPABLE, NoClipable.SOLID).with(MOISTURE, 0));
     }
 
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        builder.add(NOCLIPABLE).add(MOISTNESS);
+        builder.add(NOCLIPABLE).add(MOISTURE);
     }
 
     @Override
@@ -52,13 +52,13 @@ public class NoClipMoistCarpetBlock extends NoClipBlock {
                 }
             }
             return ActionResult.SUCCESS;
-        } else if ((player.getStackInHand(hand).isOf(Items.BUCKET) || player.getStackInHand(hand).isOf(ModBlocks.WOODEN_STEIN.asItem())) && state.get(MOISTNESS) == 3) {
+        } else if ((player.getStackInHand(hand).isOf(Items.BUCKET) || player.getStackInHand(hand).isOf(ModBlocks.WOODEN_STEIN.asItem())) && state.get(MOISTURE) == 3) {
             if (!world.isClient) {
                 Item returnItem = Items.WATER_BUCKET;
                 if (player.getStackInHand(hand).isOf(ModBlocks.WOODEN_STEIN.asItem())) {
                     returnItem = ModBlocks.WOODEN_WATER_STEIN.asItem();
                 }
-                world.setBlockState(pos, state.with(MOISTNESS, 0));
+                world.setBlockState(pos, state.with(MOISTURE, 0));
                 player.getStackInHand(hand).decrement(1);
                 player.incrementStat(Stats.USED.getOrCreateStat(player.getStackInHand(hand).getItem()));
                 player.getItemCooldownManager().set(returnItem, 1);
@@ -67,9 +67,9 @@ public class NoClipMoistCarpetBlock extends NoClipBlock {
                 world.playSound(null, pos, SoundEvents.ITEM_BUCKET_FILL, SoundCategory.PLAYERS, 1.0f, 1.0f);
             }
             return ActionResult.SUCCESS;
-        } else if (player.getStackInHand(hand).isOf(Items.GLASS_BOTTLE) && state.get(MOISTNESS) > 0) {
+        } else if (player.getStackInHand(hand).isOf(Items.GLASS_BOTTLE) && state.get(MOISTURE) > 0) {
             if (!world.isClient) {
-                world.setBlockState(pos, state.with(MOISTNESS, state.get(MOISTNESS) - 1));
+                world.setBlockState(pos, state.with(MOISTURE, state.get(MOISTURE) - 1));
                 player.getStackInHand(hand).decrement(1);
                 player.incrementStat(Stats.USED.getOrCreateStat(player.getStackInHand(hand).getItem()));
                 player.getItemCooldownManager().set(PotionUtil.setPotion(new ItemStack(Items.POTION), Potions.WATER).getItem(), 1);
@@ -78,13 +78,13 @@ public class NoClipMoistCarpetBlock extends NoClipBlock {
                 world.playSound(null, pos, SoundEvents.ITEM_BOTTLE_FILL, SoundCategory.PLAYERS, 1.0f, 1.0f);
             }
             return ActionResult.SUCCESS;
-        } else if ((player.getStackInHand(hand).isOf(Items.WATER_BUCKET) || player.getStackInHand(hand).isOf(ModBlocks.WOODEN_WATER_STEIN.asItem())) && state.get(MOISTNESS) == 0) {
+        } else if ((player.getStackInHand(hand).isOf(Items.WATER_BUCKET) || player.getStackInHand(hand).isOf(ModBlocks.WOODEN_WATER_STEIN.asItem())) && state.get(MOISTURE) == 0) {
             if (!world.isClient) {
                 Item returnItem = Items.BUCKET;
                 if (player.getStackInHand(hand).isOf(ModBlocks.WOODEN_WATER_STEIN.asItem())) {
                     returnItem = ModBlocks.WOODEN_STEIN.asItem();
                 }
-                world.setBlockState(pos, state.with(MOISTNESS, 3));
+                world.setBlockState(pos, state.with(MOISTURE, 3));
                 player.getStackInHand(hand).decrement(1);
                 player.incrementStat(Stats.USED.getOrCreateStat(player.getStackInHand(hand).getItem()));
                 player.getItemCooldownManager().set(returnItem, 1);
@@ -93,9 +93,9 @@ public class NoClipMoistCarpetBlock extends NoClipBlock {
                 world.playSound(null, pos, SoundEvents.ITEM_BUCKET_EMPTY, SoundCategory.PLAYERS, 1.0f, 1.0f);
             }
             return ActionResult.SUCCESS;
-        } else if (player.getStackInHand(hand).isOf(PotionUtil.setPotion(new ItemStack(Items.POTION), Potions.WATER).getItem()) && state.get(MOISTNESS) < 3) {
+        } else if (player.getStackInHand(hand).isOf(PotionUtil.setPotion(new ItemStack(Items.POTION), Potions.WATER).getItem()) && state.get(MOISTURE) < 3) {
             if (!world.isClient) {
-                world.setBlockState(pos, state.with(MOISTNESS, state.get(MOISTNESS) + 1));
+                world.setBlockState(pos, state.with(MOISTURE, state.get(MOISTURE) + 1));
                 player.getStackInHand(hand).decrement(1);
                 player.incrementStat(Stats.USED.getOrCreateStat(player.getStackInHand(hand).getItem()));
                 player.getItemCooldownManager().set(Items.GLASS_BOTTLE, 1);

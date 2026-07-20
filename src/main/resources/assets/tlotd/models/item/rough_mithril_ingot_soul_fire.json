@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "tlotd:item/rough_mithril_ingot_soul_fire"
+  }
+}

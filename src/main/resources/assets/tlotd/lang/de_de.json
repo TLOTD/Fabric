@@ -176,6 +176,9 @@
   "biome.tlotd.lunar_highlands": "Mondhochland",
   "biome.tlotd.prehistoric_jungle": "Prähistorischer Dschungel",
 
+  "death.attack.boiling": "%1$s ist zu tode gekocht",
+  "death.attack.boiling.player": "%1$s ist im Kampf mit %2$s zu tode gekocht",
+
   "death.attack.radiation": "%1$s ist an Strahlenkrankheit verstorben",
   "death.attack.radiation.player": "%1$s ist im Kampf mit %2$s an Strahlenkrankheit verstorben",
   "death.attack.hypoxia": "%1$s ist erstickt",
@@ -331,6 +334,7 @@
   "item.tlotd.lotr_banner_pattern": "Bannervorlage",
   "item.tlotd.lotr_banner_pattern.desc": "Der Herr der Ringe",
 
+  "item.tlotd.coffee_cookie": "Kaffeekeks",
   "item.tlotd.caramel_cookie": "Karamellkeks",
   "item.tlotd.strawberry_cookie": "Erdbeerkeks",
   "item.tlotd.orange_cookie": "Orangenkeks",
@@ -356,6 +360,10 @@
   "item.tlotd.orange_marmelade_toast": "Orangenmarmeladentoast",
   "item.tlotd.orange_juice_bottle": "Orangensaftflasche",
   "item.tlotd.spezi_bottle": "Spezi-Flasche",
+
+  "item.tlotd.coffee_beans": "Kaffeebohnen",
+  "item.tlotd.roasted_coffee_beans": "Geröstete Kaffeebohnen",
+  "item.tlotd.ground_coffee_beans": "Gemahlene Kaffeebohnen",
 
   "item.tlotd.caramel": "Karamell",
   "item.tlotd.drink_can": "Getränkedose",
@@ -533,10 +541,13 @@
 
   "item.tlotd.blood_bottle": "Blutflasche",
 
+  "item.tlotd.boiling_water_bucket": "Kochender Wassereimer",
+  "item.tlotd.spezi_bucket": "Spezieimer",
   "item.tlotd.beer_bucket": "Biereimer",
   "item.tlotd.mead_bucket": "Meteimer",
   "item.tlotd.hot_milk_bucket": "Heißer Milcheimer",
   "item.tlotd.hot_chocolate_bucket": "Heißer Schokoladeneimer",
+  "item.tlotd.hot_coffee_bucket": "Heißer Kaffeeeimer",
   "item.tlotd.oil_bucket": "Öleimer",
   "item.tlotd.blood_bucket": "Bluteimer",
   "item.tlotd.chemical_waste_bucket": "Chemischer Abfalleimer",
@@ -894,6 +905,8 @@
 
   "block.minecraft.empty": "Leer",
   "block.minecraft.empty_block": "Leer",
+  "block.tlotd.boiling_water": "Kochendes Wasser",
+  "block.tlotd.boiling_water_block": "Kochendes Wasser",
   "block.tlotd.beer": "Bier",
   "block.tlotd.beer_block": "Bier",
   "block.tlotd.mead": "Met",
@@ -902,6 +915,8 @@
   "block.tlotd.hot_milk_block": "Heiße Milch",
   "block.tlotd.hot_chocolate": "Heiße Schokolade",
   "block.tlotd.hot_chocolate_block": "Heiße Schokolade",
+  "block.tlotd.hot_coffee": "Heißer Kaffee",
+  "block.tlotd.hot_coffee_block": "Heißer Kaffee",
   "block.tlotd.oil": "Öl",
   "block.tlotd.oil_block": "Öl",
   "block.tlotd.blood": "Blut",
@@ -948,8 +963,8 @@
   "block.tlotd.stackable_book": "Stapelbares Buch",
 
   "block.tlotd.effigies": "Bildnisse",
-  "block.tlotd.effigies.tooltip": "Könnte Blut",
-  "block.tlotd.effigies.tooltip_2": "in einen Kessel",
+  "block.tlotd.effigies.tooltip": "Könnte bei Nacht",
+  "block.tlotd.effigies.tooltip_2": "Blut in einen Kessel",
   "block.tlotd.effigies.tooltip_3": "tropfen lassen",
   "block.tlotd.blood_cauldron": "Blutkessel",
   "block.tlotd.ouija_board": "Ouija Brett",
@@ -957,6 +972,14 @@
   "block.tlotd.ouija_board.tooltip_2": "Kommunikation",
   "block.tlotd.ouija_board.tooltip_3": "mit den Toten",
   "block.tlotd.goat_head": "Ziegenkopf",
+
+  "block.tlotd.beer_cauldron": "Bierkessel",
+  "block.tlotd.mead_cauldron": "Metkessel",
+  "block.tlotd.boiling_water_cauldron": "Kochender Wasserkessel",
+  "block.tlotd.hot_coffee_cauldron": "Heißer Kaffeekessel",
+  "block.tlotd.milk_cauldron": "Milchkessel",
+  "block.tlotd.hot_milk_cauldron": "Heißer Milchkessel",
+  "block.tlotd.hot_chocolate_cauldron": "Heißer Schokoladenkessel",
 
   "block.tlotd.creeper_plushie": "Creeper-Plüschfigur",
   "block.tlotd.zombie_plushie": "Zombie-Plüschfigur",
@@ -1262,6 +1285,7 @@
   "block.tlotd.glass_trapdoor": "Glasfalltür",
 
   "block.tlotd.shelf_mushroom": "Baumpilz",
+  "block.tlotd.shelf_backshroom": "Rückpilz",
 
   "block.tlotd.ginkgo_sapling": "Ginkgosetzling",
   "block.tlotd.ginkgo_log": "Ginkgostamm",
@@ -1287,6 +1311,16 @@
 
   "item.tlotd.ginkgo_boat": "Ginkgoholzboot",
   "item.tlotd.ginkgo_chest_boat": "Ginkgoholztruhenboot",
+
+  "block.tlotd.backshroom_planks": "Rückpilzbretter",
+  "block.tlotd.backshroom_stairs": "Rückpilzholztreppe",
+  "block.tlotd.backshroom_slab": "Rückpilzholzstufe",
+  "block.tlotd.backshroom_button": "Rückpilzholzknopf",
+  "block.tlotd.backshroom_pressure_plate": "Rückpilzholzdruckplatte",
+  "block.tlotd.backshroom_fence": "Rückpilzholzzaun",
+  "block.tlotd.backshroom_fence_gate": "Rückpilzholzzauntor",
+  "block.tlotd.backshroom_door": "Rückpilzholztür",
+  "block.tlotd.backshroom_trapdoor": "Rückpilzholzfalltür",
 
   "block.tlotd.framed_glass": "Eingerahmtes Glas",
   "block.tlotd.framed_glass_pane": "Eingerahmte Glasscheibe",
@@ -1364,6 +1398,11 @@
   "block.tlotd.fancy_ginkgo_slab": "Schicke Ginkgoholzstufe",
   "block.tlotd.fancy_ginkgo_trapdoor": "Schicke Ginkgoholzfalltür",
 
+  "block.tlotd.fancy_backshroom_planks": "Schicke Rückpilzholzbretter",
+  "block.tlotd.fancy_backshroom_stairs": "Schicke Rückpilzholztreppe",
+  "block.tlotd.fancy_backshroom_slab": "Schicke Rückpilzholzstufe",
+  "block.tlotd.fancy_backshroom_trapdoor": "Schicke Rückpilzholzfalltür",
+
   "block.tlotd.fancy_charred_planks": "Schicke verkohlte Holzbretter",
   "block.tlotd.fancy_charred_stairs": "Schicke verkohlte Holztreppe",
   "block.tlotd.fancy_charred_slab": "Schicke verkohlte Holzstufe",
@@ -1419,6 +1458,7 @@
   "item.tlotd.minewood_bark": "Bergwerksholzrinde",
   "item.tlotd.sortingwood_bark": "Sortierbaumrinde",
 
+  "item.tlotd.backshroom_baseboard": "Rückpilz-Sockelleiste",
   "item.tlotd.yellow_wallpaper": "Gelbe Tapete",
 
   "item.tlotd.flour": "Mehl",
@@ -1466,6 +1506,8 @@
   "block.tlotd.wooden_caramel_milkshake_stein": "Karamellmilchshakeholzkrug",
   "block.tlotd.hot_wooden_milk_stein": "Heisser Milchholzkrug",
   "block.tlotd.wooden_hot_chocolate_stein": "Heisser Schokoladenholzkrug",
+  "block.tlotd.wooden_boiling_water_stein": "Kochender Wasserholzkrug",
+  "block.tlotd.wooden_hot_coffee_stein": "Heisser Kaffeeholzkrug",
 
   "block.tlotd.globus_cruciger": "Reichsapfel",
   "item.tlotd.emperors_crown": "Kaiserkrone",

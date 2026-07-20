@@ -32,17 +32,8 @@ import static net.tlotd.util.AugmentNbtHelper.getAugmentLevel;
 
 @Mixin(Item.class)
 public abstract class ItemTooltipMixin {
-    @Inject(
-            method = "appendTooltip",
-            at = @At("TAIL")
-    )
-    private void addItemTooltip(
-            ItemStack stack,
-            World world,
-            List<Text> tooltip,
-            TooltipContext context,
-            CallbackInfo ci
-    ) {
+    @Inject(method = "appendTooltip", at = @At("TAIL"))
+    private void addItemTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext context, CallbackInfo ci) {
         PlayerEntity player = MinecraftClient.getInstance().player;
         if (player == null) return;
         TemperatureUnit unit = ItemHeatHelper.getTemperatureUnit(player);

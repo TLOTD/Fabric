@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "backshroom_planks",
+  "key": {
+    "#": {
+      "item": "tlotd:shelf_backshroom"
+    }
+  },
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "result": {
+    "item": "tlotd:backshroom_planks"
+  },
+  "show_notification": true
+}

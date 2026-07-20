@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_coffee_beans": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "tlotd:coffee_beans"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:roasted_coffee_beans_from_smoker"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_coffee_beans",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:roasted_coffee_beans_from_smoker"
+    ]
+  },
+  "sends_telemetry_event": false
+}

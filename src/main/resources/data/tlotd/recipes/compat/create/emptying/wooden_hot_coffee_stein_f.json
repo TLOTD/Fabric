@@ -1,0 +1,26 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "forge",
+        "create"
+      ]
+    }
+  ],
+  "type": "create:emptying",
+  "ingredients": [
+    {
+      "item": "tlotd:wooden_hot_coffee_stein"
+    }
+  ],
+  "results": [
+    {
+      "item": "tlotd:wooden_stein"
+    },
+    {
+      "fluid": "tlotd:hot_coffee",
+      "amount": 1000
+    }
+  ]
+}

@@ -45,6 +45,11 @@ public class DrinkableWoodenSteinBlockItem extends BlockItem {
         } else if (stack.isOf(ModBlocks.HOT_WOODEN_MILK_STEIN.asItem()) || stack.isOf(ModBlocks.WOODEN_HOT_CHOCOLATE_STEIN.asItem())) {
             user.clearStatusEffects();
             user.addStatusEffect(new StatusEffectInstance(StatusEffects.REGENERATION, 1, 3));
+        } else if (stack.isOf(ModBlocks.WOODEN_HOT_COFFEE_STEIN.asItem())) {
+            if (user instanceof PlayerEntity) {
+                PlayerEntity playerEntity = (PlayerEntity)user;
+                //INSOMNIA LOGIC
+            }
         }
         super.finishUsing(stack, world, user);
         if (user instanceof ServerPlayerEntity serverPlayerEntity) {

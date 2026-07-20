@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "tlotd:backshroom_planks"
+  },
+  "result": "tlotd:fancy_backshroom_planks"
+}

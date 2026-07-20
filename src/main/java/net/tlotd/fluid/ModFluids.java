@@ -2,9 +2,12 @@ package net.tlotd.fluid;
 
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
+import net.fabricmc.fabric.api.transfer.v1.fluid.CauldronFluidContent;
+import net.fabricmc.fabric.api.transfer.v1.fluid.FluidConstants;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.FluidBlock;
+import net.minecraft.block.LeveledCauldronBlock;
 import net.minecraft.fluid.FlowableFluid;
 import net.minecraft.item.BucketItem;
 import net.minecraft.item.Item;
@@ -13,11 +16,18 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import net.tlotd.TLOTD;
+import net.tlotd.block.ModBlocks;
+import net.tlotd.block.custom.BoilingWaterFluidBlock;
 import net.tlotd.block.custom.ChemicalWasteFluidBlock;
 import net.tlotd.item.compat.create.ModBucketItem;
 import net.tlotd.item.custom.ChemicalWasteBucketItem;
 
 public class ModFluids {
+
+    public static FlowableFluid STILL_BOILING_WATER;
+    public static FlowableFluid FLOWING_BOILING_WATER;
+    public static Block BOILING_WATER_BLOCK;
+    public static Item BOILING_WATER_BUCKET;
 
     public static FlowableFluid STILL_SPEZI;
     public static FlowableFluid FLOWING_SPEZI;
@@ -43,6 +53,11 @@ public class ModFluids {
     public static FlowableFluid FLOWING_HOT_CHOCOLATE;
     public static Block HOT_CHOCOLATE_BLOCK;
     public static Item HOT_CHOCOLATE_BUCKET;
+
+    public static FlowableFluid STILL_HOT_COFFEE;
+    public static FlowableFluid FLOWING_HOT_COFFEE;
+    public static Block HOT_COFFEE_BLOCK;
+    public static Item HOT_COFFEE_BUCKET;
 
     public static FlowableFluid STILL_OIL;
     public static FlowableFluid FLOWING_OIL;
@@ -101,6 +116,11 @@ public class ModFluids {
 
     public static void registerModFluids() {
 
+        STILL_BOILING_WATER = Registry.register(Registries.FLUID, new Identifier(TLOTD.MOD_ID, "boiling_water"), new BoilingWaterFluid.Still());
+        FLOWING_BOILING_WATER = Registry.register(Registries.FLUID, new Identifier(TLOTD.MOD_ID, "flowing_boiling_water"), new BoilingWaterFluid.Flowing());
+        BOILING_WATER_BLOCK = Registry.register(Registries.BLOCK, new Identifier(TLOTD.MOD_ID, "boiling_water_block"), new BoilingWaterFluidBlock(ModFluids.STILL_BOILING_WATER, FabricBlockSettings.copyOf(Blocks.WATER)){});
+        BOILING_WATER_BUCKET = Registry.register(Registries.ITEM, new Identifier(TLOTD.MOD_ID, "boiling_water_bucket"), new CauldronBucketItem(ModFluids.STILL_BOILING_WATER, new FabricItemSettings().recipeRemainder(Items.BUCKET).maxCount(1)));
+
         STILL_SPEZI = Registry.register(Registries.FLUID, new Identifier(TLOTD.MOD_ID, "spezi"), new SpeziFluid.Still());
         FLOWING_SPEZI = Registry.register(Registries.FLUID, new Identifier(TLOTD.MOD_ID, "flowing_spezi"), new SpeziFluid.Flowing());
         SPEZI_BLOCK = Registry.register(Registries.BLOCK, new Identifier(TLOTD.MOD_ID, "spezi_block"), new FluidBlock(ModFluids.STILL_SPEZI, FabricBlockSettings.copyOf(Blocks.WATER)){});
@@ -109,22 +129,27 @@ public class ModFluids {
         STILL_BEER = Registry.register(Registries.FLUID, new Identifier(TLOTD.MOD_ID, "beer"), new BeerFluid.Still());
         FLOWING_BEER = Registry.register(Registries.FLUID, new Identifier(TLOTD.MOD_ID, "flowing_beer"), new BeerFluid.Flowing());
         BEER_BLOCK = Registry.register(Registries.BLOCK, new Identifier(TLOTD.MOD_ID, "beer_block"), new FluidBlock(ModFluids.STILL_BEER, FabricBlockSettings.copyOf(Blocks.WATER)){});
-        BEER_BUCKET = Registry.register(Registries.ITEM, new Identifier(TLOTD.MOD_ID, "beer_bucket"), new BucketItem(ModFluids.STILL_BEER, new FabricItemSettings().recipeRemainder(Items.BUCKET).maxCount(1)));
+        BEER_BUCKET = Registry.register(Registries.ITEM, new Identifier(TLOTD.MOD_ID, "beer_bucket"), new CauldronBucketItem(ModFluids.STILL_BEER, new FabricItemSettings().recipeRemainder(Items.BUCKET).maxCount(1)));
 
         STILL_MEAD = Registry.register(Registries.FLUID, new Identifier(TLOTD.MOD_ID, "mead"), new MeadFluid.Still());
         FLOWING_MEAD = Registry.register(Registries.FLUID, new Identifier(TLOTD.MOD_ID, "flowing_mead"), new MeadFluid.Flowing());
         MEAD_BLOCK = Registry.register(Registries.BLOCK, new Identifier(TLOTD.MOD_ID, "mead_block"), new FluidBlock(ModFluids.STILL_MEAD, FabricBlockSettings.copyOf(Blocks.WATER)){});
-        MEAD_BUCKET = Registry.register(Registries.ITEM, new Identifier(TLOTD.MOD_ID, "mead_bucket"), new BucketItem(ModFluids.STILL_MEAD, new FabricItemSettings().recipeRemainder(Items.BUCKET).maxCount(1)));
+        MEAD_BUCKET = Registry.register(Registries.ITEM, new Identifier(TLOTD.MOD_ID, "mead_bucket"), new CauldronBucketItem(ModFluids.STILL_MEAD, new FabricItemSettings().recipeRemainder(Items.BUCKET).maxCount(1)));
 
         STILL_HOT_MILK = Registry.register(Registries.FLUID, new Identifier(TLOTD.MOD_ID, "hot_milk"), new HotMilkFluid.Still());
         FLOWING_HOT_MILK = Registry.register(Registries.FLUID, new Identifier(TLOTD.MOD_ID, "flowing_hot_milk"), new HotMilkFluid.Flowing());
         HOT_MILK_BLOCK = Registry.register(Registries.BLOCK, new Identifier(TLOTD.MOD_ID, "hot_milk_block"), new FluidBlock(ModFluids.STILL_HOT_MILK, FabricBlockSettings.copyOf(Blocks.WATER)){});
-        HOT_MILK_BUCKET = Registry.register(Registries.ITEM, new Identifier(TLOTD.MOD_ID, "hot_milk_bucket"), new BucketItem(ModFluids.STILL_HOT_MILK, new FabricItemSettings().recipeRemainder(Items.BUCKET).maxCount(1)));
+        HOT_MILK_BUCKET = Registry.register(Registries.ITEM, new Identifier(TLOTD.MOD_ID, "hot_milk_bucket"), new CauldronBucketItem(ModFluids.STILL_HOT_MILK, new FabricItemSettings().recipeRemainder(Items.BUCKET).maxCount(1)));
 
         STILL_HOT_CHOCOLATE = Registry.register(Registries.FLUID, new Identifier(TLOTD.MOD_ID, "hot_chocolate"), new HotChocolateFluid.Still());
         FLOWING_HOT_CHOCOLATE = Registry.register(Registries.FLUID, new Identifier(TLOTD.MOD_ID, "flowing_hot_chocolate"), new HotChocolateFluid.Flowing());
         HOT_CHOCOLATE_BLOCK = Registry.register(Registries.BLOCK, new Identifier(TLOTD.MOD_ID, "hot_chocolate_block"), new FluidBlock(ModFluids.STILL_HOT_CHOCOLATE, FabricBlockSettings.copyOf(Blocks.WATER)){});
-        HOT_CHOCOLATE_BUCKET = Registry.register(Registries.ITEM, new Identifier(TLOTD.MOD_ID, "hot_chocolate_bucket"), new BucketItem(ModFluids.STILL_HOT_CHOCOLATE, new FabricItemSettings().recipeRemainder(Items.BUCKET).maxCount(1)));
+        HOT_CHOCOLATE_BUCKET = Registry.register(Registries.ITEM, new Identifier(TLOTD.MOD_ID, "hot_chocolate_bucket"), new CauldronBucketItem(ModFluids.STILL_HOT_CHOCOLATE, new FabricItemSettings().recipeRemainder(Items.BUCKET).maxCount(1)));
+
+        STILL_HOT_COFFEE = Registry.register(Registries.FLUID, new Identifier(TLOTD.MOD_ID, "hot_coffee"), new HotCoffeeFluid.Still());
+        FLOWING_HOT_COFFEE = Registry.register(Registries.FLUID, new Identifier(TLOTD.MOD_ID, "flowing_hot_coffee"), new HotCoffeeFluid.Flowing());
+        HOT_COFFEE_BLOCK = Registry.register(Registries.BLOCK, new Identifier(TLOTD.MOD_ID, "hot_coffee_block"), new FluidBlock(ModFluids.STILL_HOT_COFFEE, FabricBlockSettings.copyOf(Blocks.WATER)){});
+        HOT_COFFEE_BUCKET = Registry.register(Registries.ITEM, new Identifier(TLOTD.MOD_ID, "hot_coffee_bucket"), new CauldronBucketItem(ModFluids.STILL_HOT_COFFEE, new FabricItemSettings().recipeRemainder(Items.BUCKET).maxCount(1)));
 
         STILL_OIL = Registry.register(Registries.FLUID, new Identifier(TLOTD.MOD_ID, "oil"), new OilFluid.Still());
         FLOWING_OIL = Registry.register(Registries.FLUID, new Identifier(TLOTD.MOD_ID, "flowing_oil"), new OilFluid.Flowing());
@@ -134,7 +159,7 @@ public class ModFluids {
         STILL_BLOOD = Registry.register(Registries.FLUID, new Identifier(TLOTD.MOD_ID, "blood"), new BloodFluid.Still());
         FLOWING_BLOOD = Registry.register(Registries.FLUID, new Identifier(TLOTD.MOD_ID, "flowing_blood"), new BloodFluid.Flowing());
         BLOOD_BLOCK = Registry.register(Registries.BLOCK, new Identifier(TLOTD.MOD_ID, "blood_block"), new FluidBlock(ModFluids.STILL_BLOOD, FabricBlockSettings.copyOf(Blocks.WATER)){});
-        BLOOD_BUCKET = Registry.register(Registries.ITEM, new Identifier(TLOTD.MOD_ID, "blood_bucket"), new BucketItem(ModFluids.STILL_BLOOD, new FabricItemSettings().recipeRemainder(Items.BUCKET).maxCount(1)));
+        BLOOD_BUCKET = Registry.register(Registries.ITEM, new Identifier(TLOTD.MOD_ID, "blood_bucket"), new CauldronBucketItem(ModFluids.STILL_BLOOD, new FabricItemSettings().recipeRemainder(Items.BUCKET).maxCount(1)));
 
         STILL_CHEMICAL_WASTE = Registry.register(Registries.FLUID, new Identifier(TLOTD.MOD_ID, "chemical_waste"), new ChemicalWasteFluid.Still());
         FLOWING_CHEMICAL_WASTE = Registry.register(Registries.FLUID, new Identifier(TLOTD.MOD_ID, "flowing_chemical_waste"), new ChemicalWasteFluid.Flowing());
@@ -181,7 +206,14 @@ public class ModFluids {
         MOLTEN_MITHRIL_BLOCK = Registry.register(Registries.BLOCK, new Identifier(TLOTD.MOD_ID, "molten_mithril_block"), new FluidBlock(ModFluids.STILL_MOLTEN_MITHRIL, FabricBlockSettings.copyOf(Blocks.LAVA)){});
         MOLTEN_MITHRIL_BUCKET = Registry.register(Registries.ITEM, new Identifier(TLOTD.MOD_ID, "molten_mithril_bucket"), new ModBucketItem(ModFluids.STILL_MOLTEN_MITHRIL, new FabricItemSettings().recipeRemainder(Items.BUCKET).maxCount(1)));
 
-        TLOTD.LOGGER.info("Registering ModFluids for " + TLOTD.MOD_ID
-        );
+        CauldronFluidContent.registerCauldron(ModBlocks.BEER_CAULDRON, ModFluids.STILL_BEER, FluidConstants.BOTTLE, LeveledCauldronBlock.LEVEL);
+        CauldronFluidContent.registerCauldron(ModBlocks.MEAD_CAULDRON, ModFluids.STILL_MEAD, FluidConstants.BOTTLE, LeveledCauldronBlock.LEVEL);
+        CauldronFluidContent.registerCauldron(ModBlocks.BLOOD_CAULDRON, ModFluids.STILL_BLOOD, FluidConstants.BOTTLE, LeveledCauldronBlock.LEVEL);
+        CauldronFluidContent.registerCauldron(ModBlocks.BOILING_WATER_CAULDRON, ModFluids.STILL_BOILING_WATER, FluidConstants.BOTTLE, LeveledCauldronBlock.LEVEL);
+        CauldronFluidContent.registerCauldron(ModBlocks.HOT_COFFEE_CAULDRON, ModFluids.STILL_HOT_COFFEE, FluidConstants.BOTTLE, LeveledCauldronBlock.LEVEL);
+        CauldronFluidContent.registerCauldron(ModBlocks.HOT_MILK_CAULDRON, ModFluids.STILL_HOT_MILK, FluidConstants.BOTTLE, LeveledCauldronBlock.LEVEL);
+        CauldronFluidContent.registerCauldron(ModBlocks.HOT_CHOCOLATE_CAULDRON, ModFluids.STILL_HOT_CHOCOLATE, FluidConstants.BOTTLE, LeveledCauldronBlock.LEVEL);
+
+        TLOTD.LOGGER.info("Registering ModFluids for " + TLOTD.MOD_ID);
     }
 }

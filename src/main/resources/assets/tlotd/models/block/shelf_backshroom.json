@@ -1,0 +1,7 @@
+{
+  "parent": "tlotd:block/template_shelf_mushroom",
+  "textures": {
+    "small": "tlotd:block/backrooms/shelf_backshroom",
+    "particle": "tlotd:block/backrooms/shelf_backshroom"
+  }
+}

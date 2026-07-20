@@ -160,6 +160,9 @@
   "biome.tlotd.lunar_highlands": "Mondhochland",
   "biome.tlotd.prehistoric_jungle": "Prähistorischer Dschungel",
 
+  "death.attack.boiling": "%1$s isch zu tode gkocht",
+  "death.attack.boiling.player": "%1$s isch im Kampf mit %2$s zu tode gkocht",
+
   "death.attack.radiation": "%1$s isch an Schtrahlekrankheit verschtorben",
   "death.attack.radiation.player": "%1$s isch im Kampf mit %2$s an Schtrahlekrankheit verschtorben",
   "death.attack.hypoxia": "%1$s isch erschtickt",
@@ -315,6 +318,7 @@
   "item.tlotd.lotr_banner_pattern": "Bannervorlagn",
   "item.tlotd.lotr_banner_pattern.desc": "Dr Herr dr Ringe",
 
+  "item.tlotd.coffee_cookie": "Kaffeekeks",
   "item.tlotd.caramel_cookie": "Karamellkeks",
   "item.tlotd.strawberry_cookie": "Erdbeerkeks",
   "item.tlotd.orange_cookie": "Orangenkeks",
@@ -340,6 +344,10 @@
   "item.tlotd.orange_marmelade_toast": "Orangemarmeladntoscht",
   "item.tlotd.orange_juice_bottle": "Oroschnsaftflaschn",
   "item.tlotd.spezi_bottle": "Spezi-Flaschn",
+
+  "item.tlotd.coffee_beans": "Kaffeebohnen",
+  "item.tlotd.roasted_coffee_beans": "Geröschtete Kaffeebohnen",
+  "item.tlotd.ground_coffee_beans": "Gemahlne Kaffeebohnen",
 
   "item.tlotd.caramel": "Karamell",
   "item.tlotd.drink_can": "Getränkedosn",
@@ -517,10 +525,13 @@
 
   "item.tlotd.blood_bottle": "Bluadflaschn",
 
+  "item.tlotd.boiling_water_bucket": "Kochendr Wassroimr",
+  "item.tlotd.spezi_bucket": "Spezioimr",
   "item.tlotd.beer_bucket": "Biaoimr",
   "item.tlotd.mead_bucket": "Metoimr",
-  "item.tlotd.hot_milk_bucket": "Heisser Milchoimer",
-  "item.tlotd.hot_chocolate_bucket": "Heisser Schokoladaoimer",
+  "item.tlotd.hot_milk_bucket": "Heissr Milchoimer",
+  "item.tlotd.hot_chocolate_bucket": "Heissr Schokoladaoimer",
+  "item.tlotd.hot_coffee_bucket": "Heissr Kaffeeoimer",
   "item.tlotd.oil_bucket": "Eeloimr",
   "item.tlotd.blood_bucket": "Bluadoimr",
   "item.tlotd.chemical_waste_bucket": "Kemischr Abfalloimr",
@@ -878,6 +889,8 @@
 
   "block.minecraft.empty": "Lea",
   "block.minecraft.empty_block": "Lea",
+  "block.tlotd.boiling_water": "Kochnds Wassr",
+  "block.tlotd.boiling_water_block": "Kochnds Wassr",
   "block.tlotd.beer": "Bia",
   "block.tlotd.beer_block": "Bia",
   "block.tlotd.mead": "Met",
@@ -886,6 +899,8 @@
   "block.tlotd.hot_milk_block": "Heisse Milch",
   "block.tlotd.hot_chocolate": "Heisse Schokolade",
   "block.tlotd.hot_chocolate_block": "Heisse Schokolade",
+  "block.tlotd.hot_coffee": "Heissr Kaffee",
+  "block.tlotd.hot_coffee_block": "Heissr Kaffee",
   "block.tlotd.oil": "Eel",
   "block.tlotd.oil_block": "Eel",
   "block.tlotd.blood": "Bluad",
@@ -932,15 +947,23 @@
   "block.tlotd.stackable_book": "Stapelbares Buach",
 
   "block.tlotd.effigies": "Bildnisse",
-  "block.tlotd.effigies.tooltip": "Kennd Bluad",
-  "block.tlotd.effigies.tooltip_2": "in nem a Kessel",
-  "block.tlotd.effigies.tooltip_3": "tropfa lao",
+  "block.tlotd.effigies.tooltip": "Kennd bei Nacht",
+  "block.tlotd.effigies.tooltip_2": "Bluad in nem a",
+  "block.tlotd.effigies.tooltip_3": "Kessel tropfa lao",
   "block.tlotd.blood_cauldron": "Bluadkessl",
   "block.tlotd.ouija_board": "Ouischa Bredd",
   "block.tlotd.ouija_board.tooltip": "Ermeglichd die",
   "block.tlotd.ouija_board.tooltip_2": "Kommunikation",
   "block.tlotd.ouija_board.tooltip_3": "mit de Dode",
   "block.tlotd.goat_head": "Ziegnkopf",
+
+  "block.tlotd.beer_cauldron": "Bierkessl",
+  "block.tlotd.mead_cauldron": "Metkessl",
+  "block.tlotd.boiling_water_cauldron": "Kochndr Wassrkessl",
+  "block.tlotd.hot_coffee_cauldron": "Heissr Kaffeekessl",
+  "block.tlotd.milk_cauldron": "Milchkessl",
+  "block.tlotd.hot_milk_cauldron": "Heissr Milchkessl",
+  "block.tlotd.hot_chocolate_cauldron": "Heissr Schokoladnkessl",
 
   "block.tlotd.creeper_plushie": "Creeper-Plischtier",
   "block.tlotd.zombie_plushie": "Zombie-Plischtier",
@@ -1246,6 +1269,7 @@
   "block.tlotd.glass_trapdoor": "Glasfalldira",
 
   "block.tlotd.shelf_mushroom": "Baumpülz",
+  "block.tlotd.shelf_backshroom": "Rückpülz",
 
   "block.tlotd.ginkgo_sapling": "Ginkgosetzling",
   "block.tlotd.ginkgo_log": "Ginkgostamm",
@@ -1271,6 +1295,16 @@
 
   "item.tlotd.ginkgo_boat": "Ginkgoholzboot",
   "item.tlotd.ginkgo_chest_boat": "Ginkgoholzkischdnboot",
+
+  "block.tlotd.backshroom_planks": "Rückpülzholzbreddr",
+  "block.tlotd.backshroom_stairs": "Rückpülzholztreppn",
+  "block.tlotd.backshroom_slab": "Rückpülzholzschtuafa",
+  "block.tlotd.backshroom_button": "Rückpülzholzgnopf",
+  "block.tlotd.backshroom_pressure_plate": "Rückpülzholzdruggpladdn",
+  "block.tlotd.backshroom_fence": "Rückpülzholzzau",
+  "block.tlotd.backshroom_fence_gate": "Rückpülzholzzaudor",
+  "block.tlotd.backshroom_door": "Rückpülzholzdira",
+  "block.tlotd.backshroom_trapdoor": "Rückpülzholzfalldira",
 
   "block.tlotd.framed_glass": "Oigrahmts Glas",
   "block.tlotd.framed_glass_pane": "Oigrahmte Glasscheibn",
@@ -1348,6 +1382,11 @@
   "block.tlotd.fancy_ginkgo_slab": "Schicke Ginkgoholzschtuafa",
   "block.tlotd.fancy_ginkgo_trapdoor": "Schicke Ginkgoholzfalldira",
 
+  "block.tlotd.fancy_backshroom_planks": "Schicke Rückpülzholzbreddr",
+  "block.tlotd.fancy_backshroom_stairs": "Schicke Rückpülzholztreppn",
+  "block.tlotd.fancy_backshroom_slab": "Schicke Rückpülzholzschtuafa",
+  "block.tlotd.fancy_backshroom_trapdoor": "Schicke Rückpülzholzfalldira",
+
   "block.tlotd.fancy_charred_planks": "Schicke verkohlte Holzbreddr",
   "block.tlotd.fancy_charred_stairs": "Schicke verkohlte Holztreppn",
   "block.tlotd.fancy_charred_slab": "Schicke verkohlte Holzschtuafa",
@@ -1403,6 +1442,7 @@
   "item.tlotd.minewood_bark": "Bergwerksholzrinde",
   "item.tlotd.sortingwood_bark": "Sortierbaumrinde",
 
+  "item.tlotd.backshroom_baseboard": "Rückpülz-Soggelleischtn",
   "item.tlotd.yellow_wallpaper": "Geale Tapetn",
 
   "item.tlotd.flour": "Mehl",
@@ -1449,7 +1489,9 @@
   "block.tlotd.wooden_chocolate_milkshake_stein": "Schokoladamilchshakeholzkrug",
   "block.tlotd.wooden_caramel_milkshake_stein": "Karamellmilchshakeholzkrug",
   "block.tlotd.hot_wooden_milk_stein": "Heisser Milchholzkrug",
-  "block.tlotd.wooden_hot_chocolate_stein": "Heisser Schokoladaholzkrug",
+  "block.tlotd.wooden_hot_chocolate_stein": "Heissr Schokoladaholzkrug",
+  "block.tlotd.wooden_boiling_water_stein": "Kochndr Wassrholzkrug",
+  "block.tlotd.wooden_hot_coffee_stein": "Heissr Kaffeeholzkrug",
 
   "block.tlotd.globus_cruciger": "Reichsapfl",
   "item.tlotd.emperors_crown": "Kaisrkrone",

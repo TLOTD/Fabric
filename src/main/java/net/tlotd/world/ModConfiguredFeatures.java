@@ -133,7 +133,8 @@ public class ModConfiguredFeatures {
 
         List<OreFeatureConfig.Target> aluminiumOre =
                 List.of(
-                        OreFeatureConfig.createTarget(deepslateReplacables, ModBlocks.ALUMINIUM_ORE.getDefaultState()),
+                        OreFeatureConfig.createTarget(stoneReplacables, ModBlocks.ALUMINIUM_ORE.getDefaultState()),
+                        OreFeatureConfig.createTarget(deepslateReplacables, ModBlocks.DEEPSLATE_ALUMINIUM_ORE.getDefaultState()),
                         OreFeatureConfig.createTarget(redDeepslateReplacables, ModBlocks.RED_DEEPSLATE_ALUMINIUM_ORE.getDefaultState())
                 );
 

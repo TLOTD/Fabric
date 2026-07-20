@@ -69,6 +69,8 @@ public abstract class WoodStrippingItemDrop {
 
         BARK_BY_BLOCK.put(ModBlocks.GINKGO_LOG, ModItems.GINKGO_BARK::getDefaultStack);
         BARK_BY_BLOCK.put(ModBlocks.GINKGO_WOOD, ModItems.GINKGO_BARK::getDefaultStack);
+
+        BARK_BY_BLOCK.put(ModBlocks.YELLOW_WALLPAPERED_WALL_WITH_BASEBOARD, ModItems.BACKSHROOM_BASEBOARD::getDefaultStack);
         BARK_BY_BLOCK.put(ModBlocks.YELLOW_WALLPAPERED_WALL, ModItems.YELLOW_WALLPAPER::getDefaultStack);
 
         MODDED_BARK_KEYWORDS.add(Pair.of("aether:skyroot", ModItems.SKYROOT_BARK::getDefaultStack));

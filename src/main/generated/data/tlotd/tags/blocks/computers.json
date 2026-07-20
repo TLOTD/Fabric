@@ -1,7 +1,7 @@
 {
   "replace": false,
   "values": [
-    "#tlotd:televisions_off",
+    "#tlotd:computers_off",
     "#tlotd:computers_on"
   ]
 }

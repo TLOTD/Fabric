@@ -1,0 +1,15 @@
+{
+	"parent": "tlotd:item/anduril",
+	"display": {
+		"firstperson_righthand": {
+			"rotation": [180, 22.5, 180],
+			"translation": [-7, 9.5, 1.13],
+			"scale": [1.36, 1.36, 1.36]
+		},
+		"firstperson_lefthand": {
+			"rotation": [0, -22.5, 0],
+			"translation": [-7, 9.5, 1.13],
+			"scale": [1.36, 1.36, 1.36]
+		}
+	}
+}

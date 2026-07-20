@@ -72,11 +72,18 @@ public class NoClipPillarBlock extends PillarBlock {
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         if (!world.isClient) {
-            if (state.isOf(ModBlocks.STRIPPED_YELLOW_WALLPAPERED_WALL) && player.getStackInHand(hand).isOf(ModItems.YELLOW_WALLPAPER)) {
+            if (state.isOf(ModBlocks.YELLOW_WALLPAPERED_WALL) && player.getStackInHand(hand).isOf(ModItems.BACKSHROOM_BASEBOARD)) {
+                player.incrementStat(Stats.USED.getOrCreateStat(player.getStackInHand(hand).getItem()));
+                world.playSound(null, pos, SoundEvents.BLOCK_WOOD_PLACE, SoundCategory.BLOCKS, 1.0f, 1.0f);
+                world.setBlockState(pos, ModBlocks.YELLOW_WALLPAPERED_WALL_WITH_BASEBOARD.getDefaultState().with(NOCLIPABLE, state.get(NOCLIPABLE)));
+                player.getStackInHand(hand).decrement(1);
+                return ActionResult.SUCCESS;
+            } else if (state.isOf(ModBlocks.STRIPPED_YELLOW_WALLPAPERED_WALL) && player.getStackInHand(hand).isOf(ModItems.YELLOW_WALLPAPER)) {
                 player.incrementStat(Stats.USED.getOrCreateStat(player.getStackInHand(hand).getItem()));
                 world.playSound(null, pos, SoundEvents.BLOCK_GRASS_PLACE, SoundCategory.BLOCKS, 1.0f, 1.0f);
                 world.setBlockState(pos, ModBlocks.YELLOW_WALLPAPERED_WALL.getDefaultState().with(NOCLIPABLE, state.get(NOCLIPABLE)));
                 player.getStackInHand(hand).decrement(1);
+                return ActionResult.SUCCESS;
             }
         }
         return ActionResult.FAIL;

@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "tlotd:block/fancy_backshroom_slab"
+    },
+    "type=double": {
+      "model": "tlotd:block/fancy_backshroom_planks"
+    },
+    "type=top": {
+      "model": "tlotd:block/fancy_backshroom_slab_top"
+    }
+  }
+}

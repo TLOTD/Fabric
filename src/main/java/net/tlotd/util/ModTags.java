@@ -72,7 +72,7 @@ public class ModTags {
                 createTag("computers_on");
 
         public static final TagKey<Block> COMPUTERS_OFF =
-                createTag("televisions_off");
+                createTag("computers_off");
 
         public static final TagKey<Block> INTERDIMENSIONAL_RECEIVERS =
                 createTag("interdimensional_receivers");

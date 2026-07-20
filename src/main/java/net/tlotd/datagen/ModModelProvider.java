@@ -191,8 +191,18 @@ public class ModModelProvider extends FabricModelProvider {
         ginkgoPool.fenceGate(ModBlocks.GINKGO_FENCE_GATE);
         ginkgoPool.family(ModBlocks.GINKGO_FAMILY);
 
-        blockStateModelGenerator.registerDoor(ModBlocks.GINKGO_DOOR);
+        BlockStateModelGenerator.BlockTexturePool backshroomPool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.BACKSHROOM_PLANKS);
 
+        backshroomPool.stairs(ModBlocks.BACKSHROOM_STAIRS);
+        backshroomPool.slab(ModBlocks.BACKSHROOM_SLAB);
+        backshroomPool.button(ModBlocks.BACKSHROOM_BUTTON);
+        backshroomPool.pressurePlate(ModBlocks.BACKSHROOM_PRESSURE_PLATE);
+        backshroomPool.fence(ModBlocks.BACKSHROOM_FENCE);
+        backshroomPool.fenceGate(ModBlocks.BACKSHROOM_FENCE_GATE);
+        backshroomPool.family(ModBlocks.BACKSHROOM_FAMILY);
+
+        blockStateModelGenerator.registerDoor(ModBlocks.GINKGO_DOOR);
+        blockStateModelGenerator.registerDoor(ModBlocks.BACKSHROOM_DOOR);
         blockStateModelGenerator.registerDoor(ModBlocks.GLASS_DOOR);
 
         blockStateModelGenerator.registerWoolAndCarpet(ModBlocks.ARCADE_WOOL, ModBlocks.ARCADE_CARPET);
@@ -249,6 +259,10 @@ public class ModModelProvider extends FabricModelProvider {
         BlockStateModelGenerator.BlockTexturePool fancyGinkgoPool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.FANCY_GINKGO_PLANKS);
         fancyGinkgoPool.stairs(ModBlocks.FANCY_GINKGO_STAIRS);
         fancyGinkgoPool.slab(ModBlocks.FANCY_GINKGO_SLAB);
+
+        BlockStateModelGenerator.BlockTexturePool fancyBackshroomPool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.FANCY_BACKSHROOM_PLANKS);
+        fancyBackshroomPool.stairs(ModBlocks.FANCY_BACKSHROOM_STAIRS);
+        fancyBackshroomPool.slab(ModBlocks.FANCY_BACKSHROOM_SLAB);
 
         BlockStateModelGenerator.BlockTexturePool fancyCharredPool = blockStateModelGenerator.registerCubeAllModelTexturePool(ModBlocks.FANCY_CHARRED_PLANKS);
         fancyCharredPool.stairs(ModBlocks.FANCY_CHARRED_STAIRS);
@@ -311,8 +325,11 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.MINEWOOD_BARK, Models.GENERATED);
         itemModelGenerator.register(ModItems.SORTINGWOOD_BARK, Models.GENERATED);
 
+        itemModelGenerator.register(ModItems.BACKSHROOM_BASEBOARD, Models.GENERATED);
+
         itemModelGenerator.register(ModItems.APPLE_JUICE_BOTTLE, Models.GENERATED);
 
+        itemModelGenerator.register(ModItems.COFFEE_COOKIE, Models.GENERATED);
         itemModelGenerator.register(ModItems.CARAMEL_COOKIE, Models.GENERATED);
         itemModelGenerator.register(ModItems.STRAWBERRY_COOKIE, Models.GENERATED);
         itemModelGenerator.register(ModItems.ORANGE_COOKIE, Models.GENERATED);
@@ -335,6 +352,10 @@ public class ModModelProvider extends FabricModelProvider {
 
         itemModelGenerator.register(ModItems.PIPE_WEED_SEEDS, Models.GENERATED);
         itemModelGenerator.register(ModItems.PIPE_WEED, Models.GENERATED);
+
+        itemModelGenerator.register(ModItems.COFFEE_BEANS, Models.GENERATED);
+        itemModelGenerator.register(ModItems.ROASTED_COFFEE_BEANS, Models.GENERATED);
+        itemModelGenerator.register(ModItems.GROUND_COFFEE_BEANS, Models.GENERATED);
 
         itemModelGenerator.register(ModItems.BLUE_BERRY_JAM_TOAST, Models.GENERATED);
         itemModelGenerator.register(ModItems.DROOPFRUIT_JAM_TOAST, Models.GENERATED);
@@ -570,8 +591,6 @@ public class ModModelProvider extends FabricModelProvider {
 
         itemModelGenerator.register(ModItems.RAW_MITHRIL, Models.GENERATED);
         itemModelGenerator.register(ModItems.REFINED_RAW_MITHRIL, Models.GENERATED);
-        itemModelGenerator.register(ModItems.ROUGH_MITHRIL_INGOT, Models.GENERATED);
-        itemModelGenerator.register(ModItems.MITHRIL_INGOT, Models.GENERATED);
         itemModelGenerator.register(ModItems.MITHRIL_NUGGET, Models.GENERATED);
         itemModelGenerator.register(ModItems.MITHRIL_PLATE, Models.GENERATED);
 

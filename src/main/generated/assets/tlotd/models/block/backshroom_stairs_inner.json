@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "tlotd:block/backshroom_planks",
+    "side": "tlotd:block/backshroom_planks",
+    "top": "tlotd:block/backshroom_planks"
+  }
+}

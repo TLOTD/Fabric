@@ -8,11 +8,16 @@ import me.shedaniel.rei.api.client.gui.widgets.Widgets;
 import me.shedaniel.rei.api.client.registry.display.DisplayCategory;
 import me.shedaniel.rei.api.common.category.CategoryIdentifier;
 import me.shedaniel.rei.api.common.display.basic.BasicDisplay;
+import me.shedaniel.rei.api.common.entry.EntryIngredient;
+import me.shedaniel.rei.api.common.entry.EntryStack;
+import me.shedaniel.rei.api.common.entry.type.VanillaEntryTypes;
 import me.shedaniel.rei.api.common.util.EntryStacks;
+import net.minecraft.item.ItemStack;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.tlotd.TLOTD;
 import net.tlotd.block.ModBlocks;
+import net.tlotd.util.ItemHeatHelper;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -41,7 +46,32 @@ public class DwarvenForgingCategory implements DisplayCategory<BasicDisplay> {
     public List<Widget> setupDisplay(BasicDisplay display, Rectangle bounds) {
         final Point startPoint = new Point(bounds.getCenterX() - 70, bounds.getCenterY() - 43);
         List<Widget> widgets = new LinkedList<>();
+
         widgets.add(Widgets.createTexturedWidget(TEXTURE, new Rectangle(startPoint.x, startPoint.y, 141, 88)));
+
+        EntryIngredient output = display.getOutputEntries().get(0);
+        EntryStack<?> entry = output.get(0);
+
+        if (entry.getType() == VanillaEntryTypes.ITEM) {
+            ItemStack stack = entry.castValue();
+            int temperature = ItemHeatHelper.getTemperature(stack);
+            int y;
+            if (temperature <= 1500) {
+                y = temperature * 36 / 1500;
+            } else if (temperature <= 3000) {
+                y = 36 + (temperature - 1500) * 12 / 1500;
+            } else {
+                y = 48 + (temperature - 3000) * 24 / 3000;
+            }
+            int v = 0;
+            if (temperature > 3000) {
+                v = 28;
+            } else if (temperature > 1500) {
+                v = 14;
+            }
+            widgets.add(Widgets.createTexturedWidget(TEXTURE, startPoint.x + 31, startPoint.y + 8 + (72 - y), 141, 72 - y,7,y));
+            widgets.add(Widgets.createTexturedWidget(TEXTURE, startPoint.x + 63, startPoint.y + 37, 148, v, 14, 14));
+        }
 
         widgets.add(Widgets.createSlot(new Point(startPoint.x + 44, startPoint.y + 19))
                 .entries(display.getInputEntries().get(0)));
@@ -66,7 +96,7 @@ public class DwarvenForgingCategory implements DisplayCategory<BasicDisplay> {
                 .entries(display.getInputEntries().get(9)));
 
         widgets.add(Widgets.createSlot(new Point(startPoint.x + 116, startPoint.y + 36))
-                .markOutput().entries(display.getOutputEntries().get(0)));
+                .markOutput().entries(output));
 
         return widgets;
     }

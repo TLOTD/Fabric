@@ -13,12 +13,75 @@ import net.tlotd.item.ModItems;
 import net.tlotd.item.custom.MithrilMirrorItem;
 import net.tlotd.util.AdAstraGasNbtHelper;
 import net.tlotd.util.AugmentNbtHelper;
+import net.tlotd.util.ItemHeatHelper;
 import net.tlotd.util.ModTags;
 
 import java.util.Comparator;
 
 public class ModItemRenderLayerMap {
     public static void registerItemRenderLayerMaps() {
+        ModelPredicateProviderRegistry.register(
+                ModItems.MITHRIL_INGOT, new Identifier(TLOTD.MOD_ID, "temperature"), (stack, world, entity, seed) -> {
+                    if (entity == null) return 0f;
+                    if (ItemHeatHelper.getTemperature(stack) > 3000) return 0.3f;
+                    else if (ItemHeatHelper.getTemperature(stack) > 1500) return 0.2f;
+                    else if (ItemHeatHelper.getTemperature(stack) >= 500) return 0.1f;
+                    return 0f;
+                }
+        );
+        ModelPredicateProviderRegistry.register(
+                ModItems.ROUGH_MITHRIL_INGOT, new Identifier(TLOTD.MOD_ID, "temperature"), (stack, world, entity, seed) -> {
+                    if (entity == null) return 0f;
+                    if (ItemHeatHelper.getTemperature(stack) > 3000) return 0.3f;
+                    else if (ItemHeatHelper.getTemperature(stack) > 1500) return 0.2f;
+                    else if (ItemHeatHelper.getTemperature(stack) >= 500) return 0.1f;
+                    return 0f;
+                }
+        );
+        ModelPredicateProviderRegistry.register(
+                ModItems.GONDORIAN_SHIELD, new Identifier(TLOTD.MOD_ID, "blocking"), (stack, world, entity, seed) -> {
+                    if (entity == null) return 0f;
+                    if (entity.isUsingItem()) return 1f;
+                    return 0f;
+                }
+        );
+        ModelPredicateProviderRegistry.register(
+                ModItems.GONDORIAN_TOWER_SHIELD, new Identifier(TLOTD.MOD_ID, "blocking"), (stack, world, entity, seed) -> {
+                    if (entity == null) return 0f;
+                    if (entity.isUsingItem()) return 1f;
+                    return 0f;
+                }
+        );
+        ModelPredicateProviderRegistry.register(
+                ModItems.GONDORIAN_KINGS_GUARD_TOWER_SHIELD, new Identifier(TLOTD.MOD_ID, "blocking"), (stack, world, entity, seed) -> {
+                    if (entity == null) return 0f;
+                    if (entity.isUsingItem()) return 1f;
+                    return 0f;
+                }
+        );
+        ModelPredicateProviderRegistry.register(
+                ModItems.GONDORIAN_KNIGHT_SHIELD, new Identifier(TLOTD.MOD_ID, "blocking"), (stack, world, entity, seed) -> {
+                    if (entity == null) return 0f;
+                    if (entity.isUsingItem()) return 1f;
+                    return 0f;
+                }
+        );
+        ModelPredicateProviderRegistry.register(
+                ModItems.GONDORIAN_ORNAMENTED_KNIGHT_SHIELD, new Identifier(TLOTD.MOD_ID, "blocking"), (stack, world, entity, seed) -> {
+                    if (entity == null) return 0f;
+                    if (entity.isUsingItem()) return 1f;
+                    return 0f;
+                }
+        );
+
+        ModelPredicateProviderRegistry.register(
+                ModItems.ANDURIL, new Identifier(TLOTD.MOD_ID, "blocking"), (stack, world, entity, seed) -> {
+                    if (entity == null) return 0f;
+                    if (entity.isUsingItem()) return 1f;
+                    return 0f;
+                }
+        );
+
         ModelPredicateProviderRegistry.register(
                 ModItems.MITHRIL_MIRROR, new Identifier(TLOTD.MOD_ID, "charge"), (stack, world, entity, seed) -> {
                     if (stack.isEmpty()) return 1.0f;

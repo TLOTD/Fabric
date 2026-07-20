@@ -20,7 +20,7 @@ import java.util.List;
 public class WitchingTableCategory implements DisplayCategory<BasicDisplay> {
 
     public static final Identifier TEXTURE = new Identifier(TLOTD.MOD_ID, "textures/gui/rei/witching_table.png");
-    public static final CategoryIdentifier<MithrilSmithingDisplay> WITCHING = CategoryIdentifier.of(TLOTD.MOD_ID, "witching");
+    public static final CategoryIdentifier<WitchingTableDisplay> WITCHING = CategoryIdentifier.of(TLOTD.MOD_ID, "witching");
 
     @Override
     public CategoryIdentifier<? extends BasicDisplay> getCategoryIdentifier() {

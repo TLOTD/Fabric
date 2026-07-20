@@ -7,11 +7,13 @@ import net.tlotd.fluid.ModFluids;
 
 public class ModBlockRenderLayerMap {
     public static void registerBlockRenderLayerMaps() {
+        BlockRenderLayerMap.INSTANCE.putFluids(RenderLayer.getTranslucent(), ModFluids.STILL_BOILING_WATER, ModFluids.FLOWING_BOILING_WATER);
         BlockRenderLayerMap.INSTANCE.putFluids(RenderLayer.getTranslucent(), ModFluids.STILL_SPEZI, ModFluids.FLOWING_SPEZI);
         BlockRenderLayerMap.INSTANCE.putFluids(RenderLayer.getTranslucent(), ModFluids.STILL_BEER, ModFluids.FLOWING_BEER);
         BlockRenderLayerMap.INSTANCE.putFluids(RenderLayer.getTranslucent(), ModFluids.STILL_MEAD, ModFluids.FLOWING_MEAD);
         BlockRenderLayerMap.INSTANCE.putFluids(RenderLayer.getTranslucent(), ModFluids.STILL_HOT_MILK, ModFluids.FLOWING_HOT_MILK);
         BlockRenderLayerMap.INSTANCE.putFluids(RenderLayer.getTranslucent(), ModFluids.STILL_HOT_CHOCOLATE, ModFluids.FLOWING_HOT_CHOCOLATE);
+        BlockRenderLayerMap.INSTANCE.putFluids(RenderLayer.getTranslucent(), ModFluids.STILL_HOT_COFFEE, ModFluids.FLOWING_HOT_COFFEE);
         BlockRenderLayerMap.INSTANCE.putFluids(RenderLayer.getTranslucent(), ModFluids.STILL_OIL, ModFluids.FLOWING_OIL);
         BlockRenderLayerMap.INSTANCE.putFluids(RenderLayer.getTranslucent(), ModFluids.STILL_BLOOD, ModFluids.FLOWING_BLOOD);
 
@@ -110,7 +112,13 @@ public class ModBlockRenderLayerMap {
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.TELEPORTER, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.ALIEN_CONTROL_PANEL, RenderLayer.getTranslucent());
 
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.BEER_CAULDRON, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.MEAD_CAULDRON, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.BLOOD_CAULDRON, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.BOILING_WATER_CAULDRON, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.HOT_COFFEE_CAULDRON, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.HOT_MILK_CAULDRON, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.HOT_CHOCOLATE_CAULDRON, RenderLayer.getCutout());
 
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.ELEVATOR_DIAL, RenderLayer.getCutout());
 
@@ -124,6 +132,9 @@ public class ModBlockRenderLayerMap {
 
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.GINKGO_DOOR, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.GINKGO_TRAPDOOR, RenderLayer.getCutout());
+
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.BACKSHROOM_DOOR, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.BACKSHROOM_TRAPDOOR, RenderLayer.getCutout());
 
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.RED_ROSE, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.POTTED_RED_ROSE, RenderLayer.getCutout());
@@ -157,6 +168,8 @@ public class ModBlockRenderLayerMap {
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.WOODEN_CARAMEL_MILKSHAKE_STEIN, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.HOT_WOODEN_MILK_STEIN, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.WOODEN_HOT_CHOCOLATE_STEIN, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.WOODEN_BOILING_WATER_STEIN, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.WOODEN_HOT_COFFEE_STEIN, RenderLayer.getCutout());
 
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.TREX_HEAD, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.GREEN_TREX_HEAD, RenderLayer.getCutout());

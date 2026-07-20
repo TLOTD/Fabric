@@ -43,6 +43,10 @@ public class NetheriteSmithingCategory implements DisplayCategory<BasicDisplay> 
         List<Widget> widgets = new LinkedList<>();
         widgets.add(Widgets.createTexturedWidget(TEXTURE, new Rectangle(startPoint.x, startPoint.y, 142, 52)));
 
+        widgets.add(Widgets.createSlot(new Point(startPoint.x + 63, startPoint.y + 9))
+                .entries(display.getInputEntries().get(0)));
+        widgets.add(Widgets.createSlot(new Point(startPoint.x + 81, startPoint.y + 18))
+                .entries(display.getInputEntries().get(1)));
         widgets.add(Widgets.createSlot(new Point(startPoint.x + 9, startPoint.y + 18))
                 .entries(display.getInputEntries().get(2)));
         widgets.add(Widgets.createSlot(new Point(startPoint.x + 27, startPoint.y + 9))
@@ -51,10 +55,6 @@ public class NetheriteSmithingCategory implements DisplayCategory<BasicDisplay> 
                 .entries(display.getInputEntries().get(4)));
         widgets.add(Widgets.createSlot(new Point(startPoint.x + 45, startPoint.y + 18))
                 .entries(display.getInputEntries().get(5)));
-        widgets.add(Widgets.createSlot(new Point(startPoint.x + 63, startPoint.y + 9))
-                .entries(display.getInputEntries().get(0)));
-        widgets.add(Widgets.createSlot(new Point(startPoint.x + 81, startPoint.y + 18))
-                .entries(display.getInputEntries().get(1)));
 
         widgets.add(Widgets.createSlot(new Point(startPoint.x + 117, startPoint.y + 18))
                 .markOutput().entries(display.getOutputEntries().get(0)));

@@ -1,0 +1,43 @@
+{
+  "variants": {
+    "state=solid,axis=x": {
+      "model": "tlotd:block/yellow_wallpapered_wall_with_baseboard_horizontal",
+      "x": 90,
+      "y": 270
+    },
+    "state=solid,axis=y": {
+      "model": "tlotd:block/yellow_wallpapered_wall_with_baseboard"
+    },
+    "state=solid,axis=z": {
+      "model": "tlotd:block/yellow_wallpapered_wall_with_baseboard_horizontal",
+      "x": 90,
+      "y": 180
+    },
+    "state=noclipable,axis=x": {
+      "model": "tlotd:block/noclipable_yellow_wallpapered_wall_with_baseboard_horizontal",
+      "x": 90,
+      "y": 270
+    },
+    "state=noclipable,axis=y": {
+      "model": "tlotd:block/noclipable_yellow_wallpapered_wall_with_baseboard"
+    },
+    "state=noclipable,axis=z": {
+      "model": "tlotd:block/noclipable_yellow_wallpapered_wall_with_baseboard_horizontal",
+      "x": 90,
+      "y": 180
+    },
+    "state=portaling,axis=x": {
+      "model": "tlotd:block/noclipable_yellow_wallpapered_wall_with_baseboard_horizontal",
+      "x": 90,
+      "y": 270
+    },
+    "state=portaling,axis=y": {
+      "model": "tlotd:block/noclipable_yellow_wallpapered_wall_with_baseboard"
+    },
+    "state=portaling,axis=z": {
+      "model": "tlotd:block/noclipable_yellow_wallpapered_wall_with_baseboard_horizontal",
+      "x": 90,
+      "y": 180
+    }
+  }
+}

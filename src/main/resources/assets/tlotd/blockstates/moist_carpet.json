@@ -1,15 +1,15 @@
 {
   "variants": {
-    "moistness=0": {
+    "moisture=0": {
       "model": "tlotd:block/moist_carpet"
     },
-    "moistness=1": {
+    "moisture=1": {
       "model": "tlotd:block/moistier_carpet"
     },
-    "moistness=2": {
+    "moisture=2": {
       "model": "tlotd:block/wet_carpet"
     },
-    "moistness=3": {
+    "moisture=3": {
       "model": "tlotd:block/wettest_carpet"
     }
   }

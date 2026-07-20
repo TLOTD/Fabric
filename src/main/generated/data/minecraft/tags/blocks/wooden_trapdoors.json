@@ -2,6 +2,7 @@
   "replace": false,
   "values": [
     "tlotd:ginkgo_trapdoor",
+    "tlotd:backshroom_trapdoor",
     "tlotd:fancy_oak_trapdoor",
     "tlotd:fancy_spruce_trapdoor",
     "tlotd:fancy_birch_trapdoor",
@@ -14,6 +15,7 @@
     "tlotd:fancy_bamboo_trapdoor",
     "tlotd:fancy_crimson_trapdoor",
     "tlotd:fancy_warped_trapdoor",
-    "tlotd:fancy_ginkgo_trapdoor"
+    "tlotd:fancy_ginkgo_trapdoor",
+    "tlotd:fancy_backshroom_trapdoor"
   ]
 }

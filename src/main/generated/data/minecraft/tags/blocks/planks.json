@@ -2,6 +2,7 @@
   "replace": false,
   "values": [
     "tlotd:ginkgo_planks",
+    "tlotd:backshroom_planks",
     "tlotd:fancy_oak_planks",
     "tlotd:fancy_spruce_planks",
     "tlotd:fancy_birch_planks",
@@ -14,6 +15,7 @@
     "tlotd:fancy_bamboo_planks",
     "tlotd:fancy_crimson_planks",
     "tlotd:fancy_warped_planks",
-    "tlotd:fancy_ginkgo_planks"
+    "tlotd:fancy_ginkgo_planks",
+    "tlotd:fancy_backshroom_planks"
   ]
 }

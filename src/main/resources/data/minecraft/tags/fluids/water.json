@@ -1,6 +1,8 @@
 {
   "replace": false,
   "values": [
+    "tlotd:boiling_water",
+    "tlotd:flowing_boiling_water",
     "tlotd:spezi",
     "tlotd:flowing_spezi",
     "tlotd:beer",
@@ -9,6 +11,8 @@
     "tlotd:flowing_hot_milk",
     "tlotd:hot_chocolate",
     "tlotd:flowing_hot_chocolate",
+    "tlotd:hot_coffee",
+    "tlotd:flowing_hot_coffee",
     "tlotd:oil",
     "tlotd:flowing_oil",
     "tlotd:blood",

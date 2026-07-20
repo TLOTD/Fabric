@@ -5,11 +5,14 @@ import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.registry.RegistryKeys;
+import net.minecraft.registry.tag.TagKey;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.stat.Stats;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
@@ -26,7 +29,7 @@ public class WhitePumkinBlock extends GourdBlock {
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         ItemStack itemStack = player.getStackInHand(hand);
-        if (itemStack.isOf(Items.SHEARS)) {
+        if (itemStack.isIn(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "shears")))) {
             if (!world.isClient) {
                 Direction direction = hit.getSide();
                 Direction direction2 = direction.getAxis() == Direction.Axis.Y ? player.getHorizontalFacing().getOpposite() : direction;
@@ -37,7 +40,7 @@ public class WhitePumkinBlock extends GourdBlock {
                 world.spawnEntity(itemEntity);
                 itemStack.damage(1, player, playerx -> playerx.sendToolBreakStatus(hand));
                 world.emitGameEvent(player, GameEvent.SHEAR, pos);
-                player.incrementStat(Stats.USED.getOrCreateStat(Items.SHEARS));
+                player.incrementStat(Stats.USED.getOrCreateStat(itemStack.getItem()));
             }
 
             return ActionResult.success(world.isClient);

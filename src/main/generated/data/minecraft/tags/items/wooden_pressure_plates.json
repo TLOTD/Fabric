@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "tlotd:ginkgo_pressure_plate"
+    "tlotd:ginkgo_pressure_plate",
+    "tlotd:backshroom_pressure_plate"
   ]
 }

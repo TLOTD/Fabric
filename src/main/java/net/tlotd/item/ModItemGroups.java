@@ -195,6 +195,11 @@ public class ModItemGroups {
                         entries.add(ModItems.ORANGE_COOKIE);
                         entries.add(ModBlocks.ORANGE_CAKE);
 
+                        entries.add(ModItems.COFFEE_BEANS);
+                        entries.add(ModItems.ROASTED_COFFEE_BEANS);
+                        entries.add(ModItems.GROUND_COFFEE_BEANS);
+                        entries.add(ModItems.COFFEE_COOKIE);
+
                         entries.add(ModItems.PIPE_WEED_SEEDS);
                         entries.add(ModItems.PIPE_WEED);
                         entries.add(ModItems.HEMP_COOKIE);
@@ -667,6 +672,8 @@ public class ModItemGroups {
                         }
                         entries.add(ModBlocks.HOT_WOODEN_MILK_STEIN);
                         entries.add(ModBlocks.WOODEN_HOT_CHOCOLATE_STEIN);
+                        entries.add(ModBlocks.WOODEN_BOILING_WATER_STEIN);
+                        entries.add(ModBlocks.WOODEN_HOT_COFFEE_STEIN);
 
                         entries.add(ModBlocks.EXIT_SIGN);
                         entries.add(ModBlocks.ELEVATOR_DIAL);
@@ -911,6 +918,17 @@ public class ModItemGroups {
                         entries.add(ModItems.GINKGO_SIGN);
                         entries.add(ModItems.HANGING_GINKGO_SIGN);
 
+                        entries.add(ModBlocks.BACKSHROOM_PLANKS);
+
+                        entries.add(ModBlocks.BACKSHROOM_STAIRS);
+                        entries.add(ModBlocks.BACKSHROOM_SLAB);
+                        entries.add(ModBlocks.BACKSHROOM_FENCE);
+                        entries.add(ModBlocks.BACKSHROOM_FENCE_GATE);
+                        entries.add(ModBlocks.BACKSHROOM_DOOR);
+                        entries.add(ModBlocks.BACKSHROOM_TRAPDOOR);
+                        entries.add(ModBlocks.BACKSHROOM_PRESSURE_PLATE);
+                        entries.add(ModBlocks.BACKSHROOM_BUTTON);
+
                         entries.add(ModBlocks.FRAMED_GLASS);
                         entries.add(ModBlocks.VERTICAL_FRAMED_GLASS);
                         entries.add(ModBlocks.ROUND_FRAMED_GLASS);
@@ -988,6 +1006,11 @@ public class ModItemGroups {
                         entries.add(ModBlocks.FANCY_GINKGO_SLAB);
                         entries.add(ModBlocks.FANCY_GINKGO_TRAPDOOR);
 
+                        entries.add(ModBlocks.FANCY_BACKSHROOM_PLANKS);
+                        entries.add(ModBlocks.FANCY_BACKSHROOM_STAIRS);
+                        entries.add(ModBlocks.FANCY_BACKSHROOM_SLAB);
+                        entries.add(ModBlocks.FANCY_BACKSHROOM_TRAPDOOR);
+
                         entries.add(ModBlocks.FANCY_CHARRED_PLANKS);
                         entries.add(ModBlocks.FANCY_CHARRED_STAIRS);
                         entries.add(ModBlocks.FANCY_CHARRED_SLAB);
@@ -1022,6 +1045,8 @@ public class ModItemGroups {
                         entries.add(ModItems.INCOMPLETE_OXYGEN_COLLECTOR);
                         entries.add(ModItems.INCOMPLETE_MITHRIL_MIRROR);
                         entries.add(ModFluids.MOLTEN_MITHRIL_BUCKET);
+                        entries.add(ModFluids.BOILING_WATER_BUCKET);
+                        entries.add(ModFluids.HOT_COFFEE_BUCKET);
                         entries.add(ModFluids.SPEZI_BUCKET);
                         entries.add(ModFluids.SWEET_BERRY_JAM_BUCKET);
                         entries.add(ModFluids.GLOW_BERRY_JAM_BUCKET);
@@ -1097,6 +1122,15 @@ public class ModItemGroups {
             content.addAfter(ModBlocks.GINKGO_DOOR, ModBlocks.GINKGO_TRAPDOOR);
             content.addAfter(ModBlocks.GINKGO_TRAPDOOR, ModBlocks.GINKGO_PRESSURE_PLATE);
             content.addAfter(ModBlocks.GINKGO_PRESSURE_PLATE, ModBlocks.GINKGO_BUTTON);
+            content.addAfter(ModBlocks.GINKGO_BUTTON, ModBlocks.BACKSHROOM_PLANKS);
+            content.addAfter(ModBlocks.BACKSHROOM_PLANKS, ModBlocks.BACKSHROOM_STAIRS);
+            content.addAfter(ModBlocks.BACKSHROOM_STAIRS, ModBlocks.BACKSHROOM_SLAB);
+            content.addAfter(ModBlocks.BACKSHROOM_SLAB, ModBlocks.BACKSHROOM_FENCE);
+            content.addAfter(ModBlocks.BACKSHROOM_FENCE, ModBlocks.BACKSHROOM_FENCE_GATE);
+            content.addAfter(ModBlocks.BACKSHROOM_FENCE_GATE, ModBlocks.BACKSHROOM_DOOR);
+            content.addAfter(ModBlocks.BACKSHROOM_DOOR, ModBlocks.BACKSHROOM_TRAPDOOR);
+            content.addAfter(ModBlocks.BACKSHROOM_TRAPDOOR, ModBlocks.BACKSHROOM_PRESSURE_PLATE);
+            content.addAfter(ModBlocks.BACKSHROOM_PRESSURE_PLATE, ModBlocks.BACKSHROOM_BUTTON);
         });
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.NATURAL).register(content -> {
@@ -1133,7 +1167,8 @@ public class ModItemGroups {
             content.addAfter(Items.SNIFFER_EGG, ModBlocks.TREX_EGG);
             content.addAfter(Items.MELON_SEEDS, ModItems.STRAWBERRY_SEEDS);
             content.addAfter(ModItems.STRAWBERRY_SEEDS, ModItems.ORANGE_SEEDS);
-            content.addAfter(ModItems.ORANGE_SEEDS, ModItems.PIPE_WEED_SEEDS);
+            content.addAfter(ModItems.ORANGE_SEEDS, ModItems.COFFEE_BEANS);
+            content.addAfter(ModItems.COFFEE_BEANS, ModItems.PIPE_WEED_SEEDS);
             content.addAfter(Items.JACK_O_LANTERN, ModBlocks.WHITE_PUMPKIN);
             content.addAfter(ModBlocks.WHITE_PUMPKIN, ModBlocks.CARVED_WHITE_PUMPKIN);
             content.addAfter(ModBlocks.CARVED_WHITE_PUMPKIN, ModBlocks.WHITE_JACK_O_LANTERN);
@@ -1221,7 +1256,8 @@ public class ModItemGroups {
             content.addAfter(Items.COOKIE, ModItems.CARAMEL_COOKIE);
             content.addAfter(ModItems.CARAMEL_COOKIE, ModItems.STRAWBERRY_COOKIE);
             content.addAfter(ModItems.STRAWBERRY_COOKIE, ModItems.ORANGE_COOKIE);
-            content.addAfter(ModItems.ORANGE_COOKIE, ModItems.HEMP_COOKIE);
+            content.addAfter(ModItems.ORANGE_COOKIE, ModItems.COFFEE_COOKIE);
+            content.addAfter(ModItems.COFFEE_COOKIE, ModItems.HEMP_COOKIE);
             content.addAfter(ModItems.HEMP_COOKIE, ModItems.CHOCOLATE_STRAWBERRY);
             content.addAfter(Items.CAKE, ModBlocks.STRAWBERRY_CAKE);
             content.addAfter(ModBlocks.STRAWBERRY_CAKE, ModBlocks.ORANGE_CAKE);
@@ -1245,6 +1281,8 @@ public class ModItemGroups {
                 content.addAfter(ModBlocks.WOODEN_ORANGE_MILKSHAKE_STEIN, ModBlocks.WOODEN_BLUE_BERRY_MILKSHAKE_STEIN);
             }
             content.addAfter(ModBlocks.HOT_WOODEN_MILK_STEIN, ModBlocks.WOODEN_HOT_CHOCOLATE_STEIN);
+            content.addAfter(ModBlocks.WOODEN_HOT_CHOCOLATE_STEIN, ModBlocks.WOODEN_BOILING_WATER_STEIN);
+            content.addAfter(ModBlocks.WOODEN_BOILING_WATER_STEIN, ModBlocks.WOODEN_HOT_COFFEE_STEIN);
             content.addAfter(Items.HONEY_BOTTLE, ModItems.APPLE_JUICE_BOTTLE);
             content.addAfter(ModItems.APPLE_JUICE_BOTTLE, ModItems.ORANGE_JUICE_BOTTLE);
             content.addAfter(ModItems.ORANGE_JUICE_BOTTLE, ModItems.SPEZI_BOTTLE);

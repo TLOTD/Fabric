@@ -406,6 +406,14 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(ModItems.ORANGE), conditionsFromItem(ModItems.ORANGE))
                 .offerTo(exporter, new Identifier(getRecipeName(ModItems.ORANGE_COOKIE)));
 
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.COFFEE_COOKIE, 8)
+                .pattern("#C#")
+                .input('#', Items.WHEAT)
+                .input('C', ModItems.GROUND_COFFEE_BEANS)
+                .criterion(hasItem(Items.WHEAT), conditionsFromItem(Items.WHEAT))
+                .criterion(hasItem(ModItems.GROUND_COFFEE_BEANS), conditionsFromItem(ModItems.GROUND_COFFEE_BEANS))
+                .offerTo(exporter, new Identifier(getRecipeName(ModItems.COFFEE_COOKIE)));
+
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.HEMP_COOKIE, 8)
                 .pattern("#P#")
                 .input('#', Items.WHEAT)
@@ -849,18 +857,6 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(ModItems.TINTED_GLASS_FLASK), conditionsFromItem(ModItems.TINTED_GLASS_FLASK))
                 .criterion(hasItem(Items.SOUL_SAND), conditionsFromItem(Items.SOUL_SAND))
                 .offerTo(exporter, new Identifier(getRecipeName(ModItems.SOUL_FLASK)));
-
-        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.WITCHING_TABLE)
-                .pattern("C#C")
-                .pattern("GGG")
-                .pattern("###")
-                .input('C', ModTags.Items.CINNABAR_OR_NEBULAR)
-                .input('G', Items.GLASS_BOTTLE)
-                .input('#', ModBlocks.FANCY_CHARRED_PLANKS)
-                .criterion(hasItem(ModItems.CINNABAR_CRYSTAL), conditionsFromItem(ModItems.CINNABAR_CRYSTAL))
-                .criterion(hasItem(Items.GLASS_BOTTLE), conditionsFromItem(Items.GLASS_BOTTLE))
-                .criterion(hasItem(ModBlocks.FANCY_CHARRED_PLANKS), conditionsFromItem(ModBlocks.FANCY_CHARRED_PLANKS))
-                .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.WITCHING_TABLE)));
 
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.CATHODE_RAY_TUBE)
                 .pattern("IGI")
@@ -1545,6 +1541,56 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(ModItems.GINKGO_BOAT), conditionsFromItem(ModItems.GINKGO_BOAT))
                 .offerTo(exporter, new Identifier(getRecipeName(ModItems.GINKGO_CHEST_BOAT)));
 
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModBlocks.BACKSHROOM_PLANKS)
+                .group(getRecipeName(ModBlocks.BACKSHROOM_PLANKS))
+                .pattern("###")
+                .pattern("###")
+                .pattern("###")
+                .input('#', ModItems.BACKSHROOM_BASEBOARD)
+                .criterion(hasItem(ModItems.BACKSHROOM_BASEBOARD), conditionsFromItem(ModItems.BACKSHROOM_BASEBOARD))
+                .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.BACKSHROOM_PLANKS) + "_from_boards"));
+
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModBlocks.BACKSHROOM_PLANKS)
+                .group(getRecipeName(ModBlocks.BACKSHROOM_PLANKS))
+                .pattern("##")
+                .pattern("##")
+                .input('#', ModBlocks.SHELF_BACKSHROOM)
+                .criterion(hasItem(ModBlocks.SHELF_BACKSHROOM), conditionsFromItem(ModBlocks.SHELF_BACKSHROOM))
+                .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.BACKSHROOM_PLANKS)));
+
+        createStairsRecipe(ModBlocks.BACKSHROOM_STAIRS, Ingredient.ofItems(ModBlocks.BACKSHROOM_PLANKS))
+                .criterion(hasItem(ModBlocks.BACKSHROOM_PLANKS), conditionsFromItem(ModBlocks.BACKSHROOM_PLANKS))
+                .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.BACKSHROOM_STAIRS)));
+
+        createSlabRecipe(RecipeCategory.BUILDING_BLOCKS, ModBlocks.BACKSHROOM_SLAB, Ingredient.ofItems(ModBlocks.BACKSHROOM_PLANKS))
+                .criterion(hasItem(ModBlocks.BACKSHROOM_PLANKS), conditionsFromItem(ModBlocks.BACKSHROOM_PLANKS))
+                .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.BACKSHROOM_SLAB)));
+
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, ModBlocks.BACKSHROOM_BUTTON)
+                .input(ModBlocks.BACKSHROOM_PLANKS)
+                .criterion(hasItem(ModBlocks.BACKSHROOM_PLANKS), conditionsFromItem(ModBlocks.BACKSHROOM_PLANKS))
+                .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.BACKSHROOM_BUTTON)));
+
+        createPressurePlateRecipe(RecipeCategory.BUILDING_BLOCKS, ModBlocks.BACKSHROOM_PRESSURE_PLATE, Ingredient.ofItems(ModBlocks.BACKSHROOM_PLANKS))
+                .criterion(hasItem(ModBlocks.BACKSHROOM_PLANKS), conditionsFromItem(ModBlocks.BACKSHROOM_PLANKS))
+                .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.BACKSHROOM_PRESSURE_PLATE)));
+
+        createFenceRecipe(ModBlocks.BACKSHROOM_FENCE, Ingredient.ofItems(ModBlocks.BACKSHROOM_PLANKS))
+                .criterion(hasItem(ModBlocks.BACKSHROOM_PLANKS), conditionsFromItem(ModBlocks.BACKSHROOM_PLANKS))
+                .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.BACKSHROOM_FENCE)));
+
+        createFenceGateRecipe(ModBlocks.BACKSHROOM_FENCE_GATE, Ingredient.ofItems(ModBlocks.BACKSHROOM_PLANKS))
+                .criterion(hasItem(ModBlocks.BACKSHROOM_PLANKS), conditionsFromItem(ModBlocks.BACKSHROOM_PLANKS))
+                .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.BACKSHROOM_FENCE_GATE)));
+
+        createDoorRecipe(ModBlocks.BACKSHROOM_DOOR, Ingredient.ofItems(ModBlocks.BACKSHROOM_PLANKS))
+                .criterion(hasItem(ModBlocks.BACKSHROOM_PLANKS), conditionsFromItem(ModBlocks.BACKSHROOM_PLANKS))
+                .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.BACKSHROOM_DOOR)));
+
+        createTrapdoorRecipe(ModBlocks.BACKSHROOM_TRAPDOOR, Ingredient.ofItems(ModBlocks.BACKSHROOM_PLANKS))
+                .criterion(hasItem(ModBlocks.BACKSHROOM_PLANKS), conditionsFromItem(ModBlocks.BACKSHROOM_PLANKS))
+                .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.BACKSHROOM_TRAPDOOR)));
+
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.FRAMED_GLASS, 8)
                 .pattern("###")
                 .pattern("#I#")
@@ -1609,6 +1655,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.FANCY_CRIMSON_PLANKS, Blocks.CRIMSON_PLANKS);
         offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.FANCY_WARPED_PLANKS, Blocks.WARPED_PLANKS);
         offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.FANCY_GINKGO_PLANKS, ModBlocks.GINKGO_PLANKS);
+        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.FANCY_BACKSHROOM_PLANKS, ModBlocks.BACKSHROOM_PLANKS);
 
         offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, Blocks.OAK_PLANKS, ModBlocks.FANCY_OAK_PLANKS);
         offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, Blocks.SPRUCE_PLANKS, ModBlocks.FANCY_SPRUCE_PLANKS);
@@ -1622,6 +1669,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, Blocks.CRIMSON_PLANKS, ModBlocks.FANCY_CRIMSON_PLANKS);
         offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, Blocks.WARPED_PLANKS, ModBlocks.FANCY_WARPED_PLANKS);
         offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.GINKGO_PLANKS, ModBlocks.FANCY_GINKGO_PLANKS);
+        offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.BACKSHROOM_PLANKS, ModBlocks.FANCY_BACKSHROOM_PLANKS);
 
         createStairsRecipe(ModBlocks.FANCY_OAK_STAIRS, Ingredient.ofItems(ModBlocks.FANCY_OAK_PLANKS))
                 .criterion(hasItem(ModBlocks.FANCY_OAK_PLANKS), conditionsFromItem(ModBlocks.FANCY_OAK_PLANKS))
@@ -1753,6 +1801,16 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(ModBlocks.FANCY_GINKGO_PLANKS), conditionsFromItem(ModBlocks.FANCY_GINKGO_PLANKS))
                 .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.FANCY_GINKGO_TRAPDOOR)));
 
+        createStairsRecipe(ModBlocks.FANCY_BACKSHROOM_STAIRS, Ingredient.ofItems(ModBlocks.FANCY_BACKSHROOM_PLANKS))
+                .criterion(hasItem(ModBlocks.FANCY_BACKSHROOM_PLANKS), conditionsFromItem(ModBlocks.FANCY_BACKSHROOM_PLANKS))
+                .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.FANCY_BACKSHROOM_STAIRS)));
+        createSlabRecipe(RecipeCategory.BUILDING_BLOCKS, ModBlocks.FANCY_BACKSHROOM_SLAB, Ingredient.ofItems(ModBlocks.FANCY_BACKSHROOM_PLANKS))
+                .criterion(hasItem(ModBlocks.FANCY_BACKSHROOM_PLANKS), conditionsFromItem(ModBlocks.FANCY_BACKSHROOM_PLANKS))
+                .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.FANCY_BACKSHROOM_SLAB)));
+        createTrapdoorRecipe(ModBlocks.FANCY_BACKSHROOM_TRAPDOOR, Ingredient.ofItems(ModBlocks.FANCY_BACKSHROOM_PLANKS))
+                .criterion(hasItem(ModBlocks.FANCY_BACKSHROOM_PLANKS), conditionsFromItem(ModBlocks.FANCY_BACKSHROOM_PLANKS))
+                .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.FANCY_BACKSHROOM_TRAPDOOR)));
+
         createStairsRecipe(ModBlocks.FANCY_CHARRED_STAIRS, Ingredient.ofItems(ModBlocks.FANCY_CHARRED_PLANKS))
                 .criterion(hasItem(ModBlocks.FANCY_CHARRED_PLANKS), conditionsFromItem(ModBlocks.FANCY_CHARRED_PLANKS))
                 .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.FANCY_CHARRED_STAIRS)));
@@ -1862,6 +1920,10 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.MEGAREGOLITH_BRICK_SLAB, ModBlocks.MEGAREGOLITH_BRICKS, 2);
         offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.MEGAREGOLITH_BRICK_STAIRS, ModBlocks.MEGAREGOLITH_BRICKS);
         offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.MEGAREGOLITH_BRICK_WALL, ModBlocks.MEGAREGOLITH_BRICKS);
+
+        offerFoodCookingRecipe(exporter, "campfire", RecipeSerializer.CAMPFIRE_COOKING, 600, ModItems.COFFEE_BEANS, ModItems.ROASTED_COFFEE_BEANS, 0.5f);
+        offerFoodCookingRecipe(exporter, "smoker", RecipeSerializer.SMOKING, 100, ModItems.COFFEE_BEANS, ModItems.ROASTED_COFFEE_BEANS, 0.5f);
+        offerFoodCookingRecipe(exporter, "furnace", RecipeSerializer.SMELTING, 200, ModItems.COFFEE_BEANS, ModItems.ROASTED_COFFEE_BEANS, 0.5f);
 
         offerFoodCookingRecipe(exporter, "campfire", RecipeSerializer.CAMPFIRE_COOKING, 600, Items.SUGAR, ModItems.CARAMEL, 0.5f);
         offerFoodCookingRecipe(exporter, "smoker", RecipeSerializer.SMOKING, 100, Items.SUGAR, ModItems.CARAMEL, 0.5f);
@@ -1997,6 +2059,13 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(ModItems.ORANGE), conditionsFromItem(ModItems.ORANGE))
                 .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.WOODEN_ORANGE_JUICE_STEIN)));
 
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.WOODEN_HOT_COFFEE_STEIN)
+                .input(ModBlocks.WOODEN_BOILING_WATER_STEIN)
+                .input(ModItems.GROUND_COFFEE_BEANS)
+                .group(ModBlocks.WOODEN_HOT_COFFEE_STEIN.toString())
+                .criterion(hasItem(ModBlocks.WOODEN_BOILING_WATER_STEIN), conditionsFromItem(ModBlocks.WOODEN_BOILING_WATER_STEIN))
+                .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.WOODEN_HOT_COFFEE_STEIN)));
+
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.WOODEN_BEER_STEIN)
                 .input(ModBlocks.WOODEN_STEIN)
                 .input(ModTags.Items.BEER_CONTAINER)
@@ -2055,8 +2124,8 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.WOODEN_MEAD_STEIN)
                 .input(ModBlocks.WOODEN_STEIN)
                 .input(ModItems.MEAD_BOTTLE)
-                .input(ModItems.BEER_BOTTLE)
-                .input(ModItems.BEER_BOTTLE)
+                .input(ModItems.MEAD_BOTTLE)
+                .input(ModItems.MEAD_BOTTLE)
                 .group(ModBlocks.WOODEN_BEER_STEIN.toString())
                 .criterion(hasItem(ModBlocks.WOODEN_STEIN), conditionsFromItem(ModBlocks.WOODEN_STEIN))
                 .criterion(hasItem(ModItems.MEAD_BOTTLE), conditionsFromItem(ModItems.MEAD_BOTTLE))
@@ -2122,6 +2191,14 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(hasItem(ModItems.CARAMEL), conditionsFromItem(ModItems.CARAMEL))
                 .criterion(hasItem(Items.SNOWBALL), conditionsFromItem(Items.SNOWBALL))
                 .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.WOODEN_CARAMEL_MILKSHAKE_STEIN)));
+
+        offerFoodCookingRecipe(exporter, "campfire", RecipeSerializer.CAMPFIRE_COOKING, 600, ModBlocks.WOODEN_WATER_STEIN, ModBlocks.WOODEN_BOILING_WATER_STEIN, 0.5f);
+        offerFoodCookingRecipe(exporter, "smoker", RecipeSerializer.SMOKING, 100, ModBlocks.WOODEN_WATER_STEIN, ModBlocks.WOODEN_BOILING_WATER_STEIN, 0.5f);
+        offerFoodCookingRecipe(exporter, "furnace", RecipeSerializer.SMELTING, 200, ModBlocks.WOODEN_WATER_STEIN, ModBlocks.WOODEN_BOILING_WATER_STEIN, 0.5f);
+
+        offerFoodCookingRecipe(exporter, "campfire", RecipeSerializer.CAMPFIRE_COOKING, 600, Items.WATER_BUCKET, ModFluids.BOILING_WATER_BUCKET, 0.5f);
+        offerFoodCookingRecipe(exporter, "smoker", RecipeSerializer.SMOKING, 100, Items.WATER_BUCKET, ModFluids.BOILING_WATER_BUCKET, 0.5f);
+        offerFoodCookingRecipe(exporter, "furnace", RecipeSerializer.SMELTING, 200, Items.WATER_BUCKET, ModFluids.BOILING_WATER_BUCKET, 0.5f);
 
         offerFoodCookingRecipe(exporter, "campfire", RecipeSerializer.CAMPFIRE_COOKING, 600, ModBlocks.WOODEN_MILK_STEIN, ModBlocks.HOT_WOODEN_MILK_STEIN, 0.5f);
         offerFoodCookingRecipe(exporter, "smoker", RecipeSerializer.SMOKING, 100, ModBlocks.WOODEN_MILK_STEIN, ModBlocks.HOT_WOODEN_MILK_STEIN, 0.5f);

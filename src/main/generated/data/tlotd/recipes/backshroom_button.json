@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "tlotd:backshroom_planks"
+    }
+  ],
+  "result": {
+    "item": "tlotd:backshroom_button"
+  }
+}

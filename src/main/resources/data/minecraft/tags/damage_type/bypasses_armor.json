@@ -1,9 +1,10 @@
 {
-    "replace": false,
-    "values": [
-        "tlotd:radiation",
-        "tlotd:hypoxia",
-        "tlotd:subspace_sickness",
-        "tlotd:silverthorn_arrow"
-    ]
+  "replace": false,
+  "values": [
+    "tlotd:boiling",
+    "tlotd:radiation",
+    "tlotd:hypoxia",
+    "tlotd:subspace_sickness",
+    "tlotd:silverthorn_arrow"
+  ]
 }

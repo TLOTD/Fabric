@@ -6,6 +6,6 @@
 		"1": "tlotd:item/me/gondorian_tower_shield"
 	},
 	"overrides": [
-		{"predicate": {"blocking": 1}, "model": "tlotd:item/gondorian_tower_shield_blocking"}
+		{"predicate": {"tlotd:blocking": 1}, "model": "tlotd:item/gondorian_tower_shield_blocking"}
 	]
 }

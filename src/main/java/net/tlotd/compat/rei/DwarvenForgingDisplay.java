@@ -78,6 +78,11 @@ public class DwarvenForgingDisplay extends BasicDisplay {
         return list;
     }
 
+    @Override
+    public CategoryIdentifier<?> getCategoryIdentifier() {
+        return DwarvenForgingCategory.DWARVEN_FORGING;
+    }
+
     private static int getMaxIngredientTemperature(DwarvenForgingRecipe recipe) {
         int maxTemp = 0;
         for (Ingredient ingredient : recipe.getIngredients()) {
@@ -86,10 +91,5 @@ public class DwarvenForgingDisplay extends BasicDisplay {
             }
         }
         return maxTemp;
-    }
-
-    @Override
-    public CategoryIdentifier<?> getCategoryIdentifier() {
-        return DwarvenForgingCategory.DWARVEN_FORGING;
     }
 }

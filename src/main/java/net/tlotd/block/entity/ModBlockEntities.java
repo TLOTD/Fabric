@@ -99,9 +99,7 @@ public class ModBlockEntities {
                         case FLOOR -> Direction.DOWN;
                         case WALL -> facing;
                     };
-                    return direction == allowedSide
-                            ? blockEntity.energy
-                            : null;
+                    return direction == allowedSide ? blockEntity.energy : null;
                 },
                 HEV_CHARGER_BLOCK_ENTITY
         );

@@ -73,7 +73,7 @@ public class ModPlacedFeatures {
         register(context, LIMESTONE_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.LIMESTONE_KEY), ModOrePlacement.modifiersWithCount(16, HeightRangePlacementModifier.uniform(YOffset.fixed(-64), YOffset.fixed(320))));
         register(context, RED_DEEPSLATE_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.RED_DEEPSLATE_KEY), ModOrePlacement.modifiersWithCount(8, HeightRangePlacementModifier.uniform(YOffset.fixed(-64), YOffset.fixed(0))));
 
-        register(context, ALUMINIUM_ORE_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.ALUMINIUM_ORE_KEY), ModOrePlacement.modifiersWithCount(4, HeightRangePlacementModifier.uniform(YOffset.fixed(-64), YOffset.fixed(128))));
+        register(context, ALUMINIUM_ORE_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.ALUMINIUM_ORE_KEY), ModOrePlacement.modifiersWithCount(2, HeightRangePlacementModifier.uniform(YOffset.fixed(-64), YOffset.fixed(128))));
 
         register(context, LEAD_ORE_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.LEAD_ORE_KEY), ModOrePlacement.modifiersWithCount(4, HeightRangePlacementModifier.uniform(YOffset.fixed(0), YOffset.fixed(128))));
         register(context, DEEPSLATE_URANIUM_ORE_PLACED_KEY, configuredFeatureRegistryEntryLookup.getOrThrow(ModConfiguredFeatures.DEEPSLATE_URANIUM_ORE_KEY), ModOrePlacement.modifiersWithCount(2, HeightRangePlacementModifier.uniform(YOffset.fixed(-64), YOffset.fixed(0))));

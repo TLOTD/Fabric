@@ -7,10 +7,8 @@ import me.shedaniel.rei.api.common.util.EntryIngredients;
 import net.minecraft.item.ItemStack;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.util.collection.DefaultedList;
-import net.tlotd.recipe.MithrilSmithingRecipe;
 import net.tlotd.recipe.NetheriteSmithingRecipe;
 import net.tlotd.util.ItemHeatHelper;
-import net.tlotd.util.ModTags;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -30,21 +28,9 @@ public class NetheriteSmithingDisplay extends BasicDisplay {
                 ItemStack[] matching = ingredients.get(i).getMatchingStacks();
                 List<ItemStack> converted = Arrays.stream(matching)
                         .map(stack -> {
-                            if (stack.isIn(ModTags.Items.SMITHING_HEAT_5800)) {
+                            if (ItemHeatHelper.getSmithingTemperature(stack) > 0) {
                                 ItemStack heatedStack = new ItemStack(stack.copy().getItem(), stack.getCount());
-                                ItemHeatHelper.setTemperature(heatedStack, 5800);
-                                return heatedStack;
-                            } else if (stack.isIn(ModTags.Items.SMITHING_HEAT_4200)) {
-                                ItemStack heatedStack = new ItemStack(stack.copy().getItem(), stack.getCount());
-                                ItemHeatHelper.setTemperature(heatedStack, 4200);
-                                return heatedStack;
-                            } else if (stack.isIn(ModTags.Items.SMITHING_HEAT_2600)) {
-                                ItemStack heatedStack = new ItemStack(stack.copy().getItem(), stack.getCount());
-                                ItemHeatHelper.setTemperature(heatedStack, 2600);
-                                return heatedStack;
-                            } else if (stack.isIn(ModTags.Items.SMITHING_HEAT_1800)) {
-                                ItemStack heatedStack = new ItemStack(stack.copy().getItem(), stack.getCount());
-                                ItemHeatHelper.setTemperature(heatedStack, 1800);
+                                ItemHeatHelper.setTemperature(heatedStack, ItemHeatHelper.getSmithingTemperature(heatedStack));
                                 return heatedStack;
                             }
                             return stack.copy();
