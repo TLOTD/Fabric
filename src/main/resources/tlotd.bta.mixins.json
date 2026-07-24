@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "package": "net.tlotd.bta.mixin",
+  "compatibilityLevel": "JAVA_${java}",
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "mixins": [
+    "ModChunkDecoratorOverworld"
+  ],
+  "client": [
+    "client.MobRendererPlayerMixin"
+  ]
+}

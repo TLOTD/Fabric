@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 1,
+	"schemaVersion": 1,
 	"id": "tlotd",
 	"version": "${version}",
 	"name": "TLOTD BTA!",
@@ -38,37 +38,26 @@
 		"homepage": "https://tlotd.net/",
 		"sources": "https://github.com/tlotd/Fabric"
 	},
-	"license": "CC-BY-NC-SA-4.0",
 	"icon": "assets/tlotd/icon.png",
-  "environment": "*",
-  "entrypoints": {
-    "main": [
-			"net.tlotd.TLOTD"
-    ],
-		"beforeGameStart": [
-			"net.tlotd.TLOTD"
+	"license": "CC0-1.0",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"net.tlotd.bta.TLOTD"
 		],
-		"afterGameStart": [
-			"net.tlotd.TLOTD"
-		],
-		"recipesReady": [
-			"net.tlotd.TLOTD"
-		],
-		"recipesReady": [
-			"net.tlotd.datagen.ModRecipeProvider"
-		],
-		"initModels": [
-			"net.tlotd.datagen.ModModelProvider"
+		"client": [
+			"net.tlotd.bta.TLOTDClient"
 		]
 	},
-  "mixins": [
-    "tlotd.mixins.json"
-  ],
-
-  "depends": {
+	"mixins": [
+		"tlotd.bta.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=${fabricloader}",
 		"minecraft": "*",
-    "fabricloader": ">=0.15.5"
-  },
-  "suggests": {
-  }
+		"java": ">=${java}"
+	},
+	"suggests": {
+		"modmenu": ">=${modmenu}"
+	}
 }
