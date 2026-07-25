@@ -6,6 +6,7 @@ import net.minecraft.core.item.ItemStack;
 import net.minecraft.core.item.Items;
 import net.tlotd.bta.TLOTD;
 import net.tlotd.bta.block.ModBlocks;
+import net.tlotd.bta.block.tag.ModTags;
 import net.tlotd.bta.item.ModItems;
 import turniplabs.halplibe.helper.RecipeBuilder;
 
@@ -20,6 +21,13 @@ public class ModRecipeProvider {
 
 		//RecipeBuilder.ModifyTrommel("minecraft", "soul_sand")
 		//	.addEntry(new WeightedRandomLootObject(ModItems.FOSSILIZED_BONE.getDefaultStack(),1),0.5);
+
+		RecipeBuilder.Furnace(TLOTD.MOD_ID)
+			.setInput("tlotd:fossil_ores")
+			.create("fossil_ores_smelting", new ItemStack(ModItems.FOSSILIZED_BONE));
+		RecipeBuilder.BlastFurnace(TLOTD.MOD_ID)
+			.setInput("tlotd:fossil_ores")
+			.create("fossil_ores_blasting", new ItemStack(ModItems.FOSSILIZED_BONE));
 
 		RecipeBuilder.Shaped(TLOTD.MOD_ID)
 			.setShape("#", "#")
@@ -49,6 +57,9 @@ public class ModRecipeProvider {
 			.addInput(ModItems.HELIORITE_COMB)
 			.addInput(ModItems.HELIORITE_COMB)
 			.create("heliorite_comb_block", new ItemStack(ModBlocks.HELIORITE_COMB_BLOCK));
+		RecipeBuilder.BlastFurnace(TLOTD.MOD_ID)
+			.setInput("tlotd:heliorite_ores")
+			.create("heliorite_ores_blasting", new ItemStack(ModItems.HELIORITE_COMB));
 		RecipeBuilder.Shapeless(TLOTD.MOD_ID)
 			.addInput(ModItems.HELIORITE_COMB)
 			.addInput(Blocks.OBSIDIAN)
@@ -154,7 +165,10 @@ public class ModRecipeProvider {
 			.create("raw_endurium_block", new ItemStack(ModBlocks.RAW_ENDURIUM_BLOCK));
 		RecipeBuilder.BlastFurnace(TLOTD.MOD_ID)
 			.setInput(ModItems.ENDURIUM_CRYSTAL)
-			.create("endurium_crystal_blast_furnace", new ItemStack(ModItems.ENDURIUM_INGOT));
+			.create("endurium_comb_blasting", new ItemStack(ModItems.ENDURIUM_INGOT));
+		RecipeBuilder.BlastFurnace(TLOTD.MOD_ID)
+			.setInput("tlotd:endurium_ores")
+			.create("endurium_ores_blasting", new ItemStack(ModItems.ENDURIUM_INGOT));
 		RecipeBuilder.Shapeless(TLOTD.MOD_ID)
 			.addInput(ModItems.ENDURIUM_INGOT)
 			.create("endurium_nugget", new ItemStack(ModItems.ENDURIUM_NUGGET, 9));
@@ -256,7 +270,10 @@ public class ModRecipeProvider {
 			.create("raw_palladium_block", new ItemStack(ModBlocks.RAW_PALLADIUM_BLOCK));
 		RecipeBuilder.BlastFurnace(TLOTD.MOD_ID)
 			.setInput(ModItems.RAW_PALLADIUM)
-			.create("raw_palladium_blast_furnace", new ItemStack(ModItems.PALLADIUM_INGOT));
+			.create("palladium_comb_blasting", new ItemStack(ModItems.PALLADIUM_INGOT));
+		RecipeBuilder.BlastFurnace(TLOTD.MOD_ID)
+			.setInput("tlotd:palladium_ores")
+			.create("palladium_ores_blasting", new ItemStack(ModItems.PALLADIUM_INGOT));
 		RecipeBuilder.Shapeless(TLOTD.MOD_ID)
 			.addInput(ModItems.PALLADIUM_INGOT)
 			.create("palladium_nugget", new ItemStack(ModItems.PALLADIUM_NUGGET, 9));
@@ -358,7 +375,10 @@ public class ModRecipeProvider {
 			.create("jurassoline_crystal_block", new ItemStack(ModBlocks.JURASSOLINE_CRYSTAL_BLOCK));
 		RecipeBuilder.BlastFurnace(TLOTD.MOD_ID)
 			.setInput(ModItems.JURASSOLINE_CRYSTAL)
-			.create("jurassoline_crystal_blast_furnace", new ItemStack(ModItems.JURASSOLINE_INGOT));
+			.create("jurassoline_comb_blasting", new ItemStack(ModItems.JURASSOLINE_INGOT));
+		RecipeBuilder.BlastFurnace(TLOTD.MOD_ID)
+			.setInput("tlotd:jurassoline_ores")
+			.create("jurassoline_ores_blasting", new ItemStack(ModItems.JURASSOLINE_INGOT));
 		RecipeBuilder.Shapeless(TLOTD.MOD_ID)
 			.addInput(ModItems.JURASSOLINE_INGOT)
 			.create("jurassoline_nugget", new ItemStack(ModItems.JURASSOLINE_NUGGET, 9));
@@ -460,7 +480,10 @@ public class ModRecipeProvider {
 			.create("cinnabar_crystal_block", new ItemStack(ModBlocks.CINNABAR_CRYSTAL_BLOCK));
 		RecipeBuilder.BlastFurnace(TLOTD.MOD_ID)
 			.setInput(ModItems.CINNABAR_CRYSTAL)
-			.create("cinnabar_crystal_blast_furnace", new ItemStack(ModItems.CINNABAR_INGOT));
+			.create("cinnabar_comb_blasting", new ItemStack(ModItems.CINNABAR_INGOT));
+		RecipeBuilder.BlastFurnace(TLOTD.MOD_ID)
+			.setInput("tlotd:cinnabar_ores")
+			.create("cinnabar_ores_blasting", new ItemStack(ModItems.CINNABAR_INGOT));
 		RecipeBuilder.Shapeless(TLOTD.MOD_ID)
 			.addInput(ModItems.CINNABAR_INGOT)
 			.create("cinnabar_nugget", new ItemStack(ModItems.CINNABAR_NUGGET, 9));
@@ -562,7 +585,10 @@ public class ModRecipeProvider {
 			.create("raw_nebular_block", new ItemStack(ModBlocks.RAW_NEBULAR_BLOCK));
 		RecipeBuilder.BlastFurnace(TLOTD.MOD_ID)
 			.setInput(ModItems.NEBULAR_CRYSTAL)
-			.create("nebular_crystal_blast_furnace", new ItemStack(ModItems.NEBULAR_INGOT));
+			.create("nebular_comb_blasting", new ItemStack(ModItems.NEBULAR_INGOT));
+		RecipeBuilder.BlastFurnace(TLOTD.MOD_ID)
+			.setInput("tlotd:nebular_ores")
+			.create("nebular_ores_blasting", new ItemStack(ModItems.NEBULAR_INGOT));
 		RecipeBuilder.Shapeless(TLOTD.MOD_ID)
 			.addInput(ModItems.NEBULAR_INGOT)
 			.create("nebular_nugget", new ItemStack(ModItems.NEBULAR_NUGGET, 9));
@@ -664,7 +690,10 @@ public class ModRecipeProvider {
 			.create("raw_mithril_block", new ItemStack(ModBlocks.RAW_MITHRIL_BLOCK));
 		RecipeBuilder.BlastFurnace(TLOTD.MOD_ID)
 			.setInput(ModItems.RAW_MITHRIL)
-			.create("raw_mithril_blast_furnace", new ItemStack(ModItems.MITHRIL_INGOT));
+			.create("mithril_comb_blasting", new ItemStack(ModItems.MITHRIL_INGOT));
+		RecipeBuilder.BlastFurnace(TLOTD.MOD_ID)
+			.setInput("tlotd:mithril_ores")
+			.create("mithril_ores_blasting", new ItemStack(ModItems.MITHRIL_INGOT));
 		RecipeBuilder.Shapeless(TLOTD.MOD_ID)
 			.addInput(ModItems.MITHRIL_INGOT)
 			.create("mithril_nugget", new ItemStack(ModItems.MITHRIL_NUGGET, 9));
@@ -765,9 +794,25 @@ public class ModRecipeProvider {
 			.setInput(ModBlocks.COBBLED_RED_DEEPSLATE)
 			.create("red_deepslate", new ItemStack(ModBlocks.RED_DEEPSLATE));
 		RecipeBuilder.Shaped(TLOTD.MOD_ID)
+			.setShape("#  ", "## ", "###")
+			.addInput('#', ModBlocks.COBBLED_RED_DEEPSLATE)
+			.create("cobbled_red_deepslate_stairs", new ItemStack(ModBlocks.COBBLED_RED_DEEPSLATE_STAIRS, 6));
+		RecipeBuilder.Shaped(TLOTD.MOD_ID)
+			.setShape("###")
+			.addInput('#', ModBlocks.COBBLED_RED_DEEPSLATE)
+			.create("cobbled_red_deepslate_slab", new ItemStack(ModBlocks.COBBLED_RED_DEEPSLATE_SLAB, 6));
+		RecipeBuilder.Shaped(TLOTD.MOD_ID)
 			.setShape("##", "##")
 			.addInput('#', ModBlocks.RED_DEEPSLATE)
 			.create("red_deepslate_bricks", new ItemStack(ModBlocks.RED_DEEPSLATE_BRICKS));
+		RecipeBuilder.Shaped(TLOTD.MOD_ID)
+			.setShape("#  ", "## ", "###")
+			.addInput('#', ModBlocks.RED_DEEPSLATE_BRICKS)
+			.create("red_deepslate_brick_stairs", new ItemStack(ModBlocks.RED_DEEPSLATE_BRICK_STAIRS, 6));
+		RecipeBuilder.Shaped(TLOTD.MOD_ID)
+			.setShape("###")
+			.addInput('#', ModBlocks.RED_DEEPSLATE_BRICKS)
+			.create("red_deepslate_brick_slab", new ItemStack(ModBlocks.RED_DEEPSLATE_BRICK_SLAB, 6));
 		RecipeBuilder.Furnace(TLOTD.MOD_ID)
 			.setInput(ModBlocks.COBBLED_RED_DEEPSLATE_BRICKS)
 			.create("red_deepslate_bricks_from_smelting", new ItemStack(ModBlocks.RED_DEEPSLATE_BRICKS));
@@ -775,6 +820,14 @@ public class ModRecipeProvider {
 			.setShape("##", "##")
 			.addInput('#', ModBlocks.COBBLED_RED_DEEPSLATE)
 			.create("cobbled_red_deepslate_bricks", new ItemStack(ModBlocks.COBBLED_RED_DEEPSLATE_BRICKS));
+		RecipeBuilder.Shaped(TLOTD.MOD_ID)
+			.setShape("#  ", "## ", "###")
+			.addInput('#', ModBlocks.COBBLED_RED_DEEPSLATE_BRICKS)
+			.create("cobbled_red_deepslate_brick_stairs", new ItemStack(ModBlocks.COBBLED_RED_DEEPSLATE_BRICK_STAIRS, 6));
+		RecipeBuilder.Shaped(TLOTD.MOD_ID)
+			.setShape("###")
+			.addInput('#', ModBlocks.COBBLED_RED_DEEPSLATE_BRICKS)
+			.create("cobbled_red_deepslate_brick_slab", new ItemStack(ModBlocks.COBBLED_RED_DEEPSLATE_BRICK_SLAB, 6));
 
 		RecipeBuilder.Shapeless(TLOTD.MOD_ID)
 			.addInput(Items.WHEAT)

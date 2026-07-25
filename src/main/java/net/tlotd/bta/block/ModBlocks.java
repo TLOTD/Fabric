@@ -1,8 +1,9 @@
 package net.tlotd.bta.block;
 
 import net.minecraft.core.block.Block;
+import net.minecraft.core.block.BlockLogicSlab;
+import net.minecraft.core.block.BlockLogicStairs;
 import net.minecraft.core.block.Blocks;
-import net.minecraft.core.block.material.Material;
 import net.minecraft.core.block.tag.BlockTags;
 import net.tlotd.bta.TLOTD;
 import net.tlotd.bta.block.custom.*;
@@ -17,6 +18,18 @@ public class ModBlocks {
 	public static int blockId = TLOTD.CFG.getInt("IDs.starting_block_id");
 
 	public static BlockBuilder fullBlock = new BlockBuilder(TLOTD.MOD_ID);
+	public static BlockBuilder notFullBlock = new BlockBuilder(TLOTD.MOD_ID).setUseInternalLight();
+
+	public static Block<?> RED_DEEPSLATE;
+	public static Block<?> RED_DEEPSLATE_BRICKS;
+	public static Block<BlockLogicStairs> RED_DEEPSLATE_BRICK_STAIRS;
+	public static Block<BlockLogicSlab> RED_DEEPSLATE_BRICK_SLAB;
+	public static Block<?> COBBLED_RED_DEEPSLATE;
+	public static Block<BlockLogicStairs> COBBLED_RED_DEEPSLATE_STAIRS;
+	public static Block<BlockLogicSlab> COBBLED_RED_DEEPSLATE_SLAB;
+	public static Block<?> COBBLED_RED_DEEPSLATE_BRICKS;
+	public static Block<BlockLogicStairs> COBBLED_RED_DEEPSLATE_BRICK_STAIRS;
+	public static Block<BlockLogicSlab> COBBLED_RED_DEEPSLATE_BRICK_SLAB;
 
 	public static Block<?> STONE_FOSSIL;
 	public static Block<?> BASALT_FOSSIL;
@@ -88,11 +101,6 @@ public class ModBlocks {
 	public static Block<?> MITHRIL_BEDROCK_ORE;
 	public static Block<?> RAW_MITHRIL_BLOCK;
 	public static Block<?> MITHRIL_BLOCK;
-
-	public static Block<?> RED_DEEPSLATE;
-	public static Block<?> RED_DEEPSLATE_BRICKS;
-	public static Block<?> COBBLED_RED_DEEPSLATE;
-	public static Block<?> COBBLED_RED_DEEPSLATE_BRICKS;
 
 	public void initializeBlockDetails() {
 		miningLevels.put(ModBlocks.STONE_FOSSIL, 2);
@@ -179,16 +187,47 @@ public class ModBlocks {
 			.setHardness(3f)
 			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS))
 			.build("red_deepslate_bricks", blockId++, b -> new BlockLogicOreBlock(b)).withBlastResistance(5.0F);
+		RED_DEEPSLATE_BRICK_STAIRS = notFullBlock
+			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
+			.setHardness(3f)
+			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS))
+			.build("red_deepslate_brick_stairs", blockId++, b -> new BlockLogicStairs(b, RED_DEEPSLATE_BRICKS));
+		RED_DEEPSLATE_BRICK_SLAB = notFullBlock
+			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
+			.setHardness(3f)
+			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS))
+			.build("red_deepslate_brick_slab", blockId++, b -> new BlockLogicSlab(b, RED_DEEPSLATE_BRICKS));
+
 		COBBLED_RED_DEEPSLATE = fullBlock
 			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
 			.setHardness(3f)
 			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS))
 			.build("cobbled_red_deepslate", blockId++, b -> new BlockLogicOreBlock(b)).withBlastResistance(5.0F);
+		COBBLED_RED_DEEPSLATE_STAIRS = notFullBlock
+			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
+			.setHardness(3f)
+			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS))
+			.build("cobbled_red_deepslate_stairs", blockId++, b -> new BlockLogicStairs(b, COBBLED_RED_DEEPSLATE));
+		COBBLED_RED_DEEPSLATE_SLAB = notFullBlock
+			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
+			.setHardness(3f)
+			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS))
+			.build("cobbled_red_deepslate_slab", blockId++, b -> new BlockLogicSlab(b, COBBLED_RED_DEEPSLATE));
 		COBBLED_RED_DEEPSLATE_BRICKS = fullBlock
 			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
 			.setHardness(3f)
 			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS))
 			.build("cobbled_red_deepslate_bricks", blockId++, b -> new BlockLogicOreBlock(b)).withBlastResistance(5.0F);
+		COBBLED_RED_DEEPSLATE_BRICK_STAIRS = notFullBlock
+			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
+			.setHardness(3f)
+			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS))
+			.build("cobbled_red_deepslate_brick_stairs", blockId++, b -> new BlockLogicStairs(b, COBBLED_RED_DEEPSLATE_BRICKS));
+		COBBLED_RED_DEEPSLATE_BRICK_SLAB = notFullBlock
+			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
+			.setHardness(3f)
+			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS))
+			.build("cobbled_red_deepslate_brick_slab", blockId++, b -> new BlockLogicSlab(b, COBBLED_RED_DEEPSLATE_BRICKS));
 
 		STONE_FOSSIL = fullBlock
 			.setTags(BlockTags.MINEABLE_BY_PICKAXE)

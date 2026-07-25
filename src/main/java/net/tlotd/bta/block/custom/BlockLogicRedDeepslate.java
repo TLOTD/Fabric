@@ -8,23 +8,19 @@ import net.minecraft.core.enums.EnumDropCause;
 import net.minecraft.core.item.ItemStack;
 import net.minecraft.core.world.World;
 import net.tlotd.bta.block.ModBlocks;
+import org.jetbrains.annotations.NotNull;
 
 public class BlockLogicRedDeepslate extends BlockLogic {
 	public BlockLogicRedDeepslate(Block block) {
 		super(block, Blocks.SLATE.getMaterial());
 	}
 
-	public ItemStack[] getBreakResult(World world, EnumDropCause dropCause, int x, int y, int z, int meta, TileEntity tileEntity) {
-		switch (dropCause) {
-			case SILK_TOUCH:
-			case PICK_BLOCK:
-				return new ItemStack[]{new ItemStack(this)};
-			case EXPLOSION:
-			case PROPER_TOOL:
-			case PISTON_CRUSH:
-				return new ItemStack[]{new ItemStack(ModBlocks.COBBLED_RED_DEEPSLATE)};
-			default:
-				return null;
-		}
+	public ItemStack[] getBreakResult(@NotNull World world, EnumDropCause dropCause, int meta, TileEntity tileEntity) {
+		return switch (dropCause) {
+			case SILK_TOUCH, PICK_BLOCK -> new ItemStack[]{new ItemStack(this)};
+			case EXPLOSION, PROPER_TOOL, PISTON_CRUSH ->
+				new ItemStack[]{new ItemStack(ModBlocks.COBBLED_RED_DEEPSLATE)};
+			default -> null;
+		};
 	}
 }

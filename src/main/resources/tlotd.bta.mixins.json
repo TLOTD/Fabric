@@ -6,7 +6,8 @@
     "defaultRequire": 1
   },
   "mixins": [
-    "ModChunkDecoratorOverworld"
+    "ModChunkDecoratorOverworld",
+    "ItemGroupMixin"
   ],
   "client": [
     "client.MobRendererPlayerMixin"

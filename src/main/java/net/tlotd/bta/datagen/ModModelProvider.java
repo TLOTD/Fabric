@@ -4,6 +4,8 @@ import net.minecraft.client.render.EntityRendererDispatcher;
 import net.minecraft.client.render.TileEntityRenderDispatcher;
 import net.minecraft.client.render.block.color.BlockColorDispatcher;
 import net.minecraft.client.render.block.model.BlockModelDispatcher;
+import net.minecraft.client.render.block.model.BlockModelSlab;
+import net.minecraft.client.render.block.model.BlockModelStairs;
 import net.minecraft.client.render.block.model.BlockModelStandard;
 import net.minecraft.client.render.item.model.ItemModelDispatcher;
 import net.minecraft.client.render.item.model.ItemModelStandard;
@@ -14,6 +16,47 @@ import net.tlotd.bta.item.ModItems;
 public class ModModelProvider {
 
 	public void initBlockModels(BlockModelDispatcher dispatcher) {
+		dispatcher.addDispatch(
+			ModBlocks.RED_DEEPSLATE, new BlockModelStandard<>(ModBlocks.RED_DEEPSLATE)
+				.setTex("tlotd:block/red_deepslate", Side.sides)
+		);
+		dispatcher.addDispatch(
+			ModBlocks.RED_DEEPSLATE_BRICKS, new BlockModelStandard<>(ModBlocks.RED_DEEPSLATE_BRICKS)
+				.setTex("tlotd:block/red_deepslate_bricks", Side.sides)
+		);
+		dispatcher.addDispatch(
+			ModBlocks.RED_DEEPSLATE_BRICK_STAIRS, new BlockModelStairs<>(ModBlocks.RED_DEEPSLATE_BRICK_STAIRS)
+				.setTex("tlotd:block/red_deepslate_bricks", Side.sides)
+		);
+		dispatcher.addDispatch(
+			ModBlocks.RED_DEEPSLATE_BRICK_SLAB, new BlockModelSlab<>(ModBlocks.RED_DEEPSLATE_BRICK_SLAB)
+				.setTex("tlotd:block/red_deepslate_bricks", Side.sides)
+		);
+		dispatcher.addDispatch(
+			ModBlocks.COBBLED_RED_DEEPSLATE, new BlockModelStandard<>(ModBlocks.COBBLED_RED_DEEPSLATE)
+				.setTex("tlotd:block/cobbled_red_deepslate", Side.sides)
+		);
+		dispatcher.addDispatch(
+			ModBlocks.COBBLED_RED_DEEPSLATE_STAIRS, new BlockModelStairs<>(ModBlocks.COBBLED_RED_DEEPSLATE_STAIRS)
+				.setTex("tlotd:block/cobbled_red_deepslate", Side.sides)
+		);
+		dispatcher.addDispatch(
+			ModBlocks.COBBLED_RED_DEEPSLATE_SLAB, new BlockModelSlab<>(ModBlocks.COBBLED_RED_DEEPSLATE_SLAB)
+				.setTex("tlotd:block/cobbled_red_deepslate", Side.sides)
+		);
+		dispatcher.addDispatch(
+			ModBlocks.COBBLED_RED_DEEPSLATE_BRICKS, new BlockModelStandard<>(ModBlocks.COBBLED_RED_DEEPSLATE_BRICKS)
+				.setTex("tlotd:block/cobbled_red_deepslate_bricks", Side.sides)
+		);
+		dispatcher.addDispatch(
+			ModBlocks.COBBLED_RED_DEEPSLATE_BRICK_STAIRS, new BlockModelStairs<>(ModBlocks.COBBLED_RED_DEEPSLATE_BRICK_STAIRS)
+				.setTex("tlotd:block/cobbled_red_deepslate_bricks", Side.sides)
+		);
+		dispatcher.addDispatch(
+			ModBlocks.COBBLED_RED_DEEPSLATE_BRICK_SLAB, new BlockModelSlab<>(ModBlocks.COBBLED_RED_DEEPSLATE_BRICK_SLAB)
+				.setTex("tlotd:block/cobbled_red_deepslate_bricks", Side.sides)
+		);
+
 		dispatcher.addDispatch(
 			ModBlocks.STONE_FOSSIL, new BlockModelStandard<>(ModBlocks.STONE_FOSSIL)
 				.setTex("tlotd:block/stone_fossil", Side.sides)
@@ -272,23 +315,6 @@ public class ModModelProvider {
 		dispatcher.addDispatch(
 			ModBlocks.MITHRIL_BLOCK, new BlockModelStandard<>(ModBlocks.MITHRIL_BLOCK)
 				.setTex("tlotd:block/mithril_block", Side.sides)
-		);
-
-		dispatcher.addDispatch(
-			ModBlocks.RED_DEEPSLATE, new BlockModelStandard<>(ModBlocks.RED_DEEPSLATE)
-				.setTex("tlotd:block/red_deepslate", Side.sides)
-		);
-		dispatcher.addDispatch(
-			ModBlocks.RED_DEEPSLATE_BRICKS, new BlockModelStandard<>(ModBlocks.RED_DEEPSLATE_BRICKS)
-				.setTex("tlotd:block/red_deepslate_bricks", Side.sides)
-		);
-		dispatcher.addDispatch(
-			ModBlocks.COBBLED_RED_DEEPSLATE, new BlockModelStandard<>(ModBlocks.COBBLED_RED_DEEPSLATE)
-				.setTex("tlotd:block/cobbled_red_deepslate", Side.sides)
-		);
-		dispatcher.addDispatch(
-			ModBlocks.COBBLED_RED_DEEPSLATE_BRICKS, new BlockModelStandard<>(ModBlocks.COBBLED_RED_DEEPSLATE_BRICKS)
-				.setTex("tlotd:block/cobbled_red_deepslate_bricks", Side.sides)
 		);
 	}
 

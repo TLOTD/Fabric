@@ -33,6 +33,7 @@ public class TLOTD implements ModInitializer {
 		CommonEvents.AFTER_GAME_START.listen(Key.of(MOD_ID), this::afterGameStart);
 		CommonEvents.AFTER_BLOCK_INIT.listen(Key.of(MOD_ID),()->new ModBlocks().registerBlocks());
 		CommonEvents.AFTER_ITEM_INIT.listen(Key.of(MOD_ID),()->new ModItems().registerItems());
+		CommonEvents.AFTER_ITEM_INIT.listen(Key.of(MOD_ID),()->new ModTags().registerTags());
 		CommonEvents.RECIPES_NAMESPACE_INIT.listen(Key.of(MOD_ID),()->new ModRecipeProvider().initNamespaces());
 		CommonEvents.RECIPES_READY.listen(Key.of(MOD_ID),()->new ModRecipeProvider().onRecipesReady());
 		LOGGER.info("TLOTD BTA! initialized.");

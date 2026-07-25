@@ -9,6 +9,7 @@ import net.minecraft.core.enums.EnumDropCause;
 import net.minecraft.core.item.ItemStack;
 import net.minecraft.core.world.World;
 import net.tlotd.bta.item.ModItems;
+import org.jetbrains.annotations.NotNull;
 
 public class BlockLogicFossil extends BlockLogic {
 	public static final Int2IntArrayMap VARIANT_MAP = new Int2IntArrayMap();
@@ -18,17 +19,11 @@ public class BlockLogicFossil extends BlockLogic {
 		VARIANT_MAP.put(parentBlock.id(), block.id());
 	}
 
-	public ItemStack[] getBreakResult(World world, EnumDropCause dropCause, int x, int y, int z, int meta, TileEntity tileEntity) {
-		switch (dropCause) {
-			case SILK_TOUCH:
-			case PICK_BLOCK:
-				return new ItemStack[]{new ItemStack(this)};
-			case EXPLOSION:
-			case PROPER_TOOL:
-			case PISTON_CRUSH:
-				return new ItemStack[]{new ItemStack(ModItems.FOSSILIZED_BONE)};
-			default:
-				return null;
-		}
+	public ItemStack[] getBreakResult(@NotNull World world, EnumDropCause dropCause, int meta, TileEntity tileEntity) {
+		return switch (dropCause) {
+			case SILK_TOUCH, PICK_BLOCK -> new ItemStack[]{new ItemStack(this)};
+			case EXPLOSION, PROPER_TOOL, PISTON_CRUSH -> new ItemStack[]{new ItemStack(ModItems.FOSSILIZED_BONE)};
+			default -> null;
+		};
 	}
 }
