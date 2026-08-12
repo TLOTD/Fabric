@@ -21,9 +21,8 @@ public class TLOTD implements ModInitializer {
 	public static final TomlConfigHandler CFG;
 	static {
 		TOML.addCategory("IDs")
-			.addEntry("starting_item_id", 19000)
+			.addEntry("starting_item_id", 19010)
 			.addEntry("starting_block_id", 11000);
-
 		CFG = new TomlConfigHandler(TLOTD.MOD_ID, TOML);
 	}
 

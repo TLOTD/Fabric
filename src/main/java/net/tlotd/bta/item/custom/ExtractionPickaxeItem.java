@@ -1,16 +1,17 @@
 package net.tlotd.bta.item.custom;
 
-import net.minecraft.core.block.Block;
-import net.minecraft.core.block.Blocks;
+import net.minecraft.core.block.*;
+import net.minecraft.core.block.material.Materials;
 import net.minecraft.core.entity.player.Player;
 import net.minecraft.core.item.ItemStack;
 import net.minecraft.core.item.Items;
 import net.minecraft.core.item.material.ToolMaterial;
 import net.minecraft.core.item.tool.ItemToolPickaxe;
+import net.minecraft.core.util.helper.DyeColor;
 import net.minecraft.core.util.helper.Side;
 import net.minecraft.core.world.World;
 import net.minecraft.core.world.pos.TilePosc;
-import net.tlotd.bta.block.ModBlocks;
+import net.tlotd.bta.block.custom.*;
 import net.tlotd.bta.item.ModItems;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -22,485 +23,64 @@ public class ExtractionPickaxeItem extends ItemToolPickaxe {
 
 	@Override
 	public boolean onUseOnBlock(@NotNull ItemStack itemstack, @NotNull World world, @Nullable Player player, @NotNull TilePosc blockPos, @NotNull Side side, double xHit, double yHit) {
+		return oreExtraction(itemstack, world, player, blockPos);
+	}
+
+	static boolean oreExtraction(@NotNull ItemStack itemstack, @NotNull World world, @Nullable Player player, @NotNull TilePosc blockPos) {
 		Block<?> block = world.getBlockType(blockPos);
 		if (!world.isClientSide){
-			if (block == Blocks.ORE_COAL_STONE) {
-				world.dropItem(blockPos, Items.COAL.getDefaultStack());
-				world.setBlockType(blockPos,Blocks.STONE);
-				world.markBlockDirty(blockPos);
-				itemstack.damageItem(1,player);
-				return true;
-			} else if (block == Blocks.ORE_COAL_BASALT) {
-				world.dropItem(blockPos, Items.COAL.getDefaultStack());
-				world.setBlockType(blockPos,Blocks.BASALT);
-				world.markBlockDirty(blockPos);
-				itemstack.damageItem(1,player);
-				return true;
-			} else if (block == Blocks.ORE_COAL_LIMESTONE) {
-				world.dropItem(blockPos, Items.COAL.getDefaultStack());
-				world.setBlockType(blockPos,Blocks.LIMESTONE);
-				world.markBlockDirty(blockPos);
-				itemstack.damageItem(1,player);
-				return true;
-			} else if (block == Blocks.ORE_COAL_GRANITE) {
-				world.dropItem(blockPos, Items.COAL.getDefaultStack());
-				world.setBlockType(blockPos,Blocks.GRANITE);
-				world.markBlockDirty(blockPos);
-				itemstack.damageItem(1,player);
-				return true;
-			} else if (block == Blocks.ORE_COAL_PERMAFROST) {
-				world.dropItem(blockPos, Items.COAL.getDefaultStack());
-				world.setBlockType(blockPos,Blocks.PERMAFROST);
-				world.markBlockDirty(blockPos);
-				itemstack.damageItem(1,player);
-				return true;
-			} else if (block == Blocks.ORE_IRON_STONE) {
-				world.dropItem(blockPos, Items.ORE_RAW_IRON.getDefaultStack());
-				world.setBlockType(blockPos,Blocks.STONE);
-				world.markBlockDirty(blockPos);
-				itemstack.damageItem(1,player);
-				return true;
-			} else if (block == Blocks.ORE_IRON_BASALT) {
-				world.dropItem(blockPos, Items.ORE_RAW_IRON.getDefaultStack());
-				world.setBlockType(blockPos,Blocks.BASALT);
-				world.markBlockDirty(blockPos);
-				itemstack.damageItem(1,player);
-				return true;
-			} else if (block == Blocks.ORE_IRON_LIMESTONE) {
-				world.dropItem(blockPos, Items.ORE_RAW_IRON.getDefaultStack());
-				world.setBlockType(blockPos,Blocks.LIMESTONE);
-				world.markBlockDirty(blockPos);
-				itemstack.damageItem(1,player);
-				return true;
-			} else if (block == Blocks.ORE_IRON_GRANITE) {
-				world.dropItem(blockPos, Items.ORE_RAW_IRON.getDefaultStack());
-				world.setBlockType(blockPos,Blocks.GRANITE);
-				world.markBlockDirty(blockPos);
-				itemstack.damageItem(1,player);
-				return true;
-			} else if (block == Blocks.ORE_IRON_PERMAFROST) {
-				world.dropItem(blockPos, Items.ORE_RAW_IRON.getDefaultStack());
-				world.setBlockType(blockPos,Blocks.PERMAFROST);
-				world.markBlockDirty(blockPos);
-				itemstack.damageItem(1,player);
-				return true;
-			} else if (block == Blocks.ORE_GOLD_STONE) {
-				world.dropItem(blockPos, Items.ORE_RAW_GOLD.getDefaultStack());
-				world.setBlockType(blockPos,Blocks.STONE);
-				world.markBlockDirty(blockPos);
-				itemstack.damageItem(1,player);
-				return true;
-			} else if (block == Blocks.ORE_GOLD_BASALT) {
-				world.dropItem(blockPos, Items.ORE_RAW_GOLD.getDefaultStack());
-				world.setBlockType(blockPos,Blocks.BASALT);
-				world.markBlockDirty(blockPos);
-				itemstack.damageItem(1,player);
-				return true;
-			} else if (block == Blocks.ORE_GOLD_LIMESTONE) {
-				world.dropItem(blockPos, Items.ORE_RAW_GOLD.getDefaultStack());
-				world.setBlockType(blockPos,Blocks.LIMESTONE);
-				world.markBlockDirty(blockPos);
-				itemstack.damageItem(1,player);
-				return true;
-			} else if (block == Blocks.ORE_GOLD_GRANITE) {
-				world.dropItem(blockPos, Items.ORE_RAW_GOLD.getDefaultStack());
-				world.setBlockType(blockPos,Blocks.GRANITE);
-				world.markBlockDirty(blockPos);
-				itemstack.damageItem(1,player);
-				return true;
-			} else if (block == Blocks.ORE_GOLD_PERMAFROST) {
-				world.dropItem(blockPos, Items.ORE_RAW_GOLD.getDefaultStack());
-				world.setBlockType(blockPos,Blocks.PERMAFROST);
-				world.markBlockDirty(blockPos);
-				itemstack.damageItem(1,player);
-				return true;
-			} else if (block == Blocks.ORE_LAPIS_STONE) {
-				world.dropItem(blockPos, new ItemStack(Items.DYE.id, 1, 4));
-				world.setBlockType(blockPos,Blocks.STONE);
-				world.markBlockDirty(blockPos);
-				itemstack.damageItem(1,player);
-				return true;
-			} else if (block == Blocks.ORE_LAPIS_BASALT) {
-				world.dropItem(blockPos, new ItemStack(Items.DYE.id, 1, 4));
-				world.setBlockType(blockPos,Blocks.BASALT);
-				world.markBlockDirty(blockPos);
-				itemstack.damageItem(1,player);
-				return true;
-			} else if (block == Blocks.ORE_LAPIS_LIMESTONE) {
-				world.dropItem(blockPos, new ItemStack(Items.DYE.id, 1, 4));
-				world.setBlockType(blockPos,Blocks.LIMESTONE);
-				world.markBlockDirty(blockPos);
-				itemstack.damageItem(1,player);
-				return true;
-			} else if (block == Blocks.ORE_LAPIS_GRANITE) {
-				world.dropItem(blockPos, new ItemStack(Items.DYE.id, 1, 4));
-				world.setBlockType(blockPos,Blocks.GRANITE);
-				world.markBlockDirty(blockPos);
-				itemstack.damageItem(1,player);
-				return true;
-			} else if (block == Blocks.ORE_LAPIS_PERMAFROST) {
-				world.dropItem(blockPos, new ItemStack(Items.DYE.id, 1, 4));
-				world.setBlockType(blockPos,Blocks.PERMAFROST);
-				world.markBlockDirty(blockPos);
-				itemstack.damageItem(1,player);
-				return true;
-			} else if (block == Blocks.ORE_REDSTONE_STONE) {
-				world.dropItem(blockPos, Items.DUST_REDSTONE.getDefaultStack());
-				world.setBlockType(blockPos,Blocks.STONE);
-				world.markBlockDirty(blockPos);
-				itemstack.damageItem(1,player);
-				return true;
-			} else if (block == Blocks.ORE_REDSTONE_BASALT) {
-				world.dropItem(blockPos, Items.DUST_REDSTONE.getDefaultStack());
-				world.setBlockType(blockPos,Blocks.BASALT);
-				world.markBlockDirty(blockPos);
-				itemstack.damageItem(1,player);
-				return true;
-			} else if (block == Blocks.ORE_REDSTONE_LIMESTONE) {
-				world.dropItem(blockPos, Items.DUST_REDSTONE.getDefaultStack());
-				world.setBlockType(blockPos,Blocks.LIMESTONE);
-				world.markBlockDirty(blockPos);
-				itemstack.damageItem(1,player);
-				return true;
-			} else if (block == Blocks.ORE_REDSTONE_GRANITE) {
-				world.dropItem(blockPos, Items.DUST_REDSTONE.getDefaultStack());
-				world.setBlockType(blockPos,Blocks.GRANITE);
-				world.markBlockDirty(blockPos);
-				itemstack.damageItem(1,player);
-				return true;
-			} else if (block == Blocks.ORE_REDSTONE_PERMAFROST) {
-				world.dropItem(blockPos, Items.DUST_REDSTONE.getDefaultStack());
-				world.setBlockType(blockPos,Blocks.PERMAFROST);
-				world.markBlockDirty(blockPos);
-				itemstack.damageItem(1,player);
-				return true;
-			} else if (block == Blocks.ORE_DIAMOND_STONE) {
-				world.dropItem(blockPos, Items.DIAMOND.getDefaultStack());
-				world.setBlockType(blockPos,Blocks.STONE);
-				world.markBlockDirty(blockPos);
-				itemstack.damageItem(1,player);
-				return true;
-			} else if (block == Blocks.ORE_DIAMOND_BASALT) {
-				world.dropItem(blockPos, Items.DIAMOND.getDefaultStack());
-				world.setBlockType(blockPos,Blocks.BASALT);
-				world.markBlockDirty(blockPos);
-				itemstack.damageItem(1,player);
-				return true;
-			} else if (block == Blocks.ORE_DIAMOND_LIMESTONE) {
-				world.dropItem(blockPos, Items.DIAMOND.getDefaultStack());
-				world.setBlockType(blockPos,Blocks.LIMESTONE);
-				world.markBlockDirty(blockPos);
-				itemstack.damageItem(1,player);
-				return true;
-			} else if (block == Blocks.ORE_DIAMOND_GRANITE) {
-				world.dropItem(blockPos, Items.DIAMOND.getDefaultStack());
-				world.setBlockType(blockPos,Blocks.GRANITE);
-				world.markBlockDirty(blockPos);
-				itemstack.damageItem(1,player);
-				return true;
-			} else if (block == Blocks.ORE_DIAMOND_PERMAFROST) {
-				world.dropItem(blockPos, Items.DIAMOND.getDefaultStack());
-				world.setBlockType(blockPos,Blocks.PERMAFROST);
-				world.markBlockDirty(blockPos);
-				itemstack.damageItem(1,player);
-				return true;
-			} else if (block == Blocks.ORE_NETHERCOAL_NETHERRACK) {
-				world.dropItem(blockPos, Items.NETHERCOAL.getDefaultStack());
-				world.setBlockType(blockPos,Blocks.COBBLE_NETHERRACK);
-				world.markBlockDirty(blockPos);
-				itemstack.damageItem(1,player);
-				return true;
-			} else if (block == ModBlocks.STONE_FOSSIL) { //Modded
-				world.dropItem(blockPos, ModItems.FOSSILIZED_BONE.getDefaultStack());
-				world.setBlockType(blockPos,Blocks.STONE);
-				world.markBlockDirty(blockPos);
-				itemstack.damageItem(1,player);
-				return true;
-			} else if (block == ModBlocks.BASALT_FOSSIL) {
-				world.dropItem(blockPos, ModItems.FOSSILIZED_BONE.getDefaultStack());
-				world.setBlockType(blockPos,Blocks.BASALT);
-				world.markBlockDirty(blockPos);
-				itemstack.damageItem(1,player);
-				return true;
-			} else if (block == ModBlocks.LIMESTONE_FOSSIL) {
-				world.dropItem(blockPos, ModItems.FOSSILIZED_BONE.getDefaultStack());
-				world.setBlockType(blockPos,Blocks.LIMESTONE);
-				world.markBlockDirty(blockPos);
-				itemstack.damageItem(1,player);
-				return true;
-			} else if (block == ModBlocks.GRANITE_FOSSIL) {
-				world.dropItem(blockPos, ModItems.FOSSILIZED_BONE.getDefaultStack());
-				world.setBlockType(blockPos,Blocks.GRANITE);
-				world.markBlockDirty(blockPos);
-				itemstack.damageItem(1,player);
-				return true;
-			} else if (block == ModBlocks.PERMAFROST_FOSSIL) {
-				world.dropItem(blockPos, ModItems.FOSSILIZED_BONE.getDefaultStack());
-				world.setBlockType(blockPos,Blocks.PERMAFROST);
-				world.markBlockDirty(blockPos);
-				itemstack.damageItem(1,player);
-				return true;
-			} else if (block == ModBlocks.RED_DEEPSLATE_FOSSIL) {
-				world.dropItem(blockPos, ModItems.FOSSILIZED_BONE.getDefaultStack());
-				world.setBlockType(blockPos,ModBlocks.RED_DEEPSLATE);
-				world.markBlockDirty(blockPos);
-				itemstack.damageItem(1,player);
-				return true;
-			} else if (block == ModBlocks.HELIORITE_STONE_ORE) {
-				world.dropItem(blockPos, ModItems.HELIORITE_COMB.getDefaultStack());
-				world.setBlockType(blockPos,Blocks.STONE);
-				world.markBlockDirty(blockPos);
-				itemstack.damageItem(1,player);
-				return true;
-			} else if (block == ModBlocks.HELIORITE_BASALT_ORE) {
-				world.dropItem(blockPos, ModItems.HELIORITE_COMB.getDefaultStack());
-				world.setBlockType(blockPos,Blocks.BASALT);
-				world.markBlockDirty(blockPos);
-				itemstack.damageItem(1,player);
-				return true;
-			} else if (block == ModBlocks.HELIORITE_LIMESTONE_ORE) {
-				world.dropItem(blockPos, ModItems.HELIORITE_COMB.getDefaultStack());
-				world.setBlockType(blockPos,Blocks.LIMESTONE);
-				world.markBlockDirty(blockPos);
-				itemstack.damageItem(1,player);
-				return true;
-			} else if (block == ModBlocks.HELIORITE_GRANITE_ORE) {
-				world.dropItem(blockPos, ModItems.HELIORITE_COMB.getDefaultStack());
-				world.setBlockType(blockPos,Blocks.GRANITE);
-				world.markBlockDirty(blockPos);
-				itemstack.damageItem(1,player);
-				return true;
-			} else if (block == ModBlocks.HELIORITE_PERMAFROST_ORE) {
-				world.dropItem(blockPos, ModItems.HELIORITE_COMB.getDefaultStack());
-				world.setBlockType(blockPos,Blocks.PERMAFROST);
-				world.markBlockDirty(blockPos);
-				itemstack.damageItem(1,player);
-				return true;
-			} else if (block == ModBlocks.HELIORITE_RED_DEEPSLATE_ORE) {
-				world.dropItem(blockPos, ModItems.HELIORITE_COMB.getDefaultStack());
-				world.setBlockType(blockPos,ModBlocks.RED_DEEPSLATE);
-				world.markBlockDirty(blockPos);
-				itemstack.damageItem(1,player);
-				return true;
-			} else if (block == ModBlocks.ENDURIUM_STONE_ORE) {
-				world.dropItem(blockPos, ModItems.ENDURIUM_CRYSTAL.getDefaultStack());
-				world.setBlockType(blockPos,Blocks.STONE);
-				world.markBlockDirty(blockPos);
-				itemstack.damageItem(1,player);
-				return true;
-			} else if (block == ModBlocks.ENDURIUM_BASALT_ORE) {
-				world.dropItem(blockPos, ModItems.ENDURIUM_CRYSTAL.getDefaultStack());
-				world.setBlockType(blockPos,Blocks.BASALT);
-				world.markBlockDirty(blockPos);
-				itemstack.damageItem(1,player);
-				return true;
-			} else if (block == ModBlocks.ENDURIUM_LIMESTONE_ORE) {
-				world.dropItem(blockPos, ModItems.ENDURIUM_CRYSTAL.getDefaultStack());
-				world.setBlockType(blockPos,Blocks.LIMESTONE);
-				world.markBlockDirty(blockPos);
-				itemstack.damageItem(1,player);
-				return true;
-			} else if (block == ModBlocks.ENDURIUM_GRANITE_ORE) {
-				world.dropItem(blockPos, ModItems.ENDURIUM_CRYSTAL.getDefaultStack());
-				world.setBlockType(blockPos,Blocks.GRANITE);
-				world.markBlockDirty(blockPos);
-				itemstack.damageItem(1,player);
-				return true;
-			} else if (block == ModBlocks.ENDURIUM_PERMAFROST_ORE) {
-				world.dropItem(blockPos, ModItems.ENDURIUM_CRYSTAL.getDefaultStack());
-				world.setBlockType(blockPos,Blocks.PERMAFROST);
-				world.markBlockDirty(blockPos);
-				itemstack.damageItem(1,player);
-				return true;
-			} else if (block == ModBlocks.ENDURIUM_RED_DEEPSLATE_ORE) {
-				world.dropItem(blockPos, ModItems.ENDURIUM_CRYSTAL.getDefaultStack());
-				world.setBlockType(blockPos,ModBlocks.RED_DEEPSLATE);
-				world.markBlockDirty(blockPos);
-				itemstack.damageItem(1,player);
-				return true;
-			} else if (block == ModBlocks.PALLADIUM_STONE_ORE) {
-				world.dropItem(blockPos, ModItems.RAW_PALLADIUM.getDefaultStack());
-				world.setBlockType(blockPos,Blocks.STONE);
-				world.markBlockDirty(blockPos);
-				itemstack.damageItem(1,player);
-				return true;
-			} else if (block == ModBlocks.PALLADIUM_BASALT_ORE) {
-				world.dropItem(blockPos, ModItems.RAW_PALLADIUM.getDefaultStack());
-				world.setBlockType(blockPos,Blocks.BASALT);
-				world.markBlockDirty(blockPos);
-				itemstack.damageItem(1,player);
-				return true;
-			} else if (block == ModBlocks.PALLADIUM_LIMESTONE_ORE) {
-				world.dropItem(blockPos, ModItems.RAW_PALLADIUM.getDefaultStack());
-				world.setBlockType(blockPos,Blocks.LIMESTONE);
-				world.markBlockDirty(blockPos);
-				itemstack.damageItem(1,player);
-				return true;
-			} else if (block == ModBlocks.PALLADIUM_GRANITE_ORE) {
-				world.dropItem(blockPos, ModItems.RAW_PALLADIUM.getDefaultStack());
-				world.setBlockType(blockPos,Blocks.GRANITE);
-				world.markBlockDirty(blockPos);
-				itemstack.damageItem(1,player);
-				return true;
-			} else if (block == ModBlocks.PALLADIUM_PERMAFROST_ORE) {
-				world.dropItem(blockPos, ModItems.RAW_PALLADIUM.getDefaultStack());
-				world.setBlockType(blockPos,Blocks.PERMAFROST);
-				world.markBlockDirty(blockPos);
-				itemstack.damageItem(1,player);
-				return true;
-			} else if (block == ModBlocks.PALLADIUM_RED_DEEPSLATE_ORE) {
-				world.dropItem(blockPos, ModItems.RAW_PALLADIUM.getDefaultStack());
-				world.setBlockType(blockPos,ModBlocks.RED_DEEPSLATE);
-				world.markBlockDirty(blockPos);
-				itemstack.damageItem(1,player);
-				return true;
-			} else if (block == ModBlocks.JURASSOLINE_STONE_ORE) {
-				world.dropItem(blockPos, ModItems.JURASSOLINE_CRYSTAL.getDefaultStack());
-				world.setBlockType(blockPos,Blocks.STONE);
-				world.markBlockDirty(blockPos);
-				itemstack.damageItem(1,player);
-				return true;
-			} else if (block == ModBlocks.JURASSOLINE_BASALT_ORE) {
-				world.dropItem(blockPos, ModItems.JURASSOLINE_CRYSTAL.getDefaultStack());
-				world.setBlockType(blockPos,Blocks.BASALT);
-				world.markBlockDirty(blockPos);
-				itemstack.damageItem(1,player);
-				return true;
-			} else if (block == ModBlocks.JURASSOLINE_LIMESTONE_ORE) {
-				world.dropItem(blockPos, ModItems.JURASSOLINE_CRYSTAL.getDefaultStack());
-				world.setBlockType(blockPos,Blocks.LIMESTONE);
-				world.markBlockDirty(blockPos);
-				itemstack.damageItem(1,player);
-				return true;
-			} else if (block == ModBlocks.JURASSOLINE_GRANITE_ORE) {
-				world.dropItem(blockPos, ModItems.JURASSOLINE_CRYSTAL.getDefaultStack());
-				world.setBlockType(blockPos,Blocks.GRANITE);
-				world.markBlockDirty(blockPos);
-				itemstack.damageItem(1,player);
-				return true;
-			} else if (block == ModBlocks.JURASSOLINE_PERMAFROST_ORE) {
-				world.dropItem(blockPos, ModItems.JURASSOLINE_CRYSTAL.getDefaultStack());
-				world.setBlockType(blockPos,Blocks.PERMAFROST);
-				world.markBlockDirty(blockPos);
-				itemstack.damageItem(1,player);
-				return true;
-			} else if (block == ModBlocks.JURASSOLINE_RED_DEEPSLATE_ORE) {
-				world.dropItem(blockPos, ModItems.JURASSOLINE_CRYSTAL.getDefaultStack());
-				world.setBlockType(blockPos,ModBlocks.RED_DEEPSLATE);
-				world.markBlockDirty(blockPos);
-				itemstack.damageItem(1,player);
-				return true;
-			} else if (block == ModBlocks.CINNABAR_STONE_ORE) {
-				world.dropItem(blockPos, ModItems.CINNABAR_CRYSTAL.getDefaultStack());
-				world.setBlockType(blockPos,Blocks.STONE);
-				world.markBlockDirty(blockPos);
-				itemstack.damageItem(1,player);
-				return true;
-			} else if (block == ModBlocks.CINNABAR_BASALT_ORE) {
-				world.dropItem(blockPos, ModItems.CINNABAR_CRYSTAL.getDefaultStack());
-				world.setBlockType(blockPos,Blocks.BASALT);
-				world.markBlockDirty(blockPos);
-				itemstack.damageItem(1,player);
-				return true;
-			} else if (block == ModBlocks.CINNABAR_LIMESTONE_ORE) {
-				world.dropItem(blockPos, ModItems.CINNABAR_CRYSTAL.getDefaultStack());
-				world.setBlockType(blockPos,Blocks.LIMESTONE);
-				world.markBlockDirty(blockPos);
-				itemstack.damageItem(1,player);
-				return true;
-			} else if (block == ModBlocks.CINNABAR_GRANITE_ORE) {
-				world.dropItem(blockPos, ModItems.CINNABAR_CRYSTAL.getDefaultStack());
-				world.setBlockType(blockPos,Blocks.GRANITE);
-				world.markBlockDirty(blockPos);
-				itemstack.damageItem(1,player);
-				return true;
-			} else if (block == ModBlocks.CINNABAR_PERMAFROST_ORE) {
-				world.dropItem(blockPos, ModItems.CINNABAR_CRYSTAL.getDefaultStack());
-				world.setBlockType(blockPos,Blocks.PERMAFROST);
-				world.markBlockDirty(blockPos);
-				itemstack.damageItem(1,player);
-				return true;
-			} else if (block == ModBlocks.CINNABAR_RED_DEEPSLATE_ORE) {
-				world.dropItem(blockPos, ModItems.CINNABAR_CRYSTAL.getDefaultStack());
-				world.setBlockType(blockPos,ModBlocks.RED_DEEPSLATE);
-				world.markBlockDirty(blockPos);
-				itemstack.damageItem(1,player);
-				return true;
-			} else if (block == ModBlocks.NEBULAR_STONE_ORE) {
-				world.dropItem(blockPos, ModItems.NEBULAR_CRYSTAL.getDefaultStack());
-				world.setBlockType(blockPos,Blocks.STONE);
-				world.markBlockDirty(blockPos);
-				itemstack.damageItem(1,player);
-				return true;
-			} else if (block == ModBlocks.NEBULAR_BASALT_ORE) {
-				world.dropItem(blockPos, ModItems.NEBULAR_CRYSTAL.getDefaultStack());
-				world.setBlockType(blockPos,Blocks.BASALT);
-				world.markBlockDirty(blockPos);
-				itemstack.damageItem(1,player);
-				return true;
-			} else if (block == ModBlocks.NEBULAR_LIMESTONE_ORE) {
-				world.dropItem(blockPos, ModItems.NEBULAR_CRYSTAL.getDefaultStack());
-				world.setBlockType(blockPos,Blocks.LIMESTONE);
-				world.markBlockDirty(blockPos);
-				itemstack.damageItem(1,player);
-				return true;
-			} else if (block == ModBlocks.NEBULAR_GRANITE_ORE) {
-				world.dropItem(blockPos, ModItems.NEBULAR_CRYSTAL.getDefaultStack());
-				world.setBlockType(blockPos,Blocks.GRANITE);
-				world.markBlockDirty(blockPos);
-				itemstack.damageItem(1,player);
-				return true;
-			} else if (block == ModBlocks.NEBULAR_PERMAFROST_ORE) {
-				world.dropItem(blockPos, ModItems.NEBULAR_CRYSTAL.getDefaultStack());
-				world.setBlockType(blockPos,Blocks.PERMAFROST);
-				world.markBlockDirty(blockPos);
-				itemstack.damageItem(1,player);
-				return true;
-			} else if (block == ModBlocks.NEBULAR_RED_DEEPSLATE_ORE) {
-				world.dropItem(blockPos, ModItems.NEBULAR_CRYSTAL.getDefaultStack());
-				world.setBlockType(blockPos,ModBlocks.RED_DEEPSLATE);
-				world.markBlockDirty(blockPos);
-				itemstack.damageItem(1,player);
-				return true;
-			} else if (block == ModBlocks.MITHRIL_STONE_ORE) {
-				world.dropItem(blockPos, ModItems.RAW_MITHRIL.getDefaultStack());
-				world.setBlockType(blockPos,Blocks.STONE);
-				world.markBlockDirty(blockPos);
-				itemstack.damageItem(1,player);
-				return true;
-			} else if (block == ModBlocks.MITHRIL_BASALT_ORE) {
-				world.dropItem(blockPos, ModItems.RAW_MITHRIL.getDefaultStack());
-				world.setBlockType(blockPos,Blocks.BASALT);
-				world.markBlockDirty(blockPos);
-				itemstack.damageItem(1,player);
-				return true;
-			} else if (block == ModBlocks.MITHRIL_LIMESTONE_ORE) {
-				world.dropItem(blockPos, ModItems.RAW_MITHRIL.getDefaultStack());
-				world.setBlockType(blockPos,Blocks.LIMESTONE);
-				world.markBlockDirty(blockPos);
-				itemstack.damageItem(1,player);
-				return true;
-			} else if (block == ModBlocks.MITHRIL_GRANITE_ORE) {
-				world.dropItem(blockPos, ModItems.RAW_MITHRIL.getDefaultStack());
-				world.setBlockType(blockPos,Blocks.GRANITE);
-				world.markBlockDirty(blockPos);
-				itemstack.damageItem(1,player);
-				return true;
-			} else if (block == ModBlocks.MITHRIL_PERMAFROST_ORE) {
-				world.dropItem(blockPos, ModItems.RAW_MITHRIL.getDefaultStack());
-				world.setBlockType(blockPos,Blocks.PERMAFROST);
-				world.markBlockDirty(blockPos);
-				itemstack.damageItem(1,player);
-				return true;
-			} else if (block == ModBlocks.MITHRIL_RED_DEEPSLATE_ORE) {
-				world.dropItem(blockPos, ModItems.RAW_MITHRIL.getDefaultStack());
-				world.setBlockType(blockPos,ModBlocks.RED_DEEPSLATE);
-				world.markBlockDirty(blockPos);
-				itemstack.damageItem(1,player);
-				return true;
-			} else if (block == ModBlocks.MITHRIL_BEDROCK_ORE) {
-				world.dropItem(blockPos, ModItems.RAW_MITHRIL.getDefaultStack());
-				world.setBlockType(blockPos,Blocks.BEDROCK);
+			if (block.getLogic() instanceof BlockLogicOreCoal || block.getLogic() instanceof BlockLogicOreIron || block.getLogic() instanceof BlockLogicOreGold || block.getLogic() instanceof BlockLogicOreLapis || block.getLogic() instanceof BlockLogicOreRedstone || block.getLogic() instanceof BlockLogicOreDiamond || block.getLogic() instanceof BlockLogicOreNetherCoal
+				|| block.getLogic() instanceof BlockLogicFossil || block.getLogic() instanceof BlockLogicHelioriteOre || block.getLogic() instanceof BlockLogicEnduriumOre || block.getLogic() instanceof BlockLogicPalladiumOre || block.getLogic() instanceof BlockLogicJurassolineOre || block.getLogic() instanceof BlockLogicCinnabarOre || block.getLogic() instanceof BlockLogicNebularOre || block.getLogic() instanceof BlockLogicMithrilOre) {
+				if (block.getLogic() instanceof BlockLogicOreCoal) {
+					world.dropItem(blockPos, Items.COAL.getDefaultStack());
+				} else if (block.getLogic() instanceof BlockLogicOreIron) {
+					world.dropItem(blockPos, Items.ORE_RAW_IRON.getDefaultStack());
+				} else if (block.getLogic() instanceof BlockLogicOreGold) {
+					world.dropItem(blockPos, Items.ORE_RAW_GOLD.getDefaultStack());
+				} else if (block.getLogic() instanceof BlockLogicOreLapis) {
+					world.dropItem(blockPos, new ItemStack(Items.DYE, 4 + world.rand.nextInt(5), DyeColor.BLUE.itemMeta));
+				} else if (block.getLogic() instanceof BlockLogicOreRedstone) {
+					world.dropItem(blockPos, new ItemStack(Items.DUST_REDSTONE, 4 + world.rand.nextInt(2)));
+				} else if (block.getLogic() instanceof BlockLogicOreDiamond) {
+					world.dropItem(blockPos, Items.DIAMOND.getDefaultStack());
+				} else if (block.getLogic() instanceof BlockLogicOreNetherCoal) {
+					world.dropItem(blockPos, Items.NETHERCOAL.getDefaultStack());
+				} else if (block.getLogic() instanceof BlockLogicFossil) {
+					world.dropItem(blockPos, ModItems.FOSSILIZED_BONE.getDefaultStack());
+				} else if (block.getLogic() instanceof BlockLogicHelioriteOre) {
+					world.dropItem(blockPos, ModItems.HELIORITE_COMB.getDefaultStack());
+				} else if (block.getLogic() instanceof BlockLogicEnduriumOre) {
+					world.dropItem(blockPos, ModItems.ENDURIUM_CRYSTAL.getDefaultStack());
+				} else if (block.getLogic() instanceof BlockLogicPalladiumOre) {
+					world.dropItem(blockPos, ModItems.RAW_PALLADIUM.getDefaultStack());
+				} else if (block.getLogic() instanceof BlockLogicJurassolineOre) {
+					world.dropItem(blockPos, ModItems.JURASSOLINE_CRYSTAL.getDefaultStack());
+				} else if (block.getLogic() instanceof BlockLogicCinnabarOre) {
+					world.dropItem(blockPos, ModItems.CINNABAR_CRYSTAL.getDefaultStack());
+				} else if (block.getLogic() instanceof BlockLogicNebularOre) {
+					world.dropItem(blockPos, ModItems.NEBULAR_CRYSTAL.getDefaultStack());
+				} else {
+					world.dropItem(blockPos, ModItems.RAW_MITHRIL.getDefaultStack());
+				}
+				if (block.getMaterial() == Materials.STONE) {
+					world.setBlockType(blockPos,Blocks.STONE);
+				} else if (block.getMaterial() == Materials.BASALT) {
+					world.setBlockType(blockPos,Blocks.BASALT);
+				} else if (block.getMaterial() == Materials.LIMESTONE) {
+					world.setBlockType(blockPos,Blocks.LIMESTONE);
+				} else if (block.getMaterial() == Materials.GRANITE) {
+					world.setBlockType(blockPos,Blocks.GRANITE);
+				} else if (block.getMaterial() == Materials.PERMAFROST) {
+					world.setBlockType(blockPos,Blocks.PERMAFROST);
+				} else if (block.getMaterial() == Materials.MARBLE) {
+					world.setBlockType(blockPos,Blocks.MARBLE);
+				} else if (block.getMaterial() == Materials.SLATE) {
+					world.setBlockType(blockPos,Blocks.SLATE);
+				} else if (block.getMaterial() == Materials.NETHERRACK) {
+					world.setBlockType(blockPos,Blocks.COBBLE_NETHERRACK);
+				} else if (block.getMaterial() == Materials.GLOOMSTONE) {
+					world.setBlockType(blockPos,Blocks.COBBLE_GLOOMSTONE);
+				}
 				world.markBlockDirty(blockPos);
 				itemstack.damageItem(1,player);
 				return true;
