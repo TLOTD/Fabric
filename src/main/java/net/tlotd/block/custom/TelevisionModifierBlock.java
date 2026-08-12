@@ -53,9 +53,7 @@ public class TelevisionModifierBlock extends Block {
 
     @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {
-        return this.getDefaultState()
-                .with(FACING, ctx.getHorizontalPlayerFacing())
-                .with(WATERLOGGED, ctx.getWorld().getFluidState(ctx.getBlockPos()).isOf(Fluids.WATER));
+        return this.getDefaultState().with(FACING, ctx.getHorizontalPlayerFacing()).with(WATERLOGGED, ctx.getWorld().getFluidState(ctx.getBlockPos()).isOf(Fluids.WATER));
     }
 
     @Override
@@ -143,21 +141,20 @@ public class TelevisionModifierBlock extends Block {
                 Optional<TelevisionSignalRegistry.SignalEntry> match = TelevisionSignalRegistry.findBySignal(Registries.ITEM.getId(stack.getItem()));
                 if (match.isPresent()) {
                     TelevisionSignalRegistry.SignalEntry entry = match.get();
-                    BlockState newState = entry.onBlock().getStateWithProperties(tvState)
-                            .with(CHANNEL, entry.channel());
+                    BlockState newState = entry.onBlock().getStateWithProperties(tvState).with(CHANNEL, entry.channel());
                     world.setBlockState(tvPos, newState, 3);
                 } else if (stack.isOf(ModItems.VHS_CASSETTE)) {
-                        Optional<TelevisionSignalRegistry.SignalEntry> currentEntry = TelevisionSignalRegistry.getAll().stream().filter(e -> e.onBlock() == tvState.getBlock() && tvState.get(CHANNEL) == e.channel()).findFirst();
-                        stack.decrement(1);
-                        if (currentEntry.isPresent()) {
-                            Identifier signalId = currentEntry.get().signalItem();
-                            Item recordedItem = Registries.ITEM.get(signalId);
-                            ItemStack recorded = new ItemStack(recordedItem);
-                            player.giveItemStack(recorded);
-                        } else {
-                            player.giveItemStack(ModItems.VHS_CASSETTE_BROKEN.getDefaultStack());
-                        }
+                    Optional<TelevisionSignalRegistry.SignalEntry> currentEntry = TelevisionSignalRegistry.getAll().stream().filter(e -> e.onBlock() == tvState.getBlock() && tvState.get(CHANNEL) == e.channel()).findFirst();
+                    stack.decrement(1);
+                    if (currentEntry.isPresent()) {
+                        Identifier signalId = currentEntry.get().signalItem();
+                        Item recordedItem = Registries.ITEM.get(signalId);
+                        ItemStack recorded = new ItemStack(recordedItem);
+                        player.giveItemStack(recorded);
+                    } else {
+                        player.giveItemStack(ModItems.VHS_CASSETTE_BROKEN.getDefaultStack());
                     }
+                }
                 player.incrementStat(Stats.USED.getOrCreateStat(stack.getItem()));
                 world.playSound(null, pos, ModSounds.BLOCK_VIDEOCASSETTE_RECORDER, SoundCategory.BLOCKS, 1.0f, 1.0f);
             }
@@ -167,8 +164,7 @@ public class TelevisionModifierBlock extends Block {
                 Optional<VideoGameRegistry.SignalEntry> match = VideoGameRegistry.findBySignal(Registries.ITEM.getId(stack.getItem()));
                 if (match.isPresent()) {
                     VideoGameRegistry.SignalEntry entry = match.get();
-                    BlockState newState = entry.tvBlock().getStateWithProperties(tvState)
-                            .with(CHANNEL, entry.gameID());
+                    BlockState newState = entry.tvBlock().getStateWithProperties(tvState).with(CHANNEL, entry.gameID());
                     world.setBlockState(tvPos, newState, 3);
                 }
                 player.incrementStat(Stats.USED.getOrCreateStat(stack.getItem()));

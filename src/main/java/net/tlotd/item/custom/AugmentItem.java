@@ -40,7 +40,7 @@ public class AugmentItem extends Item {
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
         tooltip.add(Text.translatable(super.getTranslationKey().replace("augment-", "").replace("item", "augment") + ".desc").formatted(Formatting.GRAY));
         tooltip.add(Text.translatable(super.getTranslationKey().replace("augment-", "").replace("item", "augment") + ".desc2").formatted(Formatting.GRAY));
-        if (context.isCreative() && (stack.isOf(ModItems.AUGMENT_THERMAL_HEATING) || stack.isOf(ModItems.AUGMENT_THERMAL_COOLING))){
+        if (context.isCreative() && (stack.isOf(ModItems.AUGMENT_THERMAL_HEATING) || stack.isOf(ModItems.AUGMENT_THERMAL_COOLING))) {
             Style style = this.getName().getStyle();
             tooltip.add(Text.literal("\uE018 ").setStyle(style.withFont(MODS_FONT_ID)).append(Text.translatable("mod.toughasnails.name").setStyle(style.withFont(DEFAULT_FONT_ID).withFormatting(Formatting.GRAY))));
         }

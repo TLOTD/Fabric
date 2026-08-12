@@ -299,7 +299,7 @@ public class ItemHeatHelper {
                 TempRange = "1180";
             } else if (temp >= 1140) {
                 TempRange = "1140";
-            } else if (temp >= 1100){
+            } else if (temp >= 1100) {
                 TempRange = "1100";
             } else if (temp >= 1066) {
                 TempRange = "1066";
@@ -374,9 +374,9 @@ public class ItemHeatHelper {
             }
             return Text.translatable("temperature.tlotd.terrafirmacraft." + TempRange).setStyle(Style.EMPTY.withColor(getTemperatureColor(temp)));
         } else if (unit == TemperatureUnit.FAHRENHEIT) {
-            return Text.translatable("temperature.tlotd.fahrenheit", (int)((temp * 9.0 / 5.0) + 32)).setStyle(Style.EMPTY.withColor(getTemperatureColor(temp)));
+            return Text.translatable("temperature.tlotd.fahrenheit", (int) ((temp * 9.0 / 5.0) + 32)).setStyle(Style.EMPTY.withColor(getTemperatureColor(temp)));
         } else if (unit == TemperatureUnit.KELVIN) {
-            return Text.translatable("temperature.tlotd.kelvin", (int)(temp + 273.15)).setStyle(Style.EMPTY.withColor(getTemperatureColor(temp)));
+            return Text.translatable("temperature.tlotd.kelvin", (int) (temp + 273.15)).setStyle(Style.EMPTY.withColor(getTemperatureColor(temp)));
         } else {
             return Text.translatable("temperature.tlotd.celsius", temp).setStyle(Style.EMPTY.withColor(getTemperatureColor(temp)));
         }

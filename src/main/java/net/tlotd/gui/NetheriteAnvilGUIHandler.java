@@ -20,13 +20,12 @@ public class NetheriteAnvilGUIHandler extends ScreenHandler {
     public final NetheriteAnvilBlockEntity blockEntity;
 
     public NetheriteAnvilGUIHandler(int syncId, PlayerInventory inventory, PacketByteBuf buf) {
-        this(syncId, inventory, inventory.player.getWorld().getBlockEntity(buf.readBlockPos()),
-                new ArrayPropertyDelegate(2));
+        this(syncId, inventory, inventory.player.getWorld().getBlockEntity(buf.readBlockPos()), new ArrayPropertyDelegate(2));
     }
 
     public NetheriteAnvilGUIHandler(int syncId, PlayerInventory playerInventory, BlockEntity blockEntity, PropertyDelegate propertyDelegate) {
         super(ModGUIHandlers.NETHERITE_ANVIL_GUI_HANDLER, syncId);
-        checkSize(((Inventory) blockEntity),7);
+        checkSize(((Inventory) blockEntity), 7);
         this.inventory = ((Inventory) blockEntity);
         inventory.onOpen(playerInventory.player);
         this.propertyDelegate = propertyDelegate;

@@ -20,10 +20,13 @@ import net.minecraft.screen.ScreenHandler;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
+import net.minecraft.state.property.DirectionProperty;
 import net.minecraft.text.Text;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
+import net.tlotd.block.custom.MithrilAnvilBlock;
 import net.tlotd.gui.MithrilAnvilGUIHandler;
 import net.tlotd.recipe.MithrilSmithingRecipe;
 import net.tlotd.recipe.NetheriteSmithingRecipe;
@@ -46,6 +49,7 @@ public class MithrilAnvilBlockEntity extends BlockEntity implements ExtendedScre
     protected final PropertyDelegate propertyDelegate;
     private int progress = 0;
     private int maxProgress = 72;
+    private int starlight = 0;
 
     public MithrilAnvilBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.MITHRIL_ANVIL_BLOCK_ENTITY, pos, state);
@@ -55,6 +59,7 @@ public class MithrilAnvilBlockEntity extends BlockEntity implements ExtendedScre
                 return switch (index) {
                     case 0 -> MithrilAnvilBlockEntity.this.progress;
                     case 1 -> MithrilAnvilBlockEntity.this.maxProgress;
+                    case 2 -> MithrilAnvilBlockEntity.this.starlight;
                     default -> 0;
                 };
             }
@@ -64,19 +69,26 @@ public class MithrilAnvilBlockEntity extends BlockEntity implements ExtendedScre
                 switch (index) {
                     case 0 -> MithrilAnvilBlockEntity.this.progress = value;
                     case 1 -> MithrilAnvilBlockEntity.this.maxProgress = value;
+                    case 2 -> MithrilAnvilBlockEntity.this.starlight = value;
                 }
             }
 
             @Override
             public int size() {
-                return 2;
+                return 3;
             }
         };
+    }
+
+    public Direction facing() {
+        return getCachedState().get(MithrilAnvilBlock.FACING);
     }
 
     public ItemStack getRenderStack() {
         if(!this.getStack(OUTPUT_SLOT).isEmpty()) {
             return this.getStack(OUTPUT_SLOT);
+        } else if (!this.getStack(1).isEmpty()) {
+            return this.getStack(1);
         } else if (!this.getStack(2).isEmpty()) {
             return this.getStack(2);
         } else if (!this.getStack(3).isEmpty()) {
@@ -85,8 +97,6 @@ public class MithrilAnvilBlockEntity extends BlockEntity implements ExtendedScre
             return this.getStack(4);
         } else if (!this.getStack(5).isEmpty()) {
             return this.getStack(5);
-        } else if (!this.getStack(1).isEmpty()) {
-            return this.getStack(1);
         } else {
             return this.getStack(0);
         }
@@ -118,6 +128,7 @@ public class MithrilAnvilBlockEntity extends BlockEntity implements ExtendedScre
         super.writeNbt(nbt);
         Inventories.writeNbt(nbt, inventory);
         nbt.putInt("mithril_anvil.progress", progress);
+        nbt.putInt("mithril_anvil.starlight", starlight);
     }
 
     @Override
@@ -125,6 +136,7 @@ public class MithrilAnvilBlockEntity extends BlockEntity implements ExtendedScre
         super.readNbt(nbt);
         Inventories.readNbt(nbt, inventory);
         progress = nbt.getInt("mithril_anvil.progress");
+        starlight = nbt.getInt("mithril_anvil.starlight");
     }
 
     @Override
@@ -141,8 +153,14 @@ public class MithrilAnvilBlockEntity extends BlockEntity implements ExtendedScre
             ModGlobalState globalState = ModGlobalState.get(world.getServer());
             starlightAnvil = globalState.starlightAnvil();
         }
+        if (starlight(starlightAnvil)) {
+            starlight = 1;
+        } else {
+            starlight = 0;
+        }
+        markDirty(world, pos, state);
         if (isOutputSlotEmptyOrReceivable()) {
-            if (hasRecipe() && mrRequirements(starlightAnvil)) {
+            if (hasRecipe() && canCraft(starlightAnvil)) {
                 progress++;
                 markDirty(world, pos, state);
                 if (progress >= maxProgress) {
@@ -205,10 +223,14 @@ public class MithrilAnvilBlockEntity extends BlockEntity implements ExtendedScre
                 || (mithrilRecipe.isPresent() && canInsertAmountIntoOutputSlot(mithrilRecipe.get().getOutput(null)) && canInsertItemIntoOutputSlot(mithrilRecipe.get().getOutput(null).getItem()) && hasRequiredHeat(mithrilRecipe.get()));
     }
 
-    private boolean mrRequirements(boolean starlightAnvil) {
+    private boolean starlight(boolean starlightAnvil) {
+        return world.getRegistryKey().equals(LUNA_LEVEL_KEY) || !starlightAnvil || (world.isNight() && world.isSkyVisibleAllowingSea(pos));
+    }
+
+    private boolean canCraft(boolean starlightAnvil) {
         Optional<MithrilSmithingRecipe> mithrilRecipe = getCurrentMithrilRecipe();
         if (mithrilRecipe.isPresent()) {
-            return world.getRegistryKey().equals(LUNA_LEVEL_KEY) || !starlightAnvil || (world.isNight() && world.isSkyVisibleAllowingSea(pos));
+            return starlight(starlightAnvil);
         } else return true;
     }
 

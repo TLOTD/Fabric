@@ -54,9 +54,9 @@ public class DrinkableCan extends Item {
         if (stack.isEmpty()) {
             return new ItemStack(ModItems.DRINK_CAN);
         } else {
-            if (user instanceof PlayerEntity && !((PlayerEntity)user).getAbilities().creativeMode) {
+            if (user instanceof PlayerEntity && !((PlayerEntity) user).getAbilities().creativeMode) {
                 ItemStack itemStack = new ItemStack(ModItems.DRINK_CAN);
-                PlayerEntity playerEntity = (PlayerEntity)user;
+                PlayerEntity playerEntity = (PlayerEntity) user;
                 if (!playerEntity.getInventory().insertStack(itemStack)) {
                     playerEntity.dropItem(itemStack, false);
                 }
@@ -88,7 +88,6 @@ public class DrinkableCan extends Item {
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
         if (stack.isOf(ModItems.BOTTOMLESS_BEER_CAN)) {
-            tooltip.add(Text.translatable("item.tlotd.desc_divine").formatted(Formatting.YELLOW));
             tooltip.add(Text.translatable("item.infinite").formatted(Formatting.GOLD));
         }
         if (stack.isOf(ModItems.BEER_CAN) || stack.isOf(ModItems.BOTTOMLESS_BEER_CAN)) {

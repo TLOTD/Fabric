@@ -32,19 +32,15 @@ public class InterdimensionalReceiverBlock extends Block {
     public static final DirectionProperty FACING = HorizontalFacingBlock.FACING;
 
     public boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
-        return world.getBlockState(pos.add(0,-1,0)).isIn(ModTags.Blocks.TELEVISIONS);
+        return world.getBlockState(pos.add(0, -1, 0)).isIn(ModTags.Blocks.TELEVISIONS);
     }
 
     @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {
-        if (ctx.getWorld().getBlockState(ctx.getBlockPos().add(0,-1,0)).isIn(ModTags.Blocks.TELEVISIONS)) {
-            return this.getDefaultState()
-                    .with(FACING, ctx.getWorld().getBlockState(ctx.getBlockPos().add(0,-1,0)).get(FACING))
-                    .with(WATERLOGGED, ctx.getWorld().getFluidState(ctx.getBlockPos()).isOf(Fluids.WATER));
+        if (ctx.getWorld().getBlockState(ctx.getBlockPos().add(0, -1, 0)).isIn(ModTags.Blocks.TELEVISIONS)) {
+            return this.getDefaultState().with(FACING, ctx.getWorld().getBlockState(ctx.getBlockPos().add(0, -1, 0)).get(FACING)).with(WATERLOGGED, ctx.getWorld().getFluidState(ctx.getBlockPos()).isOf(Fluids.WATER));
         } else {
-            return this.getDefaultState()
-                    .with(FACING, Direction.NORTH)
-                    .with(WATERLOGGED, ctx.getWorld().getFluidState(ctx.getBlockPos()).isOf(Fluids.WATER));
+            return this.getDefaultState().with(FACING, Direction.NORTH).with(WATERLOGGED, ctx.getWorld().getFluidState(ctx.getBlockPos()).isOf(Fluids.WATER));
         }
     }
 
@@ -77,22 +73,10 @@ public class InterdimensionalReceiverBlock extends Block {
         this.setDefaultState(this.stateManager.getDefaultState().with(FACING, Direction.NORTH).with(WATERLOGGED, false));
     }
 
-    public static final VoxelShape WEST_SHAPE = VoxelShapes.union(
-            Block.createCuboidShape(7, -4, 1, 9, 3, 15),
-            Block.createCuboidShape(3.5, -4, 0.5, 6.5, 6, 4.5)
-    );
-    public static final VoxelShape NORTH_SHAPE = VoxelShapes.union(
-            Block.createCuboidShape(1, -4, 7, 15, 3, 9),
-            Block.createCuboidShape(11.5, -4, 3.5, 15.5, 6, 6.5)
-    );
-    public static final VoxelShape EAST_SHAPE = VoxelShapes.union(
-            Block.createCuboidShape(7, -4, 1, 9, 3, 15),
-            Block.createCuboidShape(9.5, -4, 11.5, 12.5, 6, 15.5)
-    );
-    public static final VoxelShape SOUTH_SHAPE = VoxelShapes.union(
-            Block.createCuboidShape(1, -4, 7, 15, 3, 9),
-            Block.createCuboidShape(0.5, -4, 9.5, 4.5, 6, 12.5)
-    );
+    public static final VoxelShape WEST_SHAPE = VoxelShapes.union(Block.createCuboidShape(7, -4, 1, 9, 3, 15), Block.createCuboidShape(3.5, -4, 0.5, 6.5, 6, 4.5));
+    public static final VoxelShape NORTH_SHAPE = VoxelShapes.union(Block.createCuboidShape(1, -4, 7, 15, 3, 9), Block.createCuboidShape(11.5, -4, 3.5, 15.5, 6, 6.5));
+    public static final VoxelShape EAST_SHAPE = VoxelShapes.union(Block.createCuboidShape(7, -4, 1, 9, 3, 15), Block.createCuboidShape(9.5, -4, 11.5, 12.5, 6, 15.5));
+    public static final VoxelShape SOUTH_SHAPE = VoxelShapes.union(Block.createCuboidShape(1, -4, 7, 15, 3, 9), Block.createCuboidShape(0.5, -4, 9.5, 4.5, 6, 12.5));
 
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {

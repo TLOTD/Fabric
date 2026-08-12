@@ -38,10 +38,7 @@ public class KeycardProgrammerBlock extends BlockWithEntity implements BlockEnti
 
     @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {
-        return this.getDefaultState()
-                .with(FACING, ctx.getHorizontalPlayerFacing())
-                .with(WATERLOGGED, ctx.getWorld().getFluidState(ctx.getBlockPos()).isOf(Fluids.WATER))
-                .with(ON,false);
+        return this.getDefaultState().with(FACING, ctx.getHorizontalPlayerFacing()).with(WATERLOGGED, ctx.getWorld().getFluidState(ctx.getBlockPos()).isOf(Fluids.WATER)).with(ON, false);
     }
 
     @Override
@@ -125,7 +122,7 @@ public class KeycardProgrammerBlock extends BlockWithEntity implements BlockEnti
         if (state.getBlock() != newState.getBlock()) {
             BlockEntity blockEntity = world.getBlockEntity(pos);
             if (blockEntity instanceof KeycardProgrammerBlockEntity) {
-                ItemScatterer.spawn(world, pos, (KeycardProgrammerBlockEntity)blockEntity);
+                ItemScatterer.spawn(world, pos, (KeycardProgrammerBlockEntity) blockEntity);
                 world.updateComparators(pos, this);
             }
             super.onStateReplaced(state, world, pos, newState, moved);
@@ -134,7 +131,6 @@ public class KeycardProgrammerBlock extends BlockWithEntity implements BlockEnti
 
     @Override
     public @Nullable <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        return checkType(type, ModBlockEntities.KEYCARD_PROGRAMMER_BLOCK_ENTITY,
-                (world1, pos, state1, blockEntity) -> blockEntity.tick(world1, pos, state1));
+        return checkType(type, ModBlockEntities.KEYCARD_PROGRAMMER_BLOCK_ENTITY, (world1, pos, state1, blockEntity) -> blockEntity.tick(world1, pos, state1));
     }
 }

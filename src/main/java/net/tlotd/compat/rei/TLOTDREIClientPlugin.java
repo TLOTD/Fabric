@@ -293,8 +293,6 @@ public class TLOTDREIClientPlugin implements REIClientPlugin {
                 EntryStacks.of(ModItems.AUGMENT_STARLIGHT_BLESSING),
 
                 EntryStacks.of(ModItems.AUGMENT_EXTRACTION),
-                EntryStacks.of(ModItems.AUGMENT_BATTERY_PACK),
-                EntryStacks.of(ModItems.AUGMENT_ENERGY_SHIELD),
                 EntryStacks.of(ModItems.AUGMENT_MITHRIL_CHAINMAIL),
                 EntryStacks.of(ModItems.AUGMENT_DRAGON_SCALE_PLATING),
                 EntryStacks.of(ModItems.AUGMENT_LEAD_PLATING),

@@ -25,6 +25,21 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
     @Override
     protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
 
+        getOrCreateTagBuilder(ModTags.Items.NYI)
+                .add(ModBlocks.SULFUR_CAMPFIRE.asItem())
+                .add(ModItems.DAYBREAK_DOMAIN_FRAGMENTS)
+                .add(ModItems.SOMBER_BLOOD_ORBS)
+                .add(ModItems.OTHERWORLDLY_WHISPERS)
+                .add(ModItems.ASTRAL_PICKAXE)
+                .add(ModItems.DIVINE_PICKAXE)
+                .add(ModItems.CATACLYSMIC_PICKAXE)
+                .add(ModItems.ELDRITCH_PICKAXE)
+                .add(ModItems.OMINOUS_ALIEN_KEY)
+                .add(ModBlocks.ALIEN_CONTROL_PANEL.asItem())
+                .add(ModItems.BIOLOGICAL_CIRCUIT_BOARD)
+                .add(ModItems.ARCANE_CIRCUIT_BOARD)
+        ;
+
         getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "carved_pumpkins")))
                 .add(Blocks.CARVED_PUMPKIN.asItem())
                 .add(ModBlocks.CARVED_WHITE_PUMPKIN.asItem())
@@ -331,6 +346,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
         getOrCreateTagBuilder(ModTags.Items.DIVINE_ITEMS)
                 .add(ModBlocks.STICK_CROSS.asItem())
                 .add(ModItems.DIVINE_PICKAXE)
+                .add(ModItems.BOTTOMLESS_BEER_CAN)
         ;
 
         getOrCreateTagBuilder(ModTags.Items.OCCULT_ITEMS)
@@ -874,18 +890,6 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .addOptional(Identifier.tryParse("mekanism:hazmat_boots"))
         ;
 
-        getOrCreateTagBuilder(ModTags.Items.ENERGY_SHIELD_WITHOUT_HELMET)
-                .add(ModItems.HEV_SUIT_CHESTPLATE)
-                .add(ModItems.HEV_SUIT_LEGGINGS)
-                .add(ModItems.HEV_SUIT_BOOTS)
-        ;
-
-        getOrCreateTagBuilder(ModTags.Items.ENERGY_SHIELD)
-                .add(ModItems.HEV_SUIT_CHESTPLATE)
-                .add(ModItems.HEV_SUIT_LEGGINGS)
-                .add(ModItems.HEV_SUIT_BOOTS)
-        ;
-
         getOrCreateTagBuilder(ModTags.Items.SUBSPACE_PROTECTION_WITHOUT_HELMET)
                 .add(ModItems.HEV_SUIT_CHESTPLATE)
                 .add(ModItems.HEV_SUIT_LEGGINGS)
@@ -954,6 +958,10 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
 
         getOrCreateTagBuilder(ModTags.Items.WIRES)
                 .add(ModItems.ALUMINIUM_WIRE)
+                .addTag(ModTags.Items.WIRES_1)
+        ;
+
+        getOrCreateTagBuilder(ModTags.Items.WIRES_1)
                 .add(ModItems.COPPER_WIRE)
                 .addTag(ModTags.Items.WIRES_2)
         ;
@@ -965,6 +973,11 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
 
         getOrCreateTagBuilder(ModTags.Items.WIRES_3)
                 .add(ModItems.MITHRIL_WIRE)
+                .addTag(ModTags.Items.WIRES_4)
+        ;
+
+        getOrCreateTagBuilder(ModTags.Items.WIRES_4)
+                .add(ModItems.SUPERCONDUCTING_WIRE)
         ;
 
         getOrCreateTagBuilder(ModTags.Items.CIRCUIT_BOARDS)
@@ -974,13 +987,13 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
 
         getOrCreateTagBuilder(ModTags.Items.ADVANCED_CIRCUIT_BOARDS)
                 .add(ModItems.ADVANCED_CIRCUIT_BOARD)
+                .add(ModItems.ARCANE_CIRCUIT_BOARD)
+                .add(ModItems.BIOLOGICAL_CIRCUIT_BOARD)
                 .addTag(ModTags.Items.TRANSCENDENT_CIRCUIT_BOARDS)
         ;
 
         getOrCreateTagBuilder(ModTags.Items.TRANSCENDENT_CIRCUIT_BOARDS)
                 .add(ModItems.TRANSCENDENT_CIRCUIT_BOARD)
-                .add(ModItems.ARCANE_CIRCUIT_BOARD)
-                .add(ModItems.BIOLOGICAL_CIRCUIT_BOARD)
                 .addTag(ModTags.Items.FUTURISTIC_CIRCUIT_BOARDS)
         ;
 
@@ -1001,6 +1014,31 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModBlocks.INFECTED_TREX_HEAD.asItem())
                 .add(ModBlocks.SCULK_TREX_HEAD.asItem())
                 .add(ModBlocks.SICKENED_TREX_HEAD.asItem())
+        ;
+
+        getOrCreateTagBuilder(ModTags.Items.RAW_MEAT)
+                .add(Items.BEEF)
+                .add(Items.PORKCHOP)
+                .add(Items.MUTTON)
+                .add(ModItems.DINOSAUR_MEAT)
+                .add(ModItems.CURED_MEAT)
+                .addOptional(Identifier.tryParse("twilightforest:raw_meef"))
+                .addOptional(Identifier.tryParse("twilightforest:raw_venison"))
+        ;
+
+        getOrCreateTagBuilder(ModTags.Items.FANCY_BURNABLE_PLANKS)
+                .add(ModBlocks.FANCY_OAK_PLANKS.asItem())
+                .add(ModBlocks.FANCY_SPRUCE_PLANKS.asItem())
+                .add(ModBlocks.FANCY_BIRCH_PLANKS.asItem())
+                .add(ModBlocks.FANCY_JUNGLE_PLANKS.asItem())
+                .add(ModBlocks.FANCY_ACACIA_PLANKS.asItem())
+                .add(ModBlocks.FANCY_DARK_OAK_PLANKS.asItem())
+                .add(ModBlocks.FANCY_MANGROVE_PLANKS.asItem())
+                .add(ModBlocks.FANCY_CHERRY_PLANKS.asItem())
+                .add(ModBlocks.FANCY_PALE_OAK_PLANKS.asItem())
+                .add(ModBlocks.FANCY_BAMBOO_PLANKS.asItem())
+                .add(ModBlocks.FANCY_GINKGO_PLANKS.asItem())
+                .add(ModBlocks.FANCY_BACKSHROOM_PLANKS.asItem())
         ;
 
         getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "stripped_woods")))

@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "tlotd:mithril_wire"
+    "tlotd:mithril_wire",
+    "#tlotd:wires_4"
   ]
 }

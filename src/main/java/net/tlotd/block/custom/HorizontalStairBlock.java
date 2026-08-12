@@ -23,9 +23,7 @@ public class HorizontalStairBlock extends Block {
 
     @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {
-        return this.getDefaultState()
-                .with(FACING, ctx.getHorizontalPlayerFacing())
-                .with(WATERLOGGED, ctx.getWorld().getFluidState(ctx.getBlockPos()).isOf(Fluids.WATER));
+        return this.getDefaultState().with(FACING, ctx.getHorizontalPlayerFacing()).with(WATERLOGGED, ctx.getWorld().getFluidState(ctx.getBlockPos()).isOf(Fluids.WATER));
     }
 
     @Override
@@ -55,22 +53,10 @@ public class HorizontalStairBlock extends Block {
         this.setDefaultState(this.stateManager.getDefaultState().with(FACING, Direction.NORTH).with(WATERLOGGED, false));
     }
 
-    public static final VoxelShape NORTH_SHAPE = VoxelShapes.union(
-            Block.createCuboidShape(0, 0, 0, 8, 16, 16),
-            Block.createCuboidShape(8, 0, 0, 16, 16, 8)
-    );
-    public static final VoxelShape EAST_SHAPE = VoxelShapes.union(
-            Block.createCuboidShape(8, 0, 0, 16, 16, 16),
-            Block.createCuboidShape(0, 0, 0, 8, 16, 8)
-    );
-    public static final VoxelShape SOUTH_SHAPE = VoxelShapes.union(
-            Block.createCuboidShape(8, 0, 0, 16, 16, 16),
-            Block.createCuboidShape(0, 0, 8, 8, 16, 16)
-    );
-    public static final VoxelShape WEST_SHAPE = VoxelShapes.union(
-            Block.createCuboidShape(0, 0, 0, 8, 16, 16),
-            Block.createCuboidShape(8, 0, 8, 16, 16, 16)
-    );
+    public static final VoxelShape NORTH_SHAPE = VoxelShapes.union(Block.createCuboidShape(0, 0, 0, 8, 16, 16), Block.createCuboidShape(8, 0, 0, 16, 16, 8));
+    public static final VoxelShape EAST_SHAPE = VoxelShapes.union(Block.createCuboidShape(8, 0, 0, 16, 16, 16), Block.createCuboidShape(0, 0, 0, 8, 16, 8));
+    public static final VoxelShape SOUTH_SHAPE = VoxelShapes.union(Block.createCuboidShape(8, 0, 0, 16, 16, 16), Block.createCuboidShape(0, 0, 8, 8, 16, 16));
+    public static final VoxelShape WEST_SHAPE = VoxelShapes.union(Block.createCuboidShape(0, 0, 0, 8, 16, 16), Block.createCuboidShape(8, 0, 8, 16, 16, 16));
 
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {

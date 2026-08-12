@@ -1,0 +1,6 @@
+{
+    "parent": "tlotd:block/template_signal_transmitter",
+    "textures": {
+        "8": "minecraft:block/copper_block"
+    }
+}

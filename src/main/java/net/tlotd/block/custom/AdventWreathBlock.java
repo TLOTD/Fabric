@@ -31,12 +31,7 @@ public class AdventWreathBlock extends Block {
         builder.add(LIT);
     }
 
-    public static final VoxelShape SHAPE = VoxelShapes.union(
-            Block.createCuboidShape(0, 0, 0, 16, 4, 5),
-            Block.createCuboidShape(0, 0, 5, 5, 4, 11),
-            Block.createCuboidShape(11, 0, 5, 16, 4, 11),
-            Block.createCuboidShape(0, 0, 11, 16, 4, 16)
-    );
+    public static final VoxelShape SHAPE = VoxelShapes.union(Block.createCuboidShape(0, 0, 0, 16, 4, 5), Block.createCuboidShape(0, 0, 5, 5, 4, 11), Block.createCuboidShape(11, 0, 5, 16, 4, 11), Block.createCuboidShape(0, 0, 11, 16, 4, 16));
 
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
@@ -55,7 +50,7 @@ public class AdventWreathBlock extends Block {
         }
         if (!world.isClient()) {
             if (state.get(LIT) < 4 && (player.getStackInHand(hand).isOf(Items.FIRE_CHARGE) || player.getStackInHand(hand).isOf(Items.FLINT_AND_STEEL))) {
-                world.setBlockState(pos, state.with(LIT, state.get(LIT)+1));
+                world.setBlockState(pos, state.with(LIT, state.get(LIT) + 1));
                 player.incrementStat(Stats.USED.getOrCreateStat(player.getStackInHand(hand).getItem()));
                 if (player.getStackInHand(hand).isOf(Items.FIRE_CHARGE)) {
                     world.playSound(null, pos, SoundEvents.ITEM_FIRECHARGE_USE, SoundCategory.PLAYERS, 1.0f, 1.0f);
@@ -64,11 +59,11 @@ public class AdventWreathBlock extends Block {
                     }
                 } else {
                     world.playSound(null, pos, SoundEvents.ITEM_FLINTANDSTEEL_USE, SoundCategory.PLAYERS, 1.0f, 1.0f);
-                    player.getStackInHand(hand).damage(1,player,e -> e.sendEquipmentBreakStatus(EquipmentSlot.MAINHAND));
+                    player.getStackInHand(hand).damage(1, player, e -> e.sendEquipmentBreakStatus(EquipmentSlot.MAINHAND));
                 }
                 return ActionResult.SUCCESS;
             } else if (state.get(LIT) > 0) {
-                world.setBlockState(pos, state.with(LIT, state.get(LIT)-1));
+                world.setBlockState(pos, state.with(LIT, state.get(LIT) - 1));
                 world.playSound(null, pos, SoundEvents.BLOCK_CANDLE_EXTINGUISH, SoundCategory.PLAYERS, 1.0f, 1.0f);
                 return ActionResult.SUCCESS;
             }

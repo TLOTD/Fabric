@@ -22,6 +22,7 @@ import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 import net.tlotd.block.custom.DwarvenForgeBlock;
 import net.tlotd.block.enum_property.ForgeLit;
@@ -82,8 +83,20 @@ public class DwarvenForgeBlockEntity extends BlockEntity implements ExtendedScre
         };
     }
 
+    public Direction facing() {
+        return getCachedState().get(DwarvenForgeBlock.FACING);
+    }
+
     public ItemStack getRenderStack() {
-        if(!this.getStack(1).isEmpty()) {
+        if (!this.getStack(7).isEmpty()) {
+            return this.getStack(7);
+        } else if (!this.getStack(8).isEmpty()) {
+            return this.getStack(8);
+        } else if (!this.getStack(9).isEmpty()) {
+            return this.getStack(9);
+        } else if (!this.getStack(0).isEmpty()) {
+            return this.getStack(0);
+        } else if (!this.getStack(1).isEmpty()) {
             return this.getStack(1);
         } else if (!this.getStack(2).isEmpty()) {
             return this.getStack(2);
@@ -93,16 +106,14 @@ public class DwarvenForgeBlockEntity extends BlockEntity implements ExtendedScre
             return this.getStack(4);
         } else if (!this.getStack(5).isEmpty()) {
             return this.getStack(5);
-        } else if (!this.getStack(1).isEmpty()) {
-            return this.getStack(1);
         } else {
-            return this.getStack(0);
+            return this.getStack(6);
         }
     }
 
     @Override
     public void markDirty() {
-        world.updateListeners(pos,getCachedState(),getCachedState(),3);
+        world.updateListeners(pos, getCachedState(), getCachedState(), 3);
         super.markDirty();
     }
 
@@ -142,9 +153,11 @@ public class DwarvenForgeBlockEntity extends BlockEntity implements ExtendedScre
     public @Nullable int getCurrentTemperature() {
         return temperature;
     }
+
     public @Nullable int getTemperatureTarget() {
         return targetTemperature;
     }
+
     public @Nullable int getRemainingBurnTime() {
         return fuelTime;
     }
@@ -214,25 +227,14 @@ public class DwarvenForgeBlockEntity extends BlockEntity implements ExtendedScre
         inventory.setStack(0, getStack(RECIPE_START));
         inventory.setStack(1, getStack(RECIPE_START + 1));
         inventory.setStack(2, getStack(RECIPE_END));
-        return world.getRecipeManager()
-                .getFirstMatch(
-                        DwarvenForgingRecipe.Type.INSTANCE,
-                        inventory,
-                        world
-                );
+        return world.getRecipeManager().getFirstMatch(DwarvenForgingRecipe.Type.INSTANCE, inventory, world);
     }
 
     private void heatRecipeItems() {
         for (int i = RECIPE_START; i <= RECIPE_END; i++) {
             ItemStack stack = getStack(i);
             if (!stack.isEmpty() && !stack.isOf(Items.OBSIDIAN)) {
-                ItemHeatHelper.setTemperature(
-                        stack,
-                        Math.min(
-                                ItemHeatHelper.getTemperature(stack) + 1,
-                                temperature
-                        )
-                );
+                ItemHeatHelper.setTemperature(stack, Math.min(ItemHeatHelper.getTemperature(stack) + 1, temperature));
             }
         }
     }
@@ -245,10 +247,7 @@ public class DwarvenForgeBlockEntity extends BlockEntity implements ExtendedScre
                 remainingStacks.add(stack);
             }
         }
-        List<Ingredient> ingredients = recipe.getIngredients()
-                .stream()
-                .filter(i -> !i.isEmpty())
-                .toList();
+        List<Ingredient> ingredients = recipe.getIngredients().stream().filter(i -> !i.isEmpty()).toList();
         if (remainingStacks.size() != ingredients.size()) {
             return false;
         }
@@ -258,10 +257,8 @@ public class DwarvenForgeBlockEntity extends BlockEntity implements ExtendedScre
             while (iterator.hasNext()) {
                 ItemStack stack = iterator.next();
                 if (ingredient.test(stack)) {
-                    int requiredTemp =
-                            ItemHeatHelper.getForgingTemperature(stack);
-                    if (requiredTemp > 0 &&
-                            ItemHeatHelper.getTemperature(stack) < requiredTemp) {
+                    int requiredTemp = ItemHeatHelper.getForgingTemperature(stack);
+                    if (requiredTemp > 0 && ItemHeatHelper.getTemperature(stack) < requiredTemp) {
                         return false;
                     }
                     iterator.remove();
@@ -276,7 +273,8 @@ public class DwarvenForgeBlockEntity extends BlockEntity implements ExtendedScre
         return true;
     }
 
-    private record MatchedIngredient(int slot, ItemStack stack) {}
+    private record MatchedIngredient(int slot, ItemStack stack) {
+    }
 
     private List<MatchedIngredient> matchRecipeIngredients(DwarvenForgingRecipe recipe) {
         List<MatchedIngredient> matches = new ArrayList<>();
@@ -311,10 +309,7 @@ public class DwarvenForgeBlockEntity extends BlockEntity implements ExtendedScre
         if (matches.isEmpty()) {
             return;
         }
-        int crafts = matches.stream()
-                .mapToInt(m -> m.stack().getCount())
-                .min()
-                .orElse(0);
+        int crafts = matches.stream().mapToInt(m -> m.stack().getCount()).min().orElse(0);
         if (crafts <= 0) {
             return;
         }
@@ -349,10 +344,7 @@ public class DwarvenForgeBlockEntity extends BlockEntity implements ExtendedScre
         int max = 0;
         for (Ingredient ingredient : recipe.getIngredients()) {
             for (ItemStack stack : ingredient.getMatchingStacks()) {
-                max = Math.max(
-                        max,
-                        ItemHeatHelper.getForgingTemperature(stack)
-                );
+                max = Math.max(max, ItemHeatHelper.getForgingTemperature(stack));
             }
         }
         return max;
@@ -360,8 +352,7 @@ public class DwarvenForgeBlockEntity extends BlockEntity implements ExtendedScre
 
     private void tryCrafting() {
         heatRecipeItems();
-        Optional<DwarvenForgingRecipe> recipeOpt =
-                getCurrentRecipe();
+        Optional<DwarvenForgingRecipe> recipeOpt = getCurrentRecipe();
         if (recipeOpt.isEmpty()) {
             return;
         }
@@ -435,11 +426,7 @@ public class DwarvenForgeBlockEntity extends BlockEntity implements ExtendedScre
         ForgeLit current = getCachedState().get(DwarvenForgeBlock.FIRE);
         ForgeLit target = getForgeLitState();
         if (current != target) {
-            world.setBlockState(
-                    pos,
-                    getCachedState().with(DwarvenForgeBlock.FIRE, target),
-                    Block.NOTIFY_ALL
-            );
+            world.setBlockState(pos, getCachedState().with(DwarvenForgeBlock.FIRE, target), Block.NOTIFY_ALL);
         }
     }
 

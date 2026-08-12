@@ -11,6 +11,7 @@ public class TextureSyncPacket {
     public static class Entry {
         public final int textureId;
         public final String playerName;
+
         public Entry(int textureId, String playerName) {
             this.textureId = textureId;
             this.playerName = playerName;

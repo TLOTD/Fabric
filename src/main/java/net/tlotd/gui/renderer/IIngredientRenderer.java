@@ -13,9 +13,8 @@ public interface IIngredientRenderer<T> {
     /**
      * Renders an ingredient at a specific location.
      *
-     * @param stack  The current {@link MatrixStack} for rendering the ingredient.
+     * @param stack      The current {@link MatrixStack} for rendering the ingredient.
      * @param ingredient the ingredient to render.
-     *
      * @since 9.3.0
      */
     default void render(MatrixStack stack, T ingredient) {
@@ -68,7 +67,6 @@ public interface IIngredientRenderer<T> {
      * @param yPosition  The y position to render the ingredient.
      * @param ingredient the ingredient to render.
      *                   May be null, some renderers (like fluid tanks) will render an empty background.
-     *
      * @deprecated Use {@link #render(MatrixStack, Object)} instead.
      */
     @Deprecated(forRemoval = true, since = "9.3.0")

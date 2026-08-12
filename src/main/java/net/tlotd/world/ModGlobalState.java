@@ -7,12 +7,15 @@ import net.minecraft.world.PersistentState;
 import net.tlotd.util.TemperatureUnit;
 
 public class ModGlobalState extends PersistentState {
+
+    private boolean easterEggs = true;
+    private boolean formerTlotdRewards = false;
+
     private String defaultTemperatureUnit = TemperatureUnit.CELSIUS.asString();
 
     private boolean axeStrippingBark = true;
     private boolean extractionOreCompat = true;
     private int elevatorMaxDistance = 100;
-    private boolean formerTlotdRewards = false;
 
     private boolean starlightAnvil = true;
     private boolean bloodWitching = true;
@@ -28,17 +31,19 @@ public class ModGlobalState extends PersistentState {
 
     public static ModGlobalState get(MinecraftServer server) {
         ServerWorld overworld = server.getOverworld();
-        return overworld.getPersistentStateManager().getOrCreate(ModGlobalState::fromNbt, ModGlobalState::new, "TLOTD_Data");
+        return overworld.getPersistentStateManager().getOrCreate(ModGlobalState::fromNbt, ModGlobalState::new, "tlotd_data_global");
     }
 
     private static ModGlobalState fromNbt(NbtCompound nbt) {
         ModGlobalState state = new ModGlobalState();
+        state.easterEggs = nbt.getBoolean("EasterEggs");
+        state.formerTlotdRewards = nbt.getBoolean("FormerTLOTDRewards");
+
         state.defaultTemperatureUnit = nbt.getString("DefaultTemperatureUnit");
 
         state.axeStrippingBark = nbt.getBoolean("AxeStrippingBark");
         state.extractionOreCompat = nbt.getBoolean("ExtractionOreCompat");
         state.elevatorMaxDistance = nbt.getInt("ElevatorMaxDistance");
-        state.formerTlotdRewards = nbt.getBoolean("FormerTLOTDRewards");
 
         state.starlightAnvil = nbt.getBoolean("StarlightAnvil");
         state.bloodWitching = nbt.getBoolean("BloodWitching");
@@ -56,6 +61,9 @@ public class ModGlobalState extends PersistentState {
 
     @Override
     public NbtCompound writeNbt(NbtCompound nbt) {
+        nbt.putBoolean("EasterEggs", easterEggs);
+        nbt.putBoolean("FormerTLOTDRewards", formerTlotdRewards);
+
         nbt.putString("DefaultTemperatureUnit", defaultTemperatureUnit);
 
         nbt.putBoolean("AxeStrippingBark", axeStrippingBark);
@@ -75,6 +83,22 @@ public class ModGlobalState extends PersistentState {
 
         nbt.putDouble("NoClipChance", noClipChance);
         return nbt;
+    }
+
+    public boolean easterEggs() {
+        return easterEggs;
+    }
+    public void setEasterEggs(boolean value) {
+        this.easterEggs = value;
+        markDirty();
+    }
+
+    public boolean formerTlotdRewards() {
+        return formerTlotdRewards;
+    }
+    public void setFormerTlotdRewards(boolean value) {
+        this.formerTlotdRewards = value;
+        markDirty();
     }
 
     public TemperatureUnit defaultTemperatureUnit() {
@@ -108,16 +132,6 @@ public class ModGlobalState extends PersistentState {
         this.elevatorMaxDistance = value;
         markDirty();
     }
-
-    public boolean formerTlotdRewards() {
-        return formerTlotdRewards;
-    }
-    public void setFormerTlotdRewards(boolean value) {
-        this.formerTlotdRewards = value;
-        markDirty();
-    }
-
-
 
     public boolean starlightAnvil() {
         return starlightAnvil;

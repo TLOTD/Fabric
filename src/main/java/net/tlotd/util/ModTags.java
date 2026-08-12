@@ -122,6 +122,9 @@ public class ModTags {
 
     public static class Items {
 
+        public static final TagKey<Item> NYI = createTag("nyi");
+        public static final TagKey<Item> UNBREAKABLE = createTag("unbreakable");
+
         public static final TagKey<Item> LAVA_CLEANSING =
                 createTag("lava_cleansing");
 
@@ -315,12 +318,6 @@ public class ModTags {
         public static final TagKey<Item> HEV_CHARGER_CHARGABLE =
                 createTag("hev_charger_chargable");
 
-        public static final TagKey<Item> ENERGY_SHIELD_WITHOUT_HELMET =
-                createTag("energy_shield_without_helmet");
-
-        public static final TagKey<Item> ENERGY_SHIELD =
-                createTag("energy_shield");
-
         public static final TagKey<Item> MEKANISM_CHARGABLE =
                 createTag("mekanism_chargable");
 
@@ -375,11 +372,17 @@ public class ModTags {
         public static final TagKey<Item> WIRES =
                 createTag("wires");
 
+        public static final TagKey<Item> WIRES_1 =
+                createTag("wires_1");
+
         public static final TagKey<Item> WIRES_2 =
                 createTag("wires_2");
 
         public static final TagKey<Item> WIRES_3 =
                 createTag("wires_3");
+
+        public static final TagKey<Item> WIRES_4 =
+                createTag("wires_4");
 
         public static final TagKey<Item> CIRCUIT_BOARDS =
                 createTag("circuit_boards");
@@ -404,6 +407,9 @@ public class ModTags {
 
         public static final TagKey<Item> PAXELS =
                 createTag("c", "paxels");
+
+        public static final TagKey<Item> FANCY_BURNABLE_PLANKS =
+                createTag("fancy_burnable_planks");
 
         private static TagKey<Item> createTag(String name) {
             return TagKey.of(RegistryKeys.ITEM, new Identifier(TLOTD.MOD_ID, name));

@@ -41,9 +41,7 @@ public class IncubatorBlock extends BlockWithEntity implements BlockEntityProvid
 
     @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {
-        return this.getDefaultState()
-                .with(FACING, ctx.getHorizontalPlayerFacing())
-                .with(ON,false);
+        return this.getDefaultState().with(FACING, ctx.getHorizontalPlayerFacing()).with(ON, false);
     }
 
     @Override
@@ -56,7 +54,7 @@ public class IncubatorBlock extends BlockWithEntity implements BlockEntityProvid
         builder.add(FACING, ON);
     }
 
-    private static final VoxelShape SHAPE = Block.createCuboidShape(0.01,0.01,0.01,15.99,15.99,15.99);
+    private static final VoxelShape SHAPE = Block.createCuboidShape(0.01, 0.01, 0.01, 15.99, 15.99, 15.99);
 
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
@@ -102,7 +100,7 @@ public class IncubatorBlock extends BlockWithEntity implements BlockEntityProvid
         if (state.getBlock() != newState.getBlock()) {
             BlockEntity blockEntity = world.getBlockEntity(pos);
             if (blockEntity instanceof IncubatorBlockEntity) {
-                ItemScatterer.spawn(world, pos, (IncubatorBlockEntity)blockEntity);
+                ItemScatterer.spawn(world, pos, (IncubatorBlockEntity) blockEntity);
                 world.updateComparators(pos, this);
             }
             super.onStateReplaced(state, world, pos, newState, moved);
@@ -111,7 +109,6 @@ public class IncubatorBlock extends BlockWithEntity implements BlockEntityProvid
 
     @Override
     public @Nullable <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        return checkType(type, ModBlockEntities.INCUBATOR_BLOCK_ENTITY,
-                (world1, pos, state1, blockEntity) -> blockEntity.tick(world1, pos, state1));
+        return checkType(type, ModBlockEntities.INCUBATOR_BLOCK_ENTITY, (world1, pos, state1, blockEntity) -> blockEntity.tick(world1, pos, state1));
     }
 }

@@ -23,9 +23,7 @@ public class ElevatorDialBlock extends Block {
 
     @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {
-        return this.getDefaultState()
-                .with(FACING, ctx.getHorizontalPlayerFacing())
-                .with(WATERLOGGED, ctx.getWorld().getFluidState(ctx.getBlockPos()).isOf(Fluids.WATER));
+        return this.getDefaultState().with(FACING, ctx.getHorizontalPlayerFacing()).with(WATERLOGGED, ctx.getWorld().getFluidState(ctx.getBlockPos()).isOf(Fluids.WATER));
     }
 
     @Override
@@ -59,7 +57,7 @@ public class ElevatorDialBlock extends Block {
 
     public static final VoxelShape NORTH_SHAPE = Block.createCuboidShape(1, 1, 0, 15, 8, 2);
     public static final VoxelShape EAST_SHAPE = Block.createCuboidShape(14, 1, 1, 16, 8, 15);
-    public static final VoxelShape SOUTH_SHAPE = Block.createCuboidShape(1, 1, 14, 15, 8, 16) ;
+    public static final VoxelShape SOUTH_SHAPE = Block.createCuboidShape(1, 1, 14, 15, 8, 16);
     public static final VoxelShape WEST_SHAPE = Block.createCuboidShape(0, 1, 1, 2, 8, 15);
 
     @Override

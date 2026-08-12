@@ -5,12 +5,16 @@
     "#": {
       "tag": "c:lead_ingots"
     },
+    "C": {
+      "tag": "tlotd:advanced_circuit_boards"
+    },
     "X": {
       "item": "tlotd:xen_crystal"
     }
   },
   "pattern": [
     "X X",
+    "C C",
     "# #"
   ],
   "result": {

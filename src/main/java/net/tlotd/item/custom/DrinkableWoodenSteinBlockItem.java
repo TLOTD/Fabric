@@ -47,7 +47,7 @@ public class DrinkableWoodenSteinBlockItem extends BlockItem {
             user.addStatusEffect(new StatusEffectInstance(StatusEffects.REGENERATION, 1, 3));
         } else if (stack.isOf(ModBlocks.WOODEN_HOT_COFFEE_STEIN.asItem())) {
             if (user instanceof PlayerEntity) {
-                PlayerEntity playerEntity = (PlayerEntity)user;
+                PlayerEntity playerEntity = (PlayerEntity) user;
                 //INSOMNIA LOGIC
             }
         }
@@ -60,9 +60,9 @@ public class DrinkableWoodenSteinBlockItem extends BlockItem {
         if (stack.isEmpty()) {
             return new ItemStack(ModBlocks.WOODEN_STEIN);
         } else {
-            if (user instanceof PlayerEntity && !((PlayerEntity)user).getAbilities().creativeMode) {
+            if (user instanceof PlayerEntity && !((PlayerEntity) user).getAbilities().creativeMode) {
                 ItemStack itemStack = new ItemStack(ModBlocks.WOODEN_STEIN);
-                PlayerEntity playerEntity = (PlayerEntity)user;
+                PlayerEntity playerEntity = (PlayerEntity) user;
                 if (!playerEntity.getInventory().insertStack(itemStack)) {
                     playerEntity.dropItem(itemStack, false);
                 }
@@ -100,7 +100,7 @@ public class DrinkableWoodenSteinBlockItem extends BlockItem {
         if (stack.isOf(ModBlocks.WOODEN_BEER_STEIN.asItem()) || stack.isOf(ModBlocks.WOODEN_MEAD_STEIN.asItem())) {
             tooltip.add(Text.translatable("effect.tlotd.drunkenness").append(Text.literal(" (00:30)")).formatted(Formatting.RED));
         }
-        if (context.isCreative() && !compat.isEmpty()){
+        if (context.isCreative() && !compat.isEmpty()) {
             Style style = this.getName().getStyle();
             if (compat.contains("aet")) {
                 tooltip.add(Text.literal("\uE008 ").setStyle(style.withFont(MODS_FONT_ID)).append(Text.translatable("mod.aether.name").setStyle(style.withFont(DEFAULT_FONT_ID).withFormatting(Formatting.GRAY))));

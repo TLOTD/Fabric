@@ -20,13 +20,12 @@ public class MithrilAnvilGUIHandler extends ScreenHandler {
     public final MithrilAnvilBlockEntity blockEntity;
 
     public MithrilAnvilGUIHandler(int syncId, PlayerInventory inventory, PacketByteBuf buf) {
-        this(syncId, inventory, inventory.player.getWorld().getBlockEntity(buf.readBlockPos()),
-                new ArrayPropertyDelegate(2));
+        this(syncId, inventory, inventory.player.getWorld().getBlockEntity(buf.readBlockPos()), new ArrayPropertyDelegate(3));
     }
 
     public MithrilAnvilGUIHandler(int syncId, PlayerInventory playerInventory, BlockEntity blockEntity, PropertyDelegate propertyDelegate) {
         super(ModGUIHandlers.MITHRIL_ANVIL_GUI_HANDLER, syncId);
-        checkSize(((Inventory) blockEntity),7);
+        checkSize(((Inventory) blockEntity), 7);
         this.inventory = ((Inventory) blockEntity);
         inventory.onOpen(playerInventory.player);
         this.propertyDelegate = propertyDelegate;
@@ -50,6 +49,10 @@ public class MithrilAnvilGUIHandler extends ScreenHandler {
 
     public boolean isCrafting() {
         return propertyDelegate.get(0) > 0;
+    }
+
+    public boolean starlight() {
+        return propertyDelegate.get(2) == 1;
     }
 
     public int getScaledProgress() {

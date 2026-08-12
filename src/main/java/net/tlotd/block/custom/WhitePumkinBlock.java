@@ -35,7 +35,7 @@ public class WhitePumkinBlock extends GourdBlock {
                 Direction direction2 = direction.getAxis() == Direction.Axis.Y ? player.getHorizontalFacing().getOpposite() : direction;
                 world.playSound(null, pos, SoundEvents.BLOCK_PUMPKIN_CARVE, SoundCategory.BLOCKS, 1.0F, 1.0F);
                 world.setBlockState(pos, ModBlocks.CARVED_WHITE_PUMPKIN.getDefaultState().with(CarvedPumpkinBlock.FACING, direction2), 11);
-                ItemEntity itemEntity = new ItemEntity(world, (double)pos.getX() + (double)0.5F + direction2.getOffsetX() * 0.65, pos.getY() + 0.1, (double)pos.getZ() + (double)0.5F + direction2.getOffsetZ() * 0.65, new ItemStack(Items.PUMPKIN_SEEDS, 4));
+                ItemEntity itemEntity = new ItemEntity(world, (double) pos.getX() + (double) 0.5F + direction2.getOffsetX() * 0.65, pos.getY() + 0.1, (double) pos.getZ() + (double) 0.5F + direction2.getOffsetZ() * 0.65, new ItemStack(Items.PUMPKIN_SEEDS, 4));
                 itemEntity.setVelocity(0.05 * direction2.getOffsetX() + world.random.nextDouble() * 0.02, 0.05, 0.05 * direction2.getOffsetZ() + world.random.nextDouble() * 0.02);
                 world.spawnEntity(itemEntity);
                 itemStack.damage(1, player, playerx -> playerx.sendToolBreakStatus(hand));
@@ -54,6 +54,6 @@ public class WhitePumkinBlock extends GourdBlock {
     }
 
     public AttachedStemBlock getAttachedStem() {
-        return (AttachedStemBlock)Blocks.ATTACHED_PUMPKIN_STEM;
+        return (AttachedStemBlock) Blocks.ATTACHED_PUMPKIN_STEM;
     }
 }

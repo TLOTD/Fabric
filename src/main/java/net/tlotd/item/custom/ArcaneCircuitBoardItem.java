@@ -37,7 +37,6 @@ public class ArcaneCircuitBoardItem extends Item {
     @Override
     @Environment(EnvType.CLIENT)
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        tooltip.add(Text.translatable("info.tlotd.not_yet_implemented").formatted(Formatting.RED));
         Style style = getName().getStyle();
         PlayerEntity player = MinecraftClient.getInstance().player;
         if (player == null) return;

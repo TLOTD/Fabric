@@ -24,54 +24,19 @@ import net.tlotd.item.ModItems;
 
 public class ModCauldronBehaviors {
 
-    public static final Object2ObjectOpenHashMap<Item, CauldronBehavior> BEER_CAULDRON_BEHAVIOR =
-            Util.make(new Object2ObjectOpenHashMap<>(), map ->
-                    map.defaultReturnValue(
-                            (state, world, pos, player, hand, stack) -> ActionResult.PASS
-                    )
-            );
+    public static final Object2ObjectOpenHashMap<Item, CauldronBehavior> BEER_CAULDRON_BEHAVIOR = Util.make(new Object2ObjectOpenHashMap<>(), map -> map.defaultReturnValue((state, world, pos, player, hand, stack) -> ActionResult.PASS));
 
-    public static final Object2ObjectOpenHashMap<Item, CauldronBehavior> MEAD_CAULDRON_BEHAVIOR =
-            Util.make(new Object2ObjectOpenHashMap<>(), map ->
-                    map.defaultReturnValue(
-                            (state, world, pos, player, hand, stack) -> ActionResult.PASS
-                    )
-            );
+    public static final Object2ObjectOpenHashMap<Item, CauldronBehavior> MEAD_CAULDRON_BEHAVIOR = Util.make(new Object2ObjectOpenHashMap<>(), map -> map.defaultReturnValue((state, world, pos, player, hand, stack) -> ActionResult.PASS));
 
-    public static final Object2ObjectOpenHashMap<Item, CauldronBehavior> BLOOD_CAULDRON_BEHAVIOR =
-            Util.make(new Object2ObjectOpenHashMap<>(), map ->
-                    map.defaultReturnValue(
-                            (state, world, pos, player, hand, stack) -> ActionResult.PASS
-                    )
-            );
+    public static final Object2ObjectOpenHashMap<Item, CauldronBehavior> BLOOD_CAULDRON_BEHAVIOR = Util.make(new Object2ObjectOpenHashMap<>(), map -> map.defaultReturnValue((state, world, pos, player, hand, stack) -> ActionResult.PASS));
 
-    public static final Object2ObjectOpenHashMap<Item, CauldronBehavior> BOILING_WATER_CAULDRON_BEHAVIOR =
-            Util.make(new Object2ObjectOpenHashMap<>(), map ->
-                    map.defaultReturnValue(
-                            (state, world, pos, player, hand, stack) -> ActionResult.PASS
-                    )
-            );
+    public static final Object2ObjectOpenHashMap<Item, CauldronBehavior> BOILING_WATER_CAULDRON_BEHAVIOR = Util.make(new Object2ObjectOpenHashMap<>(), map -> map.defaultReturnValue((state, world, pos, player, hand, stack) -> ActionResult.PASS));
 
-    public static final Object2ObjectOpenHashMap<Item, CauldronBehavior> HOT_COFFEE_CAULDRON_BEHAVIOR =
-            Util.make(new Object2ObjectOpenHashMap<>(), map ->
-                    map.defaultReturnValue(
-                            (state, world, pos, player, hand, stack) -> ActionResult.PASS
-                    )
-            );
+    public static final Object2ObjectOpenHashMap<Item, CauldronBehavior> HOT_COFFEE_CAULDRON_BEHAVIOR = Util.make(new Object2ObjectOpenHashMap<>(), map -> map.defaultReturnValue((state, world, pos, player, hand, stack) -> ActionResult.PASS));
 
-    public static final Object2ObjectOpenHashMap<Item, CauldronBehavior> HOT_MILK_CAULDRON_BEHAVIOR =
-            Util.make(new Object2ObjectOpenHashMap<>(), map ->
-                    map.defaultReturnValue(
-                            (state, world, pos, player, hand, stack) -> ActionResult.PASS
-                    )
-            );
+    public static final Object2ObjectOpenHashMap<Item, CauldronBehavior> HOT_MILK_CAULDRON_BEHAVIOR = Util.make(new Object2ObjectOpenHashMap<>(), map -> map.defaultReturnValue((state, world, pos, player, hand, stack) -> ActionResult.PASS));
 
-    public static final Object2ObjectOpenHashMap<Item, CauldronBehavior> HOT_CHOCOLATE_CAULDRON_BEHAVIOR =
-            Util.make(new Object2ObjectOpenHashMap<>(), map ->
-                    map.defaultReturnValue(
-                            (state, world, pos, player, hand, stack) -> ActionResult.PASS
-                    )
-            );
+    public static final Object2ObjectOpenHashMap<Item, CauldronBehavior> HOT_CHOCOLATE_CAULDRON_BEHAVIOR = Util.make(new Object2ObjectOpenHashMap<>(), map -> map.defaultReturnValue((state, world, pos, player, hand, stack) -> ActionResult.PASS));
 
     private static CauldronBehavior emptyOneLevel(Item returnItem) {
         return (state, world, pos, player, hand, stack) -> {
@@ -215,183 +180,57 @@ public class ModCauldronBehaviors {
 
     public static void register() {
 
-        CauldronBehavior.EMPTY_CAULDRON_BEHAVIOR.put(
-                ModBlocks.WOODEN_WATER_STEIN.asItem(),
-                fillFull(Blocks.WATER_CAULDRON, ModBlocks.WOODEN_STEIN.asItem())
-        );
-        CauldronBehavior.WATER_CAULDRON_BEHAVIOR.put(
-                ModBlocks.WOODEN_STEIN.asItem(),
-                emptyFull(ModBlocks.WOODEN_WATER_STEIN.asItem())
-        );
+        CauldronBehavior.EMPTY_CAULDRON_BEHAVIOR.put(ModBlocks.WOODEN_WATER_STEIN.asItem(), fillFull(Blocks.WATER_CAULDRON, ModBlocks.WOODEN_STEIN.asItem()));
+        CauldronBehavior.WATER_CAULDRON_BEHAVIOR.put(ModBlocks.WOODEN_STEIN.asItem(), emptyFull(ModBlocks.WOODEN_WATER_STEIN.asItem()));
 
-        CauldronBehavior.WATER_CAULDRON_BEHAVIOR.put(
-                Items.WHEAT,
-                brewBehavior(ModBlocks.BEER_CAULDRON)
-        );
-        CauldronBehavior.WATER_CAULDRON_BEHAVIOR.put(
-                Items.HONEY_BOTTLE,
-                brewMeadBehavior(ModBlocks.MEAD_CAULDRON)
-        );
+        CauldronBehavior.WATER_CAULDRON_BEHAVIOR.put(Items.WHEAT, brewBehavior(ModBlocks.BEER_CAULDRON));
+        CauldronBehavior.WATER_CAULDRON_BEHAVIOR.put(Items.HONEY_BOTTLE, brewMeadBehavior(ModBlocks.MEAD_CAULDRON));
 
-        BOILING_WATER_CAULDRON_BEHAVIOR.put(
-                ModItems.GROUND_COFFEE_BEANS,
-                brewBehavior(ModBlocks.HOT_COFFEE_CAULDRON)
-        );
+        BOILING_WATER_CAULDRON_BEHAVIOR.put(ModItems.GROUND_COFFEE_BEANS, brewBehavior(ModBlocks.HOT_COFFEE_CAULDRON));
 
-        HOT_MILK_CAULDRON_BEHAVIOR.put(
-                Items.COCOA_BEANS,
-                brewBehavior(ModBlocks.HOT_CHOCOLATE_CAULDRON)
-        );
+        HOT_MILK_CAULDRON_BEHAVIOR.put(Items.COCOA_BEANS, brewBehavior(ModBlocks.HOT_CHOCOLATE_CAULDRON));
 
-        BEER_CAULDRON_BEHAVIOR.put(
-                Items.GLASS_BOTTLE,
-                emptyOneLevel(ModItems.BEER_BOTTLE)
-        );
-        BEER_CAULDRON_BEHAVIOR.put(
-                ModItems.DRINK_CAN,
-                emptyOneLevel(ModItems.BEER_CAN)
-        );
-        BEER_CAULDRON_BEHAVIOR.put(
-                Items.BUCKET,
-                emptyFull(ModFluids.BEER_BUCKET)
-        );
-        BEER_CAULDRON_BEHAVIOR.put(
-                ModItems.BEER_BOTTLE,
-                ModCauldronBehaviors::fillCauldron
-        );
-        BEER_CAULDRON_BEHAVIOR.put(
-                ModItems.BEER_CAN,
-                ModCauldronBehaviors::fillCauldron
-        );
-        CauldronBehavior.EMPTY_CAULDRON_BEHAVIOR.put(
-                ModItems.BEER_BOTTLE,
-                fillOneLevel(ModBlocks.BEER_CAULDRON, Items.GLASS_BOTTLE)
-        );
-        CauldronBehavior.EMPTY_CAULDRON_BEHAVIOR.put(
-                ModItems.BEER_CAN,
-                fillOneLevel(ModBlocks.BEER_CAULDRON, ModItems.DRINK_CAN)
-        );
-        CauldronBehavior.EMPTY_CAULDRON_BEHAVIOR.put(
-                ModBlocks.WOODEN_BEER_STEIN.asItem(),
-                fillFull(ModBlocks.BEER_CAULDRON, ModBlocks.WOODEN_STEIN.asItem())
-        );
-        BEER_CAULDRON_BEHAVIOR.put(
-                ModBlocks.WOODEN_STEIN.asItem(),
-                emptyFull(ModBlocks.WOODEN_BEER_STEIN.asItem())
-        );
-        CauldronBehavior.EMPTY_CAULDRON_BEHAVIOR.put(
-                ModItems.BEER_GOAT_HORN,
-                fillFull(ModBlocks.BEER_CAULDRON, Items.GOAT_HORN)
-        );
-        BEER_CAULDRON_BEHAVIOR.put(
-                Items.GOAT_HORN,
-                emptyFull(ModItems.BEER_GOAT_HORN)
-        );
+        BEER_CAULDRON_BEHAVIOR.put(Items.GLASS_BOTTLE, emptyOneLevel(ModItems.BEER_BOTTLE));
+        BEER_CAULDRON_BEHAVIOR.put(ModItems.DRINK_CAN, emptyOneLevel(ModItems.BEER_CAN));
+        BEER_CAULDRON_BEHAVIOR.put(Items.BUCKET, emptyFull(ModFluids.BEER_BUCKET));
+        BEER_CAULDRON_BEHAVIOR.put(ModItems.BEER_BOTTLE, ModCauldronBehaviors::fillCauldron);
+        BEER_CAULDRON_BEHAVIOR.put(ModItems.BEER_CAN, ModCauldronBehaviors::fillCauldron);
+        CauldronBehavior.EMPTY_CAULDRON_BEHAVIOR.put(ModItems.BEER_BOTTLE, fillOneLevel(ModBlocks.BEER_CAULDRON, Items.GLASS_BOTTLE));
+        CauldronBehavior.EMPTY_CAULDRON_BEHAVIOR.put(ModItems.BEER_CAN, fillOneLevel(ModBlocks.BEER_CAULDRON, ModItems.DRINK_CAN));
+        CauldronBehavior.EMPTY_CAULDRON_BEHAVIOR.put(ModBlocks.WOODEN_BEER_STEIN.asItem(), fillFull(ModBlocks.BEER_CAULDRON, ModBlocks.WOODEN_STEIN.asItem()));
+        BEER_CAULDRON_BEHAVIOR.put(ModBlocks.WOODEN_STEIN.asItem(), emptyFull(ModBlocks.WOODEN_BEER_STEIN.asItem()));
+        CauldronBehavior.EMPTY_CAULDRON_BEHAVIOR.put(ModItems.BEER_GOAT_HORN, fillFull(ModBlocks.BEER_CAULDRON, Items.GOAT_HORN));
+        BEER_CAULDRON_BEHAVIOR.put(Items.GOAT_HORN, emptyFull(ModItems.BEER_GOAT_HORN));
 
-        MEAD_CAULDRON_BEHAVIOR.put(
-                Items.GLASS_BOTTLE,
-                emptyOneLevel(ModItems.MEAD_BOTTLE)
-        );
-        MEAD_CAULDRON_BEHAVIOR.put(
-                Items.BUCKET,
-                emptyFull(ModFluids.MEAD_BUCKET)
-        );
-        MEAD_CAULDRON_BEHAVIOR.put(
-                ModItems.MEAD_BOTTLE,
-                ModCauldronBehaviors::fillCauldron
-        );
-        CauldronBehavior.EMPTY_CAULDRON_BEHAVIOR.put(
-                ModItems.MEAD_BOTTLE,
-                fillOneLevel(ModBlocks.MEAD_CAULDRON, Items.GLASS_BOTTLE)
-        );
-        CauldronBehavior.EMPTY_CAULDRON_BEHAVIOR.put(
-                ModBlocks.WOODEN_MEAD_STEIN.asItem(),
-                fillFull(ModBlocks.MEAD_CAULDRON, ModBlocks.WOODEN_STEIN.asItem())
-        );
-        MEAD_CAULDRON_BEHAVIOR.put(
-                ModBlocks.WOODEN_STEIN.asItem(),
-                emptyFull(ModBlocks.WOODEN_MEAD_STEIN.asItem())
-        );
-        CauldronBehavior.EMPTY_CAULDRON_BEHAVIOR.put(
-                ModItems.MEAD_GOAT_HORN,
-                fillFull(ModBlocks.MEAD_CAULDRON, Items.GOAT_HORN)
-        );
-        MEAD_CAULDRON_BEHAVIOR.put(
-                Items.GOAT_HORN,
-                emptyFull(ModItems.MEAD_GOAT_HORN)
-        );
+        MEAD_CAULDRON_BEHAVIOR.put(Items.GLASS_BOTTLE, emptyOneLevel(ModItems.MEAD_BOTTLE));
+        MEAD_CAULDRON_BEHAVIOR.put(Items.BUCKET, emptyFull(ModFluids.MEAD_BUCKET));
+        MEAD_CAULDRON_BEHAVIOR.put(ModItems.MEAD_BOTTLE, ModCauldronBehaviors::fillCauldron);
+        CauldronBehavior.EMPTY_CAULDRON_BEHAVIOR.put(ModItems.MEAD_BOTTLE, fillOneLevel(ModBlocks.MEAD_CAULDRON, Items.GLASS_BOTTLE));
+        CauldronBehavior.EMPTY_CAULDRON_BEHAVIOR.put(ModBlocks.WOODEN_MEAD_STEIN.asItem(), fillFull(ModBlocks.MEAD_CAULDRON, ModBlocks.WOODEN_STEIN.asItem()));
+        MEAD_CAULDRON_BEHAVIOR.put(ModBlocks.WOODEN_STEIN.asItem(), emptyFull(ModBlocks.WOODEN_MEAD_STEIN.asItem()));
+        CauldronBehavior.EMPTY_CAULDRON_BEHAVIOR.put(ModItems.MEAD_GOAT_HORN, fillFull(ModBlocks.MEAD_CAULDRON, Items.GOAT_HORN));
+        MEAD_CAULDRON_BEHAVIOR.put(Items.GOAT_HORN, emptyFull(ModItems.MEAD_GOAT_HORN));
 
-        BLOOD_CAULDRON_BEHAVIOR.put(
-                Items.GLASS_BOTTLE,
-                emptyOneLevel(ModItems.BLOOD_BOTTLE)
-        );
-        BLOOD_CAULDRON_BEHAVIOR.put(
-                Items.BUCKET,
-                emptyFull(ModFluids.BLOOD_BUCKET)
-        );
-        BLOOD_CAULDRON_BEHAVIOR.put(
-                ModItems.BLOOD_BOTTLE,
-                ModCauldronBehaviors::fillCauldron
-        );
-        CauldronBehavior.EMPTY_CAULDRON_BEHAVIOR.put(
-                ModItems.BLOOD_BOTTLE,
-                fillOneLevel(ModBlocks.BLOOD_CAULDRON, Items.GLASS_BOTTLE)
-        );
+        BLOOD_CAULDRON_BEHAVIOR.put(Items.GLASS_BOTTLE, emptyOneLevel(ModItems.BLOOD_BOTTLE));
+        BLOOD_CAULDRON_BEHAVIOR.put(Items.BUCKET, emptyFull(ModFluids.BLOOD_BUCKET));
+        BLOOD_CAULDRON_BEHAVIOR.put(ModItems.BLOOD_BOTTLE, ModCauldronBehaviors::fillCauldron);
+        CauldronBehavior.EMPTY_CAULDRON_BEHAVIOR.put(ModItems.BLOOD_BOTTLE, fillOneLevel(ModBlocks.BLOOD_CAULDRON, Items.GLASS_BOTTLE));
 
-        BOILING_WATER_CAULDRON_BEHAVIOR.put(
-                Items.GLASS_BOTTLE,
-                emptyOneLevel(Items.POTION)
-        );
-        BOILING_WATER_CAULDRON_BEHAVIOR.put(
-                Items.BUCKET,
-                emptyFull(ModFluids.BOILING_WATER_BUCKET)
-        );
-        CauldronBehavior.EMPTY_CAULDRON_BEHAVIOR.put(
-                ModBlocks.WOODEN_BOILING_WATER_STEIN.asItem(),
-                fillFull(ModBlocks.BOILING_WATER_CAULDRON, ModBlocks.WOODEN_STEIN.asItem())
-        );
-        BOILING_WATER_CAULDRON_BEHAVIOR.put(
-                ModBlocks.WOODEN_STEIN.asItem(),
-                emptyFull(ModBlocks.WOODEN_BOILING_WATER_STEIN.asItem())
-        );
+        BOILING_WATER_CAULDRON_BEHAVIOR.put(Items.GLASS_BOTTLE, emptyOneLevel(Items.POTION));
+        BOILING_WATER_CAULDRON_BEHAVIOR.put(Items.BUCKET, emptyFull(ModFluids.BOILING_WATER_BUCKET));
+        CauldronBehavior.EMPTY_CAULDRON_BEHAVIOR.put(ModBlocks.WOODEN_BOILING_WATER_STEIN.asItem(), fillFull(ModBlocks.BOILING_WATER_CAULDRON, ModBlocks.WOODEN_STEIN.asItem()));
+        BOILING_WATER_CAULDRON_BEHAVIOR.put(ModBlocks.WOODEN_STEIN.asItem(), emptyFull(ModBlocks.WOODEN_BOILING_WATER_STEIN.asItem()));
 
-        HOT_COFFEE_CAULDRON_BEHAVIOR.put(
-                Items.BUCKET,
-                emptyFull(ModFluids.HOT_COFFEE_BUCKET)
-        );
-        CauldronBehavior.EMPTY_CAULDRON_BEHAVIOR.put(
-                ModBlocks.WOODEN_HOT_COFFEE_STEIN.asItem(),
-                fillFull(ModBlocks.HOT_COFFEE_CAULDRON, ModBlocks.WOODEN_STEIN.asItem())
-        );
-        HOT_COFFEE_CAULDRON_BEHAVIOR.put(
-                ModBlocks.WOODEN_STEIN.asItem(),
-                emptyFull(ModBlocks.WOODEN_HOT_COFFEE_STEIN.asItem())
-        );
+        HOT_COFFEE_CAULDRON_BEHAVIOR.put(Items.BUCKET, emptyFull(ModFluids.HOT_COFFEE_BUCKET));
+        CauldronBehavior.EMPTY_CAULDRON_BEHAVIOR.put(ModBlocks.WOODEN_HOT_COFFEE_STEIN.asItem(), fillFull(ModBlocks.HOT_COFFEE_CAULDRON, ModBlocks.WOODEN_STEIN.asItem()));
+        HOT_COFFEE_CAULDRON_BEHAVIOR.put(ModBlocks.WOODEN_STEIN.asItem(), emptyFull(ModBlocks.WOODEN_HOT_COFFEE_STEIN.asItem()));
 
-        HOT_MILK_CAULDRON_BEHAVIOR.put(
-                Items.BUCKET,
-                emptyFull(ModFluids.HOT_MILK_BUCKET)
-        );
-        CauldronBehavior.EMPTY_CAULDRON_BEHAVIOR.put(
-                ModBlocks.HOT_WOODEN_MILK_STEIN.asItem(),
-                fillFull(ModBlocks.HOT_MILK_CAULDRON, ModBlocks.WOODEN_STEIN.asItem())
-        );
-        HOT_MILK_CAULDRON_BEHAVIOR.put(
-                ModBlocks.WOODEN_STEIN.asItem(),
-                emptyFull(ModBlocks.HOT_WOODEN_MILK_STEIN.asItem())
-        );
+        HOT_MILK_CAULDRON_BEHAVIOR.put(Items.BUCKET, emptyFull(ModFluids.HOT_MILK_BUCKET));
+        CauldronBehavior.EMPTY_CAULDRON_BEHAVIOR.put(ModBlocks.HOT_WOODEN_MILK_STEIN.asItem(), fillFull(ModBlocks.HOT_MILK_CAULDRON, ModBlocks.WOODEN_STEIN.asItem()));
+        HOT_MILK_CAULDRON_BEHAVIOR.put(ModBlocks.WOODEN_STEIN.asItem(), emptyFull(ModBlocks.HOT_WOODEN_MILK_STEIN.asItem()));
 
-        HOT_CHOCOLATE_CAULDRON_BEHAVIOR.put(
-                Items.BUCKET,
-                emptyFull(ModFluids.HOT_CHOCOLATE_BUCKET)
-        );
-        CauldronBehavior.EMPTY_CAULDRON_BEHAVIOR.put(
-                ModBlocks.WOODEN_HOT_CHOCOLATE_STEIN.asItem(),
-                fillFull(ModBlocks.HOT_CHOCOLATE_CAULDRON, ModBlocks.WOODEN_STEIN.asItem())
-        );
-        HOT_CHOCOLATE_CAULDRON_BEHAVIOR.put(
-                ModBlocks.WOODEN_STEIN.asItem(),
-                emptyFull(ModBlocks.WOODEN_HOT_CHOCOLATE_STEIN.asItem())
-        );
+        HOT_CHOCOLATE_CAULDRON_BEHAVIOR.put(Items.BUCKET, emptyFull(ModFluids.HOT_CHOCOLATE_BUCKET));
+        CauldronBehavior.EMPTY_CAULDRON_BEHAVIOR.put(ModBlocks.WOODEN_HOT_CHOCOLATE_STEIN.asItem(), fillFull(ModBlocks.HOT_CHOCOLATE_CAULDRON, ModBlocks.WOODEN_STEIN.asItem()));
+        HOT_CHOCOLATE_CAULDRON_BEHAVIOR.put(ModBlocks.WOODEN_STEIN.asItem(), emptyFull(ModBlocks.WOODEN_HOT_CHOCOLATE_STEIN.asItem()));
     }
 }

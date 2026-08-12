@@ -35,13 +35,14 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 import net.tlotd.block.ModBlocks;
 import net.tlotd.block.entity.RadioBlockEntity;
-import net.tlotd.config.ModConfigs;
 import net.tlotd.sound.ModSounds;
 import net.tlotd.util.ModAdvancementTriggers;
 import net.tlotd.util.ModTags;
+import net.tlotd.world.RadioStation;
 import net.tlotd.world.SignalTrackingArray;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 
@@ -59,62 +60,24 @@ public class RadioBlock extends Block implements BlockEntityProvider {
     private static final VoxelShape SMALL_Z_SHAPE = Block.createCuboidShape(5.0, 0.0, 2.5, 11.0, 8.0, 13.5);
     private static final VoxelShape SMALL_X_SHAPE = Block.createCuboidShape(2.5, 0.0, 5.0, 13.5, 8.0, 11.0);
 
-    private static final Map<TagKey<Item>, Integer> WOOD_TYPE_MAP = Map.ofEntries(
-            Map.entry(ModTags.Items.LUNAR_REGOLITHS, 0),
-            Map.entry(ItemTags.OAK_LOGS, 1),
-            Map.entry(ItemTags.SPRUCE_LOGS, 2),
-            Map.entry(ItemTags.BIRCH_LOGS, 3),
-            Map.entry(ItemTags.JUNGLE_LOGS, 4),
-            Map.entry(ItemTags.ACACIA_LOGS, 5),
-            Map.entry(ItemTags.DARK_OAK_LOGS, 6),
-            Map.entry(ItemTags.MANGROVE_LOGS, 7),
-            Map.entry(ItemTags.CHERRY_LOGS, 8),
-            Map.entry(ModTags.Items.GINKGO_LOGS, 10),
-            Map.entry(ItemTags.BAMBOO_BLOCKS, 11),
-            Map.entry(ItemTags.CRIMSON_STEMS, 12),
-            Map.entry(ItemTags.WARPED_STEMS, 13)
-    );
+    private static final Map<TagKey<Item>, Integer> WOOD_TYPE_MAP = Map.ofEntries(Map.entry(ModTags.Items.LUNAR_REGOLITHS, 0), Map.entry(ItemTags.OAK_LOGS, 1), Map.entry(ItemTags.SPRUCE_LOGS, 2), Map.entry(ItemTags.BIRCH_LOGS, 3), Map.entry(ItemTags.JUNGLE_LOGS, 4), Map.entry(ItemTags.ACACIA_LOGS, 5), Map.entry(ItemTags.DARK_OAK_LOGS, 6), Map.entry(ItemTags.MANGROVE_LOGS, 7), Map.entry(ItemTags.CHERRY_LOGS, 8), Map.entry(ModTags.Items.GINKGO_LOGS, 10), Map.entry(ItemTags.BAMBOO_BLOCKS, 11), Map.entry(ItemTags.CRIMSON_STEMS, 12), Map.entry(ItemTags.WARPED_STEMS, 13));
 
-    private record ModdedWoodRule(String modId, String namePart, int type) {}
-    private static final List<ModdedWoodRule> MODDED_WOOD_RULES = List.of(
-            new ModdedWoodRule("aether", "skyroot", 1),
-            new ModdedWoodRule("aether", "golden_oak", 1),
-            new ModdedWoodRule("twilightforest", "twilight_oak", 2),
-            new ModdedWoodRule("twilightforest", "canopy", 3),
-            new ModdedWoodRule("twilightforest", "mangrove", 4),
-            new ModdedWoodRule("twilightforest", "dark", 5),
-            new ModdedWoodRule("twilightforest", "time", 6),
-            new ModdedWoodRule("twilightforest", "transformation", 7),
-            new ModdedWoodRule("twilightforest", "mining", 8),
-            new ModdedWoodRule("twilightforest", "sorting", 9),
-            new ModdedWoodRule("thermal", "rubberwood", 10),
-            new ModdedWoodRule("quark", "ancient", 11),
-            new ModdedWoodRule("quark", "azalea", 12),
-            new ModdedWoodRule("quark", "blossom", 13),
-            new ModdedWoodRule("alexscaves", "pewen", 14),
-            new ModdedWoodRule("alexscaves", "thornwood", 15),
-            new ModdedWoodRule("biomesoplenty", "fir", 16),
-            new ModdedWoodRule("biomesoplenty", "pine", 17),
-            new ModdedWoodRule("biomesoplenty", "maple", 18),
-            new ModdedWoodRule("biomesoplenty", "redwood", 19),
-            new ModdedWoodRule("biomesoplenty", "mahogany", 20),
-            new ModdedWoodRule("biomesoplenty", "jacaranda", 21),
-            new ModdedWoodRule("biomesoplenty", "palm", 22),
-            new ModdedWoodRule("biomesoplenty", "willow", 23),
-            new ModdedWoodRule("biomesoplenty", "dead", 24),
-            new ModdedWoodRule("biomesoplenty", "magic", 25),
-            new ModdedWoodRule("biomesoplenty", "umbran", 26),
-            new ModdedWoodRule("biomesoplenty", "hellbark", 27),
-            new ModdedWoodRule("biomesoplenty", "empyreal", 28)
-    );
+    private record ModdedWoodRule(String modId, String namePart, int type) {
+    }
 
-    private Identifier findNextDisc(SignalTrackingArray tracker, @Nullable Identifier current) {
-        List<Identifier> sorted = tracker.getAllSignals().stream().sorted().toList();
-        if (sorted.isEmpty()) return null;
+    private static final List<ModdedWoodRule> MODDED_WOOD_RULES = List.of(new ModdedWoodRule("aether", "skyroot", 1), new ModdedWoodRule("aether", "golden_oak", 1), new ModdedWoodRule("twilightforest", "twilight_oak", 2), new ModdedWoodRule("twilightforest", "canopy", 3), new ModdedWoodRule("twilightforest", "mangrove", 4), new ModdedWoodRule("twilightforest", "dark", 5), new ModdedWoodRule("twilightforest", "time", 6), new ModdedWoodRule("twilightforest", "transformation", 7), new ModdedWoodRule("twilightforest", "mining", 8), new ModdedWoodRule("twilightforest", "sorting", 9), new ModdedWoodRule("thermal", "rubberwood", 10), new ModdedWoodRule("quark", "ancient", 11), new ModdedWoodRule("quark", "azalea", 12), new ModdedWoodRule("quark", "blossom", 13), new ModdedWoodRule("alexscaves", "pewen", 14), new ModdedWoodRule("alexscaves", "thornwood", 15), new ModdedWoodRule("biomesoplenty", "fir", 16), new ModdedWoodRule("biomesoplenty", "pine", 17), new ModdedWoodRule("biomesoplenty", "maple", 18), new ModdedWoodRule("biomesoplenty", "redwood", 19), new ModdedWoodRule("biomesoplenty", "mahogany", 20), new ModdedWoodRule("biomesoplenty", "jacaranda", 21), new ModdedWoodRule("biomesoplenty", "palm", 22), new ModdedWoodRule("biomesoplenty", "willow", 23), new ModdedWoodRule("biomesoplenty", "dead", 24), new ModdedWoodRule("biomesoplenty", "magic", 25), new ModdedWoodRule("biomesoplenty", "umbran", 26), new ModdedWoodRule("biomesoplenty", "hellbark", 27), new ModdedWoodRule("biomesoplenty", "empyreal", 28));
+
+    private Identifier findNextDisc(List<Identifier> signals, @Nullable Identifier current) {
+        if (signals.isEmpty()) {
+            return null;
+        }
+        List<Identifier> sorted = signals.stream().sorted().toList();
         int startIndex = 0;
         if (current != null) {
-            int idx = sorted.indexOf(current);
-            if (idx >= 0) startIndex = (idx + 1) % sorted.size();
+            int index = sorted.indexOf(current);
+            if (index >= 0) {
+                startIndex = (index + 1) % sorted.size();
+            }
         }
         for (int i = 0; i < sorted.size(); i++) {
             Identifier id = sorted.get((startIndex + i) % sorted.size());
@@ -129,37 +92,18 @@ public class RadioBlock extends Block implements BlockEntityProvider {
     private void playDisc(World world, BlockPos pos, Identifier id) {
         Item item = Registries.ITEM.get(id);
         if (item instanceof MusicDiscItem disc) {
-            world.playSound(
-                    null,
-                    pos,
-                    disc.getSound(),
-                    SoundCategory.RECORDS,
-                    1.0f,
-                    1.0f
-            );
+            world.playSound(null, pos, disc.getSound(), SoundCategory.RECORDS, 1.0f, 1.0f);
         }
     }
 
     public RadioBlock(Settings settings) {
         super(settings);
-        this.setDefaultState(this.stateManager.getDefaultState()
-                .with(ON, false)
-                .with(FACING, Direction.NORTH)
-                .with(WATERLOGGED, false)
-                .with(FREQUENCY, 0)
-                .with(WOOD_TYPE, 1)
-                .with(MODDED, false));
+        this.setDefaultState(this.stateManager.getDefaultState().with(ON, false).with(FACING, Direction.NORTH).with(WATERLOGGED, false).with(FREQUENCY, 0).with(WOOD_TYPE, 1).with(MODDED, false));
     }
 
     @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {
-        return this.getDefaultState()
-                .with(ON, false)
-                .with(FACING, ctx.getHorizontalPlayerFacing())
-                .with(WATERLOGGED, ctx.getWorld().getFluidState(ctx.getBlockPos()).isOf(Fluids.WATER))
-                .with(FREQUENCY, 0)
-                .with(WOOD_TYPE, 1)
-                .with(MODDED, false);
+        return this.getDefaultState().with(ON, false).with(FACING, ctx.getHorizontalPlayerFacing()).with(WATERLOGGED, ctx.getWorld().getFluidState(ctx.getBlockPos()).isOf(Fluids.WATER)).with(FREQUENCY, 0).with(WOOD_TYPE, 1).with(MODDED, false);
     }
 
     @Override
@@ -247,39 +191,37 @@ public class RadioBlock extends Block implements BlockEntityProvider {
                 ServerWorld serverWorld = (ServerWorld) world;
                 SignalTrackingArray tracker = SignalTrackingArray.get(serverWorld);
                 if (!state.get(ON)) {
-                    world.setBlockState(pos, ModBlocks.RADIO.getStateWithProperties(state).with(ON, true));
                     RadioBlockEntity be = (RadioBlockEntity) world.getBlockEntity(pos);
-                    if (be == null) return ActionResult.SUCCESS;
-                    if (!tracker.hasAnySignals()) {
-                        player.sendMessage(Text.translatable("block.tlotd.signal_transmitter.list_empty"), true);
+                    if (be == null) {
+                        return ActionResult.SUCCESS;
+                    }
+                    List<Identifier> availableSignals = tracker.getAvailableSignals(pos);
+                    if (availableSignals.isEmpty()) {
+                        player.sendMessage(Text.translatable("block.tlotd.radio.list_empty"), true);
+                        return ActionResult.SUCCESS;
+                    }
+                    Identifier current = be.getCurrentTrack();
+                    Identifier toPlay = null;
+                    if (current != null && availableSignals.contains(current)) {
+                        Item item = Registries.ITEM.get(current);
+                        if (item instanceof MusicDiscItem) {
+                            toPlay = current;
+                        }
+                    }
+                    if (toPlay == null) {
+                        toPlay = findNextDisc(availableSignals, current);
+                    }
+                    if (toPlay != null) {
+                        be.setCurrentTrack(toPlay);
+                        playDisc(world, pos, toPlay);
+                        ModAdvancementTriggers.PLAY_RADIO.trigger((ServerPlayerEntity) player, serverWorld, toPlay);
+                        int newFreq = state.get(FREQUENCY) == 0 ? 1 : state.get(FREQUENCY);
+                        world.setBlockState(pos, ModBlocks.RADIO.getStateWithProperties(state).with(ON, true).with(FREQUENCY, newFreq));
+                        player.sendMessage(Text.translatable(Registries.ITEM.get(toPlay).getTranslationKey() + ".desc"), true);
                     } else {
-                        Identifier current = be.getCurrentTrack();
-                        Identifier toPlay = null;
-                        if (current != null && tracker.hasSignal(current)) {
-                            Item item = Registries.ITEM.get(current);
-                            if (item instanceof MusicDiscItem) {
-                                toPlay = current;
-                            }
-                        }
-                        if (toPlay == null) {
-                            toPlay = findNextDisc(tracker, current);
-                        }
-                        if (toPlay != null) {
-                            be.setCurrentTrack(toPlay);
-                            playDisc(world, pos, toPlay);
-                            ModAdvancementTriggers.PLAY_RADIO.trigger(
-                                    (ServerPlayerEntity) player,
-                                    (ServerWorld) world,
-                                    toPlay
-                            );
-                            int newFreq = state.get(FREQUENCY) == 0 ? 1 : state.get(FREQUENCY);
-                            world.setBlockState(pos, ModBlocks.RADIO.getStateWithProperties(state).with(ON, true).with(FREQUENCY, newFreq));
-                            player.sendMessage(Text.translatable(Registries.ITEM.get(toPlay).getTranslationKey() + ".desc"), true);
-                        } else {
-                            be.setCurrentTrack(null);
-                            world.setBlockState(pos, ModBlocks.RADIO.getStateWithProperties(state).with(ON, true).with(FREQUENCY, 0));
-                            player.sendMessage(Text.translatable("block.tlotd.signal_transmitter.list_empty"), true);
-                        }
+                        be.setCurrentTrack(null);
+                        world.setBlockState(pos, ModBlocks.RADIO.getStateWithProperties(state).with(ON, true).with(FREQUENCY, 0));
+                        player.sendMessage(Text.translatable("block.tlotd.radio.list_empty"), true);
                     }
                 } else {
                     world.setBlockState(pos, ModBlocks.RADIO.getStateWithProperties(state).with(ON, false));
@@ -301,26 +243,25 @@ public class RadioBlock extends Block implements BlockEntityProvider {
             if (!world.isClient) {
                 ServerWorld serverWorld = (ServerWorld) world;
                 SignalTrackingArray tracker = SignalTrackingArray.get(serverWorld);
-                if (!tracker.hasAnySignals()) {
-                    player.sendMessage(Text.translatable("block.tlotd.signal_transmitter.list_empty"), true);
+                RadioBlockEntity be = (RadioBlockEntity) world.getBlockEntity(pos);
+                if (be == null) {
                     return ActionResult.SUCCESS;
                 }
-                RadioBlockEntity be = (RadioBlockEntity) world.getBlockEntity(pos);
-                if (be == null) return ActionResult.SUCCESS;
-                Identifier next = findNextDisc(tracker, be.getCurrentTrack());
+                List<Identifier> availableSignals = tracker.getAvailableSignals(pos);
+                if (availableSignals.isEmpty()) {
+                    player.sendMessage(Text.translatable("block.tlotd.radio.list_empty"), true);
+                    return ActionResult.SUCCESS;
+                }
+                Identifier next = findNextDisc(availableSignals, be.getCurrentTrack());
                 if (next != null) {
                     be.setCurrentTrack(next);
                     playDisc(world, pos, next);
-                    ModAdvancementTriggers.PLAY_RADIO.trigger(
-                            (ServerPlayerEntity) player,
-                            (ServerWorld) world,
-                            next
-                    );
+                    ModAdvancementTriggers.PLAY_RADIO.trigger((ServerPlayerEntity) player, serverWorld, next);
                     int newFreq = state.get(FREQUENCY) < 4 ? state.get(FREQUENCY) + 1 : 1;
                     world.setBlockState(pos, state.with(FREQUENCY, newFreq));
                     player.sendMessage(Text.translatable(Registries.ITEM.get(next).getTranslationKey() + ".desc"), true);
                 } else {
-                    player.sendMessage(Text.translatable("block.tlotd.signal_transmitter.list_empty"), true);
+                    player.sendMessage(Text.translatable("block.tlotd.radio.list_empty"), true);
                 }
             }
             world.playSound(null, pos, ModSounds.BLOCK_RADIO_SWITCH_FREQUENCY, SoundCategory.BLOCKS, 1.0f, 1.0f);

@@ -29,7 +29,7 @@ import net.minecraft.world.WorldView;
 import org.jetbrains.annotations.Nullable;
 
 public class ShelfMushroomBlock extends Block implements Fertilizable {
-    public static final IntProperty AGE = IntProperty.of("age",0,1);
+    public static final IntProperty AGE = IntProperty.of("age", 0, 1);
     public static final DirectionProperty FACING = HorizontalFacingBlock.FACING;
 
     public ShelfMushroomBlock(Settings settings) {
@@ -50,7 +50,7 @@ public class ShelfMushroomBlock extends Block implements Fertilizable {
         WorldView worldView = ctx.getWorld();
         BlockPos blockPos = ctx.getBlockPos();
         Direction[] directions = ctx.getPlacementDirections();
-        for(Direction direction : directions) {
+        for (Direction direction : directions) {
             if (direction.getAxis().isHorizontal()) {
                 Direction direction2 = direction.getOpposite();
                 blockState = blockState.with(FACING, direction2);
@@ -117,7 +117,7 @@ public class ShelfMushroomBlock extends Block implements Fertilizable {
 
     @Override
     public boolean canGrow(World world, Random random, BlockPos pos, BlockState state) {
-        return (double)world.random.nextFloat() < 0.45;
+        return (double) world.random.nextFloat() < 0.45;
     }
 
     @Override
@@ -149,9 +149,9 @@ public class ShelfMushroomBlock extends Block implements Fertilizable {
 
     private void bounceEntity(Entity entity) {
         Vec3d vec3d = entity.getVelocity();
-        if (vec3d.y < (double)0.0F) {
-            double d = entity instanceof LivingEntity ? (double)1.0F : 0.8;
-            entity.setVelocity(vec3d.x, -vec3d.y * (double)0.66F * d, vec3d.z);
+        if (vec3d.y < (double) 0.0F) {
+            double d = entity instanceof LivingEntity ? (double) 1.0F : 0.8;
+            entity.setVelocity(vec3d.x, -vec3d.y * (double) 0.66F * d, vec3d.z);
         }
     }
 }

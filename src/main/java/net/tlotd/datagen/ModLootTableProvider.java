@@ -296,8 +296,11 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
 
         addDrop(ModBlocks.HEV_CHARGER);
 
-        addDrop(ModBlocks.SIGNAL_TRANSMITTER_ANTENNA);
         addDrop(ModBlocks.SIGNAL_TRANSMITTER);
+        addDrop(ModBlocks.ALUMINIUM_SIGNAL_TRANSMITTER_ANTENNA);
+        addDrop(ModBlocks.COPPER_SIGNAL_TRANSMITTER_ANTENNA);
+        addDrop(ModBlocks.GOLD_SIGNAL_TRANSMITTER_ANTENNA);
+        addDrop(ModBlocks.MITHRIL_SIGNAL_TRANSMITTER_ANTENNA);
 
         addDrop(ModBlocks.TELEPORTER);
 

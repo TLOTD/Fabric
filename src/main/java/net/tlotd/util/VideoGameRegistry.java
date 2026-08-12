@@ -24,7 +24,7 @@ public class VideoGameRegistry {
         SIGNALS.put(key, entry);
     }
 
-    public static void registerBatch(Identifier[] itemIds, Block tvBlock, Block computerBlock,int startinggameID) {
+    public static void registerBatch(Identifier[] itemIds, Block tvBlock, Block computerBlock, int startinggameID) {
         int gameID = startinggameID;
         for (Identifier id : itemIds) {
             register(new SignalEntry(normalize(id), tvBlock, computerBlock, gameID++));
@@ -48,11 +48,7 @@ public class VideoGameRegistry {
         }
         System.out.println("[VideoGameRegistry] Dumping all registered signals (" + SIGNALS.size() + "):\n");
         for (SignalEntry entry : SIGNALS.values()) {
-            System.out.println("Signal: " + entry.signalItem()
-                    + "\n  TV Block: " + entry.tvBlock()
-                    + "\n  Computer Block: " + entry.computerBlock()
-                    + "\n  GameID: " + entry.gameID()
-                    + "\n");
+            System.out.println("Signal: " + entry.signalItem() + "\n  TV Block: " + entry.tvBlock() + "\n  Computer Block: " + entry.computerBlock() + "\n  GameID: " + entry.gameID() + "\n");
         }
         System.out.println("[VideoGameRegistry] End of dump.\n");
     }

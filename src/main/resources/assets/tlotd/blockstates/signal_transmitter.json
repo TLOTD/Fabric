@@ -1,8 +1,20 @@
 {
   "variants": {
-    "facing=south":{"model":"tlotd:block/signal_transmitter"},
-    "facing=west":{"model":"tlotd:block/signal_transmitter","y":90},
-    "facing=north":{"model":"tlotd:block/signal_transmitter","y":180},
-    "facing=east":{"model": "tlotd:block/signal_transmitter","y":270}
+    "antenna_material=aluminium,facing=south":{"model":"tlotd:block/aluminium_signal_transmitter"},
+    "antenna_material=aluminium,facing=west":{"model":"tlotd:block/aluminium_signal_transmitter","y":90},
+    "antenna_material=aluminium,facing=north":{"model":"tlotd:block/aluminium_signal_transmitter","y":180},
+    "antenna_material=aluminium,facing=east":{"model": "tlotd:block/aluminium_signal_transmitter","y":270},
+    "antenna_material=copper,facing=south":{"model":"tlotd:block/copper_signal_transmitter"},
+    "antenna_material=copper,facing=west":{"model":"tlotd:block/copper_signal_transmitter","y":90},
+    "antenna_material=copper,facing=north":{"model":"tlotd:block/copper_signal_transmitter","y":180},
+    "antenna_material=copper,facing=east":{"model": "tlotd:block/copper_signal_transmitter","y":270},
+    "antenna_material=gold,facing=south":{"model":"tlotd:block/gold_signal_transmitter"},
+    "antenna_material=gold,facing=west":{"model":"tlotd:block/gold_signal_transmitter","y":90},
+    "antenna_material=gold,facing=north":{"model":"tlotd:block/gold_signal_transmitter","y":180},
+    "antenna_material=gold,facing=east":{"model": "tlotd:block/gold_signal_transmitter","y":270},
+    "antenna_material=mithril,facing=south":{"model":"tlotd:block/mithril_signal_transmitter"},
+    "antenna_material=mithril,facing=west":{"model":"tlotd:block/mithril_signal_transmitter","y":90},
+    "antenna_material=mithril,facing=north":{"model":"tlotd:block/mithril_signal_transmitter","y":180},
+    "antenna_material=mithril,facing=east":{"model": "tlotd:block/mithril_signal_transmitter","y":270}
   }
 }

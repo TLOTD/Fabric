@@ -23,8 +23,7 @@ public class PresentBlock extends Block {
 
     @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {
-        return this.getDefaultState()
-                .with(WATERLOGGED, ctx.getWorld().getFluidState(ctx.getBlockPos()).isOf(Fluids.WATER));
+        return this.getDefaultState().with(WATERLOGGED, ctx.getWorld().getFluidState(ctx.getBlockPos()).isOf(Fluids.WATER));
     }
 
     @Override
@@ -51,9 +50,7 @@ public class PresentBlock extends Block {
         this.setDefaultState(this.stateManager.getDefaultState().with(WATERLOGGED, false));
     }
 
-    public static final VoxelShape SHAPE = VoxelShapes.union(
-            Block.createCuboidShape(1, 0, 1, 15, 8, 15),
-            Block.createCuboidShape(0, 8, 0, 16, 12, 16));
+    public static final VoxelShape SHAPE = VoxelShapes.union(Block.createCuboidShape(1, 0, 1, 15, 8, 15), Block.createCuboidShape(0, 8, 0, 16, 12, 16));
 
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {

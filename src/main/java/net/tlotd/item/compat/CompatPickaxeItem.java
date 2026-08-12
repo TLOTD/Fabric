@@ -27,7 +27,7 @@ public class CompatPickaxeItem extends PickaxeItem {
 
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        if (context.isCreative()){
+        if (context.isCreative()) {
             Style style = this.getName().getStyle();
             if (compat.contains("wsm")) {
                 tooltip.add(Text.literal("\uE012 ").setStyle(style.withFont(MODS_FONT_ID)).append(Text.translatable("mod.witherstormmod.name").setStyle(style.withFont(DEFAULT_FONT_ID).withFormatting(Formatting.GRAY))));

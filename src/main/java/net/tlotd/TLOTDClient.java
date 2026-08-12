@@ -18,10 +18,7 @@ import net.minecraft.util.Identifier;
 import net.tlotd.block.ModBlocks;
 import net.tlotd.block.entity.ModBlockEntities;
 import net.tlotd.block.entity.renderer.*;
-import net.tlotd.client.LetterTooltipComponent;
-import net.tlotd.client.ModBlockRenderLayerMap;
-import net.tlotd.client.ModItemRenderLayerMap;
-import net.tlotd.client.SpaceSuitTooltipComponent;
+import net.tlotd.client.*;
 import net.tlotd.entity.ModBoats;
 import net.tlotd.entity.ModEntities;
 import net.tlotd.entity.client.*;
@@ -36,6 +33,7 @@ import net.tlotd.particle.BloodFallingFactory;
 import net.tlotd.particle.BloodLandingFactory;
 import net.tlotd.util.EnvelopeTooltipData;
 import net.tlotd.particle.ModParticles;
+import net.tlotd.util.HEVSuitTooltipData;
 import net.tlotd.util.SpaceSuitTooltipData;
 
 public class TLOTDClient implements ClientModInitializer {
@@ -101,6 +99,8 @@ public class TLOTDClient implements ClientModInitializer {
         HandledScreens.register(ModGUIHandlers.AUGMENTATION_TABLE_GUI_HANDLER, AugmentationTableGUI::new);
         BlockEntityRendererFactories.register(ModBlockEntities.AUGMENTATION_TABLE_BLOCK_ENTITY, AugmentationTableBlockEntityRenderer::new);
 
+        BlockEntityRendererFactories.register(ModBlockEntities.HEV_CHARGER_BLOCK_ENTITY, HEVChargerBlockEntityRenderer::new);
+
         HandledScreens.register(ModGUIHandlers.INCUBATOR_GUI_HANDLER, IncubatorGUI::new);
 
         HandledScreens.register(ModGUIHandlers.OXYGEN_COLLECTOR_GUI_HANDLER, OxygenCollectorGUI::new);
@@ -113,10 +113,12 @@ public class TLOTDClient implements ClientModInitializer {
         PlayerDataSyncNetworking.registerClientReceiver();
 
         TooltipComponentCallback.EVENT.register(data -> {
-            if (data instanceof EnvelopeTooltipData suitData) {
-                return new LetterTooltipComponent(suitData);
-            } else if (data instanceof SpaceSuitTooltipData suitData) {
+            if (data instanceof SpaceSuitTooltipData suitData) {
                 return new SpaceSuitTooltipComponent(suitData);
+            } else if (data instanceof HEVSuitTooltipData hevSuitData) {
+                return new HEVSuitTooltipComponent(hevSuitData);
+            } else if (data instanceof EnvelopeTooltipData envelopeData) {
+                return new LetterTooltipComponent(envelopeData);
             }
             return null;
         });

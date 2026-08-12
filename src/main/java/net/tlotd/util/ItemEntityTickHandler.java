@@ -22,10 +22,7 @@ public class ItemEntityTickHandler {
     }
 
     private static void coolDroppedItems(ServerWorld world) {
-        for (ItemEntity itemEntity : world.getEntitiesByType(EntityType.ITEM, entity ->
-                entity.getStack().getItem() instanceof HeatableItem ||
-                entity.getStack().getItem() instanceof HeatableBlockItem ||
-                entity.getStack().isIn(ModTags.Items.LAVA_CLEANSING))) {
+        for (ItemEntity itemEntity : world.getEntitiesByType(EntityType.ITEM, entity -> entity.getStack().getItem() instanceof HeatableItem || entity.getStack().getItem() instanceof HeatableBlockItem || entity.getStack().isIn(ModTags.Items.LAVA_CLEANSING))) {
             ItemStack stack = itemEntity.getStack().copy();
             if (stack.isIn(ModTags.Items.LAVA_CLEANSING) && itemEntity.isInLava()) {
                 if (stack.isOf(ModItems.RAW_MITHRIL)) {

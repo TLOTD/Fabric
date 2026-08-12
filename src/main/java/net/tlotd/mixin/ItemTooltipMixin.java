@@ -34,21 +34,33 @@ import static net.tlotd.util.AugmentNbtHelper.getAugmentLevel;
 public abstract class ItemTooltipMixin {
     @Inject(method = "appendTooltip", at = @At("TAIL"))
     private void addItemTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext context, CallbackInfo ci) {
+        if (stack.isIn(ModTags.Items.NYI)) {
+            tooltip.add(Text.translatable("info.tlotd.not_yet_implemented").formatted(Formatting.RED));
+        }
+        if (stack.isIn(ModTags.Items.DIVINE_ITEMS)) {
+            tooltip.add(Text.translatable("item.tlotd.desc_divine").formatted(Formatting.YELLOW));
+        }
+        if (stack.isIn(ModTags.Items.UNBREAKABLE)) {
+            tooltip.add(Text.translatable("item.unbreakable").formatted(Formatting.GOLD));
+        }
+        if (stack.isIn(ModTags.Items.MOUTH_OF_THE_ABYSS)) {
+            tooltip.add(Text.translatable("item.tlotd.mouth_of_the_abyss.tooltip").formatted(Formatting.GRAY));
+        }
         PlayerEntity player = MinecraftClient.getInstance().player;
         if (player == null) return;
         TemperatureUnit unit = ItemHeatHelper.getTemperatureUnit(player);
-        if (stack.isIn(ModTags.Items.BURNS_IN_FORGE)){
+        if (stack.isIn(ModTags.Items.BURNS_IN_FORGE)) {
             int minTemp = ItemHeatHelper.getMinBurningTemperature(stack);
             int maxtemp = ItemHeatHelper.getMaxBurningTemperature(stack);
-            if (minTemp!=0){
+            if (minTemp != 0) {
                 tooltip.add(Text.translatable("temperature.tlotd.starts_burning_at", ItemHeatHelper.getTemperatureText(minTemp, unit)).formatted(Formatting.GRAY));
             }
             tooltip.add(Text.translatable("temperature.tlotd.burns_at", ItemHeatHelper.getTemperatureText(maxtemp, unit), ItemHeatHelper.getBurningTime(maxtemp)).formatted(Formatting.GRAY));
         }
-        if (stack.isIn(ModTags.Items.FIRE_BASE_FORGE)){
+        if (stack.isIn(ModTags.Items.FIRE_BASE_FORGE)) {
             int minTemp = ItemHeatHelper.getMinBurningBaseTemperature(stack);
             int maxTemp = ItemHeatHelper.getMaxBurningBaseTemperature(stack);
-            if (minTemp!=0){
+            if (minTemp != 0) {
                 tooltip.add(Text.translatable("temperature.tlotd.starts_burning_at", ItemHeatHelper.getTemperatureText(minTemp, unit)).formatted(Formatting.GRAY));
             }
             tooltip.add(Text.translatable("temperature.tlotd.allows_burning_to", ItemHeatHelper.getTemperatureText(maxTemp, unit)).formatted(Formatting.GRAY));
@@ -74,25 +86,47 @@ public abstract class ItemTooltipMixin {
                 tooltip.add(Text.translatable("temperature.tlotd.anvil", ModBlocks.NETHERITE_ANVIL.getName().formatted(Formatting.WHITE), ItemHeatHelper.getTemperatureText(smithingTemp, unit)).formatted(Formatting.GRAY));
             }
         }
-        if (stack.isOf(ModItems.HEV_SUIT_CHESTPLATE) || stack.isOf(ModItems.HEV_SUIT_LEGGINGS) || stack.isOf(ModItems.HEV_SUIT_BOOTS) || getAugmentLevel(stack, "tlotd:battery_pack") > 0) {
-            String formattedPower = "0";
-            String formattedMaxPower = "0";
-            if (Screen.hasShiftDown()) {
-                if (stack.hasNbt()) {
-                    long powerAmount = EnergyNbtHelper.getEnergy(stack);
-                    formattedPower = String.format("%,d", powerAmount);
-                    formattedMaxPower = String.format("%,d", EnergyNbtHelper.getMaxEnergyItem(stack));
-                }
-            } else {
-                if (stack.hasNbt()) {
-                    long powerAmount = EnergyNbtHelper.getEnergy(stack);
-                    formattedPower = EnergyNbtHelper.getEnergyString((int) powerAmount);
-                    formattedMaxPower = EnergyNbtHelper.getEnergyString((int) EnergyNbtHelper.getMaxEnergyItem(stack));
+        if (stack.isIn(ModTags.Items.WIRES)) {
+            tooltip.add(Text.empty());
+            int conductivity = 0;
+            Formatting formatting = Formatting.RED;
+            if (stack.isIn(ModTags.Items.WIRES_4)) {
+                conductivity = 4;
+                formatting = Formatting.LIGHT_PURPLE;
+            } else if (stack.isIn(ModTags.Items.WIRES_3)) {
+                conductivity = 3;
+                formatting = Formatting.BLUE;
+            } else if (stack.isIn(ModTags.Items.WIRES_2)) {
+                conductivity = 2;
+                formatting = Formatting.GREEN;
+            } else if (stack.isIn(ModTags.Items.WIRES_1)) {
+                conductivity = 1;
+                formatting = Formatting.YELLOW;
+            }
+            tooltip.add(Text.translatable("item.tlotd.wire.conductivity").formatted(Formatting.GRAY));
+            tooltip.add(Text.literal(" ").append(Text.translatable("item.tlotd.wire.conductivity." + conductivity)).formatted(formatting));
+        }
+        if (stack.isIn(ModTags.Items.CIRCUIT_BOARDS)) {
+            tooltip.add(Text.empty());
+            int conductivity = 1;
+            String conductivitySuffix = "";
+            Style style = Style.EMPTY.withColor(Formatting.YELLOW);
+            if (stack.isIn(ModTags.Items.FUTURISTIC_CIRCUIT_BOARDS)) {
+                conductivity = 4;
+                style = style.withColor(Formatting.LIGHT_PURPLE);
+            } else if (stack.isIn(ModTags.Items.TRANSCENDENT_CIRCUIT_BOARDS)) {
+                conductivity = 3;
+                style = style.withColor(Formatting.BLUE);
+            } else if (stack.isIn(ModTags.Items.ADVANCED_CIRCUIT_BOARDS)) {
+                conductivity = 2;
+                style = style.withColor(Formatting.GREEN);
+                if (stack.isOf(ModItems.BIOLOGICAL_CIRCUIT_BOARD)) {
+                    conductivitySuffix = ".disgusting";
+                    style = style.withColor(0xA58369);
                 }
             }
-            String formattedPower2 = formattedPower.replace(',', '.');
-            String formattedMaxPower2 = formattedMaxPower.replace(',', '.');
-            tooltip.add(Text.translatable("item.tlotd.power_level.tooltip", formattedPower, formattedMaxPower, formattedPower2, formattedMaxPower2).formatted(Formatting.YELLOW));
+            tooltip.add(Text.translatable("item.tlotd.circuit_board.complexity").formatted(Formatting.GRAY));
+            tooltip.add(Text.literal(" ").append(Text.translatable("item.tlotd.circuit_board.complexity." + conductivity + conductivitySuffix)).setStyle(style));
         }
         if (stack.getItem() instanceof SpaceSuitArmorItem) {
             Map<String, AdAstraGasNbtHelper.GasInfo> gases = AdAstraGasNbtHelper.getSuitGasContents(stack);
@@ -106,8 +140,8 @@ public abstract class ItemTooltipMixin {
                 String formattedGas;
                 String formattedMaxGas;
                 if (Screen.hasShiftDown()) {
-                    int displayAmount = (int)Math.round((double)info.amount * 1000 / AdAstraGasNbtHelper.MAX_AMOUNT);
-                    int displayMax = (int)Math.round((double)info.max * 1000 / AdAstraGasNbtHelper.MAX_AMOUNT);
+                    int displayAmount = (int) Math.round((double) info.amount * 1000 / AdAstraGasNbtHelper.MAX_AMOUNT);
+                    int displayMax = (int) Math.round((double) info.max * 1000 / AdAstraGasNbtHelper.MAX_AMOUNT);
                     formattedGas = String.format("%,d", displayAmount);
                     formattedMaxGas = String.format("%,d", displayMax);
                 } else {
@@ -148,8 +182,8 @@ public abstract class ItemTooltipMixin {
         } else if (stack.isIn(ModTags.Items.ONE_AUGMENT_SLOT)) {
             slots = 1;
         }
-        if (getAugmentLevel(stack,"tlotd:slot_expansion") > 0) {
-            slots += 1+getAugmentLevel(stack,"tlotd:slot_expansion");
+        if (getAugmentLevel(stack, "tlotd:slot_expansion") > 0) {
+            slots += 1 + getAugmentLevel(stack, "tlotd:slot_expansion");
         }
         if (slots <= 0) return;
         final Identifier DEFAULT_FONT_ID = new Identifier("minecraft", "default");
@@ -184,7 +218,9 @@ public abstract class ItemTooltipMixin {
                             }
                             tooltip.add(line);
                             String type = "sword";
-                            if (stack.getItem() instanceof PickaxeItem) {type = "pickaxe";}
+                            if (stack.getItem() instanceof PickaxeItem) {
+                                type = "pickaxe";
+                            }
                             tooltip.add(Text.literal(" ").append(Text.translatable("augment." + id.replace(':', '.') + '.' + type + ".desc").formatted(Formatting.DARK_GRAY)));
                             tooltip.add(Text.literal(" ").append(Text.translatable("augment." + id.replace(':', '.') + '.' + type + ".desc2").formatted(Formatting.DARK_GRAY)));
                         } else {

@@ -130,16 +130,10 @@ public class AdAstraGasNbtHelper {
     }
 
     public static boolean consumeMitigationGas(ItemStack suit, long amount) {
-        if (modifyGasInSuit(
-                suit,
-                AD_ASTRA_OXYGEN_ID,
-                -amount) != 0) {
+        if (modifyGasInSuit(suit, AD_ASTRA_OXYGEN_ID, -amount) != 0) {
             return true;
         }
-        if (modifyGasInSuit(
-                suit,
-                TLOTD_PIPE_WEED_SMOKE,
-                -amount) != 0) {
+        if (modifyGasInSuit(suit, TLOTD_PIPE_WEED_SMOKE, -amount) != 0) {
             return true;
         }
         return false;

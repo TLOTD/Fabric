@@ -3,7 +3,6 @@ package net.tlotd.api;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.registry.Registries;
@@ -13,6 +12,7 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.tlotd.world.SignalTrackingArray;
 
 import java.util.*;
 
@@ -61,6 +61,53 @@ public class TlotdAPI {
         return Collections.unmodifiableMap(result);
     }
 
+    //Signals
+    public static boolean hasStation(ServerWorld world, BlockPos pos) {
+        return net.tlotd.world.SignalTrackingArray.get(world).hasStation(pos);
+    }
+    public static net.tlotd.world.RadioStation getStation(ServerWorld world, BlockPos pos) {
+        return net.tlotd.world.SignalTrackingArray.get(world).getStation(pos);
+    }
+    public static void addStation(ServerWorld world, BlockPos pos, int strength, int range) {
+        net.tlotd.world.SignalTrackingArray.get(world).addStation(pos, strength, range);
+    }
+    public static void removeStation(ServerWorld world, BlockPos pos) {
+        net.tlotd.world.SignalTrackingArray.get(world).removeStation(pos);
+    }
+    public static Collection<net.tlotd.world.RadioStation> getStations(ServerWorld world) {
+        return net.tlotd.world.SignalTrackingArray.get(world).getStations();
+    }
+    public static boolean hasStations(ServerWorld world) {
+        return net.tlotd.world.SignalTrackingArray.get(world).hasStations();
+    }
+    public static void clearStations(ServerWorld world) {
+        net.tlotd.world.SignalTrackingArray.get(world).clearStations();
+    }
+    public static int getStationCount(ServerWorld world) {
+        return net.tlotd.world.SignalTrackingArray.get(world).getStationCount();
+    }
+    public static void addSignal(ServerWorld world, BlockPos pos, Identifier track) {
+        net.tlotd.world.SignalTrackingArray.get(world).addSignal(pos, track);
+    }
+    public static void removeSignal(ServerWorld world, BlockPos pos, Identifier track) {
+        net.tlotd.world.SignalTrackingArray.get(world).removeSignal(pos, track);
+    }
+    public static void setStrength(ServerWorld world, BlockPos pos, int strength) {
+        net.tlotd.world.SignalTrackingArray.get(world).setStrength(pos, strength);
+    }
+    public static void setRange(ServerWorld world, BlockPos pos, int range) {
+        net.tlotd.world.SignalTrackingArray.get(world).setRange(pos, range);
+    }
+    public static net.tlotd.world.RadioStation getBestStation(ServerWorld world, BlockPos pos) {
+        return net.tlotd.world.SignalTrackingArray.get(world).getBestStation(pos);
+    }
+    public static List<Identifier> getAvailableSignals(ServerWorld world, BlockPos pos) {
+        return net.tlotd.world.SignalTrackingArray.get(world).getAvailableSignals(pos);
+    }
+    public static List<Object> getAvailableSignalsUnsafe(Object world, Object pos) {
+        return Collections.singletonList(SignalTrackingArray.get((ServerWorld) world).getAvailableSignals((BlockPos) pos));
+    }
+
     //TV Signal Registry
     public static BlockState handleTelevisionUse(BlockState state, World world, BlockPos pos, PlayerEntity player) {
         return net.tlotd.block.custom.TelevisionBlock.handleTelevisionUse(state, world, pos, player);
@@ -68,8 +115,7 @@ public class TlotdAPI {
 
     public static Object handleTelevisionUseUnsafe(Object state, Object world, Object pos, Object player) {
         try {
-            return net.tlotd.block.custom.TelevisionBlock.handleTelevisionUse(
-                    (BlockState) state, (World) world, (BlockPos) pos, (PlayerEntity) player);
+            return net.tlotd.block.custom.TelevisionBlock.handleTelevisionUse((BlockState) state, (World) world, (BlockPos) pos, (PlayerEntity) player);
         } catch (ClassCastException e) {
             throw new IllegalArgumentException(
                     "Invalid parameter types supplied to handleTelevisionUseUnsafe",
@@ -152,33 +198,13 @@ public class TlotdAPI {
         net.tlotd.util.VideoGameRegistry.registerBatch(identifiers, offBlock, onBlock, startingGameID);
     }
 
-    //Signals
-    public static boolean hasAnySignals(ServerWorld world) {
-        return net.tlotd.world.SignalTrackingArray.get(world).hasAnySignals();
-    }
-    public static boolean hasSignal(ServerWorld world, Identifier id) {
-        return net.tlotd.world.SignalTrackingArray.get(world).hasSignal(id);
-    }
-    public static boolean hasSignal(ServerWorld world, Item item) {
-        return net.tlotd.world.SignalTrackingArray.get(world).hasSignal(item);
-    }
-    public static int getSignalCount(ServerWorld world) {
-        return net.tlotd.world.SignalTrackingArray.get(world).getSignalCount();
-    }
-    public static Set<Identifier> getAllSignals(ServerWorld world) {
-        return net.tlotd.world.SignalTrackingArray.get(world).getAllSignals();
-    }
-    public void addSignal(ServerWorld world, Item item) {
-        net.tlotd.world.SignalTrackingArray.get(world).addSignal(item);
-    }
-    public void removeSignal(ServerWorld world, Item item) {
-        net.tlotd.world.SignalTrackingArray.get(world).removeSignal(item);
-    }
-    public void clearSignals(ServerWorld world) {
-        net.tlotd.world.SignalTrackingArray.get(world).clearSignals();
-    }
-
     //TLOTD Stuff
+    public static boolean easterEggsClient() {
+        return net.tlotd.networking.ClientGlobalConfig.easterEggs;
+    }
+    public static boolean easterEggs(MinecraftServer server) {
+        return net.tlotd.world.ModGlobalState.get(server).easterEggs();
+    }
     public static boolean formerTlotdRewardsClient() {
         return net.tlotd.networking.ClientGlobalConfig.formerTlotdRewards;
     }

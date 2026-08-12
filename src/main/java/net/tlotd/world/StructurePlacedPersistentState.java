@@ -10,11 +10,7 @@ public class StructurePlacedPersistentState extends PersistentState {
 
     public static StructurePlacedPersistentState get(ServerWorld world) {
         PersistentStateManager manager = world.getPersistentStateManager();
-        return manager.getOrCreate(
-                StructurePlacedPersistentState::createFromNbt,
-                StructurePlacedPersistentState::new,
-                "structure_placed"
-        );
+        return manager.getOrCreate(StructurePlacedPersistentState::createFromNbt, StructurePlacedPersistentState::new, "structure_placed");
     }
 
     public static StructurePlacedPersistentState createFromNbt(NbtCompound nbt) {

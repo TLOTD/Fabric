@@ -188,7 +188,8 @@ public class PipeItem extends Item {
     }
 
     private boolean tryRefill(ItemStack pipe, ItemStack inputStack, PlayerEntity player) {
-        if ((pipe.isOf(ModItems.JOINT) || pipe.hasNbt()) && pipe.getOrCreateNbt().getInt(CHARGES_USED_KEY) < getMaxCharges(pipe)) return false;
+        if ((pipe.isOf(ModItems.JOINT) || pipe.hasNbt()) && pipe.getOrCreateNbt().getInt(CHARGES_USED_KEY) < getMaxCharges(pipe))
+            return false;
         if (!inputStack.isOf(ModItems.PIPE_WEED)) return false;
         inputStack.decrement(1);
         pipe.getOrCreateNbt().putString(CONTENT_KEY, "tlotd:pipe_weed");

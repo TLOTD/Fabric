@@ -60,7 +60,7 @@ public class ModBlocks {
     public static final Block EXTINGUISHED_SULFUR_WALL_TORCH = registerBlockWithoutItem("extinguished_sulfur_wall_torch", new ExtinguishedWallTorchBlock(FabricBlockSettings.create().noCollision().breakInstantly().sounds(BlockSoundGroup.WOOD).pistonBehavior(PistonBehavior.DESTROY), ParticleTypes.ASH));
 
     public static final Block SULFUR_LANTERN = registerBlock("sulfur_lantern", new LanternBlock(FabricBlockSettings.create().mapColor(MapColor.IRON_GRAY).solid().requiresTool().strength(3.5F).sounds(BlockSoundGroup.LANTERN).luminance(14).nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
-    public static final Block SULFUR_CAMPFIRE = registerNyiBlock("sulfur_campfire", new CampfireBlock(false, 2, FabricBlockSettings.create().mapColor(MapColor.SPRUCE_BROWN).instrument(Instrument.BASS).strength(2.0f).sounds(BlockSoundGroup.WOOD).luminance(createLightLevelFromLitBlockState(14)).nonOpaque().burnable()));
+    public static final Block SULFUR_CAMPFIRE = registerBlock("sulfur_campfire", new CampfireBlock(false, 2, FabricBlockSettings.create().mapColor(MapColor.SPRUCE_BROWN).instrument(Instrument.BASS).strength(2.0f).sounds(BlockSoundGroup.WOOD).luminance(createLightLevelFromLitBlockState(14)).nonOpaque().burnable()));
 
     public static final Block PRESERVES_JAR = registerSmallStackableBlock(
             new PreservesJarBlock(FabricBlockSettings.create().mapColor(MapColor.WHITE).strength(0.3f, 0.3f).sounds(BlockSoundGroup.GLASS).nonOpaque()));
@@ -378,6 +378,8 @@ public class ModBlocks {
     public static final Block ALIEN_BRICK_WALL = registerRarityBlock("alien_brick_wall",
             new WallBlock(FabricBlockSettings.create().mapColor(MapColor.LIGHT_GRAY).strength(-1.0F, 3600000.0F)), Rarity.EPIC);
 
+    public static final Block YELLOW_WALLPAPERED_WALL_WITH_BASEBOARD_AND_OUTLET = registerBlock("yellow_wallpapered_wall_with_baseboard_and_outlet",
+            new OutletBlock(FabricBlockSettings.create().mapColor(MapColor.PALE_YELLOW).strength(-1.0F, 3600000.0F).sounds(BlockSoundGroup.AZALEA_LEAVES)));
     public static final Block YELLOW_WALLPAPERED_WALL_WITH_BASEBOARD = registerBlock("yellow_wallpapered_wall_with_baseboard",
             new NoClipPillarBlock(FabricBlockSettings.create().mapColor(MapColor.PALE_YELLOW).strength(-1.0F, 3600000.0F).sounds(BlockSoundGroup.AZALEA_LEAVES).emissiveLighting((state, view, blockPos) -> !state.get(NoClipPillarBlock.NOCLIPABLE).equals(NoClipable.SOLID))));
     public static final Block YELLOW_WALLPAPERED_WALL = registerBlock("yellow_wallpapered_wall",
@@ -581,8 +583,15 @@ public class ModBlocks {
 
     public static final Block SIGNAL_TRANSMITTER = registerBlock("signal_transmitter",
             new SignalTransmitterBlock(FabricBlockSettings.create().mapColor(MapColor.ORANGE).requiresTool().strength(3.0F, 3.0F).sounds(BlockSoundGroup.METAL)));
-    public static final Block SIGNAL_TRANSMITTER_ANTENNA = registerBlock("signal_transmitter_antenna",
+
+    public static final Block ALUMINIUM_SIGNAL_TRANSMITTER_ANTENNA = registerBlock("aluminium_signal_transmitter_antenna",
+            new SignalTransmitterAntennaBlock(FabricBlockSettings.create().mapColor(MapColor.LIGHT_GRAY).requiresTool().strength(3.0F, 3.0F)));
+    public static final Block COPPER_SIGNAL_TRANSMITTER_ANTENNA = registerBlock("copper_signal_transmitter_antenna",
             new SignalTransmitterAntennaBlock(FabricBlockSettings.create().mapColor(MapColor.ORANGE).requiresTool().strength(3.0F, 3.0F).sounds(BlockSoundGroup.COPPER)));
+    public static final Block GOLD_SIGNAL_TRANSMITTER_ANTENNA = registerBlock("gold_signal_transmitter_antenna",
+            new SignalTransmitterAntennaBlock(FabricBlockSettings.create().mapColor(MapColor.GOLD).requiresTool().strength(3.0F, 3.0F).sounds(BlockSoundGroup.COPPER)));
+    public static final Block MITHRIL_SIGNAL_TRANSMITTER_ANTENNA = registerRarityBlock("mithril_signal_transmitter_antenna",
+            new SignalTransmitterAntennaBlock(FabricBlockSettings.create().mapColor(MapColor.WHITE_GRAY).requiresTool().strength(3.0F, 3.0F).sounds(BlockSoundGroup.NETHERITE)), Rarity.UNCOMMON);
 
     public static final Block GARBAGE_CAN = registerBlock("garbage_can",
             new GarbageCanBlock(FabricBlockSettings.create().mapColor(MapColor.GRAY).requiresTool().strength(5.0F, 1200.0F).nonOpaque()));
@@ -1014,11 +1023,6 @@ public class ModBlocks {
         return Registry.register(Registries.BLOCK, new Identifier(TLOTD.MOD_ID, name), block);
     }
 
-    private static Block registerNyiBlock(String name, Block block) {
-        registerNyiBlockItem(name, block);
-        return Registry.register(Registries.BLOCK, new Identifier(TLOTD.MOD_ID, name), block);
-    }
-
     private static Block registerShelfableBlock(String name, Block block) {
         registerShelfableBlockItem(name, block);
         return Registry.register(Registries.BLOCK, new Identifier(TLOTD.MOD_ID, name), block);
@@ -1096,11 +1100,6 @@ public class ModBlocks {
     private static Item registerIrradiatedBlockItem(String name, Block block) {
         return Registry.register(Registries.ITEM, new Identifier(TLOTD.MOD_ID, name),
                 new IrradiatedBlockItem(block, new FabricItemSettings()));
-    }
-
-    private static Item registerNyiBlockItem(String name, Block block) {
-        return Registry.register(Registries.ITEM, new Identifier(TLOTD.MOD_ID, name),
-                new NyiBlockItem(block, new FabricItemSettings()));
     }
 
     public static void registerModBlocks() {

@@ -28,8 +28,7 @@ public class NoClipBlock extends Block {
     public VoxelShape getCollisionShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
         if (state.get(NOCLIPABLE).equals(NoClipable.SOLID)) {
             return VoxelShapes.fullCube();
-        }
-        else return Block.createCuboidShape(0F, 0F, 0F, 0F, 0F, 0F);
+        } else return Block.createCuboidShape(0F, 0F, 0F, 0F, 0F, 0F);
     }
 
     @Override

@@ -33,18 +33,20 @@ import static net.tlotd.block.custom.WitchingTableBlock.*;
 import static net.tlotd.block.custom.WitchingTableBlock.CURSED_SOUL_CHARGES;
 
 public class AbyssFlaskItem extends Item {
-    public AbyssFlaskItem(Settings settings) { super(settings); }
+    public AbyssFlaskItem(Settings settings) {
+        super(settings);
+    }
 
     @Override
     public ActionResult useOnBlock(ItemUsageContext context) {
-        if(!context.getWorld().isClient()) {
+        if (!context.getWorld().isClient()) {
             ItemStack item = context.getPlayer().getStackInHand(context.getHand());
             BlockPos positionClicked = context.getBlockPos();
             PlayerEntity player = context.getPlayer();
             BlockState block = context.getWorld().getBlockState(positionClicked);
-            if (block.isOf(ModBlocks.WITCHING_TABLE) && (block.get(SOUL_CHARGES)+block.get(CURSED_SOUL_CHARGES)+block.get(ABYSSAL_SOUL_CHARGES))<3) {
+            if (block.isOf(ModBlocks.WITCHING_TABLE) && (block.get(SOUL_CHARGES) + block.get(CURSED_SOUL_CHARGES) + block.get(ABYSSAL_SOUL_CHARGES)) < 3) {
                 int charges = block.get(ABYSSAL_SOUL_CHARGES);
-                context.getWorld().setBlockState(positionClicked, block.with(ABYSSAL_SOUL_CHARGES, charges+1), 2);
+                context.getWorld().setBlockState(positionClicked, block.with(ABYSSAL_SOUL_CHARGES, charges + 1), 2);
                 context.getWorld().playSound(null, positionClicked, SoundEvents.BLOCK_RESPAWN_ANCHOR_CHARGE, SoundCategory.BLOCKS, 1.0f, 1.0f);
                 if (player instanceof ServerPlayerEntity serverPlayerEntity) {
                     Criteria.CONSUME_ITEM.trigger(serverPlayerEntity, context.getStack());
@@ -71,7 +73,7 @@ public class AbyssFlaskItem extends Item {
     public Text getName(ItemStack stack) {
         return super.getName(stack).copy().styled(style -> style.withColor(0x3C009C));
     }
-    
+
     @Override
     @Environment(EnvType.CLIENT)
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {

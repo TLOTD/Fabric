@@ -38,8 +38,8 @@ public class KeycardProgrammerGUI extends HandledScreen<KeycardProgrammerGUIHand
     }
 
     private void renderProgressArrow(DrawContext context, int x, int y) {
-        if(handler.isCrafting()) {
-            context.drawTexture(TEXTURE,x+98,y+19,176,0, handler.getScaledProgress(), 16);
+        if (handler.isCrafting()) {
+            context.drawTexture(TEXTURE, x + 98, y + 19, 176, 0, handler.getScaledProgress(), 16);
         }
     }
 
@@ -47,6 +47,6 @@ public class KeycardProgrammerGUI extends HandledScreen<KeycardProgrammerGUIHand
     public void render(DrawContext context, int mouseX, int mouseY, float delta) {
         renderBackground(context);
         super.render(context, mouseX, mouseY, delta);
-        drawMouseoverTooltip(context,mouseX, mouseY);
+        drawMouseoverTooltip(context, mouseX, mouseY);
     }
 }

@@ -50,10 +50,7 @@ public class FlashDriveItem extends Item {
                 context.getStack().setNbt(nbt);
                 context.getPlayer().sendMessage(Text.translatable("block.tlotd.teleporter.location_copied"), true);
             } else {
-                Optional<VideoGameRegistry.SignalEntry> matched = VideoGameRegistry.getAll()
-                        .stream()
-                        .filter(entry -> entry.computerBlock() == state.getBlock() && entry.gameID() == state.get(SCREEN))
-                        .findFirst();
+                Optional<VideoGameRegistry.SignalEntry> matched = VideoGameRegistry.getAll().stream().filter(entry -> entry.computerBlock() == state.getBlock() && entry.gameID() == state.get(SCREEN)).findFirst();
                 if (matched.isEmpty()) {
                     return ActionResult.PASS;
                 }

@@ -74,7 +74,7 @@ public class DwarvenForgeBlock extends BlockWithEntity implements BlockEntityPro
         if (state.getBlock() != newState.getBlock()) {
             BlockEntity blockEntity = world.getBlockEntity(pos);
             if (blockEntity instanceof DwarvenForgeBlockEntity) {
-                ItemScatterer.spawn(world, pos, (DwarvenForgeBlockEntity)blockEntity);
+                ItemScatterer.spawn(world, pos, (DwarvenForgeBlockEntity) blockEntity);
                 world.updateComparators(pos, this);
             }
             super.onStateReplaced(state, world, pos, newState, moved);
@@ -94,14 +94,14 @@ public class DwarvenForgeBlock extends BlockWithEntity implements BlockEntityPro
 
     @Override
     public @Nullable <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        return checkType(type, ModBlockEntities.DWARVEN_FORGE_BLOCK_ENTITY,
-                (world1, pos, state1, blockEntity) -> blockEntity.tick(world1, pos, state1));
+        return checkType(type, ModBlockEntities.DWARVEN_FORGE_BLOCK_ENTITY, (world1, pos, state1, blockEntity) -> blockEntity.tick(world1, pos, state1));
     }
 
     public void randomDisplayTick(BlockState state, World world, BlockPos pos, Random random) {
         switch (state.get(FIRE)) {
-            case EXTINGUISHED -> {}
-            case BURNING -> spawnParticles(world,pos, ParticleTypes.FLAME);
+            case EXTINGUISHED -> {
+            }
+            case BURNING -> spawnParticles(world, pos, ParticleTypes.FLAME);
             case SOUL -> spawnParticles(world, pos, ParticleTypes.SOUL_FIRE_FLAME);
             case DRAGON -> spawnParticles(world, pos, ParticleTypes.DRAGON_BREATH);
         }
@@ -112,29 +112,14 @@ public class DwarvenForgeBlock extends BlockWithEntity implements BlockEntityPro
         if (random.nextInt(5) != 1) {
             return;
         }
-        for(Direction direction : Direction.values()) {
+        for (Direction direction : Direction.values()) {
             BlockPos blockPos = pos.offset(direction);
-            if (!world.getBlockState(blockPos)
-                    .isOpaqueFullCube(world, blockPos)) {
+            if (!world.getBlockState(blockPos).isOpaqueFullCube(world, blockPos)) {
                 Direction.Axis axis = direction.getAxis();
-                double x = axis == Direction.Axis.X
-                        ? 0.5F + 0.5625F * direction.getOffsetX()
-                        : random.nextFloat();
-                double y = axis == Direction.Axis.Y
-                        ? 0.5F + 0.5625F * direction.getOffsetY()
-                        : random.nextFloat();
-                double z = axis == Direction.Axis.Z
-                        ? 0.5F + 0.5625F * direction.getOffsetZ()
-                        : random.nextFloat();
-                world.addParticle(
-                        particle,
-                        pos.getX() + x,
-                        pos.getY() + y,
-                        pos.getZ() + z,
-                        0,
-                        0,
-                        0
-                );
+                double x = axis == Direction.Axis.X ? 0.5F + 0.5625F * direction.getOffsetX() : random.nextFloat();
+                double y = axis == Direction.Axis.Y ? 0.5F + 0.5625F * direction.getOffsetY() : random.nextFloat();
+                double z = axis == Direction.Axis.Z ? 0.5F + 0.5625F * direction.getOffsetZ() : random.nextFloat();
+                world.addParticle(particle, pos.getX() + x, pos.getY() + y, pos.getZ() + z, 0, 0, 0);
             }
         }
     }

@@ -40,7 +40,6 @@ public class IrradiatedBlockItem extends BlockItem {
 
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-
         tooltip.add(Text.translatable("item.tlotd.irradiated.tooltip").formatted(Formatting.YELLOW));
         super.appendTooltip(stack, world, tooltip, context);
     }

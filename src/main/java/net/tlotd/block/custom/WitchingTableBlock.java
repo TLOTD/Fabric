@@ -48,7 +48,7 @@ public class WitchingTableBlock extends BlockWithEntity implements BlockEntityPr
         return false;
     }
 
-    private static final VoxelShape SHAPE = Block.createCuboidShape(0,0,0,16,12,16);
+    private static final VoxelShape SHAPE = Block.createCuboidShape(0, 0, 0, 16, 12, 16);
 
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
@@ -70,7 +70,7 @@ public class WitchingTableBlock extends BlockWithEntity implements BlockEntityPr
         if (state.getBlock() != newState.getBlock()) {
             BlockEntity blockEntity = world.getBlockEntity(pos);
             if (blockEntity instanceof WitchingTableBlockEntity) {
-                ItemScatterer.spawn(world, pos, (WitchingTableBlockEntity)blockEntity);
+                ItemScatterer.spawn(world, pos, (WitchingTableBlockEntity) blockEntity);
                 world.updateComparators(pos, this);
             }
             super.onStateReplaced(state, world, pos, newState, moved);
@@ -90,11 +90,10 @@ public class WitchingTableBlock extends BlockWithEntity implements BlockEntityPr
         }
         return ActionResult.SUCCESS;
     }
-    
+
     @Override
     public @Nullable <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        return checkType(type, ModBlockEntities.WITCHING_TABLE_BLOCK_ENTITY,
-                (world1, pos, state1, blockEntity) -> blockEntity.tick(world1, pos, state1));
+        return checkType(type, ModBlockEntities.WITCHING_TABLE_BLOCK_ENTITY, (world1, pos, state1, blockEntity) -> blockEntity.tick(world1, pos, state1));
     }
 
     @Override

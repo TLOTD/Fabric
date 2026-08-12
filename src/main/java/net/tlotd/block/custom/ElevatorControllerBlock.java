@@ -36,10 +36,7 @@ public class ElevatorControllerBlock extends Block {
 
     @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {
-        return this.getDefaultState()
-                .with(FACING, ctx.getHorizontalPlayerFacing())
-                .with(WATERLOGGED, ctx.getWorld().getFluidState(ctx.getBlockPos()).isOf(Fluids.WATER))
-                .with(BROKEN, false);
+        return this.getDefaultState().with(FACING, ctx.getHorizontalPlayerFacing()).with(WATERLOGGED, ctx.getWorld().getFluidState(ctx.getBlockPos()).isOf(Fluids.WATER)).with(BROKEN, false);
     }
 
     @Override
@@ -71,32 +68,12 @@ public class ElevatorControllerBlock extends Block {
         this.setDefaultState(this.stateManager.getDefaultState().with(FACING, Direction.NORTH).with(WATERLOGGED, false).with(BROKEN, false));
     }
 
-    private static final VoxelShape BASE_SHAPE = Block.createCuboidShape(0,15,0,16,16,16);
+    private static final VoxelShape BASE_SHAPE = Block.createCuboidShape(0, 15, 0, 16, 16, 16);
 
-    public static final VoxelShape WEST_SHAPE = VoxelShapes.union(
-            Block.createCuboidShape(0.0, 0.0, 0.0, 1.0, 15.0, 16.0),
-            Block.createCuboidShape(0.0, 0.0, 0.0, 16.0, 15.0, 1.0),
-            Block.createCuboidShape(0.0, 0.0, 15.0, 16.0, 15.0, 16.0),
-            BASE_SHAPE
-    );
-    public static final VoxelShape NORTH_SHAPE = VoxelShapes.union(
-            Block.createCuboidShape(0.0, 0.0, 0.0, 1.0, 15.0, 16.0),
-            Block.createCuboidShape(15.0, 0.0, 0.0, 16.0, 15.0, 16.0),
-            Block.createCuboidShape(0.0, 0.0, 0.0, 16.0, 15.0, 1.0),
-            BASE_SHAPE
-    );
-    public static final VoxelShape EAST_SHAPE = VoxelShapes.union(
-            Block.createCuboidShape(15.0, 0.0, 0.0, 16.0, 15.0, 16.0),
-            Block.createCuboidShape(0.0, 0.0, 0.0, 16.0, 15.0, 1.0),
-            Block.createCuboidShape(0.0, 0.0, 15.0, 16.0, 15.0, 16.0),
-            BASE_SHAPE
-    );
-    public static final VoxelShape SOUTH_SHAPE = VoxelShapes.union(
-            Block.createCuboidShape(0.0, 0.0, 0.0, 1.0, 15.0, 16.0),
-            Block.createCuboidShape(15.0, 0.0, 0.0, 16.0, 15.0, 16.0),
-            Block.createCuboidShape(0.0, 0.0, 15.0, 16.0, 15.0, 16.0),
-            BASE_SHAPE
-    );
+    public static final VoxelShape WEST_SHAPE = VoxelShapes.union(Block.createCuboidShape(0.0, 0.0, 0.0, 1.0, 15.0, 16.0), Block.createCuboidShape(0.0, 0.0, 0.0, 16.0, 15.0, 1.0), Block.createCuboidShape(0.0, 0.0, 15.0, 16.0, 15.0, 16.0), BASE_SHAPE);
+    public static final VoxelShape NORTH_SHAPE = VoxelShapes.union(Block.createCuboidShape(0.0, 0.0, 0.0, 1.0, 15.0, 16.0), Block.createCuboidShape(15.0, 0.0, 0.0, 16.0, 15.0, 16.0), Block.createCuboidShape(0.0, 0.0, 0.0, 16.0, 15.0, 1.0), BASE_SHAPE);
+    public static final VoxelShape EAST_SHAPE = VoxelShapes.union(Block.createCuboidShape(15.0, 0.0, 0.0, 16.0, 15.0, 16.0), Block.createCuboidShape(0.0, 0.0, 0.0, 16.0, 15.0, 1.0), Block.createCuboidShape(0.0, 0.0, 15.0, 16.0, 15.0, 16.0), BASE_SHAPE);
+    public static final VoxelShape SOUTH_SHAPE = VoxelShapes.union(Block.createCuboidShape(0.0, 0.0, 0.0, 1.0, 15.0, 16.0), Block.createCuboidShape(15.0, 0.0, 0.0, 16.0, 15.0, 16.0), Block.createCuboidShape(0.0, 0.0, 15.0, 16.0, 15.0, 16.0), BASE_SHAPE);
 
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
@@ -124,21 +101,21 @@ public class ElevatorControllerBlock extends Block {
                     ModGlobalState globalState = ModGlobalState.get(player.getServer());
                     max_distance = globalState.elevatorMaxDistance();
                 }
-                if (player.getPos().add(0,1,0).isInRange(pos.toCenterPos(), 0.5)) {
+                if (player.getPos().add(0, 1, 0).isInRange(pos.toCenterPos(), 0.5)) {
                     int search_y;
                     if (player.isSneaking()) {
-                        for(search_y = -2; search_y>= -max_distance-1; search_y--){
-                            if((world.getBlockState(pos.add(0, search_y,0)).isIn(ModTags.Blocks.ELEVATOR_BASES)) && (world.getBlockState(pos.add(0,1+search_y,0)).isIn(ModTags.Blocks.ELEVATOR_CONTROLLERS))) {
-                                player.teleport(player.getPos().getX(), player.getPos().getY()+search_y+1, player.getPos().getZ());
-                                world.playSound(null, pos.add(0, search_y,0), ModSounds.BLOCK_ELEVATOR_PLING, SoundCategory.BLOCKS, 1.0f, 1.0f);
+                        for (search_y = -2; search_y >= -max_distance - 1; search_y--) {
+                            if ((world.getBlockState(pos.add(0, search_y, 0)).isIn(ModTags.Blocks.ELEVATOR_BASES)) && (world.getBlockState(pos.add(0, 1 + search_y, 0)).isIn(ModTags.Blocks.ELEVATOR_CONTROLLERS))) {
+                                player.teleport(player.getPos().getX(), player.getPos().getY() + search_y + 1, player.getPos().getZ());
+                                world.playSound(null, pos.add(0, search_y, 0), ModSounds.BLOCK_ELEVATOR_PLING, SoundCategory.BLOCKS, 1.0f, 1.0f);
                                 break;
                             }
                         }
                     } else {
-                        for(search_y = 0; search_y<=max_distance-1; search_y++){
-                            if((world.getBlockState(pos.add(0, search_y,0)).isIn(ModTags.Blocks.ELEVATOR_BASES)) && (world.getBlockState(pos.add(0,1+search_y,0)).isIn(ModTags.Blocks.ELEVATOR_CONTROLLERS))) {
-                                player.teleport(player.getPos().getX(), player.getPos().getY()+search_y+1, player.getPos().getZ());
-                                world.playSound(null, pos.add(0, search_y,0), ModSounds.BLOCK_ELEVATOR_PLING, SoundCategory.BLOCKS, 1.0f, 1.0f);
+                        for (search_y = 0; search_y <= max_distance - 1; search_y++) {
+                            if ((world.getBlockState(pos.add(0, search_y, 0)).isIn(ModTags.Blocks.ELEVATOR_BASES)) && (world.getBlockState(pos.add(0, 1 + search_y, 0)).isIn(ModTags.Blocks.ELEVATOR_CONTROLLERS))) {
+                                player.teleport(player.getPos().getX(), player.getPos().getY() + search_y + 1, player.getPos().getZ());
+                                world.playSound(null, pos.add(0, search_y, 0), ModSounds.BLOCK_ELEVATOR_PLING, SoundCategory.BLOCKS, 1.0f, 1.0f);
                                 break;
                             }
                         }

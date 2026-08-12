@@ -4,12 +4,14 @@ import net.minecraft.nbt.NbtCompound;
 import net.tlotd.util.TemperatureUnit;
 
 public class ClientGlobalConfig {
+    public static boolean easterEggs = true;
+    public static boolean formerTlotdRewards = false;
+
     public static String defaultTemperatureUnit = TemperatureUnit.CELSIUS.asString();
 
     public static boolean axeStrippingBark = true;
     public static boolean extractionOreCompat = true;
     public static int elevatorMaxDistance = 100;
-    public static boolean formerTlotdRewards = false;
 
     public static boolean starlightAnvil = true;
     public static boolean bloodWitching = true;
@@ -24,12 +26,14 @@ public class ClientGlobalConfig {
     public static double noClipChance = 0.1;
 
     public static void update(NbtCompound nbt) {
+        easterEggs = nbt.getBoolean("EasterEggs");
+        formerTlotdRewards = nbt.getBoolean("FormerTLOTDRewards");
+
         defaultTemperatureUnit = nbt.getString("DefaultTemperatureUnit");
 
         axeStrippingBark = nbt.getBoolean("AxeStrippingBark");
         extractionOreCompat = nbt.getBoolean("ExtractionOreCompat");
         elevatorMaxDistance = nbt.getInt("ElevatorMaxDistance");
-        formerTlotdRewards = nbt.getBoolean("FormerTLOTDRewards");
 
         starlightAnvil = nbt.getBoolean("StarlightAnvil");
         bloodWitching = nbt.getBoolean("BloodWitching");

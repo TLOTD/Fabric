@@ -32,9 +32,7 @@ public class JoinDataSync {
                 if (online != null) {
                     name = online.getDisplayName().getString();
                 } else {
-                    name = server.getUserCache().getByUuid(uuid)
-                            .map(profile -> profile.getName())
-                            .orElse("Unknown");
+                    name = server.getUserCache().getByUuid(uuid).map(profile -> profile.getName()).orElse("Unknown");
                 }
                 map.put(uuid, new TextureSyncPacket.Entry(texId, name));
             });
@@ -56,9 +54,7 @@ public class JoinDataSync {
             if (online != null) {
                 name = online.getDisplayName().getString();
             } else {
-                name = world.getServer().getUserCache().getByUuid(uuid)
-                        .map(profile -> profile.getName())
-                        .orElse("Unknown");
+                name = world.getServer().getUserCache().getByUuid(uuid).map(profile -> profile.getName()).orElse("Unknown");
             }
             map.put(uuid, new TextureSyncPacket.Entry(texId, name));
         });

@@ -122,10 +122,4 @@ public class StickCrossBlock extends Block {
     public BlockRenderType getRenderType(BlockState state) {
         return BlockRenderType.MODEL;
     }
-
-    @Override
-    public void appendTooltip(ItemStack stack, @Nullable BlockView world, List<Text> tooltip, TooltipContext options) {
-        tooltip.add(Text.translatable("item.tlotd.desc_divine").formatted(Formatting.YELLOW));
-        super.appendTooltip(stack, world, tooltip, options);
-    }
 }

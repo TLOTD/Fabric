@@ -21,7 +21,8 @@ import net.tlotd.enchantments.ModEnchantments;
 import net.tlotd.fluid.ModFluids;
 import net.tlotd.item.custom.SpaceSuitArmorItem;
 import net.tlotd.util.AdAstraGasNbtHelper;
-import net.tlotd.util.EnergyNbtHelper;
+import net.tlotd.util.EnergyHelper;
+import team.reborn.energy.api.base.SimpleEnergyItem;
 
 import java.util.Map;
 
@@ -66,10 +67,10 @@ public class ModItemGroups {
                         entries.add(ModItems.ADVANCED_CIRCUIT_BOARD);
                         entries.add(ModItems.TRANSCENDENT_CIRCUIT_BOARD);
                         entries.add(ModItems.FUTURISTIC_CIRCUIT_BOARD);
-                        entries.add(ModItems.ARCANE_CIRCUIT_BOARD);
                         if (CompatModsCheck.BIOMANCY || CompatModsCheck.NEEPMEAT || CompatModsCheck.SPORE) {
                             entries.add(ModItems.BIOLOGICAL_CIRCUIT_BOARD);
                         }
+                        //entries.add(ModItems.ARCANE_CIRCUIT_BOARD);
                         entries.add(ModItems.INTEGRATED_CIRCUIT);
                         entries.add(ModItems.CATHODE_RAY_TUBE);
                         entries.add(ModItems.LIQUID_CRYSTAL_DISPLAY_PANEL);
@@ -96,7 +97,8 @@ public class ModItemGroups {
 
                         entries.add(ModItems.SULFUR);
                         entries.add(ModItems.SULFURIC_ACID);
-                        entries.add(ModItems.BATTERY);
+                        entries.add(addEnergyItem(ModItems.BATTERY, 10000));
+                        entries.add(addEnergyItem(ModItems.LARGE_BATTERY, 50000));
 
                         entries.add(ModItems.RAW_ALUMINIUM);
                         entries.add(ModItems.ALUMINIUM_NUGGET);
@@ -371,9 +373,9 @@ public class ModItemGroups {
                         entries.add(ModItems.DEPTH_SUIT_BOOTS);
 
                         entries.add(ModItems.SCIENTIST_GLASSES);
-                        entries.add(addEnergyItem(ModItems.HEV_SUIT_CHESTPLATE));
-                        entries.add(addEnergyItem(ModItems.HEV_SUIT_LEGGINGS));
-                        entries.add(addEnergyItem(ModItems.HEV_SUIT_BOOTS));
+                        entries.add(fullHEVSuit());
+                        entries.add(ModItems.HEV_SUIT_LEGGINGS);
+                        entries.add(ModItems.HEV_SUIT_BOOTS);
 
                         entries.add(ModItems.COPPER_SICKLE);
                         entries.add(ModItems.GOLDEN_SICKLE);
@@ -563,8 +565,6 @@ public class ModItemGroups {
                         entries.add(ModItems.AUGMENT_PHOTOSYNTHESIS);
                         entries.add(ModItems.AUGMENT_STARLIGHT_BLESSING);
                         entries.add(ModItems.AUGMENT_EXTRACTION);
-                        entries.add(ModItems.AUGMENT_BATTERY_PACK);
-                        entries.add(ModItems.AUGMENT_ENERGY_SHIELD);
                         entries.add(ModItems.AUGMENT_MITHRIL_CHAINMAIL);
                         entries.add(ModItems.AUGMENT_DRAGON_SCALE_PLATING);
                         entries.add(ModItems.AUGMENT_LEAD_PLATING);
@@ -623,8 +623,10 @@ public class ModItemGroups {
                         entries.add(ModBlocks.OXYGEN_COLLECTOR);
 
                         entries.add(ModBlocks.SIGNAL_TRANSMITTER);
-                        entries.add(ModBlocks.SIGNAL_TRANSMITTER_ANTENNA);
-                        entries.add(Items.LIGHTNING_ROD);
+                        entries.add(ModBlocks.ALUMINIUM_SIGNAL_TRANSMITTER_ANTENNA);
+                        entries.add(ModBlocks.COPPER_SIGNAL_TRANSMITTER_ANTENNA);
+                        entries.add(ModBlocks.GOLD_SIGNAL_TRANSMITTER_ANTENNA);
+                        entries.add(ModBlocks.MITHRIL_SIGNAL_TRANSMITTER_ANTENNA);
 
                         entries.add(ModBlocks.INTERDIMENSIONAL_RECEIVER);
                         entries.add(ModBlocks.TELEPORTER);
@@ -1064,6 +1066,7 @@ public class ModItemGroups {
                         entries.add(ModItems.ANCIENT_SOULBERRY_JAM_TOAST);
                         entries.add(ModBlocks.WOODEN_TORCHBERRY_MILKSHAKE_STEIN);
                         entries.add(ModItems.BIOLOGICAL_CIRCUIT_BOARD);
+                        entries.add(ModItems.ARCANE_CIRCUIT_BOARD);
                         entries.add(ModItems.INFECTED_TREX_SPAWN_EGG);
                         entries.add(ModBlocks.INFECTED_TREX_EGG);
                         entries.add(ModBlocks.INFECTED_TREX_HEAD);
@@ -1374,9 +1377,21 @@ public class ModItemGroups {
         return itemStack;
     }
 
-    public static ItemStack addEnergyItem(Item baseItem) {
+    public static ItemStack fullHEVSuit() {
+        ItemStack suit = new ItemStack(ModItems.HEV_SUIT_CHESTPLATE);
+        DefaultedList<ItemStack> batteries = DefaultedList.ofSize(2, ItemStack.EMPTY);
+        for (int i = 0; i < 2; i++) {
+            ItemStack battery = new ItemStack(ModItems.LARGE_BATTERY);
+            SimpleEnergyItem.setStoredEnergyUnchecked(battery, 50000);
+            batteries.set(i, battery);
+        }
+        SpaceSuitArmorItem.setStoredStacks(suit, batteries);
+        return suit;
+    }
+
+    public static ItemStack addEnergyItem(Item baseItem, long energy) {
         ItemStack itemStack = new ItemStack(baseItem);
-        EnergyNbtHelper.setEnergy(itemStack, EnergyNbtHelper.MAX_AMOUNT);
+        SimpleEnergyItem.setStoredEnergyUnchecked(itemStack, energy);
         return itemStack;
     }
 

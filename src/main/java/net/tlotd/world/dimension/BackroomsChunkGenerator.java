@@ -161,7 +161,7 @@ public class BackroomsChunkGenerator extends ChunkGenerator {
                                 Random blockRand = Random.create(blockSeed);
                                 if (blockRand.nextDouble() < 0.001) {
                                     chosenWall = ModBlocks.STRIPPED_YELLOW_WALLPAPERED_WALL.getDefaultState();
-                                    bottomWall = ModBlocks.YELLOW_WALLPAPERED_WALL_WITH_BASEBOARD.getDefaultState();
+                                    bottomWall = ModBlocks.YELLOW_WALLPAPERED_WALL_WITH_BASEBOARD_AND_OUTLET.getDefaultState();
                                 }
                             }
                             if (y == wallBaseY) {

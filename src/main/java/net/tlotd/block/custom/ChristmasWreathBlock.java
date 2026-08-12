@@ -23,9 +23,7 @@ public class ChristmasWreathBlock extends Block {
 
     @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {
-        return this.getDefaultState()
-                .with(FACING, ctx.getHorizontalPlayerFacing())
-                .with(WATERLOGGED, ctx.getWorld().getFluidState(ctx.getBlockPos()).isOf(Fluids.WATER));
+        return this.getDefaultState().with(FACING, ctx.getHorizontalPlayerFacing()).with(WATERLOGGED, ctx.getWorld().getFluidState(ctx.getBlockPos()).isOf(Fluids.WATER));
     }
 
     @Override
@@ -57,30 +55,10 @@ public class ChristmasWreathBlock extends Block {
         this.setDefaultState(this.stateManager.getDefaultState().with(FACING, Direction.NORTH).with(WATERLOGGED, false));
     }
 
-    public static final VoxelShape EAST_SHAPE = VoxelShapes.union(
-            Block.createCuboidShape(12, 0, 0, 16, 5, 16),
-            Block.createCuboidShape(12, 5, 0, 16, 11, 5),
-            Block.createCuboidShape(12, 5, 11, 16, 11, 16),
-            Block.createCuboidShape(12, 11, 0, 16, 16, 16)
-    );
-    public static final VoxelShape SOUTH_SHAPE = VoxelShapes.union(
-            Block.createCuboidShape(0, 0, 12, 16, 5, 16),
-            Block.createCuboidShape(0, 5, 12, 5, 11, 16),
-            Block.createCuboidShape(11, 5, 12, 16, 11, 16),
-            Block.createCuboidShape(0, 11, 12, 16, 16, 16)
-    );
-    public static final VoxelShape WEST_SHAPE = VoxelShapes.union(
-            Block.createCuboidShape(0, 0, 0, 4, 5, 16),
-            Block.createCuboidShape(0, 5, 0, 4, 11, 5),
-            Block.createCuboidShape(0, 5, 11, 4, 11, 16),
-            Block.createCuboidShape(0, 11, 0, 4, 16, 16)
-    );
-    public static final VoxelShape NORTH_SHAPE = VoxelShapes.union(
-            Block.createCuboidShape(0, 0, 0, 16, 5, 4),
-            Block.createCuboidShape(0, 5, 0, 5, 11, 4),
-            Block.createCuboidShape(11, 5, 0, 16, 11, 4),
-            Block.createCuboidShape(0, 11, 0, 16, 16, 4)
-    );
+    public static final VoxelShape EAST_SHAPE = VoxelShapes.union(Block.createCuboidShape(12, 0, 0, 16, 5, 16), Block.createCuboidShape(12, 5, 0, 16, 11, 5), Block.createCuboidShape(12, 5, 11, 16, 11, 16), Block.createCuboidShape(12, 11, 0, 16, 16, 16));
+    public static final VoxelShape SOUTH_SHAPE = VoxelShapes.union(Block.createCuboidShape(0, 0, 12, 16, 5, 16), Block.createCuboidShape(0, 5, 12, 5, 11, 16), Block.createCuboidShape(11, 5, 12, 16, 11, 16), Block.createCuboidShape(0, 11, 12, 16, 16, 16));
+    public static final VoxelShape WEST_SHAPE = VoxelShapes.union(Block.createCuboidShape(0, 0, 0, 4, 5, 16), Block.createCuboidShape(0, 5, 0, 4, 11, 5), Block.createCuboidShape(0, 5, 11, 4, 11, 16), Block.createCuboidShape(0, 11, 0, 4, 16, 16));
+    public static final VoxelShape NORTH_SHAPE = VoxelShapes.union(Block.createCuboidShape(0, 0, 0, 16, 5, 4), Block.createCuboidShape(0, 5, 0, 5, 11, 4), Block.createCuboidShape(11, 5, 0, 16, 11, 4), Block.createCuboidShape(0, 11, 0, 16, 16, 4));
 
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {

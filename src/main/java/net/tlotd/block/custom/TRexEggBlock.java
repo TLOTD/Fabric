@@ -111,4 +111,3 @@ public class TRexEggBlock extends Block {
         return world.getBlockState(pos.down()).isIn(BlockTags.SNIFFER_EGG_HATCH_BOOST);
     }
 }
-

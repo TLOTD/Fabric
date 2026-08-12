@@ -17,7 +17,7 @@ public abstract class LivingEntityMixin {
         if (!cir.getReturnValue()) {
             return;
         }
-        LivingEntity entity = (LivingEntity)(Object)this;
+        LivingEntity entity = (LivingEntity) (Object) this;
         if (!(entity instanceof ServerPlayerEntity player)) {
             return;
         }

@@ -20,8 +20,7 @@ public class OxygenCollectorGUIHandler extends ScreenHandler {
     public final OxygenCollectorBlockEntity blockEntity;
 
     public OxygenCollectorGUIHandler(int syncId, PlayerInventory inventory, PacketByteBuf buf) {
-        this(syncId, inventory, inventory.player.getWorld().getBlockEntity(buf.readBlockPos()),
-                new ArrayPropertyDelegate(1));
+        this(syncId, inventory, inventory.player.getWorld().getBlockEntity(buf.readBlockPos()), new ArrayPropertyDelegate(2));
     }
 
     public OxygenCollectorGUIHandler(int syncId, PlayerInventory playerInventory, BlockEntity blockEntity, PropertyDelegate propertyDelegate) {
@@ -31,15 +30,29 @@ public class OxygenCollectorGUIHandler extends ScreenHandler {
         inventory.onOpen(playerInventory.player);
         this.propertyDelegate = propertyDelegate;
         this.blockEntity = ((OxygenCollectorBlockEntity) blockEntity);
-
-        this.addSlot(new TagAugmentNotTagSlot(playerInventory, 38, 62, 19, ModTags.Items.OXYGEN_STORING, "tlotd:oxygen_tank", ModTags.Items.GAS_CYLINDERS));
-
-        this.addSlot(new TagAugmentSlot(inventory, 0, 98, 19, ModTags.Items.OXYGEN_STORING, "tlotd:oxygen_tank"));
-
+        this.addSlot(new ChestplateSlot(playerInventory, 38, 53, 19));
+        this.addSlot(new TagAugmentSlot(inventory, 0, 107, 19, ModTags.Items.OXYGEN_STORING, "tlotd:oxygen_tank"));
         addPlayerInventory(playerInventory);
         addPlayerHotbar(playerInventory);
-
         addProperties(propertyDelegate);
+    }
+
+    public int getGas() {
+        return this.propertyDelegate.get(0);
+    }
+
+    public int getAmount() {
+        return this.propertyDelegate.get(1);
+    }
+
+    public int getScaledAmount() {
+        float amount = this.propertyDelegate.get(1) * 0.75f;
+        float oxygenPercentage = switch (this.propertyDelegate.get(0)) {
+            case 0 -> 1f;
+            case 1 -> 0.5f;
+            default -> 0f;
+        };
+        return (int) (amount * oxygenPercentage * 18 / 1);
     }
 
     @Override
@@ -56,14 +69,12 @@ public class OxygenCollectorGUIHandler extends ScreenHandler {
             } else if (!this.insertItem(originalStack, 0, this.inventory.size(), false)) {
                 return ItemStack.EMPTY;
             }
-
             if (originalStack.isEmpty()) {
                 slot.setStack(ItemStack.EMPTY);
             } else {
                 slot.markDirty();
             }
         }
-
         return newStack;
     }
 

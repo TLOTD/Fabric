@@ -1,3 +1,3 @@
 {
-  "parent": "tlotd:block/signal_transmitter"
+  "parent": "tlotd:block/copper_signal_transmitter"
 }

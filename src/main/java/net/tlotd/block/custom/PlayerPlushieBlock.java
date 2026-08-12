@@ -61,10 +61,8 @@ public class PlayerPlushieBlock extends HumanPlushieBlock {
 
     private boolean hasDefaultAlternate(String uuid, boolean formerTLOTD) {
         return switch (uuid) {
-            case "212aa6f5-69a9-47d9-9ad5-19b359744edf",
-                 "67148bd0-1a00-4bca-9d9e-ec246afbcf51",
-                 "53c68d22-726b-4a37-b92d-8d7c4670a87d",
-                 "d3018dca-9a16-43f0-8d72-19b93e33fa6b",
+            case "212aa6f5-69a9-47d9-9ad5-19b359744edf", "67148bd0-1a00-4bca-9d9e-ec246afbcf51",
+                 "53c68d22-726b-4a37-b92d-8d7c4670a87d", "d3018dca-9a16-43f0-8d72-19b93e33fa6b",
                  "125cda9f-1a5b-40c5-b3a9-02c7988940f6" -> true;
             case "ebcc701d-5e03-4e57-9279-1dd595f6a4d4" -> formerTLOTD;
             default -> false;
@@ -97,12 +95,7 @@ public class PlayerPlushieBlock extends HumanPlushieBlock {
                 }
             }
         }
-        return this.getDefaultState()
-                .with(FACING, ctx.getHorizontalPlayerFacing())
-                .with(WATERLOGGED, ctx.getWorld().getFluidState(ctx.getBlockPos()).isOf(Fluids.WATER))
-                .with(SKIN, skin)
-                .with(ALTERNATIVE, alternative)
-                .with(CUSTOM, custom);
+        return this.getDefaultState().with(FACING, ctx.getHorizontalPlayerFacing()).with(WATERLOGGED, ctx.getWorld().getFluidState(ctx.getBlockPos()).isOf(Fluids.WATER)).with(SKIN, skin).with(ALTERNATIVE, alternative).with(CUSTOM, custom);
     }
 
     @Override

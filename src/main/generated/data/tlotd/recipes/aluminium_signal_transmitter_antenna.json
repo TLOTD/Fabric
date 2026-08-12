@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "I": {
+      "tag": "c:aluminium_ingots"
+    },
+    "W": {
+      "tag": "tlotd:wires"
+    }
+  },
+  "pattern": [
+    " I ",
+    "IWI",
+    "IWI"
+  ],
+  "result": {
+    "item": "tlotd:aluminium_signal_transmitter_antenna"
+  },
+  "show_notification": true
+}

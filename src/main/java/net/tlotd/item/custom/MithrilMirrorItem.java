@@ -101,14 +101,14 @@ public class MithrilMirrorItem extends Item {
                     boolean crossDim = !targetWorld.getRegistryKey().equals(player.getWorld().getRegistryKey());
                     int cost = 0;
                     if (player.getWorld().getRegistryKey().equals(ModDimensions.BACKROOMS_LEVEL_KEY)) {
-                        player.sendMessage(Text.translatable("item.tlotd.mithril_mirror.cannot_escape", cost).formatted(Formatting.RED),true);
+                        player.sendMessage(Text.translatable("item.tlotd.mithril_mirror.cannot_escape", cost).formatted(Formatting.RED), true);
                         world.playSound(null, player.getBlockPos(), SoundEvents.ENTITY_SHULKER_BULLET_HURT, SoundCategory.PLAYERS, 1f, 1f);
-                        player.getItemCooldownManager().set(ModItems.MITHRIL_MIRROR, getMaxUseTime(stack)*20);
+                        player.getItemCooldownManager().set(ModItems.MITHRIL_MIRROR, getMaxUseTime(stack) * 20);
                         return stack;
                     } else if (targetWorld.getRegistryKey().equals(ModDimensions.BACKROOMS_LEVEL_KEY)) {
-                        player.sendMessage(Text.translatable("item.tlotd.mithril_mirror.destination_unknown", cost).formatted(Formatting.RED),true);
+                        player.sendMessage(Text.translatable("item.tlotd.mithril_mirror.destination_unknown", cost).formatted(Formatting.RED), true);
                         world.playSound(null, player.getBlockPos(), SoundEvents.ENTITY_SHULKER_BULLET_HURT, SoundCategory.PLAYERS, 1f, 1f);
-                        player.getItemCooldownManager().set(ModItems.MITHRIL_MIRROR, getMaxUseTime(stack)*20);
+                        player.getItemCooldownManager().set(ModItems.MITHRIL_MIRROR, getMaxUseTime(stack) * 20);
                         return stack;
                     } else if (crossDim && transLevel > 0) {
                         cost = switch (transLevel) {
@@ -119,15 +119,15 @@ public class MithrilMirrorItem extends Item {
                             default -> 1;
                         };
                         if (remaining < cost) {
-                            player.sendMessage(Text.translatable("item.tlotd.mithril_mirror.charges_requirement", cost).formatted(Formatting.RED),true);
+                            player.sendMessage(Text.translatable("item.tlotd.mithril_mirror.charges_requirement", cost).formatted(Formatting.RED), true);
                             world.playSound(null, player.getBlockPos(), SoundEvents.ENTITY_SHULKER_BULLET_HURT, SoundCategory.PLAYERS, 1f, 1f);
-                            player.getItemCooldownManager().set(ModItems.MITHRIL_MIRROR, getMaxUseTime(stack)*20);
+                            player.getItemCooldownManager().set(ModItems.MITHRIL_MIRROR, getMaxUseTime(stack) * 20);
                             return stack;
                         }
                     } else if (crossDim) {
-                        player.sendMessage(Text.translatable("item.tlotd.mithril_mirror.transdimensional").formatted(Formatting.RED),true);
+                        player.sendMessage(Text.translatable("item.tlotd.mithril_mirror.transdimensional").formatted(Formatting.RED), true);
                         world.playSound(null, player.getBlockPos(), SoundEvents.ENTITY_SHULKER_BULLET_HURT, SoundCategory.PLAYERS, 1f, 1f);
-                        player.getItemCooldownManager().set(ModItems.MITHRIL_MIRROR, getMaxUseTime(stack)*20);
+                        player.getItemCooldownManager().set(ModItems.MITHRIL_MIRROR, getMaxUseTime(stack) * 20);
                         return stack;
                     }
                     Optional<Vec3d> optionalSpawnVec = Optional.empty();
@@ -154,7 +154,7 @@ public class MithrilMirrorItem extends Item {
                     player.addStatusEffect(new StatusEffectInstance(StatusEffects.MINING_FATIGUE, 20, 0, false, false));
                     int protection = EnchantmentHelper.getLevel(ModEnchantments.REINFORCED_GLASS, stack);
                     if (protection > 0) {
-                        player.addStatusEffect(new StatusEffectInstance(StatusEffects.RESISTANCE, protection*20, 4, false, false));
+                        player.addStatusEffect(new StatusEffectInstance(StatusEffects.RESISTANCE, protection * 20, 4, false, false));
                     }
                     if (EnchantmentHelper.getLevel(ModEnchantments.CURSED_REFLECTION, stack) > 0) {
                         player.setHealth(1.0F);
@@ -204,15 +204,15 @@ public class MithrilMirrorItem extends Item {
                     }
                 }
                 if (!restored) {
-                    player.sendMessage(Text.translatable("item.tlotd.mithril_mirror.foggy.charge_item_missing").formatted(Formatting.RED),true);
+                    player.sendMessage(Text.translatable("item.tlotd.mithril_mirror.foggy.charge_item_missing").formatted(Formatting.RED), true);
                     world.playSound(null, player.getBlockPos(), SoundEvents.ENTITY_SHULKER_BULLET_HURT, SoundCategory.PLAYERS, 1f, 1f);
                 }
-                player.getItemCooldownManager().set(ModItems.MITHRIL_MIRROR, getMaxUseTime(stack)*5);
+                player.getItemCooldownManager().set(ModItems.MITHRIL_MIRROR, getMaxUseTime(stack) * 5);
                 player.incrementStat(Stats.USED.getOrCreateStat(this));
                 return stack;
             }
         }
-        player.getItemCooldownManager().set(ModItems.MITHRIL_MIRROR, getMaxUseTime(stack)*20);
+        player.getItemCooldownManager().set(ModItems.MITHRIL_MIRROR, getMaxUseTime(stack) * 20);
         player.incrementStat(Stats.USED.getOrCreateStat(this));
         return stack;
     }
@@ -263,7 +263,8 @@ public class MithrilMirrorItem extends Item {
     @Override
     public Text getName(ItemStack stack) {
         Text name = super.getName(stack);
-        if (EnchantmentHelper.getLevel(ModEnchantments.CURSED_REFLECTION, stack) > 0) return name.copy().formatted(Formatting.RED);
+        if (EnchantmentHelper.getLevel(ModEnchantments.CURSED_REFLECTION, stack) > 0)
+            return name.copy().formatted(Formatting.RED);
         if (!stack.hasNbt()) return name;
         if (stack.getOrCreateNbt().getInt(CHARGES_USED_KEY) < getMaxCharges(stack)) return name;
         else return Text.translatable("item.tlotd.mithril_mirror.foggy");

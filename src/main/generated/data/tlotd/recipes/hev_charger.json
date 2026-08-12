@@ -3,7 +3,7 @@
   "category": "building",
   "key": {
     "#": {
-      "item": "tlotd:battery"
+      "item": "tlotd:large_battery"
     },
     "B": {
       "tag": "minecraft:buttons"
@@ -27,7 +27,7 @@
   "pattern": [
     "XSL",
     "WCB",
-    "###"
+    "#S#"
   ],
   "result": {
     "item": "tlotd:hev_charger"

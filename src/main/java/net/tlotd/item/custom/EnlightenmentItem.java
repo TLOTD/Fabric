@@ -35,8 +35,10 @@ public class EnlightenmentItem extends Item {
     @Override
     public Text getName(ItemStack stack) {
         Text name = super.getName(stack);
-        if (stack.isOf(ModItems.TOME_OF_ENLIGHTENMENT)) return name.copy().styled(style -> style.withColor(Formatting.GOLD));
-        if (stack.isOf(ModItems.ARTIFACT_OF_ENLIGHTENMENT)) return name.copy().styled(style -> style.withColor(Formatting.RED));
+        if (stack.isOf(ModItems.TOME_OF_ENLIGHTENMENT))
+            return name.copy().styled(style -> style.withColor(Formatting.GOLD));
+        if (stack.isOf(ModItems.ARTIFACT_OF_ENLIGHTENMENT))
+            return name.copy().styled(style -> style.withColor(Formatting.RED));
         if (stack.isOf(ModItems.EYE_OF_ENLIGHTENMENT)) return name.copy().styled(style -> style.withColor(0x3C009C));
         return name;
     }
@@ -55,10 +57,7 @@ public class EnlightenmentItem extends Item {
             int enlightened = nbt.getInt("Enlightened");
             if (new_enlightened > enlightened) {
                 nbt.putInt("Enlightened", new_enlightened);
-                PlayerDataSyncNetworking.sendToClient(
-                        (ServerPlayerEntity) user,
-                        new PlayerDataSyncPacket(nbt)
-                );
+                PlayerDataSyncNetworking.sendToClient((ServerPlayerEntity) user, new PlayerDataSyncPacket(nbt));
                 world.playSound(null, user.getBlockPos(), SoundEvents.BLOCK_RESPAWN_ANCHOR_CHARGE, SoundCategory.BLOCKS, 1f, 1f);
                 user.getStackInHand(hand).decrement(1);
             } else {

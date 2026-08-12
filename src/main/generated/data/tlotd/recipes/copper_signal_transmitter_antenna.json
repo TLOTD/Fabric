@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "C": {
+      "tag": "tlotd:circuit_boards"
+    },
+    "I": {
+      "tag": "c:copper_ingots"
+    },
+    "W": {
+      "tag": "tlotd:wires_1"
+    }
+  },
+  "pattern": [
+    " I ",
+    "IWI",
+    "ICI"
+  ],
+  "result": {
+    "item": "tlotd:copper_signal_transmitter_antenna"
+  },
+  "show_notification": true
+}

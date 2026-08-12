@@ -2,8 +2,12 @@ package net.tlotd.block.custom;
 
 import net.minecraft.block.*;
 import net.minecraft.block.enums.WallMountLocation;
+import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.item.TooltipContext;
+import net.minecraft.client.resource.language.LanguageDefinition;
+import net.minecraft.client.resource.language.LanguageManager;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.ItemPlacementContext;
@@ -14,15 +18,21 @@ import net.minecraft.state.property.DirectionProperty;
 import net.minecraft.state.property.EnumProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.text.Text;
+import net.minecraft.util.ActionResult;
 import net.minecraft.util.BlockRotation;
 import net.minecraft.util.Formatting;
+import net.minecraft.util.Hand;
+import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
+import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 import net.minecraft.world.WorldView;
 import net.tlotd.block.ModBlocks;
+import net.tlotd.item.ModItems;
+import net.tlotd.networking.ClientGlobalConfig;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
@@ -50,7 +60,7 @@ public class StickerBlock extends Block {
     public BlockState getPlacementState(ItemPlacementContext ctx) {
         for (Direction direction : ctx.getPlacementDirections()) {
             BlockState blockState = direction.getAxis() == Direction.Axis.Y ? this.getDefaultState().with(FACE, direction == Direction.UP ? WallMountLocation.CEILING : WallMountLocation.FLOOR).with(FACING, ctx.getHorizontalPlayerFacing()).with(WATERLOGGED, ctx.getWorld().getFluidState(ctx.getBlockPos()).isOf(Fluids.WATER)) : this.getDefaultState().with(FACE, WallMountLocation.WALL).with(FACING, direction).with(WATERLOGGED, ctx.getWorld().getFluidState(ctx.getBlockPos()).isOf(Fluids.WATER));
-                if (!blockState.canPlaceAt(ctx.getWorld(), ctx.getBlockPos())) continue;
+            if (!blockState.canPlaceAt(ctx.getWorld(), ctx.getBlockPos())) continue;
             return blockState;
         }
         return null;
@@ -136,5 +146,28 @@ public class StickerBlock extends Block {
     @Override
     public BlockRenderType getRenderType(BlockState state) {
         return BlockRenderType.MODEL;
+    }
+
+    @Override
+    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
+        if (player != null && world.isClient) {
+            boolean easterEggs = ClientGlobalConfig.easterEggs;
+            if (easterEggs && player.getStackInHand(hand).isOf(ModItems.MAULTASCHEN_BROTH)) {
+                MinecraftClient client = MinecraftClient.getInstance();
+                LanguageManager languageManager = client.getLanguageManager();
+                LanguageDefinition languageDefinition = languageManager.getLanguage("swg_de");
+                if (languageDefinition == null || languageManager.getLanguage().equals("swg_de")) {
+                    return ActionResult.FAIL;
+                }
+                languageManager.setLanguage("swg_de");
+                client.options.language = "swg_de";
+                client.reloadResources();
+                client.options.write();
+                return ActionResult.SUCCESS;
+            } else {
+                return ActionResult.FAIL;
+            }
+        }
+        return ActionResult.FAIL;
     }
 }

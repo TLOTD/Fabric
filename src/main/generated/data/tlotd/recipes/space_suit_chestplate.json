@@ -5,6 +5,9 @@
     "#": {
       "item": "minecraft:leather"
     },
+    "C": {
+      "tag": "tlotd:advanced_circuit_boards"
+    },
     "S": {
       "item": "minecraft:slime_ball"
     },
@@ -14,8 +17,8 @@
   },
   "pattern": [
     "#W#",
-    "S#S",
-    "###"
+    "SCS",
+    "#C#"
   ],
   "result": {
     "item": "tlotd:space_suit_chestplate"

@@ -5,12 +5,17 @@ import dev.emi.emi.api.recipe.EmiRecipeCategory;
 import dev.emi.emi.api.stack.EmiIngredient;
 import dev.emi.emi.api.stack.EmiStack;
 import dev.emi.emi.api.widget.WidgetHolder;
+import net.minecraft.item.ItemStack;
+import net.minecraft.recipe.Ingredient;
 import net.minecraft.util.Identifier;
 import net.tlotd.TLOTD;
 import net.tlotd.recipe.AugmentationRecipe;
+import net.tlotd.util.AugmentNbtHelper;
 
 import java.util.Arrays;
 import java.util.List;
+
+import static net.tlotd.block.entity.AugmentationTableBlockEntity.getAugment;
 
 public class AugmentingTableEMIRecipe implements EmiRecipe {
 
@@ -33,22 +38,18 @@ public class AugmentingTableEMIRecipe implements EmiRecipe {
     @Override
     public List<EmiIngredient> getInputs() {
 
-        return recipe.getIngredients()
-                .stream()
-                .filter(i -> !i.isEmpty())
-                .map(i -> EmiIngredient.of(
-                        Arrays.stream(i.getMatchingStacks())
-                                .map(EmiStack::of)
-                                .toList()
-                ))
-                .toList();
+        return recipe.getIngredients().stream().filter(i -> !i.isEmpty()).map(i -> EmiIngredient.of(Arrays.stream(i.getMatchingStacks()).map(EmiStack::of).toList())).toList();
     }
 
     @Override
     public List<EmiStack> getOutputs() {
-        return List.of(
-                EmiStack.of(recipe.getOutput(null))
-        );
+        Ingredient baseIngredient = recipe.getIngredients().get(0);
+        String augmentId = getAugment(recipe.getOutput(null));
+        int maxLevel = recipe.getOutput(null).getCount();
+        return Arrays.stream(baseIngredient.getMatchingStacks()).map(ItemStack::copy).map(stack -> {
+            AugmentNbtHelper.addOrUpdateAugment(stack, augmentId, 1, maxLevel);
+            return EmiStack.of(stack);
+        }).toList();
     }
 
     @Override
@@ -66,20 +67,10 @@ public class AugmentingTableEMIRecipe implements EmiRecipe {
     public void addWidgets(WidgetHolder widgets) {
         widgets.addTexture(new Identifier(TLOTD.MOD_ID, "textures/gui/rei/augmentation_table.png"), 0, 0, 110, 66, 4, 4);
         List<EmiIngredient> inputs = getInputs();
-        int[][] slots = {
-                {24,24},
-                {5,5},
-                {24,4},
-                {43,5},
-                {4,24},
-                {44,24},
-                {5,43},
-                {24,44},
-                {43,43}
-        };
+        int[][] slots = {{24, 24}, {5, 5}, {24, 4}, {43, 5}, {4, 24}, {44, 24}, {5, 43}, {24, 44}, {43, 43}};
         for (int i = 0; i < inputs.size(); i++) {
             widgets.addSlot(inputs.get(i), slots[i][0], slots[i][1]);
         }
-        widgets.addSlot(EmiStack.of(recipe.getOutput(null)), 88, 24).recipeContext(this);
+        widgets.addSlot(EmiIngredient.of(getOutputs()), 88, 24).recipeContext(this);
     }
 }

@@ -32,8 +32,7 @@ public class GarbageCanBlock extends BlockWithEntity implements BlockEntityProvi
 
     @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {
-        return this.getDefaultState()
-                .with(WATERLOGGED, ctx.getWorld().getFluidState(ctx.getBlockPos()).isOf(Fluids.WATER));
+        return this.getDefaultState().with(WATERLOGGED, ctx.getWorld().getFluidState(ctx.getBlockPos()).isOf(Fluids.WATER));
     }
 
     @Override
@@ -60,19 +59,11 @@ public class GarbageCanBlock extends BlockWithEntity implements BlockEntityProvi
         this.setDefaultState(this.stateManager.getDefaultState().with(WATERLOGGED, false));
     }
 
-    private static final VoxelShape SHAPE = VoxelShapes.union(
-            Block.createCuboidShape(2,0,2,14,12,14),
+    private static final VoxelShape SHAPE = VoxelShapes.union(Block.createCuboidShape(2, 0, 2, 14, 12, 14),
 
-            Block.createCuboidShape(2, 12, 2, 3, 13, 14),
-            Block.createCuboidShape(2, 12, 2, 14, 13, 3),
-            Block.createCuboidShape(2, 12, 13, 14, 13, 14),
-            Block.createCuboidShape(13, 12, 2, 14, 13, 14),
+            Block.createCuboidShape(2, 12, 2, 3, 13, 14), Block.createCuboidShape(2, 12, 2, 14, 13, 3), Block.createCuboidShape(2, 12, 13, 14, 13, 14), Block.createCuboidShape(13, 12, 2, 14, 13, 14),
 
-            Block.createCuboidShape(1, 13, 1, 3, 16, 15),
-            Block.createCuboidShape(1, 13, 1, 15, 16, 3),
-            Block.createCuboidShape(1, 13, 13, 15, 16, 15),
-            Block.createCuboidShape(13, 13, 1, 15, 16, 15)
-    );
+            Block.createCuboidShape(1, 13, 1, 3, 16, 15), Block.createCuboidShape(1, 13, 1, 15, 16, 3), Block.createCuboidShape(1, 13, 13, 15, 16, 15), Block.createCuboidShape(13, 13, 1, 15, 16, 15));
 
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
@@ -103,11 +94,11 @@ public class GarbageCanBlock extends BlockWithEntity implements BlockEntityProvi
                 garbageCanBlockEntity.setStack(1, garbageCanBlockEntity.getStack(2));
                 garbageCanBlockEntity.setStack(2, garbageCanBlockEntity.getStack(3));
                 garbageCanBlockEntity.setStack(3, ItemStack.EMPTY);
-                world.playSound(null,pos, ModSounds.BLOCK_GARBAGE_CAN_USED, SoundCategory.BLOCKS, 1.0f, 1.0f);
+                world.playSound(null, pos, ModSounds.BLOCK_GARBAGE_CAN_USED, SoundCategory.BLOCKS, 1.0f, 1.0f);
             } else if (!stack.isEmpty()) {
                 garbageCanBlockEntity.setStack(0, stack);
                 player.setStackInHand(hand, ItemStack.EMPTY);
-                world.playSound(null,pos, ModSounds.BLOCK_GARBAGE_CAN_USED, SoundCategory.BLOCKS, 1.0f, 1.0f);
+                world.playSound(null, pos, ModSounds.BLOCK_GARBAGE_CAN_USED, SoundCategory.BLOCKS, 1.0f, 1.0f);
             }
         }
         return ActionResult.SUCCESS;
@@ -118,7 +109,7 @@ public class GarbageCanBlock extends BlockWithEntity implements BlockEntityProvi
         if (state.getBlock() != newState.getBlock()) {
             BlockEntity blockEntity = world.getBlockEntity(pos);
             if (blockEntity instanceof GarbageCanBlockEntity) {
-                ItemScatterer.spawn(world, pos, (GarbageCanBlockEntity)blockEntity);
+                ItemScatterer.spawn(world, pos, (GarbageCanBlockEntity) blockEntity);
                 world.updateComparators(pos, this);
             }
             super.onStateReplaced(state, world, pos, newState, moved);

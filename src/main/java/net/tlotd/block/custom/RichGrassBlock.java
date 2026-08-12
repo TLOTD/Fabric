@@ -84,9 +84,7 @@ public class RichGrassBlock extends SnowyBlock implements Fertilizable {
     public void grow(ServerWorld world, Random random, BlockPos pos, BlockState state) {
         BlockPos blockPos = pos.up();
         BlockState blockState = Blocks.GRASS.getDefaultState();
-        Optional<RegistryEntry.Reference<PlacedFeature>> optional = world.getRegistryManager()
-                .get(RegistryKeys.PLACED_FEATURE)
-                .getEntry(VegetationPlacedFeatures.GRASS_BONEMEAL);
+        Optional<RegistryEntry.Reference<PlacedFeature>> optional = world.getRegistryManager().get(RegistryKeys.PLACED_FEATURE).getEntry(VegetationPlacedFeatures.GRASS_BONEMEAL);
 
         label49:
         for (int i = 0; i < 128; i++) {
@@ -101,7 +99,7 @@ public class RichGrassBlock extends SnowyBlock implements Fertilizable {
 
             BlockState blockState2 = world.getBlockState(blockPos2);
             if (blockState2.isOf(blockState.getBlock()) && random.nextInt(10) == 0) {
-                ((Fertilizable)blockState.getBlock()).grow(world, random, blockPos2, blockState2);
+                ((Fertilizable) blockState.getBlock()).grow(world, random, blockPos2, blockState2);
             }
 
             if (blockState2.isAir()) {
@@ -112,13 +110,13 @@ public class RichGrassBlock extends SnowyBlock implements Fertilizable {
                         continue;
                     }
 
-                    registryEntry = ((RandomPatchFeatureConfig)((ConfiguredFeature)list.get(0)).config()).feature();
+                    registryEntry = ((RandomPatchFeatureConfig) ((ConfiguredFeature) list.get(0)).config()).feature();
                 } else {
                     if (!optional.isPresent()) {
                         continue;
                     }
 
-                    registryEntry = (RegistryEntry<PlacedFeature>)optional.get();
+                    registryEntry = (RegistryEntry<PlacedFeature>) optional.get();
                 }
 
                 registryEntry.value().generateUnregistered(world, world.getChunkManager().getChunkGenerator(), random, blockPos2);

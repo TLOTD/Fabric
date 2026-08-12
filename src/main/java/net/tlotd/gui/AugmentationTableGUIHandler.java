@@ -27,7 +27,7 @@ public class AugmentationTableGUIHandler extends ScreenHandler {
 
     public AugmentationTableGUIHandler(int syncId, PlayerInventory playerInventory, BlockEntity blockEntity, PropertyDelegate propertyDelegate) {
         super(ModGUIHandlers.AUGMENTATION_TABLE_GUI_HANDLER, syncId);
-        checkSize(((Inventory) blockEntity),11);
+        checkSize(((Inventory) blockEntity), 11);
         this.inventory = ((Inventory) blockEntity);
         inventory.onOpen(playerInventory.player);
         this.propertyDelegate = propertyDelegate;
@@ -63,14 +63,14 @@ public class AugmentationTableGUIHandler extends ScreenHandler {
     public int getScaledProgress() {
         int progress = this.propertyDelegate.get(0);
         int maxProgress = this.propertyDelegate.get(2);
-        int progressArrowSize = 24;
+        int progressArrowSize = 22;
         return maxProgress != 0 && progress != 0 ? progress * progressArrowSize / maxProgress : 0;
     }
 
     public int getScaledProgress2() {
         int progress2 = this.propertyDelegate.get(1);
         int maxProgress = this.propertyDelegate.get(2);
-        int progressArrowSize = 24;
+        int progressArrowSize = 22;
         return maxProgress != 0 && progress2 != 0 ? progress2 * progressArrowSize / maxProgress : 0;
     }
 

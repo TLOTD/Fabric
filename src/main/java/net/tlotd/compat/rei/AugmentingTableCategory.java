@@ -42,29 +42,16 @@ public class AugmentingTableCategory implements DisplayCategory<BasicDisplay> {
         final Point startPoint = new Point(bounds.getCenterX() - 58, bounds.getCenterY() - 36);
         List<Widget> widgets = new LinkedList<>();
         widgets.add(Widgets.createTexturedWidget(TEXTURE, new Rectangle(startPoint.x, startPoint.y, 118, 74)));
-
-        widgets.add(Widgets.createSlot(new Point(startPoint.x + 10, startPoint.y + 10))
-                .entries(display.getInputEntries().get(1)));
-        widgets.add(Widgets.createSlot(new Point(startPoint.x + 29, startPoint.y + 9))
-                .entries(display.getInputEntries().get(2)));
-        widgets.add(Widgets.createSlot(new Point(startPoint.x + 48, startPoint.y + 10))
-                .entries(display.getInputEntries().get(3)));
-        widgets.add(Widgets.createSlot(new Point(startPoint.x + 9, startPoint.y + 29))
-                .entries(display.getInputEntries().get(4)));
-        widgets.add(Widgets.createSlot(new Point(startPoint.x + 29, startPoint.y + 29))
-                .entries(display.getInputEntries().get(0)));
-        widgets.add(Widgets.createSlot(new Point(startPoint.x + 49, startPoint.y + 29))
-                .entries(display.getInputEntries().get(5)));
-        widgets.add(Widgets.createSlot(new Point(startPoint.x + 10, startPoint.y + 48))
-                .entries(display.getInputEntries().get(6)));
-        widgets.add(Widgets.createSlot(new Point(startPoint.x + 29, startPoint.y + 49))
-                .entries(display.getInputEntries().get(7)));
-        widgets.add(Widgets.createSlot(new Point(startPoint.x + 48, startPoint.y + 48))
-                .entries(display.getInputEntries().get(8)));
-
-        widgets.add(Widgets.createSlot(new Point(startPoint.x + 93, startPoint.y + 29))
-                .markOutput().entries(display.getOutputEntries().get(0)));
-
+        widgets.add(Widgets.createSlot(new Point(startPoint.x + 10, startPoint.y + 10)).entries(display.getInputEntries().get(1)));
+        widgets.add(Widgets.createSlot(new Point(startPoint.x + 29, startPoint.y + 9)).entries(display.getInputEntries().get(2)));
+        widgets.add(Widgets.createSlot(new Point(startPoint.x + 48, startPoint.y + 10)).entries(display.getInputEntries().get(3)));
+        widgets.add(Widgets.createSlot(new Point(startPoint.x + 9, startPoint.y + 29)).entries(display.getInputEntries().get(4)));
+        widgets.add(Widgets.createSlot(new Point(startPoint.x + 29, startPoint.y + 29)).entries(display.getInputEntries().get(0)));
+        widgets.add(Widgets.createSlot(new Point(startPoint.x + 49, startPoint.y + 29)).entries(display.getInputEntries().get(5)));
+        widgets.add(Widgets.createSlot(new Point(startPoint.x + 10, startPoint.y + 48)).entries(display.getInputEntries().get(6)));
+        widgets.add(Widgets.createSlot(new Point(startPoint.x + 29, startPoint.y + 49)).entries(display.getInputEntries().get(7)));
+        widgets.add(Widgets.createSlot(new Point(startPoint.x + 48, startPoint.y + 48)).entries(display.getInputEntries().get(8)));
+        widgets.add(Widgets.createSlot(new Point(startPoint.x + 93, startPoint.y + 29)).markOutput().entries(display.getOutputEntries().get(0)));
         return widgets;
     }
 

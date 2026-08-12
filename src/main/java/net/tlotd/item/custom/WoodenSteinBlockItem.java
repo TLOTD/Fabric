@@ -25,7 +25,7 @@ public class WoodenSteinBlockItem extends BlockItem {
 
     @Override
     public ActionResult useOnEntity(ItemStack stack, PlayerEntity user, LivingEntity entity, Hand hand) {
-        if (!user.getWorld().isClient()){
+        if (!user.getWorld().isClient()) {
             if (entity.getClass() == CowEntity.class || entity.getClass() == MooshroomEntity.class || entity.getClass() == GoatEntity.class) {
                 if (user instanceof ServerPlayerEntity serverPlayerEntity) {
                     Criteria.CONSUME_ITEM.trigger(serverPlayerEntity, stack);

@@ -35,16 +35,16 @@ public enum WitchingTableComponentProvider implements IBlockComponentProvider {
         } else if (charges > 3) {
             format = Formatting.RED;
         }
-        tooltip.add(Text.translatable("jade.tlotd.witching_table.charges").append(Text.literal(" " + charges + " / 3").formatted(format)));
+        tooltip.add(Text.translatable("gui.tlotd.witching.charges").append(Text.literal(" " + charges + " / 3").formatted(format)));
         tooltip.add(Text.literal(" "));
         tooltip.append(soul_flask);
-        tooltip.append(Text.translatable("jade.tlotd.witching_table.soul_charges", souls));
+        tooltip.append(Text.translatable("gui.tlotd.witching.soul_charges", souls));
         tooltip.add(Text.literal(" "));
         tooltip.append(cursed_flask);
-        tooltip.append(Text.translatable("jade.tlotd.witching_table.cursed_soul_charges", cursed));
+        tooltip.append(Text.translatable("gui.tlotd.witching.cursed_soul_charges", cursed));
         tooltip.add(Text.literal(" "));
         tooltip.append(abyss_flask);
-        tooltip.append(Text.translatable("jade.tlotd.witching_table.soul_charges_of_the_abyss", abyss));
+        tooltip.append(Text.translatable("gui.tlotd.witching.soul_charges_of_the_abyss", abyss));
     }
 
     @Override

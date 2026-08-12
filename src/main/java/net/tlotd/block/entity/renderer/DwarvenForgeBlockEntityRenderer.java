@@ -11,6 +11,7 @@ import net.minecraft.client.render.model.json.ModelTransformationMode;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.RotationAxis;
 import net.minecraft.world.LightType;
 import net.minecraft.world.World;
@@ -18,16 +19,23 @@ import net.tlotd.block.entity.DwarvenForgeBlockEntity;
 
 public class DwarvenForgeBlockEntityRenderer implements BlockEntityRenderer<DwarvenForgeBlockEntity> {
     public DwarvenForgeBlockEntityRenderer(BlockEntityRendererFactory.Context context) {
-
     }
 
     @Override
     public void render(DwarvenForgeBlockEntity entity, float tickDelta, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, int overlay) {
         ItemRenderer itemRenderer = MinecraftClient.getInstance().getItemRenderer();
         ItemStack stack = entity.getRenderStack();
+        Direction facing = entity.facing();
+        float rotation = switch (facing) {
+            case EAST -> 90.0f;
+            case NORTH -> 180.0f;
+            case WEST -> 270.0f;
+            default -> 0.0f;
+        };
         matrices.push();
         matrices.translate(0.5f, 1.02f, 0.5f);
         matrices.scale(0.5f, 0.5f, 0.5f);
+        matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(rotation));
         matrices.multiply(RotationAxis.POSITIVE_X.rotationDegrees(270));
         itemRenderer.renderItem(stack, ModelTransformationMode.NONE, getLightLevel(entity.getWorld(), entity.getPos()), OverlayTexture.DEFAULT_UV, matrices, vertexConsumers, entity.getWorld(), 1);
         matrices.pop();

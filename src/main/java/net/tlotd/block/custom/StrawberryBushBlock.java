@@ -19,7 +19,7 @@ import net.tlotd.item.ModItems;
 
 public class StrawberryBushBlock extends CropBlock {
 
-    public static final IntProperty AGE = IntProperty.of("age",0,7);
+    public static final IntProperty AGE = IntProperty.of("age", 0, 7);
 
     public StrawberryBushBlock(Settings settings) {
         super(settings);

@@ -207,7 +207,7 @@ public class AugmentationTableBlockEntity extends BlockEntity implements Extende
         world.playSound(null, getPos(), SoundEvents.BLOCK_ENCHANTMENT_TABLE_USE, SoundCategory.BLOCKS, 1.0f, 1.0f);
     }
 
-    private static String getAugment(ItemStack stack) {
+    public static String getAugment(ItemStack stack) {
         Identifier id = Registries.ITEM.getId(stack.getItem());
         String namespace = id.getNamespace();
         String path = id.getPath();

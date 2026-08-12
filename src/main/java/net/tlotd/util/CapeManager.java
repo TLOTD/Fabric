@@ -12,7 +12,6 @@ import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.*;
 
-
 public class CapeManager {
 
     private static final MinecraftClient MC = MinecraftClient.getInstance();

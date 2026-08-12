@@ -11,8 +11,6 @@
         { "type":"bitmap", "file":"tlotd:item/augment/dragon_scale_plating.png", "ascent":8, "chars": ["\uE021"]},
         { "type":"bitmap", "file":"tlotd:item/augment/lead_plating.png", "ascent":8, "chars": ["\uE022"]},
         { "type":"bitmap", "file":"tlotd:item/augment/dimensional_cohesion.png", "ascent":8, "chars": ["\uE023"]},
-        { "type":"bitmap", "file":"tlotd:item/augment/battery_pack.png", "ascent":8, "chars": ["\uE024"]},
-        { "type":"bitmap", "file":"tlotd:item/augment/energy_shield.png", "ascent":8, "chars": ["\uE025"]},
         { "type":"bitmap", "file":"tlotd:item/augment/oxygen_tank.png", "ascent":8, "chars": ["\uE026"]},
         { "type":"bitmap", "file":"tlotd:item/augment/airtight_seals.png", "ascent":8, "chars": ["\uE027"]},
         { "type":"bitmap", "file":"tlotd:item/augment/bullet_resistance.png", "ascent":8, "chars": ["\uE028"]},

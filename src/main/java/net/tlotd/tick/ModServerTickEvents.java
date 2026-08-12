@@ -19,7 +19,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.tlotd.compat.CompatModsCheck;
 import net.tlotd.effect.ModEffects;
-import net.tlotd.util.EnergyNbtHelper;
 import net.tlotd.util.ModAdvancementTriggers;
 import net.tlotd.world.ModGlobalState;
 import net.tlotd.world.dimension.ModDimensions;
@@ -59,30 +58,30 @@ public class ModServerTickEvents {
                     }
                 }
                 if (tickCounter % 40 == 0 && player.getWorld().isSkyVisible(player.getBlockPos())) {
-                        for (ItemStack armor : player.getArmorItems()) {
-                            if (getAugmentLevel(armor, "tlotd:photosynthesis") > 0 && player.getWorld().isDay()) {
-                                if (armor.getDamage() > 0) {
-                                    armor.setDamage(Math.max(armor.getDamage() - getAugmentLevel(armor, "tlotd:photosynthesis"), 0));
-                                }
-                            }
-                            if (getAugmentLevel(armor, "tlotd:starlight_blessing") > 0 && player.getWorld().isNight()) {
-                                if (armor.getDamage() > 0) {
-                                    armor.setDamage(Math.max(armor.getDamage() - getAugmentLevel(armor, "tlotd:starlight_blessing"), 0));
-                                }
+                    for (ItemStack armor : player.getArmorItems()) {
+                        if (getAugmentLevel(armor, "tlotd:photosynthesis") > 0 && player.getWorld().isDay()) {
+                            if (armor.getDamage() > 0) {
+                                armor.setDamage(Math.max(armor.getDamage() - getAugmentLevel(armor, "tlotd:photosynthesis"), 0));
                             }
                         }
-                        for (ItemStack hand : player.getHandItems()) {
-                            if (getAugmentLevel(hand, "tlotd:photosynthesis") > 0 && player.getWorld().isDay()) {
-                                if (hand.getDamage() > 0) {
-                                    hand.setDamage(Math.max(hand.getDamage() - getAugmentLevel(hand, "tlotd:photosynthesis"), 0));
-                                }
-                            }
-                            if (getAugmentLevel(hand, "tlotd:starlight_blessing") > 0 && player.getWorld().isNight()) {
-                                if (hand.getDamage() > 0) {
-                                    hand.setDamage(Math.max(hand.getDamage() - getAugmentLevel(hand, "tlotd:starlight_blessing"), 0));
-                                }
+                        if (getAugmentLevel(armor, "tlotd:starlight_blessing") > 0 && player.getWorld().isNight()) {
+                            if (armor.getDamage() > 0) {
+                                armor.setDamage(Math.max(armor.getDamage() - getAugmentLevel(armor, "tlotd:starlight_blessing"), 0));
                             }
                         }
+                    }
+                    for (ItemStack hand : player.getHandItems()) {
+                        if (getAugmentLevel(hand, "tlotd:photosynthesis") > 0 && player.getWorld().isDay()) {
+                            if (hand.getDamage() > 0) {
+                                hand.setDamage(Math.max(hand.getDamage() - getAugmentLevel(hand, "tlotd:photosynthesis"), 0));
+                            }
+                        }
+                        if (getAugmentLevel(hand, "tlotd:starlight_blessing") > 0 && player.getWorld().isNight()) {
+                            if (hand.getDamage() > 0) {
+                                hand.setDamage(Math.max(hand.getDamage() - getAugmentLevel(hand, "tlotd:starlight_blessing"), 0));
+                            }
+                        }
+                    }
                 }
                 if (tickCounter > 100) {
                     tickCounter = 0;
@@ -101,25 +100,24 @@ public class ModServerTickEvents {
         boolean needsCool = temp > 2;
         DefaultedList<ItemStack> armorInventory = player.getInventory().armor;
         if (armorInventory.size() < 4) return;
-        for (int i = 0; i < 4; i++) {
-            ItemStack piece = armorInventory.get(i);
-            if (piece.isEmpty()) return;
-            int levelHeat = getAugmentLevel(piece, "tlotd:thermal_heating");
-            int levelCool = getAugmentLevel(piece, "tlotd:thermal_cooling");
-            boolean valid =
-                    (needsHeat && levelHeat > 0) ||
-                            (needsCool && levelCool > 0);
-            if (!valid) return;
-            long energy = EnergyNbtHelper.getEnergy(piece);
-            if (energy < 500) return;
-        }
-        for (int i = 0; i < 4; i++) {
-            ItemStack piece = armorInventory.get(i);
-            long energy = EnergyNbtHelper.getEnergy(piece);
-            EnergyNbtHelper.setEnergy(piece, energy - 500);
-        }
-        tag.putInt("temperatureLevel", 2);
-        player.readCustomDataFromNbt(tag);
+        return;
+        //for (int i = 0; i < 4; i++) {
+        //    ItemStack piece = armorInventory.get(i);
+        //    if (piece.isEmpty()) return;
+        //    int levelHeat = getAugmentLevel(piece, "tlotd:thermal_heating");
+        //    int levelCool = getAugmentLevel(piece, "tlotd:thermal_cooling");
+        //    boolean valid = (needsHeat && levelHeat > 0) || (needsCool && levelCool > 0);
+        //    if (!valid) return;
+        //    long energy = EnergyHelper.getEnergy(piece);
+        //    if (energy < 500) return;
+        //}
+        //for (int i = 0; i < 4; i++) {
+        //    ItemStack piece = armorInventory.get(i);
+        //    long energy = EnergyHelper.getEnergy(piece);
+        //    EnergyHelper.setEnergy(piece, energy - 500);
+        //}
+        //tag.putInt("temperatureLevel", 2);
+        //player.readCustomDataFromNbt(tag);
     }
 
     private static void extinguishFireBlocksAroundPlayer(ServerWorld world, ServerPlayerEntity player) {
@@ -178,8 +176,7 @@ public class ModServerTickEvents {
     }
 
     private static void teleportPlayer(ServerPlayerEntity player, ServerWorld destination, BlockPos targetPos) {
-        player.setVelocity(0,0,0);
-        player.teleport(destination, targetPos.getX() + 0.5, targetPos.getY(), targetPos.getZ() + 0.5,
-                player.getYaw(), player.getPitch());
+        player.setVelocity(0, 0, 0);
+        player.teleport(destination, targetPos.getX() + 0.5, targetPos.getY(), targetPos.getZ() + 0.5, player.getYaw(), player.getPitch());
     }
 }

@@ -20,8 +20,7 @@ public class KeycardProgrammerGUIHandler extends ScreenHandler {
     public final KeycardProgrammerBlockEntity blockEntity;
 
     public KeycardProgrammerGUIHandler(int syncId, PlayerInventory inventory, PacketByteBuf buf) {
-        this(syncId, inventory, inventory.player.getWorld().getBlockEntity(buf.readBlockPos()),
-                new ArrayPropertyDelegate(2));
+        this(syncId, inventory, inventory.player.getWorld().getBlockEntity(buf.readBlockPos()), new ArrayPropertyDelegate(2));
     }
 
     public KeycardProgrammerGUIHandler(int syncId, PlayerInventory playerInventory, BlockEntity blockEntity, PropertyDelegate propertyDelegate) {

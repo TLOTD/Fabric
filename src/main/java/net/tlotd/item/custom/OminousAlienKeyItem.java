@@ -41,7 +41,6 @@ public class OminousAlienKeyItem extends Item {
     @Override
     @Environment(EnvType.CLIENT)
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        tooltip.add(Text.translatable("info.tlotd.not_yet_implemented").formatted(Formatting.RED));
         Style style = getName().getStyle();
         PlayerEntity player = MinecraftClient.getInstance().player;
         if (player == null) return;
@@ -70,15 +69,15 @@ public class OminousAlienKeyItem extends Item {
         BlockPos pos = context.getBlockPos();
         World world = context.getWorld();
         if (!context.getWorld().isClient() && world.getBlockState(pos).isOf(ModBlocks.ALIEN_GATE)) {
-            world.setBlockState(pos.add(-1,0,-1), Blocks.AIR.getDefaultState());
-            world.setBlockState(pos.add(-1,0,0), Blocks.AIR.getDefaultState());
-            world.setBlockState(pos.add(-1,0,1), Blocks.AIR.getDefaultState());
-            world.setBlockState(pos.add(0,0,-1), Blocks.AIR.getDefaultState());
-            world.setBlockState(pos.add(0,0,0), Blocks.AIR.getDefaultState());
-            world.setBlockState(pos.add(0,0,1), Blocks.AIR.getDefaultState());
-            world.setBlockState(pos.add(1,0,-1), Blocks.AIR.getDefaultState());
-            world.setBlockState(pos.add(1,0,0), Blocks.AIR.getDefaultState());
-            world.setBlockState(pos.add(1,0,1), Blocks.AIR.getDefaultState());
+            world.setBlockState(pos.add(-1, 0, -1), Blocks.AIR.getDefaultState());
+            world.setBlockState(pos.add(-1, 0, 0), Blocks.AIR.getDefaultState());
+            world.setBlockState(pos.add(-1, 0, 1), Blocks.AIR.getDefaultState());
+            world.setBlockState(pos.add(0, 0, -1), Blocks.AIR.getDefaultState());
+            world.setBlockState(pos.add(0, 0, 0), Blocks.AIR.getDefaultState());
+            world.setBlockState(pos.add(0, 0, 1), Blocks.AIR.getDefaultState());
+            world.setBlockState(pos.add(1, 0, -1), Blocks.AIR.getDefaultState());
+            world.setBlockState(pos.add(1, 0, 0), Blocks.AIR.getDefaultState());
+            world.setBlockState(pos.add(1, 0, 1), Blocks.AIR.getDefaultState());
             world.addBlockBreakParticles(pos, ModBlocks.ALIEN_PILLAR.getDefaultState());
             world.playSound(null, pos, SoundEvents.BLOCK_END_PORTAL_SPAWN, SoundCategory.BLOCKS);
             if (context.getPlayer() instanceof ServerPlayerEntity serverPlayerEntity) {

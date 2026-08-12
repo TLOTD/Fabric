@@ -34,7 +34,8 @@ public class GasCylinderItem extends Item {
         String gas = AdAstraGasNbtHelper.getGas(stack);
         return switch (gas) {
             case AdAstraGasNbtHelper.AD_ASTRA_OXYGEN_ID -> Text.translatable("item.tlotd.gas_cylinder.oxygen");
-            case AdAstraGasNbtHelper.TLOTD_PIPE_WEED_SMOKE -> Text.translatable("item.tlotd.gas_cylinder.pipe_weed_smoke");
+            case AdAstraGasNbtHelper.TLOTD_PIPE_WEED_SMOKE ->
+                    Text.translatable("item.tlotd.gas_cylinder.pipe_weed_smoke");
             case AdAstraGasNbtHelper.TLOTD_WITHERED_AIR -> Text.translatable("item.tlotd.gas_cylinder.withered_air");
             default -> Text.translatable("item.tlotd.gas_cylinder.empty");
         };

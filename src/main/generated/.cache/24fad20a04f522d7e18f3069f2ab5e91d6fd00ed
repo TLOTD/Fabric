@@ -1,4 +1,4 @@
-// 1.20.1	2026-07-20T20:19:01.753539	TLOTD/Tags for minecraft:block
+// 1.20.1	2026-08-12T17:44:52.7818854	TLOTD/Tags for minecraft:block
 ac1df89442e728e30ba3a539e796253f9389771e data\tlotd\tags\blocks\tuff_extractable_blocks.json
 08c68720aa5ba245f5ed77d9dbc48327c7799a2a data\minecraft\tags\blocks\foxes_spawnable_on.json
 1f972557027c192545de82f55f8604fc16a7d79f data\tlotd\tags\blocks\granite_extractable_blocks.json
@@ -41,7 +41,7 @@ a77b87d2b15b12ff7ec5aa92311162deded0ac31 data\tlotd\tags\blocks\bedrock_extracta
 535e09be803617c7dad64f1dba8515f3ca8d7414 data\c\tags\blocks\farmland.json
 60319a4b31fcdc216dafe9d29948432b6d43e175 data\minecraft\tags\blocks\wall_hanging_signs.json
 5e71a247af1170fd341b63b81729a3dc2042805d data\minecraft\tags\blocks\wooden_fences.json
-d31cbf1f460f3dd5fccc078d768651ccecb8718e data\minecraft\tags\blocks\wither_immune.json
+c92d315e8dfea6185001f18d0aad9c570183f3a1 data\minecraft\tags\blocks\wither_immune.json
 380c07c93c5dd8635da8b043b6ca2475e173a8e3 data\tlotd\tags\blocks\wooden_steins.json
 b2de9c8c49197eb34ebc7652a91704bfbe605707 data\tlotd\tags\blocks\moon_rock_extractable_blocks.json
 bb465198e36337ba43780130964829fc0d43411e data\minecraft\tags\blocks\planks.json
@@ -73,19 +73,19 @@ d774ea261e9b7fe0da1d54be56f39b9c454d078f data\fabric\tags\blocks\needs_tool_leve
 7493a4f89ced31fc409438c03a6cf66a2e4f2b2f data\tlotd\tags\blocks\televisions_on.json
 1822b6a01ca988562f51827f6bc4f0a41d43f5b5 data\c\tags\blocks\paxel_mineable.json
 9e9345f2ac1f5384be585380b1071ef7ea0e88b9 data\tlotd\tags\blocks\computers.json
-0a1dc67b03f62cfd3edffdd452314203d6fd173f data\minecraft\tags\blocks\dragon_immune.json
+398c9492903dff4cf9ad9831f2daa481e651e35e data\minecraft\tags\blocks\dragon_immune.json
 590ab00b736c4770f91ba4318a28053aa4a503f4 data\minecraft\tags\blocks\standing_signs.json
 ee18170049f2868ed101ea627b63d2917e9a117d data\fabric\tags\blocks\needs_tool_level_4.json
 08c68720aa5ba245f5ed77d9dbc48327c7799a2a data\minecraft\tags\blocks\wolves_spawnable_on.json
 b9b3681f22700675c17cc5f398c1712e26957178 data\tlotd\tags\blocks\logs_with_bark.json
-a9cc246c97d8cbdaa23320968b9f8afcf621479d data\minecraft\tags\blocks\wool.json
 d16642d973b2dfb3630c88d57e784ea0eafec989 data\c\tags\blocks\framed_colorless_glass.json
+a9cc246c97d8cbdaa23320968b9f8afcf621479d data\minecraft\tags\blocks\wool.json
 e63347e30303a92b187629b15027db3606815d5c data\c\tags\blocks\framed_colorless_glass_panes.json
 4699114aed9f9961879a48a83e73be9178296292 data\tlotd\tags\blocks\computer_accessories.json
 8a23702b05296c8af5014d6aa6e9265ded85c7d9 data\tlotd\tags\blocks\infiniburn_luna.json
 4b5e00153897479a4c786808624e3434cb438838 data\minecraft\tags\blocks\beacon_base_blocks.json
 4569a099bdbed57b57fbc04e1c9a46b2dae9d596 data\minecraft\tags\blocks\doors.json
-53bffd168a68d35839eee115ffe042bb30b726e8 data\minecraft\tags\blocks\mineable\pickaxe.json
+9deb93a9dab59f4097106ef37bbf8d12d2ff5aa5 data\minecraft\tags\blocks\mineable\pickaxe.json
 8631ec2ad488ff1db12730cd1a578468367de046 data\tlotd\tags\blocks\stone_extractable_blocks.json
 08c68720aa5ba245f5ed77d9dbc48327c7799a2a data\minecraft\tags\blocks\valid_spawn.json
 642ca13d7481b9a461f2f889718efa0ea24892cb data\minecraft\tags\blocks\flower_pots.json

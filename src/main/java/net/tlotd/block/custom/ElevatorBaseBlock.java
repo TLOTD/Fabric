@@ -23,9 +23,7 @@ public class ElevatorBaseBlock extends Block {
 
     @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {
-        return this.getDefaultState()
-                .with(FACING, ctx.getHorizontalPlayerFacing())
-                .with(WATERLOGGED, ctx.getWorld().getFluidState(ctx.getBlockPos()).isOf(Fluids.WATER));
+        return this.getDefaultState().with(FACING, ctx.getHorizontalPlayerFacing()).with(WATERLOGGED, ctx.getWorld().getFluidState(ctx.getBlockPos()).isOf(Fluids.WATER));
     }
 
     @Override
@@ -57,32 +55,12 @@ public class ElevatorBaseBlock extends Block {
         this.setDefaultState(this.stateManager.getDefaultState().with(FACING, Direction.NORTH).with(WATERLOGGED, false));
     }
 
-    private static final VoxelShape BASE_SHAPE = Block.createCuboidShape(0,0,0,16,1,16);
+    private static final VoxelShape BASE_SHAPE = Block.createCuboidShape(0, 0, 0, 16, 1, 16);
 
-    public static final VoxelShape WEST_SHAPE = VoxelShapes.union(
-            Block.createCuboidShape(0.0, 1.0, 0.0, 1.0, 16.0, 16.0),
-            Block.createCuboidShape(0.0, 1.0, 0.0, 16.0, 16.0, 1.0),
-            Block.createCuboidShape(0.0, 1.0, 15.0, 16.0, 16.0, 16.0),
-            BASE_SHAPE
-    );
-    public static final VoxelShape NORTH_SHAPE = VoxelShapes.union(
-            Block.createCuboidShape(0.0, 1.0, 0.0, 1.0, 16.0, 16.0),
-            Block.createCuboidShape(15.0, 1.0, 0.0, 16.0, 16.0, 16.0),
-            Block.createCuboidShape(0.0, 1.0, 0.0, 16.0, 16.0, 1.0),
-            BASE_SHAPE
-    );
-    public static final VoxelShape EAST_SHAPE = VoxelShapes.union(
-            Block.createCuboidShape(15.0, 1.0, 0.0, 16.0, 16.0, 16.0),
-            Block.createCuboidShape(0.0, 1.0, 0.0, 16.0, 16.0, 1.0),
-            Block.createCuboidShape(0.0, 1.0, 15.0, 16.0, 16.0, 16.0),
-            BASE_SHAPE
-    );
-    public static final VoxelShape SOUTH_SHAPE = VoxelShapes.union(
-            Block.createCuboidShape(0.0, 1.0, 0.0, 1.0, 16.0, 16.0),
-            Block.createCuboidShape(15.0, 1.0, 0.0, 16.0, 16.0, 16.0),
-            Block.createCuboidShape(0.0, 1.0, 15.0, 16.0, 16.0, 16.0),
-            BASE_SHAPE
-    );
+    public static final VoxelShape WEST_SHAPE = VoxelShapes.union(Block.createCuboidShape(0.0, 1.0, 0.0, 1.0, 16.0, 16.0), Block.createCuboidShape(0.0, 1.0, 0.0, 16.0, 16.0, 1.0), Block.createCuboidShape(0.0, 1.0, 15.0, 16.0, 16.0, 16.0), BASE_SHAPE);
+    public static final VoxelShape NORTH_SHAPE = VoxelShapes.union(Block.createCuboidShape(0.0, 1.0, 0.0, 1.0, 16.0, 16.0), Block.createCuboidShape(15.0, 1.0, 0.0, 16.0, 16.0, 16.0), Block.createCuboidShape(0.0, 1.0, 0.0, 16.0, 16.0, 1.0), BASE_SHAPE);
+    public static final VoxelShape EAST_SHAPE = VoxelShapes.union(Block.createCuboidShape(15.0, 1.0, 0.0, 16.0, 16.0, 16.0), Block.createCuboidShape(0.0, 1.0, 0.0, 16.0, 16.0, 1.0), Block.createCuboidShape(0.0, 1.0, 15.0, 16.0, 16.0, 16.0), BASE_SHAPE);
+    public static final VoxelShape SOUTH_SHAPE = VoxelShapes.union(Block.createCuboidShape(0.0, 1.0, 0.0, 1.0, 16.0, 16.0), Block.createCuboidShape(15.0, 1.0, 0.0, 16.0, 16.0, 16.0), Block.createCuboidShape(0.0, 1.0, 15.0, 16.0, 16.0, 16.0), BASE_SHAPE);
 
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {

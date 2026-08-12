@@ -44,8 +44,11 @@ public class StarCatcherItem extends Item {
         ItemStack item = user.getStackInHand(hand);
         if (!world.isClient()) {
             if (user.getY() >= 800 && (world.getRegistryKey().equals(ModDimensions.LUNA_LEVEL_KEY) || world.getRegistryKey().equals(World.OVERWORLD) && world.isNight())) {
-                if (hand == Hand.MAIN_HAND) { item.damage(1,user,e -> e.sendEquipmentBreakStatus(EquipmentSlot.MAINHAND));}
-                else { item.damage(1,user,e -> e.sendEquipmentBreakStatus(EquipmentSlot.OFFHAND));}
+                if (hand == Hand.MAIN_HAND) {
+                    item.damage(1, user, e -> e.sendEquipmentBreakStatus(EquipmentSlot.MAINHAND));
+                } else {
+                    item.damage(1, user, e -> e.sendEquipmentBreakStatus(EquipmentSlot.OFFHAND));
+                }
                 if (user instanceof ServerPlayerEntity serverPlayerEntity) {
                     Criteria.CONSUME_ITEM.trigger(serverPlayerEntity, item);
                     serverPlayerEntity.incrementStat(Stats.USED.getOrCreateStat(this));

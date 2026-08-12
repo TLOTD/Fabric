@@ -47,11 +47,7 @@ public class ComputerBlock extends Block {
 
     @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {
-        return this.getDefaultState()
-                .with(FACING, ctx.getHorizontalPlayerFacing())
-                .with(WATERLOGGED, ctx.getWorld().getFluidState(ctx.getBlockPos()).isOf(Fluids.WATER))
-                .with(SCREEN, 0)
-                .with(MENU, false);
+        return this.getDefaultState().with(FACING, ctx.getHorizontalPlayerFacing()).with(WATERLOGGED, ctx.getWorld().getFluidState(ctx.getBlockPos()).isOf(Fluids.WATER)).with(SCREEN, 0).with(MENU, false);
     }
 
     @Override
@@ -83,18 +79,10 @@ public class ComputerBlock extends Block {
         this.setDefaultState(this.stateManager.getDefaultState().with(FACING, Direction.NORTH).with(WATERLOGGED, false).with(SCREEN, 0).with(MENU, false));
     }
 
-    public static final VoxelShape NORTH_SHAPE = VoxelShapes.union(
-            Block.createCuboidShape(0, 0, 0, 16, 13, 12),
-            Block.createCuboidShape(0, 0, 12.5, 16, 1, 16));
-    public static final VoxelShape WEST_SHAPE = VoxelShapes.union(
-            Block.createCuboidShape(0, 0, 0, 12, 13, 16),
-            Block.createCuboidShape(12.5, 0, 0, 16, 1, 16));
-    public static final VoxelShape SOUTH_SHAPE = VoxelShapes.union(
-            Block.createCuboidShape(0, 0, 4, 16, 13, 16),
-            Block.createCuboidShape(0, 0, 0, 16, 1, 3.5));
-    public static final VoxelShape EAST_SHAPE = VoxelShapes.union(
-            Block.createCuboidShape(4, 0, 0, 16, 13, 16),
-            Block.createCuboidShape(0, 0, 0, 3.5, 1, 16));
+    public static final VoxelShape NORTH_SHAPE = VoxelShapes.union(Block.createCuboidShape(0, 0, 0, 16, 13, 12), Block.createCuboidShape(0, 0, 12.5, 16, 1, 16));
+    public static final VoxelShape WEST_SHAPE = VoxelShapes.union(Block.createCuboidShape(0, 0, 0, 12, 13, 16), Block.createCuboidShape(12.5, 0, 0, 16, 1, 16));
+    public static final VoxelShape SOUTH_SHAPE = VoxelShapes.union(Block.createCuboidShape(0, 0, 4, 16, 13, 16), Block.createCuboidShape(0, 0, 0, 16, 1, 3.5));
+    public static final VoxelShape EAST_SHAPE = VoxelShapes.union(Block.createCuboidShape(4, 0, 0, 16, 13, 16), Block.createCuboidShape(0, 0, 0, 3.5, 1, 16));
 
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
@@ -173,8 +161,7 @@ public class ComputerBlock extends Block {
                     Optional<VideoGameRegistry.SignalEntry> match = VideoGameRegistry.findBySignal(id);
                     if (match.isPresent()) {
                         VideoGameRegistry.SignalEntry entry = match.get();
-                        newState = entry.computerBlock().getStateWithProperties(computerState)
-                                .with(SCREEN, entry.gameID());
+                        newState = entry.computerBlock().getStateWithProperties(computerState).with(SCREEN, entry.gameID());
                     }
                     player.incrementStat(Stats.USED.getOrCreateStat(stack.getItem()));
                     world.playSound(null, pos, ModSounds.BLOCK_COMPUTER_INTERACT, SoundCategory.BLOCKS, 1.0f, 1.0f);

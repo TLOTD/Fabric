@@ -31,7 +31,7 @@ public class IncubatonRecipe implements Recipe<SimpleInventory> {
 
     @Override
     public boolean matches(SimpleInventory inventory, World world) {
-        if(world.isClient()) {
+        if (world.isClient()) {
             return false;
         }
         return (recipeItems.get(0).test(inventory.getStack(0)) && recipeItems.get(1).test(inventory.getStack(1)));
@@ -68,7 +68,9 @@ public class IncubatonRecipe implements Recipe<SimpleInventory> {
     }
 
     public static class Type implements RecipeType<IncubatonRecipe> {
-        private Type() { }
+        private Type() {
+        }
+
         public static final Type INSTANCE = new Type();
         public static final String ID = "incubation";
     }

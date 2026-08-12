@@ -8,7 +8,8 @@ import java.util.*;
 public class TelevisionSignalRegistry {
     private static final Map<Identifier, SignalEntry> SIGNALS = new LinkedHashMap<>();
 
-    public record SignalEntry(Identifier signalItem, Block offBlock, Block onBlock, int channel) {}
+    public record SignalEntry(Identifier signalItem, Block offBlock, Block onBlock, int channel) {
+    }
 
     public static Identifier normalize(Identifier id) {
         if (id == null) return null;
@@ -48,11 +49,7 @@ public class TelevisionSignalRegistry {
         }
         System.out.println("[TelevisionSignalRegistry] Dumping all registered signals (" + SIGNALS.size() + "):\n");
         for (SignalEntry entry : SIGNALS.values()) {
-            System.out.println("Signal: " + entry.signalItem()
-                    + "\n  Off Block: " + entry.offBlock()
-                    + "\n  On Block: " + entry.onBlock()
-                    + "\n  Channel: " + entry.channel()
-                    + "\n");
+            System.out.println("Signal: " + entry.signalItem() + "\n  Off Block: " + entry.offBlock() + "\n  On Block: " + entry.onBlock() + "\n  Channel: " + entry.channel() + "\n");
         }
         System.out.println("[TelevisionSignalRegistry] End of dump.\n");
     }

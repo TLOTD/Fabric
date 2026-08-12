@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "tlotd:aluminium_sheet"
+    },
+    "B": {
+      "item": "tlotd:battery"
+    },
+    "S": {
+      "item": "tlotd:sulfuric_acid"
+    },
+    "W": {
+      "tag": "tlotd:wires"
+    }
+  },
+  "pattern": [
+    "WAW",
+    "BSB",
+    "BBB"
+  ],
+  "result": {
+    "item": "tlotd:large_battery"
+  },
+  "show_notification": true
+}

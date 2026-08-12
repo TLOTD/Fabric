@@ -1,0 +1,7 @@
+{
+    "parent": "tlotd:block/template_signal_transmitter_antenna_2",
+    "textures": {
+        "0": "minecraft:block/gold_block",
+        "particle": "minecraft:block/gold_block"
+    }
+}

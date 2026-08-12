@@ -1,21 +1,29 @@
 package net.tlotd.block.custom;
 
+import net.fabricmc.fabric.api.transfer.v1.context.ContainerItemContext;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.block.entity.BlockEntityTicker;
+import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.block.enums.WallMountLocation;
+import net.minecraft.client.gui.screen.Screen;
+import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.DirectionProperty;
 import net.minecraft.state.property.EnumProperty;
 import net.minecraft.state.property.Properties;
+import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.BlockRotation;
+import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
@@ -25,17 +33,15 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 import net.tlotd.block.entity.HEVChargerBlockEntity;
-import net.tlotd.util.EnergyNbtHelper;
-import net.tlotd.util.ModTags;
+import net.tlotd.block.entity.ModBlockEntities;
+import net.tlotd.sound.ModSounds;
+import net.tlotd.util.EnergyHelper;
 import org.jetbrains.annotations.Nullable;
+import team.reborn.energy.api.EnergyStorage;
 
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
-import static net.tlotd.util.AugmentNbtHelper.getAugmentLevel;
-
-public class HEVChargerBlock extends Block implements BlockEntityProvider {
+public class HEVChargerBlock extends BlockWithEntity implements BlockEntityProvider {
 
     public static final EnumProperty<WallMountLocation> FACE = Properties.WALL_MOUNT_LOCATION;
     public static final DirectionProperty FACING = Properties.FACING;
@@ -43,7 +49,6 @@ public class HEVChargerBlock extends Block implements BlockEntityProvider {
 
     @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {
-
         for (Direction direction : ctx.getPlacementDirections()) {
             BlockState blockState = direction.getAxis() == Direction.Axis.Y ? this.getDefaultState().with(FACE, direction == Direction.UP ? WallMountLocation.CEILING : WallMountLocation.FLOOR).with(FACING, ctx.getHorizontalPlayerFacing()).with(WATERLOGGED, ctx.getWorld().getFluidState(ctx.getBlockPos()).isOf(Fluids.WATER)) : this.getDefaultState().with(FACE, WallMountLocation.WALL).with(FACING, direction).with(WATERLOGGED, ctx.getWorld().getFluidState(ctx.getBlockPos()).isOf(Fluids.WATER));
             if (!blockState.canPlaceAt(ctx.getWorld(), ctx.getBlockPos())) continue;
@@ -130,73 +135,63 @@ public class HEVChargerBlock extends Block implements BlockEntityProvider {
     }
 
     @Override
-    public ActionResult onUse(BlockState state, World world, BlockPos pos,
-                              PlayerEntity player, Hand hand, BlockHitResult hit) {
-        if (world.isClient()) return ActionResult.SUCCESS;
-        BlockEntity be = world.getBlockEntity(pos);
-        if (!(be instanceof HEVChargerBlockEntity charger)) return ActionResult.PASS;
-        ItemStack held = player.getStackInHand(hand);
-        if (!held.isEmpty() && (getAugmentLevel(held, "tlotd:battery_pack") > 0 || held.isIn(ModTags.Items.HEV_CHARGER_CHARGABLE))) {
-            long current = EnergyNbtHelper.getEnergy(held);
-            long max = EnergyNbtHelper.getMaxEnergyItem(held);
-            if (current < max && charger.energy.amount > 0) {
-                long needed = max - current;
-                long transferable = Math.min(needed, charger.energy.amount);
-                EnergyNbtHelper.setEnergy(held, current + transferable);
-                charger.energy.amount -= transferable;
-                charger.markDirty();
-                return ActionResult.SUCCESS;
-            }
-            return ActionResult.PASS;
-        }
-        if (!held.isEmpty()) return ActionResult.PASS;
-        PlayerInventory inv = player.getInventory();
-        int[] slots = {3, 2, 1, 0};
-        List<ItemStack> chargeables = new ArrayList<>();
-        for (int slot : slots) {
-            ItemStack armor = inv.getArmorStack(slot);
-            if (armor.isEmpty()) continue;
-            if (!(getAugmentLevel(armor, "tlotd:battery_pack") > 0 || armor.isIn(ModTags.Items.HEV_CHARGER_CHARGABLE))) continue;
-            long current = EnergyNbtHelper.getEnergy(armor);
-            long max = EnergyNbtHelper.getMaxEnergyItem(armor);
-            if (current < max) {
-                chargeables.add(armor);
-            }
-        }
-        if (chargeables.isEmpty()) return ActionResult.PASS;
-        long transferablePoints = charger.energy.amount / 1000;
-        if (transferablePoints <= 0) return ActionResult.PASS;
-        distributeEnergyEvenly(chargeables, charger, transferablePoints);
-        charger.markDirty();
-        return ActionResult.SUCCESS;
-    }
-
-    private void distributeEnergyEvenly(List<ItemStack> stacks,
-                                        HEVChargerBlockEntity charger,
-                                        long maxPoints) {
-        long remaining = maxPoints;
-        while (remaining > 0 && !stacks.isEmpty()) {
-            Iterator<ItemStack> iterator = stacks.iterator();
-            while (iterator.hasNext() && remaining > 0) {
-                ItemStack stack = iterator.next();
-                long current = EnergyNbtHelper.getEnergy(stack);
-                long max = EnergyNbtHelper.getMaxEnergyItem(stack);
-                if (current >= max) {
-                    iterator.remove();
-                    continue;
-                }
-                EnergyNbtHelper.setEnergy(stack, current + 1000);
-                charger.energy.amount -= 1000;
-                remaining--;
-                if (EnergyNbtHelper.getEnergy(stack) >= max) {
-                    iterator.remove();
-                }
-            }
-        }
+    public @Nullable BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
+        return new HEVChargerBlockEntity(pos, state);
     }
 
     @Override
-    public @Nullable BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
-        return new HEVChargerBlockEntity(pos, state);
+    public @Nullable <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
+        return checkType(type, ModBlockEntities.HEV_CHARGER_BLOCK_ENTITY, (world1, pos, state1, blockEntity) -> blockEntity.tick(world1));
+    }
+
+    @Override
+    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
+        if (world.isClient) {
+            return ActionResult.SUCCESS;
+        }
+        HEVChargerBlockEntity blockEntity = (HEVChargerBlockEntity) world.getBlockEntity(pos);
+        if (blockEntity == null) {
+            return ActionResult.PASS;
+        }
+        ItemStack heldStack = player.getStackInHand(hand);
+        if (heldStack.isEmpty()) {
+            if (!blockEntity.getItem().isEmpty()) {
+                ItemStack removed = blockEntity.getItem();
+                blockEntity.setItem(ItemStack.EMPTY);
+                if (!player.getInventory().insertStack(removed)) {
+                    player.dropItem(removed, false);
+                }
+                world.playSound(null, pos, SoundEvents.ENTITY_GLOW_ITEM_FRAME_ADD_ITEM, SoundCategory.BLOCKS, 1.0f, 1.0f);
+                return ActionResult.CONSUME;
+            }
+            return ActionResult.PASS;
+        }
+        if (!blockEntity.getItem().isEmpty()) {
+            return ActionResult.PASS;
+        }
+        ContainerItemContext context = ContainerItemContext.withConstant(heldStack);
+        EnergyStorage storage = context.find(EnergyStorage.ITEM);
+        if (storage == null || !storage.supportsInsertion()) {
+            return ActionResult.PASS;
+        }
+        ItemStack toStore = heldStack.copy();
+        toStore.setCount(1);
+        blockEntity.setItem(toStore);
+        heldStack.decrement(1);
+        world.playSound(null, pos, SoundEvents.ENTITY_GLOW_ITEM_FRAME_ADD_ITEM, SoundCategory.BLOCKS, 1.0f, 1.0f);
+        return ActionResult.CONSUME;
+    }
+
+    @Override
+    public void appendTooltip(ItemStack stack, @Nullable BlockView world, List<Text> tooltip, TooltipContext options) {
+        super.appendTooltip(stack, world, tooltip, options);
+        String formattedMaxPower;
+        if (Screen.hasShiftDown()) {
+            formattedMaxPower = String.format("%,d", 1000000);
+        } else {
+            formattedMaxPower = EnergyHelper.getEnergyString(1000000);
+        }
+        String formattedMaxPower2 = formattedMaxPower.replace(',', '.');
+        tooltip.add(Text.translatable("item.tlotd.energy_level.tooltip", 0, formattedMaxPower, 0, formattedMaxPower2).formatted(Formatting.YELLOW));
     }
 }

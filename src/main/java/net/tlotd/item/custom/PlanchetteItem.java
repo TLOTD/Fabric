@@ -24,9 +24,9 @@ public class PlanchetteItem extends Item {
 
     @Override
     public ActionResult useOnBlock(ItemUsageContext context) {
-        if(!context.getWorld().isClient() && context.getWorld().getBlockState(context.getBlockPos()).getBlock().equals(ModBlocks.OUIJA_BOARD)) {
+        if (!context.getWorld().isClient() && context.getWorld().getBlockState(context.getBlockPos()).getBlock().equals(ModBlocks.OUIJA_BOARD)) {
             int randomId = ThreadLocalRandom.current().nextInt(0, 13);
-            Objects.requireNonNull(context.getPlayer()).sendMessage(Text.translatable("generic.tlotd.ouija_message_"+randomId, context.getPlayer().getName()), true);
+            Objects.requireNonNull(context.getPlayer()).sendMessage(Text.translatable("generic.tlotd.ouija_message_" + randomId, context.getPlayer().getName()), true);
             context.getPlayer().getItemCooldownManager().set(this, 10);
             return ActionResult.SUCCESS;
         }

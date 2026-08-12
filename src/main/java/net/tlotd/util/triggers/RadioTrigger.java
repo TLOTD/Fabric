@@ -47,16 +47,13 @@ public class RadioTrigger extends AbstractCriterion<RadioTrigger.Conditions> {
 
     public void trigger(ServerPlayerEntity player, ServerWorld world, Identifier playedSignal) {
         this.trigger(player, conditions -> {
-            if (conditions.signal != null &&
-                    !conditions.signal.equals(playedSignal)) {
+            if (conditions.signal != null && !conditions.signal.equals(playedSignal)) {
                 return false;
             }
-            if (conditions.dimension != null &&
-                    !world.getRegistryKey().getValue().equals(conditions.dimension)) {
+            if (conditions.dimension != null && !world.getRegistryKey().getValue().equals(conditions.dimension)) {
                 return false;
             }
-            if (!conditions.allowedUuids.isEmpty() &&
-                    !conditions.allowedUuids.contains(player.getUuid())) {
+            if (!conditions.allowedUuids.isEmpty() && !conditions.allowedUuids.contains(player.getUuid())) {
                 return false;
             }
             return true;
@@ -67,6 +64,7 @@ public class RadioTrigger extends AbstractCriterion<RadioTrigger.Conditions> {
         private final Identifier signal;
         private final Identifier dimension;
         private final Set<UUID> allowedUuids;
+
         public Conditions(LootContextPredicate predicate, Identifier signal, Identifier dimension, Set<UUID> uuids) {
             super(ID, predicate);
             this.signal = signal;

@@ -23,12 +23,13 @@ import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
+import net.tlotd.block.custom.NetheriteAnvilBlock;
 import net.tlotd.gui.NetheriteAnvilGUIHandler;
 import net.tlotd.recipe.NetheriteSmithingRecipe;
 import net.tlotd.util.ItemHeatHelper;
 import net.tlotd.util.ModTags;
-import net.tlotd.world.ModGlobalState;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Optional;
@@ -72,9 +73,15 @@ public class NetheriteAnvilBlockEntity extends BlockEntity implements ExtendedSc
         };
     }
 
+    public Direction facing() {
+        return getCachedState().get(NetheriteAnvilBlock.FACING);
+    }
+
     public ItemStack getRenderStack() {
         if(!this.getStack(OUTPUT_SLOT).isEmpty()) {
             return this.getStack(OUTPUT_SLOT);
+        } else if (!this.getStack(1).isEmpty()) {
+            return this.getStack(1);
         } else if (!this.getStack(2).isEmpty()) {
             return this.getStack(2);
         } else if (!this.getStack(3).isEmpty()) {
@@ -83,8 +90,6 @@ public class NetheriteAnvilBlockEntity extends BlockEntity implements ExtendedSc
             return this.getStack(4);
         } else if (!this.getStack(5).isEmpty()) {
             return this.getStack(5);
-        } else if (!this.getStack(1).isEmpty()) {
-            return this.getStack(1);
         } else {
             return this.getStack(0);
         }

@@ -6,6 +6,7 @@ import net.minecraft.nbt.NbtCompound;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.text.Text;
 import net.minecraft.world.World;
 import net.tlotd.effect.ModEffects;
 import net.tlotd.world.ModGlobalState;
@@ -64,7 +65,6 @@ public class NoclipTracker {
             if (target == null) {
                 return;
             }
-            player.addStatusEffect(new StatusEffectInstance(ModEffects.SUBSPACE_RESISTANCE, 1200, 0, true, false, true));
             player.teleport(target, 2.5, 65, -1.5, player.getYaw(), player.getPitch());
         }
     }

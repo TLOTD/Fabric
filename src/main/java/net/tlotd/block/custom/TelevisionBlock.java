@@ -7,6 +7,7 @@ import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
+import net.minecraft.registry.Registries;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.state.StateManager;
@@ -25,10 +26,10 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 import net.tlotd.block.ModBlocks;
-import net.tlotd.config.ModConfigs;
 import net.tlotd.sound.ModSounds;
 import net.tlotd.util.ModTags;
 import net.tlotd.util.TelevisionSignalRegistry;
+import net.tlotd.world.RadioStation;
 import net.tlotd.world.SignalTrackingArray;
 import org.jetbrains.annotations.Nullable;
 
@@ -43,10 +44,7 @@ public class TelevisionBlock extends Block {
 
     @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {
-        return this.getDefaultState()
-                .with(FACING, ctx.getHorizontalPlayerFacing())
-                .with(WATERLOGGED, ctx.getWorld().getFluidState(ctx.getBlockPos()).isOf(Fluids.WATER))
-                .with(CHANNEL,0);
+        return this.getDefaultState().with(FACING, ctx.getHorizontalPlayerFacing()).with(WATERLOGGED, ctx.getWorld().getFluidState(ctx.getBlockPos()).isOf(Fluids.WATER)).with(CHANNEL, 0);
     }
 
     @Override
@@ -75,10 +73,7 @@ public class TelevisionBlock extends Block {
 
     public TelevisionBlock(Settings settings) {
         super(settings);
-        this.setDefaultState(this.stateManager.getDefaultState()
-                .with(FACING, Direction.NORTH)
-                .with(WATERLOGGED, false)
-                .with(CHANNEL, 0));
+        this.setDefaultState(this.stateManager.getDefaultState().with(FACING, Direction.NORTH).with(WATERLOGGED, false).with(CHANNEL, 0));
     }
 
     public static final VoxelShape Z_SHAPE = Block.createCuboidShape(3, 0, 0, 13, 12, 16);
@@ -108,14 +103,17 @@ public class TelevisionBlock extends Block {
     }
 
     public static BlockState handleTelevisionUse(BlockState state, World world, BlockPos pos, PlayerEntity player) {
-        if (world.isClient) return state;
-        boolean isOn = state.getBlock() == ModBlocks.TELEVISION_ON || state.getBlock().getDefaultState().isIn(ModTags.Blocks.TELEVISIONS_ON);
+        if (world.isClient) {
+            return state;
+        }
         ServerWorld serverWorld = (ServerWorld) world;
         SignalTrackingArray tracker = SignalTrackingArray.get(serverWorld);
+        boolean isOn = state.getBlock() == ModBlocks.TELEVISION_ON || state.getBlock().getDefaultState().isIn(ModTags.Blocks.TELEVISIONS_ON);
         int currentChannel = state.getOrEmpty(TelevisionBlock.CHANNEL).orElse(0);
         boolean hasOverride = world.getBlockState(pos.up()).isIn(ModTags.Blocks.INTERDIMENSIONAL_RECEIVERS);
+        List<Identifier> receivableSignals = tracker.getAvailableSignals(pos);
         if (player.isSneaking()) {
-            Optional<TelevisionSignalRegistry.SignalEntry> currentEntry = TelevisionSignalRegistry.getAll().stream().filter(e -> (e.channel() == currentChannel) && (e.onBlock() == state.getBlock() || e.offBlock() == state.getBlock())).findFirst();
+            Optional<TelevisionSignalRegistry.SignalEntry> currentEntry = TelevisionSignalRegistry.getAll().stream().filter(e -> e.channel() == currentChannel && (e.onBlock() == state.getBlock() || e.offBlock() == state.getBlock())).findFirst();
             BlockState newState;
             if (isOn) {
                 if (currentEntry.isPresent()) {
@@ -124,7 +122,8 @@ public class TelevisionBlock extends Block {
                     newState = ModBlocks.TELEVISION.getStateWithProperties(state).with(TelevisionBlock.CHANNEL, 0);
                 }
             } else {
-                if (currentEntry.isPresent() && (hasOverride || tracker.hasSignal(currentEntry.get().signalItem()))) {
+                boolean canReceiveCurrentChannel = currentEntry.isPresent() && (hasOverride || receivableSignals.contains(currentEntry.get().signalItem()));
+                if (canReceiveCurrentChannel) {
                     newState = currentEntry.get().onBlock().getStateWithProperties(state).with(TelevisionBlock.CHANNEL, currentEntry.get().channel());
                 } else {
                     newState = ModBlocks.TELEVISION_ON.getStateWithProperties(state).with(TelevisionBlock.CHANNEL, 0);
@@ -135,12 +134,19 @@ public class TelevisionBlock extends Block {
             return newState;
         }
         if (isOn) {
-            List<TelevisionSignalRegistry.SignalEntry> availableSignals = TelevisionSignalRegistry.getAll().stream().filter(e -> hasOverride || tracker.hasSignal(e.signalItem())).toList();
-            if (availableSignals.isEmpty()) return state;
+            List<TelevisionSignalRegistry.SignalEntry> availableSignals;
+            if (hasOverride) {
+                availableSignals = TelevisionSignalRegistry.getAll().stream().toList();
+            } else {
+                availableSignals = TelevisionSignalRegistry.getAll().stream().filter(e -> receivableSignals.contains(e.signalItem())).toList();
+            }
+            if (availableSignals.isEmpty()) {
+                return state;
+            }
             int currentIndex = -1;
             for (int i = 0; i < availableSignals.size(); i++) {
-                TelevisionSignalRegistry.SignalEntry e = availableSignals.get(i);
-                if ((e.onBlock() == state.getBlock() || e.offBlock() == state.getBlock()) && e.channel() == currentChannel) {
+                TelevisionSignalRegistry.SignalEntry entry = availableSignals.get(i);
+                if ((entry.onBlock() == state.getBlock() || entry.offBlock() == state.getBlock()) && entry.channel() == currentChannel) {
                     currentIndex = i;
                     break;
                 }
@@ -152,6 +158,7 @@ public class TelevisionBlock extends Block {
             world.playSound(null, pos, ModSounds.BLOCK_TELEVISION_SWITCH_CHANNEL, SoundCategory.BLOCKS, 1f, 1f);
             return newState;
         }
+
         return state;
     }
 

@@ -31,8 +31,7 @@ public class HeavyDoorBlock extends DoorBlock {
                 case WEST -> WEST_SHAPE;
                 default -> NORTH_SHAPE;
             };
-        }
-        else return Block.createCuboidShape(0F, 0F, 0F, 0F, 0F, 0F);
+        } else return Block.createCuboidShape(0F, 0F, 0F, 0F, 0F, 0F);
     }
 
     public static final VoxelShape SOUTH_SHAPE = Block.createCuboidShape(0.0F, 0.0F, 1.0F, 16.0F, 16.0F, 5.0F);

@@ -20,7 +20,7 @@ public class MithrilBlock extends Block {
     private static void spawnParticles(World world, BlockPos pos) {
         Random random = world.random;
         if (random.nextInt(5) == 1) {
-            for(Direction direction : Direction.values()) {
+            for (Direction direction : Direction.values()) {
                 BlockPos blockPos = pos.offset(direction);
                 if (!world.getBlockState(blockPos).isOpaqueFullCube(world, blockPos)) {
                     Direction.Axis axis = direction.getAxis();

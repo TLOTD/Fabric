@@ -9,7 +9,6 @@ public class ModMessages {
     public static final Identifier FLUID_SYNC = new Identifier(TLOTD.MOD_ID, "fluid_sync");
 
     public static void registerC2SPackets() {
-
     }
 
     public static void registerS2CPackets() {

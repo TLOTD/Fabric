@@ -24,9 +24,7 @@ public class GravestoneBlock extends Block {
 
     @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {
-        return this.getDefaultState()
-                .with(FACING, ctx.getHorizontalPlayerFacing())
-                .with(WATERLOGGED, ctx.getWorld().getFluidState(ctx.getBlockPos()).isOf(Fluids.WATER));
+        return this.getDefaultState().with(FACING, ctx.getHorizontalPlayerFacing()).with(WATERLOGGED, ctx.getWorld().getFluidState(ctx.getBlockPos()).isOf(Fluids.WATER));
     }
 
     @Override
@@ -63,17 +61,9 @@ public class GravestoneBlock extends Block {
 
     public static final VoxelShape PILLAR = Block.createCuboidShape(6, 0, 6, 10, 16, 10);
 
-    public static final VoxelShape Z_CROSS_SHAPE = VoxelShapes.union(
-            PILLAR,
-            Block.createCuboidShape(5, 0, 0, 11, 2, 16),
-            Block.createCuboidShape(6, 8, 2, 10, 12, 14)
-    );
+    public static final VoxelShape Z_CROSS_SHAPE = VoxelShapes.union(PILLAR, Block.createCuboidShape(5, 0, 0, 11, 2, 16), Block.createCuboidShape(6, 8, 2, 10, 12, 14));
 
-    public static final VoxelShape X_CROSS_SHAPE = VoxelShapes.union(
-            PILLAR,
-            Block.createCuboidShape(0, 0, 5, 16, 2, 11),
-            Block.createCuboidShape(2, 8, 6, 14, 12, 10)
-    );
+    public static final VoxelShape X_CROSS_SHAPE = VoxelShapes.union(PILLAR, Block.createCuboidShape(0, 0, 5, 16, 2, 11), Block.createCuboidShape(2, 8, 6, 14, 12, 10));
 
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {

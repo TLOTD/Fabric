@@ -43,9 +43,9 @@ public abstract class GameRendererMixin {
 
         Identifier targetShader = null;
 
-        if (client.world.getRegistryKey().equals(ModDimensions.BACKROOMS_LEVEL_KEY)) {
-            targetShader = new Identifier("minecraft", "shaders/post/ntsc.json");
-        }
+        //if (client.world.getRegistryKey().equals(ModDimensions.BACKROOMS_LEVEL_KEY)) {
+        //    targetShader = new Identifier("minecraft", "shaders/post/ntsc.json");
+        //}
 
         ItemStack helmet = client.player.getEquippedStack(EquipmentSlot.HEAD);
         if (helmet.isOf(ModItems.ASTRONAUT_HELMET)) {

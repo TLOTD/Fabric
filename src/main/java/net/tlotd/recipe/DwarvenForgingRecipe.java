@@ -45,9 +45,7 @@ public class DwarvenForgingRecipe implements Recipe<SimpleInventory> {
                 remainingStacks.add(stack);
             }
         }
-        List<Ingredient> remainingIngredients = recipeItems.stream()
-                .filter(ingredient -> !ingredient.isEmpty())
-                .toList();
+        List<Ingredient> remainingIngredients = recipeItems.stream().filter(ingredient -> !ingredient.isEmpty()).toList();
         if (remainingStacks.size() != remainingIngredients.size()) {
             return false;
         }
@@ -100,7 +98,9 @@ public class DwarvenForgingRecipe implements Recipe<SimpleInventory> {
     }
 
     public static class Type implements RecipeType<DwarvenForgingRecipe> {
-        private Type() { }
+        private Type() {
+        }
+
         public static final Type INSTANCE = new Type();
         public static final String ID = "dwarven_forging";
     }

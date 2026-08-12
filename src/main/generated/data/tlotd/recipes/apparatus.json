@@ -3,7 +3,7 @@
   "category": "misc",
   "key": {
     "B": {
-      "item": "tlotd:battery"
+      "item": "tlotd:large_battery"
     },
     "R": {
       "item": "minecraft:redstone_lamp"

@@ -46,8 +46,7 @@ public class BloodParticle extends SpriteBillboardParticle {
         if (fluid != Fluids.EMPTY) {
             BlockPos pos = BlockPos.ofFloored(this.x, this.y, this.z);
             FluidState state = this.world.getFluidState(pos);
-            if (state.getFluid() == fluid &&
-                    this.y < pos.getY() + state.getHeight(world, pos)) {
+            if (state.getFluid() == fluid && this.y < pos.getY() + state.getHeight(world, pos)) {
                 markDead();
             }
         }
@@ -90,7 +89,7 @@ public class BloodParticle extends SpriteBillboardParticle {
     public static class Falling extends BloodParticle {
         public Falling(ClientWorld world, double x, double y, double z) {
             super(world, x, y, z, ModFluids.STILL_BLOOD);
-            this.maxAge = (int)(64 / (Math.random() * 0.8 + 0.2));
+            this.maxAge = (int) (64 / (Math.random() * 0.8 + 0.2));
         }
 
         @Override
@@ -105,7 +104,7 @@ public class BloodParticle extends SpriteBillboardParticle {
     public static class Landing extends BloodParticle {
         public Landing(ClientWorld world, double x, double y, double z) {
             super(world, x, y, z, Fluids.EMPTY);
-            this.maxAge = (int)(16 / (Math.random() * 0.8 + 0.2));
+            this.maxAge = (int) (16 / (Math.random() * 0.8 + 0.2));
         }
     }
 }

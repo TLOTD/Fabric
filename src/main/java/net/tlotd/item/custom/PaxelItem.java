@@ -31,12 +31,12 @@ import static net.tlotd.util.AugmentNbtHelper.getAugmentLevel;
 
 public class PaxelItem extends MiningToolItem {
     public PaxelItem(ToolMaterial material, int attackDamage, float attackSpeed, Item.Settings settings) {
-        super((float)attackDamage, attackSpeed, material, ModTags.Blocks.PAXEL_MINEABLE, settings);
+        super((float) attackDamage, attackSpeed, material, ModTags.Blocks.PAXEL_MINEABLE, settings);
     }
 
     @Override
     public ActionResult useOnBlock(ItemUsageContext context) {
-        if(!context.getWorld().isClient()) {
+        if (!context.getWorld().isClient()) {
             BlockPos positionClicked = context.getBlockPos();
             PlayerEntity player = context.getPlayer();
             BlockState state = context.getWorld().getBlockState(positionClicked);
@@ -78,18 +78,28 @@ public class PaxelItem extends MiningToolItem {
                 int damage = 1;
                 int miningLevel = this.getMaterial().getMiningLevel();
                 int blockLevel = 0;
-                if (state.isIn(ModTags.Blocks.TOOL_LEVEL_10)) { blockLevel = 10; }
-                else if (state.isIn(ModTags.Blocks.TOOL_LEVEL_9)) { blockLevel = 9; }
-                else if (state.isIn(ModTags.Blocks.TOOL_LEVEL_8)) { blockLevel = 8; }
-                else if (state.isIn(ModTags.Blocks.TOOL_LEVEL_7)) { blockLevel = 7; }
-                else if (state.isIn(ModTags.Blocks.TOOL_LEVEL_6)) { blockLevel = 6; }
-                else if (state.isIn(ModTags.Blocks.TOOL_LEVEL_5)) { blockLevel = 5; }
-                else if (state.isIn(ModTags.Blocks.TOOL_LEVEL_4)) { blockLevel = 4; }
-                else if (state.isIn(BlockTags.NEEDS_DIAMOND_TOOL)) { blockLevel = 3; }
-                else if (state.isIn(BlockTags.NEEDS_IRON_TOOL)) { blockLevel = 2; }
-                else if (state.isIn(BlockTags.NEEDS_STONE_TOOL)) { blockLevel = 1; }
-
-                if (miningLevel >= blockLevel && (state == ModBlocks.ALIEN_CONTROL_PANEL.getStateWithProperties(state).with(HARVESTED,false) || state.isIn(ModTags.Blocks.EXTRACTABLE_BLOCKS) || (compat && name.contains("_ore")))) {
+                if (state.isIn(ModTags.Blocks.TOOL_LEVEL_10)) {
+                    blockLevel = 10;
+                } else if (state.isIn(ModTags.Blocks.TOOL_LEVEL_9)) {
+                    blockLevel = 9;
+                } else if (state.isIn(ModTags.Blocks.TOOL_LEVEL_8)) {
+                    blockLevel = 8;
+                } else if (state.isIn(ModTags.Blocks.TOOL_LEVEL_7)) {
+                    blockLevel = 7;
+                } else if (state.isIn(ModTags.Blocks.TOOL_LEVEL_6)) {
+                    blockLevel = 6;
+                } else if (state.isIn(ModTags.Blocks.TOOL_LEVEL_5)) {
+                    blockLevel = 5;
+                } else if (state.isIn(ModTags.Blocks.TOOL_LEVEL_4)) {
+                    blockLevel = 4;
+                } else if (state.isIn(BlockTags.NEEDS_DIAMOND_TOOL)) {
+                    blockLevel = 3;
+                } else if (state.isIn(BlockTags.NEEDS_IRON_TOOL)) {
+                    blockLevel = 2;
+                } else if (state.isIn(BlockTags.NEEDS_STONE_TOOL)) {
+                    blockLevel = 1;
+                }
+                if (miningLevel >= blockLevel && (state == ModBlocks.ALIEN_CONTROL_PANEL.getStateWithProperties(state).with(HARVESTED, false) || state.isIn(ModTags.Blocks.EXTRACTABLE_BLOCKS) || (compat && name.contains("_ore")))) {
                     context.getWorld().breakBlock(positionClicked, true);
                     if (state.isOf(ModBlocks.ALIEN_CONTROL_PANEL) && !state.get(HARVESTED)) {
                         context.getWorld().setBlockState(positionClicked, state.with(HARVESTED, true));
@@ -135,11 +145,11 @@ public class PaxelItem extends MiningToolItem {
                         damage = 5;
                     }
                     context.getWorld().playSound(null, positionClicked, ModSounds.ITEM_PICKAXE_EXTRACT, SoundCategory.BLOCKS, 1.0f, 1.0f);
-                    int extraction_damage = damage*20;
+                    int extraction_damage = damage * 20;
                     if (getAugmentLevel(context.getStack(), "tlotd:extraction") >= 3) {
                         extraction_damage = damage;
                     } else if (getAugmentLevel(context.getStack(), "tlotd:extraction") == 2) {
-                        extraction_damage = damage*10;
+                        extraction_damage = damage * 10;
                     }
                     context.getStack().damage(extraction_damage, player, playerEntity -> playerEntity.sendToolBreakStatus(playerEntity.getActiveHand()));
                     if (player instanceof ServerPlayerEntity serverPlayerEntity) {

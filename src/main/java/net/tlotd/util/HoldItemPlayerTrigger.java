@@ -37,17 +37,10 @@ public class HoldItemPlayerTrigger extends AbstractCriterion<HoldItemPlayerTrigg
         String tagId = null;
         if (json.has("item")) {
             itemId = json.get("item").getAsString();
-            ingredient = Ingredient.ofItems(
-                    Registries.ITEM.get(new Identifier(itemId))
-            );
+            ingredient = Ingredient.ofItems(Registries.ITEM.get(new Identifier(itemId)));
         } else if (json.has("tag")) {
             tagId = json.get("tag").getAsString();
-            ingredient = Ingredient.fromTag(
-                    TagKey.of(
-                            RegistryKeys.ITEM,
-                            new Identifier(tagId)
-                    )
-            );
+            ingredient = Ingredient.fromTag(TagKey.of(RegistryKeys.ITEM, new Identifier(tagId)));
         } else {
             throw new JsonParseException("Missing item or tag");
         }
@@ -96,6 +89,7 @@ public class HoldItemPlayerTrigger extends AbstractCriterion<HoldItemPlayerTrigg
         private final String tagId;
         private final Set<UUID> allowedUuids;
         private final Map<String, Integer> requiredAugments;
+
         public Conditions(LootContextPredicate playerPredicate, Ingredient itemPredicate, String itemId, String tagId, Set<UUID> allowedUuids, Map<String, Integer> requiredAugments) {
             super(ID, playerPredicate);
             this.itemPredicate = itemPredicate;
@@ -104,6 +98,7 @@ public class HoldItemPlayerTrigger extends AbstractCriterion<HoldItemPlayerTrigg
             this.allowedUuids = allowedUuids;
             this.requiredAugments = requiredAugments;
         }
+
         @Override
         public JsonObject toJson(AdvancementEntityPredicateSerializer serializer) {
             JsonObject json = super.toJson(serializer);

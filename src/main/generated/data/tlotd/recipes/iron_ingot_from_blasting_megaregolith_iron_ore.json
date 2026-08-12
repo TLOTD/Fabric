@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 0.25,
+  "group": "iron_ingot",
+  "ingredient": {
+    "item": "tlotd:megaregolith_iron_ore"
+  },
+  "result": "minecraft:iron_ingot"
+}

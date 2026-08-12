@@ -42,24 +42,21 @@ public class FluidStackRenderer implements IIngredientRenderer<FluidStack> {
         Matrix4f matrix4f = context.getMatrices().peek().getPositionMatrix();
         BufferBuilder bufferBuilder = Tessellator.getInstance().getBuffer();
         bufferBuilder.begin(VertexFormat.DrawMode.QUADS, VertexFormats.POSITION_TEXTURE);
-        bufferBuilder.vertex(matrix4f, (float)x1, (float)y1, (float)z).texture(u1, v1).next();
-        bufferBuilder.vertex(matrix4f, (float)x1, (float)y2, (float)z).texture(u1, v2).next();
-        bufferBuilder.vertex(matrix4f, (float)x2, (float)y2, (float)z).texture(u2, v2).next();
-        bufferBuilder.vertex(matrix4f, (float)x2, (float)y1, (float)z).texture(u2, v1).next();
+        bufferBuilder.vertex(matrix4f, (float) x1, (float) y1, (float) z).texture(u1, v1).next();
+        bufferBuilder.vertex(matrix4f, (float) x1, (float) y2, (float) z).texture(u1, v2).next();
+        bufferBuilder.vertex(matrix4f, (float) x2, (float) y2, (float) z).texture(u2, v2).next();
+        bufferBuilder.vertex(matrix4f, (float) x2, (float) y1, (float) z).texture(u2, v1).next();
         BufferRenderer.drawWithGlobalProgram(bufferBuilder.end());
     }
 
     enum TooltipMode {
-        SHOW_AMOUNT,
-        SHOW_AMOUNT_AND_CAPACITY,
-        ITEM_LIST
+        SHOW_AMOUNT, SHOW_AMOUNT_AND_CAPACITY, ITEM_LIST
     }
 
     public FluidStackRenderer(long capacityMb, boolean showCapacity, int width, int height) {
         this(capacityMb, showCapacity ? TooltipMode.SHOW_AMOUNT_AND_CAPACITY : TooltipMode.SHOW_AMOUNT, width, height);
     }
 
-    @SuppressWarnings("DeprecatedIsStillUsed")
     @Deprecated
     public FluidStackRenderer(int capacityMb, boolean showCapacity, int width, int height) {
         this(capacityMb, showCapacity ? TooltipMode.SHOW_AMOUNT_AND_CAPACITY : TooltipMode.SHOW_AMOUNT, width, height);
@@ -76,9 +73,9 @@ public class FluidStackRenderer implements IIngredientRenderer<FluidStack> {
     }
 
     /*
-    * METHOD FROM https://github.com/TechReborn/TechReborn
-    * UNDER MIT LICENSE: https://github.com/TechReborn/TechReborn/blob/1.19/LICENSE.md
-    */
+     * METHOD FROM https://github.com/TechReborn/TechReborn
+     * UNDER MIT LICENSE: https://github.com/TechReborn/TechReborn/blob/1.19/LICENSE.md
+     */
     public void drawFluid(DrawContext context, FluidStack fluid, int x, int y, int width, int height, long maxCapacity) {
         if (fluid.getFluidVariant().getFluid() == Fluids.EMPTY) {
             return;
@@ -106,15 +103,12 @@ public class FluidStackRenderer implements IIngredientRenderer<FluidStack> {
         }
         RenderSystem.setShaderColor(1F, 1F, 1F, 1F);
 
-        RenderSystem.setShaderTexture(0, FluidRenderHandlerRegistry.INSTANCE.get(fluid.getFluidVariant().getFluid())
-                .getFluidSprites(MinecraftClient.getInstance().world, null, fluid.getFluidVariant().getFluid().getDefaultState())[0].getAtlasId());
+        RenderSystem.setShaderTexture(0, FluidRenderHandlerRegistry.INSTANCE.get(fluid.getFluidVariant().getFluid()).getFluidSprites(MinecraftClient.getInstance().world, null, fluid.getFluidVariant().getFluid().getDefaultState())[0].getAtlasId());
     }
 
     @Override
-    public Text getTooltip(FluidStack fluidStack, TooltipContext tooltipFlag) {
-        long amount = fluidStack.getAmount();
-        Text tooltip = Text.translatable("gui.tlotd.tooltip.liquid_amount_with_capacity", Text.translatable("block." + Registries.FLUID.getId(fluidStack.fluidVariant.getFluid()).toTranslationKey()), nf.format(FluidStack.convertDropletsToMb(amount)), nf.format(FluidStack.convertDropletsToMb(capacityMb))).fillStyle(Style.EMPTY.withColor(Formatting.GRAY));
-        return tooltip;
+    public Text getTooltip(FluidStack ingredient, TooltipContext tooltipFlag) {
+        return null;
     }
 
     @Override

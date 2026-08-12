@@ -693,8 +693,11 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.KEYCARD_READER)
                 .add(ModBlocks.HEV_CHARGER)
 
-                .add(ModBlocks.SIGNAL_TRANSMITTER_ANTENNA)
                 .add(ModBlocks.SIGNAL_TRANSMITTER)
+                .add(ModBlocks.ALUMINIUM_SIGNAL_TRANSMITTER_ANTENNA)
+                .add(ModBlocks.COPPER_SIGNAL_TRANSMITTER_ANTENNA)
+                .add(ModBlocks.GOLD_SIGNAL_TRANSMITTER_ANTENNA)
+                .add(ModBlocks.MITHRIL_SIGNAL_TRANSMITTER_ANTENNA)
 
                 .add(ModBlocks.TELEPORTER)
                 .add(ModBlocks.ALIEN_CONTROL_PANEL)
@@ -1116,6 +1119,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.ALIEN_BRICK_WALL)
                 .add(ModBlocks.ALIEN_PILLAR)
 
+                .add(ModBlocks.YELLOW_WALLPAPERED_WALL_WITH_BASEBOARD_AND_OUTLET)
                 .add(ModBlocks.YELLOW_WALLPAPERED_WALL_WITH_BASEBOARD)
                 .add(ModBlocks.YELLOW_WALLPAPERED_WALL)
                 .add(ModBlocks.STRIPPED_YELLOW_WALLPAPERED_WALL)
@@ -1151,6 +1155,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.ALIEN_BRICK_WALL)
                 .add(ModBlocks.ALIEN_PILLAR)
 
+                .add(ModBlocks.YELLOW_WALLPAPERED_WALL_WITH_BASEBOARD_AND_OUTLET)
                 .add(ModBlocks.YELLOW_WALLPAPERED_WALL_WITH_BASEBOARD)
                 .add(ModBlocks.YELLOW_WALLPAPERED_WALL)
                 .add(ModBlocks.STRIPPED_YELLOW_WALLPAPERED_WALL)

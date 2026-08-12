@@ -37,8 +37,8 @@ public class NetheriteAnvilGUI extends HandledScreen<NetheriteAnvilGUIHandler> {
     }
 
     private void renderProgressArrow(DrawContext context, int x, int y) {
-        if(handler.isCrafting()) {
-            context.drawTexture(TEXTURE,x+122,y+27,176,0, handler.getScaledProgress(), 16);
+        if (handler.isCrafting()) {
+            context.drawTexture(TEXTURE, x + 122, y + 27, 176, 0, handler.getScaledProgress(), 16);
         }
     }
 
@@ -46,6 +46,6 @@ public class NetheriteAnvilGUI extends HandledScreen<NetheriteAnvilGUIHandler> {
     public void render(DrawContext context, int mouseX, int mouseY, float delta) {
         renderBackground(context);
         super.render(context, mouseX, mouseY, delta);
-        drawMouseoverTooltip(context,mouseX, mouseY);
+        drawMouseoverTooltip(context, mouseX, mouseY);
     }
 }

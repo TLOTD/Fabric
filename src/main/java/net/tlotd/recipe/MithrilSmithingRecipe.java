@@ -31,7 +31,7 @@ public class MithrilSmithingRecipe implements Recipe<SimpleInventory> {
 
     @Override
     public boolean matches(SimpleInventory inventory, World world) {
-        if(world.isClient()) {
+        if (world.isClient()) {
             return false;
         }
         int recipeNum = 0;
@@ -44,12 +44,7 @@ public class MithrilSmithingRecipe implements Recipe<SimpleInventory> {
                 recipeNum++;
             }
         }
-        return (itemNum == recipeNum) && (recipeItems.get(0).test((inventory.getStack(0)))) &&
-                (recipeItems.get(1).test((inventory.getStack(1)))) &&
-                ((recipeItems.get(2).test((inventory.getStack(2)))) || (recipeItems.get(2).test((inventory.getStack(3)))) || (recipeItems.get(2).test((inventory.getStack(4)))) || (recipeItems.get(2).test((inventory.getStack(5))))) &&
-                ((recipeItems.get(3).test((inventory.getStack(2)))) || (recipeItems.get(3).test((inventory.getStack(3)))) || (recipeItems.get(3).test((inventory.getStack(4)))) || (recipeItems.get(3).test((inventory.getStack(5))))) &&
-                ((recipeItems.get(4).test((inventory.getStack(2)))) || (recipeItems.get(4).test((inventory.getStack(3)))) || (recipeItems.get(4).test((inventory.getStack(4)))) || (recipeItems.get(4).test((inventory.getStack(5))))) &&
-                ((recipeItems.get(5).test((inventory.getStack(2)))) || (recipeItems.get(5).test((inventory.getStack(3)))) || (recipeItems.get(5).test((inventory.getStack(4)))) || (recipeItems.get(5).test((inventory.getStack(5)))));
+        return (itemNum == recipeNum) && (recipeItems.get(0).test((inventory.getStack(0)))) && (recipeItems.get(1).test((inventory.getStack(1)))) && ((recipeItems.get(2).test((inventory.getStack(2)))) || (recipeItems.get(2).test((inventory.getStack(3)))) || (recipeItems.get(2).test((inventory.getStack(4)))) || (recipeItems.get(2).test((inventory.getStack(5))))) && ((recipeItems.get(3).test((inventory.getStack(2)))) || (recipeItems.get(3).test((inventory.getStack(3)))) || (recipeItems.get(3).test((inventory.getStack(4)))) || (recipeItems.get(3).test((inventory.getStack(5))))) && ((recipeItems.get(4).test((inventory.getStack(2)))) || (recipeItems.get(4).test((inventory.getStack(3)))) || (recipeItems.get(4).test((inventory.getStack(4)))) || (recipeItems.get(4).test((inventory.getStack(5))))) && ((recipeItems.get(5).test((inventory.getStack(2)))) || (recipeItems.get(5).test((inventory.getStack(3)))) || (recipeItems.get(5).test((inventory.getStack(4)))) || (recipeItems.get(5).test((inventory.getStack(5)))));
     }
 
     @Override
@@ -83,7 +78,9 @@ public class MithrilSmithingRecipe implements Recipe<SimpleInventory> {
     }
 
     public static class Type implements RecipeType<MithrilSmithingRecipe> {
-        private Type() { }
+        private Type() {
+        }
+
         public static final Type INSTANCE = new Type();
         public static final String ID = "mithril_metalworking";
     }

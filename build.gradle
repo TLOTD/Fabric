@@ -57,9 +57,9 @@ dependencies {
 	modRuntimeOnly "maven.modrinth:uluMVcw5:EVVIBc6z"
 
 	modCompileOnly "me.shedaniel:RoughlyEnoughItems-api-fabric:12.1.785"
-	//modRuntimeOnly "me.shedaniel:RoughlyEnoughItems-fabric:12.1.785"
+	modRuntimeOnly "me.shedaniel:RoughlyEnoughItems-fabric:12.1.785"
 	modCompileOnly "dev.emi:emi-fabric:1.1.24+1.20.1:api"
-	modRuntimeOnly "maven.modrinth:fRiHVvU7:YbXDHf8W"
+	//modRuntimeOnly "maven.modrinth:fRiHVvU7:YbXDHf8W"
 	//modCompileOnly("mezz.jei:jei-1.20.1-fabric:15.20.0.129") LOOM ISSUES (wants a resource location instead of an Identifier)q1
 	//modRuntimeOnly("mezz.jei:jei-1.20.1-fabric:15.20.0.129")
 

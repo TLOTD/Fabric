@@ -1,0 +1,7 @@
+{
+    "parent": "tlotd:block/template_signal_transmitter_antenna_1",
+    "textures": {
+        "0": "tlotd:block/aluminium_block",
+        "particle": "tlotd:block/aluminium_block"
+    }
+}

@@ -38,14 +38,11 @@ public class BenchBlock extends Block {
 
     public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
     public static final DirectionProperty FACING = HorizontalFacingBlock.FACING;
-    public static final IntProperty BENCH = IntProperty.of("bench", 0,3);
+    public static final IntProperty BENCH = IntProperty.of("bench", 0, 3);
 
     @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {
-        return this.getDefaultState()
-                .with(FACING, ctx.getHorizontalPlayerFacing())
-                .with(WATERLOGGED, ctx.getWorld().getFluidState(ctx.getBlockPos()).isOf(Fluids.WATER))
-                .with(BENCH, 0);
+        return this.getDefaultState().with(FACING, ctx.getHorizontalPlayerFacing()).with(WATERLOGGED, ctx.getWorld().getFluidState(ctx.getBlockPos()).isOf(Fluids.WATER)).with(BENCH, 0);
 
     }
 
@@ -54,8 +51,7 @@ public class BenchBlock extends Block {
         return state.get(WATERLOGGED) ? Fluids.WATER.getStill(false) : super.getFluidState(state);
     }
 
-    public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState neighborState,
-                                                WorldAccess world, BlockPos pos, BlockPos neighborPos) {
+    public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos) {
         if (state.get(WATERLOGGED)) {
             world.scheduleFluidTick(pos, Fluids.WATER, Fluids.WATER.getTickRate(world));
         }
@@ -85,24 +81,12 @@ public class BenchBlock extends Block {
         this.setDefaultState(this.stateManager.getDefaultState().with(FACING, Direction.NORTH).with(WATERLOGGED, false).with(BENCH, 0));
     }
 
-    private static final VoxelShape BASE_SHAPE = Block.createCuboidShape(0,0,0,16,8,16);
+    private static final VoxelShape BASE_SHAPE = Block.createCuboidShape(0, 0, 0, 16, 8, 16);
 
-    public static final VoxelShape WEST_SHAPE = VoxelShapes.union(
-            Block.createCuboidShape(0, 8, 0, 1, 21, 16),
-            BASE_SHAPE
-    );
-    public static final VoxelShape NORTH_SHAPE = VoxelShapes.union(
-            Block.createCuboidShape(0, 8, 0, 16, 21, 1),
-            BASE_SHAPE
-    );
-    public static final VoxelShape EAST_SHAPE = VoxelShapes.union(
-            Block.createCuboidShape(15, 8, 0, 16, 21, 16),
-            BASE_SHAPE
-    );
-    public static final VoxelShape SOUTH_SHAPE = VoxelShapes.union(
-            Block.createCuboidShape(0, 8, 15, 16, 21, 16),
-            BASE_SHAPE
-    );
+    public static final VoxelShape WEST_SHAPE = VoxelShapes.union(Block.createCuboidShape(0, 8, 0, 1, 21, 16), BASE_SHAPE);
+    public static final VoxelShape NORTH_SHAPE = VoxelShapes.union(Block.createCuboidShape(0, 8, 0, 16, 21, 1), BASE_SHAPE);
+    public static final VoxelShape EAST_SHAPE = VoxelShapes.union(Block.createCuboidShape(15, 8, 0, 16, 21, 16), BASE_SHAPE);
+    public static final VoxelShape SOUTH_SHAPE = VoxelShapes.union(Block.createCuboidShape(0, 8, 15, 16, 21, 16), BASE_SHAPE);
 
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
@@ -122,17 +106,13 @@ public class BenchBlock extends Block {
 
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        if(!world.isClient){
+        if (!world.isClient) {
             Entity entity = null;
             List<SeatEntity> entities = world.getEntitiesByType(ModEntities.SEAT, new Box(pos), chair -> true);
-            if(entities.isEmpty()) {
+            if (entities.isEmpty()) {
                 entity = ModEntities.SEAT.spawn((ServerWorld) world, pos, SpawnReason.TRIGGERED);
                 if (entity != null) {
-                    entity.setPosition(
-                        pos.getX() + 0.5,
-                        pos.getY() + 0.5,
-                        pos.getZ() + 0.5
-                    );
+                    entity.setPosition(pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5);
                 }
             } else {
                 entity = entities.get(0);

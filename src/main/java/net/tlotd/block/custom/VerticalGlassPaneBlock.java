@@ -17,9 +17,7 @@ public class VerticalGlassPaneBlock extends PaneBlock {
 
     public VerticalGlassPaneBlock(Settings settings) {
         super(settings);
-        this.setDefaultState(
-                this.getDefaultState().with(CONNECTION, VerticalConnection.NONE)
-        );
+        this.setDefaultState(this.getDefaultState().with(CONNECTION, VerticalConnection.NONE));
     }
 
     @Override
@@ -36,9 +34,7 @@ public class VerticalGlassPaneBlock extends PaneBlock {
 
     @Override
     public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos) {
-        BlockState updated = super.getStateForNeighborUpdate(
-                state, direction, neighborState, world, pos, neighborPos
-        );
+        BlockState updated = super.getStateForNeighborUpdate(state, direction, neighborState, world, pos, neighborPos);
         if (direction == Direction.UP || direction == Direction.DOWN) {
             return updateVerticalConnection(world, pos, updated);
         }

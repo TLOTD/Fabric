@@ -1,0 +1,74 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_aluminium_sheet": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "tlotd:aluminium_sheet"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_battery": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "tlotd:battery"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_copper_wire": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "tlotd:copper_wire"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_sulfuric_acid": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "tlotd:sulfuric_acid"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:large_battery"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_copper_wire",
+      "has_aluminium_sheet",
+      "has_sulfuric_acid",
+      "has_battery",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:large_battery"
+    ]
+  },
+  "sends_telemetry_event": false
+}

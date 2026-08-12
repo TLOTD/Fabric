@@ -39,9 +39,9 @@ public class DrinkableHorn extends Item {
         if (stack.isEmpty()) {
             return new ItemStack(Items.GOAT_HORN);
         } else {
-            if (user instanceof PlayerEntity && !((PlayerEntity)user).getAbilities().creativeMode) {
+            if (user instanceof PlayerEntity && !((PlayerEntity) user).getAbilities().creativeMode) {
                 ItemStack itemStack = new ItemStack(Items.GOAT_HORN);
-                PlayerEntity playerEntity = (PlayerEntity)user;
+                PlayerEntity playerEntity = (PlayerEntity) user;
                 if (!playerEntity.getInventory().insertStack(itemStack)) {
                     playerEntity.dropItem(itemStack, false);
                 }

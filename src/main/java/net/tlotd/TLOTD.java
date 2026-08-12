@@ -2,6 +2,7 @@ package net.tlotd;
 
 import net.fabricmc.api.ModInitializer;
 
+import net.fabricmc.fabric.api.event.lifecycle.v1.ServerWorldEvents;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.fabricmc.fabric.api.registry.StrippableBlockRegistry;
 import net.kyrptonaught.customportalapi.CustomPortalBlock;
@@ -34,8 +35,10 @@ import net.tlotd.sound.ModSounds;
 import net.tlotd.tick.ModServerTickEvents;
 import net.tlotd.villager.ModVillagers;
 import net.tlotd.world.ModChunkEvents;
+import net.tlotd.world.SignalTrackingArray;
 import net.tlotd.world.dimension.BackroomsChunkGenerator;
 import net.tlotd.world.dimension.LunarChunkGenerator;
+import net.tlotd.world.dimension.ModDimensions;
 import net.tlotd.world.dimension.PrehistoricChunkGenerator;
 import net.tlotd.world.gen.ModWorldGeneration;
 import net.tlotd.world.tree.ModTreeDecoratorTypes;
@@ -44,70 +47,71 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class TLOTD implements ModInitializer {
-	public static final String MOD_ID = "tlotd";
-	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
+    public static final String MOD_ID = "tlotd";
+    public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
-	@Override
-	public void onInitialize() {
-		ModConfigs.registerConfigs();
-		ModEffects.registerEffects();
-		ModPotions.registerPotions();
-		ModItemGroups.registerItemGroups();
-		ModItems.registerModItems();
-		ModCompostingChances.registerCompostableItems();
-		ModParticles.registerParticles();
-		ModFluids.registerModFluids();
-		ModCauldronBehaviors.register();
-		ModBlocks.registerModBlocks();
-		ModTreeDecoratorTypes.registerDecorators();
-		ModTelevisionSignals.registerSignals();
-		ModFlammableBlocks.registerFlammableBlocks();
-		ModFuels.registerModFuels();
-		BrewingRecipeBuilder.registerBrewingRecipes();
-		ModLootTableModifiers.modifyLootTables();
-		ModBlockEntities.registerBlockEntities();
-		ModGUIHandlers.registerGUIHandlers();
-		ModRecipies.registerRecipes();
-		ModVillagers.registerVillagers();
-		ModTrades.registerTrades();
-		ModBoats.registerBoats();
-		ModPaintings.registerPaintings();
-		ModBanners.registerBanners();
-		ModEnchantments.registerEnchants();
-		ModEntities.registerModEntities();
-		ModSounds.registerSounds();
-		ModMessages.registerC2SPackets();
-		ModVillageAdditions.registerNewVillageStructures();
-		ModWorldGeneration.generateModWorldGen();
-		DamageMitigation.registerAllowedDamages();
-		ModServerTickEvents.registerServerTickEvents();
-		ModUseBlockCallback.interceptBlocks();
-		ModChunkEvents.generateModWorldGen();
-		ModCommands.registerCommands();
-		ModAdvancementTriggers.registerCriteria();
-		ItemEntityTickHandler.register();
+    @Override
+    public void onInitialize() {
+        ModConfigs.registerConfigs();
+        ModEffects.registerEffects();
+        ModPotions.registerPotions();
+        ModItemGroups.registerItemGroups();
+        ModItems.registerModItems();
+        ModCompostingChances.registerCompostableItems();
+        ModParticles.registerParticles();
+        ModFluids.registerModFluids();
+        ModCauldronBehaviors.register();
+        ModBlocks.registerModBlocks();
+        ModTreeDecoratorTypes.registerDecorators();
+        ModTelevisionSignals.registerSignals();
+        ModFlammableBlocks.registerFlammableBlocks();
+        ModFuels.registerModFuels();
+        BrewingRecipeBuilder.registerBrewingRecipes();
+        ModLootTableModifiers.modifyLootTables();
+        ModBlockEntities.registerBlockEntities();
+        ModGUIHandlers.registerGUIHandlers();
+        ModRecipies.registerRecipes();
+        ModVillagers.registerVillagers();
+        ModTrades.registerTrades();
+        ModBoats.registerBoats();
+        ModPaintings.registerPaintings();
+        ModBanners.registerBanners();
+        ModEnchantments.registerEnchants();
+        ModEntities.registerModEntities();
+        ModSounds.registerSounds();
+        ModMessages.registerC2SPackets();
+        ModVillageAdditions.registerNewVillageStructures();
+        ModWorldGeneration.generateModWorldGen();
+        DamageMitigation.registerAllowedDamages();
+        ModServerTickEvents.registerServerTickEvents();
+        ModUseBlockCallback.interceptBlocks();
+        ModChunkEvents.generateModWorldGen();
+        ModCommands.registerCommands();
+        ModAdvancementTriggers.registerCriteria();
+        ItemEntityTickHandler.register();
 
-		Registry.register(Registries.CHUNK_GENERATOR, new Identifier(TLOTD.MOD_ID, "prehistoric"), PrehistoricChunkGenerator.CODEC);
-		Registry.register(Registries.CHUNK_GENERATOR, new Identifier(TLOTD.MOD_ID, "luna"), LunarChunkGenerator.CODEC);
-		Registry.register(Registries.CHUNK_GENERATOR, new Identifier(TLOTD.MOD_ID, "backrooms"), BackroomsChunkGenerator.CODEC);
+        Registry.register(Registries.CHUNK_GENERATOR, new Identifier(TLOTD.MOD_ID, "prehistoric"), PrehistoricChunkGenerator.CODEC);
+        Registry.register(Registries.CHUNK_GENERATOR, new Identifier(TLOTD.MOD_ID, "luna"), LunarChunkGenerator.CODEC);
+        Registry.register(Registries.CHUNK_GENERATOR, new Identifier(TLOTD.MOD_ID, "backrooms"), BackroomsChunkGenerator.CODEC);
 
-		StrippableBlockRegistry.register(ModBlocks.GINKGO_LOG, ModBlocks.STRIPPED_GINKGO_LOG);
-		StrippableBlockRegistry.register(ModBlocks.GINKGO_WOOD, ModBlocks.STRIPPED_GINKGO_WOOD);
+        StrippableBlockRegistry.register(ModBlocks.GINKGO_LOG, ModBlocks.STRIPPED_GINKGO_LOG);
+        StrippableBlockRegistry.register(ModBlocks.GINKGO_WOOD, ModBlocks.STRIPPED_GINKGO_WOOD);
 
-		StrippableBlockRegistry.register(ModBlocks.YELLOW_WALLPAPERED_WALL_WITH_BASEBOARD, ModBlocks.YELLOW_WALLPAPERED_WALL);
-		StrippableBlockRegistry.register(ModBlocks.YELLOW_WALLPAPERED_WALL, ModBlocks.STRIPPED_YELLOW_WALLPAPERED_WALL);
+        StrippableBlockRegistry.register(ModBlocks.YELLOW_WALLPAPERED_WALL_WITH_BASEBOARD, ModBlocks.YELLOW_WALLPAPERED_WALL);
+        StrippableBlockRegistry.register(ModBlocks.YELLOW_WALLPAPERED_WALL, ModBlocks.STRIPPED_YELLOW_WALLPAPERED_WALL);
 
-		FabricDefaultAttributeRegistry.register(ModEntities.TREX, TRexEntity.createTRexAttributes());
-		FabricDefaultAttributeRegistry.register(ModEntities.INFECTED_TREX, InfectedTRexEntity.createInfectedTRexAttributes());
+        FabricDefaultAttributeRegistry.register(ModEntities.TREX, TRexEntity.createTRexAttributes());
+        FabricDefaultAttributeRegistry.register(ModEntities.INFECTED_TREX, InfectedTRexEntity.createInfectedTRexAttributes());
 
-		CustomPortalBuilder.beginPortal()
-			.frameBlock(ModBlocks.REINFORCED_RED_DEEPSLATE)
-			.customPortalBlock((CustomPortalBlock) ModBlocks.PREHISTORIC_PORTAL)
-			.lightWithItem(ModItems.FOSSIL_AND_STEEL)
-			.destDimID(new Identifier(TLOTD.MOD_ID, "prehistoric"))
-			.tintColor(0x925240)
-			.registerPortal();
-		JoinDataSync.init();
-		LOGGER.info("TLOTD INITIALIZED!");
-	}
+        CustomPortalBuilder.beginPortal().frameBlock(ModBlocks.REINFORCED_RED_DEEPSLATE).customPortalBlock((CustomPortalBlock) ModBlocks.PREHISTORIC_PORTAL).lightWithItem(ModItems.FOSSIL_AND_STEEL).destDimID(new Identifier(TLOTD.MOD_ID, "prehistoric")).tintColor(0x925240).registerPortal();
+        ServerWorldEvents.LOAD.register((server, world) -> {
+            if (world.getRegistryKey() == ModDimensions.BACKROOMS_LEVEL_KEY) {
+                SignalTrackingArray tracker = SignalTrackingArray.get(world);
+                tracker.addDimensionSignal(Registries.ITEM.getId(ModItems.VHS_CASSETTE_PROJECT_KV31));
+                tracker.addDimensionSignal(Registries.ITEM.getId(ModItems.BACKROOMS_SIGNAL));
+            }
+        });
+        JoinDataSync.init();
+        LOGGER.info("TLOTD INITIALIZED!");
+    }
 }

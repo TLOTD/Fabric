@@ -55,7 +55,7 @@ public class EffigiesBlock extends Block {
     @Override
     public boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
         Direction direction = Direction.UP;
-        return (Block.sideCoversSmallSquare(world, pos.offset(direction), direction.getOpposite())|| world.getBlockState(pos.offset(direction)).isIn(BlockTags.LEAVES));
+        return (Block.sideCoversSmallSquare(world, pos.offset(direction), direction.getOpposite()) || world.getBlockState(pos.offset(direction)).isIn(BlockTags.LEAVES));
     }
 
     @Override
@@ -69,7 +69,7 @@ public class EffigiesBlock extends Block {
             if (entity.isPlayer()) {
                 ServerPlayerEntity player = (ServerPlayerEntity) entity;
                 if (!player.hasStatusEffect(StatusEffects.WEAKNESS)) {
-                    player.addStatusEffect(new StatusEffectInstance(StatusEffects.WEAKNESS, 60,0,true,false));
+                    player.addStatusEffect(new StatusEffectInstance(StatusEffects.WEAKNESS, 60, 0, true, false));
                 }
             }
         }
@@ -78,9 +78,7 @@ public class EffigiesBlock extends Block {
 
     @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {
-        return this.getDefaultState()
-                .with(FACING, ctx.getHorizontalPlayerFacing())
-                .with(WATERLOGGED, ctx.getWorld().getFluidState(ctx.getBlockPos()).isOf(Fluids.WATER));
+        return this.getDefaultState().with(FACING, ctx.getHorizontalPlayerFacing()).with(WATERLOGGED, ctx.getWorld().getFluidState(ctx.getBlockPos()).isOf(Fluids.WATER));
     }
 
     @Override
@@ -120,19 +118,19 @@ public class EffigiesBlock extends Block {
             long time = world.getTimeOfDay() % 24000L;
             if (time >= 12800 && time < 23200) {
                 int search_y;
-                for(search_y = 0; search_y>=-10; search_y--){
-                    if((world.getBlockState(pos.add(0, search_y,0)).isOf(Blocks.CAULDRON)) || (world.getBlockState(pos.add(0, search_y,0)).isOf(ModBlocks.BLOOD_CAULDRON) && world.getBlockState(pos.add(0, search_y,0)).get(LEVEL) < 3)) {
-                        if (world.getBlockState(pos.add(0, search_y,0)).isOf(Blocks.CAULDRON)) {
-                            world.setBlockState(pos.add(0, search_y,0), ModBlocks.BLOOD_CAULDRON.getStateWithProperties(state));
-                        } else if (world.getBlockState(pos.add(0, search_y,0)).isOf(ModBlocks.BLOOD_CAULDRON)) {
-                            if (world.getBlockState(pos.add(0, search_y,0)).get(LEVEL) == 1) {
-                                world.setBlockState(pos.add(0, search_y,0), ModBlocks.BLOOD_CAULDRON.getStateWithProperties(state).with(LEVEL,2));
-                            } else if (world.getBlockState(pos.add(0, search_y,0)).get(LEVEL) == 2) {
-                                world.setBlockState(pos.add(0, search_y,0), ModBlocks.BLOOD_CAULDRON.getStateWithProperties(state).with(LEVEL,3));
+                for (search_y = 0; search_y >= -10; search_y--) {
+                    if ((world.getBlockState(pos.add(0, search_y, 0)).isOf(Blocks.CAULDRON)) || (world.getBlockState(pos.add(0, search_y, 0)).isOf(ModBlocks.BLOOD_CAULDRON) && world.getBlockState(pos.add(0, search_y, 0)).get(LEVEL) < 3)) {
+                        if (world.getBlockState(pos.add(0, search_y, 0)).isOf(Blocks.CAULDRON)) {
+                            world.setBlockState(pos.add(0, search_y, 0), ModBlocks.BLOOD_CAULDRON.getStateWithProperties(state));
+                        } else if (world.getBlockState(pos.add(0, search_y, 0)).isOf(ModBlocks.BLOOD_CAULDRON)) {
+                            if (world.getBlockState(pos.add(0, search_y, 0)).get(LEVEL) == 1) {
+                                world.setBlockState(pos.add(0, search_y, 0), ModBlocks.BLOOD_CAULDRON.getStateWithProperties(state).with(LEVEL, 2));
+                            } else if (world.getBlockState(pos.add(0, search_y, 0)).get(LEVEL) == 2) {
+                                world.setBlockState(pos.add(0, search_y, 0), ModBlocks.BLOOD_CAULDRON.getStateWithProperties(state).with(LEVEL, 3));
                             }
                         }
-                        world.playSound(null, pos.add(0, search_y,0), SoundEvents.BLOCK_CHORUS_FLOWER_GROW, SoundCategory.BLOCKS, 1.0f, 1.0f);
-                        world.addParticle(ParticleTypes.DRIPPING_LAVA,pos.getX(), pos.getY(), pos.getZ(),0.0F, 0.5F, 0.0F);
+                        world.playSound(null, pos.add(0, search_y, 0), SoundEvents.BLOCK_CHORUS_FLOWER_GROW, SoundCategory.BLOCKS, 1.0f, 1.0f);
+                        world.addParticle(ParticleTypes.DRIPPING_LAVA, pos.getX(), pos.getY(), pos.getZ(), 0.0F, 0.5F, 0.0F);
                     }
                 }
             }
@@ -184,8 +182,6 @@ public class EffigiesBlock extends Block {
         double x = pos.getX() + 0.15 + random.nextDouble() * 0.70 + offset.x;
         double y = pos.getY() + 0.25 + offset.y;
         double z = pos.getZ() + 0.15 + random.nextDouble() * 0.70 + offset.z;
-        world.addParticle(
-                ModParticles.DRIPPING_BLOOD, x, y, z, 0.0, 0.0, 0.0
-        );
+        world.addParticle(ModParticles.DRIPPING_BLOOD, x, y, z, 0.0, 0.0, 0.0);
     }
 }

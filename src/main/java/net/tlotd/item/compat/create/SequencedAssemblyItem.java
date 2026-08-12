@@ -61,7 +61,7 @@ public class SequencedAssemblyItem extends Item {
 
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        if (context.isCreative()){
+        if (context.isCreative()) {
             Style style = this.getName().getStyle();
             if (stack.isOf(ModItems.INCOMPLETE_BIOLOGICAL_CIRCUIT_BOARD)) {
                 tooltip.add(Text.literal("\uE013 ").setStyle(Style.EMPTY.withFont(MODS_FONT_ID)).append(Text.translatable("mod.biomancy.name").setStyle(Style.EMPTY.withFont(DEFAULT_FONT_ID).withFormatting(Formatting.GRAY))));

@@ -12,21 +12,17 @@ import net.tlotd.world.ModGlobalState;
 
 public class GlobalConfigNetworking {
 
-    public static final Identifier CONFIG_SYNC_ID =
-            new Identifier(TLOTD.MOD_ID, "global_config_sync");
+    public static final Identifier CONFIG_SYNC_ID = new Identifier(TLOTD.MOD_ID, "global_config_sync");
 
     public static void registerClientReceiver() {
-        ClientPlayNetworking.registerGlobalReceiver(
-                CONFIG_SYNC_ID,
-                (client, handler, buf, responseSender) -> {
-                    GlobalConfigSyncPacket packet = GlobalConfigSyncPacket.read(buf);
-                    client.execute(() -> {
-                        if (packet.data != null) {
-                            ClientGlobalConfig.update(packet.data);
-                        }
-                    });
+        ClientPlayNetworking.registerGlobalReceiver(CONFIG_SYNC_ID, (client, handler, buf, responseSender) -> {
+            GlobalConfigSyncPacket packet = GlobalConfigSyncPacket.read(buf);
+            client.execute(() -> {
+                if (packet.data != null) {
+                    ClientGlobalConfig.update(packet.data);
                 }
-        );
+            });
+        });
     }
 
     public static void sendToClient(ServerPlayerEntity player, ModGlobalState state) {

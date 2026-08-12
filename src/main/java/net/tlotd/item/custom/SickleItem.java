@@ -17,15 +17,15 @@ public class SickleItem extends ShearsItem {
     public SickleItem(Settings settings) {
         super(settings);
     }
+
     @Override
     public ActionResult useOnBlock(ItemUsageContext context) {
-        if(!context.getWorld().isClient()) {
+        if (!context.getWorld().isClient()) {
             BlockPos positionClicked = context.getBlockPos();
             PlayerEntity player = context.getPlayer();
             if (context.getWorld().getBlockState(positionClicked).isIn(BlockTags.LEAVES)) {
                 context.getWorld().breakBlock(positionClicked, true);
-                context.getStack().damage(1, player,
-                        playerEntity -> playerEntity.sendToolBreakStatus(playerEntity.getActiveHand()));
+                context.getStack().damage(1, player, playerEntity -> playerEntity.sendToolBreakStatus(playerEntity.getActiveHand()));
                 if (player instanceof ServerPlayerEntity serverPlayerEntity) {
                     Criteria.CONSUME_ITEM.trigger(serverPlayerEntity, context.getStack());
                     serverPlayerEntity.incrementStat(Stats.USED.getOrCreateStat(this));

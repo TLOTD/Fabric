@@ -28,11 +28,7 @@ public class HoldItemPlayerTrigger extends AbstractCriterion<HoldItemPlayerTrigg
     }
 
     @Override
-    protected Conditions conditionsFromJson(
-            JsonObject json,
-            LootContextPredicate playerPredicate,
-            AdvancementEntityPredicateDeserializer deserializer
-    ) {
+    protected Conditions conditionsFromJson(JsonObject json, LootContextPredicate playerPredicate, AdvancementEntityPredicateDeserializer deserializer) {
         Identifier itemId = new Identifier(json.get("item").getAsString());
         Item item = Registries.ITEM.get(itemId);
         Set<UUID> uuidSet = Collections.emptySet();
@@ -79,12 +75,14 @@ public class HoldItemPlayerTrigger extends AbstractCriterion<HoldItemPlayerTrigg
         private final Item item;
         private final Set<UUID> allowedUuids;
         private final Map<String, Integer> requiredAugments;
+
         public Conditions(LootContextPredicate playerPredicate, Item item, Set<UUID> allowedUuids, Map<String, Integer> requiredAugments) {
             super(ID, playerPredicate);
             this.item = item;
             this.allowedUuids = allowedUuids;
             this.requiredAugments = requiredAugments;
         }
+
         @Override
         public JsonObject toJson(AdvancementEntityPredicateSerializer serializer) {
             JsonObject json = super.toJson(serializer);

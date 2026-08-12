@@ -24,7 +24,7 @@ public class LargeTileBlock extends Block {
     public BlockState getPlacementState(ItemPlacementContext ctx) {
         Direction direction = ctx.getSide();
         BlockPos blockPos = ctx.getBlockPos();
-        return this.getDefaultState().with(FACING, ctx.getHorizontalPlayerFacing()).with(HALF, direction != Direction.DOWN && (direction == Direction.UP || !(ctx.getHitPos().y - (double)blockPos.getY() > (double)0.5F)) ? BlockHalf.BOTTOM : BlockHalf.TOP);
+        return this.getDefaultState().with(FACING, ctx.getHorizontalPlayerFacing()).with(HALF, direction != Direction.DOWN && (direction == Direction.UP || !(ctx.getHitPos().y - (double) blockPos.getY() > (double) 0.5F)) ? BlockHalf.BOTTOM : BlockHalf.TOP);
     }
 
     @Override

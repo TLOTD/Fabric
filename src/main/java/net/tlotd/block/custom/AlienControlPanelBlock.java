@@ -36,10 +36,7 @@ public class AlienControlPanelBlock extends Block {
 
     @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {
-        return this.getDefaultState()
-                .with(FACING, ctx.getHorizontalPlayerFacing())
-                .with(WATERLOGGED, ctx.getWorld().getFluidState(ctx.getBlockPos()).isOf(Fluids.WATER))
-                .with(HARVESTED, false);
+        return this.getDefaultState().with(FACING, ctx.getHorizontalPlayerFacing()).with(WATERLOGGED, ctx.getWorld().getFluidState(ctx.getBlockPos()).isOf(Fluids.WATER)).with(HARVESTED, false);
 
     }
 
@@ -67,42 +64,15 @@ public class AlienControlPanelBlock extends Block {
         builder.add(FACING, WATERLOGGED, HARVESTED);
     }
 
-    public static final VoxelShape BASE_SHAPE = VoxelShapes.union(
-            Block.createCuboidShape(0, 0, 0, 16, 2, 16),
-            Block.createCuboidShape(4, 2, 4, 12, 11, 12)
-    );
+    public static final VoxelShape BASE_SHAPE = VoxelShapes.union(Block.createCuboidShape(0, 0, 0, 16, 2, 16), Block.createCuboidShape(4, 2, 4, 12, 11, 12));
 
-    public static final VoxelShape NORTH_SHAPE = VoxelShapes.union(
-            BASE_SHAPE,
-            Block.createCuboidShape(0, 12, 0, 16, 16, 4),
-            Block.createCuboidShape(0, 10, 4, 16, 14, 8),
-            Block.createCuboidShape(0, 8, 8, 16, 12, 12),
-            Block.createCuboidShape(0, 6, 12, 16, 10, 16)
-    );
+    public static final VoxelShape NORTH_SHAPE = VoxelShapes.union(BASE_SHAPE, Block.createCuboidShape(0, 12, 0, 16, 16, 4), Block.createCuboidShape(0, 10, 4, 16, 14, 8), Block.createCuboidShape(0, 8, 8, 16, 12, 12), Block.createCuboidShape(0, 6, 12, 16, 10, 16));
 
-    public static final VoxelShape SOUTH_SHAPE = VoxelShapes.union(
-            BASE_SHAPE,
-            Block.createCuboidShape(0, 6, 0, 16, 10, 4),
-            Block.createCuboidShape(0, 8, 4, 16, 12, 8),
-            Block.createCuboidShape(0, 10, 8, 16, 14, 12),
-            Block.createCuboidShape(0, 12, 12, 16, 16, 16)
-    );
+    public static final VoxelShape SOUTH_SHAPE = VoxelShapes.union(BASE_SHAPE, Block.createCuboidShape(0, 6, 0, 16, 10, 4), Block.createCuboidShape(0, 8, 4, 16, 12, 8), Block.createCuboidShape(0, 10, 8, 16, 14, 12), Block.createCuboidShape(0, 12, 12, 16, 16, 16));
 
-    public static final VoxelShape EAST_SHAPE = VoxelShapes.union(
-            BASE_SHAPE,
-            Block.createCuboidShape(0, 6, 0, 4, 10, 16),
-            Block.createCuboidShape(4, 8, 0, 8, 12, 16),
-            Block.createCuboidShape(8, 10, 0, 12, 14, 16),
-            Block.createCuboidShape(12, 12, 0, 16, 16, 16)
-    );
+    public static final VoxelShape EAST_SHAPE = VoxelShapes.union(BASE_SHAPE, Block.createCuboidShape(0, 6, 0, 4, 10, 16), Block.createCuboidShape(4, 8, 0, 8, 12, 16), Block.createCuboidShape(8, 10, 0, 12, 14, 16), Block.createCuboidShape(12, 12, 0, 16, 16, 16));
 
-    public static final VoxelShape WEST_SHAPE = VoxelShapes.union(
-            BASE_SHAPE,
-            Block.createCuboidShape(0, 12, 0, 4, 16, 16),
-            Block.createCuboidShape(4, 10, 0, 8, 14, 16),
-            Block.createCuboidShape(8, 8, 0, 12, 12, 16),
-            Block.createCuboidShape(12, 6, 0, 16, 10, 16)
-    );
+    public static final VoxelShape WEST_SHAPE = VoxelShapes.union(BASE_SHAPE, Block.createCuboidShape(0, 12, 0, 4, 16, 16), Block.createCuboidShape(4, 10, 0, 8, 14, 16), Block.createCuboidShape(8, 8, 0, 12, 12, 16), Block.createCuboidShape(12, 6, 0, 16, 10, 16));
 
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
@@ -118,11 +88,5 @@ public class AlienControlPanelBlock extends Block {
     @Override
     public BlockRenderType getRenderType(BlockState state) {
         return BlockRenderType.MODEL;
-    }
-
-    @Override
-    public void appendTooltip(ItemStack stack, @Nullable BlockView world, List<Text> tooltip, TooltipContext options) {
-        tooltip.add(Text.translatable("info.tlotd.not_yet_implemented").formatted(Formatting.RED));
-        super.appendTooltip(stack, world, tooltip, options);
     }
 }

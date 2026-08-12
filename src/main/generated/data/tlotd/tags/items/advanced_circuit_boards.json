@@ -2,6 +2,8 @@
   "replace": false,
   "values": [
     "tlotd:advanced_circuit_board",
+    "tlotd:arcane_circuit_board",
+    "tlotd:biological_circuit_board",
     "#tlotd:transcendent_circuit_boards"
   ]
 }

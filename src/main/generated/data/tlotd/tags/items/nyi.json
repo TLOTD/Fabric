@@ -1,0 +1,17 @@
+{
+  "replace": false,
+  "values": [
+    "tlotd:sulfur_campfire",
+    "tlotd:daybreak_domain_fragments",
+    "tlotd:somber_blood_orbs",
+    "tlotd:otherworldly_whispers",
+    "tlotd:astral_pickaxe",
+    "tlotd:divine_pickaxe",
+    "tlotd:cataclysmic_pickaxe",
+    "tlotd:eldritch_pickaxe",
+    "tlotd:ominous_alien_key",
+    "tlotd:alien_control_panel",
+    "tlotd:biological_circuit_board",
+    "tlotd:arcane_circuit_board"
+  ]
+}

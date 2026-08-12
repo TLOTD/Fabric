@@ -20,13 +20,12 @@ public class DwarvenForgeGUIHandler extends ScreenHandler {
     public final DwarvenForgeBlockEntity blockEntity;
 
     public DwarvenForgeGUIHandler(int syncId, PlayerInventory inventory, PacketByteBuf buf) {
-        this(syncId, inventory, inventory.player.getWorld().getBlockEntity(buf.readBlockPos()),
-                new ArrayPropertyDelegate(4));
+        this(syncId, inventory, inventory.player.getWorld().getBlockEntity(buf.readBlockPos()), new ArrayPropertyDelegate(3));
     }
 
     public DwarvenForgeGUIHandler(int syncId, PlayerInventory playerInventory, BlockEntity blockEntity, PropertyDelegate propertyDelegate) {
         super(ModGUIHandlers.DWARVEN_FORGE_GUI_HANDLER, syncId);
-        checkSize(((Inventory) blockEntity),10);
+        checkSize(((Inventory) blockEntity), 10);
         this.inventory = ((Inventory) blockEntity);
         inventory.onOpen(playerInventory.player);
         this.propertyDelegate = propertyDelegate;
@@ -51,6 +50,18 @@ public class DwarvenForgeGUIHandler extends ScreenHandler {
         addProperties(propertyDelegate);
     }
 
+    public int getTemperature() {
+        return this.propertyDelegate.get(0);
+    }
+
+    public int getMaxTemperature() {
+        return this.propertyDelegate.get(1);
+    }
+
+    public int getFuelTime() {
+        return this.propertyDelegate.get(2);
+    }
+
     public boolean isHeating() {
         return propertyDelegate.get(0) > 0;
     }
@@ -60,9 +71,9 @@ public class DwarvenForgeGUIHandler extends ScreenHandler {
     }
 
     public int getFireTexturePos() {
-        if(propertyDelegate.get(1)>3000) {
+        if (propertyDelegate.get(1) > 3000) {
             return 28;
-        } else if (propertyDelegate.get(1)>1500) {
+        } else if (propertyDelegate.get(1) > 1500) {
             return 14;
         } else return 0;
     }

@@ -41,15 +41,11 @@ public class TeleporterBlock extends Block implements BlockEntityProvider {
 
     @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {
-        return this.getDefaultState()
-                .with(LINKED, false);
+        return this.getDefaultState().with(LINKED, false);
 
     }
 
-    public static final VoxelShape SHAPE = VoxelShapes.union(
-            Block.createCuboidShape(0, 0, 0, 16, 2, 16),
-            Block.createCuboidShape(1, 2, 1, 15, 4, 15)
-    );
+    public static final VoxelShape SHAPE = VoxelShapes.union(Block.createCuboidShape(0, 0, 0, 16, 2, 16), Block.createCuboidShape(1, 2, 1, 15, 4, 15));
 
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
@@ -73,9 +69,9 @@ public class TeleporterBlock extends Block implements BlockEntityProvider {
             if (teleporter.pos_y != 2147483647) {
                 BlockPos pos2;
                 if (teleporter.relative) {
-                    pos2 = new BlockPos(pos.getX()+teleporter.pos_x,pos.getY()+teleporter.pos_y,pos.getZ()+teleporter.pos_z);
+                    pos2 = new BlockPos(pos.getX() + teleporter.pos_x, pos.getY() + teleporter.pos_y, pos.getZ() + teleporter.pos_z);
                 } else {
-                    pos2 = new BlockPos(teleporter.pos_x,teleporter.pos_y,teleporter.pos_z);
+                    pos2 = new BlockPos(teleporter.pos_x, teleporter.pos_y, teleporter.pos_z);
                 }
                 if (world.getBlockState(pos2).isOf(ModBlocks.TELEPORTER)) {
                     world.setBlockState(pos2, ModBlocks.TELEPORTER.getDefaultState());
@@ -92,17 +88,17 @@ public class TeleporterBlock extends Block implements BlockEntityProvider {
         if (entity.isSneaking() && state.get(LINKED) && blockEntity instanceof TeleporterBlockEntity teleporter && teleporter.pos_y != 2147483647) {
             BlockPos pos2;
             if (teleporter.relative) {
-                pos2 = new BlockPos(pos.getX()+teleporter.pos_x,pos.getY()+teleporter.pos_y,pos.getZ()+teleporter.pos_z);
+                pos2 = new BlockPos(pos.getX() + teleporter.pos_x, pos.getY() + teleporter.pos_y, pos.getZ() + teleporter.pos_z);
             } else {
-                pos2 = new BlockPos(teleporter.pos_x,teleporter.pos_y,teleporter.pos_z);
+                pos2 = new BlockPos(teleporter.pos_x, teleporter.pos_y, teleporter.pos_z);
             }
             if (teleporter.one_way || world.getBlockState(pos2).isOf(ModBlocks.TELEPORTER)) {
                 entity.setSneaking(false);
                 world.playSound(null, pos, SoundEvents.ITEM_CHORUS_FRUIT_TELEPORT, SoundCategory.BLOCKS, 1.0f, 1.0f);
                 if (teleporter.relative) {
-                    entity.teleport(pos.getX()+teleporter.pos_x+0.5,pos.getY()+teleporter.pos_y+0.25,pos.getZ()+teleporter.pos_z+0.5);
+                    entity.teleport(pos.getX() + teleporter.pos_x + 0.5, pos.getY() + teleporter.pos_y + 0.25, pos.getZ() + teleporter.pos_z + 0.5);
                 } else {
-                    entity.teleport(teleporter.pos_x+0.5,teleporter.pos_y+0.25,teleporter.pos_z+0.5);
+                    entity.teleport(teleporter.pos_x + 0.5, teleporter.pos_y + 0.25, teleporter.pos_z + 0.5);
                 }
                 world.playSound(null, pos2, SoundEvents.ITEM_CHORUS_FRUIT_TELEPORT, SoundCategory.BLOCKS, 1.0f, 1.0f);
             }
@@ -118,7 +114,7 @@ public class TeleporterBlock extends Block implements BlockEntityProvider {
                 player.sendMessage(Text.translatable("block.tlotd.teleporter.no_destination_on_drive"), true);
                 world.playSound(null, pos, SoundEvents.ENTITY_VILLAGER_NO, SoundCategory.BLOCKS, 1.0f, 1.0f);
             } else if (!state.get(LINKED)) {
-                BlockPos pos2 = new BlockPos(stack.getNbt().getInt("pos_x"),stack.getNbt().getInt("pos_y"),stack.getNbt().getInt("pos_z"));
+                BlockPos pos2 = new BlockPos(stack.getNbt().getInt("pos_x"), stack.getNbt().getInt("pos_y"), stack.getNbt().getInt("pos_z"));
                 if (pos.equals(pos2)) {
                     player.sendMessage(Text.translatable("block.tlotd.teleporter.destination_same"), true);
                     world.playSound(null, pos, SoundEvents.ENTITY_VILLAGER_NO, SoundCategory.BLOCKS, 1.0f, 1.0f);
@@ -126,8 +122,8 @@ public class TeleporterBlock extends Block implements BlockEntityProvider {
                     if (teleporter.one_way || world.getBlockState(pos2).isOf(ModBlocks.TELEPORTER)) {
                         BlockEntity blockEntity2 = world.getBlockEntity(pos2);
                         if (!world.getBlockState(pos2).get(LINKED) && blockEntity2 instanceof TeleporterBlockEntity teleporter2) {
-                            world.setBlockState(pos,state.with(LINKED, true));
-                            world.setBlockState(pos2,state.with(LINKED, true));
+                            world.setBlockState(pos, state.with(LINKED, true));
+                            world.setBlockState(pos2, state.with(LINKED, true));
                             teleporter.pos_x = stack.getNbt().getInt("pos_x");
                             teleporter.pos_y = stack.getNbt().getInt("pos_y");
                             teleporter.pos_z = stack.getNbt().getInt("pos_z");

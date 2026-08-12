@@ -1,0 +1,7 @@
+{
+    "parent": "tlotd:block/template_signal_transmitter_antenna_1",
+    "textures": {
+        "0": "minecraft:block/copper_block",
+        "particle": "minecraft:block/copper_block"
+    }
+}

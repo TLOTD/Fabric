@@ -86,11 +86,11 @@ public class EnvelopeItem extends Item {
             if (inputStack.isOf(Items.SHEARS)) {
                 unseal(envelope, player);
                 player.playSound(SoundEvents.ENTITY_SHEEP_SHEAR, 1F, 1F + player.getWorld().getRandom().nextFloat() * 0.4F);
-                if(inputStack.getDamage()+1 >= inputStack.getMaxDamage()) {
+                if (inputStack.getDamage() + 1 >= inputStack.getMaxDamage()) {
                     inputStack.decrement(1);
                     player.playSound(SoundEvents.ENTITY_ITEM_BREAK, SoundCategory.PLAYERS, 1f, 1f);
                 } else {
-                    inputStack.setDamage(inputStack.getDamage()+1);
+                    inputStack.setDamage(inputStack.getDamage() + 1);
                 }
                 return true;
             }

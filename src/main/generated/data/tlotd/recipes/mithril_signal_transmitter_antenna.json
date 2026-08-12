@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "C": {
+      "tag": "tlotd:transcendent_circuit_boards"
+    },
+    "I": {
+      "item": "tlotd:mithril_ingot"
+    },
+    "W": {
+      "tag": "tlotd:wires_3"
+    }
+  },
+  "pattern": [
+    " I ",
+    "IWI",
+    "ICI"
+  ],
+  "result": {
+    "item": "tlotd:mithril_signal_transmitter_antenna"
+  },
+  "show_notification": true
+}

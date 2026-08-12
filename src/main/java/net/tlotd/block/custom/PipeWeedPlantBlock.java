@@ -24,7 +24,7 @@ import net.minecraft.world.WorldView;
 import net.tlotd.item.ModItems;
 
 public class PipeWeedPlantBlock extends CropBlock {
-    public static final IntProperty AGE = IntProperty.of("age",0,7);
+    public static final IntProperty AGE = IntProperty.of("age", 0, 7);
     public static final EnumProperty<DoubleBlockHalf> HALF = Properties.DOUBLE_BLOCK_HALF;
     public static final BooleanProperty IGNORE = BooleanProperty.of("ignore");
 
@@ -56,13 +56,13 @@ public class PipeWeedPlantBlock extends CropBlock {
             int currentAge = this.getAge(state);
             if (currentAge < this.getMaxAge()) {
                 float f = getAvailableMoisture(this, world, pos);
-                if (random.nextInt((int)(25.0F / f) + 1) == 0) {
-                    if(currentAge < TOP_START-1) {
+                if (random.nextInt((int) (25.0F / f) + 1) == 0) {
+                    if (currentAge < TOP_START - 1) {
                         world.setBlockState(pos, this.withAge(currentAge + 1), 2);
-                    } else if(!world.getBlockState(pos).get(HALF).equals(DoubleBlockHalf.UPPER) && (world.getBlockState(pos.up(1)).isReplaceable() || world.getBlockState(pos.up(1)).isOf(this))) {
-                        world.setBlockState(pos, this.withAge(currentAge + 1).with(IGNORE,true), 0);
+                    } else if (!world.getBlockState(pos).get(HALF).equals(DoubleBlockHalf.UPPER) && (world.getBlockState(pos.up(1)).isReplaceable() || world.getBlockState(pos.up(1)).isOf(this))) {
+                        world.setBlockState(pos, this.withAge(currentAge + 1).with(IGNORE, true), 0);
                         world.setBlockState(pos.up(1), this.withAge(currentAge + 1).with(HALF, DoubleBlockHalf.UPPER), 2);
-                        world.setBlockState(pos, this.withAge(currentAge + 1).with(IGNORE,false), 2);
+                        world.setBlockState(pos, this.withAge(currentAge + 1).with(IGNORE, false), 2);
                     }
                 }
             }
@@ -86,23 +86,20 @@ public class PipeWeedPlantBlock extends CropBlock {
         }
         if (nextAge < TOP_START) {
             world.setBlockState(pos, this.withAge(nextAge), 2);
-        } else if(world.getBlockState(pos).get(HALF).equals(DoubleBlockHalf.LOWER) && (world.getBlockState(pos.up(1)).isReplaceable() || world.getBlockState(pos.up(1)).isOf(this))) {
-            world.setBlockState(pos, this.withAge(nextAge).with(HALF, DoubleBlockHalf.UPPER).with(IGNORE,true), 0);
-            world.setBlockState(pos.up(1), this.withAge(nextAge).with(HALF,DoubleBlockHalf.UPPER), 2);
-            world.setBlockState(pos, this.withAge(nextAge).with(HALF, DoubleBlockHalf.LOWER).with(IGNORE,false), 2);
+        } else if (world.getBlockState(pos).get(HALF).equals(DoubleBlockHalf.LOWER) && (world.getBlockState(pos.up(1)).isReplaceable() || world.getBlockState(pos.up(1)).isOf(this))) {
+            world.setBlockState(pos, this.withAge(nextAge).with(HALF, DoubleBlockHalf.UPPER).with(IGNORE, true), 0);
+            world.setBlockState(pos.up(1), this.withAge(nextAge).with(HALF, DoubleBlockHalf.UPPER), 2);
+            world.setBlockState(pos, this.withAge(nextAge).with(HALF, DoubleBlockHalf.LOWER).with(IGNORE, false), 2);
         } else if (world.getBlockState(pos).get(HALF).equals(DoubleBlockHalf.UPPER)) {
-            world.setBlockState(pos.down(1), this.withAge(nextAge).with(HALF, DoubleBlockHalf.LOWER).with(IGNORE,true), 0);
+            world.setBlockState(pos.down(1), this.withAge(nextAge).with(HALF, DoubleBlockHalf.LOWER).with(IGNORE, true), 0);
             world.setBlockState(pos, this.withAge(nextAge).with(HALF, DoubleBlockHalf.UPPER), 2);
-            world.setBlockState(pos.down(1), this.withAge(nextAge).with(HALF, DoubleBlockHalf.LOWER).with(IGNORE,false), 2);
+            world.setBlockState(pos.down(1), this.withAge(nextAge).with(HALF, DoubleBlockHalf.LOWER).with(IGNORE, false), 2);
         }
     }
 
     @Override
     public boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
-        return (super.canPlaceAt(state, world, pos) && world.getBlockState(pos).isReplaceable()) ||
-                (super.canPlaceAt(state, world, pos) && world.getBlockState(pos).isOf(this) && world.getBlockState(pos).get(AGE) < TOP_START) ||
-                (super.canPlaceAt(state, world, pos) && world.getBlockState(pos).isOf(this) && world.getBlockState(pos).get(AGE) >= TOP_START && (world.getBlockState(pos).get(IGNORE) || world.getBlockState(pos.up(1)).isOf(this) && world.getBlockState(pos.up(1)).get(AGE) >= TOP_START)) ||
-                (world.getBlockState(pos).isOf(this) && world.getBlockState(pos).get(HALF).equals(DoubleBlockHalf.UPPER) && (world.getBlockState(pos.down(1)).isOf(this) && !world.getBlockState(pos.down(1)).get(HALF).equals(DoubleBlockHalf.UPPER)) && world.getBlockState(pos.down(1)).get(AGE) >= TOP_START);
+        return (super.canPlaceAt(state, world, pos) && world.getBlockState(pos).isReplaceable()) || (super.canPlaceAt(state, world, pos) && world.getBlockState(pos).isOf(this) && world.getBlockState(pos).get(AGE) < TOP_START) || (super.canPlaceAt(state, world, pos) && world.getBlockState(pos).isOf(this) && world.getBlockState(pos).get(AGE) >= TOP_START && (world.getBlockState(pos).get(IGNORE) || world.getBlockState(pos.up(1)).isOf(this) && world.getBlockState(pos.up(1)).get(AGE) >= TOP_START)) || (world.getBlockState(pos).isOf(this) && world.getBlockState(pos).get(HALF).equals(DoubleBlockHalf.UPPER) && (world.getBlockState(pos.down(1)).isOf(this) && !world.getBlockState(pos.down(1)).get(HALF).equals(DoubleBlockHalf.UPPER)) && world.getBlockState(pos.down(1)).get(AGE) >= TOP_START);
     }
 
     @Override
@@ -131,9 +128,27 @@ public class PipeWeedPlantBlock extends CropBlock {
             case 1 -> STAGE_1;
             case 2 -> STAGE_2;
             case 3 -> STAGE_3;
-            case 4 -> {if(state.get(HALF) == DoubleBlockHalf.UPPER){yield STAGE_4;}else{yield DEFAULT;}}
-            case 5 -> {if(state.get(HALF) == DoubleBlockHalf.UPPER){yield STAGE_5;}else{yield DEFAULT;}}
-            case 6,7 -> {if(state.get(HALF) == DoubleBlockHalf.UPPER){yield STAGE_6;}else{yield DEFAULT;}}
+            case 4 -> {
+                if (state.get(HALF) == DoubleBlockHalf.UPPER) {
+                    yield STAGE_4;
+                } else {
+                    yield DEFAULT;
+                }
+            }
+            case 5 -> {
+                if (state.get(HALF) == DoubleBlockHalf.UPPER) {
+                    yield STAGE_5;
+                } else {
+                    yield DEFAULT;
+                }
+            }
+            case 6, 7 -> {
+                if (state.get(HALF) == DoubleBlockHalf.UPPER) {
+                    yield STAGE_6;
+                } else {
+                    yield DEFAULT;
+                }
+            }
             default -> DEFAULT;
         };
     }

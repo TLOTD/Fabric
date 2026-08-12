@@ -64,13 +64,13 @@ public class ExitSignBlock extends Block {
         this.setDefaultState(this.stateManager.getDefaultState().with(FACE, WallMountLocation.WALL).with(FACING, Direction.NORTH).with(WATERLOGGED, false));
     }
 
-    private static final VoxelShape X_AXIS_SHAPE = Block.createCuboidShape(6,6,0,10,16,16);
-    private static final VoxelShape Z_AXIS_SHAPE = Block.createCuboidShape(0,6,6,16,16,10);
+    private static final VoxelShape X_AXIS_SHAPE = Block.createCuboidShape(6, 6, 0, 10, 16, 16);
+    private static final VoxelShape Z_AXIS_SHAPE = Block.createCuboidShape(0, 6, 6, 16, 16, 10);
 
-    private static final VoxelShape EAST_SHAPE = Block.createCuboidShape(12,4,0,16,12,16);
-    private static final VoxelShape WEST_SHAPE = Block.createCuboidShape(0,4,0,4,12,16);
-    private static final VoxelShape SOUTH_SHAPE = Block.createCuboidShape(0,4,12,16,12,16);
-    private static final VoxelShape NORTH_SHAPE = Block.createCuboidShape(0,4,0,16,12,4);
+    private static final VoxelShape EAST_SHAPE = Block.createCuboidShape(12, 4, 0, 16, 12, 16);
+    private static final VoxelShape WEST_SHAPE = Block.createCuboidShape(0, 4, 0, 4, 12, 16);
+    private static final VoxelShape SOUTH_SHAPE = Block.createCuboidShape(0, 4, 12, 16, 12, 16);
+    private static final VoxelShape NORTH_SHAPE = Block.createCuboidShape(0, 4, 0, 16, 12, 4);
 
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {

@@ -20,30 +20,36 @@ import net.fabricmc.fabric.impl.itemgroup.FabricItemGroup;
 @Mixin(CreativeInventoryScreen.class)
 public abstract class CustomCreativeTabMixin {
 
-    @Shadow private static ItemGroup selectedTab;
-    @Unique private static final Identifier TAB_TLOTD_BG = new Identifier(TLOTD.MOD_ID, "textures/gui/container/creative_inventory/tab_tlotd.png");
-    @Unique private static final Identifier TAB_TLOTD_SCROLL = new Identifier(TLOTD.MOD_ID, "textures/gui/container/creative_inventory/tab_tlotd_scrollbar.png");
-    @Unique private static final Identifier TAB_TOP_SELECTED = new Identifier(TLOTD.MOD_ID, "textures/gui/container/creative_inventory/tab_tlotd_top_selected.png");
-    @Unique private static final Identifier TAB_TOP_INACTIVE = new Identifier(TLOTD.MOD_ID, "textures/gui/container/creative_inventory/tab_tlotd_top_inactive.png");
-    @Unique private static final Identifier TAB_BOTTOM_SELECTED = new Identifier(TLOTD.MOD_ID, "textures/gui/container/creative_inventory/tab_tlotd_bottom_selected.png");
-    @Unique private static final Identifier TAB_BOTTOM_INACTIVE = new Identifier(TLOTD.MOD_ID, "textures/gui/container/creative_inventory/tab_tlotd_bottom_inactive.png");
-    @Unique private static final Identifier TAB_TLOTD_RNV_BG = new Identifier(TLOTD.MOD_ID, "textures/gui/container/creative_inventory/tab_tlotd_roads_n_vehicles.png");
-    @Unique private static final Identifier TAB_TLOTD_RNV_SCROLL = new Identifier(TLOTD.MOD_ID, "textures/gui/container/creative_inventory/tab_tlotd_roads_n_vehicles_scrollbar.png");
-    @Unique private static final Identifier TAB_TOP_RNV_SELECTED = new Identifier(TLOTD.MOD_ID, "textures/gui/container/creative_inventory/tab_tlotd_roads_n_vehicles_top_selected.png");
-    @Unique private static final Identifier TAB_TOP_RNV_INACTIVE = new Identifier(TLOTD.MOD_ID, "textures/gui/container/creative_inventory/tab_tlotd_roads_n_vehicles_top_inactive.png");
-    @Unique private static final Identifier TAB_BOTTOM_RNV_SELECTED = new Identifier(TLOTD.MOD_ID, "textures/gui/container/creative_inventory/tab_tlotd_roads_n_vehicles_bottom_selected.png");
-    @Unique private static final Identifier TAB_BOTTOM_RNV_INACTIVE = new Identifier(TLOTD.MOD_ID, "textures/gui/container/creative_inventory/tab_tlotd_roads_n_vehicles_bottom_inactive.png");
+    @Shadow
+    private static ItemGroup selectedTab;
+    @Unique
+    private static final Identifier TAB_TLOTD_BG = new Identifier(TLOTD.MOD_ID, "textures/gui/container/creative_inventory/tab_tlotd.png");
+    @Unique
+    private static final Identifier TAB_TLOTD_SCROLL = new Identifier(TLOTD.MOD_ID, "textures/gui/container/creative_inventory/tab_tlotd_scrollbar.png");
+    @Unique
+    private static final Identifier TAB_TOP_SELECTED = new Identifier(TLOTD.MOD_ID, "textures/gui/container/creative_inventory/tab_tlotd_top_selected.png");
+    @Unique
+    private static final Identifier TAB_TOP_INACTIVE = new Identifier(TLOTD.MOD_ID, "textures/gui/container/creative_inventory/tab_tlotd_top_inactive.png");
+    @Unique
+    private static final Identifier TAB_BOTTOM_SELECTED = new Identifier(TLOTD.MOD_ID, "textures/gui/container/creative_inventory/tab_tlotd_bottom_selected.png");
+    @Unique
+    private static final Identifier TAB_BOTTOM_INACTIVE = new Identifier(TLOTD.MOD_ID, "textures/gui/container/creative_inventory/tab_tlotd_bottom_inactive.png");
+    @Unique
+    private static final Identifier TAB_TLOTD_RNV_BG = new Identifier(TLOTD.MOD_ID, "textures/gui/container/creative_inventory/tab_tlotd_roads_n_vehicles.png");
+    @Unique
+    private static final Identifier TAB_TLOTD_RNV_SCROLL = new Identifier(TLOTD.MOD_ID, "textures/gui/container/creative_inventory/tab_tlotd_roads_n_vehicles_scrollbar.png");
+    @Unique
+    private static final Identifier TAB_TOP_RNV_SELECTED = new Identifier(TLOTD.MOD_ID, "textures/gui/container/creative_inventory/tab_tlotd_roads_n_vehicles_top_selected.png");
+    @Unique
+    private static final Identifier TAB_TOP_RNV_INACTIVE = new Identifier(TLOTD.MOD_ID, "textures/gui/container/creative_inventory/tab_tlotd_roads_n_vehicles_top_inactive.png");
+    @Unique
+    private static final Identifier TAB_BOTTOM_RNV_SELECTED = new Identifier(TLOTD.MOD_ID, "textures/gui/container/creative_inventory/tab_tlotd_roads_n_vehicles_bottom_selected.png");
+    @Unique
+    private static final Identifier TAB_BOTTOM_RNV_INACTIVE = new Identifier(TLOTD.MOD_ID, "textures/gui/container/creative_inventory/tab_tlotd_roads_n_vehicles_bottom_inactive.png");
 
     ItemGroup TLOTD_4_ROADS_N_VEHICLES_GROUP = Registries.ITEM_GROUP.get(new Identifier("roads-n-vehicles", "4_items"));
 
-    @Inject(
-            method = "drawBackground",
-            at = @At(
-                    value = "INVOKE",
-                    target = "Lnet/minecraft/client/gui/DrawContext;drawTexture(Lnet/minecraft/util/Identifier;IIIIII)V",
-                    shift = At.Shift.AFTER
-            )
-    )
+    @Inject(method = "drawBackground", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/DrawContext;drawTexture(Lnet/minecraft/util/Identifier;IIIIII)V", shift = At.Shift.AFTER))
     private void drawCustomBackgroundAndScrollbar(DrawContext context, float delta, int mouseX, int mouseY, CallbackInfo ci) {
         CreativeInventoryScreen screen = (CreativeInventoryScreen) (Object) this;
         HandledScreenAccessor hs = (HandledScreenAccessor) screen;
@@ -71,28 +77,22 @@ public abstract class CustomCreativeTabMixin {
     private void mymod$drawCustomTabIcon(DrawContext context, ItemGroup group, CallbackInfo ci) {
         boolean rnv = CompatModsCheck.ROADS_N_VEHICLES && (group == TLOTD_4_ROADS_N_VEHICLES_GROUP);
         if (!CompatModsCheck.FORGE && (group == ModItemGroups.TLOTD_1_MATERIALS_GROUP || group == ModItemGroups.TLOTD_2_WEAPONS_TOOLS_UTILITIES_GROUP || group == ModItemGroups.TLOTD_3_BLOCKS_GROUP || group == ModItemGroups.TLOTD_9_COMPAT_GROUP || rnv)) {
-                int currentPage = (selectedTab instanceof FabricItemGroup)
-                        ? ((FabricItemGroup) selectedTab).getPage()
-                        : 0;
-                int groupPage = (group instanceof FabricItemGroup)
-                        ? ((FabricItemGroup) group).getPage()
-                        : 0;
-                if (groupPage != currentPage) return;
-                CreativeInventoryScreen screen = (CreativeInventoryScreen) (Object) this;
-                HandledScreenAccessor accessor = (HandledScreenAccessor) screen;
-                int x = accessor.getX();
-                int y = accessor.getY();
-                int bgHeight = accessor.getBackgroundHeight();
-                boolean topRow = group.getRow() == ItemGroup.Row.TOP;
-                int column = group.getColumn();
-                int tabX = x + column * 27;
-                int tabY = y + (topRow ? -28 : (bgHeight - 6));
-                Identifier texture = (selectedTab == group)
-                        ? (topRow ? (rnv ? TAB_TOP_RNV_SELECTED : TAB_TOP_SELECTED) : (rnv ? TAB_BOTTOM_RNV_SELECTED : TAB_BOTTOM_SELECTED))
-                        : (topRow ? (rnv ? TAB_TOP_RNV_INACTIVE : TAB_TOP_INACTIVE) : (rnv ? TAB_BOTTOM_RNV_INACTIVE : TAB_BOTTOM_INACTIVE));
-                context.drawTexture(texture, tabX, tabY, 0, 0, 26, 32, 32, 32);
-                context.drawItem(group.getIcon(), tabX + 5, tabY + 9);
-                ci.cancel();
+            int currentPage = (selectedTab instanceof FabricItemGroup) ? ((FabricItemGroup) selectedTab).getPage() : 0;
+            int groupPage = (group instanceof FabricItemGroup) ? ((FabricItemGroup) group).getPage() : 0;
+            if (groupPage != currentPage) return;
+            CreativeInventoryScreen screen = (CreativeInventoryScreen) (Object) this;
+            HandledScreenAccessor accessor = (HandledScreenAccessor) screen;
+            int x = accessor.getX();
+            int y = accessor.getY();
+            int bgHeight = accessor.getBackgroundHeight();
+            boolean topRow = group.getRow() == ItemGroup.Row.TOP;
+            int column = group.getColumn();
+            int tabX = x + column * 27;
+            int tabY = y + (topRow ? -28 : (bgHeight - 6));
+            Identifier texture = (selectedTab == group) ? (topRow ? (rnv ? TAB_TOP_RNV_SELECTED : TAB_TOP_SELECTED) : (rnv ? TAB_BOTTOM_RNV_SELECTED : TAB_BOTTOM_SELECTED)) : (topRow ? (rnv ? TAB_TOP_RNV_INACTIVE : TAB_TOP_INACTIVE) : (rnv ? TAB_BOTTOM_RNV_INACTIVE : TAB_BOTTOM_INACTIVE));
+            context.drawTexture(texture, tabX, tabY, 0, 0, 26, 32, 32, 32);
+            context.drawItem(group.getIcon(), tabX + 5, tabY + 9);
+            ci.cancel();
         }
     }
 }

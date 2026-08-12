@@ -21,13 +21,12 @@ public class WitchingTableGUIHandler extends ScreenHandler {
     public FluidStack fluidStack;
 
     public WitchingTableGUIHandler(int syncId, PlayerInventory inventory, PacketByteBuf buf) {
-        this(syncId, inventory, inventory.player.getWorld().getBlockEntity(buf.readBlockPos()),
-                new ArrayPropertyDelegate(2));
+        this(syncId, inventory, inventory.player.getWorld().getBlockEntity(buf.readBlockPos()), new ArrayPropertyDelegate(5));
     }
 
     public WitchingTableGUIHandler(int syncId, PlayerInventory playerInventory, BlockEntity blockEntity, PropertyDelegate arrayPropertyDelegate) {
         super(ModGUIHandlers.WITCHING_TABLE_GUI_HANDLER, syncId);
-        checkSize(((Inventory) blockEntity),11);
+        checkSize(((Inventory) blockEntity), 11);
         this.inventory = ((Inventory) blockEntity);
         inventory.onOpen(playerInventory.player);
         this.propertyDelegate = arrayPropertyDelegate;
@@ -115,5 +114,17 @@ public class WitchingTableGUIHandler extends ScreenHandler {
         for (int i = 0; i < 9; ++i) {
             this.addSlot(new Slot(playerInventory, i, 8 + i * 18, 142));
         }
+    }
+
+    public int getNormalSouls() {
+        return propertyDelegate.get(2);
+    }
+
+    public int getCursedSouls() {
+        return propertyDelegate.get(3);
+    }
+
+    public int getAbyssalSouls() {
+        return propertyDelegate.get(4);
     }
 }

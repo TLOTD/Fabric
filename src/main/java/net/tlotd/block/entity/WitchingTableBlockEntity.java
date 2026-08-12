@@ -106,6 +106,9 @@ public class WitchingTableBlockEntity extends BlockEntity implements ExtendedScr
                 return switch (index) {
                     case 0 -> WitchingTableBlockEntity.this.progress;
                     case 1 -> WitchingTableBlockEntity.this.maxProgress;
+                    case 2 -> WitchingTableBlockEntity.this.getCachedState().get(SOUL_CHARGES);
+                    case 3 -> WitchingTableBlockEntity.this.getCachedState().get(CURSED_SOUL_CHARGES);
+                    case 4 -> WitchingTableBlockEntity.this.getCachedState().get(ABYSSAL_SOUL_CHARGES);
                     default -> 0;
                 };
             }
@@ -120,7 +123,7 @@ public class WitchingTableBlockEntity extends BlockEntity implements ExtendedScr
 
             @Override
             public int size() {
-                return 2;
+                return 5;
             }
         };
     }

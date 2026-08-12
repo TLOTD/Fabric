@@ -1,6 +1,0 @@
-{
-  "variants": {
-    "half=lower":{"model":"tlotd:block/signal_transmitter_antenna_lower"},
-    "half=upper":{"model":"tlotd:block/signal_transmitter_antenna_upper"}
-  }
-}

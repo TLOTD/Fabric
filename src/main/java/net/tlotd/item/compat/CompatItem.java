@@ -26,7 +26,7 @@ public class CompatItem extends Item {
 
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        if (context.isCreative()){
+        if (context.isCreative()) {
             Style style = this.getName().getStyle();
             if (compat.contains("aet")) {
                 tooltip.add(Text.literal("\uE008 ").setStyle(style.withFont(MODS_FONT_ID)).append(Text.translatable("mod.aether.name").setStyle(style.withFont(DEFAULT_FONT_ID).withFormatting(Formatting.GRAY))));

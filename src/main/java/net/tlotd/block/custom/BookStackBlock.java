@@ -30,14 +30,11 @@ public class BookStackBlock extends Block {
 
     public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
     public static final DirectionProperty FACING = HorizontalFacingBlock.FACING;
-    public static final IntProperty BOOKS = IntProperty.of("books", 1,4);
+    public static final IntProperty BOOKS = IntProperty.of("books", 1, 4);
 
     @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {
-        return this.getDefaultState()
-                .with(FACING, ctx.getHorizontalPlayerFacing())
-                .with(WATERLOGGED, ctx.getWorld().getFluidState(ctx.getBlockPos()).isOf(Fluids.WATER))
-                .with(BOOKS, 1);
+        return this.getDefaultState().with(FACING, ctx.getHorizontalPlayerFacing()).with(WATERLOGGED, ctx.getWorld().getFluidState(ctx.getBlockPos()).isOf(Fluids.WATER)).with(BOOKS, 1);
     }
 
     @Override
@@ -71,7 +68,7 @@ public class BookStackBlock extends Block {
 
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        return Block.createCuboidShape(3, 0, 3, 13, state.get(BOOKS)*4, 13);
+        return Block.createCuboidShape(3, 0, 3, 13, state.get(BOOKS) * 4, 13);
     }
 
     @Override

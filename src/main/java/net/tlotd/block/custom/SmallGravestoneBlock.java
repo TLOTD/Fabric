@@ -34,10 +34,7 @@ public class SmallGravestoneBlock extends GravestoneBlock {
                 special = true;
             }
         }
-        return this.getDefaultState()
-                .with(SPECIAL, special)
-                .with(FACING, ctx.getHorizontalPlayerFacing())
-                .with(WATERLOGGED, ctx.getWorld().getFluidState(ctx.getBlockPos()).isOf(Fluids.WATER));
+        return this.getDefaultState().with(SPECIAL, special).with(FACING, ctx.getHorizontalPlayerFacing()).with(WATERLOGGED, ctx.getWorld().getFluidState(ctx.getBlockPos()).isOf(Fluids.WATER));
     }
 
     @Override

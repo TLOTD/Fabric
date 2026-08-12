@@ -24,7 +24,7 @@ public class CalamitySpawnItem extends SpawnEggItem {
 
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        if (context.isCreative()){
+        if (context.isCreative()) {
             Style style = this.getName().getStyle();
             tooltip.add(Text.literal("\uE010 ").setStyle(style.withFont(MODS_FONT_ID)).append(Text.translatable("mod.spore.name").setStyle(style.withFont(DEFAULT_FONT_ID).withFormatting(Formatting.GRAY))));
             super.appendTooltip(stack, world, tooltip, context);

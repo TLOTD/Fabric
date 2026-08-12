@@ -27,7 +27,7 @@ import net.tlotd.block.enum_property.NoClipable;
 
 public class NoClipMoistCarpetBlock extends NoClipBlock {
 
-    public static final IntProperty MOISTURE = IntProperty.of("moisture", 0,3);
+    public static final IntProperty MOISTURE = IntProperty.of("moisture", 0, 3);
 
     public NoClipMoistCarpetBlock(Settings settings) {
         super(settings);
@@ -48,7 +48,7 @@ public class NoClipMoistCarpetBlock extends NoClipBlock {
                 world.addBlockBreakParticles(pos, state);
                 world.setBlockState(pos, ModBlocks.FLOOR_TILE.getDefaultState().with(NOCLIPABLE, state.get(NOCLIPABLE)));
                 if (player.getStackInHand(hand).isIn(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "shears"))) || player.getStackInHand(hand).isIn(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "axes")))) {
-                    player.getStackInHand(hand).damage(1, player,e -> e.sendEquipmentBreakStatus(player.getMainHandStack().isIn(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "shears"))) || player.getMainHandStack().isIn(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "axes"))) ? EquipmentSlot.MAINHAND : EquipmentSlot.OFFHAND));
+                    player.getStackInHand(hand).damage(1, player, e -> e.sendEquipmentBreakStatus(player.getMainHandStack().isIn(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "shears"))) || player.getMainHandStack().isIn(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "axes"))) ? EquipmentSlot.MAINHAND : EquipmentSlot.OFFHAND));
                 }
             }
             return ActionResult.SUCCESS;

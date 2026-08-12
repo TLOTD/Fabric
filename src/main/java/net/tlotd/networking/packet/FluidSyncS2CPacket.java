@@ -11,17 +11,15 @@ import net.minecraft.network.PacketByteBuf;
 import net.minecraft.util.math.BlockPos;
 
 public class FluidSyncS2CPacket {
-    public static void receive(MinecraftClient client, ClientPlayNetworkHandler handler,
-                               PacketByteBuf buf, PacketSender responseSender) {
+    public static void receive(MinecraftClient client, ClientPlayNetworkHandler handler, PacketByteBuf buf, PacketSender responseSender) {
         FluidVariant variant = FluidVariant.fromPacket(buf);
         long fluidLevel = buf.readLong();
         BlockPos position = buf.readBlockPos();
 
-        if(client.world.getBlockEntity(position) instanceof WitchingTableBlockEntity blockEntity) {
+        if (client.world.getBlockEntity(position) instanceof WitchingTableBlockEntity blockEntity) {
             blockEntity.setFluidLevel(variant, fluidLevel);
 
-            if(client.player.currentScreenHandler instanceof WitchingTableGUIHandler screenHandler &&
-                    screenHandler.blockEntity.getPos().equals(position)) {
+            if (client.player.currentScreenHandler instanceof WitchingTableGUIHandler screenHandler && screenHandler.blockEntity.getPos().equals(position)) {
                 blockEntity.setFluidLevel(variant, fluidLevel);
                 screenHandler.setFluid(new FluidStack(variant, fluidLevel));
             }

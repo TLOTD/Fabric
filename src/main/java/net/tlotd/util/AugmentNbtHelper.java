@@ -34,8 +34,8 @@ public class AugmentNbtHelper {
         } else if (stack.isIn(ModTags.Items.ONE_AUGMENT_SLOT)) {
             maxSlots = 1;
         }
-        if (getAugmentLevel(stack,"tlotd:slot_expansion") > 0) {
-            maxSlots += 1+getAugmentLevel(stack,"tlotd:slot_expansion");
+        if (getAugmentLevel(stack, "tlotd:slot_expansion") > 0) {
+            maxSlots += 1 + getAugmentLevel(stack, "tlotd:slot_expansion");
         }
         NbtCompound nbt = stack.getNbt();
         NbtList augments = nbt.getList("Augments", NbtElement.COMPOUND_TYPE);

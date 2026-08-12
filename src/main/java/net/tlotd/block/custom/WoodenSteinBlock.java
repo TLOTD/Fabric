@@ -48,24 +48,12 @@ public class WoodenSteinBlock extends Block {
         this.setDefaultState(this.stateManager.getDefaultState().with(FACING, Direction.NORTH));
     }
 
-    private static final VoxelShape BASE_SHAPE = Block.createCuboidShape(5,0,5,11,8,11);
+    private static final VoxelShape BASE_SHAPE = Block.createCuboidShape(5, 0, 5, 11, 8, 11);
 
-    public static final VoxelShape WEST_SHAPE = VoxelShapes.union(
-            Block.createCuboidShape(7.5, 2.0, 3.0, 8.5, 7.0, 5.0),
-            BASE_SHAPE
-    );
-    public static final VoxelShape NORTH_SHAPE = VoxelShapes.union(
-            Block.createCuboidShape(11.0, 2.0, 7.5, 13.0, 7.0, 8.5),
-            BASE_SHAPE
-    );
-    public static final VoxelShape EAST_SHAPE = VoxelShapes.union(
-            Block.createCuboidShape(7.5, 2.0, 11.0, 8.5, 7.0, 13.0),
-            BASE_SHAPE
-    );
-    public static final VoxelShape SOUTH_SHAPE = VoxelShapes.union(
-            Block.createCuboidShape(3.0, 2.0, 7.5, 5.0, 7.0, 8.5),
-            BASE_SHAPE
-    );
+    public static final VoxelShape WEST_SHAPE = VoxelShapes.union(Block.createCuboidShape(7.5, 2.0, 3.0, 8.5, 7.0, 5.0), BASE_SHAPE);
+    public static final VoxelShape NORTH_SHAPE = VoxelShapes.union(Block.createCuboidShape(11.0, 2.0, 7.5, 13.0, 7.0, 8.5), BASE_SHAPE);
+    public static final VoxelShape EAST_SHAPE = VoxelShapes.union(Block.createCuboidShape(7.5, 2.0, 11.0, 8.5, 7.0, 13.0), BASE_SHAPE);
+    public static final VoxelShape SOUTH_SHAPE = VoxelShapes.union(Block.createCuboidShape(3.0, 2.0, 7.5, 5.0, 7.0, 8.5), BASE_SHAPE);
 
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
@@ -86,7 +74,7 @@ public class WoodenSteinBlock extends Block {
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         if (!this.equals(ModBlocks.WOODEN_STEIN)) {
-            player.getHungerManager().add(1,0.1f);
+            player.getHungerManager().add(1, 0.1f);
             if (this.equals(ModBlocks.WOODEN_BEER_STEIN) || this.equals(ModBlocks.WOODEN_MEAD_STEIN)) {
                 player.addStatusEffect(new StatusEffectInstance(ModEffects.DRUNKENNESS, 600));
                 hydrate(player, 5);
@@ -127,7 +115,7 @@ public class WoodenSteinBlock extends Block {
             player.writeCustomDataToNbt(tag);
             if (!tag.contains("thirstLevel")) return;
             int hydration = tag.getInt("thirstLevel");
-            hydration = Math.max(0, Math.min(hydration+amount, 20));
+            hydration = Math.max(0, Math.min(hydration + amount, 20));
             tag.putInt("thirstLevel", hydration);
             player.readCustomDataFromNbt(tag);
         }

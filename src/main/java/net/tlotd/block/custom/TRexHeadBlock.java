@@ -29,9 +29,7 @@ public class TRexHeadBlock extends Block implements Equipment {
 
     @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {
-        return this.getDefaultState()
-                .with(ROTATION, RotationPropertyHelper.fromYaw(ctx.getPlayerYaw()))
-                .with(WATERLOGGED, ctx.getWorld().getFluidState(ctx.getBlockPos()).isOf(Fluids.WATER));
+        return this.getDefaultState().with(ROTATION, RotationPropertyHelper.fromYaw(ctx.getPlayerYaw())).with(WATERLOGGED, ctx.getWorld().getFluidState(ctx.getBlockPos()).isOf(Fluids.WATER));
     }
 
     public BlockState rotate(BlockState state, BlockRotation rotation) {
@@ -66,7 +64,7 @@ public class TRexHeadBlock extends Block implements Equipment {
         this.setDefaultState(this.stateManager.getDefaultState().with(ROTATION, 0).with(WATERLOGGED, false));
     }
 
-    private static final VoxelShape BASE_SHAPE = Block.createCuboidShape(2,0,2,14,15,14);
+    private static final VoxelShape BASE_SHAPE = Block.createCuboidShape(2, 0, 2, 14, 15, 14);
 
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {

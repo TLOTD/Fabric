@@ -39,8 +39,7 @@ public class AugmentationTableBlock extends BlockWithEntity implements BlockEnti
 
     @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {
-        return this.getDefaultState()
-                .with(WATERLOGGED, ctx.getWorld().getFluidState(ctx.getBlockPos()).isOf(Fluids.WATER));
+        return this.getDefaultState().with(WATERLOGGED, ctx.getWorld().getFluidState(ctx.getBlockPos()).isOf(Fluids.WATER));
     }
 
     @Override
@@ -61,7 +60,7 @@ public class AugmentationTableBlock extends BlockWithEntity implements BlockEnti
         if (state.getBlock() != newState.getBlock()) {
             BlockEntity blockEntity = world.getBlockEntity(pos);
             if (blockEntity instanceof AugmentationTableBlockEntity) {
-                ItemScatterer.spawn(world, pos, (AugmentationTableBlockEntity)blockEntity);
+                ItemScatterer.spawn(world, pos, (AugmentationTableBlockEntity) blockEntity);
                 world.updateComparators(pos, this);
             }
             super.onStateReplaced(state, world, pos, newState, moved);
@@ -78,7 +77,7 @@ public class AugmentationTableBlock extends BlockWithEntity implements BlockEnti
         this.setDefaultState(this.stateManager.getDefaultState().with(WATERLOGGED, false));
     }
 
-    private static final VoxelShape SHAPE = Block.createCuboidShape(0,0,0,16,12,16);
+    private static final VoxelShape SHAPE = Block.createCuboidShape(0, 0, 0, 16, 12, 16);
 
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
@@ -112,8 +111,7 @@ public class AugmentationTableBlock extends BlockWithEntity implements BlockEnti
 
     @Override
     public @Nullable <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        return checkType(type, ModBlockEntities.AUGMENTATION_TABLE_BLOCK_ENTITY,
-                (world1, pos, state1, blockEntity) -> blockEntity.tick(world1, pos, state1));
+        return checkType(type, ModBlockEntities.AUGMENTATION_TABLE_BLOCK_ENTITY, (world1, pos, state1, blockEntity) -> blockEntity.tick(world1, pos, state1));
     }
 
     @Override
