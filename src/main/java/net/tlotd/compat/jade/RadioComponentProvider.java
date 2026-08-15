@@ -8,6 +8,7 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Vec2f;
 import net.tlotd.TLOTD;
+import net.tlotd.block.custom.RadioBlock;
 import net.tlotd.block.entity.RadioBlockEntity;
 import snownee.jade.api.BlockAccessor;
 import snownee.jade.api.IBlockComponentProvider;
@@ -22,13 +23,19 @@ public enum RadioComponentProvider implements IBlockComponentProvider, IServerDa
 
     @Override
     public void appendTooltip(ITooltip tooltip, BlockAccessor accessor, IPluginConfig config) {
-        String currentTrack = accessor.getServerData().getString("currentTrack");
-        if (!currentTrack.isEmpty()) {
-            Item item = Registries.ITEM.get(Identifier.tryParse(currentTrack));
-            IElementHelper elements = tooltip.getElementHelper();
-            IElement game_element = elements.item(new ItemStack(item), 0.5f).translate(new Vec2f(0, -1));
-            tooltip.add(game_element);
-            tooltip.append(Text.literal(" ").append(Text.translatable(item.getTranslationKey() + ".desc")));
+        if (!accessor.getBlockState().get(RadioBlock.ON)) {
+            tooltip.add(Text.translatable("block.tlotd.radio.off"));
+        } else {
+            String currentTrack = accessor.getServerData().getString("currentTrack");
+            if (currentTrack.isEmpty()) {
+                tooltip.add(Text.translatable("block.tlotd.radio.list_empty"));
+            } else {
+                Item item = Registries.ITEM.get(Identifier.tryParse(currentTrack));
+                IElementHelper elements = tooltip.getElementHelper();
+                IElement game_element = elements.item(new ItemStack(item), 0.5f).translate(new Vec2f(0, -1));
+                tooltip.add(game_element);
+                tooltip.append(Text.literal(" ").append(Text.translatable(item.getTranslationKey() + ".desc")));
+            }
         }
     }
 

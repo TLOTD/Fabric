@@ -1,4 +1,17 @@
 {
+  "modmenu.tlotd": "TLOTD",
+
+  "tlotd.display_source.signal_transmitter_info": "Sendeinfo",
+  "tlotd.display_source.signal_transmitter_strength": "Sendestatus",
+  "tlotd.display_source.signal_transmitter_active": "Sendestärke",
+  "tlotd.display_source.signal_transmitter_range": "Sendeweite",
+  "tlotd.display_source.signal_transmitter_signal_count": "Signalanzahl",
+  "tlotd.display_source.signal_transmitter_signal_list": "Signalliste",
+
+  "tlotd.display_source.radio_track": "Radio-Titel",
+
+  "tlotd.display_source.television_channel": "Fernsehsender",
+
   "itemgroup.tlotd.materials": "TLOTD Werkstoffe",
   "itemgroup.tlotd.weapons_tools_and_utilities": "TLOTD Waffen, Werkzeuge & Hilfsmittel",
   "itemgroup.tlotd.blocks": "TLOTD Baublöcke",
@@ -1030,9 +1043,11 @@
   "block.tlotd.radio.tooltip": "Frequenzen können",
   "block.tlotd.radio.tooltip_2": "erweitert werden mit:",
   "block.tlotd.radio.list_empty": "Keine Signale werden momentan ausgestrahlt.",
+  "block.tlotd.radio.off": "Ausgeschalten",
   "block.tlotd.television": "Fernseher",
   "block.tlotd.television.tooltip": "Kanäle können erweitert werden mit:",
   "block.tlotd.television.tooltip_2": "Zusätzliche Funktionalität auf:",
+  "block.tlotd.television.off": "Ausgeschalten",
   "block.tlotd.videocassette_recorder": "Videokassettenrekorder",
   "block.tlotd.videocassette_recorder.tooltip": "Kann plaziert werden in:",
   "block.tlotd.game_console": "Spielkonsole",
@@ -1085,6 +1100,7 @@
   "block.tlotd.signal_transmitter.signal_range.one_line": "%1$s %2$s",
   "block.tlotd.signal_transmitter.active": "Aktiv",
   "block.tlotd.signal_transmitter.inactive": "Inaktiv",
+  "block.tlotd.signal_transmitter.not_found": "Keine Sender gefunden",
 
   "block.tlotd.teleporter": "Teleporter",
   "block.tlotd.teleporter.location_copied": "Position auf Datenträger kopiert",

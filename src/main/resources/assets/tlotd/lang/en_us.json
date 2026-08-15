@@ -1,6 +1,17 @@
 {
   "modmenu.tlotd": "TLOTD",
 
+  "tlotd.display_source.signal_transmitter_info": "Station Info",
+  "tlotd.display_source.signal_transmitter_strength": "Station State",
+  "tlotd.display_source.signal_transmitter_active": "Station Strength",
+  "tlotd.display_source.signal_transmitter_range": "Station Range",
+  "tlotd.display_source.signal_transmitter_signal_count": "Signal Count",
+  "tlotd.display_source.signal_transmitter_signal_list": "Signal List",
+
+  "tlotd.display_source.radio_track": "Radio Track",
+
+  "tlotd.display_source.television_channel": "Television Channel",
+
   "itemgroup.tlotd.materials": "TLOTD Materials",
   "itemgroup.tlotd.weapons_tools_and_utilities": "TLOTD Weapons, Tools & Utilities",
   "itemgroup.tlotd.blocks": "TLOTD Blocks",
@@ -1328,9 +1339,11 @@
   "block.tlotd.radio.tooltip": "Frequencies can",
   "block.tlotd.radio.tooltip_2": "be expanded by:",
   "block.tlotd.radio.list_empty": "No signals are currently being broadcast.",
+  "block.tlotd.radio.off": "Turned Off",
   "block.tlotd.television": "Television",
   "block.tlotd.television.tooltip": "Channels can be expanded by:",
   "block.tlotd.television.tooltip_2": "Added functionality on top of:",
+  "block.tlotd.television.off": "Turned Off",
   "block.tlotd.videocassette_recorder": "Videocassette Recorder",
   "block.tlotd.videocassette_recorder.tooltip": "Can be placed inside:",
   "block.tlotd.game_console": "Game Console",
@@ -1381,6 +1394,7 @@
   "block.tlotd.signal_transmitter.signal_range.one_line": "%1$s %2$s",
   "block.tlotd.signal_transmitter.active": "Active",
   "block.tlotd.signal_transmitter.inactive": "Inactive",
+  "block.tlotd.signal_transmitter.not_found": "No Station found",
 
   "block.tlotd.teleporter": "Teleporter",
   "block.tlotd.teleporter.location_copied": "Location copied to drive",

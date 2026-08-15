@@ -1,4 +1,17 @@
 {
+  "modmenu.tlotd": "TLOTD",
+
+  "tlotd.display_source.signal_transmitter_info": "Sendeinfo",
+  "tlotd.display_source.signal_transmitter_strength": "Sendeschtatus",
+  "tlotd.display_source.signal_transmitter_active": "Sendeschtärkn",
+  "tlotd.display_source.signal_transmitter_range": "Sendeweitn",
+  "tlotd.display_source.signal_transmitter_signal_count": "Signalazahl",
+  "tlotd.display_source.signal_transmitter_signal_list": "Signallistn",
+
+  "tlotd.display_source.radio_track": "Radio-Titel",
+
+  "tlotd.display_source.television_channel": "Fernsehsender",
+
   "itemgroup.tlotd.materials": "TLOTD Zudade",
   "itemgroup.tlotd.weapons_tools_and_utilities": "TLOTD Waffa, Werkzeige & Hilfsmiddl",
   "itemgroup.tlotd.blocks": "TLOTD Baublegge",
@@ -1014,9 +1027,11 @@
   "block.tlotd.radio.tooltip": "Frequenza kennad",
   "block.tlotd.radio.tooltip_2": "erweidert wera mit:",
   "block.tlotd.radio.list_empty": "Koi Signale werad momentan ausgschtrahlt.",
+  "block.tlotd.radio.off": "Ausgschalten",
   "block.tlotd.television": "Fernseha",
   "block.tlotd.television.tooltip": "Kanäle kennad erweidert wera mit:",
   "block.tlotd.television.tooltip_2": "Zusätzliche Funktionalität uff:",
+  "block.tlotd.television.off": "Ausgschalten",
   "block.tlotd.videocassette_recorder": "Videokassettarekoda",
   "block.tlotd.videocassette_recorder.tooltip": "Ka blazierd werde in:",
   "block.tlotd.game_console": "Schpielakonsola",
@@ -1070,6 +1085,7 @@
   "block.tlotd.signal_transmitter.signal_range.one_line": "%1$s %2$s",
   "block.tlotd.signal_transmitter.active": "Aktiv",
   "block.tlotd.signal_transmitter.inactive": "Inaktiv",
+  "block.tlotd.signal_transmitter.not_found": "Koi Sendr gfunda",
 
   "block.tlotd.teleporter": "Teleporter",
   "block.tlotd.teleporter.location_copied": "Position uffn Datnträger kopiert",

@@ -198,6 +198,8 @@ public class RadioBlock extends Block implements BlockEntityProvider {
                     List<Identifier> availableSignals = tracker.getAvailableSignals(pos);
                     if (availableSignals.isEmpty()) {
                         player.sendMessage(Text.translatable("block.tlotd.radio.list_empty"), true);
+                        world.setBlockState(pos, ModBlocks.RADIO.getStateWithProperties(state).with(ON, true).with(FREQUENCY, 0));
+                        world.playSound(null, pos, ModSounds.BLOCK_RADIO_SWITCH_FREQUENCY, SoundCategory.BLOCKS, 1.0f, 1.0f);
                         return ActionResult.SUCCESS;
                     }
                     Identifier current = be.getCurrentTrack();

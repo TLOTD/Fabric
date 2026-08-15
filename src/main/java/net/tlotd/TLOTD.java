@@ -15,6 +15,8 @@ import net.tlotd.block.ModFlammableBlocks;
 import net.tlotd.block.ModUseBlockCallback;
 import net.tlotd.block.behaviour.ModCauldronBehaviors;
 import net.tlotd.block.entity.ModBlockEntities;
+import net.tlotd.compat.CompatModsCheck;
+import net.tlotd.compat.create.CreateCompat;
 import net.tlotd.config.ModConfigs;
 import net.tlotd.effect.ModEffects;
 import net.tlotd.effect.ModPotions;
@@ -112,6 +114,10 @@ public class TLOTD implements ModInitializer {
             }
         });
         JoinDataSync.init();
+
+        if (CompatModsCheck.CREATE) {
+            CreateCompat.init();
+        }
         LOGGER.info("TLOTD INITIALIZED!");
     }
 }

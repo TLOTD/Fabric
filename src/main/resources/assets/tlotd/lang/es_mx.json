@@ -1,4 +1,17 @@
 {
+  "modmenu.tlotd": "TLOTD",
+
+  "tlotd.display_source.signal_transmitter_info": "Información sobre la estación",
+  "tlotd.display_source.signal_transmitter_strength": "Estado de la estación",
+  "tlotd.display_source.signal_transmitter_active": "Potencia de la estación",
+  "tlotd.display_source.signal_transmitter_range": "Rango de estaciones",
+  "tlotd.display_source.signal_transmitter_signal_count": "Recuento de señales",
+  "tlotd.display_source.signal_transmitter_signal_list": "Lista de señales",
+
+  "tlotd.display_source.radio_track": "Pista de radio",
+
+  "tlotd.display_source.television_channel": "Canal de televisión",
+
   "itemgroup.tlotd.materials": "TLOTD Materiales",
   "itemgroup.tlotd.weapons_tools_and_utilities": "TLOTD Armas, herramientas y utilidades",
   "itemgroup.tlotd.blocks": "TLOTD Bloquea",
@@ -1000,9 +1013,11 @@
   "block.tlotd.radio.tooltip": "Las frecuencias pueden",
   "block.tlotd.radio.tooltip_2": "ampliarse mediante:",
   "block.tlotd.radio.list_empty": "Actualmente no se emite ninguna señal.",
+  "block.tlotd.radio.off": "Desactivado",
   "block.tlotd.television": "Televisión",
   "block.tlotd.television.tooltip": "Los canales pueden ampliarse mediante:",
   "block.tlotd.television.tooltip_2": "Funcionalidad añadida sobre:",
+  "block.tlotd.television.off": "Desactivado",
   "block.tlotd.videocassette_recorder": "Videograbadora",
   "block.tlotd.videocassette_recorder.tooltip": "Puede colocarse en el interior:",
   "block.tlotd.game_console": "Consola de videojuegos",
@@ -1055,6 +1070,7 @@
   "block.tlotd.signal_transmitter.signal_range.one_line": "%1$s %2$s",
   "block.tlotd.signal_transmitter.active": "Activo",
   "block.tlotd.signal_transmitter.inactive": "Inactivo",
+  "block.tlotd.signal_transmitter.not_found": "No se encontró ninguna estación",
 
   "block.tlotd.teleporter": "Teletransportador",
   "block.tlotd.teleporter.location_copied": "Ubicación copiada en la unidad",
