@@ -21,7 +21,7 @@ public class SignalTransmitterStrengthDisplaySource extends SingleLineDisplaySou
         SignalTrackingArray tracker = SignalTrackingArray.get(world);
         RadioStation station = tracker.getStation(displayLinkContext.getSourcePos());
         if (station == null) {
-            return Text.literal("block.tlotd.signal_transmitter.not_found");
+            return Text.translatable("block.tlotd.signal_transmitter.not_found");
         }
         int strength = station.getStrength();
         return (MutableText) SignalTrackingArray.getStrenthText(strength);

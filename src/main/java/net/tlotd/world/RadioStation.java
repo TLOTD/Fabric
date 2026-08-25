@@ -11,6 +11,7 @@ import java.util.*;
 
 public class RadioStation {
 
+    private String name;
     private final BlockPos pos;
     private boolean active;
     private int strength;
@@ -18,10 +19,18 @@ public class RadioStation {
 
     private final List<Identifier> signals = new ArrayList<>();
 
-    public RadioStation(BlockPos pos, int strength, int range) {
+    public RadioStation(String name, BlockPos pos, int strength, int range) {
+        this.name = name;
         this.pos = pos;
         this.strength = strength;
         this.range = range;
+    }
+
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
     }
 
     public boolean isActive() {
@@ -80,8 +89,9 @@ public class RadioStation {
 
     public NbtCompound writeNbt() {
         NbtCompound nbt = new NbtCompound();
-        nbt.putBoolean("active", active);
+        nbt.putString("name", name);
         nbt.putLong("pos", pos.asLong());
+        nbt.putBoolean("active", active);
         nbt.putInt("strength", strength);
         nbt.putInt("range", range);
         NbtList list = new NbtList();
@@ -93,11 +103,12 @@ public class RadioStation {
     }
 
     public static RadioStation fromNbt(NbtCompound nbt) {
+        String name = nbt.getString("name");
         BlockPos pos = BlockPos.fromLong(nbt.getLong("pos"));
         boolean active = nbt.getBoolean("active");
         int strength = nbt.getInt("strength");
         int range = nbt.getInt("range");
-        RadioStation station = new RadioStation(pos, strength, range);
+        RadioStation station = new RadioStation(name, pos, strength, range);
         station.setActive(active);
         NbtList list = nbt.getList("signals", NbtElement.STRING_TYPE);
         for (NbtElement element : list) {

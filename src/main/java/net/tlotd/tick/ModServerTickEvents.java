@@ -21,10 +21,10 @@ import net.tlotd.compat.CompatModsCheck;
 import net.tlotd.effect.ModEffects;
 import net.tlotd.util.ModAdvancementTriggers;
 import net.tlotd.world.ModGlobalState;
-import net.tlotd.world.dimension.ModDimensions;
+import net.tlotd.world.dimension.ModDimensionsDataGenerator;
 
 import static net.tlotd.util.AugmentNbtHelper.getAugmentLevel;
-import static net.tlotd.world.dimension.ModDimensions.LUNA_LEVEL_KEY;
+import static net.tlotd.world.dimension.ModDimensionsDataGenerator.LUNA_LEVEL_KEY;
 
 public class ModServerTickEvents {
 
@@ -141,7 +141,7 @@ public class ModServerTickEvents {
         ServerWorld currentWorld = player.getServerWorld();
         RegistryKey<World> currentKey = currentWorld.getRegistryKey();
         MinecraftServer server = currentWorld.getServer();
-        RegistryKey<World> lunaKey = ModDimensions.LUNA_LEVEL_KEY;
+        RegistryKey<World> lunaKey = ModDimensionsDataGenerator.LUNA_LEVEL_KEY;
         RegistryKey<World> overworldKey = World.OVERWORLD;
         BlockPos pos = player.getBlockPos();
 

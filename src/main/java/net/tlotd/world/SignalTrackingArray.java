@@ -76,8 +76,12 @@ public class SignalTrackingArray extends PersistentState {
     }
 
     public void addStation(BlockPos pos, int strength, int range) {
+        addStation("", pos, strength, range);
+    }
+
+    public void addStation(String name, BlockPos pos, int strength, int range) {
         if (stations.containsKey(pos)) return;
-        stations.put(pos, new RadioStation(pos, strength, range));
+        stations.put(pos, new RadioStation(name, pos, strength, range));
         markDirty();
     }
 

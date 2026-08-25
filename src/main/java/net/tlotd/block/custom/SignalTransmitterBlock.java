@@ -9,6 +9,7 @@ import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.registry.Registries;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
@@ -218,9 +219,14 @@ public class SignalTransmitterBlock extends Block implements BlockEntityProvider
                 player.sendMessage(Text.translatable("block.tlotd.signal_transmitter.added"), true);
             }
             world.playSound(null, pos, ModSounds.BLOCK_VIDEOCASSETTE_RECORDER, SoundCategory.BLOCKS, 1.0f, 1.0f);
+        } else if (station != null && stack.isOf(Items.NAME_TAG) && stack.hasCustomName()) {
+            Text.translatable("block.tlotd.signal_transmitter.name_set").formatted(Formatting.GRAY);
+            station.setName(stack.getName().getString());
+            world.playSound(null, pos, SoundEvents.BLOCK_STONE_BUTTON_CLICK_ON, SoundCategory.BLOCKS, 1.0f, 1.0f);
         } else {
             if (station == null || !station.hasSignals()) {
                 if (player.isSneaking()) {
+                    player.sendMessage(station == null || station.getName().isEmpty() ? Text.translatable("block.tlotd.signal_transmitter.unnamed").formatted(Formatting.GRAY) : Text.literal(station.getName()).formatted(Formatting.GRAY));
                     player.sendMessage(SignalTrackingArray.getStats(station != null && station.isActive(), station == null ? 0 : station.getStrength(), station == null ? 0 : station.getRange(), station == null ? 0 : station.getSignals().size(), ".1"), false);
                     player.sendMessage(SignalTrackingArray.getStats(station != null && station.isActive(), station == null ? 0 : station.getStrength(), station == null ? 0 : station.getRange(), station == null ? 0 : station.getSignals().size(), ".2"), false);
                 } else {
@@ -228,6 +234,7 @@ public class SignalTransmitterBlock extends Block implements BlockEntityProvider
                 }
             } else {
                 if (player.isSneaking()) {
+                    player.sendMessage(station.getName().isEmpty() ? Text.translatable("block.tlotd.signal_transmitter.unnamed").formatted(Formatting.GRAY) : Text.literal(station.getName()).formatted(Formatting.GRAY));
                     player.sendMessage(SignalTrackingArray.getStats(station.isActive(), station.getStrength(), station.getRange(), station.getSignals().size(), ".1"), false);
                     player.sendMessage(SignalTrackingArray.getStats(station.isActive(), station.getStrength(), station.getRange(), station.getSignals().size(), ".2"), false);
                     for (Identifier sig : station.getSignals()) {

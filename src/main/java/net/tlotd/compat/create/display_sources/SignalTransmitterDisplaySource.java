@@ -27,21 +27,18 @@ public class SignalTransmitterDisplaySource extends DisplaySource {
         SignalTrackingArray tracker = SignalTrackingArray.get(world);
         RadioStation station = tracker.getStation(displayLinkContext.getSourcePos());
         if (station == null) {
-            return List.of(Text.literal("block.tlotd.signal_transmitter.not_found"));
+            return List.of(Text.translatable("block.tlotd.signal_transmitter.not_found"));
         }
-        boolean active = station.isActive();
-        int strength = station.getStrength();
-        int range = station.getRange();
         NbtList tracks = new NbtList();
         for (Identifier id : station.getSignals()) {
             tracks.add(NbtString.of(id.toString()));
         }
-        int count = tracks.size();
         return List.of(
-                active ? Text.translatable("block.tlotd.signal_transmitter.active").formatted(Formatting.GREEN) : Text.translatable("block.tlotd.signal_transmitter.inactive").formatted(Formatting.RED),
-                (MutableText) SignalTrackingArray.getStrenthText(strength),
-                (MutableText) SignalTrackingArray.getRangeText(range),
-                (MutableText) SignalTrackingArray.getCountText(count)
+                station.getName().isEmpty() ? Text.translatable("block.tlotd.signal_transmitter.unnamed") : Text.literal(station.getName()),
+                station.isActive() ? Text.translatable("block.tlotd.signal_transmitter.active").formatted(Formatting.GREEN) : Text.translatable("block.tlotd.signal_transmitter.inactive").formatted(Formatting.RED),
+                (MutableText) SignalTrackingArray.getStrenthText(station.getStrength()),
+                (MutableText) SignalTrackingArray.getRangeText(station.getRange()),
+                (MutableText) SignalTrackingArray.getCountText(tracks.size())
         );
     }
 }

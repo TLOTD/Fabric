@@ -21,7 +21,7 @@ public class SignalTransmitterRangeDisplaySource extends SingleLineDisplaySource
         SignalTrackingArray tracker = SignalTrackingArray.get(world);
         RadioStation station = tracker.getStation(displayLinkContext.getSourcePos());
         if (station == null) {
-            return Text.literal("block.tlotd.signal_transmitter.not_found");
+            return Text.translatable("block.tlotd.signal_transmitter.not_found");
         }
         int range = station.getRange();
         return (MutableText) SignalTrackingArray.getRangeText(range);

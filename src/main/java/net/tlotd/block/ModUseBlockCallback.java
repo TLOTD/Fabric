@@ -15,7 +15,7 @@ import net.tlotd.item.ModItems;
 
 import static net.minecraft.block.SideShapeType.FULL;
 import static net.minecraft.block.WallTorchBlock.FACING;
-import static net.tlotd.world.dimension.ModDimensions.LUNA_LEVEL_KEY;
+import static net.tlotd.world.dimension.ModDimensionsDataGenerator.LUNA_LEVEL_KEY;
 
 public class ModUseBlockCallback {
     public static void interceptBlocks() {

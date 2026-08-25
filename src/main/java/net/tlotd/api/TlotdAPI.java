@@ -71,6 +71,9 @@ public class TlotdAPI {
     public static void addStation(ServerWorld world, BlockPos pos, int strength, int range) {
         net.tlotd.world.SignalTrackingArray.get(world).addStation(pos, strength, range);
     }
+    public static void addStation(String name, ServerWorld world, BlockPos pos, int strength, int range) {
+        net.tlotd.world.SignalTrackingArray.get(world).addStation(name, pos, strength, range);
+    }
     public static void removeStation(ServerWorld world, BlockPos pos) {
         net.tlotd.world.SignalTrackingArray.get(world).removeStation(pos);
     }

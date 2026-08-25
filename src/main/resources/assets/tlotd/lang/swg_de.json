@@ -1,9 +1,12 @@
 {
   "modmenu.tlotd": "TLOTD",
 
+  "tlotd.command.hover_text.open_in_browser": "Im Browser öffna",
+
   "tlotd.display_source.signal_transmitter_info": "Sendeinfo",
-  "tlotd.display_source.signal_transmitter_strength": "Sendeschtatus",
-  "tlotd.display_source.signal_transmitter_active": "Sendeschtärkn",
+  "tlotd.display_source.signal_transmitter_name": "Sendename",
+  "tlotd.display_source.signal_transmitter_active": "Sendeschtatus",
+  "tlotd.display_source.signal_transmitter_strength": "Sendeschtärkn",
   "tlotd.display_source.signal_transmitter_range": "Sendeweitn",
   "tlotd.display_source.signal_transmitter_signal_count": "Signalazahl",
   "tlotd.display_source.signal_transmitter_signal_list": "Signallistn",
@@ -11,6 +14,9 @@
   "tlotd.display_source.radio_track": "Radio-Titel",
 
   "tlotd.display_source.television_channel": "Fernsehsender",
+
+  "tlotd.display_source.source_station": "Quellschtation",
+  "tlotd.display_source.source_station.coordinates": "%1$s %2$s %3$s",
 
   "itemgroup.tlotd.materials": "TLOTD Zudade",
   "itemgroup.tlotd.weapons_tools_and_utilities": "TLOTD Waffa, Werkzeige & Hilfsmiddl",
@@ -110,10 +116,10 @@
   "gui.tlotd.witching.soul_charges_of_the_abyss": "%1$s× Seeln des Abgrunds",
   "gui.tlotd.tooltip.liquid_amount_with_capacity": "§f%s§7: %smB/%smB",
   "gui.tlotd.oxygen_collector": "Sauerstoffbetanker",
-  "gui.tlotd.oxygen_collector.amount": "Sauerstoffmenge:",
-  "gui.tlotd.oxygen_collector.amount.2.1": "▒▒▒▒ Giftig",
-  "gui.tlotd.oxygen_collector.amount.1.1": "█▒▒▒ Gfährlich",
-  "gui.tlotd.oxygen_collector.amount.0.1": "███▒ Guad",
+  "gui.tlotd.oxygen_collector.oxygen_percentage": "Sauerstoffmenge:",
+  "gui.tlotd.oxygen_collector.oxygen_percentage.2": "▒▒▒▒ Giftig",
+  "gui.tlotd.oxygen_collector.oxygen_percentage.1": "█▒▒▒ Gfährlich",
+  "gui.tlotd.oxygen_collector.oxygen_percentage.0": "███▒ Guad",
   "gui.tlotd.oxygen_collector.gas": "Hauptgas:",
   "gui.tlotd.keycard_programmer": "Schlisslkartn Programmiern",
   "gui.tlotd.incubating": "Briaden",
@@ -1061,6 +1067,8 @@
   "block.tlotd.gold_signal_transmitter_antenna": "Gold-Signalgebrantenne",
   "block.tlotd.mithril_signal_transmitter_antenna": "Mithril-Signalgebrantenne",
 
+  "block.tlotd.signal_transmitter.unnamed": "Unbenannte Schtation",
+  "block.tlotd.signal_transmitter.name_set": "Benutzerdefinierter Schtationsname wurd gsetzt",
   "block.tlotd.signal_transmitter.stats": "%1$s | %2$s | %3$s | %4$s",
   "block.tlotd.signal_transmitter.stats.1": "%2$s | %1$s",
   "block.tlotd.signal_transmitter.stats.2": "%3$s | %4$s",

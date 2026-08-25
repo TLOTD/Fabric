@@ -5,7 +5,7 @@ import net.minecraft.client.render.Camera;
 import net.minecraft.client.render.WorldRenderer;
 import net.minecraft.client.util.math.MatrixStack;
 import net.tlotd.client.LunaSkyRenderer;
-import net.tlotd.world.dimension.ModDimensions;
+import net.tlotd.world.dimension.ModDimensionsDataGenerator;
 import org.joml.Matrix4f;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -17,10 +17,10 @@ public class WorldRendererMixin {
     @Inject(method = "renderSky(Lnet/minecraft/client/util/math/MatrixStack;Lorg/joml/Matrix4f;FLnet/minecraft/client/render/Camera;ZLjava/lang/Runnable;)V", at = @At("HEAD"), cancellable = true)
     private void renderLunaSky(MatrixStack matrices, Matrix4f projectionMatrix, float tickDelta, Camera camera, boolean thickFog, Runnable fogCallback, CallbackInfo ci) {
         MinecraftClient client = MinecraftClient.getInstance();
-        if (client.world != null && client.world.getRegistryKey() == ModDimensions.LUNA_LEVEL_KEY) {
+        if (client.world != null && client.world.getRegistryKey() == ModDimensionsDataGenerator.LUNA_LEVEL_KEY) {
             ci.cancel();
             LunaSkyRenderer.render(matrices, camera, tickDelta, false);
-        } else if (client.world != null && client.world.getRegistryKey() == ModDimensions.BACKROOMS_LEVEL_KEY) {
+        } else if (client.world != null && client.world.getRegistryKey() == ModDimensionsDataGenerator.BACKROOMS_LEVEL_KEY) {
             ci.cancel();
             LunaSkyRenderer.render(matrices, camera, tickDelta, true);
         }

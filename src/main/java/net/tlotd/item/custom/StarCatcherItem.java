@@ -17,7 +17,7 @@ import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.tlotd.item.ModItems;
-import net.tlotd.world.dimension.ModDimensions;
+import net.tlotd.world.dimension.ModDimensionsDataGenerator;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
@@ -43,7 +43,7 @@ public class StarCatcherItem extends Item {
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         ItemStack item = user.getStackInHand(hand);
         if (!world.isClient()) {
-            if (user.getY() >= 800 && (world.getRegistryKey().equals(ModDimensions.LUNA_LEVEL_KEY) || world.getRegistryKey().equals(World.OVERWORLD) && world.isNight())) {
+            if (user.getY() >= 800 && (world.getRegistryKey().equals(ModDimensionsDataGenerator.LUNA_LEVEL_KEY) || world.getRegistryKey().equals(World.OVERWORLD) && world.isNight())) {
                 if (hand == Hand.MAIN_HAND) {
                     item.damage(1, user, e -> e.sendEquipmentBreakStatus(EquipmentSlot.MAINHAND));
                 } else {

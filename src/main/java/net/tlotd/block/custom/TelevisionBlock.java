@@ -158,7 +158,6 @@ public class TelevisionBlock extends Block {
             world.playSound(null, pos, ModSounds.BLOCK_TELEVISION_SWITCH_CHANNEL, SoundCategory.BLOCKS, 1f, 1f);
             return newState;
         }
-
         return state;
     }
 

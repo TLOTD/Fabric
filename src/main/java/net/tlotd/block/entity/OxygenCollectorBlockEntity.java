@@ -32,7 +32,7 @@ public class OxygenCollectorBlockEntity extends BlockEntity implements ExtendedS
 
     protected final PropertyDelegate propertyDelegate;
     private int gas = 0;
-    private int amount = 1;
+    private int amount = 0;
 
     public OxygenCollectorBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.OXYGEN_COLLECTOR_BLOCK_ENTITY, pos, state);
@@ -110,16 +110,29 @@ public class OxygenCollectorBlockEntity extends BlockEntity implements ExtendedS
             return;
         }
         if (world.getBlockState(pos.down()).isOf(Blocks.WITHER_ROSE) || world.getBlockState(pos.down()).isOf(Blocks.POTTED_WITHER_ROSE)) {
+            if (gas != 2) {
+                amount = 0;
+            }
             gas = 2;
         } else if (world.getBlockState(pos.down(2)).isOf(ModBlocks.PIPE_WEED_CRATE)) {
+            if (gas != 1) {
+                amount = 0;
+            }
             gas = 1;
         } else {
+            if (gas != 0) {
+                amount = 0;
+            }
             gas = 0;
         }
         if (oxygenChargable()) {
-            if (canBeFilled()) {
+            if (canBeFilled(gas)) {
                 this.fillGas(gas);
+            } else {
+                amount = (int)Math.min(amount+9L, 1000 * 81L);
             }
+        } else {
+            amount = (int)Math.min(amount+9L, 1000 * 81L);
         }
     }
 
@@ -127,25 +140,32 @@ public class OxygenCollectorBlockEntity extends BlockEntity implements ExtendedS
         return this.getStack(0).isIn(ModTags.Items.OXYGEN_STORING) || (getAugmentLevel(this.getStack(0), "tlotd:oxygen_tank") > 0);
     }
 
-    private boolean canBeFilled() {
-        return (this.getStack(0).getItem() instanceof SpaceSuitArmorItem || (this.getStack(0).hasNbt() && this.getStack(0).getNbt().getInt("tlotd:oxygen") < AdAstraGasNbtHelper.getMaxGasItem(this.getStack(0)) || !this.getStack(0).hasNbt()));
+    private boolean canBeFilled(int gas) {
+        ItemStack stack = this.getStack(0);
+        String gasId = switch (gas) {
+            case 2 -> AdAstraGasNbtHelper.TLOTD_WITHERED_AIR;
+            case 1 -> AdAstraGasNbtHelper.TLOTD_PIPE_WEED_SMOKE;
+            default -> AdAstraGasNbtHelper.AD_ASTRA_OXYGEN_ID;
+        };
+        return ((amount > 81L) && ((stack.getItem() instanceof SpaceSuitArmorItem && (AdAstraGasNbtHelper.getGasAmountFromSuit(stack, gasId) < AdAstraGasNbtHelper.getMaxGasFromSuit(stack))) || (stack.isIn(ModTags.Items.OXYGEN_STORING) && (AdAstraGasNbtHelper.getGasAmount(stack, gasId) < AdAstraGasNbtHelper.getMaxGasItem(stack)))));
     }
 
     private void fillGas(int gas) {
         ItemStack stack = this.getStack(0);
         if (stack.isEmpty()) return;
         String gasId = switch (gas) {
-            case 2 -> "tlotd:withered_air";
-            case 1 -> "tlotd:pipe_weed_smoke";
-            default -> "ad_astra:oxygen";
+            case 2 -> AdAstraGasNbtHelper.TLOTD_WITHERED_AIR;
+            case 1 -> AdAstraGasNbtHelper.TLOTD_PIPE_WEED_SMOKE;
+            default -> AdAstraGasNbtHelper.AD_ASTRA_OXYGEN_ID;
         };
         if (stack.getItem() instanceof SpaceSuitArmorItem) {
-            AdAstraGasNbtHelper.modifyGasInSuit(stack, gasId, amount * 81L);
+            AdAstraGasNbtHelper.modifyGasInSuit(stack, gasId, 81L);
         } else {
             String presentGas = AdAstraGasNbtHelper.getGas(stack);
             long current = AdAstraGasNbtHelper.getGasAmount(stack, presentGas);
-            long next = Math.min(current + (amount * 81L), AdAstraGasNbtHelper.getMaxGasItem(stack));
+            long next = Math.min(current + 81L, AdAstraGasNbtHelper.getMaxGasItem(stack));
             AdAstraGasNbtHelper.setGasAmount(stack, gasId, next);
         }
+        amount = (int)Math.max(amount-81, 0L);
     }
 }

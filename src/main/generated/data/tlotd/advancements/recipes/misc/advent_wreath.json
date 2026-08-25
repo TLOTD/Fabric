@@ -13,12 +13,12 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_christmas_wreath": {
+    "has_oak_leaves": {
       "conditions": {
         "items": [
           {
             "items": [
-              "tlotd:christmas_wreath"
+              "minecraft:oak_leaves"
             ]
           }
         ]
@@ -34,8 +34,8 @@
   },
   "requirements": [
     [
+      "has_oak_leaves",
       "has_candle",
-      "has_christmas_wreath",
       "has_the_recipe"
     ]
   ],

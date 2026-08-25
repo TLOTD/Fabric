@@ -2,6 +2,7 @@ package net.tlotd.gui;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.client.gui.DrawContext;
+import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
 import net.minecraft.client.render.GameRenderer;
 import net.minecraft.entity.player.PlayerInventory;
@@ -9,6 +10,7 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
 import net.tlotd.TLOTD;
+import net.tlotd.util.AdAstraGasNbtHelper;
 
 import java.util.List;
 
@@ -64,7 +66,19 @@ public class OxygenCollectorGUI extends HandledScreen<OxygenCollectorGUIHandler>
                 gas = "gas.tlotd.pipe_weed_smoke";
                 formatting = Formatting.YELLOW;
             }
-            List<Text> tooltip = List.of(Text.translatable("gui.tlotd.oxygen_collector.amount").formatted(Formatting.GRAY), Text.translatable("gui.tlotd.oxygen_collector.amount." + handler.getGas() + "." + handler.getAmount()).formatted(formatting), Text.translatable("gui.tlotd.oxygen_collector.gas").formatted(Formatting.GRAY), Text.translatable(gas).formatted(formatting));
+            int amount = handler.getAmount();
+            String formattedGas;
+            String formattedMaxGas;
+            if (Screen.hasShiftDown()) {
+                int displayAmount = (int) Math.round((double) amount * 1000 / AdAstraGasNbtHelper.MAX_AMOUNT);
+                int displayMax = 1000;
+                formattedGas = String.format("%,d", displayAmount);
+                formattedMaxGas = String.format("%,d", displayMax);
+            } else {
+                formattedGas = AdAstraGasNbtHelper.getOxygenString(amount);
+                formattedMaxGas = AdAstraGasNbtHelper.getOxygenString(AdAstraGasNbtHelper.MAX_AMOUNT);
+            }
+            List<Text> tooltip = List.of(Text.translatable("gui.tlotd.oxygen_collector.oxygen_percentage").formatted(Formatting.GRAY), Text.translatable("gui.tlotd.oxygen_collector.oxygen_percentage." + handler.getGas()).formatted(formatting), Text.translatable("gui.tlotd.oxygen_collector.gas").formatted(Formatting.GRAY), Text.translatable("item.tlotd.gas_cylinder.tooltip", formattedGas, formattedMaxGas, formattedGas.replace(',', '.'), formattedMaxGas.replace(',', '.'), Text.translatable(gas)).formatted(formatting));
             context.drawTooltip(textRenderer, tooltip, mouseX, mouseY);
         }
     }

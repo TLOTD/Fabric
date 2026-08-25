@@ -4,12 +4,15 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.registry.Registries;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Vec2f;
 import net.tlotd.TLOTD;
 import net.tlotd.block.custom.RadioBlock;
 import net.tlotd.block.entity.RadioBlockEntity;
+import net.tlotd.world.RadioStation;
+import net.tlotd.world.SignalTrackingArray;
 import snownee.jade.api.BlockAccessor;
 import snownee.jade.api.IBlockComponentProvider;
 import snownee.jade.api.IServerDataProvider;
@@ -23,6 +26,12 @@ public enum RadioComponentProvider implements IBlockComponentProvider, IServerDa
 
     @Override
     public void appendTooltip(ITooltip tooltip, BlockAccessor accessor, IPluginConfig config) {
+        if (accessor.getServerData().getBoolean("noStation")) {
+            tooltip.add(Text.translatable("block.tlotd.signal_transmitter.not_found"));
+        } else {
+            String stationName = accessor.getServerData().getString("stationName");
+            tooltip.add(stationName.isEmpty() ? Text.translatable("block.tlotd.signal_transmitter.unnamed") : Text.literal(stationName));
+        }
         if (!accessor.getBlockState().get(RadioBlock.ON)) {
             tooltip.add(Text.translatable("block.tlotd.radio.off"));
         } else {
@@ -40,11 +49,19 @@ public enum RadioComponentProvider implements IBlockComponentProvider, IServerDa
     }
 
     @Override
-    public void appendServerData(NbtCompound nbtCompound, BlockAccessor blockAccessor) {
-        RadioBlockEntity radio = (RadioBlockEntity) blockAccessor.getBlockEntity();
+    public void appendServerData(NbtCompound nbt, BlockAccessor accessor) {
+        ServerWorld world = (ServerWorld) accessor.getBlockEntity().getWorld();
+        SignalTrackingArray tracker = SignalTrackingArray.get(world);
+        RadioStation station = tracker.getBestStation(accessor.getPosition());
+        if (station == null) {
+            nbt.putBoolean("noStation", true);
+        } else {
+            nbt.putString("stationName", station.getName());
+        }
+        RadioBlockEntity radio = (RadioBlockEntity) accessor.getBlockEntity();
         Identifier currentTrack = radio.getCurrentTrack();
         if (currentTrack != null) {
-            nbtCompound.putString("currentTrack", currentTrack.toString());
+            nbt.putString("currentTrack", currentTrack.toString());
         }
     }
 

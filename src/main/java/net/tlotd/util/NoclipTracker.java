@@ -6,11 +6,10 @@ import net.minecraft.nbt.NbtCompound;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
-import net.minecraft.text.Text;
 import net.minecraft.world.World;
 import net.tlotd.effect.ModEffects;
 import net.tlotd.world.ModGlobalState;
-import net.tlotd.world.dimension.ModDimensions;
+import net.tlotd.world.dimension.ModDimensionsDataGenerator;
 
 import java.util.Arrays;
 
@@ -38,7 +37,7 @@ public class NoclipTracker {
     public static void noclip(ServerPlayerEntity player) {
         MinecraftServer server = player.getServer();
         ServerWorld target;
-        if (player.getWorld().getRegistryKey().equals(ModDimensions.BACKROOMS_LEVEL_KEY)) {
+        if (player.getWorld().getRegistryKey().equals(ModDimensionsDataGenerator.BACKROOMS_LEVEL_KEY)) {
             int warpHeightIntoTerra;
             int terraResistance;
             if (server != null) {
@@ -61,7 +60,7 @@ public class NoclipTracker {
             player.removeStatusEffect(ModEffects.SUBSPACE_RESISTANCE);
             player.removeStatusEffect(ModEffects.SUBSPACE_SICKNESS);
         } else {
-            target = server.getWorld(ModDimensions.BACKROOMS_LEVEL_KEY);
+            target = server.getWorld(ModDimensionsDataGenerator.BACKROOMS_LEVEL_KEY);
             if (target == null) {
                 return;
             }

@@ -16,7 +16,7 @@ import net.tlotd.world.biome.ModBiomes;
 
 import java.util.OptionalLong;
 
-public class ModDimensions {
+public class ModDimensionsDataGenerator {
 
     public static final RegistryKey<DimensionOptions> PREHISTORIC_KEY = RegistryKey.of(RegistryKeys.DIMENSION,
             new Identifier(TLOTD.MOD_ID, "prehistoric"));

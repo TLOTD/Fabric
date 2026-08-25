@@ -28,10 +28,16 @@ public enum SignalTransmitterComponentProvider implements IBlockComponentProvide
     @Override
     public void appendTooltip(ITooltip tooltip, BlockAccessor accessor, IPluginConfig config) {
         NbtList tracks = accessor.getServerData().getList("tracks", NbtElement.STRING_TYPE);
+        String name = accessor.getServerData().getString("name");
         boolean active = accessor.getServerData().getBoolean("active");
         int strength = accessor.getServerData().getInt("strength");
         int range = accessor.getServerData().getInt("range");
         int trackCount = tracks.size();
+        if (name.isEmpty()) {
+            tooltip.add(Text.translatable("block.tlotd.signal_transmitter.unnamed"));
+        } else {
+            tooltip.add(Text.literal(name));
+        }
         tooltip.add(SignalTrackingArray.getStats(active, strength, range, trackCount, ".1"));
         tooltip.add(SignalTrackingArray.getStats(active, strength, range, trackCount, ".2"));
         if (tracks.isEmpty()) {
@@ -55,6 +61,7 @@ public enum SignalTransmitterComponentProvider implements IBlockComponentProvide
         if (station == null) {
             return;
         }
+        nbt.putString("name", station.getName());
         nbt.putBoolean("active", station.isActive());
         nbt.putInt("strength", station.getStrength());
         nbt.putInt("range", station.getRange());

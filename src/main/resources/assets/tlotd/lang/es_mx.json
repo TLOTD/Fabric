@@ -1,9 +1,12 @@
 {
   "modmenu.tlotd": "TLOTD",
 
+  "tlotd.command.hover_text.open_in_browser": "Abrir en el navegador",
+
   "tlotd.display_source.signal_transmitter_info": "Información sobre la estación",
-  "tlotd.display_source.signal_transmitter_strength": "Estado de la estación",
-  "tlotd.display_source.signal_transmitter_active": "Potencia de la estación",
+  "tlotd.display_source.signal_transmitter_name": "Nombre de la estación",
+  "tlotd.display_source.signal_transmitter_active": "Estado de la estación",
+  "tlotd.display_source.signal_transmitter_strength": "Potencia de la estación",
   "tlotd.display_source.signal_transmitter_range": "Rango de estaciones",
   "tlotd.display_source.signal_transmitter_signal_count": "Recuento de señales",
   "tlotd.display_source.signal_transmitter_signal_list": "Lista de señales",
@@ -11,6 +14,9 @@
   "tlotd.display_source.radio_track": "Pista de radio",
 
   "tlotd.display_source.television_channel": "Canal de televisión",
+
+  "tlotd.display_source.source_station": "Estación de origen",
+  "tlotd.display_source.source_station.coordinates": "%1$s %2$s %3$s",
 
   "itemgroup.tlotd.materials": "TLOTD Materiales",
   "itemgroup.tlotd.weapons_tools_and_utilities": "TLOTD Armas, herramientas y utilidades",
@@ -106,10 +112,10 @@
   "gui.tlotd.witching.soul_charges_of_the_abyss": "%1$s× Alma del abismo",
   "gui.tlotd.tooltip.liquid_amount_with_capacity": "§f%s§7: %smB/%smB",
   "gui.tlotd.oxygen_collector": "Tanque de oxígeno",
-  "gui.tlotd.oxygen_collector.amount": "Cantidad de oxígeno:",
-  "gui.tlotd.oxygen_collector.amount.2.1": "▒▒▒▒ Tóxico",
-  "gui.tlotd.oxygen_collector.amount.1.1": "█▒▒▒ Peligroso",
-  "gui.tlotd.oxygen_collector.amount.0.1": "███▒ Bueno",
+  "gui.tlotd.oxygen_collector.oxygen_percentage": "Cantidad de oxígeno:",
+  "gui.tlotd.oxygen_collector.oxygen_percentage.2": "▒▒▒▒ Tóxico",
+  "gui.tlotd.oxygen_collector.oxygen_percentage.1": "█▒▒▒ Peligroso",
+  "gui.tlotd.oxygen_collector.oxygen_percentage.0": "███▒ Bueno",
   "gui.tlotd.oxygen_collector.gas": "Gas principal:",
   "gui.tlotd.keycard_programmer": "Programar una tarjeta",
   "gui.tlotd.incubating": "Incubación",
@@ -1046,6 +1052,8 @@
   "block.tlotd.gold_signal_transmitter_antenna": "Antena de oro para transmisor de señales",
   "block.tlotd.mithril_signal_transmitter_antenna": "Antena de mithril para transmisor de señales",
 
+  "block.tlotd.signal_transmitter.unnamed": "Estación sin nombre",
+  "block.tlotd.signal_transmitter.name_set": "Se ha establecido un nombre de estación personalizado",
   "block.tlotd.signal_transmitter.stats": "%1$s | %2$s | %3$s | %4$s",
   "block.tlotd.signal_transmitter.stats.1": "%2$s | %1$s",
   "block.tlotd.signal_transmitter.stats.2": "%3$s | %4$s",

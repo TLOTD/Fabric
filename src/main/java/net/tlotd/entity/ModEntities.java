@@ -1,5 +1,6 @@
 package net.tlotd.entity;
 
+import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
 import net.minecraft.entity.EntityDimensions;
 import net.minecraft.entity.EntityType;
@@ -40,6 +41,8 @@ public class ModEntities {
                             .build()
             );
     public static void registerModEntities() {
+        FabricDefaultAttributeRegistry.register(ModEntities.TREX, TRexEntity.createTRexAttributes());
+        FabricDefaultAttributeRegistry.register(ModEntities.INFECTED_TREX, InfectedTRexEntity.createInfectedTRexAttributes());
         TLOTD.LOGGER.info("Registering Entities for " + TLOTD.MOD_ID);
     }
 

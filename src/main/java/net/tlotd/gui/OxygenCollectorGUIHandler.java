@@ -46,13 +46,9 @@ public class OxygenCollectorGUIHandler extends ScreenHandler {
     }
 
     public int getScaledAmount() {
-        float amount = this.propertyDelegate.get(1) * 0.75f;
-        float oxygenPercentage = switch (this.propertyDelegate.get(0)) {
-            case 0 -> 1f;
-            case 1 -> 0.5f;
-            default -> 0f;
-        };
-        return (int) (amount * oxygenPercentage * 18 / 1);
+        long amount = this.propertyDelegate.get(1);
+        long max = 1000 * 81L;
+        return (int) (amount * 18 / max);
     }
 
     @Override

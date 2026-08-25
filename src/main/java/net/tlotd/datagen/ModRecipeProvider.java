@@ -620,13 +620,13 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.CHRISTMAS_WREATH)));
 
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.ADVENT_WREATH)
-                .pattern("C C")
-                .pattern(" W ")
-                .pattern("C C")
+                .pattern("CLC")
+                .pattern("L L")
+                .pattern("CLC")
+                .input('L', ItemTags.LEAVES)
                 .input('C', ItemTags.CANDLES)
-                .input('W', ModBlocks.CHRISTMAS_WREATH)
+                .criterion(hasItem(Items.OAK_LEAVES), conditionsFromItem(Items.OAK_LEAVES))
                 .criterion(hasItem(Items.CANDLE), conditionsFromItem(Items.CANDLE))
-                .criterion(hasItem(ModBlocks.CHRISTMAS_WREATH), conditionsFromItem(ModBlocks.CHRISTMAS_WREATH))
                 .offerTo(exporter, new Identifier(getRecipeName(ModBlocks.ADVENT_WREATH)));
 
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.PRESENT)

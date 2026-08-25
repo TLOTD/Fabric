@@ -5,7 +5,7 @@ import net.minecraft.entity.attribute.AttributeContainer;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectCategory;
 import net.minecraft.entity.effect.StatusEffectInstance;
-import net.tlotd.world.dimension.ModDimensions;
+import net.tlotd.world.dimension.ModDimensionsDataGenerator;
 
 public class SubspaceResistanceEffect extends StatusEffect {
     protected SubspaceResistanceEffect(StatusEffectCategory category, int color) {
@@ -19,7 +19,7 @@ public class SubspaceResistanceEffect extends StatusEffect {
 
     @Override
     public void onRemoved(LivingEntity entity, AttributeContainer attributes, int amplifier) {
-        if (entity.getWorld().getRegistryKey().equals(ModDimensions.BACKROOMS_LEVEL_KEY)) {
+        if (entity.getWorld().getRegistryKey().equals(ModDimensionsDataGenerator.BACKROOMS_LEVEL_KEY)) {
             entity.addStatusEffect(new StatusEffectInstance(ModEffects.SUBSPACE_SICKNESS, -1, amplifier,true,false, true));
         }
     }

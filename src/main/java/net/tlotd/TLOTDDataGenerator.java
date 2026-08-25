@@ -9,7 +9,7 @@ import net.tlotd.trim.ModTrimMaterials;
 import net.tlotd.world.ModConfiguredFeatures;
 import net.tlotd.world.ModPlacedFeatures;
 import net.tlotd.world.biome.ModBiomes;
-import net.tlotd.world.dimension.ModDimensions;
+import net.tlotd.world.dimension.ModDimensionsDataGenerator;
 
 public class TLOTDDataGenerator implements DataGeneratorEntrypoint {
     @Override
@@ -31,8 +31,8 @@ public class TLOTDDataGenerator implements DataGeneratorEntrypoint {
         registryBuilder.addRegistry(RegistryKeys.CONFIGURED_FEATURE, ModConfiguredFeatures::bootstrap);
         registryBuilder.addRegistry(RegistryKeys.PLACED_FEATURE, ModPlacedFeatures::bootstrap);
         registryBuilder.addRegistry(RegistryKeys.BIOME, ModBiomes::bootstrap);
-        registryBuilder.addRegistry(RegistryKeys.DIMENSION_TYPE, ModDimensions::bootstrapType);
-        registryBuilder.addRegistry(RegistryKeys.DIMENSION, ModDimensions::bootstrapDimension);
+        registryBuilder.addRegistry(RegistryKeys.DIMENSION_TYPE, ModDimensionsDataGenerator::bootstrapType);
+        registryBuilder.addRegistry(RegistryKeys.DIMENSION, ModDimensionsDataGenerator::bootstrapDimension);
         registryBuilder.addRegistry(RegistryKeys.TRIM_MATERIAL, ModTrimMaterials::bootstrap);
     }
 }

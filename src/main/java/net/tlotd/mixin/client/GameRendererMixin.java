@@ -7,7 +7,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
 import net.tlotd.effect.ModEffects;
 import net.tlotd.item.ModItems;
-import net.tlotd.world.dimension.ModDimensions;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;

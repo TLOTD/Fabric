@@ -12,7 +12,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.math.Vec3i;
 import net.tlotd.TLOTD;
-import net.tlotd.world.dimension.ModDimensions;
+import net.tlotd.world.dimension.ModDimensionsDataGenerator;
 
 import java.util.Optional;
 
@@ -21,7 +21,7 @@ public class ModChunkEvents {
     public static void generateModWorldGen() {
         ServerChunkEvents.CHUNK_LOAD.register((world, chunk) -> {
             ChunkPos chunkPos = chunk.getPos();
-            if (world.getRegistryKey().equals(ModDimensions.LUNA_LEVEL_KEY)) {
+            if (world.getRegistryKey().equals(ModDimensionsDataGenerator.LUNA_LEVEL_KEY)) {
                 if (chunkPos.x == -6 && chunkPos.z == -6) {
                     world.getServer().execute(() -> {
                         StructurePlacedPersistentState state = StructurePlacedPersistentState.get(world);

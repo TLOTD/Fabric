@@ -27,7 +27,7 @@ import net.minecraft.world.World;
 import net.tlotd.enchantments.ModEnchantments;
 import net.tlotd.item.ModItems;
 import net.tlotd.sound.ModSounds;
-import net.tlotd.world.dimension.ModDimensions;
+import net.tlotd.world.dimension.ModDimensionsDataGenerator;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Optional;
@@ -100,12 +100,12 @@ public class MithrilMirrorItem extends Item {
                     int remaining = maxCharges - used;
                     boolean crossDim = !targetWorld.getRegistryKey().equals(player.getWorld().getRegistryKey());
                     int cost = 0;
-                    if (player.getWorld().getRegistryKey().equals(ModDimensions.BACKROOMS_LEVEL_KEY)) {
+                    if (player.getWorld().getRegistryKey().equals(ModDimensionsDataGenerator.BACKROOMS_LEVEL_KEY)) {
                         player.sendMessage(Text.translatable("item.tlotd.mithril_mirror.cannot_escape", cost).formatted(Formatting.RED), true);
                         world.playSound(null, player.getBlockPos(), SoundEvents.ENTITY_SHULKER_BULLET_HURT, SoundCategory.PLAYERS, 1f, 1f);
                         player.getItemCooldownManager().set(ModItems.MITHRIL_MIRROR, getMaxUseTime(stack) * 20);
                         return stack;
-                    } else if (targetWorld.getRegistryKey().equals(ModDimensions.BACKROOMS_LEVEL_KEY)) {
+                    } else if (targetWorld.getRegistryKey().equals(ModDimensionsDataGenerator.BACKROOMS_LEVEL_KEY)) {
                         player.sendMessage(Text.translatable("item.tlotd.mithril_mirror.destination_unknown", cost).formatted(Formatting.RED), true);
                         world.playSound(null, player.getBlockPos(), SoundEvents.ENTITY_SHULKER_BULLET_HURT, SoundCategory.PLAYERS, 1f, 1f);
                         player.getItemCooldownManager().set(ModItems.MITHRIL_MIRROR, getMaxUseTime(stack) * 20);

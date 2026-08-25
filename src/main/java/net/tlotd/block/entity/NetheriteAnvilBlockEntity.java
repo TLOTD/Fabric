@@ -34,8 +34,6 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.Optional;
 
-import static net.tlotd.world.dimension.ModDimensions.LUNA_LEVEL_KEY;
-
 public class NetheriteAnvilBlockEntity extends BlockEntity implements ExtendedScreenHandlerFactory, ImplementedInventory {
 
     private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(7, ItemStack.EMPTY);

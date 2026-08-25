@@ -6,6 +6,7 @@ import com.terraformersmc.terraform.sign.block.TerraformWallHangingSignBlock;
 import com.terraformersmc.terraform.sign.block.TerraformWallSignBlock;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
+import net.fabricmc.fabric.api.registry.StrippableBlockRegistry;
 import net.minecraft.block.*;
 import net.minecraft.block.enums.Instrument;
 import net.minecraft.block.piston.PistonBehavior;
@@ -1103,6 +1104,11 @@ public class ModBlocks {
     }
 
     public static void registerModBlocks() {
+        StrippableBlockRegistry.register(ModBlocks.GINKGO_LOG, ModBlocks.STRIPPED_GINKGO_LOG);
+        StrippableBlockRegistry.register(ModBlocks.GINKGO_WOOD, ModBlocks.STRIPPED_GINKGO_WOOD);
+
+        StrippableBlockRegistry.register(ModBlocks.YELLOW_WALLPAPERED_WALL_WITH_BASEBOARD, ModBlocks.YELLOW_WALLPAPERED_WALL);
+        StrippableBlockRegistry.register(ModBlocks.YELLOW_WALLPAPERED_WALL, ModBlocks.STRIPPED_YELLOW_WALLPAPERED_WALL);
         TLOTD.LOGGER.info("Registering ModBlocks for " + TLOTD.MOD_ID);
     }
 }

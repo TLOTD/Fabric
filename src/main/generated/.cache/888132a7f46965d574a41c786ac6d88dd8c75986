@@ -1,4 +1,4 @@
-// 1.20.1	2026-08-12T17:44:52.8160684	TLOTD/Block Loot Tables
+// 1.20.1	2026-08-25T17:35:03.2676497	TLOTD/Block Loot Tables
 0dd871eb1f6dca98007e63e98f65ad0ccb6b6316 data\tlotd\loot_tables\blocks\megaregolith_brick_stairs.json
 85aceab0c9bc45f79bce5aedfc27f27be5376cce data\tlotd\loot_tables\blocks\potted_athelas.json
 451a64eab353fea7d533301f5182966f9ef02a34 data\tlotd\loot_tables\blocks\red_deepslate.json
@@ -197,8 +197,8 @@ dc0ce4ee11877fcac85a5f364e5594bdfb2cb61f data\tlotd\loot_tables\blocks\chiseled_
 657afa697c9fefe16efdd63cf840b3c66b07cad9 data\tlotd\loot_tables\blocks\polished_red_deepslate.json
 cd4dd709abee0148dfd475e3b1d76d5cf9efcbf3 data\tlotd\loot_tables\blocks\fancy_oak_slab.json
 9779e6d8b6657a9ab97a42d5dace2d05dd1c1704 data\tlotd\loot_tables\blocks\limestone_wall.json
-7cec187493efdea3f4200f3719df98291356de87 data\tlotd\loot_tables\blocks\fancy_mangrove_stairs.json
 e5ead721be1645cae3d3a116f8aaf620eb27503f data\tlotd\loot_tables\blocks\deepslate_palladium_ore.json
+7cec187493efdea3f4200f3719df98291356de87 data\tlotd\loot_tables\blocks\fancy_mangrove_stairs.json
 3570ce93f4f0990ca0a3ec09c4eb34194f463f4f data\tlotd\loot_tables\blocks\fancy_spruce_stairs.json
 70a8c83cd0c5d6d726572e350453cdc37523e2ed data\tlotd\loot_tables\blocks\glass_elevator_controller.json
 704e9593e0f3748120dabebb6dcc55ecf5a94bbc data\tlotd\loot_tables\blocks\extinguished_copper_torch.json

@@ -1,6 +1,8 @@
 package net.tlotd.compat;
 
 import net.fabricmc.loader.api.FabricLoader;
+import net.tlotd.TLOTD;
+import net.tlotd.compat.create.CreateCompat;
 
 public class CompatModsCheck {
     public static final boolean FORGE = FabricLoader.getInstance().isModLoaded("forge");
@@ -26,4 +28,11 @@ public class CompatModsCheck {
     public static final boolean TWILIGHTFOREST = FabricLoader.getInstance().isModLoaded("twilightforest");
     public static final boolean UNDERGARDEN = FabricLoader.getInstance().isModLoaded("undergarden");
     public static final boolean WITHERSTORMMOD = FabricLoader.getInstance().isModLoaded("witherstormmod");
+
+    public static void registerCompat() {
+        if (CREATE) {
+            CreateCompat.init();
+            TLOTD.LOGGER.info("CREATE COMPAT INITIALIZED!");
+        }
+    }
 }

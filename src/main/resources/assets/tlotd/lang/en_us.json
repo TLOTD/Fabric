@@ -1,16 +1,21 @@
 {
   "modmenu.tlotd": "TLOTD",
 
+  "tlotd.command.hover_text.open_in_browser": "Open in Browser",
+
   "tlotd.display_source.signal_transmitter_info": "Station Info",
-  "tlotd.display_source.signal_transmitter_strength": "Station State",
-  "tlotd.display_source.signal_transmitter_active": "Station Strength",
+  "tlotd.display_source.signal_transmitter_name": "Station Name",
+  "tlotd.display_source.signal_transmitter_active": "Station State",
+  "tlotd.display_source.signal_transmitter_strength": "Station Strength",
   "tlotd.display_source.signal_transmitter_range": "Station Range",
   "tlotd.display_source.signal_transmitter_signal_count": "Signal Count",
   "tlotd.display_source.signal_transmitter_signal_list": "Signal List",
 
   "tlotd.display_source.radio_track": "Radio Track",
-
   "tlotd.display_source.television_channel": "Television Channel",
+
+  "tlotd.display_source.source_station": "Source Station",
+  "tlotd.display_source.source_station.coordinates": "%1$s %2$s %3$s",
 
   "itemgroup.tlotd.materials": "TLOTD Materials",
   "itemgroup.tlotd.weapons_tools_and_utilities": "TLOTD Weapons, Tools & Utilities",
@@ -270,10 +275,10 @@
   "gui.tlotd.witching.soul_charges_of_the_abyss": "%1$s× Soul of the Abyss",
   "gui.tlotd.tooltip.liquid_amount_with_capacity": "§f%s§7: %smB/%smB",
   "gui.tlotd.oxygen_collector": "Oxygen Fueling",
-  "gui.tlotd.oxygen_collector.amount": "Oxygen Amount:",
-  "gui.tlotd.oxygen_collector.amount.2.1": "▒▒▒▒ Poisonous",
-  "gui.tlotd.oxygen_collector.amount.1.1": "█▒▒▒ Dangerous",
-  "gui.tlotd.oxygen_collector.amount.0.1": "███▒ Good",
+  "gui.tlotd.oxygen_collector.oxygen_percentage": "Oxygen Amount:",
+  "gui.tlotd.oxygen_collector.oxygen_percentage.2": "▒▒▒▒ Poisonous",
+  "gui.tlotd.oxygen_collector.oxygen_percentage.1": "█▒▒▒ Dangerous",
+  "gui.tlotd.oxygen_collector.oxygen_percentage.0": "███▒ Good",
   "gui.tlotd.oxygen_collector.gas": "Main Gas:",
   "gui.tlotd.keycard_programmer": "Program Keycard",
   "gui.tlotd.incubating": "Incubating",
@@ -1370,6 +1375,8 @@
   "block.tlotd.gold_signal_transmitter_antenna": "Gold Signal Transmitter Antenna",
   "block.tlotd.mithril_signal_transmitter_antenna": "Mithril Signal Transmitter Antenna",
 
+  "block.tlotd.signal_transmitter.name_set": "Custom station name set",
+  "block.tlotd.signal_transmitter.unnamed": "Unnamed Station",
   "block.tlotd.signal_transmitter.stats": "%1$s | %2$s | %3$s | %4$s",
   "block.tlotd.signal_transmitter.stats.1": "%2$s | %1$s",
   "block.tlotd.signal_transmitter.stats.2": "%3$s | %4$s",

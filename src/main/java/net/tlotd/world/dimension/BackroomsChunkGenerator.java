@@ -74,7 +74,7 @@ public class BackroomsChunkGenerator extends ChunkGenerator {
         long s = seed;
         s += segmentX * 341873128712L;
         s += segmentZ * 132897987541L;
-        s += layerIndex * 918273645231L;  // unique per layer
+        s += layerIndex * 918273645231L;
         s ^= (s >> 33);
         s *= 0xff51afd7ed558ccdL;
         s ^= (s >> 33);

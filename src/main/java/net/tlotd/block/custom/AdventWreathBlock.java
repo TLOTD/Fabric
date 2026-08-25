@@ -4,6 +4,7 @@ import net.minecraft.block.*;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Items;
+import net.minecraft.particle.ParticleTypes;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.stat.Stats;
@@ -13,6 +14,8 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.math.random.Random;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
@@ -69,5 +72,35 @@ public class AdventWreathBlock extends Block {
             }
         }
         return ActionResult.FAIL;
+    }
+
+    @Override
+    public void randomDisplayTick(BlockState state, World world, BlockPos pos, Random random) {
+        int lit = state.get(LIT);
+        if (lit <= 0) {
+            return;
+        }
+        spawnCandleParticles(world, pos, new Vec3d(0.25, 0.6, 0.25), random);
+        if (lit >= 2) {
+            spawnCandleParticles(world, pos, new Vec3d(0.75, 0.6, 0.25), random);
+        }
+        if (lit >= 3) {
+            spawnCandleParticles(world, pos, new Vec3d(0.75, 0.6, 0.75), random);
+        }
+        if (lit >= 4) {
+            spawnCandleParticles(world, pos, new Vec3d(0.25, 0.6, 0.75), random);
+        }
+    }
+
+    private static void spawnCandleParticles(World world, BlockPos pos, Vec3d offset, Random random) {
+        Vec3d particlePos = offset.add(pos.getX(), pos.getY(), pos.getZ());
+        float f = random.nextFloat();
+        if (f < 0.3F) {
+            world.addParticle(ParticleTypes.SMOKE, particlePos.x, particlePos.y, particlePos.z, 0.0D, 0.0D, 0.0D);
+            if (f < 0.17F) {
+                world.playSound(particlePos.x + 0.5D, particlePos.y + 0.5D, particlePos.z + 0.5D, SoundEvents.BLOCK_CANDLE_AMBIENT, SoundCategory.BLOCKS, 1.0F + random.nextFloat(), random.nextFloat() * 0.7F + 0.3F, false);
+            }
+        }
+        world.addParticle(ParticleTypes.SMALL_FLAME, particlePos.x, particlePos.y, particlePos.z, 0.0D, 0.0D, 0.0D);
     }
 }
