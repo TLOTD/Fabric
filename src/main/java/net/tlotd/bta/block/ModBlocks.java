@@ -1,12 +1,10 @@
 package net.tlotd.bta.block;
 
-import net.minecraft.core.block.Block;
-import net.minecraft.core.block.BlockLogicSlab;
-import net.minecraft.core.block.BlockLogicStairs;
-import net.minecraft.core.block.Blocks;
+import net.minecraft.core.block.*;
 import net.minecraft.core.block.tag.BlockTags;
 import net.tlotd.bta.TLOTD;
 import net.tlotd.bta.block.custom.*;
+import org.jetbrains.annotations.NotNull;
 import turniplabs.halplibe.helper.BlockBuilder;
 import turniplabs.halplibe.helper.creativeInventory.CreativeInventoryCategory;
 import turniplabs.halplibe.helper.creativeInventory.CreativeInventoryPlacement;
@@ -102,6 +100,14 @@ public class ModBlocks {
 	public static Block<?> RAW_MITHRIL_BLOCK;
 	public static Block<?> MITHRIL_BLOCK;
 
+	public static Block<?> DWARVEN_FORGE;
+	public static Block<?> DWARVEN_FORGE_BURNING;
+	public static Block<?> DWARVEN_FORGE_SOULFIRE;
+	public static Block<?> DWARVEN_FORGE_DRAGONFIRE;
+
+	public static Block<?> STEEL_ANVIL;
+	public static Block<?> MITHRIL_ANVIL;
+
 	public void initializeBlockDetails() {
 		miningLevels.put(ModBlocks.STONE_FOSSIL, 2);
 		miningLevels.put(ModBlocks.BASALT_FOSSIL, 2);
@@ -109,6 +115,13 @@ public class ModBlocks {
 		miningLevels.put(ModBlocks.GRANITE_FOSSIL, 2);
 		miningLevels.put(ModBlocks.PERMAFROST_FOSSIL, 2);
 		miningLevels.put(ModBlocks.RED_DEEPSLATE_FOSSIL, 2);
+
+		miningLevels.put(ModBlocks.DWARVEN_FORGE, 2);
+		miningLevels.put(ModBlocks.DWARVEN_FORGE_BURNING, 2);
+		miningLevels.put(ModBlocks.DWARVEN_FORGE_SOULFIRE, 2);
+		miningLevels.put(ModBlocks.DWARVEN_FORGE_DRAGONFIRE, 2);
+
+		miningLevels.put(ModBlocks.STEEL_ANVIL, 2);
 
 		miningLevels.put(ModBlocks.HELIORITE_STONE_ORE, 3);
 		miningLevels.put(ModBlocks.HELIORITE_BASALT_ORE, 3);
@@ -173,6 +186,8 @@ public class ModBlocks {
 		miningLevels.put(ModBlocks.MITHRIL_BEDROCK_ORE, 6);
 		miningLevels.put(ModBlocks.RAW_MITHRIL_BLOCK, 6);
 		miningLevels.put(ModBlocks.MITHRIL_BLOCK, 6);
+
+		miningLevels.put(ModBlocks.MITHRIL_ANVIL, 6);
 	}
 
 	public void registerBlocks() {
@@ -551,5 +566,38 @@ public class ModBlocks {
 			.setHardness(3f)
 			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS))
 			.build("mithril_block", blockId++, b -> new BlockLogicOreBlock(b)).withBlastResistance(5.0F);
+
+
+
+		DWARVEN_FORGE = fullBlock
+			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
+			.setHardness(3f)
+			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS))
+			.build("dwarven_forge", blockId++, b -> new BlockLogicDwarvenForge(b, false)).withBlastResistance(5.0F);
+		DWARVEN_FORGE_BURNING = fullBlock
+			.setTags(BlockTags.MINEABLE_BY_PICKAXE/*, BlockTags.NOT_IN_CREATIVE_MENU*/)
+			.setHardness(3f)
+			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS))
+			.build("dwarven_forge_burning", blockId++, b -> new BlockLogicDwarvenForge(b, true)).withBlastResistance(5.0F);
+		DWARVEN_FORGE_SOULFIRE = fullBlock
+			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
+			.setHardness(3f)
+			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS))
+			.build("dwarven_forge_soulfire", blockId++, b -> new BlockLogicDwarvenForge(b, true)).withBlastResistance(5.0F);
+		DWARVEN_FORGE_DRAGONFIRE = fullBlock
+			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
+			.setHardness(3f)
+			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS))
+			.build("dwarven_forge_dragonfire", blockId++, b -> new BlockLogicDwarvenForge(b, true)).withBlastResistance(5.0F);
+		STEEL_ANVIL = fullBlock
+			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
+			.setHardness(3f)
+			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS))
+			.build("steel_anvil", blockId++, b -> new BlockLogicOreBlock(b)).withBlastResistance(5.0F);
+		MITHRIL_ANVIL = fullBlock
+			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
+			.setHardness(3f)
+			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS))
+			.build("mithril_anvil", blockId++, b -> new BlockLogicOreBlock(b)).withBlastResistance(5.0F);
 	}
 }

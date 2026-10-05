@@ -21,14 +21,15 @@ loom {
 }
 repositories {
     mavenCentral()
-    maven("https://maven.fabricmc.net/") { name = "Fabric" }
-    maven("https://maven.thesignalumproject.net/infrastructure") { name = "SignalumMavenInfrastructure" }
-    maven("https://maven.thesignalumproject.net/releases") { name = "SignalumMavenReleases" }
-	maven("https://maven.thesignalumproject.net/nightly") { name = "SignalumMavenNightly" }
-    ivy("https://piston-data.mojang.com") {
+	ivy("https://piston-data.mojang.com") {
         patternLayout { artifact("v1/[organisation]/[revision]/[module].jar") }
         metadataSources { artifact() }
     }
+    maven("https://maven.fabricmc.net/") { name = "Fabric" }
+	maven("https://maven.danygames2014.net/signalum") { name = "SignalumMavenMirror1" }
+    maven("https://maven.thesignalumproject.net/infrastructure") { name = "SignalumMavenInfrastructure" }
+    maven("https://maven.thesignalumproject.net/releases") { name = "SignalumMavenReleases" }
+	maven("https://maven.thesignalumproject.net/nightly") { name = "SignalumMavenNightly" }
 }
 dependencies {
     minecraft("::${libs.versions.bta.get()}")
@@ -37,6 +38,8 @@ dependencies {
 	// included in builds as a runtime dependency
 	implementation(libs.loader)
 	implementation(libs.halplibe) // If you do not need halplibe you can delete this line
+	implementation(libs.catalyst.core)
+	implementation(libs.catalyst.screens)
 
 	// Only required at compilation
 	// provides documentation, can be removed if that isn't needed
@@ -110,7 +113,10 @@ tasks {
 			"fabricloader" to libs.versions.loader.get(),
 			"halplibe" to libs.versions.halplibe.get(),
 			"java" to libs.versions.java.get(),
-			"modmenu" to libs.versions.modMenu.get()
+			"modmenu" to libs.versions.modMenu.get(),
+
+			"catalystcore" to libs.versions.catalyst.core.get(),
+			"catalystscreens" to libs.versions.catalyst.screens.get()
 		)
 		// This is needed for gradle to recognize changes
 		// made to expanded files

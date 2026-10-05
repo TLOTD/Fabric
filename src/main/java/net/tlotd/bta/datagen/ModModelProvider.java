@@ -3,10 +3,7 @@ package net.tlotd.bta.datagen;
 import net.minecraft.client.render.EntityRendererDispatcher;
 import net.minecraft.client.render.TileEntityRenderDispatcher;
 import net.minecraft.client.render.block.color.BlockColorDispatcher;
-import net.minecraft.client.render.block.model.BlockModelDispatcher;
-import net.minecraft.client.render.block.model.BlockModelSlab;
-import net.minecraft.client.render.block.model.BlockModelStairs;
-import net.minecraft.client.render.block.model.BlockModelStandard;
+import net.minecraft.client.render.block.model.*;
 import net.minecraft.client.render.item.model.ItemModelDispatcher;
 import net.minecraft.client.render.item.model.ItemModelStandard;
 import net.minecraft.core.util.helper.Side;
@@ -314,6 +311,54 @@ public class ModModelProvider {
 		);
 		dispatcher.addDispatch(
 			ModBlocks.MITHRIL_BLOCK, new BlockModelStandard<>(ModBlocks.MITHRIL_BLOCK)
+				.setTex("tlotd:block/mithril_block", Side.sides)
+		);
+
+
+
+		dispatcher.addDispatch(
+			ModBlocks.DWARVEN_FORGE, new BlockModelHorizontalRotation<>(ModBlocks.DWARVEN_FORGE)
+				.setTex("tlotd:block/dwarven_forge_front", Side.NORTH)
+				.setTex("tlotd:block/dwarven_forge_side", Side.EAST)
+				.setTex("tlotd:block/dwarven_forge_side", Side.SOUTH)
+				.setTex("tlotd:block/dwarven_forge_side", Side.WEST)
+				.setTex("tlotd:block/dwarven_forge_top", Side.TOP)
+				.setTex("tlotd:block/dwarven_forge_top", Side.BOTTOM)
+		);
+
+		dispatcher.addDispatch(
+			ModBlocks.DWARVEN_FORGE_BURNING, new BlockModelHorizontalRotation<>(ModBlocks.DWARVEN_FORGE_BURNING)
+				.setTex("tlotd:block/dwarven_forge_front_burning", Side.NORTH)
+				.setTex("tlotd:block/dwarven_forge_side", Side.EAST)
+				.setTex("tlotd:block/dwarven_forge_side", Side.SOUTH)
+				.setTex("tlotd:block/dwarven_forge_side", Side.WEST)
+				.setTex("tlotd:block/dwarven_forge_top_burning", Side.TOP)
+				.setTex("tlotd:block/dwarven_forge_top", Side.BOTTOM)
+		);
+		dispatcher.addDispatch(
+			ModBlocks.DWARVEN_FORGE_SOULFIRE, new BlockModelHorizontalRotation<>(ModBlocks.DWARVEN_FORGE_SOULFIRE)
+				.setTex("tlotd:block/dwarven_forge_front_soulfire", Side.NORTH)
+				.setTex("tlotd:block/dwarven_forge_side", Side.EAST)
+				.setTex("tlotd:block/dwarven_forge_side", Side.SOUTH)
+				.setTex("tlotd:block/dwarven_forge_side", Side.WEST)
+				.setTex("tlotd:block/dwarven_forge_top_soulfire", Side.TOP)
+				.setTex("tlotd:block/dwarven_forge_top", Side.BOTTOM)
+		);
+		dispatcher.addDispatch(
+			ModBlocks.DWARVEN_FORGE_DRAGONFIRE, new BlockModelHorizontalRotation<>(ModBlocks.DWARVEN_FORGE_DRAGONFIRE)
+				.setTex("tlotd:block/dwarven_forge_front_dragonfire", Side.NORTH)
+				.setTex("tlotd:block/dwarven_forge_side", Side.EAST)
+				.setTex("tlotd:block/dwarven_forge_side", Side.SOUTH)
+				.setTex("tlotd:block/dwarven_forge_side", Side.WEST)
+				.setTex("tlotd:block/dwarven_forge_top_dragonfire", Side.TOP)
+				.setTex("tlotd:block/dwarven_forge_top", Side.BOTTOM)
+		);
+		dispatcher.addDispatch(
+			ModBlocks.STEEL_ANVIL, new BlockModelStandard<>(ModBlocks.STEEL_ANVIL)
+				.setTex("tlotd:block/mithril_block", Side.sides)
+		);
+		dispatcher.addDispatch(
+			ModBlocks.MITHRIL_ANVIL, new BlockModelStandard<>(ModBlocks.MITHRIL_ANVIL)
 				.setTex("tlotd:block/mithril_block", Side.sides)
 		);
 	}

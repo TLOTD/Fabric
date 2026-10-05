@@ -12,17 +12,23 @@ gradleJava = "21"
 ##########################################################################EEE
 # Mod Dependencies
 # Check this on https://downloads.betterthanadventure.net/bta-client/
-bta = "8.0"
+bta = "8.0.1"
 # Options are release, prerelease, nightly, and misc.
 btaChannel = "release"
 # Check this on https://maven.thesignalumproject.net/#/infrastructure/net/fabricmc/fabric-loader/
 loader = "0.18.4-bta.11"
 # Check this on https://github.com/Turnip-Labs/ModMenu/releases/latest/
-modMenu = "5.0.1"
+modMenu = "5.0.2"
 # Check this on https://github.com/Turnip-Labs/bta-halplibe/releases/latest/
-halplibe = "6.1.1+8.0-pre3"
+halplibe = "6.2.0+8.0.1"
 # Check this on https://github.com/Better-than-Adventure/legacy-lwjgl3/releases/latest/
 legacyLwjgl = "1.0.6"
+
+# Check this on https://maven.thesignalumproject.net/#/releases/sunsetsatellite/catalyst-core/
+catalyst-core = "3.0.5"
+# Check this on https://maven.thesignalumproject.net/#/releases/sunsetsatellite/catalyst-effects/
+catalyst-screens = "1.0.1"
+
 ##########################################################################
 # Dependencies
 # Check this on https://central.sonatype.com/artifact/org.slf4j/slf4j-api/
@@ -49,6 +55,9 @@ lwjgl-glfw = { group = "org.lwjgl", name = "lwjgl-glfw", version.ref = "lwjgl"}
 lwjgl-openal = { group = "org.lwjgl", name = "lwjgl-openal", version.ref = "lwjgl"}
 lwjgl-opengl = { group = "org.lwjgl", name = "lwjgl-opengl", version.ref = "lwjgl"}
 lwjgl-stb = { group = "org.lwjgl", name = "lwjgl-stb", version.ref = "lwjgl"}
+
+catalyst-core = { group = "sunsetsatellite", name = "catalyst-core", version.ref = "catalyst-core" }
+catalyst-screens = { group = "sunsetsatellite", name = "catalyst-screens", version.ref = "catalyst-screens" }
 
 [bundles]
 btaLwjgl = [ "lwjgl", "lwjgl-glfw", "lwjgl-openal", "lwjgl-opengl", "lwjgl-stb", "legacyLwjgl" ]

@@ -380,3 +380,5 @@ tile.tlotd.raw.mithril.block.name=§4Block of Raw Mithril§r
 tile.tlotd.raw.mithril.block.desc=A solid block of mithril chunks.
 tile.tlotd.mithril.block.name=§4Block of Mithril§r
 tile.tlotd.mithril.block.desc=A solid block of mithril.
+
+container.tlotd.dwarven_forge.name="Dwarven Forge"

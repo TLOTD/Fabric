@@ -60,9 +60,9 @@ public class ModRecipeProvider {
 		RecipeBuilder.BlastFurnace(TLOTD.MOD_ID)
 			.setInput("tlotd:heliorite_ores")
 			.create("heliorite_ores_blasting", new ItemStack(ModItems.HELIORITE_COMB));
-		RecipeBuilder.Shapeless(TLOTD.MOD_ID)
-			.addInput(ModItems.HELIORITE_COMB)
-			.addInput(Blocks.OBSIDIAN)
+		RecipeBuilder.BlastFurnace(TLOTD.MOD_ID)
+			.setInput(0, ModItems.HELIORITE_COMB)
+			.setInput(1, Blocks.OBSIDIAN)
 			.create("heliorite_ingot_obsidian", new ItemStack(ModItems.HELIORITE_INGOT));
 		RecipeBuilder.Shapeless(TLOTD.MOD_ID)
 			.addInput(ModItems.HELIORITE_INGOT)

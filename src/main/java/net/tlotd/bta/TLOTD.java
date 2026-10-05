@@ -1,12 +1,18 @@
 package net.tlotd.bta;
 
 import net.fabricmc.api.ModInitializer;
+import net.minecraft.core.block.entity.TileEntityDispatcher;
+import net.minecraft.core.util.collection.NamespaceID;
 import net.tlotd.bta.block.ModBlocks;
+import net.tlotd.bta.block.custom.entity.TileEntityDwarvenForge;
 import net.tlotd.bta.block.tag.ModTags;
 import net.tlotd.bta.datagen.ModRecipeProvider;
+import net.tlotd.bta.gui.MenuDwarvenForge;
 import net.tlotd.bta.item.ModItems;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import sunsetsatellite.catalyst.Catalyst;
+import sunsetsatellite.catalyst.core.util.mp.GuiEntry;
 import turniplabs.halplibe.HalpLibe;
 import turniplabs.halplibe.event.defs.CommonEvents;
 import turniplabs.halplibe.util.TomlConfigHandler;
@@ -36,6 +42,14 @@ public class TLOTD implements ModInitializer {
 		CommonEvents.RECIPES_NAMESPACE_INIT.listen(Key.of(MOD_ID),()->new ModRecipeProvider().initNamespaces());
 		CommonEvents.RECIPES_READY.listen(Key.of(MOD_ID),()->new ModRecipeProvider().onRecipesReady());
 		LOGGER.info("TLOTD BTA! initialized.");
+		TileEntityDispatcher.addMapping(TileEntityDwarvenForge.class, NamespaceID.fromPool(MOD_ID, "carpenter_workbench"));
+		Catalyst.GUIS.register(
+			TLOTD.MOD_ID + ":gui/dwarven_forge",
+			new GuiEntry<>(
+				TileEntityDwarvenForge.class,
+				MenuDwarvenForge.class
+			)
+		);
 	}
 
 	public void beforeGameStart() {
