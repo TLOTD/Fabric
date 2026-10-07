@@ -102,7 +102,7 @@ public class ModBlocks {
 
 	public static Block<?> DWARVEN_FORGE;
 	public static Block<?> DWARVEN_FORGE_BURNING;
-	public static Block<?> DWARVEN_FORGE_SOULFIRE;
+	public static Block<?> DWARVEN_FORGE_HELLFIRE;
 	public static Block<?> DWARVEN_FORGE_DRAGONFIRE;
 
 	public static Block<?> STEEL_ANVIL;
@@ -118,7 +118,7 @@ public class ModBlocks {
 
 		miningLevels.put(ModBlocks.DWARVEN_FORGE, 2);
 		miningLevels.put(ModBlocks.DWARVEN_FORGE_BURNING, 2);
-		miningLevels.put(ModBlocks.DWARVEN_FORGE_SOULFIRE, 2);
+		miningLevels.put(ModBlocks.DWARVEN_FORGE_HELLFIRE, 2);
 		miningLevels.put(ModBlocks.DWARVEN_FORGE_DRAGONFIRE, 2);
 
 		miningLevels.put(ModBlocks.STEEL_ANVIL, 2);
@@ -192,412 +192,94 @@ public class ModBlocks {
 
 	public void registerBlocks() {
 
-		RED_DEEPSLATE = fullBlock
-			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
-			.setHardness(3f)
-			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS))
-			.build("red_deepslate", blockId++, b -> new BlockLogicRedDeepslate(b)).withBlastResistance(5.0F);
-		RED_DEEPSLATE_BRICKS = fullBlock
-			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
-			.setHardness(3f)
-			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS))
-			.build("red_deepslate_bricks", blockId++, b -> new BlockLogicOreBlock(b)).withBlastResistance(5.0F);
-		RED_DEEPSLATE_BRICK_STAIRS = notFullBlock
-			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
-			.setHardness(3f)
-			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS))
-			.build("red_deepslate_brick_stairs", blockId++, b -> new BlockLogicStairs(b, RED_DEEPSLATE_BRICKS));
-		RED_DEEPSLATE_BRICK_SLAB = notFullBlock
-			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
-			.setHardness(3f)
-			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS))
-			.build("red_deepslate_brick_slab", blockId++, b -> new BlockLogicSlab(b, RED_DEEPSLATE_BRICKS));
+		RED_DEEPSLATE = fullBlock.setTags(BlockTags.MINEABLE_BY_PICKAXE).setHardness(3f).setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS)).build("red_deepslate", blockId++, b -> new BlockLogicRedDeepslate(b)).withBlastResistance(5.0F);
+		RED_DEEPSLATE_BRICKS = fullBlock.setTags(BlockTags.MINEABLE_BY_PICKAXE).setHardness(3f).setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS)).build("red_deepslate_bricks", blockId++, b -> new BlockLogicOreBlock(b)).withBlastResistance(5.0F);
+		RED_DEEPSLATE_BRICK_STAIRS = notFullBlock.setTags(BlockTags.MINEABLE_BY_PICKAXE).setHardness(3f).setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS)).build("red_deepslate_brick_stairs", blockId++, b -> new BlockLogicStairs(b, RED_DEEPSLATE_BRICKS));
+		RED_DEEPSLATE_BRICK_SLAB = notFullBlock.setTags(BlockTags.MINEABLE_BY_PICKAXE).setHardness(3f).setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS)).build("red_deepslate_brick_slab", blockId++, b -> new BlockLogicSlab(b, RED_DEEPSLATE_BRICKS));
 
-		COBBLED_RED_DEEPSLATE = fullBlock
-			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
-			.setHardness(3f)
-			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS))
-			.build("cobbled_red_deepslate", blockId++, b -> new BlockLogicOreBlock(b)).withBlastResistance(5.0F);
-		COBBLED_RED_DEEPSLATE_STAIRS = notFullBlock
-			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
-			.setHardness(3f)
-			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS))
-			.build("cobbled_red_deepslate_stairs", blockId++, b -> new BlockLogicStairs(b, COBBLED_RED_DEEPSLATE));
-		COBBLED_RED_DEEPSLATE_SLAB = notFullBlock
-			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
-			.setHardness(3f)
-			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS))
-			.build("cobbled_red_deepslate_slab", blockId++, b -> new BlockLogicSlab(b, COBBLED_RED_DEEPSLATE));
-		COBBLED_RED_DEEPSLATE_BRICKS = fullBlock
-			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
-			.setHardness(3f)
-			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS))
-			.build("cobbled_red_deepslate_bricks", blockId++, b -> new BlockLogicOreBlock(b)).withBlastResistance(5.0F);
-		COBBLED_RED_DEEPSLATE_BRICK_STAIRS = notFullBlock
-			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
-			.setHardness(3f)
-			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS))
-			.build("cobbled_red_deepslate_brick_stairs", blockId++, b -> new BlockLogicStairs(b, COBBLED_RED_DEEPSLATE_BRICKS));
-		COBBLED_RED_DEEPSLATE_BRICK_SLAB = notFullBlock
-			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
-			.setHardness(3f)
-			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS))
-			.build("cobbled_red_deepslate_brick_slab", blockId++, b -> new BlockLogicSlab(b, COBBLED_RED_DEEPSLATE_BRICKS));
+		COBBLED_RED_DEEPSLATE = fullBlock.setTags(BlockTags.MINEABLE_BY_PICKAXE).setHardness(3f).setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS)).build("cobbled_red_deepslate", blockId++, b -> new BlockLogicOreBlock(b)).withBlastResistance(5.0F);
+		COBBLED_RED_DEEPSLATE_STAIRS = notFullBlock.setTags(BlockTags.MINEABLE_BY_PICKAXE).setHardness(3f).setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS)).build("cobbled_red_deepslate_stairs", blockId++, b -> new BlockLogicStairs(b, COBBLED_RED_DEEPSLATE));
+		COBBLED_RED_DEEPSLATE_SLAB = notFullBlock.setTags(BlockTags.MINEABLE_BY_PICKAXE).setHardness(3f).setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS)).build("cobbled_red_deepslate_slab", blockId++, b -> new BlockLogicSlab(b, COBBLED_RED_DEEPSLATE));
+		COBBLED_RED_DEEPSLATE_BRICKS = fullBlock.setTags(BlockTags.MINEABLE_BY_PICKAXE).setHardness(3f).setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS)).build("cobbled_red_deepslate_bricks", blockId++, b -> new BlockLogicOreBlock(b)).withBlastResistance(5.0F);
+		COBBLED_RED_DEEPSLATE_BRICK_STAIRS = notFullBlock.setTags(BlockTags.MINEABLE_BY_PICKAXE).setHardness(3f).setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS)).build("cobbled_red_deepslate_brick_stairs", blockId++, b -> new BlockLogicStairs(b, COBBLED_RED_DEEPSLATE_BRICKS));
+		COBBLED_RED_DEEPSLATE_BRICK_SLAB = notFullBlock.setTags(BlockTags.MINEABLE_BY_PICKAXE).setHardness(3f).setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS)).build("cobbled_red_deepslate_brick_slab", blockId++, b -> new BlockLogicSlab(b, COBBLED_RED_DEEPSLATE_BRICKS));
 
-		STONE_FOSSIL = fullBlock
-			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
-			.setHardness(3f)
-			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS))
-			.build("stone_fossil", blockId++, b -> new BlockLogicFossil(b, Blocks.STONE, Blocks.STONE.getMaterial())).withBlastResistance(5.0F);
-		BASALT_FOSSIL = fullBlock
-			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
-			.setHardness(3f)
-			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS))
-			.build("basalt_fossil", blockId++, b -> new BlockLogicFossil(b, Blocks.BASALT, Blocks.BASALT.getMaterial())).withBlastResistance(5.0F);
-		LIMESTONE_FOSSIL = fullBlock
-			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
-			.setHardness(3f)
-			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS))
-			.build("limestone_fossil", blockId++, b -> new BlockLogicFossil(b, Blocks.LIMESTONE, Blocks.LIMESTONE.getMaterial())).withBlastResistance(5.0F);
-		GRANITE_FOSSIL = fullBlock
-			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
-			.setHardness(3f)
-			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS))
-			.build("granite_fossil", blockId++, b -> new BlockLogicFossil(b, Blocks.GRANITE, Blocks.GRANITE.getMaterial())).withBlastResistance(5.0F);
-		PERMAFROST_FOSSIL = fullBlock
-			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
-			.setHardness(3f)
-			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS))
-			.build("permafrost_fossil", blockId++, b -> new BlockLogicFossil(b, Blocks.PERMAFROST, Blocks.PERMAFROST.getMaterial())).withBlastResistance(5.0F);
-		RED_DEEPSLATE_FOSSIL = fullBlock
-			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
-			.setHardness(3f)
-			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS))
-			.build("red_deepslate_fossil", blockId++, b -> new BlockLogicFossil(b, ModBlocks.RED_DEEPSLATE, Blocks.SLATE.getMaterial())).withBlastResistance(5.0F);
+		STONE_FOSSIL = fullBlock.setTags(BlockTags.MINEABLE_BY_PICKAXE).setHardness(3f).setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS)).build("stone_fossil", blockId++, b -> new BlockLogicFossil(b, Blocks.STONE, Blocks.STONE.getMaterial())).withBlastResistance(5.0F);
+		BASALT_FOSSIL = fullBlock.setTags(BlockTags.MINEABLE_BY_PICKAXE).setHardness(3f).setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS)).build("basalt_fossil", blockId++, b -> new BlockLogicFossil(b, Blocks.BASALT, Blocks.BASALT.getMaterial())).withBlastResistance(5.0F);
+		LIMESTONE_FOSSIL = fullBlock.setTags(BlockTags.MINEABLE_BY_PICKAXE).setHardness(3f).setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS)).build("limestone_fossil", blockId++, b -> new BlockLogicFossil(b, Blocks.LIMESTONE, Blocks.LIMESTONE.getMaterial())).withBlastResistance(5.0F);
+		GRANITE_FOSSIL = fullBlock.setTags(BlockTags.MINEABLE_BY_PICKAXE).setHardness(3f).setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS)).build("granite_fossil", blockId++, b -> new BlockLogicFossil(b, Blocks.GRANITE, Blocks.GRANITE.getMaterial())).withBlastResistance(5.0F);
+		PERMAFROST_FOSSIL = fullBlock.setTags(BlockTags.MINEABLE_BY_PICKAXE).setHardness(3f).setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS)).build("permafrost_fossil", blockId++, b -> new BlockLogicFossil(b, Blocks.PERMAFROST, Blocks.PERMAFROST.getMaterial())).withBlastResistance(5.0F);
+		RED_DEEPSLATE_FOSSIL = fullBlock.setTags(BlockTags.MINEABLE_BY_PICKAXE).setHardness(3f).setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS)).build("red_deepslate_fossil", blockId++, b -> new BlockLogicFossil(b, ModBlocks.RED_DEEPSLATE, Blocks.SLATE.getMaterial())).withBlastResistance(5.0F);
 
-		HELIORITE_STONE_ORE = fullBlock
-			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
-			.setHardness(3f)
-			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS))
-			.build("heliorite_stone_ore", blockId++, b -> new BlockLogicHelioriteOre(b, Blocks.STONE, Blocks.STONE.getMaterial())).withBlastResistance(5.0F);
-		HELIORITE_BASALT_ORE = fullBlock
-			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
-			.setHardness(3f)
-			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS))
-			.build("heliorite_basalt_ore", blockId++, b -> new BlockLogicHelioriteOre(b, Blocks.BASALT, Blocks.BASALT.getMaterial())).withBlastResistance(5.0F);
-		HELIORITE_LIMESTONE_ORE = fullBlock
-			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
-			.setHardness(3f)
-			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS))
-			.build("heliorite_limestone_ore", blockId++, b -> new BlockLogicHelioriteOre(b, Blocks.LIMESTONE, Blocks.LIMESTONE.getMaterial())).withBlastResistance(5.0F);
-		HELIORITE_GRANITE_ORE = fullBlock
-			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
-			.setHardness(3f)
-			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS))
-			.build("heliorite_granite_ore", blockId++, b -> new BlockLogicHelioriteOre(b, Blocks.GRANITE, Blocks.GRANITE.getMaterial())).withBlastResistance(5.0F);
-		HELIORITE_PERMAFROST_ORE = fullBlock
-			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
-			.setHardness(3f)
-			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS))
-			.build("heliorite_permafrost_ore", blockId++, b -> new BlockLogicHelioriteOre(b, Blocks.PERMAFROST, Blocks.PERMAFROST.getMaterial())).withBlastResistance(5.0F);
-		HELIORITE_RED_DEEPSLATE_ORE = fullBlock
-			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
-			.setHardness(3f)
-			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS))
-			.build("heliorite_red_deepslate_ore", blockId++, b -> new BlockLogicHelioriteOre(b, ModBlocks.RED_DEEPSLATE, ModBlocks.RED_DEEPSLATE.getMaterial())).withBlastResistance(5.0F);
-		HELIORITE_COMB_BLOCK = fullBlock
-			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
-			.setHardness(3f)
-			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS))
-			.build("heliorite_comb_block", blockId++, b -> new BlockLogicOreBlock(b)).withBlastResistance(5.0F);
-		HELIORITE_BLOCK = fullBlock
-			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
-			.setHardness(3f)
-			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS))
-			.build("heliorite_block", blockId++, b -> new BlockLogicOreBlock(b)).withBlastResistance(5.0F);
+		HELIORITE_STONE_ORE = fullBlock.setTags(BlockTags.MINEABLE_BY_PICKAXE).setHardness(3f).setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS)).build("heliorite_stone_ore", blockId++, b -> new BlockLogicHelioriteOre(b, Blocks.STONE, Blocks.STONE.getMaterial())).withBlastResistance(5.0F);
+		HELIORITE_BASALT_ORE = fullBlock.setTags(BlockTags.MINEABLE_BY_PICKAXE).setHardness(3f).setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS)).build("heliorite_basalt_ore", blockId++, b -> new BlockLogicHelioriteOre(b, Blocks.BASALT, Blocks.BASALT.getMaterial())).withBlastResistance(5.0F);
+		HELIORITE_LIMESTONE_ORE = fullBlock.setTags(BlockTags.MINEABLE_BY_PICKAXE).setHardness(3f).setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS)).build("heliorite_limestone_ore", blockId++, b -> new BlockLogicHelioriteOre(b, Blocks.LIMESTONE, Blocks.LIMESTONE.getMaterial())).withBlastResistance(5.0F);
+		HELIORITE_GRANITE_ORE = fullBlock.setTags(BlockTags.MINEABLE_BY_PICKAXE).setHardness(3f).setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS)).build("heliorite_granite_ore", blockId++, b -> new BlockLogicHelioriteOre(b, Blocks.GRANITE, Blocks.GRANITE.getMaterial())).withBlastResistance(5.0F);
+		HELIORITE_PERMAFROST_ORE = fullBlock.setTags(BlockTags.MINEABLE_BY_PICKAXE).setHardness(3f).setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS)).build("heliorite_permafrost_ore", blockId++, b -> new BlockLogicHelioriteOre(b, Blocks.PERMAFROST, Blocks.PERMAFROST.getMaterial())).withBlastResistance(5.0F);
+		HELIORITE_RED_DEEPSLATE_ORE = fullBlock.setTags(BlockTags.MINEABLE_BY_PICKAXE).setHardness(3f).setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS)).build("heliorite_red_deepslate_ore", blockId++, b -> new BlockLogicHelioriteOre(b, ModBlocks.RED_DEEPSLATE, ModBlocks.RED_DEEPSLATE.getMaterial())).withBlastResistance(5.0F);
+		HELIORITE_COMB_BLOCK = fullBlock.setTags(BlockTags.MINEABLE_BY_PICKAXE).setHardness(3f).setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS)).build("heliorite_comb_block", blockId++, b -> new BlockLogicOreBlock(b)).withBlastResistance(5.0F);
+		HELIORITE_BLOCK = fullBlock.setTags(BlockTags.MINEABLE_BY_PICKAXE).setHardness(3f).setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS)).build("heliorite_block", blockId++, b -> new BlockLogicOreBlock(b)).withBlastResistance(5.0F);
 
-		ENDURIUM_STONE_ORE = fullBlock
-			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
-			.setHardness(3f)
-			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS))
-			.build("endurium_stone_ore", blockId++, b -> new BlockLogicEnduriumOre(b, Blocks.STONE, Blocks.STONE.getMaterial())).withBlastResistance(5.0F);
-		ENDURIUM_BASALT_ORE = fullBlock
-			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
-			.setHardness(3f)
-			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS))
-			.build("endurium_basalt_ore", blockId++, b -> new BlockLogicEnduriumOre(b, Blocks.BASALT, Blocks.BASALT.getMaterial())).withBlastResistance(5.0F);
-		ENDURIUM_LIMESTONE_ORE = fullBlock
-			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
-			.setHardness(3f)
-			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS))
-			.build("endurium_limestone_ore", blockId++, b -> new BlockLogicEnduriumOre(b, Blocks.LIMESTONE, Blocks.LIMESTONE.getMaterial())).withBlastResistance(5.0F);
-		ENDURIUM_GRANITE_ORE = fullBlock
-			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
-			.setHardness(3f)
-			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS))
-			.build("endurium_granite_ore", blockId++, b -> new BlockLogicEnduriumOre(b, Blocks.GRANITE, Blocks.GRANITE.getMaterial())).withBlastResistance(5.0F);
-		ENDURIUM_PERMAFROST_ORE = fullBlock
-			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
-			.setHardness(3f)
-			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS))
-			.build("endurium_permafrost_ore", blockId++, b -> new BlockLogicEnduriumOre(b, Blocks.PERMAFROST, Blocks.PERMAFROST.getMaterial())).withBlastResistance(5.0F);
-		ENDURIUM_RED_DEEPSLATE_ORE = fullBlock
-			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
-			.setHardness(3f)
-			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS))
-			.build("endurium_red_deepslate_ore", blockId++, b -> new BlockLogicEnduriumOre(b, ModBlocks.RED_DEEPSLATE, ModBlocks.RED_DEEPSLATE.getMaterial())).withBlastResistance(5.0F);
-		RAW_ENDURIUM_BLOCK = fullBlock
-			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
-			.setHardness(3f)
-			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS))
-			.build("raw_endurium_block", blockId++, b -> new BlockLogicOreBlock(b)).withBlastResistance(5.0F);
-		ENDURIUM_BLOCK = fullBlock
-			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
-			.setHardness(3f)
-			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS))
-			.build("endurium_block", blockId++, b -> new BlockLogicOreBlock(b)).withBlastResistance(5.0F);
+		ENDURIUM_STONE_ORE = fullBlock.setTags(BlockTags.MINEABLE_BY_PICKAXE).setHardness(3f).setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS)).build("endurium_stone_ore", blockId++, b -> new BlockLogicEnduriumOre(b, Blocks.STONE, Blocks.STONE.getMaterial())).withBlastResistance(5.0F);
+		ENDURIUM_BASALT_ORE = fullBlock.setTags(BlockTags.MINEABLE_BY_PICKAXE).setHardness(3f).setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS)).build("endurium_basalt_ore", blockId++, b -> new BlockLogicEnduriumOre(b, Blocks.BASALT, Blocks.BASALT.getMaterial())).withBlastResistance(5.0F);
+		ENDURIUM_LIMESTONE_ORE = fullBlock.setTags(BlockTags.MINEABLE_BY_PICKAXE).setHardness(3f).setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS)).build("endurium_limestone_ore", blockId++, b -> new BlockLogicEnduriumOre(b, Blocks.LIMESTONE, Blocks.LIMESTONE.getMaterial())).withBlastResistance(5.0F);
+		ENDURIUM_GRANITE_ORE = fullBlock.setTags(BlockTags.MINEABLE_BY_PICKAXE).setHardness(3f).setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS)).build("endurium_granite_ore", blockId++, b -> new BlockLogicEnduriumOre(b, Blocks.GRANITE, Blocks.GRANITE.getMaterial())).withBlastResistance(5.0F);
+		ENDURIUM_PERMAFROST_ORE = fullBlock.setTags(BlockTags.MINEABLE_BY_PICKAXE).setHardness(3f).setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS)).build("endurium_permafrost_ore", blockId++, b -> new BlockLogicEnduriumOre(b, Blocks.PERMAFROST, Blocks.PERMAFROST.getMaterial())).withBlastResistance(5.0F);
+		ENDURIUM_RED_DEEPSLATE_ORE = fullBlock.setTags(BlockTags.MINEABLE_BY_PICKAXE).setHardness(3f).setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS)).build("endurium_red_deepslate_ore", blockId++, b -> new BlockLogicEnduriumOre(b, ModBlocks.RED_DEEPSLATE, ModBlocks.RED_DEEPSLATE.getMaterial())).withBlastResistance(5.0F);
+		RAW_ENDURIUM_BLOCK = fullBlock.setTags(BlockTags.MINEABLE_BY_PICKAXE).setHardness(3f).setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS)).build("raw_endurium_block", blockId++, b -> new BlockLogicOreBlock(b)).withBlastResistance(5.0F);
+		ENDURIUM_BLOCK = fullBlock.setTags(BlockTags.MINEABLE_BY_PICKAXE).setHardness(3f).setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS)).build("endurium_block", blockId++, b -> new BlockLogicOreBlock(b)).withBlastResistance(5.0F);
 
-		PALLADIUM_STONE_ORE = fullBlock
-			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
-			.setHardness(3f)
-			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS))
-			.build("palladium_stone_ore", blockId++, b -> new BlockLogicPalladiumOre(b, Blocks.STONE, Blocks.STONE.getMaterial())).withBlastResistance(5.0F);
-		PALLADIUM_BASALT_ORE = fullBlock
-			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
-			.setHardness(3f)
-			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS))
-			.build("palladium_basalt_ore", blockId++, b -> new BlockLogicPalladiumOre(b, Blocks.BASALT, Blocks.BASALT.getMaterial())).withBlastResistance(5.0F);
-		PALLADIUM_LIMESTONE_ORE = fullBlock
-			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
-			.setHardness(3f)
-			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS))
-			.build("palladium_limestone_ore", blockId++, b -> new BlockLogicPalladiumOre(b, Blocks.LIMESTONE, Blocks.LIMESTONE.getMaterial())).withBlastResistance(5.0F);
-		PALLADIUM_GRANITE_ORE = fullBlock
-			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
-			.setHardness(3f)
-			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS))
-			.build("palladium_granite_ore", blockId++, b -> new BlockLogicPalladiumOre(b, Blocks.GRANITE, Blocks.GRANITE.getMaterial())).withBlastResistance(5.0F);
-		PALLADIUM_PERMAFROST_ORE = fullBlock
-			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
-			.setHardness(3f)
-			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS))
-			.build("palladium_permafrost_ore", blockId++, b -> new BlockLogicPalladiumOre(b, Blocks.PERMAFROST, Blocks.PERMAFROST.getMaterial())).withBlastResistance(5.0F);
-		PALLADIUM_RED_DEEPSLATE_ORE = fullBlock
-			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
-			.setHardness(3f)
-			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS))
-			.build("palladium_red_deepslate_ore", blockId++, b -> new BlockLogicPalladiumOre(b, ModBlocks.RED_DEEPSLATE, ModBlocks.RED_DEEPSLATE.getMaterial())).withBlastResistance(5.0F);
-		RAW_PALLADIUM_BLOCK = fullBlock
-			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
-			.setHardness(3f)
-			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS))
-			.build("raw_palladium_block", blockId++, b -> new BlockLogicOreBlock(b)).withBlastResistance(5.0F);
-		PALLADIUM_BLOCK = fullBlock
-			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
-			.setHardness(3f)
-			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS))
-			.build("palladium_block", blockId++, b -> new BlockLogicOreBlock(b)).withBlastResistance(5.0F);
+		PALLADIUM_STONE_ORE = fullBlock.setTags(BlockTags.MINEABLE_BY_PICKAXE).setHardness(3f).setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS)).build("palladium_stone_ore", blockId++, b -> new BlockLogicPalladiumOre(b, Blocks.STONE, Blocks.STONE.getMaterial())).withBlastResistance(5.0F);
+		PALLADIUM_BASALT_ORE = fullBlock.setTags(BlockTags.MINEABLE_BY_PICKAXE).setHardness(3f).setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS)).build("palladium_basalt_ore", blockId++, b -> new BlockLogicPalladiumOre(b, Blocks.BASALT, Blocks.BASALT.getMaterial())).withBlastResistance(5.0F);
+		PALLADIUM_LIMESTONE_ORE = fullBlock.setTags(BlockTags.MINEABLE_BY_PICKAXE).setHardness(3f).setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS)).build("palladium_limestone_ore", blockId++, b -> new BlockLogicPalladiumOre(b, Blocks.LIMESTONE, Blocks.LIMESTONE.getMaterial())).withBlastResistance(5.0F);
+		PALLADIUM_GRANITE_ORE = fullBlock.setTags(BlockTags.MINEABLE_BY_PICKAXE).setHardness(3f).setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS)).build("palladium_granite_ore", blockId++, b -> new BlockLogicPalladiumOre(b, Blocks.GRANITE, Blocks.GRANITE.getMaterial())).withBlastResistance(5.0F);
+		PALLADIUM_PERMAFROST_ORE = fullBlock.setTags(BlockTags.MINEABLE_BY_PICKAXE).setHardness(3f).setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS)).build("palladium_permafrost_ore", blockId++, b -> new BlockLogicPalladiumOre(b, Blocks.PERMAFROST, Blocks.PERMAFROST.getMaterial())).withBlastResistance(5.0F);
+		PALLADIUM_RED_DEEPSLATE_ORE = fullBlock.setTags(BlockTags.MINEABLE_BY_PICKAXE).setHardness(3f).setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS)).build("palladium_red_deepslate_ore", blockId++, b -> new BlockLogicPalladiumOre(b, ModBlocks.RED_DEEPSLATE, ModBlocks.RED_DEEPSLATE.getMaterial())).withBlastResistance(5.0F);
+		RAW_PALLADIUM_BLOCK = fullBlock.setTags(BlockTags.MINEABLE_BY_PICKAXE).setHardness(3f).setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS)).build("raw_palladium_block", blockId++, b -> new BlockLogicOreBlock(b)).withBlastResistance(5.0F);
+		PALLADIUM_BLOCK = fullBlock.setTags(BlockTags.MINEABLE_BY_PICKAXE).setHardness(3f).setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS)).build("palladium_block", blockId++, b -> new BlockLogicOreBlock(b)).withBlastResistance(5.0F);
 
-		JURASSOLINE_STONE_ORE = fullBlock
-			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
-			.setHardness(3f)
-			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS))
-			.build("jurassoline_stone_ore", blockId++, b -> new BlockLogicJurassolineOre(b, Blocks.STONE, Blocks.STONE.getMaterial())).withBlastResistance(5.0F);
-		JURASSOLINE_BASALT_ORE = fullBlock
-			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
-			.setHardness(3f)
-			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS))
-			.build("jurassoline_basalt_ore", blockId++, b -> new BlockLogicJurassolineOre(b, Blocks.BASALT, Blocks.BASALT.getMaterial())).withBlastResistance(5.0F);
-		JURASSOLINE_LIMESTONE_ORE = fullBlock
-			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
-			.setHardness(3f)
-			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS))
-			.build("jurassoline_limestone_ore", blockId++, b -> new BlockLogicJurassolineOre(b, Blocks.LIMESTONE, Blocks.LIMESTONE.getMaterial())).withBlastResistance(5.0F);
-		JURASSOLINE_GRANITE_ORE = fullBlock
-			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
-			.setHardness(3f)
-			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS))
-			.build("jurassoline_granite_ore", blockId++, b -> new BlockLogicJurassolineOre(b, Blocks.GRANITE, Blocks.GRANITE.getMaterial())).withBlastResistance(5.0F);
-		JURASSOLINE_PERMAFROST_ORE = fullBlock
-			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
-			.setHardness(3f)
-			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS))
-			.build("jurassoline_permafrost_ore", blockId++, b -> new BlockLogicJurassolineOre(b, Blocks.PERMAFROST, Blocks.PERMAFROST.getMaterial())).withBlastResistance(5.0F);
-		JURASSOLINE_RED_DEEPSLATE_ORE = fullBlock
-			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
-			.setHardness(3f)
-			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS))
-			.build("jurassoline_red_deepslate_ore", blockId++, b -> new BlockLogicJurassolineOre(b, ModBlocks.RED_DEEPSLATE, ModBlocks.RED_DEEPSLATE.getMaterial())).withBlastResistance(5.0F);
-		JURASSOLINE_CRYSTAL_BLOCK = fullBlock
-			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
-			.setHardness(3f)
-			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS))
-			.build("jurassoline_crystal_block", blockId++, b -> new BlockLogicOreBlock(b)).withBlastResistance(5.0F);
-		JURASSOLINE_BLOCK = fullBlock
-			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
-			.setHardness(3f)
-			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS))
-			.build("jurassoline_block", blockId++, b -> new BlockLogicOreBlock(b)).withBlastResistance(5.0F);
+		JURASSOLINE_STONE_ORE = fullBlock.setTags(BlockTags.MINEABLE_BY_PICKAXE).setHardness(3f).setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS)).build("jurassoline_stone_ore", blockId++, b -> new BlockLogicJurassolineOre(b, Blocks.STONE, Blocks.STONE.getMaterial())).withBlastResistance(5.0F);
+		JURASSOLINE_BASALT_ORE = fullBlock.setTags(BlockTags.MINEABLE_BY_PICKAXE).setHardness(3f).setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS)).build("jurassoline_basalt_ore", blockId++, b -> new BlockLogicJurassolineOre(b, Blocks.BASALT, Blocks.BASALT.getMaterial())).withBlastResistance(5.0F);
+		JURASSOLINE_LIMESTONE_ORE = fullBlock.setTags(BlockTags.MINEABLE_BY_PICKAXE).setHardness(3f).setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS)).build("jurassoline_limestone_ore", blockId++, b -> new BlockLogicJurassolineOre(b, Blocks.LIMESTONE, Blocks.LIMESTONE.getMaterial())).withBlastResistance(5.0F);
+		JURASSOLINE_GRANITE_ORE = fullBlock.setTags(BlockTags.MINEABLE_BY_PICKAXE).setHardness(3f).setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS)).build("jurassoline_granite_ore", blockId++, b -> new BlockLogicJurassolineOre(b, Blocks.GRANITE, Blocks.GRANITE.getMaterial())).withBlastResistance(5.0F);
+		JURASSOLINE_PERMAFROST_ORE = fullBlock.setTags(BlockTags.MINEABLE_BY_PICKAXE).setHardness(3f).setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS)).build("jurassoline_permafrost_ore", blockId++, b -> new BlockLogicJurassolineOre(b, Blocks.PERMAFROST, Blocks.PERMAFROST.getMaterial())).withBlastResistance(5.0F);
+		JURASSOLINE_RED_DEEPSLATE_ORE = fullBlock.setTags(BlockTags.MINEABLE_BY_PICKAXE).setHardness(3f).setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS)).build("jurassoline_red_deepslate_ore", blockId++, b -> new BlockLogicJurassolineOre(b, ModBlocks.RED_DEEPSLATE, ModBlocks.RED_DEEPSLATE.getMaterial())).withBlastResistance(5.0F);
+		JURASSOLINE_CRYSTAL_BLOCK = fullBlock.setTags(BlockTags.MINEABLE_BY_PICKAXE).setHardness(3f).setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS)).build("jurassoline_crystal_block", blockId++, b -> new BlockLogicOreBlock(b)).withBlastResistance(5.0F);
+		JURASSOLINE_BLOCK = fullBlock.setTags(BlockTags.MINEABLE_BY_PICKAXE).setHardness(3f).setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS)).build("jurassoline_block", blockId++, b -> new BlockLogicOreBlock(b)).withBlastResistance(5.0F);
 
-		CINNABAR_STONE_ORE = fullBlock
-			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
-			.setHardness(3f)
-			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS))
-			.build("cinnabar_stone_ore", blockId++, b -> new BlockLogicCinnabarOre(b, Blocks.STONE, Blocks.STONE.getMaterial())).withBlastResistance(5.0F);
-		CINNABAR_BASALT_ORE = fullBlock
-			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
-			.setHardness(3f)
-			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS))
-			.build("cinnabar_basalt_ore", blockId++, b -> new BlockLogicCinnabarOre(b, Blocks.BASALT, Blocks.BASALT.getMaterial())).withBlastResistance(5.0F);
-		CINNABAR_LIMESTONE_ORE = fullBlock
-			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
-			.setHardness(3f)
-			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS))
-			.build("cinnabar_limestone_ore", blockId++, b -> new BlockLogicCinnabarOre(b, Blocks.LIMESTONE, Blocks.LIMESTONE.getMaterial())).withBlastResistance(5.0F);
-		CINNABAR_GRANITE_ORE = fullBlock
-			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
-			.setHardness(3f)
-			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS))
-			.build("cinnabar_granite_ore", blockId++, b -> new BlockLogicCinnabarOre(b, Blocks.GRANITE, Blocks.GRANITE.getMaterial())).withBlastResistance(5.0F);
-		CINNABAR_PERMAFROST_ORE = fullBlock
-			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
-			.setHardness(3f)
-			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS))
-			.build("cinnabar_permafrost_ore", blockId++, b -> new BlockLogicCinnabarOre(b, Blocks.PERMAFROST, Blocks.PERMAFROST.getMaterial())).withBlastResistance(5.0F);
-		CINNABAR_RED_DEEPSLATE_ORE = fullBlock
-			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
-			.setHardness(3f)
-			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS))
-			.build("cinnabar_red_deepslate_ore", blockId++, b -> new BlockLogicCinnabarOre(b, ModBlocks.RED_DEEPSLATE, ModBlocks.RED_DEEPSLATE.getMaterial())).withBlastResistance(5.0F);
-		CINNABAR_CRYSTAL_BLOCK = fullBlock
-			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
-			.setHardness(3f)
-			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS))
-			.build("cinnabar_crystal_block", blockId++, b -> new BlockLogicOreBlock(b)).withBlastResistance(5.0F);
-		CINNABAR_BLOCK = fullBlock
-			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
-			.setHardness(3f)
-			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS))
-			.build("cinnabar_block", blockId++, b -> new BlockLogicOreBlock(b)).withBlastResistance(5.0F);
+		CINNABAR_STONE_ORE = fullBlock.setTags(BlockTags.MINEABLE_BY_PICKAXE).setHardness(3f).setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS)).build("cinnabar_stone_ore", blockId++, b -> new BlockLogicCinnabarOre(b, Blocks.STONE, Blocks.STONE.getMaterial())).withBlastResistance(5.0F);
+		CINNABAR_BASALT_ORE = fullBlock.setTags(BlockTags.MINEABLE_BY_PICKAXE).setHardness(3f).setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS)).build("cinnabar_basalt_ore", blockId++, b -> new BlockLogicCinnabarOre(b, Blocks.BASALT, Blocks.BASALT.getMaterial())).withBlastResistance(5.0F);
+		CINNABAR_LIMESTONE_ORE = fullBlock.setTags(BlockTags.MINEABLE_BY_PICKAXE).setHardness(3f).setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS)).build("cinnabar_limestone_ore", blockId++, b -> new BlockLogicCinnabarOre(b, Blocks.LIMESTONE, Blocks.LIMESTONE.getMaterial())).withBlastResistance(5.0F);
+		CINNABAR_GRANITE_ORE = fullBlock.setTags(BlockTags.MINEABLE_BY_PICKAXE).setHardness(3f).setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS)).build("cinnabar_granite_ore", blockId++, b -> new BlockLogicCinnabarOre(b, Blocks.GRANITE, Blocks.GRANITE.getMaterial())).withBlastResistance(5.0F);
+		CINNABAR_PERMAFROST_ORE = fullBlock.setTags(BlockTags.MINEABLE_BY_PICKAXE).setHardness(3f).setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS)).build("cinnabar_permafrost_ore", blockId++, b -> new BlockLogicCinnabarOre(b, Blocks.PERMAFROST, Blocks.PERMAFROST.getMaterial())).withBlastResistance(5.0F);
+		CINNABAR_RED_DEEPSLATE_ORE = fullBlock.setTags(BlockTags.MINEABLE_BY_PICKAXE).setHardness(3f).setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS)).build("cinnabar_red_deepslate_ore", blockId++, b -> new BlockLogicCinnabarOre(b, ModBlocks.RED_DEEPSLATE, ModBlocks.RED_DEEPSLATE.getMaterial())).withBlastResistance(5.0F);
+		CINNABAR_CRYSTAL_BLOCK = fullBlock.setTags(BlockTags.MINEABLE_BY_PICKAXE).setHardness(3f).setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS)).build("cinnabar_crystal_block", blockId++, b -> new BlockLogicOreBlock(b)).withBlastResistance(5.0F);
+		CINNABAR_BLOCK = fullBlock.setTags(BlockTags.MINEABLE_BY_PICKAXE).setHardness(3f).setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS)).build("cinnabar_block", blockId++, b -> new BlockLogicOreBlock(b)).withBlastResistance(5.0F);
 
-		NEBULAR_STONE_ORE = fullBlock
-			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
-			.setHardness(3f)
-			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS))
-			.build("nebular_stone_ore", blockId++, b -> new BlockLogicNebularOre(b, Blocks.STONE, Blocks.STONE.getMaterial())).withBlastResistance(5.0F);
-		NEBULAR_BASALT_ORE = fullBlock
-			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
-			.setHardness(3f)
-			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS))
-			.build("nebular_basalt_ore", blockId++, b -> new BlockLogicNebularOre(b, Blocks.BASALT, Blocks.BASALT.getMaterial())).withBlastResistance(5.0F);
-		NEBULAR_LIMESTONE_ORE = fullBlock
-			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
-			.setHardness(3f)
-			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS))
-			.build("nebular_limestone_ore", blockId++, b -> new BlockLogicNebularOre(b, Blocks.LIMESTONE, Blocks.LIMESTONE.getMaterial())).withBlastResistance(5.0F);
-		NEBULAR_GRANITE_ORE = fullBlock
-			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
-			.setHardness(3f)
-			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS))
-			.build("nebular_granite_ore", blockId++, b -> new BlockLogicNebularOre(b, Blocks.GRANITE, Blocks.GRANITE.getMaterial())).withBlastResistance(5.0F);
-		NEBULAR_PERMAFROST_ORE = fullBlock
-			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
-			.setHardness(3f)
-			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS))
-			.build("nebular_permafrost_ore", blockId++, b -> new BlockLogicNebularOre(b, Blocks.PERMAFROST, Blocks.PERMAFROST.getMaterial())).withBlastResistance(5.0F);
-		NEBULAR_RED_DEEPSLATE_ORE = fullBlock
-			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
-			.setHardness(3f)
-			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS))
-			.build("nebular_red_deepslate_ore", blockId++, b -> new BlockLogicNebularOre(b, ModBlocks.RED_DEEPSLATE, ModBlocks.RED_DEEPSLATE.getMaterial())).withBlastResistance(5.0F);
-		RAW_NEBULAR_BLOCK = fullBlock
-			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
-			.setHardness(3f)
-			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS))
-			.build("raw_nebular_block", blockId++, b -> new BlockLogicOreBlock(b)).withBlastResistance(5.0F);
-		NEBULAR_BLOCK = fullBlock
-			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
-			.setHardness(3f)
-			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS))
-			.build("nebular_block", blockId++, b -> new BlockLogicOreBlock(b)).withBlastResistance(5.0F);
+		NEBULAR_STONE_ORE = fullBlock.setTags(BlockTags.MINEABLE_BY_PICKAXE).setHardness(3f).setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS)).build("nebular_stone_ore", blockId++, b -> new BlockLogicNebularOre(b, Blocks.STONE, Blocks.STONE.getMaterial())).withBlastResistance(5.0F);
+		NEBULAR_BASALT_ORE = fullBlock.setTags(BlockTags.MINEABLE_BY_PICKAXE).setHardness(3f).setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS)).build("nebular_basalt_ore", blockId++, b -> new BlockLogicNebularOre(b, Blocks.BASALT, Blocks.BASALT.getMaterial())).withBlastResistance(5.0F);
+		NEBULAR_LIMESTONE_ORE = fullBlock.setTags(BlockTags.MINEABLE_BY_PICKAXE).setHardness(3f).setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS)).build("nebular_limestone_ore", blockId++, b -> new BlockLogicNebularOre(b, Blocks.LIMESTONE, Blocks.LIMESTONE.getMaterial())).withBlastResistance(5.0F);
+		NEBULAR_GRANITE_ORE = fullBlock.setTags(BlockTags.MINEABLE_BY_PICKAXE).setHardness(3f).setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS)).build("nebular_granite_ore", blockId++, b -> new BlockLogicNebularOre(b, Blocks.GRANITE, Blocks.GRANITE.getMaterial())).withBlastResistance(5.0F);
+		NEBULAR_PERMAFROST_ORE = fullBlock.setTags(BlockTags.MINEABLE_BY_PICKAXE).setHardness(3f).setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS)).build("nebular_permafrost_ore", blockId++, b -> new BlockLogicNebularOre(b, Blocks.PERMAFROST, Blocks.PERMAFROST.getMaterial())).withBlastResistance(5.0F);
+		NEBULAR_RED_DEEPSLATE_ORE = fullBlock.setTags(BlockTags.MINEABLE_BY_PICKAXE).setHardness(3f).setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS)).build("nebular_red_deepslate_ore", blockId++, b -> new BlockLogicNebularOre(b, ModBlocks.RED_DEEPSLATE, ModBlocks.RED_DEEPSLATE.getMaterial())).withBlastResistance(5.0F);
+		RAW_NEBULAR_BLOCK = fullBlock.setTags(BlockTags.MINEABLE_BY_PICKAXE).setHardness(3f).setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS)).build("raw_nebular_block", blockId++, b -> new BlockLogicOreBlock(b)).withBlastResistance(5.0F);
+		NEBULAR_BLOCK = fullBlock.setTags(BlockTags.MINEABLE_BY_PICKAXE).setHardness(3f).setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS)).build("nebular_block", blockId++, b -> new BlockLogicOreBlock(b)).withBlastResistance(5.0F);
 
-		MITHRIL_STONE_ORE = fullBlock
-			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
-			.setHardness(3f)
-			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS))
-			.build("mithril_stone_ore", blockId++, b -> new BlockLogicMithrilOre(b, Blocks.STONE, Blocks.STONE.getMaterial())).withBlastResistance(5.0F);
-		MITHRIL_BASALT_ORE = fullBlock
-			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
-			.setHardness(3f)
-			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS))
-			.build("mithril_basalt_ore", blockId++, b -> new BlockLogicMithrilOre(b, Blocks.BASALT, Blocks.BASALT.getMaterial())).withBlastResistance(5.0F);
-		MITHRIL_LIMESTONE_ORE = fullBlock
-			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
-			.setHardness(3f)
-			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS))
-			.build("mithril_limestone_ore", blockId++, b -> new BlockLogicMithrilOre(b, Blocks.LIMESTONE, Blocks.LIMESTONE.getMaterial())).withBlastResistance(5.0F);
-		MITHRIL_GRANITE_ORE = fullBlock
-			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
-			.setHardness(3f)
-			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS))
-			.build("mithril_granite_ore", blockId++, b -> new BlockLogicMithrilOre(b, Blocks.GRANITE, Blocks.GRANITE.getMaterial())).withBlastResistance(5.0F);
-		MITHRIL_PERMAFROST_ORE = fullBlock
-			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
-			.setHardness(3f)
-			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS))
-			.build("mithril_permafrost_ore", blockId++, b -> new BlockLogicMithrilOre(b, Blocks.PERMAFROST, Blocks.PERMAFROST.getMaterial())).withBlastResistance(5.0F);
-		MITHRIL_RED_DEEPSLATE_ORE = fullBlock
-			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
-			.setHardness(3f)
-			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS))
-			.build("mithril_red_deepslate_ore", blockId++, b -> new BlockLogicMithrilOre(b, ModBlocks.RED_DEEPSLATE, ModBlocks.RED_DEEPSLATE.getMaterial())).withBlastResistance(5.0F);
-		MITHRIL_BEDROCK_ORE = fullBlock
-			.setTags(BlockTags.PISTON_CRUSHING)
-			.setUnbreakable()
-			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS))
-			.build("mithril_bedrock_ore", blockId++, b -> new BlockLogicMithrilOre(b, Blocks.BEDROCK, Blocks.STONE.getMaterial())).withSetUnbreakable().withBlastResistance(6000000.0F).withTags(BlockTags.PISTON_CRUSHING);
-		RAW_MITHRIL_BLOCK = fullBlock
-			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
-			.setHardness(3f)
-			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS))
-			.build("raw_mithril_block", blockId++, b -> new BlockLogicOreBlock(b)).withBlastResistance(5.0F);
-		MITHRIL_BLOCK = fullBlock
-			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
-			.setHardness(3f)
-			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS))
-			.build("mithril_block", blockId++, b -> new BlockLogicOreBlock(b)).withBlastResistance(5.0F);
+		MITHRIL_STONE_ORE = fullBlock.setTags(BlockTags.MINEABLE_BY_PICKAXE).setHardness(3f).setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS)).build("mithril_stone_ore", blockId++, b -> new BlockLogicMithrilOre(b, Blocks.STONE, Blocks.STONE.getMaterial())).withBlastResistance(5.0F);
+		MITHRIL_BASALT_ORE = fullBlock.setTags(BlockTags.MINEABLE_BY_PICKAXE).setHardness(3f).setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS)).build("mithril_basalt_ore", blockId++, b -> new BlockLogicMithrilOre(b, Blocks.BASALT, Blocks.BASALT.getMaterial())).withBlastResistance(5.0F);
+		MITHRIL_LIMESTONE_ORE = fullBlock.setTags(BlockTags.MINEABLE_BY_PICKAXE).setHardness(3f).setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS)).build("mithril_limestone_ore", blockId++, b -> new BlockLogicMithrilOre(b, Blocks.LIMESTONE, Blocks.LIMESTONE.getMaterial())).withBlastResistance(5.0F);
+		MITHRIL_GRANITE_ORE = fullBlock.setTags(BlockTags.MINEABLE_BY_PICKAXE).setHardness(3f).setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS)).build("mithril_granite_ore", blockId++, b -> new BlockLogicMithrilOre(b, Blocks.GRANITE, Blocks.GRANITE.getMaterial())).withBlastResistance(5.0F);
+		MITHRIL_PERMAFROST_ORE = fullBlock.setTags(BlockTags.MINEABLE_BY_PICKAXE).setHardness(3f).setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS)).build("mithril_permafrost_ore", blockId++, b -> new BlockLogicMithrilOre(b, Blocks.PERMAFROST, Blocks.PERMAFROST.getMaterial())).withBlastResistance(5.0F);
+		MITHRIL_RED_DEEPSLATE_ORE = fullBlock.setTags(BlockTags.MINEABLE_BY_PICKAXE).setHardness(3f).setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS)).build("mithril_red_deepslate_ore", blockId++, b -> new BlockLogicMithrilOre(b, ModBlocks.RED_DEEPSLATE, ModBlocks.RED_DEEPSLATE.getMaterial())).withBlastResistance(5.0F);
+		MITHRIL_BEDROCK_ORE = fullBlock.setTags(BlockTags.PISTON_CRUSHING).setUnbreakable().setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS)).build("mithril_bedrock_ore", blockId++, b -> new BlockLogicMithrilOre(b, Blocks.BEDROCK, Blocks.STONE.getMaterial())).withSetUnbreakable().withBlastResistance(6000000.0F).withTags(BlockTags.PISTON_CRUSHING);
+		RAW_MITHRIL_BLOCK = fullBlock.setTags(BlockTags.MINEABLE_BY_PICKAXE).setHardness(3f).setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS)).build("raw_mithril_block", blockId++, b -> new BlockLogicOreBlock(b)).withBlastResistance(5.0F);
+		MITHRIL_BLOCK = fullBlock.setTags(BlockTags.MINEABLE_BY_PICKAXE).setHardness(3f).setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS)).build("mithril_block", blockId++, b -> new BlockLogicOreBlock(b)).withBlastResistance(5.0F);
 
-
-
-		DWARVEN_FORGE = fullBlock
-			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
-			.setHardness(3f)
-			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS))
-			.build("dwarven_forge", blockId++, b -> new BlockLogicDwarvenForge(b, false)).withBlastResistance(5.0F);
-		DWARVEN_FORGE_BURNING = fullBlock
-			.setTags(BlockTags.MINEABLE_BY_PICKAXE/*, BlockTags.NOT_IN_CREATIVE_MENU*/)
-			.setHardness(3f)
-			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS))
-			.build("dwarven_forge_burning", blockId++, b -> new BlockLogicDwarvenForge(b, true)).withBlastResistance(5.0F);
-		DWARVEN_FORGE_SOULFIRE = fullBlock
-			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
-			.setHardness(3f)
-			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS))
-			.build("dwarven_forge_soulfire", blockId++, b -> new BlockLogicDwarvenForge(b, true)).withBlastResistance(5.0F);
-		DWARVEN_FORGE_DRAGONFIRE = fullBlock
-			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
-			.setHardness(3f)
-			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS))
-			.build("dwarven_forge_dragonfire", blockId++, b -> new BlockLogicDwarvenForge(b, true)).withBlastResistance(5.0F);
-		STEEL_ANVIL = fullBlock
-			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
-			.setHardness(3f)
-			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS))
-			.build("steel_anvil", blockId++, b -> new BlockLogicOreBlock(b)).withBlastResistance(5.0F);
-		MITHRIL_ANVIL = fullBlock
-			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
-			.setHardness(3f)
-			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS))
-			.build("mithril_anvil", blockId++, b -> new BlockLogicOreBlock(b)).withBlastResistance(5.0F);
+		DWARVEN_FORGE = fullBlock.setTags(BlockTags.MINEABLE_BY_PICKAXE).setHardness(3f).setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS)).build("dwarven_forge", blockId++, b -> new BlockLogicDwarvenForge(b, false)).withBlastResistance(5.0F);
+		DWARVEN_FORGE_BURNING = fullBlock.setTags(BlockTags.MINEABLE_BY_PICKAXE, BlockTags.NOT_IN_CREATIVE_MENU).setHardness(3f).setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS)).build("dwarven_forge_burning", blockId++, b -> new BlockLogicDwarvenForge(b, true)).withLightEmission(0.875F).withBlastResistance(5.0F);
+		DWARVEN_FORGE_HELLFIRE = fullBlock.setTags(BlockTags.MINEABLE_BY_PICKAXE, BlockTags.NOT_IN_CREATIVE_MENU).setHardness(3f).setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS)).build("dwarven_forge_hellfire", blockId++, b -> new BlockLogicDwarvenForge(b, true)).withLightEmission(0.875F).withBlastResistance(5.0F);
+		DWARVEN_FORGE_DRAGONFIRE = fullBlock.setTags(BlockTags.MINEABLE_BY_PICKAXE, BlockTags.NOT_IN_CREATIVE_MENU).setHardness(3f).setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS)).build("dwarven_forge_dragonfire", blockId++, b -> new BlockLogicDwarvenForge(b, true)).withLightEmission(0.875F).withBlastResistance(5.0F);
+		STEEL_ANVIL = fullBlock.setTags(BlockTags.MINEABLE_BY_PICKAXE, BlockTags.NOT_IN_CREATIVE_MENU).setHardness(3f).setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS)).build("steel_anvil", blockId++, b -> new BlockLogicOreBlock(b)).withBlastResistance(5.0F);
+		MITHRIL_ANVIL = fullBlock.setTags(BlockTags.MINEABLE_BY_PICKAXE, BlockTags.NOT_IN_CREATIVE_MENU).setHardness(3f).setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS)).build("mithril_anvil", blockId++, b -> new BlockLogicOreBlock(b)).withBlastResistance(5.0F);
 	}
 }

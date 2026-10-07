@@ -28,9 +28,8 @@ public class ExtractionPickaxeItem extends ItemToolPickaxe {
 
 	static boolean oreExtraction(@NotNull ItemStack itemstack, @NotNull World world, @Nullable Player player, @NotNull TilePosc blockPos) {
 		Block<?> block = world.getBlockType(blockPos);
-		if (!world.isClientSide){
-			if (block.getLogic() instanceof BlockLogicOreCoal || block.getLogic() instanceof BlockLogicOreIron || block.getLogic() instanceof BlockLogicOreGold || block.getLogic() instanceof BlockLogicOreLapis || block.getLogic() instanceof BlockLogicOreRedstone || block.getLogic() instanceof BlockLogicOreDiamond || block.getLogic() instanceof BlockLogicOreNetherCoal
-				|| block.getLogic() instanceof BlockLogicFossil || block.getLogic() instanceof BlockLogicHelioriteOre || block.getLogic() instanceof BlockLogicEnduriumOre || block.getLogic() instanceof BlockLogicPalladiumOre || block.getLogic() instanceof BlockLogicJurassolineOre || block.getLogic() instanceof BlockLogicCinnabarOre || block.getLogic() instanceof BlockLogicNebularOre || block.getLogic() instanceof BlockLogicMithrilOre) {
+		if (!world.isClientSide) {
+			if (block.getLogic() instanceof BlockLogicOreCoal || block.getLogic() instanceof BlockLogicOreIron || block.getLogic() instanceof BlockLogicOreGold || block.getLogic() instanceof BlockLogicOreLapis || block.getLogic() instanceof BlockLogicOreRedstone || block.getLogic() instanceof BlockLogicOreDiamond || block.getLogic() instanceof BlockLogicOreNetherCoal || block.getLogic() instanceof BlockLogicFossil || block.getLogic() instanceof BlockLogicHelioriteOre || block.getLogic() instanceof BlockLogicEnduriumOre || block.getLogic() instanceof BlockLogicPalladiumOre || block.getLogic() instanceof BlockLogicJurassolineOre || block.getLogic() instanceof BlockLogicCinnabarOre || block.getLogic() instanceof BlockLogicNebularOre || block.getLogic() instanceof BlockLogicMithrilOre) {
 				if (block.getLogic() instanceof BlockLogicOreCoal) {
 					world.dropItem(blockPos, Items.COAL.getDefaultStack());
 				} else if (block.getLogic() instanceof BlockLogicOreIron) {
@@ -63,26 +62,26 @@ public class ExtractionPickaxeItem extends ItemToolPickaxe {
 					world.dropItem(blockPos, ModItems.RAW_MITHRIL.getDefaultStack());
 				}
 				if (block.getMaterial() == Materials.STONE) {
-					world.setBlockType(blockPos,Blocks.STONE);
+					world.setBlockType(blockPos, Blocks.STONE);
 				} else if (block.getMaterial() == Materials.BASALT) {
-					world.setBlockType(blockPos,Blocks.BASALT);
+					world.setBlockType(blockPos, Blocks.BASALT);
 				} else if (block.getMaterial() == Materials.LIMESTONE) {
-					world.setBlockType(blockPos,Blocks.LIMESTONE);
+					world.setBlockType(blockPos, Blocks.LIMESTONE);
 				} else if (block.getMaterial() == Materials.GRANITE) {
-					world.setBlockType(blockPos,Blocks.GRANITE);
+					world.setBlockType(blockPos, Blocks.GRANITE);
 				} else if (block.getMaterial() == Materials.PERMAFROST) {
-					world.setBlockType(blockPos,Blocks.PERMAFROST);
+					world.setBlockType(blockPos, Blocks.PERMAFROST);
 				} else if (block.getMaterial() == Materials.MARBLE) {
-					world.setBlockType(blockPos,Blocks.MARBLE);
+					world.setBlockType(blockPos, Blocks.MARBLE);
 				} else if (block.getMaterial() == Materials.SLATE) {
-					world.setBlockType(blockPos,Blocks.SLATE);
+					world.setBlockType(blockPos, Blocks.SLATE);
 				} else if (block.getMaterial() == Materials.NETHERRACK) {
-					world.setBlockType(blockPos,Blocks.COBBLE_NETHERRACK);
+					world.setBlockType(blockPos, Blocks.COBBLE_NETHERRACK);
 				} else if (block.getMaterial() == Materials.GLOOMSTONE) {
-					world.setBlockType(blockPos,Blocks.COBBLE_GLOOMSTONE);
+					world.setBlockType(blockPos, Blocks.COBBLE_GLOOMSTONE);
 				}
 				world.markBlockDirty(blockPos);
-				itemstack.damageItem(1,player);
+				itemstack.damageItem(1, player);
 				return true;
 			}
 		}

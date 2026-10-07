@@ -1,12 +1,13 @@
-package net.tlotd.bta.block.tag;
+package net.tlotd.bta.tag;
 
 import net.minecraft.core.block.Block;
+import net.minecraft.core.block.Blocks;
 import net.minecraft.core.block.tag.BlockTags;
 import net.minecraft.core.data.registry.Registries;
 import net.minecraft.core.data.tag.Tag;
+import net.minecraft.core.item.Item;
+import net.minecraft.core.item.tag.ItemTags;
 import net.tlotd.bta.block.ModBlocks;
-
-import java.util.Objects;
 
 import static net.minecraft.core.data.registry.Registries.stackListOf;
 
@@ -24,5 +25,7 @@ public class ModTags {
 		Registries.ITEM_GROUPS.register("tlotd:cinnabar_ores", stackListOf(ModBlocks.CINNABAR_STONE_ORE, ModBlocks.CINNABAR_BASALT_ORE, ModBlocks.CINNABAR_LIMESTONE_ORE, ModBlocks.CINNABAR_GRANITE_ORE, ModBlocks.CINNABAR_PERMAFROST_ORE, ModBlocks.CINNABAR_RED_DEEPSLATE_ORE));
 		Registries.ITEM_GROUPS.register("tlotd:nebular_ores", stackListOf(ModBlocks.NEBULAR_STONE_ORE, ModBlocks.NEBULAR_BASALT_ORE, ModBlocks.NEBULAR_LIMESTONE_ORE, ModBlocks.NEBULAR_GRANITE_ORE, ModBlocks.NEBULAR_PERMAFROST_ORE, ModBlocks.NEBULAR_RED_DEEPSLATE_ORE));
 		Registries.ITEM_GROUPS.register("tlotd:mithril_ores", stackListOf(ModBlocks.MITHRIL_STONE_ORE, ModBlocks.MITHRIL_BASALT_ORE, ModBlocks.MITHRIL_LIMESTONE_ORE, ModBlocks.MITHRIL_GRANITE_ORE, ModBlocks.MITHRIL_PERMAFROST_ORE, ModBlocks.MITHRIL_RED_DEEPSLATE_ORE));
+
+		Registries.ITEM_GROUPS.register("tlotd:dwarven_forge_hellfire_base", stackListOf(Blocks.MAGMA, Blocks.SOULSAND, Blocks.SOULSCHIST));
 	}
 }

@@ -139,22 +139,22 @@ public class ModItems {
 	public static Item TOAST;
 	public static Item CHERRY_JAM_TOAST;
 
-	public static ToolMaterial HELIORITE = (new ToolMaterial()).setDurability(2324).setEfficiency(16.0F, 64.0F).setMiningLevel(4).setDamage(6).setBlockHitDelay(4);
+	public static ToolMaterial HELIORITE = (new ToolMaterial()).setDurability(2324).setEfficiency(16.0F, 48.0F).setMiningLevel(4).setDamage(6).setBlockHitDelay(4);
 	public static ArmorMaterial HELIORITE_ARMOR = ArmorHelper.createArmorMaterial(TLOTD.MOD_ID, "heliorite_layer", 2324, 90f, 50f, 55f, 60f);
-	public static ToolMaterial ENDURIUM = (new ToolMaterial()).setDurability(2580).setEfficiency(16.0F, 64.0F).setMiningLevel(4).setDamage(6).setBlockHitDelay(4);
+	public static ToolMaterial ENDURIUM = (new ToolMaterial()).setDurability(2580).setEfficiency(12.0F, 32.0F).setMiningLevel(4).setDamage(6).setBlockHitDelay(4);
 	public static ArmorMaterial ENDURIUM_ARMOR = ArmorHelper.createArmorMaterial(TLOTD.MOD_ID, "endurium_layer", 2580, 90f, 50f, 55f, 60f);
-	public static ToolMaterial PALLADIUM = (new ToolMaterial()).setDurability(2484).setEfficiency(16.0F, 64.0F).setMiningLevel(5).setDamage(7).setBlockHitDelay(4);
+	public static ToolMaterial PALLADIUM = (new ToolMaterial()).setDurability(2484).setEfficiency(18.0F, 48.0F).setMiningLevel(5).setDamage(7).setBlockHitDelay(4);
 	public static ArmorMaterial PALLADIUM_ARMOR = ArmorHelper.createArmorMaterial(TLOTD.MOD_ID, "palladium_layer", 2484, 100f, 60f, 65f, 70f);
-	public static ToolMaterial JURASSOLINE = (new ToolMaterial()).setDurability(2612).setEfficiency(16.0F, 64.0F).setMiningLevel(5).setDamage(7).setBlockHitDelay(4);
+	public static ToolMaterial JURASSOLINE = (new ToolMaterial()).setDurability(2612).setEfficiency(14.0F, 32.0F).setMiningLevel(5).setDamage(7).setBlockHitDelay(4);
 	public static ArmorMaterial JURASSOLINE_ARMOR = ArmorHelper.createArmorMaterial(TLOTD.MOD_ID, "jurassoline_layer", 2612, 100f, 60f, 65f, 70f);
-	public static ToolMaterial CINNABAR = (new ToolMaterial()).setDurability(3162).setEfficiency(16.0F, 64.0F).setMiningLevel(6).setDamage(8).setBlockHitDelay(4);
+	public static ToolMaterial CINNABAR = (new ToolMaterial()).setDurability(3162).setEfficiency(20.0F, 64.0F).setMiningLevel(6).setDamage(8).setBlockHitDelay(4);
 	public static ArmorMaterial CINNABAR_ARMOR = ArmorHelper.createArmorMaterial(TLOTD.MOD_ID, "cinnabar_layer", 3162, 110f, 70f, 75f, 80f);
-	public static ToolMaterial NEBULAR = (new ToolMaterial()).setDurability(3418).setEfficiency(16.0F, 64.0F).setMiningLevel(6).setDamage(8).setBlockHitDelay(4);
+	public static ToolMaterial NEBULAR = (new ToolMaterial()).setDurability(3418).setEfficiency(16.0F, 48.0F).setMiningLevel(6).setDamage(8).setBlockHitDelay(4);
 	public static ArmorMaterial NEBULAR_ARMOR = ArmorHelper.createArmorMaterial(TLOTD.MOD_ID, "nebular_layer", 3418, 110f, 70f, 75f, 80f);
-	public static ToolMaterial MITHRIL = (new ToolMaterial()).setDurability(4096).setEfficiency(16.0F, 64.0F).setMiningLevel(7).setDamage(9).setBlockHitDelay(4);
+	public static ToolMaterial MITHRIL = (new ToolMaterial()).setDurability(4096).setEfficiency(24.0F, 72.0F).setMiningLevel(7).setDamage(9).setBlockHitDelay(4);
 	public static ArmorMaterial MITHRIL_ARMOR = ArmorHelper.createArmorMaterial(TLOTD.MOD_ID, "mithril_layer", 4096, 125f, 80f, 100f, 90f);
 
-	public void registerItems(){
+	public void registerItems() {
 
 		STEEL_ROD = new ItemBuilder(TLOTD.MOD_ID).setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS)).build(new Item("steel_rod", "tlotd:item/steel_rod", itemId++));
 		FOSSILIZED_BONE = new ItemBuilder(TLOTD.MOD_ID).setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS)).build(new Item("fossilized_bone", "tlotd:item/fossilized_bone", itemId++));
@@ -264,10 +264,10 @@ public class ModItems {
 
 		FLOUR = new ItemBuilder(TLOTD.MOD_ID).setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS)).build(new Item("flour", "tlotd:item/flour", itemId++));
 		BREADCRUMBS = new ItemBuilder(TLOTD.MOD_ID).setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS)).build(new Item("breadcrumbs", "tlotd:item/breadcrumbs", itemId++));
-		RAW_SCHNITZEL = new ItemBuilder(TLOTD.MOD_ID).setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS)).build(new ItemFood("raw_schnitzel", "tlotd:item/raw_schnitzel", itemId++,4, 16, true, 8));
+		RAW_SCHNITZEL = new ItemBuilder(TLOTD.MOD_ID).setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS)).build(new ItemFood("raw_schnitzel", "tlotd:item/raw_schnitzel", itemId++, 4, 16, true, 8));
 		SCHNITZEL = new ItemBuilder(TLOTD.MOD_ID).setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS)).build(new ItemFood("schnitzel", "tlotd:item/schnitzel", itemId++, 10, 16, true, 8));
 		MAULTASCHE = new ItemBuilder(TLOTD.MOD_ID).setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS)).build(new ItemFood("maultasche", "tlotd:item/maultasche", itemId++, 4, 16, true, 9));
-		MAULTASCHEN_BROTH = new ItemBuilder(TLOTD.MOD_ID).setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS)).build(new ItemSoup("maultaschen_broth", "tlotd:item/maultaschen_broth", itemId++,16,16));
+		MAULTASCHEN_BROTH = new ItemBuilder(TLOTD.MOD_ID).setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS)).build(new ItemSoup("maultaschen_broth", "tlotd:item/maultaschen_broth", itemId++, 16, 16));
 
 		PRESERVES_JAR = new ItemBuilder(TLOTD.MOD_ID).setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS)).build(new Item("preserves_jar", "tlotd:item/preserves_jar", itemId++));
 		CHERRY_JAM_JAR = new ItemBuilder(TLOTD.MOD_ID).setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.MISCELLANEOUS)).build(new Item("cherry_jam_jar", "tlotd:item/cherry_jam_jar", itemId++).setMaxStackSize(1).setContainerItem(PRESERVES_JAR));

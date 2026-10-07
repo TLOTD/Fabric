@@ -1,7 +1,9 @@
 package net.tlotd.bta.block.custom;
 
 import com.mojang.logging.LogUtils;
+
 import java.util.Random;
+
 import net.minecraft.core.Global;
 import net.minecraft.core.block.Block;
 import net.minecraft.core.block.BlockLogic;
@@ -41,7 +43,7 @@ public class BlockLogicDwarvenForge extends BlockLogicRotatable {
 			case EXPLOSION:
 			case PROPER_TOOL:
 			case SILK_TOUCH:
-				var10000 = new ItemStack[]{new ItemStack(Blocks.FURNACE_BLAST_IDLE)};
+				var10000 = new ItemStack[]{new ItemStack(ModBlocks.DWARVEN_FORGE)};
 				break;
 			default:
 				var10000 = null;
@@ -51,69 +53,72 @@ public class BlockLogicDwarvenForge extends BlockLogicRotatable {
 
 	public void animationTick(@NotNull World world, @NotNull TilePosc tilePos, @NotNull Random rand) {
 		if (this.isActive) {
-			double posX = (double)tilePos.x() + (double)0.5F;
-			double posY = (double)tilePos.y() + (double)(rand.nextFloat() * 6.0F) / (double)16.0F;
-			double posZ = (double)tilePos.z() + (double)0.5F;
+			double posX = (double) tilePos.x() + (double) 0.5F;
+			double posY = (double) tilePos.y() + (double) (rand.nextFloat() * 6.0F) / (double) 16.0F;
+			double posZ = (double) tilePos.z() + (double) 0.5F;
 			double f3 = 0.52;
 			float f4 = rand.nextFloat() * 0.6F - 0.3F;
 			switch (BlockLogicRotatable.getDirectionFromMeta(world.getBlockData(tilePos))) {
 				case WEST:
-					world.spawnParticle("smoke", posX - f3, posY, posZ + (double)f4, (double)0.0F, (double)0.0F, (double)0.0F, 0, false);
-					world.spawnParticle("largeSmoke", posX - f3, posY, posZ + (double)f4, (double)0.0F, (double)0.0F, (double)0.0F, 0, false);
+					world.spawnParticle("smoke", posX - f3, posY, posZ + (double) f4, (double) 0.0F, (double) 0.0F, (double) 0.0F, 0, false);
+					world.spawnParticle("largeSmoke", posX - f3, posY, posZ + (double) f4, (double) 0.0F, (double) 0.0F, (double) 0.0F, 0, false);
 					break;
 				case EAST:
-					world.spawnParticle("smoke", posX + f3, posY, posZ + (double)f4, (double)0.0F, (double)0.0F, (double)0.0F, 0, false);
-					world.spawnParticle("largeSmoke", posX + f3, posY, posZ + (double)f4, (double)0.0F, (double)0.0F, (double)0.0F, 0, false);
+					world.spawnParticle("smoke", posX + f3, posY, posZ + (double) f4, (double) 0.0F, (double) 0.0F, (double) 0.0F, 0, false);
+					world.spawnParticle("largeSmoke", posX + f3, posY, posZ + (double) f4, (double) 0.0F, (double) 0.0F, (double) 0.0F, 0, false);
 					break;
 				case NORTH:
-					world.spawnParticle("smoke", posX + (double)f4, posY, posZ - f3, (double)0.0F, (double)0.0F, (double)0.0F, 0, false);
-					world.spawnParticle("largeSmoke", posX + (double)f4, posY, posZ - f3, (double)0.0F, (double)0.0F, (double)0.0F, 0, false);
+					world.spawnParticle("smoke", posX + (double) f4, posY, posZ - f3, (double) 0.0F, (double) 0.0F, (double) 0.0F, 0, false);
+					world.spawnParticle("largeSmoke", posX + (double) f4, posY, posZ - f3, (double) 0.0F, (double) 0.0F, (double) 0.0F, 0, false);
 					break;
 				case SOUTH:
-					world.spawnParticle("smoke", posX + (double)f4, posY, posZ + f3, (double)0.0F, (double)0.0F, (double)0.0F, 0, false);
-					world.spawnParticle("largeSmoke", posX + (double)f4, posY, posZ + f3, (double)0.0F, (double)0.0F, (double)0.0F, 0, false);
+					world.spawnParticle("smoke", posX + (double) f4, posY, posZ + f3, (double) 0.0F, (double) 0.0F, (double) 0.0F, 0, false);
+					world.spawnParticle("largeSmoke", posX + (double) f4, posY, posZ + f3, (double) 0.0F, (double) 0.0F, (double) 0.0F, 0, false);
 			}
 
 		}
 	}
 
 	@Override
-	public boolean onInteracted(
-		@NotNull World world,
-		@NotNull TilePosc tilePos,
-		@NotNull Player player,
-		@Nullable Side side,
-		double xHit,
-		double yHit
-	) {
+	public boolean onInteracted(@NotNull World world, @NotNull TilePosc tilePos, @NotNull Player player, @Nullable Side side, double xHit, double yHit) {
 		if (world.isClientSide) {
 			return true;
 		}
 		TileEntityDwarvenForge tile = (TileEntityDwarvenForge) world.getTileEntity(tilePos);
 		if (tile != null) {
-			Catalyst.displayGui(
-				player,
-				tile,
-				TLOTD.MOD_ID + ":gui/dwarven_forge"
-			);
+			Catalyst.displayGui(player, tile, TLOTD.MOD_ID + ":gui/dwarven_forge");
 		}
 		return true;
 	}
 
-	public static void updateFurnaceBlockState(@NotNull World world, @NotNull TilePos tilePos, boolean lit) {
+	public static void updateFurnaceBlockState(@NotNull World world, @NotNull TilePos tilePos, @NotNull TileEntityDwarvenForge.ForgeMode mode) {
 		if (!(world.getTileEntity(tilePos) instanceof TileEntityDwarvenForge)) {
-			String msg = "Blast Furnace is missing Tile Entity at " + String.valueOf(tilePos) + ", block will be removed!";
+			String msg = "Dwarven Forge is missing Tile Entity at " + String.valueOf(tilePos) + ", block will be removed!";
 			if (Global.BUILD_CHANNEL.isUnstableBuild()) {
 				throw new RuntimeException(msg);
 			} else {
 				world.setBlockTypeNotify(tilePos, Blocks.AIR);
 				LOGGER.warn(msg);
 			}
-		} else {
-			int meta = world.getBlockData(tilePos);
-			Block<? extends BlockLogic> block = lit ? ModBlocks.DWARVEN_FORGE_BURNING : ModBlocks.DWARVEN_FORGE;
-			world.setBlockTypeDataRaw(tilePos, block, meta);
-			world.notifyBlockChange(tilePos, block);
+			return;
 		}
+		Block<?> block;
+		switch (mode) {
+			case BLAST_FURNACE:
+				block = ModBlocks.DWARVEN_FORGE_HELLFIRE;
+				break;
+
+			case FURNACE:
+				block = ModBlocks.DWARVEN_FORGE_BURNING;
+				break;
+
+			default:
+				block = ModBlocks.DWARVEN_FORGE;
+				break;
+		}
+
+		int meta = world.getBlockData(tilePos);
+		world.setBlockTypeDataRaw(tilePos, block, meta);
+		world.notifyBlockChange(tilePos, block);
 	}
 }

@@ -5,7 +5,7 @@ import net.minecraft.core.block.entity.TileEntityDispatcher;
 import net.minecraft.core.util.collection.NamespaceID;
 import net.tlotd.bta.block.ModBlocks;
 import net.tlotd.bta.block.custom.entity.TileEntityDwarvenForge;
-import net.tlotd.bta.block.tag.ModTags;
+import net.tlotd.bta.tag.ModTags;
 import net.tlotd.bta.datagen.ModRecipeProvider;
 import net.tlotd.bta.gui.MenuDwarvenForge;
 import net.tlotd.bta.item.ModItems;
@@ -25,10 +25,9 @@ public class TLOTD implements ModInitializer {
 
 	private static final Toml TOML = new Toml("IDs can be changed below if you are planning to play with multiple mods! | 1 is enabled, 0 is disabled");
 	public static final TomlConfigHandler CFG;
+
 	static {
-		TOML.addCategory("IDs")
-			.addEntry("starting_item_id", 19010)
-			.addEntry("starting_block_id", 11000);
+		TOML.addCategory("IDs").addEntry("starting_item_id", 19010).addEntry("starting_block_id", 11000);
 		CFG = new TomlConfigHandler(TLOTD.MOD_ID, TOML);
 	}
 
@@ -36,25 +35,17 @@ public class TLOTD implements ModInitializer {
 	public void onInitialize() {
 		CommonEvents.BEFORE_GAME_START.listen(Key.of(MOD_ID), this::beforeGameStart);
 		CommonEvents.AFTER_GAME_START.listen(Key.of(MOD_ID), this::afterGameStart);
-		CommonEvents.AFTER_BLOCK_INIT.listen(Key.of(MOD_ID),()->new ModBlocks().registerBlocks());
-		CommonEvents.AFTER_ITEM_INIT.listen(Key.of(MOD_ID),()->new ModItems().registerItems());
-		CommonEvents.AFTER_ITEM_INIT.listen(Key.of(MOD_ID),()->new ModTags().registerTags());
-		CommonEvents.RECIPES_NAMESPACE_INIT.listen(Key.of(MOD_ID),()->new ModRecipeProvider().initNamespaces());
-		CommonEvents.RECIPES_READY.listen(Key.of(MOD_ID),()->new ModRecipeProvider().onRecipesReady());
+		CommonEvents.AFTER_BLOCK_INIT.listen(Key.of(MOD_ID), () -> new ModBlocks().registerBlocks());
+		CommonEvents.AFTER_ITEM_INIT.listen(Key.of(MOD_ID), () -> new ModItems().registerItems());
+		CommonEvents.AFTER_ITEM_INIT.listen(Key.of(MOD_ID), () -> new ModTags().registerTags());
+		CommonEvents.RECIPES_NAMESPACE_INIT.listen(Key.of(MOD_ID), () -> new ModRecipeProvider().initNamespaces());
+		CommonEvents.RECIPES_READY.listen(Key.of(MOD_ID), () -> new ModRecipeProvider().onRecipesReady());
 		LOGGER.info("TLOTD BTA! initialized.");
-		TileEntityDispatcher.addMapping(TileEntityDwarvenForge.class, NamespaceID.fromPool(MOD_ID, "carpenter_workbench"));
-		Catalyst.GUIS.register(
-			TLOTD.MOD_ID + ":gui/dwarven_forge",
-			new GuiEntry<>(
-				TileEntityDwarvenForge.class,
-				MenuDwarvenForge.class
-			)
-		);
+		TileEntityDispatcher.addMapping(TileEntityDwarvenForge.class, NamespaceID.fromPool(MOD_ID, "dwarven_forge"));
+		Catalyst.GUIS.register(TLOTD.MOD_ID + ":gui/dwarven_forge", new GuiEntry<>(TileEntityDwarvenForge.class, MenuDwarvenForge.class));
 	}
 
-	public void beforeGameStart() {
-
-	}
+	public void beforeGameStart() {}
 
 	public void afterGameStart() {
 		new ModBlocks().initializeBlockDetails();

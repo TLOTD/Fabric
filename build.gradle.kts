@@ -30,6 +30,8 @@ repositories {
     maven("https://maven.thesignalumproject.net/infrastructure") { name = "SignalumMavenInfrastructure" }
     maven("https://maven.thesignalumproject.net/releases") { name = "SignalumMavenReleases" }
 	maven("https://maven.thesignalumproject.net/nightly") { name = "SignalumMavenNightly" }
+
+	maven("https://api.modrinth.com/maven") { name = "Modrinth" }
 }
 dependencies {
     minecraft("::${libs.versions.bta.get()}")
@@ -40,6 +42,7 @@ dependencies {
 	implementation(libs.halplibe) // If you do not need halplibe you can delete this line
 	implementation(libs.catalyst.core)
 	implementation(libs.catalyst.screens)
+	implementation("maven.modrinth:CxKHCBdU:dIlPMdA8")
 
 	// Only required at compilation
 	// provides documentation, can be removed if that isn't needed
@@ -116,7 +119,7 @@ tasks {
 			"modmenu" to libs.versions.modMenu.get(),
 
 			"catalystcore" to libs.versions.catalyst.core.get(),
-			"catalystscreens" to libs.versions.catalyst.screens.get()
+			"catalystscreens" to libs.versions.catalyst.screens.get(),
 		)
 		// This is needed for gradle to recognize changes
 		// made to expanded files

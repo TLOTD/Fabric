@@ -36,16 +36,15 @@ public class ModChunkDecoratorOverworld {
 		int deepRangeY = maxY / 3 + 1 - minY;
 		int mithrilRangeY = minY + 3 - minY;
 
-		float oreHeightModifier = (float)rangeY / 128.0F;
-
+		float oreHeightModifier = (float) rangeY / 128.0F;
 
 		BlockLogicFallingBlock.fallInstantly = true;
 		int x = chunkX * 16;
 		int z = chunkZ * 16;
 
 		//Cinnabar
-		Random randCinnabar = new Random((long)chunkX * 186375209438L + (long)chunkZ * 904726381002L);
-		for(int i4 = 0; (float)i4 < 5.0F * oreHeightModifier; ++i4) {
+		Random randCinnabar = new Random((long) chunkX * 186375209438L + (long) chunkZ * 904726381002L);
+		for (int i4 = 0; (float) i4 < 5.0F * oreHeightModifier; ++i4) {
 			int j7 = x + randCinnabar.nextInt(16);
 			int k10 = minY + randCinnabar.nextInt(deepRangeY);
 			int j13 = z + randCinnabar.nextInt(16);
@@ -53,8 +52,8 @@ public class ModChunkDecoratorOverworld {
 		}
 
 		//Endurium
-		Random randEndurium = new Random((long)chunkX * 729513846275L + (long)chunkZ * 312548790163L);
-		for(int i4 = 0; (float)i4 < 5.0F * oreHeightModifier; ++i4) {
+		Random randEndurium = new Random((long) chunkX * 729513846275L + (long) chunkZ * 312548790163L);
+		for (int i4 = 0; (float) i4 < 5.0F * oreHeightModifier; ++i4) {
 			int j7 = x + randEndurium.nextInt(16);
 			int k10 = minY + randEndurium.nextInt(deepRangeY);
 			int j13 = z + randEndurium.nextInt(16);
@@ -62,8 +61,8 @@ public class ModChunkDecoratorOverworld {
 		}
 
 		//Heliorite
-		Random randHeliorite = new Random((long)chunkX * 450198732655L + (long)chunkZ * 893721654390L);
-		for(int i4 = 0; (float)i4 < 5.0F * oreHeightModifier; ++i4) {
+		Random randHeliorite = new Random((long) chunkX * 450198732655L + (long) chunkZ * 893721654390L);
+		for (int i4 = 0; (float) i4 < 5.0F * oreHeightModifier; ++i4) {
 			int j7 = x + randHeliorite.nextInt(16);
 			int k10 = minY + randHeliorite.nextInt(deepRangeY);
 			int j13 = z + randHeliorite.nextInt(16);
@@ -71,8 +70,8 @@ public class ModChunkDecoratorOverworld {
 		}
 
 		//Jurassoline
-		Random randJurassoline = new Random((long)chunkX * 567901234876L + (long)chunkZ * 120384756291L);
-		for(int i4 = 0; (float)i4 < 5.0F * oreHeightModifier; ++i4) {
+		Random randJurassoline = new Random((long) chunkX * 567901234876L + (long) chunkZ * 120384756291L);
+		for (int i4 = 0; (float) i4 < 5.0F * oreHeightModifier; ++i4) {
 			int j7 = x + randJurassoline.nextInt(16);
 			int k10 = minY + randJurassoline.nextInt(deepRangeY);
 			int j13 = z + randJurassoline.nextInt(16);
@@ -80,8 +79,8 @@ public class ModChunkDecoratorOverworld {
 		}
 
 		//Mithril
-		Random randMithril = new Random((long)chunkX * 348920187364L + (long)chunkZ * 678912345678L);
-		for(int i4 = 0; (float)i4 < 5.0F * oreHeightModifier; ++i4) {
+		Random randMithril = new Random((long) chunkX * 348920187364L + (long) chunkZ * 678912345678L);
+		for (int i4 = 0; (float) i4 < 5.0F * oreHeightModifier; ++i4) {
 			int j7 = x + randMithril.nextInt(16);
 			int k10 = minY + randMithril.nextInt(mithrilRangeY);
 			int j13 = z + randMithril.nextInt(16);
@@ -89,8 +88,8 @@ public class ModChunkDecoratorOverworld {
 		}
 
 		//Nebular
-		Random randNebular = new Random((long)chunkX * 987654321012L + (long)chunkZ * 203948576102L);
-		for(int i4 = 0; (float)i4 < 5.0F * oreHeightModifier; ++i4) {
+		Random randNebular = new Random((long) chunkX * 987654321012L + (long) chunkZ * 203948576102L);
+		for (int i4 = 0; (float) i4 < 5.0F * oreHeightModifier; ++i4) {
 			int j7 = x + randNebular.nextInt(16);
 			int k10 = minY + randNebular.nextInt(deepRangeY);
 			int j13 = z + randNebular.nextInt(16);
@@ -98,8 +97,8 @@ public class ModChunkDecoratorOverworld {
 		}
 
 		//Palladium
-		Random randPalladium = new Random((long)chunkX * 435098123789L + (long)chunkZ * 759384102345L);
-		for(int i4 = 0; (float)i4 < 5.0F * oreHeightModifier; ++i4) {
+		Random randPalladium = new Random((long) chunkX * 435098123789L + (long) chunkZ * 759384102345L);
+		for (int i4 = 0; (float) i4 < 5.0F * oreHeightModifier; ++i4) {
 			int j7 = x + randPalladium.nextInt(16);
 			int k10 = minY + randPalladium.nextInt(deepRangeY);
 			int j13 = z + randPalladium.nextInt(16);
@@ -107,15 +106,13 @@ public class ModChunkDecoratorOverworld {
 		}
 
 		//Fossil
-		Random randFossil = new Random((long)chunkX * 648273910283L + (long)chunkZ * 517209384756L);
-		for(int i4 = 0; (float)i4 < 2.5F * oreHeightModifier; ++i4) {
+		Random randFossil = new Random((long) chunkX * 648273910283L + (long) chunkZ * 517209384756L);
+		for (int i4 = 0; (float) i4 < 2.5F * oreHeightModifier; ++i4) {
 			int j7 = x + randFossil.nextInt(16);
 			int k10 = minY + randFossil.nextInt(deepRangeY);
 			int j13 = z + randFossil.nextInt(16);
 			(new WorldFeatureOre(BlockLogicFossil.VARIANT_MAP, 8)).place(this.world, randFossil, new TilePos(j7, k10, j13));
 		}
-
 		BlockLogicFallingBlock.fallInstantly = false;
 	}
-
 }
