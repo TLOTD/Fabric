@@ -1,28 +1,13 @@
 package net.tlotd.item.custom;
 
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvents;
-import net.minecraft.text.Text;
-import net.minecraft.util.Hand;
-import net.minecraft.util.TypedActionResult;
-import net.minecraft.world.World;
-import net.tlotd.util.AdAstraGasNbtHelper;
-import net.tlotd.util.ModTags;
-
-import java.util.Objects;
-
-import static net.tlotd.util.AdAstraGasNbtHelper.getMaxGasItem;
-import static net.tlotd.util.AugmentNbtHelper.getAugmentLevel;
 
 public class GasCylinderItem extends Item {
     public GasCylinderItem(Settings settings) {
         super(settings);
     }
 
-    @Override
+    /*@Override
     public ItemStack getDefaultStack() {
         ItemStack base = new ItemStack(this);
         AdAstraGasNbtHelper.setOxygen(base, 0);
@@ -96,5 +81,5 @@ public class GasCylinderItem extends Item {
             }
         }
         return TypedActionResult.pass(itemStack);
-    }
+    }*/
 }

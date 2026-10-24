@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "wooden_milkshake_stein",
+  "ingredients": [
+    {
+      "item": "tlotd:wooden_milk_stein"
+    },
+    {
+      "tag": "c:strawberries"
+    },
+    {
+      "item": "minecraft:snowball"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "tlotd:wooden_strawberry_milkshake_stein"
+  }
+}

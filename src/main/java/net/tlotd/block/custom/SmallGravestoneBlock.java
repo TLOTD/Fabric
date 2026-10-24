@@ -58,10 +58,10 @@ public class SmallGravestoneBlock extends GravestoneBlock {
         };
     }
 
-    public static final Identifier DEFAULT_FONT_ID = new Identifier("minecraft", "default");
+    public static final Identifier DEFAULT_FONT_ID = Identifier.of("minecraft", "default");
 
     @Override
-    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
+    protected ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
         if (state.get(SPECIAL) && player.isSneaking()) {
             if (!world.isClient) {
                 player.sendMessage(Text.translatable("block.tlotd.small_gravestone.special").formatted(Formatting.GRAY));

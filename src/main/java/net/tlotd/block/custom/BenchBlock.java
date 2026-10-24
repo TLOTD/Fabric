@@ -28,8 +28,8 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 import net.tlotd.block.ModBlocks;
-import net.tlotd.entity.ModEntities;
-import net.tlotd.entity.custom.SeatEntity;
+//import net.tlotd.entity.ModEntities;
+//import net.tlotd.entity.custom.SeatEntity;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
@@ -104,6 +104,7 @@ public class BenchBlock extends Block {
         return BlockRenderType.MODEL;
     }
 
+    /*
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         if (!world.isClient) {
@@ -121,6 +122,7 @@ public class BenchBlock extends Block {
         }
         return ActionResult.SUCCESS;
     }
+     */
 
     private BlockState updateBenchState(WorldAccess world, BlockPos pos, BlockState state) {
         Direction facing = state.get(FACING);

@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "E": {
+      "item": "minecraft:egg"
+    },
+    "M": {
+      "tag": "c:milk"
+    },
+    "O": {
+      "tag": "c:oranges"
+    },
+    "S": {
+      "item": "minecraft:sugar"
+    },
+    "W": {
+      "item": "minecraft:wheat"
+    }
+  },
+  "pattern": [
+    "OMO",
+    "SWE"
+  ],
+  "result": {
+    "count": 1,
+    "id": "tlotd:orange_cake"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "tlotd:mead_bucket",
+  "ingredients": [
+    {
+      "item": "minecraft:bucket"
+    },
+    {
+      "tag": "tlotd:mead_container"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "tlotd:mead_bucket"
+  }
+}

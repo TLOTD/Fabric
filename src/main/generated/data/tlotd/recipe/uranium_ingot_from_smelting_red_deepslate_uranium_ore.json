@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 1.0,
+  "group": "uranium",
+  "ingredient": {
+    "item": "tlotd:red_deepslate_uranium_ore"
+  },
+  "result": {
+    "id": "tlotd:uranium_ingot"
+  }
+}

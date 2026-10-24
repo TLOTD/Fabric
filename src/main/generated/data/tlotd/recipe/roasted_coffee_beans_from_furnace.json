@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 0.5,
+  "ingredient": {
+    "item": "tlotd:coffee_beans"
+  },
+  "result": {
+    "id": "tlotd:roasted_coffee_beans"
+  }
+}

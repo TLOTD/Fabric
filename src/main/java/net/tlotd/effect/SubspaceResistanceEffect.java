@@ -1,7 +1,7 @@
 package net.tlotd.effect;
 
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.attribute.AttributeContainer;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectCategory;
 import net.minecraft.entity.effect.StatusEffectInstance;
@@ -13,12 +13,12 @@ public class SubspaceResistanceEffect extends StatusEffect {
     }
 
     @Override
-    public void onApplied(LivingEntity entity, AttributeContainer attributes, int amplifier) {
+    public void onApplied(LivingEntity entity, int amplifier) {
         entity.removeStatusEffect(ModEffects.SUBSPACE_SICKNESS);
     }
 
     @Override
-    public void onRemoved(LivingEntity entity, AttributeContainer attributes, int amplifier) {
+    public void onEntityRemoval(LivingEntity entity, int amplifier, Entity.RemovalReason reason) {
         if (entity.getWorld().getRegistryKey().equals(ModDimensionsDataGenerator.BACKROOMS_LEVEL_KEY)) {
             entity.addStatusEffect(new StatusEffectInstance(ModEffects.SUBSPACE_SICKNESS, -1, amplifier,true,false, true));
         }

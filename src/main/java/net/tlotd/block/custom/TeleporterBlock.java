@@ -20,12 +20,12 @@ import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.tlotd.block.ModBlocks;
-import net.tlotd.block.entity.TeleporterBlockEntity;
+//import net.tlotd.block.entity.TeleporterBlockEntity;
 import net.tlotd.item.ModItems;
 import net.tlotd.sound.ModSounds;
 import org.jetbrains.annotations.Nullable;
 
-public class TeleporterBlock extends Block implements BlockEntityProvider {
+public class TeleporterBlock extends Block /*implements BlockEntityProvider*/ {
 
     public static final BooleanProperty LINKED = BooleanProperty.of("linked");
 
@@ -57,7 +57,7 @@ public class TeleporterBlock extends Block implements BlockEntityProvider {
         return BlockRenderType.MODEL;
     }
 
-    @Override
+    /*@Override
     public @Nullable BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
         return new TeleporterBlockEntity(pos, state);
     }
@@ -150,5 +150,5 @@ public class TeleporterBlock extends Block implements BlockEntityProvider {
             return ActionResult.SUCCESS;
         }
         return ActionResult.FAIL;
-    }
+    }*/
 }

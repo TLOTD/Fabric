@@ -308,27 +308,27 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         ;
 
         getOrCreateTagBuilder(BlockTags.LEAVES)
-                .add(ModBlocks.GINKGO_LEAVES)
+                //.add(ModBlocks.GINKGO_LEAVES)
         ;
 
         getOrCreateTagBuilder(BlockTags.SAPLINGS)
-                .add(ModBlocks.GINKGO_SAPLING)
+                //.add(ModBlocks.GINKGO_SAPLING)
         ;
 
         getOrCreateTagBuilder(BlockTags.STANDING_SIGNS)
-                .add(ModBlocks.STANDING_GINKGO_SIGN)
+                //.add(ModBlocks.STANDING_GINKGO_SIGN)
         ;
 
         getOrCreateTagBuilder(BlockTags.WALL_SIGNS)
-                .add(ModBlocks.WALL_GINKGO_SIGN)
+                //.add(ModBlocks.WALL_GINKGO_SIGN)
         ;
 
         getOrCreateTagBuilder(BlockTags.CEILING_HANGING_SIGNS)
-                .add(ModBlocks.HANGING_GINKGO_SIGN)
+                //.add(ModBlocks.HANGING_GINKGO_SIGN)
         ;
 
         getOrCreateTagBuilder(BlockTags.WALL_HANGING_SIGNS)
-                .add(ModBlocks.WALL_HANGING_GINKGO_SIGN)
+                //.add(ModBlocks.WALL_HANGING_GINKGO_SIGN)
         ;
 
         getOrCreateTagBuilder(BlockTags.BUTTONS)
@@ -465,7 +465,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .addTag(BlockTags.SMALL_FLOWERS)
                 .addTag(BlockTags.FLOWER_POTS)
                 .add(Blocks.FERN)
-                .add(Blocks.GRASS)
+                .add(Blocks.SHORT_GRASS)
                 .add(Blocks.PINK_PETALS)
 
                 .add(Blocks.WHEAT)
@@ -994,24 +994,24 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.HOT_CHOCOLATE_CAULDRON)
         ;
 
-        getOrCreateTagBuilder(TagKey.of(RegistryKeys.BLOCK, new Identifier("c", "bookshelves")))
+        getOrCreateTagBuilder(TagKey.of(RegistryKeys.BLOCK, Identifier.of("c", "bookshelves")))
                 .add(ModBlocks.VIDEOCASSETTE_RECORDER_BOOKSHELF)
                 .add(ModBlocks.GAME_CONSOLE_BOOKSHELF)
                 .add(ModBlocks.MEDIA_SYSTEM_BOOKSHELF)
         ;
 
-        getOrCreateTagBuilder(TagKey.of(RegistryKeys.BLOCK, new Identifier("c", "clusters")))
+        getOrCreateTagBuilder(TagKey.of(RegistryKeys.BLOCK, Identifier.of("c", "clusters")))
                 .add(ModBlocks.XEN_CRYSTAL_CLUSTER)
         ;
 
-        getOrCreateTagBuilder(TagKey.of(RegistryKeys.BLOCK, new Identifier("c", "golem_heads")))
+        getOrCreateTagBuilder(TagKey.of(RegistryKeys.BLOCK, Identifier.of("c", "golem_heads")))
                 .add(Blocks.CARVED_PUMPKIN)
                 .add(Blocks.JACK_O_LANTERN)
                 .add(ModBlocks.CARVED_WHITE_PUMPKIN)
                 .add(ModBlocks.WHITE_JACK_O_LANTERN)
         ;
 
-        getOrCreateTagBuilder(TagKey.of(RegistryKeys.BLOCK, new Identifier("c", "framed_colorless_glass")))
+        getOrCreateTagBuilder(TagKey.of(RegistryKeys.BLOCK, Identifier.of("c", "framed_colorless_glass")))
                 .add(ModBlocks.FRAMED_GLASS)
                 .add(ModBlocks.VERTICAL_FRAMED_GLASS)
                 .add(ModBlocks.ROUND_FRAMED_GLASS)
@@ -1019,7 +1019,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.TILED_FRAMED_GLASS)
         ;
 
-        getOrCreateTagBuilder(TagKey.of(RegistryKeys.BLOCK, new Identifier("c", "framed_colorless_glass_panes")))
+        getOrCreateTagBuilder(TagKey.of(RegistryKeys.BLOCK, Identifier.of("c", "framed_colorless_glass_panes")))
                 .add(ModBlocks.FRAMED_GLASS_PANE)
                 .add(ModBlocks.VERTICAL_FRAMED_GLASS_PANE)
                 .add(ModBlocks.ROUND_FRAMED_GLASS_PANE)
@@ -1292,7 +1292,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         getOrCreateTagBuilder(ModTags.Blocks.INFINIBURN_LUNA)
         ;
 
-        getOrCreateTagBuilder(TagKey.of(RegistryKeys.BLOCK, new Identifier("c", "farmland")))
+        getOrCreateTagBuilder(TagKey.of(RegistryKeys.BLOCK, Identifier.of("c", "farmland")))
                 .add(Blocks.FARMLAND)
                 .add(ModBlocks.RICH_FARMLAND)
         ;

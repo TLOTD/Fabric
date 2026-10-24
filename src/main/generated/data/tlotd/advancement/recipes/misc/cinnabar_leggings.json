@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_cinnabar_ingot": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tlotd:cinnabar_ingot"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "tlotd:cinnabar_leggings"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_cinnabar_ingot"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "tlotd:cinnabar_leggings"
+    ]
+  }
+}

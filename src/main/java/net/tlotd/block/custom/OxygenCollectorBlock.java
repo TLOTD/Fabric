@@ -5,12 +5,13 @@ import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.client.gui.screen.Screen;
-import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.screen.NamedScreenHandlerFactory;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
@@ -28,15 +29,15 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 import net.minecraft.world.WorldView;
-import net.tlotd.block.entity.ModBlockEntities;
-import net.tlotd.block.entity.OxygenCollectorBlockEntity;
+//import net.tlotd.block.entity.ModBlockEntities;
+//import net.tlotd.block.entity.OxygenCollectorBlockEntity;
 import net.tlotd.compat.CompatModsCheck;
 import net.tlotd.util.ModTags;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class OxygenCollectorBlock extends BlockWithEntity implements BlockEntityProvider {
+public class OxygenCollectorBlock extends Block/*WithEntity implements BlockEntityProvider*/ {
 
     public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
     public static final DirectionProperty FACING = HorizontalFacingBlock.FACING;
@@ -102,12 +103,12 @@ public class OxygenCollectorBlock extends BlockWithEntity implements BlockEntity
         return BlockRenderType.MODEL;
     }
 
-    public static final Identifier DEFAULT_FONT_ID = new Identifier("minecraft", "default");
-    public static final Identifier MODS_FONT_ID = new Identifier("tlotd", "mods");
-    public static final Identifier TOOLTIP_FONT_ID = new Identifier("tlotd", "tooltip");
+    public static final Identifier DEFAULT_FONT_ID = Identifier.of("minecraft", "default");
+    public static final Identifier MODS_FONT_ID = Identifier.of("tlotd", "mods");
+    public static final Identifier TOOLTIP_FONT_ID = Identifier.of("tlotd", "tooltip");
 
     @Override
-    public void appendTooltip(ItemStack stack, @Nullable BlockView world, List<Text> tooltip, TooltipContext options) {
+    public void appendTooltip(ItemStack stack, Item.TooltipContext context, List<Text> tooltip, TooltipType options) {
         Style style = this.getName().getStyle();
         if (options.isCreative()) {
             tooltip.add(Text.literal("\uE015 ").setStyle(style.withFont(MODS_FONT_ID)).append(Text.translatable("mod.ad_astra.name").setStyle(style.withFont(DEFAULT_FONT_ID).withFormatting(Formatting.GRAY))));
@@ -124,10 +125,10 @@ public class OxygenCollectorBlock extends BlockWithEntity implements BlockEntity
         tooltip.add(Text.empty());
         tooltip.add(Text.translatable("block.tlotd.oxygen_collector.tooltip").formatted(Formatting.GRAY));
         tooltip.add(Text.literal(" ").append(Text.translatable("block.tlotd.oxygen_collector.tooltip_2")).formatted(Formatting.BLUE));
-        super.appendTooltip(stack, world, tooltip, options);
+        super.appendTooltip(stack, context, tooltip, options);
     }
 
-    @Override
+    /*@Override
     public @Nullable BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
         return new OxygenCollectorBlockEntity(pos, state);
     }
@@ -158,5 +159,5 @@ public class OxygenCollectorBlock extends BlockWithEntity implements BlockEntity
     @Override
     public @Nullable <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
         return checkType(type, ModBlockEntities.OXYGEN_COLLECTOR_BLOCK_ENTITY, (world1, pos, state1, blockEntity) -> blockEntity.tick(world1, pos));
-    }
+    }*/
 }

@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "tlotd:marble"
+  },
+  "result": {
+    "count": 1,
+    "id": "tlotd:chiseled_marble"
+  }
+}

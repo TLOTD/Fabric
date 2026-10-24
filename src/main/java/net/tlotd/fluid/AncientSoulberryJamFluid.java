@@ -34,7 +34,7 @@ public abstract class AncientSoulberryJamFluid extends FlowableFluid {
     }
 
     @Override
-    protected int getFlowSpeed(WorldView world) {
+    protected int getMaxFlowDistance(WorldView world) {
         return 4;
     }
 
@@ -117,6 +117,7 @@ public abstract class AncientSoulberryJamFluid extends FlowableFluid {
     }
 
     public static class Still extends AncientSoulberryJamFluid {
+
         @Override
         public int getLevel(FluidState state) {
             return 8;

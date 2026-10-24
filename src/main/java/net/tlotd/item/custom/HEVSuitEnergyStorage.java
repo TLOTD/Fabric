@@ -8,7 +8,7 @@ import net.minecraft.util.collection.DefaultedList;
 import team.reborn.energy.api.EnergyStorage;
 import team.reborn.energy.api.base.SimpleEnergyItem;
 
-public class HEVSuitEnergyStorage implements EnergyStorage {
+public class HEVSuitEnergyStorage /*implements EnergyStorage*/ {
 
     private final ContainerItemContext context;
 
@@ -16,7 +16,7 @@ public class HEVSuitEnergyStorage implements EnergyStorage {
         this.context = context;
     }
 
-    private ItemStack getSuit() {
+    /*private ItemStack getSuit() {
         return context.getItemVariant().toStack();
     }
 
@@ -161,5 +161,5 @@ public class HEVSuitEnergyStorage implements EnergyStorage {
     @Override
     public boolean supportsExtraction() {
         return getAmount() > 0;
-    }
+    }*/
 }

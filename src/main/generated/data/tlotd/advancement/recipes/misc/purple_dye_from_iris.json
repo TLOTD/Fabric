@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_iris": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tlotd:iris"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "tlotd:purple_dye_from_iris"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_iris"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "tlotd:purple_dye_from_iris"
+    ]
+  }
+}

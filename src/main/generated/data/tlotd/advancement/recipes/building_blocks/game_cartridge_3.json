@@ -1,0 +1,43 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_game_cartridge": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tlotd:game_cartridge"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_oak_sapling": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:oak_sapling"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "tlotd:game_cartridge_3"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_oak_sapling",
+      "has_game_cartridge"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "tlotd:game_cartridge_3"
+    ]
+  }
+}

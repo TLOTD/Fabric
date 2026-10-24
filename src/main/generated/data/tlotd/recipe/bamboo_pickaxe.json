@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:bamboo"
+    },
+    "I": {
+      "tag": "c:wooden_rods"
+    }
+  },
+  "pattern": [
+    "###",
+    " I ",
+    " I "
+  ],
+  "result": {
+    "count": 1,
+    "id": "tlotd:bamboo_pickaxe"
+  }
+}

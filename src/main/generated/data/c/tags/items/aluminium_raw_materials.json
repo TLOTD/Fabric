@@ -1,9 +1,0 @@
-{
-  "replace": false,
-  "values": [
-    {
-      "id": "#c:aluminum_raw_materials",
-      "required": false
-    }
-  ]
-}

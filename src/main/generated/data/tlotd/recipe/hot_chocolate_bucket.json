@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "tlotd:hot_chocolate_bucket",
+  "ingredients": [
+    {
+      "tag": "tlotd:hot_milk_container"
+    },
+    {
+      "item": "minecraft:cocoa_beans"
+    },
+    {
+      "item": "minecraft:bucket"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "tlotd:hot_chocolate_bucket"
+  }
+}

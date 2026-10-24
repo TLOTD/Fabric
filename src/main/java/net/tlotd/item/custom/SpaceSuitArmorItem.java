@@ -1,14 +1,15 @@
 package net.tlotd.item.custom;
 
-import net.minecraft.client.item.TooltipData;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.StackReference;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ArmorMaterial;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.tooltip.TooltipData;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtList;
+import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.screen.slot.Slot;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
@@ -27,10 +28,11 @@ import java.util.Optional;
 import java.util.function.Consumer;
 
 public class SpaceSuitArmorItem extends ArmorItem {
-    public SpaceSuitArmorItem(ArmorMaterial material, Type type, Settings settings) {
+
+    public SpaceSuitArmorItem(RegistryEntry<ArmorMaterial> material, Type type, Settings settings) {
         super(material, type, settings);
     }
-
+/*
     @Override
     public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
         if (!world.isClient() && entity instanceof PlayerEntity player) {
@@ -160,5 +162,5 @@ public class SpaceSuitArmorItem extends ArmorItem {
     @Override
     public Optional<TooltipData> getTooltipData(ItemStack stack) {
         return Optional.of(new SpaceSuitTooltipData(getStoredStacks(stack)));
-    }
+    }*/
 }

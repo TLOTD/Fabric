@@ -5,9 +5,10 @@ import net.fabricmc.api.Environment;
 import net.minecraft.block.CarpetBlock;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.Screen;
-import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.text.Style;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
@@ -24,13 +25,13 @@ public class CursedCarpetBlock extends CarpetBlock {
         super(settings);
     }
 
-    public static final Identifier DEFAULT_FONT_ID = new Identifier("minecraft", "default");
-    public static final Identifier ILLAGER_FONT_ID = new Identifier("minecraft", "illageralt");
-    public static final Identifier TOOLTIP_FONT_ID = new Identifier("tlotd", "tooltip");
+    public static final Identifier DEFAULT_FONT_ID = Identifier.of("minecraft", "default");
+    public static final Identifier ILLAGER_FONT_ID = Identifier.of("minecraft", "illageralt");
+    public static final Identifier TOOLTIP_FONT_ID = Identifier.of("tlotd", "tooltip");
 
     @Override
     @Environment(EnvType.CLIENT)
-    public void appendTooltip(ItemStack stack, @Nullable BlockView world, List<Text> tooltip, TooltipContext options) {
+    public void appendTooltip(ItemStack stack, Item.TooltipContext context, List<Text> tooltip, TooltipType options) {
         Style style = getName().getStyle();
         PlayerEntity player = MinecraftClient.getInstance().player;
         if (player == null) return;
@@ -49,6 +50,6 @@ public class CursedCarpetBlock extends CarpetBlock {
             tooltip.add(Text.translatable("block.tlotd.cursed_carpet.tooltip_2").setStyle(style.withFont(ILLAGER_FONT_ID)).formatted(Formatting.GRAY));
             tooltip.add(Text.translatable("block.tlotd.cursed_carpet.tooltip_3").setStyle(style.withFont(ILLAGER_FONT_ID)).formatted(Formatting.GRAY));
         }
-        super.appendTooltip(stack, world, tooltip, options);
+        super.appendTooltip(stack, context, tooltip, options);
     }
 }

@@ -1,0 +1,43 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_oak_bark": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tlotd:oak_bark"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_stripped_oak_wood": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:stripped_oak_wood"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "tlotd:oak_wood"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_stripped_oak_wood",
+      "has_oak_bark"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "tlotd:oak_wood"
+    ]
+  }
+}

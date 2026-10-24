@@ -19,25 +19,25 @@ import java.util.OptionalLong;
 public class ModDimensionsDataGenerator {
 
     public static final RegistryKey<DimensionOptions> PREHISTORIC_KEY = RegistryKey.of(RegistryKeys.DIMENSION,
-            new Identifier(TLOTD.MOD_ID, "prehistoric"));
+            Identifier.of(TLOTD.MOD_ID, "prehistoric"));
     public static final RegistryKey<World> PREHISTORIC_LEVEL_KEY = RegistryKey.of(RegistryKeys.WORLD,
-            new Identifier(TLOTD.MOD_ID, "prehistoric"));
+            Identifier.of(TLOTD.MOD_ID, "prehistoric"));
     public static final RegistryKey<DimensionType> PREHISTORIC_TYPE = RegistryKey.of(RegistryKeys.DIMENSION_TYPE,
-            new Identifier(TLOTD.MOD_ID, "prehistoric"));
+            Identifier.of(TLOTD.MOD_ID, "prehistoric"));
 
     public static final RegistryKey<DimensionOptions> LUNA_KEY = RegistryKey.of(RegistryKeys.DIMENSION,
-            new Identifier(TLOTD.MOD_ID, "luna"));
+            Identifier.of(TLOTD.MOD_ID, "luna"));
     public static final RegistryKey<World> LUNA_LEVEL_KEY = RegistryKey.of(RegistryKeys.WORLD,
-            new Identifier(TLOTD.MOD_ID, "luna"));
+            Identifier.of(TLOTD.MOD_ID, "luna"));
     public static final RegistryKey<DimensionType> LUNA_TYPE = RegistryKey.of(RegistryKeys.DIMENSION_TYPE,
-            new Identifier(TLOTD.MOD_ID, "luna"));
+            Identifier.of(TLOTD.MOD_ID, "luna"));
 
     public static final RegistryKey<DimensionOptions> BACKROOMS_KEY = RegistryKey.of(RegistryKeys.DIMENSION,
-            new Identifier(TLOTD.MOD_ID, "backrooms"));
+            Identifier.of(TLOTD.MOD_ID, "backrooms"));
     public static final RegistryKey<World> BACKROOMS_LEVEL_KEY = RegistryKey.of(RegistryKeys.WORLD,
-            new Identifier(TLOTD.MOD_ID, "backrooms"));
+            Identifier.of(TLOTD.MOD_ID, "backrooms"));
     public static final RegistryKey<DimensionType> BACKROOMS_TYPE = RegistryKey.of(RegistryKeys.DIMENSION_TYPE,
-            new Identifier(TLOTD.MOD_ID, "backrooms"));
+            Identifier.of(TLOTD.MOD_ID, "backrooms"));
 
     public static void bootstrapType(Registerable<DimensionType> context) {
         context.register(PREHISTORIC_TYPE, new DimensionType(OptionalLong.of(12000), true, false, false, true, 1.0, true, true, -64, 384, 320, ModTags.Blocks.INFINIBURN_PREHISTORIC, DimensionTypes.OVERWORLD_ID, 0f, new DimensionType.MonsterSettings(false, false, UniformIntProvider.create(0, 0), 0)));

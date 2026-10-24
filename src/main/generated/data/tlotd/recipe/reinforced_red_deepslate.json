@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "tlotd:red_deepslate"
+    },
+    {
+      "tag": "c:fossils"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "tlotd:reinforced_red_deepslate"
+  }
+}

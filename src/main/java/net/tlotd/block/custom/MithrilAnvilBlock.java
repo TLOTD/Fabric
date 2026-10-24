@@ -5,11 +5,12 @@ import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.client.gui.screen.Screen;
-import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.ai.pathing.NavigationType;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.screen.NamedScreenHandlerFactory;
 import net.minecraft.state.StateManager;
@@ -25,14 +26,14 @@ import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
-import net.tlotd.block.entity.MithrilAnvilBlockEntity;
-import net.tlotd.block.entity.ModBlockEntities;
+//import net.tlotd.block.entity.MithrilAnvilBlockEntity;
+//import net.tlotd.block.entity.ModBlockEntities;
 import net.tlotd.networking.ClientGlobalConfig;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class MithrilAnvilBlock extends BlockWithEntity implements BlockEntityProvider {
+public class MithrilAnvilBlock extends Block/*WithEntity implements BlockEntityProvider*/ {
 
     public static final DirectionProperty FACING;
     private static final VoxelShape BASE_SHAPE;
@@ -72,7 +73,7 @@ public class MithrilAnvilBlock extends BlockWithEntity implements BlockEntityPro
     }
 
     @Override
-    public boolean canPathfindThrough(BlockState state, BlockView world, BlockPos pos, NavigationType type) {
+    protected boolean canPathfindThrough(BlockState state, NavigationType type) {
         return false;
     }
 
@@ -94,7 +95,7 @@ public class MithrilAnvilBlock extends BlockWithEntity implements BlockEntityPro
         return BlockRenderType.MODEL;
     }
 
-    @Override
+    /*@Override
     public @Nullable BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
         return new MithrilAnvilBlockEntity(pos, state);
     }
@@ -125,7 +126,7 @@ public class MithrilAnvilBlock extends BlockWithEntity implements BlockEntityPro
     @Override
     public @Nullable <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
         return checkType(type, ModBlockEntities.MITHRIL_ANVIL_BLOCK_ENTITY, (world1, pos, state1, blockEntity) -> blockEntity.tick(world1, pos, state1));
-    }
+    }*/
 
     public void randomDisplayTick(BlockState state, World world, BlockPos pos, Random random) {
         spawnParticles(world, pos);
@@ -148,12 +149,12 @@ public class MithrilAnvilBlock extends BlockWithEntity implements BlockEntityPro
     }
 
     @Override
-    public void appendTooltip(ItemStack stack, @Nullable BlockView world, List<Text> tooltip, TooltipContext options) {
+    public void appendTooltip(ItemStack stack, Item.TooltipContext context, List<Text> tooltip, TooltipType options) {
         if (ClientGlobalConfig.starlightAnvil) {
             tooltip.add(Text.empty());
             tooltip.add(Text.translatable("block.tlotd.mithril_anvil.tooltip").formatted(Formatting.GRAY));
             tooltip.add(Text.literal(" ").append(Text.translatable("block.tlotd.mithril_anvil.tooltip_2").formatted(Formatting.BLUE)));
         }
-        super.appendTooltip(stack, world, tooltip, options);
+        super.appendTooltip(stack, context, tooltip, options);
     }
 }

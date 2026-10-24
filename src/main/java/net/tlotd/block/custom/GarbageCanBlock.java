@@ -22,11 +22,11 @@ import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
-import net.tlotd.block.entity.GarbageCanBlockEntity;
+//import net.tlotd.block.entity.GarbageCanBlockEntity;
 import net.tlotd.sound.ModSounds;
 import org.jetbrains.annotations.Nullable;
 
-public class GarbageCanBlock extends BlockWithEntity implements BlockEntityProvider {
+public class GarbageCanBlock extends Block/*WithEntity implements BlockEntityProvider*/ {
 
     public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
 
@@ -75,7 +75,7 @@ public class GarbageCanBlock extends BlockWithEntity implements BlockEntityProvi
         return BlockRenderType.MODEL;
     }
 
-    @Override
+    /*@Override
     public @Nullable BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
         return new GarbageCanBlockEntity(pos, state);
     }
@@ -114,5 +114,5 @@ public class GarbageCanBlock extends BlockWithEntity implements BlockEntityProvi
             }
             super.onStateReplaced(state, world, pos, newState, moved);
         }
-    }
+    }*/
 }

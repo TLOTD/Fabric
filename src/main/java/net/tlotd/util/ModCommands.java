@@ -11,6 +11,7 @@ import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.command.argument.BlockPosArgumentType;
 import net.minecraft.command.argument.GameProfileArgumentType;
 import net.minecraft.command.argument.RegistryEntryArgumentType;
+import net.minecraft.command.argument.RegistryEntryReferenceArgumentType;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.registry.Registries;
@@ -94,8 +95,8 @@ public class ModCommands {
                 VideoGameRegistry.debugDump();
                 ctx.getSource().sendFeedback(() -> Text.literal("Dumped TV signal & Video Game registries to console."), false);
                 return 1;
-            })).then(CommandManager.literal("augment").requires(source -> source.hasPermissionLevel(2)).then(CommandManager.literal("add").then(CommandManager.argument("id", StringArgumentType.string()).then(CommandManager.argument("level", IntegerArgumentType.integer(1)).executes(ModCommands::addAugment))))).then(CommandManager.literal("station").requires(source -> source.hasPermissionLevel(2)).then(CommandManager.literal("addSignal").then(CommandManager.argument("signal", RegistryEntryArgumentType.registryEntry(registryAccess, RegistryKeys.ITEM)).executes(ctx -> {
-                RegistryEntry<Item> entry = RegistryEntryArgumentType.getRegistryEntry(ctx, "signal", RegistryKeys.ITEM);
+            })).then(CommandManager.literal("augment").requires(source -> source.hasPermissionLevel(2)).then(CommandManager.literal("add").then(CommandManager.argument("id", StringArgumentType.string()).then(CommandManager.argument("level", IntegerArgumentType.integer(1)).executes(ModCommands::addAugment))))).then(CommandManager.literal("station").requires(source -> source.hasPermissionLevel(2)).then(CommandManager.literal("addSignal").then(CommandManager.argument("signal", RegistryEntryReferenceArgumentType.registryEntry(registryAccess, RegistryKeys.ITEM)).executes(ctx -> {
+                RegistryEntry.Reference<Item> entry = RegistryEntryReferenceArgumentType.getRegistryEntry(ctx, "signal", RegistryKeys.ITEM);
                 Identifier id = Registries.ITEM.getId(entry.value());
                 SignalTrackingArray tracker = SignalTrackingArray.get(ctx.getSource().getWorld());
                 if (!tracker.hasStations()) {
@@ -106,9 +107,9 @@ public class ModCommands {
                 ctx.getSource().sendFeedback(() -> Text.literal("Added ").append(Text.translatable(entry.value().getTranslationKey())).append(Text.literal(" to all stations")), false);
 
                 return 1;
-            })).then(CommandManager.argument("station", BlockPosArgumentType.blockPos()).then(CommandManager.argument("signal", RegistryEntryArgumentType.registryEntry(registryAccess, RegistryKeys.ITEM)).executes(ctx -> {
+            })).then(CommandManager.argument("station", BlockPosArgumentType.blockPos()).then(CommandManager.argument("signal", RegistryEntryReferenceArgumentType.registryEntry(registryAccess, RegistryKeys.ITEM)).executes(ctx -> {
                 BlockPos pos = BlockPosArgumentType.getBlockPos(ctx, "station");
-                RegistryEntry<Item> entry = RegistryEntryArgumentType.getRegistryEntry(ctx, "signal", RegistryKeys.ITEM);
+                RegistryEntry.Reference<Item> entry = RegistryEntryReferenceArgumentType.getRegistryEntry(ctx, "signal", RegistryKeys.ITEM);
                 Identifier id = Registries.ITEM.getId(entry.value());
                 SignalTrackingArray tracker = SignalTrackingArray.get(ctx.getSource().getWorld());
                 RadioStation station = tracker.getStation(pos);
@@ -119,8 +120,8 @@ public class ModCommands {
                 tracker.addSignal(pos, id);
                 ctx.getSource().sendFeedback(() -> Text.literal("Added ").append(Text.translatable(entry.value().getTranslationKey())).append(Text.literal(" to station " + pos.getX() + " " + pos.getY() + " " + pos.getZ())), false);
                 return 1;
-            })))).then(CommandManager.literal("dimensionalSignals").then(CommandManager.literal("add").then(CommandManager.argument("signal", RegistryEntryArgumentType.registryEntry(registryAccess, RegistryKeys.ITEM)).executes(ctx -> {
-                RegistryEntry<Item> entry = RegistryEntryArgumentType.getRegistryEntry(ctx, "signal", RegistryKeys.ITEM);
+            })))).then(CommandManager.literal("dimensionalSignals").then(CommandManager.literal("add").then(CommandManager.argument("signal", RegistryEntryReferenceArgumentType.registryEntry(registryAccess, RegistryKeys.ITEM)).executes(ctx -> {
+                RegistryEntry.Reference<Item> entry = RegistryEntryReferenceArgumentType.getRegistryEntry(ctx, "signal", RegistryKeys.ITEM);
                 Item item = entry.value();
                 Identifier id = Registries.ITEM.getId(item);
                 SignalTrackingArray tracker = SignalTrackingArray.get(ctx.getSource().getWorld());
@@ -131,8 +132,8 @@ public class ModCommands {
                 tracker.addDimensionSignal(id);
                 ctx.getSource().sendFeedback(() -> Text.literal("Added ").append(Text.translatable(item.getTranslationKey())).append(Text.literal(" as a dimensional signal")), false);
                 return 1;
-            }))).then(CommandManager.literal("remove").then(CommandManager.argument("signal", RegistryEntryArgumentType.registryEntry(registryAccess, RegistryKeys.ITEM)).executes(ctx -> {
-                RegistryEntry<Item> entry = RegistryEntryArgumentType.getRegistryEntry(ctx, "signal", RegistryKeys.ITEM);
+            }))).then(CommandManager.literal("remove").then(CommandManager.argument("signal", RegistryEntryReferenceArgumentType.registryEntry(registryAccess, RegistryKeys.ITEM)).executes(ctx -> {
+                RegistryEntry.Reference<Item> entry = RegistryEntryReferenceArgumentType.getRegistryEntry(ctx, "signal", RegistryKeys.ITEM);
                 Item item = entry.value();
                 Identifier id = Registries.ITEM.getId(item);
                 SignalTrackingArray tracker = SignalTrackingArray.get(ctx.getSource().getWorld());
@@ -166,8 +167,8 @@ public class ModCommands {
                     ctx.getSource().sendFeedback(() -> Text.literal(" ").append(deleteSignal).append(Text.literal(" | ").formatted(Formatting.WHITE).append(Text.translatable("item." + id.getNamespace() + "." + id.getPath())).append(Text.literal(": ")).append(Text.translatable("item." + id.getNamespace() + "." + id.getPath() + ".desc")).append(Text.literal(" (" + id + ")").formatted(Formatting.DARK_GRAY)).formatted(Formatting.GRAY)), false);
                 }
                 return 1;
-            }))).then(CommandManager.literal("removeSignal").then(CommandManager.argument("signal", RegistryEntryArgumentType.registryEntry(registryAccess, RegistryKeys.ITEM)).executes(ctx -> {
-                RegistryEntry<Item> entry = RegistryEntryArgumentType.getRegistryEntry(ctx, "signal", RegistryKeys.ITEM);
+            }))).then(CommandManager.literal("removeSignal").then(CommandManager.argument("signal", RegistryEntryReferenceArgumentType.registryEntry(registryAccess, RegistryKeys.ITEM)).executes(ctx -> {
+                RegistryEntry.Reference<Item> entry = RegistryEntryReferenceArgumentType.getRegistryEntry(ctx, "signal", RegistryKeys.ITEM);
                 Identifier id = Registries.ITEM.getId(entry.value());
                 SignalTrackingArray tracker = SignalTrackingArray.get(ctx.getSource().getWorld());
                 if (!tracker.hasStations()) {
@@ -177,9 +178,9 @@ public class ModCommands {
                 tracker.removeTrackFromAll(id);
                 ctx.getSource().sendFeedback(() -> Text.literal("Removed ").append(Text.translatable(entry.value().getTranslationKey())).append(Text.literal(" from all stations")), false);
                 return 1;
-            })).then(CommandManager.argument("station", BlockPosArgumentType.blockPos()).then(CommandManager.argument("signal", RegistryEntryArgumentType.registryEntry(registryAccess, RegistryKeys.ITEM)).executes(ctx -> {
+            })).then(CommandManager.argument("station", BlockPosArgumentType.blockPos()).then(CommandManager.argument("signal", RegistryEntryReferenceArgumentType.registryEntry(registryAccess, RegistryKeys.ITEM)).executes(ctx -> {
                 BlockPos pos = BlockPosArgumentType.getBlockPos(ctx, "station");
-                RegistryEntry<Item> entry = RegistryEntryArgumentType.getRegistryEntry(ctx, "signal", RegistryKeys.ITEM);
+                RegistryEntry.Reference<Item> entry = RegistryEntryReferenceArgumentType.getRegistryEntry(ctx, "signal", RegistryKeys.ITEM);
                 Identifier id = Registries.ITEM.getId(entry.value());
                 SignalTrackingArray tracker = SignalTrackingArray.get(ctx.getSource().getWorld());
                 RadioStation station = tracker.getStation(pos);

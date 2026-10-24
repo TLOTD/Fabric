@@ -11,11 +11,11 @@ public class HypoxiaEffect extends StatusEffect {
     }
 
     @Override
-    public void applyUpdateEffect(LivingEntity entity, int amplifier) {
+    public boolean applyUpdateEffect(LivingEntity entity, int amplifier) {
         if(!entity.getWorld().isClient()) {
             entity.damage(ModDamageTypes.of(entity.getWorld(), ModDamageTypes.HYPOXIA), 1.0F);
         }
-        super.applyUpdateEffect(entity, amplifier);
+        return super.applyUpdateEffect(entity, amplifier);
     }
 
     @Override

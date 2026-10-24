@@ -2,14 +2,15 @@ package net.tlotd.block.custom;
 
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.registry.Registries;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
@@ -30,7 +31,7 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 import net.tlotd.block.ModBlocks;
-import net.tlotd.block.entity.SignalTransmitterBlockEntity;
+//import net.tlotd.block.entity.SignalTransmitterBlockEntity;
 import net.tlotd.block.enum_property.AntennaMaterial;
 import net.tlotd.sound.ModSounds;
 import net.tlotd.util.ModTags;
@@ -40,7 +41,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class SignalTransmitterBlock extends Block implements BlockEntityProvider {
+public class SignalTransmitterBlock extends Block /*implements BlockEntityProvider*/ {
 
     public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
     public static final DirectionProperty FACING = HorizontalFacingBlock.FACING;
@@ -93,17 +94,17 @@ public class SignalTransmitterBlock extends Block implements BlockEntityProvider
     }
 
     @Override
-    public void appendTooltip(ItemStack stack, @Nullable BlockView world, List<Text> tooltip, TooltipContext options) {
+    public void appendTooltip(ItemStack stack, Item.TooltipContext context, List<Text> tooltip, TooltipType options) {
         tooltip.add(Text.empty());
         tooltip.add(Text.translatable("block.tlotd.signal_transmitter.tooltip").formatted(Formatting.GRAY));
         tooltip.add(Text.literal(" ").append(Text.translatable("block.tlotd.signal_transmitter.tooltip_2")).formatted(Formatting.BLUE));
         tooltip.add(Text.literal(" ").append(Text.translatable("block.tlotd.signal_transmitter.tooltip_3")).formatted(Formatting.BLUE));
         tooltip.add(Text.translatable("block.tlotd.signal_transmitter.tooltip_4").formatted(Formatting.GRAY));
         tooltip.add(Text.literal(" 4x ").append(Text.translatable("block.tlotd.any_signal_transmitter_antenna")).formatted(Formatting.BLUE));
-        super.appendTooltip(stack, world, tooltip, options);
+        super.appendTooltip(stack, context, tooltip, options);
     }
 
-    private void buildSignalTower(ItemStack stack, World world, BlockPos pos, BlockState state, PlayerEntity player) {
+    /*private void buildSignalTower(ItemStack stack, World world, BlockPos pos, BlockState state, PlayerEntity player) {
         world.setBlockState(pos, state);
         world.playSound(null, pos, SoundEvents.BLOCK_COPPER_PLACE, SoundCategory.BLOCKS, 1.0f, 1.0f);
         if (!player.isCreative()) {
@@ -310,5 +311,5 @@ public class SignalTransmitterBlock extends Block implements BlockEntityProvider
     @Override
     public @Nullable BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
         return new SignalTransmitterBlockEntity(pos, state);
-    }
+    }*/
 }

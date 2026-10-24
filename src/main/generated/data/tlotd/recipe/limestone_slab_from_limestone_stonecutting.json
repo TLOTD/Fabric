@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "tlotd:limestone"
+  },
+  "result": {
+    "count": 2,
+    "id": "tlotd:limestone_slab"
+  }
+}

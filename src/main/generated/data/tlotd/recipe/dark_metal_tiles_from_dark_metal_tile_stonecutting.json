@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "tlotd:dark_metal_tile"
+  },
+  "result": {
+    "count": 1,
+    "id": "tlotd:dark_metal_tiles"
+  }
+}

@@ -1,6 +1,5 @@
 package net.tlotd.item.custom;
 
-import net.minecraft.client.item.TooltipContext;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
@@ -20,24 +19,22 @@ import net.minecraft.text.Text;
 import net.minecraft.util.*;
 import net.minecraft.world.World;
 import net.tlotd.effect.ModEffects;
-import net.tlotd.enchantments.ModEnchantments;
 import net.tlotd.item.ModItems;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
 public class PipeItem extends Item {
 
-    private static final String CONTENT_KEY = "Content";
+    public PipeItem(Settings settings) {
+        super(settings);
+    }
+
+    /*private static final String CONTENT_KEY = "Content";
     private static final String CHARGES_USED_KEY = "ChargesUsed";
     private static final int BASE_MAX_CHARGES = 3;
     private static final int CHARGES_PER_LEVEL = 1;
     private static final int USE_TIME = 20;
-    public static final Identifier SOUL_CHARGES_FONT_ID = new Identifier("tlotd", "soul_charges");
-
-    public PipeItem(Settings settings) {
-        super(settings);
-    }
+    public static final Identifier SOUL_CHARGES_FONT_ID = Identifier.of("tlotd", "soul_charges");
 
     public UseAction getUseAction(ItemStack stack) {
         return UseAction.TOOT_HORN;
@@ -160,7 +157,7 @@ public class PipeItem extends Item {
     }
 
     @Override
-    public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
+    public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
         boolean clean = !stack.isOf(ModItems.JOINT) && (!stack.hasNbt() || !stack.getNbt().contains(CHARGES_USED_KEY, NbtElement.NUMBER_TYPE));
         NbtCompound tag = stack.getOrCreateNbt();
         String content = tag.getString(CONTENT_KEY);
@@ -172,7 +169,7 @@ public class PipeItem extends Item {
         if (stack.isOf(ModItems.JOINT) || content.equals("tlotd:pipe_weed")) {
             tooltip.add(Text.translatable("effect.tlotd.stoned").append(Text.literal(" (00:30)")).formatted(Formatting.RED));
         }
-        super.appendTooltip(stack, world, tooltip, context);
+        super.appendTooltip(stack, context, tooltip, type);
     }
 
     @Override
@@ -208,5 +205,5 @@ public class PipeItem extends Item {
     @Override
     public int getEnchantability() {
         return 10;
-    }
+    }*/
 }

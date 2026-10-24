@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "tag": "c:stripped_woods"
+    },
+    {
+      "item": "tlotd:yellow_wallpaper"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "tlotd:yellow_wallpapered_wood"
+  }
+}

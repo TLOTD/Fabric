@@ -1,18 +1,14 @@
 package net.tlotd.util.triggers;
 
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
+import com.mojang.serialization.Codec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.advancement.criterion.AbstractCriterion;
-import net.minecraft.advancement.criterion.AbstractCriterionConditions;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.predicate.entity.AdvancementEntityPredicateDeserializer;
-import net.minecraft.predicate.entity.AdvancementEntityPredicateSerializer;
 import net.minecraft.predicate.entity.LootContextPredicate;
-import net.minecraft.registry.Registries;
+import net.minecraft.predicate.item.ItemPredicate;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.Identifier;
+import net.tlotd.TLOTD;
 
 import java.util.*;
 
@@ -20,81 +16,38 @@ import static net.tlotd.util.AugmentNbtHelper.getAugmentLevel;
 
 public class HoldItemPlayerTrigger extends AbstractCriterion<HoldItemPlayerTrigger.Conditions> {
 
-    public static final Identifier ID = new Identifier("tlotd", "player_holds_item");
+    public static final Identifier ID = Identifier.of(TLOTD.MOD_ID, "player_holds_item");
 
     @Override
-    public Identifier getId() {
-        return ID;
-    }
-
-    @Override
-    protected Conditions conditionsFromJson(JsonObject json, LootContextPredicate playerPredicate, AdvancementEntityPredicateDeserializer deserializer) {
-        Identifier itemId = new Identifier(json.get("item").getAsString());
-        Item item = Registries.ITEM.get(itemId);
-        Set<UUID> uuidSet = Collections.emptySet();
-        Map<String, Integer> augmentMap = new HashMap<>();
-        if (json.has("uuids")) {
-            JsonArray array = json.getAsJsonArray("uuids");
-            Set<UUID> parsed = new HashSet<>();
-            for (JsonElement element : array) {
-                parsed.add(UUID.fromString(element.getAsString()));
-            }
-            uuidSet = parsed;
-        }
-        if (json.has("augments")) {
-            JsonObject augmentsJson = json.getAsJsonObject("augments");
-
-            for (String key : augmentsJson.keySet()) {
-                int level = augmentsJson.get(key).getAsInt();
-                augmentMap.put(key, level);
-            }
-        }
-        return new Conditions(playerPredicate, item, uuidSet, augmentMap);
+    public Codec<Conditions> getConditionsCodec() {
+        return Conditions.CODEC;
     }
 
     public void trigger(ServerPlayerEntity player) {
         ItemStack stack = player.getMainHandStack();
+
         this.trigger(player, conditions -> {
-            if (!stack.isOf(conditions.item)) {
+            if (!conditions.allowedUuids().isEmpty() && !conditions.allowedUuids().contains(player.getUuid())) {
                 return false;
             }
-            if (!conditions.allowedUuids.isEmpty() && !conditions.allowedUuids.contains(player.getUuid())) {
-                return false;
-            }
-            for (Map.Entry<String, Integer> entry : conditions.requiredAugments.entrySet()) {
-                int level = getAugmentLevel(stack, entry.getKey());
-                if (level < entry.getValue()) {
+
+            for (Map.Entry<String, Integer> entry : conditions.requiredAugments().entrySet()) {
+                if (getAugmentLevel(stack, entry.getKey()) < entry.getValue()) {
                     return false;
                 }
             }
-            return true;
+
+            return conditions.item().test(stack);
         });
     }
 
-    public static class Conditions extends AbstractCriterionConditions {
-        private final Item item;
-        private final Set<UUID> allowedUuids;
-        private final Map<String, Integer> requiredAugments;
+    public record Conditions(Optional<LootContextPredicate> player, ItemPredicate item, Set<UUID> allowedUuids, Map<String, Integer> requiredAugments) implements AbstractCriterion.Conditions {
 
-        public Conditions(LootContextPredicate playerPredicate, Item item, Set<UUID> allowedUuids, Map<String, Integer> requiredAugments) {
-            super(ID, playerPredicate);
-            this.item = item;
-            this.allowedUuids = allowedUuids;
-            this.requiredAugments = requiredAugments;
-        }
+        private static final Codec<UUID> UUID_CODEC = Codec.STRING.xmap(UUID::fromString, UUID::toString);
 
-        @Override
-        public JsonObject toJson(AdvancementEntityPredicateSerializer serializer) {
-            JsonObject json = super.toJson(serializer);
-            json.addProperty("item", Registries.ITEM.getId(item).toString());
-            if (!allowedUuids.isEmpty()) {
-                JsonArray array = new JsonArray();
-                for (UUID uuid : allowedUuids) {
-                    array.add(uuid.toString());
-                }
-                json.add("uuids", array);
-            }
-            return json;
-        }
+        public static final Codec<Conditions> CODEC = RecordCodecBuilder.create(instance -> instance.group(LootContextPredicate.CODEC.optionalFieldOf("player").forGetter(Conditions::player),
+                ItemPredicate.CODEC.fieldOf("item").forGetter(Conditions::item),
+                UUID_CODEC.listOf().optionalFieldOf("uuids", List.of()).xmap(Set::copyOf, List::copyOf).forGetter(Conditions::allowedUuids),
+                Codec.unboundedMap(Codec.STRING, Codec.INT).optionalFieldOf("augments", Map.of()).forGetter(Conditions::requiredAugments)).apply(instance, Conditions::new));
     }
 }

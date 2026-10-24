@@ -3,18 +3,16 @@ package net.tlotd.block.custom;
 import net.minecraft.block.*;
 import net.minecraft.block.cauldron.CauldronBehavior;
 import net.minecraft.fluid.Fluid;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.BlockView;
-
-import java.util.Map;
+import net.minecraft.world.WorldView;
+import net.minecraft.world.biome.Biome;
 
 public class ModCauldronBlock extends LeveledCauldronBlock {
 
-    public ModCauldronBlock(AbstractBlock.Settings settings, Map<Item, CauldronBehavior> behaviorMap) {
-        super(settings, precipitation -> false, behaviorMap);
+    public ModCauldronBlock(AbstractBlock.Settings settings, CauldronBehavior.CauldronBehaviorMap behaviorMap) {
+        super(Biome.Precipitation.NONE, behaviorMap, settings);
     }
 
     @Override
@@ -28,7 +26,7 @@ public class ModCauldronBlock extends LeveledCauldronBlock {
     }
 
     @Override
-    public ItemStack getPickStack(BlockView world, BlockPos pos, BlockState state) {
+    public ItemStack getPickStack(WorldView world, BlockPos pos, BlockState state) {
         return Items.CAULDRON.getDefaultStack();
     }
 }

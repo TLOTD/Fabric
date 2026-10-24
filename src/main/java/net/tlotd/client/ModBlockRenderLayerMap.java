@@ -180,6 +180,6 @@ public class ModBlockRenderLayerMap {
 
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.INFECTED_TREX_EGG, RenderLayer.getCutout());
 
-        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.PREHISTORIC_PORTAL, RenderLayer.getTranslucent());
+        //BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.PREHISTORIC_PORTAL, RenderLayer.getTranslucent());
     }
 }

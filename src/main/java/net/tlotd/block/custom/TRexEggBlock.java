@@ -25,10 +25,10 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldEvents;
 import net.minecraft.world.event.GameEvent;
 import net.tlotd.block.ModBlocks;
-import net.tlotd.entity.ModEntities;
-import net.tlotd.entity.client.variant.TRexVariant;
-import net.tlotd.entity.custom.InfectedTRexEntity;
-import net.tlotd.entity.custom.TRexEntity;
+//import net.tlotd.entity.ModEntities;
+//import net.tlotd.entity.client.variant.TRexVariant;
+//import net.tlotd.entity.custom.InfectedTRexEntity;
+//import net.tlotd.entity.custom.TRexEntity;
 
 public class TRexEggBlock extends Block {
     public static final int FINAL_HATCH_STAGE = 2;
@@ -61,7 +61,7 @@ public class TRexEggBlock extends Block {
         return this.getHatchStage(state) == 2;
     }
 
-    @Override
+    /*@Override
     public void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
         if (!this.isReadyToHatch(state)) {
             world.playSound(null, pos, SoundEvents.BLOCK_SNIFFER_EGG_CRACK, SoundCategory.BLOCKS, 0.7f, 0.9f + random.nextFloat() * 0.2f);
@@ -88,7 +88,7 @@ public class TRexEggBlock extends Block {
                 world.spawnEntity(trexEntity);
             }
         }
-    }
+    }*/
 
     @Override
     public void onBlockAdded(BlockState state, World world, BlockPos pos, BlockState oldState, boolean notify) {
@@ -103,7 +103,7 @@ public class TRexEggBlock extends Block {
     }
 
     @Override
-    public boolean canPathfindThrough(BlockState state, BlockView world, BlockPos pos, NavigationType type) {
+    protected boolean canPathfindThrough(BlockState state, NavigationType type) {
         return false;
     }
 

@@ -2,17 +2,18 @@ package net.tlotd.item.custom;
 
 import net.fabricmc.fabric.api.transfer.v1.context.ContainerItemContext;
 import net.minecraft.client.gui.screen.Screen;
-import net.minecraft.client.item.TooltipContext;
-import net.minecraft.client.item.TooltipData;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.StackReference;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ArmorMaterial;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.tooltip.TooltipData;
+import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtElement;
 import net.minecraft.nbt.NbtList;
+import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.screen.slot.Slot;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
@@ -33,11 +34,11 @@ import java.util.function.Consumer;
 
 public class HEVArmorItem extends ArmorItem {
 
-    public HEVArmorItem(ArmorMaterial material, Type type, Settings settings) {
+    public HEVArmorItem(RegistryEntry<ArmorMaterial> material, Type type, Settings settings) {
         super(material, type, settings);
     }
 
-    @Override
+    /*@Override
     public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
         if (!world.isClient() && entity instanceof PlayerEntity player) {
             if (stack == player.getInventory().getArmorStack(2)) {
@@ -166,8 +167,8 @@ public class HEVArmorItem extends ArmorItem {
     }
 
     @Override
-    public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        super.appendTooltip(stack, world, tooltip, context);
+    public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
+        super.appendTooltip(stack, context, tooltip, type);
         tooltip.add(energyText(stack, Screen.hasShiftDown()));
         tooltip.add(Text.empty());
         tooltip.add(Text.translatable("item.tlotd.hev_suit_chestplate.tooltip").formatted(Formatting.GRAY));
@@ -191,5 +192,5 @@ public class HEVArmorItem extends ArmorItem {
         String formattedPower2 = formattedPower.replace(',', '.');
         String formattedMaxPower2 = formattedMaxPower.replace(',', '.');
         return Text.translatable("item.tlotd.energy_level.tooltip", formattedPower, formattedMaxPower, formattedPower2, formattedMaxPower2).formatted(Formatting.YELLOW);
-    }
+    }*/
 }

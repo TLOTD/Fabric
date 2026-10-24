@@ -3,12 +3,7 @@ package net.tlotd.networking;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.network.PacketByteBuf;
 
-public class PlayerDataSyncPacket {
-    public final NbtCompound data;
-
-    public PlayerDataSyncPacket(NbtCompound data) {
-        this.data = data;
-    }
+public record PlayerDataSyncPacket(NbtCompound data) {
 
     public void write(PacketByteBuf buf) {
         buf.writeNbt(data);

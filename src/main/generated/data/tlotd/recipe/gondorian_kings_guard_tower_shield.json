@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "tlotd:gondorian_tower_shield"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "tlotd:gondorian_kings_guard_tower_shield"
+  }
+}

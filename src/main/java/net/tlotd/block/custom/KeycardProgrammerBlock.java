@@ -4,12 +4,13 @@ import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
 import net.minecraft.block.entity.BlockEntityType;
-import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.screen.NamedScreenHandlerFactory;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
@@ -24,13 +25,13 @@ import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
-import net.tlotd.block.entity.KeycardProgrammerBlockEntity;
-import net.tlotd.block.entity.ModBlockEntities;
+//import net.tlotd.block.entity.KeycardProgrammerBlockEntity;
+//import net.tlotd.block.entity.ModBlockEntities;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class KeycardProgrammerBlock extends BlockWithEntity implements BlockEntityProvider {
+public class KeycardProgrammerBlock extends Block/*WithEntity implements BlockEntityProvider*/ {
 
     public static final BooleanProperty ON = BooleanProperty.of("on");
     public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
@@ -91,14 +92,14 @@ public class KeycardProgrammerBlock extends BlockWithEntity implements BlockEnti
     }
 
     @Override
-    public void appendTooltip(ItemStack stack, @Nullable BlockView world, List<Text> tooltip, TooltipContext options) {
+    public void appendTooltip(ItemStack stack, Item.TooltipContext context, List<Text> tooltip, TooltipType options) {
         tooltip.add(Text.empty());
         tooltip.add(Text.translatable("block.tlotd.powered_by_computer.tooltip").formatted(Formatting.GRAY));
         tooltip.add(Text.literal(" ").append(Text.translatable("block.tlotd.computer").formatted(Formatting.BLUE)));
-        super.appendTooltip(stack, world, tooltip, options);
+        super.appendTooltip(stack, context, tooltip, options);
     }
 
-    @Override
+    /*@Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         if (state.get(ON)) {
             if (!world.isClient) {
@@ -132,5 +133,5 @@ public class KeycardProgrammerBlock extends BlockWithEntity implements BlockEnti
     @Override
     public @Nullable <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
         return checkType(type, ModBlockEntities.KEYCARD_PROGRAMMER_BLOCK_ENTITY, (world1, pos, state1, blockEntity) -> blockEntity.tick(world1, pos, state1));
-    }
+    }*/
 }

@@ -4,6 +4,7 @@ import net.minecraft.advancement.criterion.Criteria;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -56,7 +57,7 @@ public class ItemMixin {
             compat = globalState.extractionOreCompat();
         }
         int damage = 1;
-        int miningLevel = item.getMaterial().getMiningLevel();
+        //int miningLevel = item.getMaterial().getMiningLevel();
         int blockLevel = 0;
         if (state.isIn(ModTags.Blocks.TOOL_LEVEL_10)) {
             blockLevel = 10;
@@ -81,7 +82,7 @@ public class ItemMixin {
         }
         if (context.getStack().isIn(ModTags.Items.MOUTH_OF_THE_ABYSS)) {
             context.getWorld().breakBlock(positionClicked, true);
-        } else if (miningLevel >= blockLevel && (state == ModBlocks.ALIEN_CONTROL_PANEL.getStateWithProperties(state).with(HARVESTED, false) || state.isIn(ModTags.Blocks.EXTRACTABLE_BLOCKS) || (compat && name.contains("_ore")))) {
+        } else if (/*miningLevel >= blockLevel &&*/ (state == ModBlocks.ALIEN_CONTROL_PANEL.getStateWithProperties(state).with(HARVESTED, false) || state.isIn(ModTags.Blocks.EXTRACTABLE_BLOCKS) || (compat && name.contains("_ore")))) {
             context.getWorld().breakBlock(positionClicked, true);
             if (state.isOf(ModBlocks.ALIEN_CONTROL_PANEL) && !state.get(HARVESTED)) {
                 context.getWorld().setBlockState(positionClicked, state.with(HARVESTED, true));
@@ -133,7 +134,7 @@ public class ItemMixin {
             } else if (getAugmentLevel(context.getStack(), "tlotd:extraction") == 2) {
                 extraction_damage = damage * 10;
             }
-            context.getStack().damage(extraction_damage, player, playerEntity -> playerEntity.sendToolBreakStatus(playerEntity.getActiveHand()));
+            context.getStack().damage(extraction_damage, player, EquipmentSlot.MAINHAND);
             if (player instanceof ServerPlayerEntity serverPlayerEntity) {
                 Criteria.CONSUME_ITEM.trigger(serverPlayerEntity, context.getStack());
                 serverPlayerEntity.incrementStat(Stats.USED.getOrCreateStat(item));

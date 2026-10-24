@@ -28,8 +28,6 @@ public class ModTelevisionSignals {
                         Identifier.of(TLOTD.MOD_ID,"vhs_cassette_project_kv31")),
                         ModBlocks.TELEVISION, ModBlocks.TELEVISION_ON, 31));
 
-
-
         VideoGameRegistry.registerBatch(
                 new Identifier[]{
                         Identifier.of(TLOTD.MOD_ID,"game_cartridge_1"),

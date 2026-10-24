@@ -3,6 +3,7 @@ package net.tlotd.block.custom;
 import net.minecraft.block.*;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemStack;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.registry.tag.FluidTags;
@@ -12,6 +13,7 @@ import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
+import net.minecraft.util.ItemActionResult;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
@@ -71,8 +73,8 @@ public class RichGrassBlock extends SnowyBlock implements Fertilizable {
     }
 
     @Override
-    public boolean isFertilizable(WorldView world, BlockPos pos, BlockState state, boolean isClient) {
-        return world.getBlockState(pos.up()).isAir();
+    public boolean isFertilizable(WorldView world, BlockPos pos, BlockState state) {
+        return false;
     }
 
     @Override
@@ -83,7 +85,7 @@ public class RichGrassBlock extends SnowyBlock implements Fertilizable {
     @Override
     public void grow(ServerWorld world, Random random, BlockPos pos, BlockState state) {
         BlockPos blockPos = pos.up();
-        BlockState blockState = Blocks.GRASS.getDefaultState();
+        BlockState blockState = Blocks.GRASS_BLOCK.getDefaultState();
         Optional<RegistryEntry.Reference<PlacedFeature>> optional = world.getRegistryManager().get(RegistryKeys.PLACED_FEATURE).getEntry(VegetationPlacedFeatures.GRASS_BONEMEAL);
 
         label49:
@@ -125,31 +127,27 @@ public class RichGrassBlock extends SnowyBlock implements Fertilizable {
     }
 
     @Override
-    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        if (player.getMainHandStack().isIn(ItemTags.HOES) || player.getOffHandStack().isIn(ItemTags.HOES) || player.getMainHandStack().isIn(ModTags.Items.PAXELS) || player.getOffHandStack().isIn(ModTags.Items.PAXELS)) {
+    protected ItemActionResult onUseWithItem(ItemStack stack, BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
+        if (player.getStackInHand(hand).isIn(ItemTags.HOES) || player.getStackInHand(hand).isIn(ModTags.Items.PAXELS)) {
             if (!world.isClient()) {
                 world.setBlockState(pos, ModBlocks.RICH_FARMLAND.getStateWithProperties(state));
-                if (player.getMainHandStack().isIn(ItemTags.HOES) || player.getMainHandStack().isIn(ModTags.Items.PAXELS)) {
-                    player.getMainHandStack().damage(1, player, e -> e.sendEquipmentBreakStatus(EquipmentSlot.MAINHAND));
-                } else if (player.getOffHandStack().isIn(ItemTags.HOES) || player.getOffHandStack().isIn(ModTags.Items.PAXELS)) {
-                    player.getMainHandStack().damage(1, player, e -> e.sendEquipmentBreakStatus(EquipmentSlot.OFFHAND));
+                if (player.getStackInHand(hand).isIn(ItemTags.HOES) || player.getStackInHand(hand).isIn(ModTags.Items.PAXELS)) {
+                    player.getMainHandStack().damage(1, player, player.getMainHandStack().isIn(ItemTags.HOES) || player.getMainHandStack().isIn(ModTags.Items.PAXELS) ? EquipmentSlot.MAINHAND : EquipmentSlot.OFFHAND);
                 }
                 world.playSound(null, pos, SoundEvents.ITEM_HOE_TILL, SoundCategory.PLAYERS, 1.0f, 1.0f);
-                return ActionResult.SUCCESS;
             }
+            return ItemActionResult.SUCCESS;
         }
-        if (player.getMainHandStack().isIn(ItemTags.SHOVELS) || player.getOffHandStack().isIn(ItemTags.SHOVELS)) {
+        if (player.getStackInHand(hand).isIn(ItemTags.SHOVELS)) {
             if (!world.isClient()) {
                 world.setBlockState(pos, ModBlocks.RICH_DIRT_PATH.getStateWithProperties(state));
-                if (player.getMainHandStack().isIn(ItemTags.SHOVELS)) {
-                    player.getMainHandStack().damage(1, player, e -> e.sendEquipmentBreakStatus(EquipmentSlot.MAINHAND));
-                } else if (player.getOffHandStack().isIn(ItemTags.SHOVELS)) {
-                    player.getMainHandStack().damage(1, player, e -> e.sendEquipmentBreakStatus(EquipmentSlot.OFFHAND));
+                if (player.getStackInHand(hand).isIn(ItemTags.SHOVELS)) {
+                    player.getMainHandStack().damage(1, player, player.getMainHandStack().isIn(ItemTags.SHOVELS) ? EquipmentSlot.MAINHAND : EquipmentSlot.OFFHAND);
                 }
                 world.playSound(null, pos, SoundEvents.ITEM_SHOVEL_FLATTEN, SoundCategory.PLAYERS, 1.0f, 1.0f);
-                return ActionResult.SUCCESS;
+                return ItemActionResult.SUCCESS;
             }
         }
-        return ActionResult.FAIL;
+        return ItemActionResult.FAIL;
     }
 }

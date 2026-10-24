@@ -1,0 +1,10 @@
+{
+  "values": [
+    "tlotd:ginkgo_planks",
+    "tlotd:backshroom_planks",
+    {
+      "id": "#c:fancy_planks",
+      "required": false
+    }
+  ]
+}

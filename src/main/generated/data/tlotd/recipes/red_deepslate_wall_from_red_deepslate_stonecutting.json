@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "count": 1,
-  "ingredient": {
-    "item": "tlotd:red_deepslate"
-  },
-  "result": "tlotd:red_deepslate_wall"
-}

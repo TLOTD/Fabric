@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "tlotd:ginkgo_planks"
+  },
+  "result": {
+    "count": 1,
+    "id": "tlotd:fancy_ginkgo_planks"
+  }
+}

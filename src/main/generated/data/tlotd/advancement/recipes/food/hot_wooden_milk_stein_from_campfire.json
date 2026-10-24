@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "tlotd:hot_wooden_milk_stein_from_campfire"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_wooden_milk_stein": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tlotd:wooden_milk_stein"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_wooden_milk_stein"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "tlotd:hot_wooden_milk_stein_from_campfire"
+    ]
+  }
+}

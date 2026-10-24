@@ -2,23 +2,20 @@ package net.tlotd.mixin;
 
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.Screen;
-import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.PickaxeItem;
+import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.nbt.NbtCompound;
-import net.minecraft.nbt.NbtElement;
 import net.minecraft.nbt.NbtList;
 import net.minecraft.text.MutableText;
 import net.minecraft.text.Style;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
-import net.minecraft.world.World;
 import net.tlotd.block.ModBlocks;
 import net.tlotd.item.ModItems;
-import net.tlotd.item.custom.SpaceSuitArmorItem;
 import net.tlotd.util.*;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -26,14 +23,13 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.List;
-import java.util.Map;
 
 import static net.tlotd.util.AugmentNbtHelper.getAugmentLevel;
 
 @Mixin(Item.class)
 public abstract class ItemTooltipMixin {
     @Inject(method = "appendTooltip", at = @At("TAIL"))
-    private void addItemTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext context, CallbackInfo ci) {
+    public void addItemTooltip(ItemStack stack, Item.TooltipContext context, List<Text> tooltip, TooltipType type, CallbackInfo ci) {
         if (stack.isIn(ModTags.Items.NYI)) {
             tooltip.add(Text.translatable("info.tlotd.not_yet_implemented").formatted(Formatting.RED));
         }
@@ -128,7 +124,7 @@ public abstract class ItemTooltipMixin {
             tooltip.add(Text.translatable("item.tlotd.circuit_board.complexity").formatted(Formatting.GRAY));
             tooltip.add(Text.literal(" ").append(Text.translatable("item.tlotd.circuit_board.complexity." + conductivity + conductivitySuffix)).setStyle(style));
         }
-        if (stack.getItem() instanceof SpaceSuitArmorItem) {
+        /*if (stack.getItem() instanceof SpaceSuitArmorItem) {
             Map<String, AdAstraGasNbtHelper.GasInfo> gases = AdAstraGasNbtHelper.getSuitGasContents(stack);
             if (gases.isEmpty()) {
                 tooltip.add(Text.translatable("item.tlotd.gas_cylinder.tooltip", "0", "0", "0", "0", AdAstraGasNbtHelper.gasName("empty")).formatted(Formatting.GOLD));
@@ -173,7 +169,7 @@ public abstract class ItemTooltipMixin {
                 gas = "empty";
             }
             tooltip.add(Text.translatable("item.tlotd.gas_cylinder.tooltip", formattedOxygen, formattedMaxOxygen, formattedOxygen2, formattedMaxOxygen2, AdAstraGasNbtHelper.gasName(gas)).formatted(Formatting.GOLD));
-        }
+        }*/
         int slots = 0;
         if (stack.isIn(ModTags.Items.THREE_AUGMENT_SLOTS)) {
             slots = 3;
@@ -186,15 +182,15 @@ public abstract class ItemTooltipMixin {
             slots += 1 + getAugmentLevel(stack, "tlotd:slot_expansion");
         }
         if (slots <= 0) return;
-        final Identifier DEFAULT_FONT_ID = new Identifier("minecraft", "default");
-        final Identifier AUGMENTS_FONT_ID = new Identifier("tlotd", "augments");
-        final Identifier TENGWAR_FONT_ID = new Identifier("tlotd", "tengwar");
+        final Identifier DEFAULT_FONT_ID = Identifier.of("minecraft", "default");
+        final Identifier AUGMENTS_FONT_ID = Identifier.of("tlotd", "augments");
+        final Identifier TENGWAR_FONT_ID = Identifier.of("tlotd", "tengwar");
         NbtList augments = new NbtList();
         tooltip.add(Text.empty());
         tooltip.add(Text.translatable("augments.tlotd.title").formatted(Formatting.GRAY));
-        if (stack.hasNbt() && stack.getNbt().contains("Augments", NbtElement.LIST_TYPE)) {
+        /*if (stack.hasNbt() && stack.getNbt().contains("Augments", NbtElement.LIST_TYPE)) {
             augments = stack.getNbt().getList("Augments", NbtElement.COMPOUND_TYPE);
-        }
+        }*/
         MutableText iconRow = Text.literal(" ");
         if (Screen.hasShiftDown()) {
             for (int slot = 0; slot < slots; slot++) {
@@ -217,9 +213,9 @@ public abstract class ItemTooltipMixin {
                                 line.append(" ").append(Text.translatable("enchantment.level." + level).formatted(rarity));
                             }
                             tooltip.add(line);
-                            String type = "sword";
+                            String Itemtype = "sword";
                             if (stack.getItem() instanceof PickaxeItem) {
-                                type = "pickaxe";
+                                Itemtype = "pickaxe";
                             }
                             tooltip.add(Text.literal(" ").append(Text.translatable("augment." + id.replace(':', '.') + '.' + type + ".desc").formatted(Formatting.DARK_GRAY)));
                             tooltip.add(Text.literal(" ").append(Text.translatable("augment." + id.replace(':', '.') + '.' + type + ".desc2").formatted(Formatting.DARK_GRAY)));

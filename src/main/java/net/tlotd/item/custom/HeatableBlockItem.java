@@ -19,7 +19,7 @@ public class HeatableBlockItem extends BlockItem {
         super(block, settings);
     }
 
-    @Override
+    /*@Override
     public boolean isItemBarVisible(ItemStack stack) {
         return ItemHeatHelper.hasTemperature(stack) && stack.getCount() == 1;
     }
@@ -106,5 +106,5 @@ public class HeatableBlockItem extends BlockItem {
             return true;
         }
         return false;
-    }
+    }*/
 }

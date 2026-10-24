@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_steel_ingredients": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tlotd:steel_ingredients"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "tlotd:steel_ingot_from_blasting_steel_ingredients"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_steel_ingredients"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "tlotd:steel_ingot_from_blasting_steel_ingredients"
+    ]
+  }
+}

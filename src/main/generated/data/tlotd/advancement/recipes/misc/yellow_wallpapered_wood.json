@@ -1,0 +1,43 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_stripped_oak_wood": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:stripped_oak_wood"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "tlotd:yellow_wallpapered_wood"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_yellow_wallpaper": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tlotd:yellow_wallpaper"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_stripped_oak_wood",
+      "has_yellow_wallpaper"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "tlotd:yellow_wallpapered_wood"
+    ]
+  }
+}

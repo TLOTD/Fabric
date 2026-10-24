@@ -2,7 +2,7 @@ package net.tlotd.world.tree;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.sapling.SaplingGenerator;
+import net.minecraft.block.SaplingGenerator;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.server.world.ServerWorld;
@@ -12,7 +12,7 @@ import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.tlotd.world.ModConfiguredFeatures;
 
-public class GinkgoSaplingGenerator extends SaplingGenerator {
+public class GinkgoSaplingGenerator/* extends SaplingGenerator*/ {/*
     @Override
     protected RegistryKey<ConfiguredFeature<?, ?>> getTreeFeature(Random random, boolean bees) {
         return ModConfiguredFeatures.GINKGO_KEY;
@@ -52,5 +52,5 @@ public class GinkgoSaplingGenerator extends SaplingGenerator {
                 world.removeBlock(pos.add(dx + x, 0, dz + z), false);
             }
         }
-    }
+    }*/
 }

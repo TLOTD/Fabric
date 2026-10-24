@@ -4,7 +4,7 @@ import net.minecraft.advancement.criterion.Criteria;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
-import net.minecraft.client.item.TooltipContext;
+import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.*;
 import net.minecraft.registry.tag.BlockTags;
@@ -12,26 +12,21 @@ import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.stat.Stats;
-import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
-import net.minecraft.util.Formatting;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
 import net.tlotd.block.ModBlocks;
 import net.tlotd.item.ModItems;
 import net.tlotd.sound.ModSounds;
 import net.tlotd.util.ModTags;
 import net.tlotd.world.ModGlobalState;
-import org.jetbrains.annotations.Nullable;
-
-import java.util.List;
 
 import static net.tlotd.block.custom.AlienControlPanelBlock.HARVESTED;
 import static net.tlotd.util.AugmentNbtHelper.getAugmentLevel;
 
 public class PaxelItem extends MiningToolItem {
-    public PaxelItem(ToolMaterial material, int attackDamage, float attackSpeed, Item.Settings settings) {
-        super((float) attackDamage, attackSpeed, material, ModTags.Blocks.PAXEL_MINEABLE, settings);
+
+    public PaxelItem(ToolMaterial material, Settings settings) {
+        super(material, ModTags.Blocks.PAXEL_MINEABLE, settings);
     }
 
     @Override
@@ -48,7 +43,7 @@ public class PaxelItem extends MiningToolItem {
                     context.getWorld().setBlockState(positionClicked, Blocks.FARMLAND.getDefaultState());
                     context.getWorld().playSound(null, positionClicked, SoundEvents.ITEM_HOE_TILL, SoundCategory.PLAYERS, 1.0f, 1.0f);
                 }
-                context.getStack().damage(1, player, playerEntity -> playerEntity.sendToolBreakStatus(playerEntity.getActiveHand()));
+                context.getStack().damage(1, player, EquipmentSlot.MAINHAND);
                 if (player instanceof ServerPlayerEntity serverPlayerEntity) {
                     Criteria.CONSUME_ITEM.trigger(serverPlayerEntity, context.getStack());
                     serverPlayerEntity.incrementStat(Stats.USED.getOrCreateStat(this));
@@ -62,7 +57,7 @@ public class PaxelItem extends MiningToolItem {
                     context.getWorld().setBlockState(positionClicked, ModBlocks.RICH_FARMLAND.getDefaultState());
                     context.getWorld().playSound(null, positionClicked, SoundEvents.ITEM_HOE_TILL, SoundCategory.PLAYERS, 1.0f, 1.0f);
                 }
-                context.getStack().damage(1, player, playerEntity -> playerEntity.sendToolBreakStatus(playerEntity.getActiveHand()));
+                context.getStack().damage(1, player, EquipmentSlot.MAINHAND);
                 if (player instanceof ServerPlayerEntity serverPlayerEntity) {
                     Criteria.CONSUME_ITEM.trigger(serverPlayerEntity, context.getStack());
                     serverPlayerEntity.incrementStat(Stats.USED.getOrCreateStat(this));
@@ -76,7 +71,7 @@ public class PaxelItem extends MiningToolItem {
                 }
                 String name = state.getBlock().getTranslationKey();
                 int damage = 1;
-                int miningLevel = this.getMaterial().getMiningLevel();
+                //int miningLevel = this.paxelMaterial.getMiningLevel();
                 int blockLevel = 0;
                 if (state.isIn(ModTags.Blocks.TOOL_LEVEL_10)) {
                     blockLevel = 10;
@@ -99,7 +94,7 @@ public class PaxelItem extends MiningToolItem {
                 } else if (state.isIn(BlockTags.NEEDS_STONE_TOOL)) {
                     blockLevel = 1;
                 }
-                if (miningLevel >= blockLevel && (state == ModBlocks.ALIEN_CONTROL_PANEL.getStateWithProperties(state).with(HARVESTED, false) || state.isIn(ModTags.Blocks.EXTRACTABLE_BLOCKS) || (compat && name.contains("_ore")))) {
+                if (/*miningLevel >= blockLevel &&*/ (state == ModBlocks.ALIEN_CONTROL_PANEL.getStateWithProperties(state).with(HARVESTED, false) || state.isIn(ModTags.Blocks.EXTRACTABLE_BLOCKS) || (compat && name.contains("_ore")))) {
                     context.getWorld().breakBlock(positionClicked, true);
                     if (state.isOf(ModBlocks.ALIEN_CONTROL_PANEL) && !state.get(HARVESTED)) {
                         context.getWorld().setBlockState(positionClicked, state.with(HARVESTED, true));
@@ -151,7 +146,7 @@ public class PaxelItem extends MiningToolItem {
                     } else if (getAugmentLevel(context.getStack(), "tlotd:extraction") == 2) {
                         extraction_damage = damage * 10;
                     }
-                    context.getStack().damage(extraction_damage, player, playerEntity -> playerEntity.sendToolBreakStatus(playerEntity.getActiveHand()));
+                    context.getStack().damage(extraction_damage, player, EquipmentSlot.MAINHAND);
                     if (player instanceof ServerPlayerEntity serverPlayerEntity) {
                         Criteria.CONSUME_ITEM.trigger(serverPlayerEntity, context.getStack());
                         serverPlayerEntity.incrementStat(Stats.USED.getOrCreateStat(this));

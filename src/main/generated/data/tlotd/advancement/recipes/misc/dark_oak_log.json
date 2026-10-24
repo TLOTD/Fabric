@@ -1,0 +1,43 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_dark_oak_bark": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tlotd:dark_oak_bark"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_stripped_dark_oak_log": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:stripped_dark_oak_log"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "tlotd:dark_oak_log"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_stripped_dark_oak_log",
+      "has_dark_oak_bark"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "tlotd:dark_oak_log"
+    ]
+  }
+}

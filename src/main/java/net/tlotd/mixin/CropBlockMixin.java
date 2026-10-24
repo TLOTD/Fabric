@@ -13,6 +13,6 @@ import org.spongepowered.asm.mixin.injection.At;
 public class CropBlockMixin {
     @ModifyExpressionValue(method = "canPlantOnTop", at = @At(value = "INVOKE", target = "Lnet/minecraft/block/BlockState;isOf(Lnet/minecraft/block/Block;)Z"))
     private boolean allowTaggedFarmland(boolean original, BlockState floor) {
-        return original || floor.isIn(TagKey.of(RegistryKeys.BLOCK, new Identifier("c", "farmland")));
+        return original || floor.isIn(TagKey.of(RegistryKeys.BLOCK, Identifier.of("c", "farmland")));
     }
 }

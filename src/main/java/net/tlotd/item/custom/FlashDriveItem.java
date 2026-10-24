@@ -2,7 +2,6 @@ package net.tlotd.item.custom;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.client.gui.screen.Screen;
-import net.minecraft.client.item.TooltipContext;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
@@ -11,12 +10,10 @@ import net.minecraft.sound.SoundCategory;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Formatting;
-import net.minecraft.world.World;
 import net.tlotd.block.ModBlocks;
 import net.tlotd.sound.ModSounds;
 import net.tlotd.util.ModTags;
 import net.tlotd.util.VideoGameRegistry;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 import java.util.Objects;
@@ -29,7 +26,7 @@ public class FlashDriveItem extends Item {
         super(settings);
     }
 
-    @Override
+    /*@Override
     public boolean hasGlint(ItemStack stack) {
         return stack.hasNbt();
     }
@@ -66,7 +63,7 @@ public class FlashDriveItem extends Item {
     }
 
     @Override
-    public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
+    public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
         int data = 0;
         if (stack.getNbt() != null) {
             if (!stack.getNbt().getString("pos").isEmpty()) {
@@ -121,6 +118,6 @@ public class FlashDriveItem extends Item {
         } else {
             tooltip.add(Text.literal("0 ♣ / 3 ♣ ").append(Text.translatable("item.tlotd.flash_drive.data")).formatted(Formatting.GREEN));
         }
-        super.appendTooltip(stack, world, tooltip, context);
-    }
+        super.appendTooltip(stack, context, tooltip, type);
+    }*/
 }

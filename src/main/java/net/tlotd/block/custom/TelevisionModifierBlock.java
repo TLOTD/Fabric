@@ -1,13 +1,13 @@
 package net.tlotd.block.custom;
 
 import net.minecraft.block.*;
-import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.tag.TagKey;
@@ -28,6 +28,7 @@ import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
+import net.minecraft.world.WorldView;
 import net.tlotd.block.ModBlocks;
 import net.tlotd.item.ModItems;
 import net.tlotd.sound.ModSounds;
@@ -101,11 +102,11 @@ public class TelevisionModifierBlock extends Block {
     }
 
     @Override
-    public void appendTooltip(ItemStack stack, @Nullable BlockView world, List<Text> tooltip, TooltipContext options) {
+    public void appendTooltip(ItemStack stack, Item.TooltipContext context, List<Text> tooltip, TooltipType options) {
         tooltip.add(Text.empty());
         tooltip.add(Text.translatable("block.tlotd.videocassette_recorder.tooltip").formatted(Formatting.GRAY));
         tooltip.add(Text.literal(" ").append(Text.translatable("block.minecraft.chiseled_bookshelf").formatted(Formatting.BLUE)));
-        super.appendTooltip(stack, world, tooltip, options);
+        super.appendTooltip(stack, context, tooltip, options);
     }
 
     @Override
@@ -120,7 +121,7 @@ public class TelevisionModifierBlock extends Block {
     }
 
     @Override
-    public ItemStack getPickStack(BlockView world, BlockPos pos, BlockState state) {
+    public ItemStack getPickStack(WorldView world, BlockPos pos, BlockState state) {
         if (state.getBlock().equals(ModBlocks.VIDEOCASSETTE_RECORDER)) {
             return ModBlocks.VIDEOCASSETTE_RECORDER.asItem().getDefaultStack();
         } else if (state.getBlock().equals(ModBlocks.GAME_CONSOLE)) {
@@ -131,8 +132,7 @@ public class TelevisionModifierBlock extends Block {
     }
 
     @Override
-    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        ItemStack stack = player.getStackInHand(hand);
+    protected ItemActionResult onUseWithItem(ItemStack stack, BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         BlockPos tvPos = pos.up();
         BlockState tvState = world.getBlockState(tvPos);
         boolean tvOn = tvState.isIn(ModTags.Blocks.TELEVISIONS_ON);
@@ -158,7 +158,7 @@ public class TelevisionModifierBlock extends Block {
                 player.incrementStat(Stats.USED.getOrCreateStat(stack.getItem()));
                 world.playSound(null, pos, ModSounds.BLOCK_VIDEOCASSETTE_RECORDER, SoundCategory.BLOCKS, 1.0f, 1.0f);
             }
-            return ActionResult.SUCCESS;
+            return ItemActionResult.SUCCESS;
         } else if ((state.isOf(ModBlocks.GAME_CONSOLE) || state.isOf(ModBlocks.GAME_CONSOLE_BOOKSHELF) || state.isOf(ModBlocks.MEDIA_SYSTEM_BOOKSHELF)) && stack.isIn(ModTags.Items.GAME_CARTRIDGES) && tvOn) {
             if (!world.isClient) {
                 Optional<VideoGameRegistry.SignalEntry> match = VideoGameRegistry.findBySignal(Registries.ITEM.getId(stack.getItem()));
@@ -170,8 +170,8 @@ public class TelevisionModifierBlock extends Block {
                 player.incrementStat(Stats.USED.getOrCreateStat(stack.getItem()));
                 world.playSound(null, pos, ModSounds.BLOCK_VIDEOCASSETTE_RECORDER, SoundCategory.BLOCKS, 1.0f, 1.0f);
             }
-            return ActionResult.SUCCESS;
-        } else if (player.isSneaking() && state.isIn(TagKey.of(RegistryKeys.BLOCK, new Identifier("c", "bookshelves")))) {
+            return ItemActionResult.SUCCESS;
+        } else if (player.isSneaking() && state.isIn(TagKey.of(RegistryKeys.BLOCK, Identifier.of("c", "bookshelves")))) {
             if (!world.isClient) {
                 if (state.getBlock() == ModBlocks.MEDIA_SYSTEM_BOOKSHELF) {
                     world.setBlockState(pos, ModBlocks.VIDEOCASSETTE_RECORDER_BOOKSHELF.getDefaultState().with(FACING, state.get(FACING)));
@@ -185,8 +185,8 @@ public class TelevisionModifierBlock extends Block {
                 }
                 world.playSound(null, pos, SoundEvents.BLOCK_WOOD_PLACE, SoundCategory.BLOCKS, 1.0f, 1.0f);
             }
-            return ActionResult.SUCCESS;
+            return ItemActionResult.SUCCESS;
         }
-        return ActionResult.FAIL;
+        return ItemActionResult.FAIL;
     }
 }

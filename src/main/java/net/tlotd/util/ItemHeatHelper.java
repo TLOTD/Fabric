@@ -8,9 +8,10 @@ import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Style;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
+import net.tlotd.components.ModComponents;
 import net.tlotd.networking.ClientGlobalConfig;
 import net.tlotd.networking.PlayerDataSyncNetworking;
-import net.tlotd.networking.PlayerDataSyncPacket;
+import net.tlotd.networking.PlayerDataSyncPayload;
 import net.tlotd.world.ModGlobalState;
 
 import java.awt.*;
@@ -21,7 +22,7 @@ public class ItemHeatHelper {
         EntityDataSaver saver = (EntityDataSaver) player;
         NbtCompound data = saver.getPersistentData();
         data.putString("TemperatureUnit", unit.asString());
-        PlayerDataSyncNetworking.sendToClient(player, new PlayerDataSyncPacket(data));
+        PlayerDataSyncNetworking.sendToClient(player, new PlayerDataSyncPayload(data));
     }
 
     public static void setGlobalTemperatureUnit(MinecraftServer server, TemperatureUnit unit) {
@@ -39,28 +40,26 @@ public class ItemHeatHelper {
     public static void editTemperature(ItemStack stack, int increase) {
         int newTemp = getTemperature(stack) + increase;
         if (newTemp <= 0) {
-            stack.removeSubNbt("temperature");
+            stack.remove(ModComponents.TEMPERATURE);
             return;
         }
-        stack.getOrCreateNbt().putInt("temperature", newTemp);
+        setTemperature(stack, newTemp);
     }
 
     public static void setTemperature(ItemStack stack, int value) {
-        NbtCompound nbt = stack.getOrCreateNbt();
-        nbt.putInt("temperature", value);
+        if (value <= 0) {
+            stack.remove(ModComponents.TEMPERATURE);
+            return;
+        }
+        stack.set(ModComponents.TEMPERATURE, value);
     }
 
     public static int getTemperature(ItemStack stack) {
-        NbtCompound nbt = stack.getNbt();
-        if (nbt != null && nbt.contains("temperature", NbtCompound.INT_TYPE)) {
-            return nbt.getInt("temperature");
-        }
-        return 0;
+        return stack.getOrDefault(ModComponents.TEMPERATURE, 0);
     }
 
     public static boolean hasTemperature(ItemStack stack) {
-        NbtCompound nbt = stack.getNbt();
-        return nbt != null && nbt.contains("temperature", NbtCompound.INT_TYPE) && !(nbt.getInt("temperature") == 0);
+        return getTemperature(stack) != 0;
     }
 
     public static int getSmithingTemperature(ItemStack stack) {
@@ -180,7 +179,7 @@ public class ItemHeatHelper {
             String TempRange;
             if (temp >= 6000) {
                 TempRange = "6000";
-                //return Text.translatable("temperature.tlotd.terrafirmacraft.6000.tengwar").setStyle(Style.EMPTY.withFont(new Identifier("tlotd", "tengwar")).withColor(Formatting.WHITE));
+                //return Text.translatable("temperature.tlotd.terrafirmacraft.6000.tengwar").setStyle(Style.EMPTY.withFont(Identifier.of("tlotd", "tengwar")).withColor(Formatting.WHITE));
             } else if (temp >= 5900) {
                 TempRange = "5900";
             } else if (temp >= 5800) {

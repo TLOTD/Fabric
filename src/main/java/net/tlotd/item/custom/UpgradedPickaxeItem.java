@@ -1,24 +1,24 @@
 package net.tlotd.item.custom;
 
-import net.minecraft.client.item.TooltipContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.PickaxeItem;
 import net.minecraft.item.ToolMaterial;
+import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.text.Style;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
-import net.minecraft.world.World;
 import net.tlotd.item.ModItems;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
 public class UpgradedPickaxeItem extends PickaxeItem {
-    public UpgradedPickaxeItem(ToolMaterial material, int attackDamage, float attackSpeed, Settings settings) {
-        super(material, attackDamage, attackSpeed, settings);
+
+    public UpgradedPickaxeItem(ToolMaterial material, Settings settings) {
+        super(material, settings);
     }
+
     @Override
-    public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
+    public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
         Style style = getName().getStyle();
         tooltip.add(Text.translatable("item.tlotd.upgrades.tooltip").formatted(Formatting.GRAY));
         if (stack.getItem().equals(ModItems.ENDURIUM_PICKAXE)) {
@@ -26,6 +26,6 @@ public class UpgradedPickaxeItem extends PickaxeItem {
         } else if (stack.getItem().equals(ModItems.HELIORITE_PICKAXE)) {
             tooltip.add(Text.literal(" ").append(Text.translatable("item.tlotd.heliorite_pickaxe_head").setStyle(style.withColor(0x9866d6))));
         }
-        super.appendTooltip(stack, world, tooltip, context);
+        super.appendTooltip(stack, context, tooltip, type);
     }
 }

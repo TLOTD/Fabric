@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_palladium_shovel": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tlotd:palladium_shovel"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "tlotd:palladium_nugget_from_blasting_palladium_shovel"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_palladium_shovel"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "tlotd:palladium_nugget_from_blasting_palladium_shovel"
+    ]
+  }
+}

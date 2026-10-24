@@ -1,9 +1,9 @@
 package net.tlotd.effect;
 
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.attribute.AttributeContainer;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectCategory;
+//import net.tlotd.entity.custom.SeatEntity;
 
 public class StonedEffect extends StatusEffect {
     protected StonedEffect(StatusEffectCategory category, int color) {
@@ -11,16 +11,18 @@ public class StonedEffect extends StatusEffect {
     }
 
     @Override
-    public void applyUpdateEffect(LivingEntity entity, int amplifier) {
-        if(!entity.getWorld().isClient()) {
-            entity.stopRiding();
-        }
-        super.applyUpdateEffect(entity, amplifier);
+    public boolean applyUpdateEffect(LivingEntity entity, int amplifier) {
+        /*if(!entity.getWorld().isClient()) {
+            if (!(entity.getVehicle() instanceof SeatEntity)) {
+                entity.stopRiding();
+            }
+        }*/
+        return super.applyUpdateEffect(entity, amplifier);
     }
 
     @Override
-    public void onApplied(LivingEntity entity, AttributeContainer attributes, int amplifier) {
-        super.onApplied(entity, attributes, amplifier);
+    public void onApplied(LivingEntity entity, int amplifier) {
+        super.onApplied(entity, amplifier);
     }
 
     @Override

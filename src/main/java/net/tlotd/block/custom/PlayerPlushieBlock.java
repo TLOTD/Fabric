@@ -3,11 +3,12 @@ package net.tlotd.block.custom;
 import net.minecraft.block.*;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.Screen;
-import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.Fluids;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
@@ -108,12 +109,12 @@ public class PlayerPlushieBlock extends HumanPlushieBlock {
         this.setDefaultState(this.stateManager.getDefaultState().with(FACING, Direction.NORTH).with(SKIN, 0).with(ALTERNATIVE, false).with(CUSTOM, false).with(WATERLOGGED, false));
     }
 
-    public static final Identifier DEFAULT_FONT_ID = new Identifier("minecraft", "default");
-    public static final Identifier PLAYERS_FONT_ID = new Identifier("tlotd", "players");
-    public static final Identifier MODS_FONT_ID = new Identifier("tlotd", "mods");
+    public static final Identifier DEFAULT_FONT_ID = Identifier.of("minecraft", "default");
+    public static final Identifier PLAYERS_FONT_ID = Identifier.of("tlotd", "players");
+    public static final Identifier MODS_FONT_ID = Identifier.of("tlotd", "mods");
 
     @Override
-    public void appendTooltip(ItemStack stack, @Nullable BlockView world, List<Text> tooltip, TooltipContext options) {
+    public void appendTooltip(ItemStack stack, Item.TooltipContext context, List<Text> tooltip, TooltipType options) {
         if (Screen.hasShiftDown()) {
             tooltip.add(Text.translatable("block.tlotd.player_plushie.tooltip").formatted(Formatting.GRAY));
             tooltip.add(Text.translatable("block.tlotd.player_plushie.tooltip_2").formatted(Formatting.GRAY));
@@ -153,7 +154,7 @@ public class PlayerPlushieBlock extends HumanPlushieBlock {
             MinecraftClient client = MinecraftClient.getInstance();
             if (client.player != null && client.getServer() != null) {
                 if (!ClientTextureCache.TEXTURES.isEmpty()) {
-                    ClientTextureCache.TEXTURES.forEach((uuid, entry) -> tooltip.add(Text.literal("\uE000 ").setStyle(style.withFont(MODS_FONT_ID)).append(Text.literal(entry.playerName).setStyle(style.withFont(DEFAULT_FONT_ID)))));
+                    ClientTextureCache.TEXTURES.forEach((uuid, entry) -> tooltip.add(Text.literal("\uE000 ").setStyle(style.withFont(MODS_FONT_ID)).append(Text.literal(entry.playerName()).setStyle(style.withFont(DEFAULT_FONT_ID)))));
                 } else {
                     tooltip.add(Text.literal("...").formatted(Formatting.DARK_GRAY));
                 }
@@ -164,6 +165,6 @@ public class PlayerPlushieBlock extends HumanPlushieBlock {
             tooltip.add(Text.empty());
             tooltip.add(Text.translatable("text.tlotd.player_plushie.ponder", Text.translatable("key.keyboard.shift").formatted(Formatting.GRAY)).formatted(Formatting.DARK_GRAY));
         }
-        super.appendTooltip(stack, world, tooltip, options);
+        super.appendTooltip(stack, context, tooltip, options);
     }
 }

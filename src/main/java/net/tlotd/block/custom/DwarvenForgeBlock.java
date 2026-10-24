@@ -20,12 +20,12 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
-import net.tlotd.block.entity.DwarvenForgeBlockEntity;
-import net.tlotd.block.entity.ModBlockEntities;
+//import net.tlotd.block.entity.DwarvenForgeBlockEntity;
+//import net.tlotd.block.entity.ModBlockEntities;
 import net.tlotd.block.enum_property.ForgeLit;
 import org.jetbrains.annotations.Nullable;
 
-public class DwarvenForgeBlock extends BlockWithEntity implements BlockEntityProvider {
+public class DwarvenForgeBlock extends Block/*WithEntity implements BlockEntityProvider*/ {
 
     public static final DirectionProperty FACING;
     public static final EnumProperty<ForgeLit> FIRE = EnumProperty.of("fire", ForgeLit.class);
@@ -51,7 +51,7 @@ public class DwarvenForgeBlock extends BlockWithEntity implements BlockEntityPro
     }
 
     @Override
-    public boolean canPathfindThrough(BlockState state, BlockView world, BlockPos pos, NavigationType type) {
+    protected boolean canPathfindThrough(BlockState state, NavigationType type) {
         return false;
     }
 
@@ -64,7 +64,7 @@ public class DwarvenForgeBlock extends BlockWithEntity implements BlockEntityPro
         return BlockRenderType.MODEL;
     }
 
-    @Override
+    /*@Override
     public @Nullable BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
         return new DwarvenForgeBlockEntity(pos, state);
     }
@@ -95,7 +95,7 @@ public class DwarvenForgeBlock extends BlockWithEntity implements BlockEntityPro
     @Override
     public @Nullable <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
         return checkType(type, ModBlockEntities.DWARVEN_FORGE_BLOCK_ENTITY, (world1, pos, state1, blockEntity) -> blockEntity.tick(world1, pos, state1));
-    }
+    }*/
 
     public void randomDisplayTick(BlockState state, World world, BlockPos pos, Random random) {
         switch (state.get(FIRE)) {

@@ -4,7 +4,6 @@ import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
 import net.minecraft.block.entity.BlockEntityType;
-import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.ai.pathing.NavigationType;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemPlacementContext;
@@ -23,14 +22,14 @@ import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
-import net.tlotd.block.entity.NetheriteAnvilBlockEntity;
-import net.tlotd.block.entity.ModBlockEntities;
+//import net.tlotd.block.entity.NetheriteAnvilBlockEntity;
+//import net.tlotd.block.entity.ModBlockEntities;
 import net.tlotd.networking.ClientGlobalConfig;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class NetheriteAnvilBlock extends BlockWithEntity implements BlockEntityProvider {
+public class NetheriteAnvilBlock extends Block/*WithEntity implements BlockEntityProvider*/ {
 
     public static final DirectionProperty FACING;
     private static final VoxelShape BASE_SHAPE;
@@ -70,7 +69,7 @@ public class NetheriteAnvilBlock extends BlockWithEntity implements BlockEntityP
     }
 
     @Override
-    public boolean canPathfindThrough(BlockState state, BlockView world, BlockPos pos, NavigationType type) {
+    protected boolean canPathfindThrough(BlockState state, NavigationType type) {
         return false;
     }
 
@@ -92,7 +91,7 @@ public class NetheriteAnvilBlock extends BlockWithEntity implements BlockEntityP
         return BlockRenderType.MODEL;
     }
 
-    @Override
+    /*@Override
     public @Nullable BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
         return new NetheriteAnvilBlockEntity(pos, state);
     }
@@ -123,5 +122,5 @@ public class NetheriteAnvilBlock extends BlockWithEntity implements BlockEntityP
     @Override
     public @Nullable <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
         return checkType(type, ModBlockEntities.NETHERITE_ANVIL_BLOCK_ENTITY, (world1, pos, state1, blockEntity) -> blockEntity.tick(world1, pos, state1));
-    }
+    }*/
 }

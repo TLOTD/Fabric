@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "tlotd:nebular_hoe",
+  "key": {
+    "#": {
+      "item": "tlotd:nebular_ingot"
+    },
+    "I": {
+      "item": "tlotd:reinforced_tool_rod"
+    }
+  },
+  "pattern": [
+    "##",
+    "I ",
+    "I "
+  ],
+  "result": {
+    "count": 1,
+    "id": "tlotd:nebular_hoe"
+  }
+}

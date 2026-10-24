@@ -1,6 +1,7 @@
 package net.tlotd.world.tree;
 
 import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
 import net.minecraft.block.HorizontalFacingBlock;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
@@ -12,7 +13,7 @@ import net.tlotd.block.custom.ShelfMushroomBlock;
 
 public class ShelfMushroomTreeDecorator extends TreeDecorator {
     public static final ShelfMushroomTreeDecorator INSTANCE = new ShelfMushroomTreeDecorator();
-    public static final Codec<ShelfMushroomTreeDecorator> CODEC = Codec.unit(() -> INSTANCE);
+    public static final MapCodec<ShelfMushroomTreeDecorator> CODEC = MapCodec.unit(() -> INSTANCE);
 
     @Override
     protected TreeDecoratorType<?> getType() {

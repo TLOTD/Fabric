@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:shield"
+    },
+    {
+      "item": "minecraft:black_dye"
+    },
+    {
+      "tag": "minecraft:saplings"
+    },
+    {
+      "item": "tlotd:mithril_nugget"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "tlotd:gondorian_shield"
+  }
+}

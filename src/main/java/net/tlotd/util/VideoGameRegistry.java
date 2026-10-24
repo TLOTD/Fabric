@@ -12,7 +12,7 @@ public class VideoGameRegistry {
 
     public static Identifier normalize(Identifier id) {
         if (id == null) return null;
-        return new Identifier(id.getNamespace().toLowerCase(Locale.ROOT), id.getPath().toLowerCase(Locale.ROOT));
+        return Identifier.of(id.getNamespace().toLowerCase(Locale.ROOT), id.getPath().toLowerCase(Locale.ROOT));
     }
 
     public static void register(SignalEntry entry) {

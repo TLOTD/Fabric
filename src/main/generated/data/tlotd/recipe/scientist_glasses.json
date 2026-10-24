@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "tag": "c:colorless_glass_panes"
+    },
+    "I": {
+      "tag": "c:iron_nuggets"
+    }
+  },
+  "pattern": [
+    "I I",
+    "#I#"
+  ],
+  "result": {
+    "count": 1,
+    "id": "tlotd:scientist_glasses"
+  }
+}

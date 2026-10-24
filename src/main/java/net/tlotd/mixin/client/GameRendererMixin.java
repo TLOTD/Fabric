@@ -2,6 +2,7 @@ package net.tlotd.mixin.client;
 
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.render.GameRenderer;
+import net.minecraft.client.render.RenderTickCounter;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
@@ -32,7 +33,7 @@ public abstract class GameRendererMixin {
     private static int lastPerspective = -1;
 
     @Inject(method = "render", at = @At("HEAD"))
-    private void onRender(float tickDelta, long startTime, boolean tick, CallbackInfo ci) {
+    private void onRender(RenderTickCounter tickCounter, boolean tick, CallbackInfo ci) {
         MinecraftClient client = MinecraftClient.getInstance();
         if (client.player == null || client.world == null) return;
 
@@ -43,18 +44,18 @@ public abstract class GameRendererMixin {
         Identifier targetShader = null;
 
         //if (client.world.getRegistryKey().equals(ModDimensions.BACKROOMS_LEVEL_KEY)) {
-        //    targetShader = new Identifier("minecraft", "shaders/post/ntsc.json");
+        //    targetShader = Identifier.of("minecraft", "shaders/post/ntsc.json");
         //}
 
         ItemStack helmet = client.player.getEquippedStack(EquipmentSlot.HEAD);
         if (helmet.isOf(ModItems.ASTRONAUT_HELMET)) {
-            targetShader = new Identifier("minecraft", "shaders/post/desaturate.json");
+            targetShader = Identifier.of("minecraft", "shaders/post/desaturate.json");
         }
 
         if (client.player.hasStatusEffect(ModEffects.STONED)) {
-            targetShader = new Identifier("minecraft", "shaders/post/blobs2.json");
+            targetShader = Identifier.of("minecraft", "shaders/post/blobs2.json");
         } else if (client.player.hasStatusEffect(ModEffects.DRUNKENNESS)) {
-            targetShader = new Identifier("minecraft", "shaders/post/phosphor.json");
+            targetShader = Identifier.of("minecraft", "shaders/post/phosphor.json");
         }
 
         if (perspectiveChanged || !Objects.equals(currentShader, targetShader)) {

@@ -1,6 +1,7 @@
 package net.tlotd.item.custom;
 
 import net.minecraft.advancement.criterion.Criteria;
+import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemUsageContext;
 import net.minecraft.item.ShearsItem;
@@ -25,7 +26,7 @@ public class SickleItem extends ShearsItem {
             PlayerEntity player = context.getPlayer();
             if (context.getWorld().getBlockState(positionClicked).isIn(BlockTags.LEAVES)) {
                 context.getWorld().breakBlock(positionClicked, true);
-                context.getStack().damage(1, player, playerEntity -> playerEntity.sendToolBreakStatus(playerEntity.getActiveHand()));
+                context.getStack().damage(1, player, EquipmentSlot.MAINHAND);
                 if (player instanceof ServerPlayerEntity serverPlayerEntity) {
                     Criteria.CONSUME_ITEM.trigger(serverPlayerEntity, context.getStack());
                     serverPlayerEntity.incrementStat(Stats.USED.getOrCreateStat(this));

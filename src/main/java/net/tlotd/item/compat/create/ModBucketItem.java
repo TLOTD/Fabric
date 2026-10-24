@@ -1,9 +1,9 @@
 package net.tlotd.item.compat.create;
 
-import net.minecraft.client.item.TooltipContext;
 import net.minecraft.fluid.Fluid;
 import net.minecraft.item.BucketItem;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.text.Style;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
@@ -19,12 +19,12 @@ public class ModBucketItem extends BucketItem {
         super(fluid, settings);
     }
 
-    public static final Identifier DEFAULT_FONT_ID = new Identifier("minecraft", "default");
-    public static final Identifier MODS_FONT_ID = new Identifier("tlotd", "mods");
+    public static final Identifier DEFAULT_FONT_ID = Identifier.of("minecraft", "default");
+    public static final Identifier MODS_FONT_ID = Identifier.of("tlotd", "mods");
 
     @Override
-    public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        if (context.isCreative()) {
+    public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
+        /*if (context.isCreative()) {
             Style style = this.getName().getStyle();
             if (stack.isOf(ModFluids.BLUE_BERRY_JAM_BUCKET)) {
                 tooltip.add(Text.literal("\uE008 ").setStyle(Style.EMPTY.withFont(MODS_FONT_ID)).append(Text.translatable("mod.aether.name").setStyle(Style.EMPTY.withFont(DEFAULT_FONT_ID).withFormatting(Formatting.GRAY))));
@@ -40,7 +40,7 @@ public class ModBucketItem extends BucketItem {
             } else {
                 tooltip.add(Text.literal("\uE00A ").setStyle(style.withFont(MODS_FONT_ID)).append(Text.translatable("mod.create.name").setStyle(style.withFont(DEFAULT_FONT_ID).withFormatting(Formatting.GRAY))));
             }
-        }
-        super.appendTooltip(stack, world, tooltip, context);
+        }*/
+        super.appendTooltip(stack, context, tooltip, type);
     }
 }

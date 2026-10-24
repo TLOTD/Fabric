@@ -53,27 +53,15 @@
 		],
 		"fabric-datagen": [
 			"net.tlotd.TLOTDDataGenerator"
-		],
-		"jade": [
-			"net.tlotd.compat.jade.TLOTDJadeIntegration"
-		],
-		"rei_client": [
-			"net.tlotd.compat.rei.TLOTDREIClientPlugin"
-		],
-		"emi": [
-			"net.tlotd.compat.emi.TLOTDEMIPlugin"
-		],
-		"modmenu": [
-			"net.tlotd.compat.modmenu.TLOTDModMenuIntegration"
 		]
 	},
 	"mixins": [
 		"tlotd.mixins.json"
 	],
 	"depends": {
-		"fabricloader": ">=0.16.9",
-		"minecraft": "~1.20.1",
-		"java": ">=17",
+		"fabricloader": ">=0.19.3",
+		"minecraft": "~1.21.1",
+		"java": ">=21",
 		"fabric-api": "*"
 	},
 	"suggests": {

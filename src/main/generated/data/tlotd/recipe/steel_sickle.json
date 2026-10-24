@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "tag": "c:steel_ingots"
+    },
+    "I": {
+      "tag": "c:wooden_rods"
+    }
+  },
+  "pattern": [
+    " #",
+    "I "
+  ],
+  "result": {
+    "count": 1,
+    "id": "tlotd:steel_sickle"
+  }
+}

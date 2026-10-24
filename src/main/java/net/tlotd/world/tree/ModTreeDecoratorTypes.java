@@ -11,7 +11,7 @@ public class ModTreeDecoratorTypes {
     public static final TreeDecoratorType<ShelfMushroomTreeDecorator>
             SHELF_MUSHROOM = Registry.register(
             Registries.TREE_DECORATOR_TYPE,
-            new Identifier(TLOTD.MOD_ID, "shelf_mushroom"),
+            Identifier.of(TLOTD.MOD_ID, "shelf_mushroom"),
             new TreeDecoratorType<>(ShelfMushroomTreeDecorator.CODEC)
     );
 

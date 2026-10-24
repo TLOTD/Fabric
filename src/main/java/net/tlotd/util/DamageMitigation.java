@@ -34,6 +34,7 @@ public class DamageMitigation {
     }
 
     public static void registerAllowedDamages() {
+        /*
         final Set<UUID> ignoredDamagePlayers = Collections.newSetFromMap(new WeakHashMap<>());
         AtomicInteger oxygenTick = new AtomicInteger();
         ServerLivingEntityEvents.ALLOW_DAMAGE.register(((livingEntity, damageSource, amount) -> {
@@ -283,6 +284,6 @@ public class DamageMitigation {
             }
             return true;
         }));
-        TLOTD.LOGGER.info("Registering Special Armor Protection for " + TLOTD.MOD_ID);
+        TLOTD.LOGGER.info("Registering Special Armor Protection for " + TLOTD.MOD_ID);*/
     }
 }

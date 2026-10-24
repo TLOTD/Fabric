@@ -17,6 +17,7 @@ import net.minecraft.state.property.Properties;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.BlockRotation;
 import net.minecraft.util.Hand;
+import net.minecraft.util.ItemActionResult;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
@@ -24,6 +25,7 @@ import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
+import net.minecraft.world.WorldView;
 import net.tlotd.block.ModBlocks;
 
 public class BookStackBlock extends Block {
@@ -77,27 +79,26 @@ public class BookStackBlock extends Block {
     }
 
     @Override
-    public ItemStack getPickStack(BlockView world, BlockPos pos, BlockState state) {
+    public ItemStack getPickStack(WorldView world, BlockPos pos, BlockState state) {
         return Items.BOOK.getDefaultStack();
     }
 
     @Override
-    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        ItemStack heldStack = player.getMainHandStack();
-        if (!(heldStack.isOf(Items.BOOK) || heldStack.isOf(ModBlocks.STACKABLE_BOOK.asItem()))) {
-            return ActionResult.PASS;
+    protected ItemActionResult onUseWithItem(ItemStack stack, BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
+        if (!(stack.isOf(Items.BOOK) || stack.isOf(ModBlocks.STACKABLE_BOOK.asItem()))) {
+            return ItemActionResult.FAIL;
         }
         int books = state.get(BOOKS);
         if (books >= 4) {
-            return ActionResult.PASS;
+            return ItemActionResult.FAIL;
         }
         if (!world.isClient) {
             world.setBlockState(pos, state.with(BOOKS, books + 1), Block.NOTIFY_ALL);
             world.playSound(null, pos, SoundEvents.BLOCK_GRASS_PLACE, SoundCategory.BLOCKS, 1.0f, 1.0f);
             if (!player.getAbilities().creativeMode) {
-                heldStack.decrement(1);
+                stack.decrement(1);
             }
         }
-        return ActionResult.SUCCESS;
+        return ItemActionResult.SUCCESS;
     }
 }

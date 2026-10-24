@@ -3,6 +3,7 @@ package net.tlotd.world;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtElement;
 import net.minecraft.nbt.NbtList;
+import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.world.PersistentState;
@@ -12,33 +13,40 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
+
 public class CustomTextureManager extends PersistentState {
+    private static final Type<CustomTextureManager> TYPE = new Type<>(CustomTextureManager::new, CustomTextureManager::fromNbt, null);
+
     private final Map<UUID, Integer> textureMap = new HashMap<>();
 
     public static CustomTextureManager get(MinecraftServer server) {
         ServerWorld overworld = server.getOverworld();
-        return overworld.getPersistentStateManager().getOrCreate(CustomTextureManager::fromNbt, CustomTextureManager::new, "TLOTD_Textures");
+        return overworld.getPersistentStateManager().getOrCreate(TYPE, "TLOTD_Textures");
     }
 
-    public static CustomTextureManager fromNbt(NbtCompound tag) {
+    public static CustomTextureManager fromNbt(NbtCompound tag, RegistryWrapper.WrapperLookup registryLookup) {
         CustomTextureManager manager = new CustomTextureManager();
+
         NbtList list = tag.getList("Textures", NbtElement.COMPOUND_TYPE);
-        for (NbtElement e : list) {
-            NbtCompound nbt = (NbtCompound) e;
+        for (NbtElement element : list) {
+            NbtCompound nbt = (NbtCompound) element;
             manager.textureMap.put(nbt.getUuid("Player"), nbt.getInt("Texture"));
         }
+
         return manager;
     }
 
     @Override
-    public NbtCompound writeNbt(NbtCompound nbt) {
+    public NbtCompound writeNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registryLookup) {
         NbtList list = new NbtList();
+
         for (Map.Entry<UUID, Integer> entry : textureMap.entrySet()) {
             NbtCompound textureData = new NbtCompound();
             textureData.putUuid("Player", entry.getKey());
             textureData.putInt("Texture", entry.getValue());
             list.add(textureData);
         }
+
         nbt.put("Textures", list);
         return nbt;
     }

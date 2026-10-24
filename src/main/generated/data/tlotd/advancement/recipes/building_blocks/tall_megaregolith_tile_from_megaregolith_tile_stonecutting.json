@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_megaregolith_tile": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tlotd:megaregolith_tile"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "tlotd:tall_megaregolith_tile_from_megaregolith_tile_stonecutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_megaregolith_tile"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "tlotd:tall_megaregolith_tile_from_megaregolith_tile_stonecutting"
+    ]
+  }
+}

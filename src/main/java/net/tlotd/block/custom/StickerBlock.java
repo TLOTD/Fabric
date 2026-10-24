@@ -1,27 +1,26 @@
 package net.tlotd.block.custom;
 
+import com.mojang.serialization.MapCodec;
 import net.minecraft.block.*;
-import net.minecraft.block.enums.WallMountLocation;
+import net.minecraft.block.enums.BlockFace;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.Screen;
-import net.minecraft.client.item.TooltipContext;
 import net.minecraft.client.resource.language.LanguageDefinition;
 import net.minecraft.client.resource.language.LanguageManager;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.DirectionProperty;
 import net.minecraft.state.property.EnumProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.text.Text;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.BlockRotation;
-import net.minecraft.util.Formatting;
-import net.minecraft.util.Hand;
+import net.minecraft.util.*;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
@@ -38,10 +37,8 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 import java.util.Objects;
 
-public class StickerBlock extends Block {
+public class StickerBlock extends WallMountedBlock {
 
-    public static final EnumProperty<WallMountLocation> FACE = Properties.WALL_MOUNT_LOCATION;
-    public static final DirectionProperty FACING = HorizontalFacingBlock.FACING;
     public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
 
     @Override
@@ -49,8 +46,8 @@ public class StickerBlock extends Block {
         Direction direction = state.get(FACING);
         BlockPos blockPos = pos.offset(direction);
         BlockState blockState = world.getBlockState(blockPos);
-        if (!state.get(FACE).equals(WallMountLocation.WALL)) {
-            if (state.get(FACE).equals(WallMountLocation.FLOOR)) {
+        if (!state.get(FACE).equals(BlockFace.WALL)) {
+            if (state.get(FACE).equals(BlockFace.FLOOR)) {
                 return world.getBlockState(pos.down()).isSideSolidFullSquare(world, pos.down(), Direction.UP);
             } else return world.getBlockState(pos.up()).isSideSolidFullSquare(world, pos.up(), Direction.DOWN);
         } else return blockState.isSideSolidFullSquare(world, blockPos, direction.getOpposite());
@@ -59,7 +56,7 @@ public class StickerBlock extends Block {
     @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {
         for (Direction direction : ctx.getPlacementDirections()) {
-            BlockState blockState = direction.getAxis() == Direction.Axis.Y ? this.getDefaultState().with(FACE, direction == Direction.UP ? WallMountLocation.CEILING : WallMountLocation.FLOOR).with(FACING, ctx.getHorizontalPlayerFacing()).with(WATERLOGGED, ctx.getWorld().getFluidState(ctx.getBlockPos()).isOf(Fluids.WATER)) : this.getDefaultState().with(FACE, WallMountLocation.WALL).with(FACING, direction).with(WATERLOGGED, ctx.getWorld().getFluidState(ctx.getBlockPos()).isOf(Fluids.WATER));
+            BlockState blockState = direction.getAxis() == Direction.Axis.Y ? this.getDefaultState().with(FACE, direction == Direction.UP ? BlockFace.CEILING : BlockFace.FLOOR).with(FACING, ctx.getHorizontalPlayerFacing()).with(WATERLOGGED, ctx.getWorld().getFluidState(ctx.getBlockPos()).isOf(Fluids.WATER)) : this.getDefaultState().with(FACE, BlockFace.WALL).with(FACING, direction).with(WATERLOGGED, ctx.getWorld().getFluidState(ctx.getBlockPos()).isOf(Fluids.WATER));
             if (!blockState.canPlaceAt(ctx.getWorld(), ctx.getBlockPos())) continue;
             return blockState;
         }
@@ -76,7 +73,7 @@ public class StickerBlock extends Block {
         if (state.get(WATERLOGGED)) {
             world.scheduleFluidTick(pos, Fluids.WATER, Fluids.WATER.getTickRate(world));
         }
-        return (direction == Direction.DOWN && state.get(FACE).equals(WallMountLocation.FLOOR) || direction == Direction.UP && state.get(FACE).equals(WallMountLocation.CEILING) || direction == state.get(FACING) && state.get(FACE).equals(WallMountLocation.WALL)) && !state.canPlaceAt(world, pos) ? Blocks.AIR.getDefaultState() : state;
+        return (direction == Direction.DOWN && state.get(FACE).equals(BlockFace.FLOOR) || direction == Direction.UP && state.get(FACE).equals(BlockFace.CEILING) || direction == state.get(FACING) && state.get(FACE).equals(BlockFace.WALL)) && !state.canPlaceAt(world, pos) ? Blocks.AIR.getDefaultState() : state;
     }
 
     @Override
@@ -91,7 +88,12 @@ public class StickerBlock extends Block {
 
     public StickerBlock(Settings settings) {
         super(settings);
-        this.setDefaultState(this.stateManager.getDefaultState().with(FACE, WallMountLocation.WALL).with(FACING, Direction.NORTH).with(WATERLOGGED, false));
+        this.setDefaultState(this.stateManager.getDefaultState().with(FACE, BlockFace.WALL).with(FACING, Direction.NORTH).with(WATERLOGGED, false));
+    }
+
+    @Override
+    protected MapCodec<? extends WallMountedBlock> getCodec() {
+        return null;
     }
 
     public static final VoxelShape NORTH_SHAPE = Block.createCuboidShape(1.0, 4.0, 0.0, 15.0, 12.0, 0.1);
@@ -128,7 +130,7 @@ public class StickerBlock extends Block {
     }
 
     @Override
-    public void appendTooltip(ItemStack stack, @Nullable BlockView world, List<Text> tooltip, TooltipContext options) {
+    public void appendTooltip(ItemStack stack, Item.TooltipContext context, List<Text> tooltip, TooltipType options) {
         if (Screen.hasShiftDown()) {
             if (stack.isOf(ModBlocks.BW_STICKER.asItem())) {
                 tooltip.add(Text.translatable("block.tlotd.bw_sticker.tooltip").formatted(Formatting.GRAY));
@@ -140,7 +142,7 @@ public class StickerBlock extends Block {
                 tooltip.add(Text.translatable("block.tlotd.tlotd_sticker.tooltip_3").formatted(Formatting.GRAY));
             }
         }
-        super.appendTooltip(stack, world, tooltip, options);
+        super.appendTooltip(stack, context, tooltip, options);
     }
 
     @Override
@@ -149,25 +151,25 @@ public class StickerBlock extends Block {
     }
 
     @Override
-    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
+    protected ItemActionResult onUseWithItem(ItemStack stack, BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         if (player != null && world.isClient) {
             boolean easterEggs = ClientGlobalConfig.easterEggs;
-            if (easterEggs && player.getStackInHand(hand).isOf(ModItems.MAULTASCHEN_BROTH)) {
+            if (easterEggs && player.getStackInHand(hand).isOf(ModItems.MAULTASCHE /*ModItems.MAULTASCHEN_BROTH*/)) {
                 MinecraftClient client = MinecraftClient.getInstance();
                 LanguageManager languageManager = client.getLanguageManager();
                 LanguageDefinition languageDefinition = languageManager.getLanguage("swg_de");
                 if (languageDefinition == null || languageManager.getLanguage().equals("swg_de")) {
-                    return ActionResult.FAIL;
+                    return ItemActionResult.FAIL;
                 }
                 languageManager.setLanguage("swg_de");
                 client.options.language = "swg_de";
                 client.reloadResources();
                 client.options.write();
-                return ActionResult.SUCCESS;
+                return ItemActionResult.SUCCESS;
             } else {
-                return ActionResult.FAIL;
+                return ItemActionResult.FAIL;
             }
         }
-        return ActionResult.FAIL;
+        return ItemActionResult.FAIL;
     }
 }

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "tlotd:stripped_ginkgo_log"
+    },
+    {
+      "item": "tlotd:ginkgo_bark"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "tlotd:ginkgo_log"
+  }
+}

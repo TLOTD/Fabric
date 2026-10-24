@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_fancy_cherry_planks": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tlotd:fancy_cherry_planks"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "tlotd:cherry_planks_from_fancy_cherry_planks_stonecutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_fancy_cherry_planks"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "tlotd:cherry_planks_from_fancy_cherry_planks_stonecutting"
+    ]
+  }
+}

@@ -4,10 +4,10 @@ import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.Screen;
-import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.text.Style;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
@@ -24,10 +24,10 @@ public class BiologicalCircuitBoardItem extends Item {
         super(settings);
     }
 
-    public static final Identifier DEFAULT_FONT_ID = new Identifier("minecraft", "default");
-    public static final Identifier CARO_INVITICA_FONT_ID = new Identifier("tlotd", "caro_invitica");
-    public static final Identifier TOOLTIP_FONT_ID = new Identifier("tlotd", "tooltip");
-    public static final Identifier MODS_FONT_ID = new Identifier("tlotd", "mods");
+    public static final Identifier DEFAULT_FONT_ID = Identifier.of("minecraft", "default");
+    public static final Identifier CARO_INVITICA_FONT_ID = Identifier.of("tlotd", "caro_invitica");
+    public static final Identifier TOOLTIP_FONT_ID = Identifier.of("tlotd", "tooltip");
+    public static final Identifier MODS_FONT_ID = Identifier.of("tlotd", "mods");
 
     @Override
     public Text getName(ItemStack stack) {
@@ -36,16 +36,16 @@ public class BiologicalCircuitBoardItem extends Item {
 
     @Override
     @Environment(EnvType.CLIENT)
-    public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
+    public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
         Style style = getName().getStyle();
         PlayerEntity player = MinecraftClient.getInstance().player;
         if (player == null) return;
-        if (context.isCreative()) {
+        /*if (context.isCreative()) {
             tooltip.add(Text.literal("\uE013 ").setStyle(Style.EMPTY.withFont(MODS_FONT_ID)).append(Text.translatable("mod.biomancy.name").setStyle(Style.EMPTY.withFont(DEFAULT_FONT_ID).withFormatting(Formatting.GRAY))));
             tooltip.add(Text.literal("\uE010 ").setStyle(Style.EMPTY.withFont(MODS_FONT_ID)).append(Text.translatable("mod.spore.name").setStyle(Style.EMPTY.withFont(DEFAULT_FONT_ID).withFormatting(Formatting.GRAY))));
             tooltip.add(Text.literal("\uE014 ").setStyle(Style.EMPTY.withFont(MODS_FONT_ID)).append(Text.translatable("mod.neepmeat.name").setStyle(Style.EMPTY.withFont(DEFAULT_FONT_ID).withFormatting(Formatting.GRAY))));
             tooltip.add(Text.empty());
-        }
+        }*/
         if (enlightened(player) >= 20 && Screen.hasShiftDown()) {
             tooltip.add(Text.literal("\uE005 ").setStyle(style.withFont(TOOLTIP_FONT_ID)).append(Text.translatable("item.tlotd.desc_enlightened").setStyle(style.withFont(DEFAULT_FONT_ID).withFormatting(Formatting.GOLD))));
             tooltip.add(Text.translatable("item.tlotd.biological_circuit_board.tooltip").formatted(Formatting.GRAY));
@@ -62,6 +62,6 @@ public class BiologicalCircuitBoardItem extends Item {
             tooltip.add(Text.translatable("item.tlotd.biological_circuit_board.tooltip_3").setStyle(style.withFont(CARO_INVITICA_FONT_ID)).formatted(Formatting.GRAY));
         }
         tooltip.add(Text.translatable("item.tlotd.desc_occult").formatted(Formatting.RED));
-        super.appendTooltip(stack, world, tooltip, context);
+        super.appendTooltip(stack, context, tooltip, type);
     }
 }

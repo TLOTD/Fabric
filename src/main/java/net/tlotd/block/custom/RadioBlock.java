@@ -3,14 +3,13 @@ package net.tlotd.block.custom;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.MusicDiscItem;
+import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.tag.ItemTags;
 import net.minecraft.registry.tag.TagKey;
@@ -33,8 +32,9 @@ import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
+import net.minecraft.world.WorldView;
 import net.tlotd.block.ModBlocks;
-import net.tlotd.block.entity.RadioBlockEntity;
+//import net.tlotd.block.entity.RadioBlockEntity;
 import net.tlotd.sound.ModSounds;
 import net.tlotd.util.ModAdvancementTriggers;
 import net.tlotd.util.ModTags;
@@ -46,7 +46,7 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 
-public class RadioBlock extends Block implements BlockEntityProvider {
+public class RadioBlock extends Block /*implements BlockEntityProvider*/ {
     public static final BooleanProperty ON = BooleanProperty.of("on");
     public static final IntProperty FREQUENCY = IntProperty.of("frequency", 0, 4);
     public static final IntProperty WOOD_TYPE = IntProperty.of("wood_type", 0, 28);
@@ -65,7 +65,7 @@ public class RadioBlock extends Block implements BlockEntityProvider {
     private record ModdedWoodRule(String modId, String namePart, int type) {
     }
 
-    private static final List<ModdedWoodRule> MODDED_WOOD_RULES = List.of(new ModdedWoodRule("aether", "skyroot", 1), new ModdedWoodRule("aether", "golden_oak", 1), new ModdedWoodRule("twilightforest", "twilight_oak", 2), new ModdedWoodRule("twilightforest", "canopy", 3), new ModdedWoodRule("twilightforest", "mangrove", 4), new ModdedWoodRule("twilightforest", "dark", 5), new ModdedWoodRule("twilightforest", "time", 6), new ModdedWoodRule("twilightforest", "transformation", 7), new ModdedWoodRule("twilightforest", "mining", 8), new ModdedWoodRule("twilightforest", "sorting", 9), new ModdedWoodRule("thermal", "rubberwood", 10), new ModdedWoodRule("quark", "ancient", 11), new ModdedWoodRule("quark", "azalea", 12), new ModdedWoodRule("quark", "blossom", 13), new ModdedWoodRule("alexscaves", "pewen", 14), new ModdedWoodRule("alexscaves", "thornwood", 15), new ModdedWoodRule("biomesoplenty", "fir", 16), new ModdedWoodRule("biomesoplenty", "pine", 17), new ModdedWoodRule("biomesoplenty", "maple", 18), new ModdedWoodRule("biomesoplenty", "redwood", 19), new ModdedWoodRule("biomesoplenty", "mahogany", 20), new ModdedWoodRule("biomesoplenty", "jacaranda", 21), new ModdedWoodRule("biomesoplenty", "palm", 22), new ModdedWoodRule("biomesoplenty", "willow", 23), new ModdedWoodRule("biomesoplenty", "dead", 24), new ModdedWoodRule("biomesoplenty", "magic", 25), new ModdedWoodRule("biomesoplenty", "umbran", 26), new ModdedWoodRule("biomesoplenty", "hellbark", 27), new ModdedWoodRule("biomesoplenty", "empyreal", 28));
+    /*private static final List<ModdedWoodRule> MODDED_WOOD_RULES = List.of(new ModdedWoodRule("aether", "skyroot", 1), new ModdedWoodRule("aether", "golden_oak", 1), new ModdedWoodRule("twilightforest", "twilight_oak", 2), new ModdedWoodRule("twilightforest", "canopy", 3), new ModdedWoodRule("twilightforest", "mangrove", 4), new ModdedWoodRule("twilightforest", "dark", 5), new ModdedWoodRule("twilightforest", "time", 6), new ModdedWoodRule("twilightforest", "transformation", 7), new ModdedWoodRule("twilightforest", "mining", 8), new ModdedWoodRule("twilightforest", "sorting", 9), new ModdedWoodRule("thermal", "rubberwood", 10), new ModdedWoodRule("quark", "ancient", 11), new ModdedWoodRule("quark", "azalea", 12), new ModdedWoodRule("quark", "blossom", 13), new ModdedWoodRule("alexscaves", "pewen", 14), new ModdedWoodRule("alexscaves", "thornwood", 15), new ModdedWoodRule("biomesoplenty", "fir", 16), new ModdedWoodRule("biomesoplenty", "pine", 17), new ModdedWoodRule("biomesoplenty", "maple", 18), new ModdedWoodRule("biomesoplenty", "redwood", 19), new ModdedWoodRule("biomesoplenty", "mahogany", 20), new ModdedWoodRule("biomesoplenty", "jacaranda", 21), new ModdedWoodRule("biomesoplenty", "palm", 22), new ModdedWoodRule("biomesoplenty", "willow", 23), new ModdedWoodRule("biomesoplenty", "dead", 24), new ModdedWoodRule("biomesoplenty", "magic", 25), new ModdedWoodRule("biomesoplenty", "umbran", 26), new ModdedWoodRule("biomesoplenty", "hellbark", 27), new ModdedWoodRule("biomesoplenty", "empyreal", 28));
 
     private Identifier findNextDisc(List<Identifier> signals, @Nullable Identifier current) {
         if (signals.isEmpty()) {
@@ -94,7 +94,7 @@ public class RadioBlock extends Block implements BlockEntityProvider {
         if (item instanceof MusicDiscItem disc) {
             world.playSound(null, pos, disc.getSound(), SoundCategory.RECORDS, 1.0f, 1.0f);
         }
-    }
+    }*/
 
     public RadioBlock(Settings settings) {
         super(settings);
@@ -153,20 +153,15 @@ public class RadioBlock extends Block implements BlockEntityProvider {
     }
 
     @Override
-    public ItemStack getPickStack(BlockView world, BlockPos pos, BlockState state) {
-        return ModBlocks.RADIO.asItem().getDefaultStack();
-    }
-
-    @Override
-    public void appendTooltip(ItemStack stack, @Nullable BlockView world, List<Text> tooltip, TooltipContext opts) {
+    public void appendTooltip(ItemStack stack, Item.TooltipContext context, List<Text> tooltip, TooltipType options) {
         tooltip.add(Text.empty());
         tooltip.add(Text.translatable("block.tlotd.radio.tooltip").formatted(Formatting.GRAY));
         tooltip.add(Text.translatable("block.tlotd.radio.tooltip_2").formatted(Formatting.GRAY));
         tooltip.add(Text.literal(" ").append(Text.translatable("block.tlotd.signal_transmitter").formatted(Formatting.BLUE)));
-        super.appendTooltip(stack, world, tooltip, opts);
+        super.appendTooltip(stack, context, tooltip, options);
     }
 
-    private void tryUpdateWood(World world, BlockPos pos, PlayerEntity player) {
+    /*private void tryUpdateWood(World world, BlockPos pos, PlayerEntity player) {
         ItemStack stack = player.getMainHandStack();
         for (var entry : WOOD_TYPE_MAP.entrySet()) {
             if (stack.isIn(entry.getKey())) {
@@ -286,5 +281,5 @@ public class RadioBlock extends Block implements BlockEntityProvider {
     @Override
     public @Nullable BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
         return new RadioBlockEntity(pos, state);
-    }
+    }*/
 }

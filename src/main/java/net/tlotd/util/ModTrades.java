@@ -1,191 +1,213 @@
 package net.tlotd.util;
 
 import net.fabricmc.fabric.api.object.builder.v1.trade.TradeOfferHelper;
+import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.village.TradedItem;
 import net.minecraft.village.TradeOffer;
 import net.minecraft.village.VillagerProfession;
 import net.tlotd.block.ModBlocks;
 import net.tlotd.item.ModItems;
 import net.tlotd.villager.ModVillagers;
 
+import java.util.Optional;
+
 public class ModTrades {
+
+    private static TradedItem buy(ItemConvertible item, int count) {
+        return new TradedItem(item, count);
+    }
+
     public static void registerTrades() {
+
         TradeOfferHelper.registerVillagerOffers(VillagerProfession.LIBRARIAN, 3,
-                factories -> {
-                    factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(Items.BOOK, 1),
-                            new ItemStack(Items.EMERALD, 9),
-                            new ItemStack(ModItems.TOME_OF_ENLIGHTENMENT, 1),
-                            1, 20, 0.1f));
-                });
+                factories -> factories.add((entity, random) -> new TradeOffer(
+                        buy(Items.BOOK, 1),
+                        Optional.of(buy(Items.EMERALD, 9)),
+                        new ItemStack(ModItems.TOME_OF_ENLIGHTENMENT, 1),
+                        1, 20, 0.1f
+                )));
+
         TradeOfferHelper.registerVillagerOffers(VillagerProfession.FARMER, 1,
                 factories -> {
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(Items.EMERALD, 3),
+                            buy(Items.EMERALD, 3),
                             new ItemStack(ModItems.STRAWBERRY_SEEDS, 1),
-                            6, 5, 0.1f));
+                            6, 5, 0.1f
+                    ));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(Items.EMERALD, 3),
+                            buy(Items.EMERALD, 3),
                             new ItemStack(ModItems.ORANGE_SEEDS, 1),
-                            6, 5, 0.1f));
+                            6, 5, 0.1f
+                    ));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(Items.EMERALD, 5),
+                            buy(Items.EMERALD, 5),
                             new ItemStack(ModItems.COFFEE_BEANS, 1),
-                            6, 5, 0.1f));
+                            6, 5, 0.1f
+                    ));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(Items.EMERALD, 5),
+                            buy(Items.EMERALD, 5),
                             new ItemStack(ModItems.PIPE_WEED_SEEDS, 1),
-                            6, 5, 0.1f));
+                            6, 5, 0.1f
+                    ));
                 });
 
         TradeOfferHelper.registerVillagerOffers(ModVillagers.ARCHAEOLOGIST, 1,
                 factories -> {
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModItems.FOSSILIZED_BONE, 7),
+                            buy(ModItems.FOSSILIZED_BONE, 7),
                             new ItemStack(ModBlocks.GINKGO_SAPLING, 1),
-                            6, 2, 0.1f));
-
+                            6, 2, 0.1f
+                    ));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModItems.FOSSILIZED_BONE, 3),
+                            buy(ModItems.FOSSILIZED_BONE, 3),
                             new ItemStack(ModBlocks.SHELF_MUSHROOM, 1),
-                            6, 2, 0.1f));
-
+                            6, 2, 0.1f
+                    ));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModItems.FOSSILIZED_BONE, 3),
+                            buy(ModItems.FOSSILIZED_BONE, 3),
                             new ItemStack(ModBlocks.RED_ROSE, 1),
-                            6, 2, 0.1f));
-
+                            6, 2, 0.1f
+                    ));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModItems.FOSSILIZED_BONE, 3),
+                            buy(ModItems.FOSSILIZED_BONE, 3),
                             new ItemStack(ModBlocks.BLUE_ROSE, 1),
-                            6, 2, 0.1f));
-
+                            6, 2, 0.1f
+                    ));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModItems.FOSSILIZED_BONE, 3),
+                            buy(ModItems.FOSSILIZED_BONE, 3),
                             new ItemStack(ModBlocks.PAEONIA, 1),
-                            6, 2, 0.1f));
-
+                            6, 2, 0.1f
+                    ));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModItems.FOSSILIZED_BONE, 3),
+                            buy(ModItems.FOSSILIZED_BONE, 3),
                             new ItemStack(ModBlocks.IRIS, 1),
-                            6, 2, 0.1f));
-
+                            6, 2, 0.1f
+                    ));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModItems.FOSSILIZED_BONE, 3),
+                            buy(ModItems.FOSSILIZED_BONE, 3),
                             new ItemStack(ModBlocks.EDELWEISS, 1),
-                            6, 2, 0.1f));
-
+                            6, 2, 0.1f
+                    ));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModItems.FOSSILIZED_BONE, 3),
+                            buy(ModItems.FOSSILIZED_BONE, 3),
                             new ItemStack(ModBlocks.ATHELAS, 1),
-                            6, 2, 0.1f));
+                            6, 2, 0.1f
+                    ));
                 });
-
         TradeOfferHelper.registerVillagerOffers(ModVillagers.ARCHAEOLOGIST, 2,
                 factories -> {
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModItems.FOSSILIZED_BONE, 3),
+                            buy(ModItems.FOSSILIZED_BONE, 3),
                             new ItemStack(ModItems.XEN_CRYSTAL, 1),
-                            3, 10, 0.1f));
-
+                            3, 10, 0.1f
+                    ));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModBlocks.RED_DEEPSLATE, 3),
-                            new ItemStack(Items.EMERALD, 1),
+                            buy(ModBlocks.RED_DEEPSLATE, 3),
+                            Optional.of(buy(Items.EMERALD, 1)),
                             new ItemStack(ModBlocks.REINFORCED_RED_DEEPSLATE, 1),
-                            6, 10, 0.1f));
-
+                            6, 10, 0.1f
+                    ));
                 });
         TradeOfferHelper.registerVillagerOffers(ModVillagers.ARCHAEOLOGIST, 3,
-                factories -> {
-                    factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModItems.FOSSILIZED_BONE, 17),
-                            new ItemStack(Items.EGG, 1),
-                            new ItemStack(ModBlocks.TREX_EGG, 1),
-                            1, 20, 0.1f));
-                });
+                factories -> factories.add((entity, random) -> new TradeOffer(
+                        buy(ModItems.FOSSILIZED_BONE, 17),
+                        Optional.of(buy(Items.EGG, 1)),
+                        new ItemStack(ModBlocks.TREX_EGG, 1),
+                        1, 20, 0.1f
+                )));
 
         TradeOfferHelper.registerVillagerOffers(ModVillagers.CULTIST, 1,
                 factories -> {
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModItems.SOUL_FLASK, 1),
-                            new ItemStack(ModItems.BLOOD_BOTTLE, 1),
+                            buy(ModItems.SOUL_FLASK, 1),
+                            Optional.of(buy(ModItems.BLOOD_BOTTLE, 1)),
                             new ItemStack(ModItems.CURSED_SOUL_FLASK, 1),
-                            6, 2, 0.1f));
+                            6, 2, 0.1f
+                    ));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(Items.BOOK, 1),
-                            new ItemStack(Items.EMERALD, 9),
+                            buy(Items.BOOK, 1),
+                            Optional.of(buy(Items.EMERALD, 9)),
                             new ItemStack(ModItems.TOME_OF_ENLIGHTENMENT, 1),
-                            1, 2, 0.1f));
+                            1, 2, 0.1f
+                    ));
                 });
         TradeOfferHelper.registerVillagerOffers(ModVillagers.CULTIST, 2,
-                factories -> {
-                    factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModItems.TOME_OF_ENLIGHTENMENT, 1),
-                            new ItemStack(Items.GOLD_BLOCK, 9),
-                            new ItemStack(ModItems.ARTIFACT_OF_ENLIGHTENMENT, 1),
-                            1, 10, 0.1f));
-                });
+                factories -> factories.add((entity, random) -> new TradeOffer(
+                        buy(ModItems.TOME_OF_ENLIGHTENMENT, 1),
+                        Optional.of(buy(Items.GOLD_BLOCK, 9)),
+                        new ItemStack(ModItems.ARTIFACT_OF_ENLIGHTENMENT, 1),
+                        1, 10, 0.1f
+                )));
         TradeOfferHelper.registerVillagerOffers(ModVillagers.CULTIST, 3,
-                factories -> {
-                    factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModItems.ARTIFACT_OF_ENLIGHTENMENT, 1),
-                            new ItemStack(Items.ENDER_EYE, 9),
-                            new ItemStack(ModItems.EYE_OF_ENLIGHTENMENT, 1),
-                            1, 20, 0.1f));
-                });
+                factories -> factories.add((entity, random) -> new TradeOffer(
+                        buy(ModItems.ARTIFACT_OF_ENLIGHTENMENT, 1),
+                        Optional.of(buy(Items.ENDER_EYE, 9)),
+                        new ItemStack(ModItems.EYE_OF_ENLIGHTENMENT, 1),
+                        1, 20, 0.1f
+                )));
 
         TradeOfferHelper.registerVillagerOffers(ModVillagers.ENGINEER, 1,
-                factories -> {
-                    factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(ModBlocks.RAW_MITHRIL_BLOCK, 1),
-                            new ItemStack(Items.EMERALD, 12),
-                            new ItemStack(ModItems.MITHRIL_INGOT, 10),
-                            6, 2, 0.1f));
-                });
+                factories -> factories.add((entity, random) -> new TradeOffer(
+                        buy(ModBlocks.RAW_MITHRIL_BLOCK, 1),
+                        Optional.of(buy(Items.EMERALD, 12)),
+                        new ItemStack(ModItems.MITHRIL_INGOT, 10),
+                        6, 2, 0.1f
+                )));
 
         TradeOfferHelper.registerWanderingTraderOffers(1,
                 factories -> {
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(Items.EMERALD, 5),
+                            buy(Items.EMERALD, 5),
                             new ItemStack(ModBlocks.GINKGO_SAPLING, 1),
-                            1, 5, 0.1f));
+                            1, 5, 0.1f
+                    ));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(Items.EMERALD, 3),
+                            buy(Items.EMERALD, 3),
                             new ItemStack(ModItems.STRAWBERRY, 1),
-                            1, 5, 0.1f));
+                            1, 5, 0.1f
+                    ));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(Items.EMERALD, 3),
+                            buy(Items.EMERALD, 3),
                             new ItemStack(ModItems.ORANGE, 1),
-                            1, 5, 0.1f));
+                            1, 5, 0.1f
+                    ));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(Items.EMERALD, 3),
+                            buy(Items.EMERALD, 3),
                             new ItemStack(ModBlocks.SHELF_MUSHROOM, 1),
-                            1, 5, 0.1f));
+                            1, 5, 0.1f
+                    ));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(Items.EMERALD, 3),
+                            buy(Items.EMERALD, 3),
                             new ItemStack(ModBlocks.RED_ROSE, 1),
-                            1, 5, 0.1f));
+                            1, 5, 0.1f
+                    ));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(Items.EMERALD, 3),
+                            buy(Items.EMERALD, 3),
                             new ItemStack(ModBlocks.BLUE_ROSE, 1),
-                            1, 5, 0.1f));
+                            1, 5, 0.1f
+                    ));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(Items.EMERALD, 3),
+                            buy(Items.EMERALD, 3),
                             new ItemStack(ModBlocks.PAEONIA, 1),
-                            1, 5, 0.1f));
+                            1, 5, 0.1f
+                    ));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(Items.EMERALD, 3),
+                            buy(Items.EMERALD, 3),
                             new ItemStack(ModBlocks.IRIS, 1),
-                            1, 5, 0.1f));
+                            1, 5, 0.1f
+                    ));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(Items.EMERALD, 3),
+                            buy(Items.EMERALD, 3),
                             new ItemStack(ModBlocks.EDELWEISS, 1),
-                            1, 5, 0.1f));
+                            1, 5, 0.1f
+                    ));
                     factories.add((entity, random) -> new TradeOffer(
-                            new ItemStack(Items.EMERALD, 3),
+                            buy(Items.EMERALD, 3),
                             new ItemStack(ModBlocks.ATHELAS, 1),
-                            1, 5, 0.1f));
+                            1, 5, 0.1f
+                    ));
                 });
     }
 }

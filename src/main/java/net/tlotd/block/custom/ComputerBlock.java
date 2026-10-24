@@ -1,11 +1,14 @@
 package net.tlotd.block.custom;
 
 import net.minecraft.block.*;
+import net.minecraft.component.DataComponentTypes;
+import net.minecraft.component.type.NbtComponent;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NbtCompound;
 import net.minecraft.registry.Registries;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.stat.Stats;
@@ -16,10 +19,7 @@ import net.minecraft.state.property.IntProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.text.MutableText;
 import net.minecraft.text.Text;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.BlockRotation;
-import net.minecraft.util.Hand;
-import net.minecraft.util.Identifier;
+import net.minecraft.util.*;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
@@ -28,6 +28,7 @@ import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
+import net.minecraft.world.WorldView;
 import net.tlotd.block.ModBlocks;
 import net.tlotd.item.ModItems;
 import net.tlotd.sound.ModSounds;
@@ -105,7 +106,7 @@ public class ComputerBlock extends Block {
     }
 
     @Override
-    public ItemStack getPickStack(BlockView world, BlockPos pos, BlockState state) {
+    public ItemStack getPickStack(WorldView world, BlockPos pos, BlockState state) {
         return ModBlocks.COMPUTER.asItem().getDefaultStack();
     }
 
@@ -125,22 +126,21 @@ public class ComputerBlock extends Block {
     }
 
     public static BlockState handleComputerUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand) {
+        return handleComputerUse(state, world, pos, player, player.getStackInHand(hand));
+    }
+
+    public static BlockState handleComputerUse(BlockState state, World world, BlockPos pos, PlayerEntity player, ItemStack stack) {
         if (world.isClient) return state;
         BlockState newState = state;
         if (player.isSneaking()) {
             if (state.isIn(ModTags.Blocks.COMPUTERS_OFF)) {
                 newState = ModBlocks.COMPUTER_ON.getStateWithProperties(state);
-                if (world.getBlockState(pos.north()).isIn(ModTags.Blocks.COMPUTER_ACCESSORIES)) {
-                    world.setBlockState(pos.north(), world.getBlockState(pos.north()).with(ON, true));
-                }
-                if (world.getBlockState(pos.east()).isIn(ModTags.Blocks.COMPUTER_ACCESSORIES)) {
-                    world.setBlockState(pos.east(), world.getBlockState(pos.east()).with(ON, true));
-                }
-                if (world.getBlockState(pos.south()).isIn(ModTags.Blocks.COMPUTER_ACCESSORIES)) {
-                    world.setBlockState(pos.south(), world.getBlockState(pos.south()).with(ON, true));
-                }
-                if (world.getBlockState(pos.west()).isIn(ModTags.Blocks.COMPUTER_ACCESSORIES)) {
-                    world.setBlockState(pos.west(), world.getBlockState(pos.west()).with(ON, true));
+                for (Direction direction : Direction.Type.HORIZONTAL) {
+                    BlockPos neighborPos = pos.offset(direction);
+                    BlockState neighbor = world.getBlockState(neighborPos);
+                    if (neighbor.isIn(ModTags.Blocks.COMPUTER_ACCESSORIES)) {
+                        world.setBlockState(neighborPos, neighbor.with(ON, true));
+                    }
                 }
             } else {
                 newState = ModBlocks.COMPUTER.getStateWithProperties(state).with(SCREEN, 0);
@@ -148,24 +148,18 @@ public class ComputerBlock extends Block {
             }
             world.playSound(null, pos, ModSounds.BLOCK_COMPUTER_INTERACT, SoundCategory.BLOCKS, 1.0f, 1.0f);
         } else if (state.isIn(ModTags.Blocks.COMPUTERS_ON)) {
-            ItemStack stack = player.getStackInHand(hand);
-            if (stack.isIn(ModTags.Items.GAME_CARTRIDGES) || (stack.isOf(ModItems.FLASH_DRIVE) && !stack.getNbt().getString("app").isEmpty())) {
-                if (!world.isClient) {
-                    BlockState computerState = world.getBlockState(pos);
-                    Identifier id;
-                    if (stack.isIn(ModTags.Items.GAME_CARTRIDGES)) {
-                        id = Registries.ITEM.getId(stack.getItem());
-                    } else {
-                        id = new Identifier(stack.getNbt().getString("app"));
-                    }
+            String app = getFlashDriveApp(stack);
+            if (stack.isIn(ModTags.Items.GAME_CARTRIDGES) || (stack.isOf(ModItems.FLASH_DRIVE) && !app.isEmpty())) {
+                Identifier id = stack.isIn(ModTags.Items.GAME_CARTRIDGES) ? Registries.ITEM.getId(stack.getItem()) : Identifier.tryParse(app);
+                if (id != null) {
                     Optional<VideoGameRegistry.SignalEntry> match = VideoGameRegistry.findBySignal(id);
                     if (match.isPresent()) {
                         VideoGameRegistry.SignalEntry entry = match.get();
-                        newState = entry.computerBlock().getStateWithProperties(computerState).with(SCREEN, entry.gameID());
+                        newState = entry.computerBlock().getStateWithProperties(world.getBlockState(pos)).with(SCREEN, entry.gameID());
                     }
-                    player.incrementStat(Stats.USED.getOrCreateStat(stack.getItem()));
-                    world.playSound(null, pos, ModSounds.BLOCK_COMPUTER_INTERACT, SoundCategory.BLOCKS, 1.0f, 1.0f);
                 }
+                player.incrementStat(Stats.USED.getOrCreateStat(stack.getItem()));
+                world.playSound(null, pos, ModSounds.BLOCK_COMPUTER_INTERACT, SoundCategory.BLOCKS, 1.0f, 1.0f);
             } else {
                 newState = state.cycle(MENU);
             }
@@ -173,16 +167,43 @@ public class ComputerBlock extends Block {
         return newState;
     }
 
-    @Override
-    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        if (world.isClient) return ActionResult.SUCCESS;
-        world.setBlockState(pos, handleComputerUse(state, world, pos, player, hand));
-        return ActionResult.SUCCESS;
+    private static String getFlashDriveApp(ItemStack stack) {
+        NbtComponent customData = stack.get(DataComponentTypes.CUSTOM_DATA);
+        if (customData == null) {
+            return "";
+        }
+        NbtCompound nbt = customData.copyNbt();
+        return nbt.getString("app");
     }
 
     @Override
     public void onBroken(WorldAccess world, BlockPos pos, BlockState state) {
         super.onBroken(world, pos, state);
         TurnOffBlocks((World) world, pos);
+    }
+
+
+    @Override
+    protected ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
+        if (world.isClient) {
+            return ActionResult.SUCCESS;
+        }
+        BlockState newState = handleComputerUse(state, world, pos, player, player.getMainHandStack());
+        if (newState != state) {
+            world.setBlockState(pos, newState);
+        }
+        return ActionResult.SUCCESS;
+    }
+
+    @Override
+    protected ItemActionResult onUseWithItem(ItemStack stack, BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
+        if (world.isClient) {
+            return ItemActionResult.SUCCESS;
+        }
+        BlockState newState = handleComputerUse(state, world, pos, player, stack);
+        if (newState != state) {
+            world.setBlockState(pos, newState);
+        }
+        return ItemActionResult.SUCCESS;
     }
 }

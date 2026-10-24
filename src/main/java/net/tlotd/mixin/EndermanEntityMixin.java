@@ -18,6 +18,6 @@ public class EndermanEntityMixin {
             return true;
         }
         ItemStack helmet = player.getInventory().getArmorStack(3);
-        return helmet.isIn(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "carved_pumpkins")));
+        return helmet.isIn(TagKey.of(RegistryKeys.ITEM, Identifier.of("c", "carved_pumpkins")));
     }
 }

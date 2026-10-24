@@ -1,14 +1,16 @@
 package net.tlotd.recipe;
 
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
-import net.minecraft.inventory.SimpleInventory;
+import com.mojang.serialization.MapCodec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.item.ItemStack;
-import net.minecraft.network.PacketByteBuf;
-import net.minecraft.recipe.*;
-import net.minecraft.registry.DynamicRegistryManager;
-import net.minecraft.util.Identifier;
-import net.minecraft.util.JsonHelper;
+import net.minecraft.network.RegistryByteBuf;
+import net.minecraft.network.codec.PacketCodec;
+import net.minecraft.recipe.Ingredient;
+import net.minecraft.recipe.Recipe;
+import net.minecraft.recipe.RecipeSerializer;
+import net.minecraft.recipe.RecipeType;
+import net.minecraft.recipe.input.RecipeInput;
+import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.world.World;
 
@@ -16,31 +18,34 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class DwarvenForgingRecipe implements Recipe<SimpleInventory> {
+public class DwarvenForgingRecipe implements Recipe<RecipeInput> {
 
-    private final Identifier id;
     private final ItemStack output;
-    private final DefaultedList<Ingredient> recipeItems;
+    private final List<Ingredient> recipeItems;
+
+    public DwarvenForgingRecipe(ItemStack output, List<Ingredient> recipeItems) {
+        this.output = output.copy();
+        this.recipeItems = List.copyOf(recipeItems);
+    }
 
     @Override
     public DefaultedList<Ingredient> getIngredients() {
-        return recipeItems;
-    }
+        DefaultedList<Ingredient> ingredients = DefaultedList.ofSize(recipeItems.size(), Ingredient.EMPTY);
 
-    public DwarvenForgingRecipe(Identifier id, ItemStack output, DefaultedList<Ingredient> recipeItems) {
-        this.id = id;
-        this.output = output;
-        this.recipeItems = recipeItems;
+        for (int i = 0; i < recipeItems.size(); i++) {
+            ingredients.set(i, recipeItems.get(i));
+        }
+        return ingredients;
     }
 
     @Override
-    public boolean matches(SimpleInventory inventory, World world) {
+    public boolean matches(RecipeInput input, World world) {
         if (world.isClient()) {
             return false;
         }
         List<ItemStack> remainingStacks = new ArrayList<>();
-        for (int i = 0; i < inventory.size(); i++) {
-            ItemStack stack = inventory.getStack(i);
+        for (int i = 0; i < input.getSize(); i++) {
+            ItemStack stack = input.getStackInSlot(i);
             if (!stack.isEmpty()) {
                 remainingStacks.add(stack);
             }
@@ -68,23 +73,18 @@ public class DwarvenForgingRecipe implements Recipe<SimpleInventory> {
     }
 
     @Override
-    public ItemStack craft(SimpleInventory inventory, DynamicRegistryManager registryManager) {
-        return output;
-    }
-
-    @Override
     public boolean fits(int width, int height) {
         return true;
     }
 
     @Override
-    public ItemStack getOutput(DynamicRegistryManager registryManager) {
+    public ItemStack craft(RecipeInput inventory, RegistryWrapper.WrapperLookup registries) {
         return output.copy();
     }
 
     @Override
-    public Identifier getId() {
-        return id;
+    public ItemStack getResult(RegistryWrapper.WrapperLookup registries) {
+        return output.copy();
     }
 
     @Override
@@ -98,10 +98,8 @@ public class DwarvenForgingRecipe implements Recipe<SimpleInventory> {
     }
 
     public static class Type implements RecipeType<DwarvenForgingRecipe> {
-        private Type() {
-        }
-
         public static final Type INSTANCE = new Type();
+        private Type() {}
         public static final String ID = "dwarven_forging";
     }
 
@@ -109,32 +107,36 @@ public class DwarvenForgingRecipe implements Recipe<SimpleInventory> {
         public static final Serializer INSTANCE = new Serializer();
         public static final String ID = "dwarven_forging";
 
-        @Override
-        public DwarvenForgingRecipe read(Identifier id, JsonObject json) {
-            ItemStack output = ShapedRecipe.outputFromJson(JsonHelper.getObject(json, "output"));
-            JsonArray ingredients = JsonHelper.getArray(json, "ingredients");
-            DefaultedList<Ingredient> inputs = DefaultedList.ofSize(3, Ingredient.EMPTY);
-            for (int i = 0; i < ingredients.size(); i++) {
-                inputs.set(i, Ingredient.fromJson(ingredients.get(i)));
+        private static final MapCodec<DwarvenForgingRecipe> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(Ingredient.DISALLOW_EMPTY_CODEC.listOf().fieldOf("ingredients").forGetter(recipe -> recipe.recipeItems),
+                ItemStack.CODEC.fieldOf("result").forGetter(recipe -> recipe.output)).apply(instance, (ingredients, output) -> new DwarvenForgingRecipe(output, ingredients)));
+
+        private static final PacketCodec<RegistryByteBuf, DwarvenForgingRecipe> PACKET_CODEC = PacketCodec.of((recipe, buf) -> {
+            buf.writeVarInt(recipe.recipeItems.size());
+            for (Ingredient ingredient : recipe.recipeItems) {
+                Ingredient.PACKET_CODEC.encode(buf, ingredient);
             }
-            return new DwarvenForgingRecipe(id, output, inputs);
+            ItemStack.PACKET_CODEC.encode(buf, recipe.output);
+        }, buf -> {
+            int size = buf.readVarInt();
+            List<Ingredient> ingredients = new ArrayList<>(size);
+            for (int i = 0; i < size; i++) {
+                ingredients.add(Ingredient.PACKET_CODEC.decode(buf));
+            }
+            ItemStack output = ItemStack.PACKET_CODEC.decode(buf);
+            return new DwarvenForgingRecipe(output, ingredients);
+        });
+
+        private Serializer() {
         }
 
         @Override
-        public DwarvenForgingRecipe read(Identifier id, PacketByteBuf buf) {
-            DefaultedList<Ingredient> inputs = DefaultedList.ofSize(buf.readInt(), Ingredient.EMPTY);
-            inputs.replaceAll(ignored -> Ingredient.fromPacket(buf));
-            ItemStack output = buf.readItemStack();
-            return new DwarvenForgingRecipe(id, output, inputs);
+        public MapCodec<DwarvenForgingRecipe> codec() {
+            return CODEC;
         }
 
         @Override
-        public void write(PacketByteBuf buf, DwarvenForgingRecipe recipe) {
-            buf.writeInt(recipe.getIngredients().size());
-            for (Ingredient ing : recipe.getIngredients()) {
-                ing.write(buf);
-            }
-            buf.writeItemStack(recipe.getOutput(null));
+        public PacketCodec<RegistryByteBuf, DwarvenForgingRecipe> packetCodec() {
+            return PACKET_CODEC;
         }
     }
 }

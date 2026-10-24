@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "tlotd:stackable_book"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:book"
+  }
+}

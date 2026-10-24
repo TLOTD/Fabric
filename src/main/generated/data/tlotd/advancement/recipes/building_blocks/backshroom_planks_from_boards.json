@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_backshroom_baseboard": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tlotd:backshroom_baseboard"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "tlotd:backshroom_planks_from_boards"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_backshroom_baseboard"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "tlotd:backshroom_planks_from_boards"
+    ]
+  }
+}

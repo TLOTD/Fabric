@@ -11,6 +11,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.PersistentState;
 import org.jetbrains.annotations.Nullable;
+import net.minecraft.registry.RegistryWrapper;
 
 import java.util.*;
 
@@ -19,18 +20,20 @@ public class SignalTrackingArray extends PersistentState {
     private final Set<Identifier> dimensionSignals = new LinkedHashSet<>();
     private static final Map<BlockPos, RadioStation> stations = new HashMap<>();
 
+    private static final Type<SignalTrackingArray> TYPE = new Type<>(SignalTrackingArray::new, SignalTrackingArray::createFromNbt, null);
+
     public static SignalTrackingArray get(ServerWorld world) {
-        return world.getPersistentStateManager().getOrCreate(SignalTrackingArray::createFromNbt, SignalTrackingArray::new, "tlotd_signals");
+        return world.getPersistentStateManager().getOrCreate(TYPE, "tlotd_signals");
     }
 
-    public static SignalTrackingArray createFromNbt(NbtCompound nbt) {
+    public static SignalTrackingArray createFromNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registryLookup) {
         SignalTrackingArray state = new SignalTrackingArray();
         NbtList stationList = nbt.getList("stations", NbtElement.COMPOUND_TYPE);
         for (NbtElement element : stationList) {
             RadioStation station = RadioStation.fromNbt((NbtCompound) element);
             stations.put(station.getPos(), station);
         }
-        NbtList dimensionList = nbt.getList("dimensional_signals", NbtElement.STRING_TYPE);
+        NbtList dimensionList = nbt.getList("dimension_signals", NbtElement.STRING_TYPE);
         for (NbtElement element : dimensionList) {
             Identifier id = Identifier.tryParse(element.asString());
 
@@ -38,12 +41,11 @@ public class SignalTrackingArray extends PersistentState {
                 state.dimensionSignals.add(id);
             }
         }
-
         return state;
     }
 
     @Override
-    public NbtCompound writeNbt(NbtCompound nbt) {
+    public NbtCompound writeNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registryLookup) {
         NbtList stationList = new NbtList();
         for (RadioStation station : stations.values()) {
             stationList.add(station.writeNbt());
@@ -228,16 +230,20 @@ public class SignalTrackingArray extends PersistentState {
 
     public static Text getCountText(int count) {
         return switch (count) {
-            case 0 -> Text.translatable("block.tlotd.signal_transmitter.signal_count.0", count).formatted(Formatting.GRAY);
-            case 1 -> Text.translatable("block.tlotd.signal_transmitter.signal_count.1", count).formatted(Formatting.GRAY);
-            default -> Text.translatable("block.tlotd.signal_transmitter.signal_count.n", count).formatted(Formatting.GRAY);
+            case 0 ->
+                    Text.translatable("block.tlotd.signal_transmitter.signal_count.0", count).formatted(Formatting.GRAY);
+            case 1 ->
+                    Text.translatable("block.tlotd.signal_transmitter.signal_count.1", count).formatted(Formatting.GRAY);
+            default ->
+                    Text.translatable("block.tlotd.signal_transmitter.signal_count.n", count).formatted(Formatting.GRAY);
         };
     }
 
     public static Text getStrenthText(int strength) {
         return switch (strength) {
             case 1 -> Text.translatable("block.tlotd.signal_transmitter.signal_strength.1").formatted(Formatting.RED);
-            case 2 -> Text.translatable("block.tlotd.signal_transmitter.signal_strength.2").formatted(Formatting.YELLOW);
+            case 2 ->
+                    Text.translatable("block.tlotd.signal_transmitter.signal_strength.2").formatted(Formatting.YELLOW);
             case 3 -> Text.translatable("block.tlotd.signal_transmitter.signal_strength.3").formatted(Formatting.GREEN);
             case 4 -> Text.translatable("block.tlotd.signal_transmitter.signal_strength.4").formatted(Formatting.BLUE);
             case 5 -> Text.translatable("block.tlotd.signal_transmitter.signal_strength.5").formatted(Formatting.WHITE);
@@ -263,25 +269,30 @@ public class SignalTrackingArray extends PersistentState {
     public boolean hasDimensionSignal(Identifier id) {
         return dimensionSignals.contains(id);
     }
+
     public void addDimensionSignal(Identifier id) {
         if (dimensionSignals.add(id)) {
             markDirty();
         }
     }
+
     public void removeDimensionSignal(Identifier id) {
         if (dimensionSignals.remove(id)) {
             markDirty();
         }
     }
+
     public void clearDimensionSignals() {
         if (!dimensionSignals.isEmpty()) {
             dimensionSignals.clear();
             markDirty();
         }
     }
+
     public Set<Identifier> getDimensionSignals() {
         return Collections.unmodifiableSet(dimensionSignals);
     }
+
     public boolean hasDimensionSignals() {
         return !dimensionSignals.isEmpty();
     }

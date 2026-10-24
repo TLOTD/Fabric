@@ -1,14 +1,13 @@
 package net.tlotd.item.custom;
 
-import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
-import net.minecraft.text.Style;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
@@ -17,8 +16,8 @@ import net.minecraft.world.World;
 import net.tlotd.item.ModItems;
 import net.tlotd.networking.PlayerDataSyncNetworking;
 import net.tlotd.networking.PlayerDataSyncPacket;
+import net.tlotd.networking.PlayerDataSyncPayload;
 import net.tlotd.util.EntityDataSaver;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
@@ -57,7 +56,7 @@ public class EnlightenmentItem extends Item {
             int enlightened = nbt.getInt("Enlightened");
             if (new_enlightened > enlightened) {
                 nbt.putInt("Enlightened", new_enlightened);
-                PlayerDataSyncNetworking.sendToClient((ServerPlayerEntity) user, new PlayerDataSyncPacket(nbt));
+                PlayerDataSyncNetworking.sendToClient((ServerPlayerEntity) user, new PlayerDataSyncPayload(nbt));
                 world.playSound(null, user.getBlockPos(), SoundEvents.BLOCK_RESPAWN_ANCHOR_CHARGE, SoundCategory.BLOCKS, 1f, 1f);
                 user.getStackInHand(hand).decrement(1);
             } else {
@@ -68,7 +67,7 @@ public class EnlightenmentItem extends Item {
     }
 
     @Override
-    public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
+    public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
         int enlightened = 10;
         if (stack.isOf(ModItems.ARTIFACT_OF_ENLIGHTENMENT)) {
             enlightened = 20;
@@ -78,6 +77,6 @@ public class EnlightenmentItem extends Item {
         tooltip.add(Text.empty());
         tooltip.add(Text.translatable("item.tlotd.enlightenment.tooltip").formatted(Formatting.GRAY));
         tooltip.add(Text.translatable("item.tlotd.enlightenment.tooltip_2", enlightened).formatted(Formatting.BLUE));
-        super.appendTooltip(stack, world, tooltip, context);
+        super.appendTooltip(stack, context, tooltip, type);
     }
 }

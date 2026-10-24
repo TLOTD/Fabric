@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:enchanted_golden_apple"
+    },
+    {
+      "item": "tlotd:stick_cross"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "tlotd:globus_cruciger"
+  }
+}

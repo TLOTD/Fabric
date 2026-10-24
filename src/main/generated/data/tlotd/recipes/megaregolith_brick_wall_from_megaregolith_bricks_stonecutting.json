@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "count": 1,
-  "ingredient": {
-    "item": "tlotd:megaregolith_bricks"
-  },
-  "result": "tlotd:megaregolith_brick_wall"
-}

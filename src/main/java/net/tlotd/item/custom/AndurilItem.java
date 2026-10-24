@@ -1,23 +1,23 @@
 package net.tlotd.item.custom;
 
 import net.minecraft.client.gui.screen.Screen;
-import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ShieldItem;
 import net.minecraft.item.SwordItem;
 import net.minecraft.item.ToolMaterial;
+import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.text.Style;
 import net.minecraft.text.Text;
 import net.minecraft.util.*;
 import net.minecraft.world.World;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
 public class AndurilItem extends SwordItem {
-    public AndurilItem(ToolMaterial toolMaterial, int attackDamage, float attackSpeed, Settings settings) {
-        super(toolMaterial, attackDamage, attackSpeed, settings);
+
+    public AndurilItem(ToolMaterial toolMaterial, Settings settings) {
+        super(toolMaterial, settings);
     }
 
     public UseAction getUseAction(ItemStack stack) {
@@ -43,10 +43,10 @@ public class AndurilItem extends SwordItem {
         return TypedActionResult.consume(stack);
     }
 
-    public static final Identifier TENGWAR_FONT_ID = new Identifier("tlotd", "tengwar");
+    public static final Identifier TENGWAR_FONT_ID = Identifier.of("tlotd", "tengwar");
 
     @Override
-    public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
+    public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
         Style style = getName().getStyle();
         if (Screen.hasShiftDown()) {
             tooltip.add(Text.translatable("item.tlotd.anduril.tooltip").formatted(Formatting.GRAY));
@@ -57,6 +57,6 @@ public class AndurilItem extends SwordItem {
             tooltip.add(Text.translatable("item.tlotd.anduril.tooltip_tengwar_2").setStyle(style.withFont(TENGWAR_FONT_ID).withColor(Formatting.GRAY)));
             tooltip.add(Text.translatable("item.tlotd.anduril.tooltip_tengwar_3").setStyle(style.withFont(TENGWAR_FONT_ID).withColor(Formatting.GRAY)).append(" ").append(Text.translatable("item.tlotd.narsil_tengwar").setStyle(style.withFont(TENGWAR_FONT_ID).withColor(Formatting.YELLOW))).append(Text.translatable("item.tlotd.anduril.tooltip_tengwar_4").setStyle(style.withFont(TENGWAR_FONT_ID).withColor(Formatting.GRAY))));
         }
-        super.appendTooltip(stack, world, tooltip, context);
+        super.appendTooltip(stack, context, tooltip, type);
     }
 }

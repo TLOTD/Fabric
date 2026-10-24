@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_endurium_leggings": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tlotd:endurium_leggings"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "tlotd:endurium_nugget_from_blasting_endurium_leggings"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_endurium_leggings"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "tlotd:endurium_nugget_from_blasting_endurium_leggings"
+    ]
+  }
+}

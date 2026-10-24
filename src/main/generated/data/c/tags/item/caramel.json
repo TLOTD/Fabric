@@ -1,0 +1,9 @@
+{
+  "values": [
+    "tlotd:caramel",
+    {
+      "id": "alexscaves:caramel",
+      "required": false
+    }
+  ]
+}

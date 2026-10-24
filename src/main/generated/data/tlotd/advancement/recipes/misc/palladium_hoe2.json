@@ -1,0 +1,43 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_fossilized_bone": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tlotd:fossilized_bone"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_palladium_ingot": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tlotd:palladium_ingot"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "tlotd:palladium_hoe2"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_palladium_ingot",
+      "has_fossilized_bone"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "tlotd:palladium_hoe2"
+    ]
+  }
+}

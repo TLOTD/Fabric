@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "tlotd:mithril_plate"
+    },
+    "C": {
+      "item": "tlotd:mithril_chainmail_chunk"
+    },
+    "G": {
+      "tag": "c:gold_nuggets"
+    }
+  },
+  "pattern": [
+    "G G",
+    "C C",
+    "# #"
+  ],
+  "result": {
+    "count": 1,
+    "id": "tlotd:mithril_boots"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "tag": "c:coals"
+    },
+    "C": {
+      "tag": "c:copper_nuggets"
+    },
+    "I": {
+      "tag": "c:wooden_rods"
+    }
+  },
+  "pattern": [
+    "C",
+    "#",
+    "I"
+  ],
+  "result": {
+    "count": 4,
+    "id": "tlotd:copper_torch"
+  }
+}

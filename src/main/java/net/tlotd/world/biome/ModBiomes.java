@@ -1,11 +1,11 @@
 package net.tlotd.world.biome;
 
-import net.minecraft.client.sound.MusicType;
-import net.minecraft.entity.SpawnGroup;
 import net.minecraft.registry.Registerable;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.sound.BiomeMoodSound;
+import net.minecraft.sound.MusicSound;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeEffects;
@@ -14,18 +14,17 @@ import net.minecraft.world.biome.SpawnSettings;
 import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.feature.DefaultBiomeFeatures;
 import net.tlotd.TLOTD;
-import net.tlotd.entity.ModEntities;
 import net.tlotd.world.ModPlacedFeatures;
 
 public class ModBiomes {
     public static final RegistryKey<Biome> PREHISTORIC_JUNGLE = RegistryKey.of(RegistryKeys.BIOME,
-            new Identifier(TLOTD.MOD_ID,"prehistoric_jungle")
+            Identifier.of(TLOTD.MOD_ID,"prehistoric_jungle")
     );
     public static final RegistryKey<Biome> LUNAR_HIGHLANDS = RegistryKey.of(RegistryKeys.BIOME,
-            new Identifier(TLOTD.MOD_ID,"lunar_highlands")
+            Identifier.of(TLOTD.MOD_ID,"lunar_highlands")
     );
     public static final RegistryKey<Biome> LEVEL_1 = RegistryKey.of(RegistryKeys.BIOME,
-            new Identifier(TLOTD.MOD_ID,"level_1")
+            Identifier.of(TLOTD.MOD_ID,"level_1")
     );
 
     public static void bootstrap(Registerable<Biome> context) {
@@ -45,7 +44,7 @@ public class ModBiomes {
 
     public static Biome prehistoricJungle(Registerable<Biome> context) {
         SpawnSettings.Builder spawnBuilder = new SpawnSettings.Builder();
-        spawnBuilder.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(ModEntities.TREX, 2, 1, 3));
+        //spawnBuilder.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(ModEntities.TREX, 2, 1, 3));
 
         DefaultBiomeFeatures.addFarmAnimals(spawnBuilder);
         DefaultBiomeFeatures.addBatsAndMonsters(spawnBuilder);
@@ -83,7 +82,12 @@ public class ModBiomes {
                         .fogColor(0xCCCCFF)
                         .skyColor(0xCCCCFF)
                         .moodSound(BiomeMoodSound.CAVE)
-                        .music(MusicType.GAME)
+                        .music(new MusicSound(
+                                SoundEvents.MUSIC_GAME,
+                                12000,
+                                24000,
+                                false
+                        ))
                         .build()
                 ).build();
     }
@@ -108,7 +112,12 @@ public class ModBiomes {
                         .fogColor(0x000000)
                         .skyColor(0x000000)
                         .moodSound(BiomeMoodSound.CAVE)
-                        .music(MusicType.GAME)
+                        .music(new MusicSound(
+                                SoundEvents.MUSIC_GAME,
+                                12000,
+                                24000,
+                                false
+                        ))
                         .build()
                 ).build();
     }
@@ -133,7 +142,12 @@ public class ModBiomes {
                         .fogColor(0x000000)
                         .skyColor(0x000000)
                         .moodSound(BiomeMoodSound.CAVE)
-                        .music(MusicType.GAME)
+                        .music(new MusicSound(
+                                SoundEvents.MUSIC_GAME,
+                                12000,
+                                24000,
+                                false
+                        ))
                         .build()
                 ).build();
     }

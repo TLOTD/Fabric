@@ -1,7 +1,7 @@
 package net.tlotd.item.custom;
 
+import it.unimi.dsi.fastutil.objects.Object2IntMap;
 import net.minecraft.client.gui.screen.Screen;
-import net.minecraft.client.item.TooltipContext;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
@@ -11,7 +11,7 @@ import net.minecraft.inventory.StackReference;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsage;
-import net.minecraft.nbt.NbtCompound;
+import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.screen.slot.Slot;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
@@ -23,46 +23,55 @@ import net.minecraft.text.Text;
 import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
+import net.minecraft.world.TeleportTarget;
 import net.minecraft.world.World;
+import net.tlotd.components.ModComponents;
 import net.tlotd.enchantments.ModEnchantments;
 import net.tlotd.item.ModItems;
 import net.tlotd.sound.ModSounds;
 import net.tlotd.world.dimension.ModDimensionsDataGenerator;
-import org.jetbrains.annotations.Nullable;
 
+import java.util.List;
 import java.util.Optional;
 
 public class MithrilMirrorItem extends Item {
-
-    private static final String CHARGES_USED_KEY = "ChargesUsed";
-    private static final int BASE_MAX_CHARGES = 5;
-    private static final int CHARGES_PER_LEVEL = 1;
-    public static final Identifier TENGWAR_FONT_ID = new Identifier("tlotd", "tengwar");
-    public static final Identifier ILLAGER_FONT_ID = new Identifier("minecraft", "illageralt");
-    public static final Identifier SOUL_CHARGES_FONT_ID = new Identifier("tlotd", "soul_charges");
 
     public MithrilMirrorItem(Settings settings) {
         super(settings);
     }
 
-    @Override
-    public UseAction getUseAction(ItemStack stack) {
-        return UseAction.BOW;
+    private static final String CHARGES_USED_KEY = "ChargesUsed";
+    private static final int BASE_MAX_CHARGES = 5;
+    private static final int CHARGES_PER_LEVEL = 1;
+    public static final Identifier TENGWAR_FONT_ID = Identifier.of("tlotd", "tengwar");
+    public static final Identifier ILLAGER_FONT_ID = Identifier.of("minecraft", "illageralt");
+    public static final Identifier SOUL_CHARGES_FONT_ID = Identifier.of("tlotd", "soul_charges");
+
+    private static int getChargesUsed(ItemStack stack) {
+        return stack.getOrDefault(ModComponents.MITHRIL_MIRROR_CHARGES_USED, 0);
+    }
+
+    private static void setChargesUsed(ItemStack stack, int charges) {
+        stack.set(ModComponents.MITHRIL_MIRROR_CHARGES_USED, Math.max(0, charges));
     }
 
     public float getProgress(ItemStack stack) {
-        if (!stack.hasNbt()) return 1.0f;
-        NbtCompound tag = stack.getNbt();
-        int used = tag.getInt(CHARGES_USED_KEY);
+        int used = getChargesUsed(stack);
         int maxCharges = getMaxCharges(stack);
-        return Math.max(1.0f - ((float) used / (float) maxCharges), 0);
+        return maxCharges <= 0 ? 0.0f : Math.max(1.0f - ((float) used / maxCharges), 0.0f);
     }
 
     @Override
     public boolean isItemBarVisible(ItemStack stack) {
-        if (!stack.hasNbt()) return false;
-        if (EnchantmentHelper.getLevel(ModEnchantments.CURSED_REFLECTION, stack) > 0) return false;
-        return stack.getNbt().getInt(CHARGES_USED_KEY) > 0;
+        if (EnchantmentHelper.getEnchantments(stack).getEnchantmentEntries().stream().anyMatch(entry -> entry.getKey().getKey().filter(ModEnchantments.CURSED_REFLECTION::equals).isPresent() && entry.getIntValue() > 0)) {
+            return false;
+        }
+        return getChargesUsed(stack) > 0;
+    }
+
+    @Override
+    public UseAction getUseAction(ItemStack stack) {
+        return UseAction.BOW;
     }
 
     @Override
@@ -72,10 +81,8 @@ public class MithrilMirrorItem extends Item {
 
     @Override
     public int getItemBarColor(ItemStack stack) {
-        if (EnchantmentHelper.getLevel(ModEnchantments.CURSED_REFLECTION, stack) > 0) {
-            return 0xB00000;
-        }
-        return 0x3C009C;
+        boolean hasCursedReflection = EnchantmentHelper.getEnchantments(stack).getEnchantmentEntries().stream().anyMatch(entry -> entry.getKey().getKey().filter(ModEnchantments.CURSED_REFLECTION::equals).isPresent() && entry.getIntValue() > 0);
+        return hasCursedReflection ? 0xB00000 : 0x3C009C;
     }
 
     @Override
@@ -86,16 +93,13 @@ public class MithrilMirrorItem extends Item {
     public ItemStack finishUsing(ItemStack stack, World world, LivingEntity user) {
         if (!(user instanceof PlayerEntity player)) return stack;
         if (!world.isClient()) {
-            int usedCharges = stack.hasNbt() ? stack.getOrCreateNbt().getInt(CHARGES_USED_KEY) : 0;
+            int usedCharges = getChargesUsed(stack);
             if (usedCharges < getMaxCharges(stack)) {
                 ServerPlayerEntity serverPlayer = (ServerPlayerEntity) player;
                 ServerWorld targetWorld = serverPlayer.server.getWorld(serverPlayer.getSpawnPointDimension());
                 if (targetWorld != null) {
-                    BlockPos spawnpoint = serverPlayer.getSpawnPointPosition();
-                    boolean worldspawn = false;
-                    int transLevel = EnchantmentHelper.getLevel(ModEnchantments.TRANSDIMENSIONAL, stack);
-                    NbtCompound tag = stack.getOrCreateNbt();
-                    int used = tag.getInt(CHARGES_USED_KEY);
+                    int transLevel = EnchantmentHelper.getEnchantments(stack).getEnchantmentEntries().stream().filter(entry -> entry.getKey().getKey().filter(ModEnchantments.TRANSDIMENSIONAL::equals).isPresent()).mapToInt(Object2IntMap.Entry::getIntValue).findFirst().orElse(0);
+                    int used = getChargesUsed(stack);
                     int maxCharges = getMaxCharges(stack);
                     int remaining = maxCharges - used;
                     boolean crossDim = !targetWorld.getRegistryKey().equals(player.getWorld().getRegistryKey());
@@ -103,12 +107,12 @@ public class MithrilMirrorItem extends Item {
                     if (player.getWorld().getRegistryKey().equals(ModDimensionsDataGenerator.BACKROOMS_LEVEL_KEY)) {
                         player.sendMessage(Text.translatable("item.tlotd.mithril_mirror.cannot_escape", cost).formatted(Formatting.RED), true);
                         world.playSound(null, player.getBlockPos(), SoundEvents.ENTITY_SHULKER_BULLET_HURT, SoundCategory.PLAYERS, 1f, 1f);
-                        player.getItemCooldownManager().set(ModItems.MITHRIL_MIRROR, getMaxUseTime(stack) * 20);
+                        player.getItemCooldownManager().set(ModItems.MITHRIL_MIRROR, getMaxUseTime(stack, user) * 20);
                         return stack;
                     } else if (targetWorld.getRegistryKey().equals(ModDimensionsDataGenerator.BACKROOMS_LEVEL_KEY)) {
                         player.sendMessage(Text.translatable("item.tlotd.mithril_mirror.destination_unknown", cost).formatted(Formatting.RED), true);
                         world.playSound(null, player.getBlockPos(), SoundEvents.ENTITY_SHULKER_BULLET_HURT, SoundCategory.PLAYERS, 1f, 1f);
-                        player.getItemCooldownManager().set(ModItems.MITHRIL_MIRROR, getMaxUseTime(stack) * 20);
+                        player.getItemCooldownManager().set(ModItems.MITHRIL_MIRROR, getMaxUseTime(stack, user) * 20);
                         return stack;
                     } else if (crossDim && transLevel > 0) {
                         cost = switch (transLevel) {
@@ -121,50 +125,38 @@ public class MithrilMirrorItem extends Item {
                         if (remaining < cost) {
                             player.sendMessage(Text.translatable("item.tlotd.mithril_mirror.charges_requirement", cost).formatted(Formatting.RED), true);
                             world.playSound(null, player.getBlockPos(), SoundEvents.ENTITY_SHULKER_BULLET_HURT, SoundCategory.PLAYERS, 1f, 1f);
-                            player.getItemCooldownManager().set(ModItems.MITHRIL_MIRROR, getMaxUseTime(stack) * 20);
+                            player.getItemCooldownManager().set(ModItems.MITHRIL_MIRROR, getMaxUseTime(stack, user) * 20);
                             return stack;
                         }
                     } else if (crossDim) {
                         player.sendMessage(Text.translatable("item.tlotd.mithril_mirror.transdimensional").formatted(Formatting.RED), true);
                         world.playSound(null, player.getBlockPos(), SoundEvents.ENTITY_SHULKER_BULLET_HURT, SoundCategory.PLAYERS, 1f, 1f);
-                        player.getItemCooldownManager().set(ModItems.MITHRIL_MIRROR, getMaxUseTime(stack) * 20);
+                        player.getItemCooldownManager().set(ModItems.MITHRIL_MIRROR, getMaxUseTime(stack, user) * 20);
                         return stack;
                     }
-                    Optional<Vec3d> optionalSpawnVec = Optional.empty();
-                    if (spawnpoint != null)
-                        optionalSpawnVec = PlayerEntity.findRespawnPosition(targetWorld, spawnpoint, serverPlayer.getSpawnAngle(), false, false);
-                    if (spawnpoint == null || optionalSpawnVec.isEmpty()) {
-                        worldspawn = true;
-                    } else {
-                        Vec3d spawnVec = optionalSpawnVec.get();
-                        serverPlayer.teleport(targetWorld, spawnVec.getX(), spawnVec.getY(), spawnVec.getZ(), serverPlayer.getSpawnAngle(), 0.5F);
-                        targetWorld.playSound(null, spawnpoint, ModSounds.ITEM_MITHRIL_MIRROR, SoundCategory.PLAYERS, 0.4f, 0.8f);
-                    }
-                    if (worldspawn) {
-                        spawnpoint = serverPlayer.server.getOverworld().getSpawnPos();
-                        serverPlayer.teleport(serverPlayer.server.getOverworld(), spawnpoint.getX(), spawnpoint.getY(), spawnpoint.getZ(), serverPlayer.getSpawnAngle(), 0.5F);
-                        while (!targetWorld.isSpaceEmpty(serverPlayer)) {
-                            serverPlayer.teleport(serverPlayer.getX(), serverPlayer.getY() + 1.0D, serverPlayer.getZ());
-                        }
-                        targetWorld.playSound(null, spawnpoint, ModSounds.ITEM_MITHRIL_MIRROR, SoundCategory.PLAYERS, 0.4f, 0.8f);
-                    }
+                    TeleportTarget respawnTarget = serverPlayer.getRespawnTarget(false, TeleportTarget.NO_OP);
+                    ServerWorld respawnWorld = respawnTarget.world();
+                    Vec3d respawnPos = respawnTarget.pos();
+                    serverPlayer.teleport(respawnWorld, respawnPos.x, respawnPos.y, respawnPos.z, respawnTarget.yaw(), respawnTarget.pitch());
+                    BlockPos soundPos = BlockPos.ofFloored(respawnPos);
+                    respawnWorld.playSound(null, soundPos, ModSounds.ITEM_MITHRIL_MIRROR, SoundCategory.PLAYERS, 0.4F, 0.8F);
                     player.addStatusEffect(new StatusEffectInstance(StatusEffects.BLINDNESS, 20, 0, false, false));
                     player.addStatusEffect(new StatusEffectInstance(StatusEffects.NAUSEA, 20, 0, false, false));
                     player.addStatusEffect(new StatusEffectInstance(StatusEffects.WEAKNESS, 20, 0, false, false));
                     player.addStatusEffect(new StatusEffectInstance(StatusEffects.MINING_FATIGUE, 20, 0, false, false));
-                    int protection = EnchantmentHelper.getLevel(ModEnchantments.REINFORCED_GLASS, stack);
+                    int protection = EnchantmentHelper.getEnchantments(stack).getEnchantmentEntries().stream().filter(entry -> entry.getKey().getKey().filter(ModEnchantments.REINFORCED_GLASS::equals).isPresent()).mapToInt(Object2IntMap.Entry::getIntValue).findFirst().orElse(0);
                     if (protection > 0) {
                         player.addStatusEffect(new StatusEffectInstance(StatusEffects.RESISTANCE, protection * 20, 4, false, false));
                     }
-                    if (EnchantmentHelper.getLevel(ModEnchantments.CURSED_REFLECTION, stack) > 0) {
+                    int curseLevel = EnchantmentHelper.getEnchantments(stack).getEnchantmentEntries().stream().filter(entry -> entry.getKey().getKey().filter(ModEnchantments.CURSED_REFLECTION::equals).isPresent()).mapToInt(Object2IntMap.Entry::getIntValue).findFirst().orElse(0);
+                    int restorativeLevel = EnchantmentHelper.getEnchantments(stack).getEnchantmentEntries().stream().filter(entry -> entry.getKey().getKey().filter(ModEnchantments.REFILL_CHARGES::equals).isPresent()).mapToInt(Object2IntMap.Entry::getIntValue).findFirst().orElse(0);
+                    if (curseLevel > 0) {
                         player.setHealth(1.0F);
                         world.playSound(null, player.getBlockPos(), SoundEvents.ENTITY_WITHER_SPAWN, SoundCategory.PLAYERS, 0.8f, 0.6f);
                     }
-                    int curseLevel = EnchantmentHelper.getLevel(ModEnchantments.CURSED_REFLECTION, stack);
-                    int restorativeLevel = EnchantmentHelper.getLevel(ModEnchantments.REFILL_CHARGES, stack);
                     if (curseLevel == 0) {
                         used += crossDim ? cost : 1;
-                        tag.putInt(CHARGES_USED_KEY, used);
+                        setChargesUsed(stack, used);
                     }
                     if (used >= maxCharges) {
                         Item requiredFuel = (curseLevel > 0) ? ModItems.CURSED_SOUL_FLASK : ModItems.SOUL_FLASK_OF_THE_ABYSS;
@@ -176,8 +168,8 @@ public class MithrilMirrorItem extends Item {
                                     if (!player.getInventory().insertStack(ModItems.TINTED_GLASS_FLASK.getDefaultStack())) {
                                         player.dropItem(ModItems.TINTED_GLASS_FLASK.getDefaultStack(), false);
                                     }
-                                    stack.getOrCreateNbt().putInt(CHARGES_USED_KEY, 0);
-                                    world.playSound(null, player.getBlockPos(), (EnchantmentHelper.getLevel(ModEnchantments.CURSED_REFLECTION, stack) > 0) ? SoundEvents.ENTITY_WITHER_HURT : SoundEvents.ITEM_BOTTLE_FILL_DRAGONBREATH, SoundCategory.PLAYERS, 0.8f, 1.2f);
+                                    setChargesUsed(stack, 0);
+                                    world.playSound(null, player.getBlockPos(), (curseLevel > 0) ? SoundEvents.ENTITY_WITHER_HURT : SoundEvents.ITEM_BOTTLE_FILL_DRAGONBREATH, SoundCategory.PLAYERS, 0.8f, 1.2f);
                                     break;
                                 }
                             }
@@ -188,7 +180,7 @@ public class MithrilMirrorItem extends Item {
                 }
             } else {
                 boolean restored = false;
-                boolean isCursed = EnchantmentHelper.getLevel(ModEnchantments.CURSED_REFLECTION, stack) > 0;
+                boolean isCursed = EnchantmentHelper.getEnchantments(stack).getEnchantmentEntries().stream().anyMatch(entry -> entry.getKey().getKey().filter(ModEnchantments.CURSED_REFLECTION::equals).isPresent() && entry.getIntValue() > 0);
                 Item requiredFuel = isCursed ? ModItems.CURSED_SOUL_FLASK : ModItems.SOUL_FLASK_OF_THE_ABYSS;
                 for (int i = 0; i < player.getInventory().size(); i++) {
                     ItemStack invStack = player.getInventory().getStack(i);
@@ -197,8 +189,8 @@ public class MithrilMirrorItem extends Item {
                         if (!player.getInventory().insertStack(ModItems.TINTED_GLASS_FLASK.getDefaultStack())) {
                             player.dropItem(ModItems.TINTED_GLASS_FLASK.getDefaultStack(), false);
                         }
-                        stack.getOrCreateNbt().putInt(CHARGES_USED_KEY, 0);
-                        world.playSound(null, player.getBlockPos(), (EnchantmentHelper.getLevel(ModEnchantments.CURSED_REFLECTION, stack) > 0) ? SoundEvents.ENTITY_WITHER_HURT : SoundEvents.ITEM_BOTTLE_FILL_DRAGONBREATH, SoundCategory.PLAYERS, 0.8f, 1.2f);
+                        setChargesUsed(stack, 0);
+                        world.playSound(null, player.getBlockPos(), isCursed ? SoundEvents.ENTITY_WITHER_HURT : SoundEvents.ITEM_BOTTLE_FILL_DRAGONBREATH, SoundCategory.PLAYERS, 0.8f, 1.2f);
                         restored = true;
                         break;
                     }
@@ -207,19 +199,19 @@ public class MithrilMirrorItem extends Item {
                     player.sendMessage(Text.translatable("item.tlotd.mithril_mirror.foggy.charge_item_missing").formatted(Formatting.RED), true);
                     world.playSound(null, player.getBlockPos(), SoundEvents.ENTITY_SHULKER_BULLET_HURT, SoundCategory.PLAYERS, 1f, 1f);
                 }
-                player.getItemCooldownManager().set(ModItems.MITHRIL_MIRROR, getMaxUseTime(stack) * 5);
+                player.getItemCooldownManager().set(ModItems.MITHRIL_MIRROR, getMaxUseTime(stack, user) * 5);
                 player.incrementStat(Stats.USED.getOrCreateStat(this));
                 return stack;
             }
         }
-        player.getItemCooldownManager().set(ModItems.MITHRIL_MIRROR, getMaxUseTime(stack) * 20);
+        player.getItemCooldownManager().set(ModItems.MITHRIL_MIRROR, getMaxUseTime(stack, user) * 20);
         player.incrementStat(Stats.USED.getOrCreateStat(this));
         return stack;
     }
 
     @Override
-    public int getMaxUseTime(ItemStack stack) {
-        int speedLevel = EnchantmentHelper.getLevel(ModEnchantments.SHARPER_LENS, stack);
+    public int getMaxUseTime(ItemStack stack, LivingEntity user) {
+        int speedLevel = EnchantmentHelper.getEnchantments(stack).getEnchantmentEntries().stream().filter(entry -> entry.getKey().getKey().filter(ModEnchantments.SHARPER_LENS::equals).isPresent()).mapToInt(Object2IntMap.Entry::getIntValue).findFirst().orElse(0);
         int useTime = 40;
         if (speedLevel > 0) {
             useTime = switch (speedLevel) {
@@ -239,7 +231,7 @@ public class MithrilMirrorItem extends Item {
     }
 
     public static int getMaxCharges(ItemStack stack) {
-        int abyssLevel = EnchantmentHelper.getLevel(ModEnchantments.DEPTH_OF_THE_ABYSS, stack);
+        int abyssLevel = EnchantmentHelper.getEnchantments(stack).getEnchantmentEntries().stream().filter(entry -> entry.getKey().getKey().filter(ModEnchantments.DEPTH_OF_THE_ABYSS::equals).isPresent()).mapToInt(Object2IntMap.Entry::getIntValue).findFirst().orElse(0);
         return BASE_MAX_CHARGES + (abyssLevel * CHARGES_PER_LEVEL);
     }
 
@@ -263,21 +255,22 @@ public class MithrilMirrorItem extends Item {
     @Override
     public Text getName(ItemStack stack) {
         Text name = super.getName(stack);
-        if (EnchantmentHelper.getLevel(ModEnchantments.CURSED_REFLECTION, stack) > 0)
+        if (EnchantmentHelper.getEnchantments(stack).getEnchantmentEntries().stream().anyMatch(entry -> entry.getKey().getKey().filter(ModEnchantments.CURSED_REFLECTION::equals).isPresent() && entry.getIntValue() > 0)) {
             return name.copy().formatted(Formatting.RED);
-        if (!stack.hasNbt()) return name;
-        if (stack.getOrCreateNbt().getInt(CHARGES_USED_KEY) < getMaxCharges(stack)) return name;
-        else return Text.translatable("item.tlotd.mithril_mirror.foggy");
+        }
+        if (getChargesUsed(stack) < getMaxCharges(stack)) {
+            return name;
+        }
+        return Text.translatable("item.tlotd.mithril_mirror.foggy");
     }
 
     @Override
-    public void appendTooltip(ItemStack stack, @Nullable World world, java.util.List<Text> tooltip, TooltipContext context) {
+    public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
         Style style = getName().getStyle();
-        NbtCompound tag = stack.getOrCreateNbt();
-        int used = tag.getInt(CHARGES_USED_KEY);
+        int used = getChargesUsed(stack);
         int max = getMaxCharges(stack);
         int remaining = Math.max(0, max - used);
-        boolean cursed = EnchantmentHelper.getLevel(ModEnchantments.CURSED_REFLECTION, stack) > 0;
+        boolean cursed = EnchantmentHelper.getEnchantments(stack).getEnchantmentEntries().stream().anyMatch(entry -> entry.getKey().getKey().filter(ModEnchantments.CURSED_REFLECTION::equals).isPresent() && entry.getIntValue() > 0);
         String pictogram = getChargeGlyphs(remaining, max, cursed);
         tooltip.add(Text.literal(pictogram).setStyle(Style.EMPTY.withFont(SOUL_CHARGES_FONT_ID).withColor(Formatting.WHITE)));
         if (Screen.hasShiftDown()) {
@@ -292,7 +285,7 @@ public class MithrilMirrorItem extends Item {
         } else {
             tooltip.add(Text.translatable("item.tlotd.desc_eldritch").setStyle(style.withColor(0x3C009C)));
         }
-        super.appendTooltip(stack, world, tooltip, context);
+        super.appendTooltip(stack, context, tooltip, type);
     }
 
     @Override
@@ -308,18 +301,22 @@ public class MithrilMirrorItem extends Item {
     }
 
     private boolean tryRefill(ItemStack mirror, ItemStack inputStack, PlayerEntity player) {
-        if (!mirror.hasNbt()) return false;
-        if (mirror.getOrCreateNbt().getInt(CHARGES_USED_KEY) < getMaxCharges(mirror)) return false;
-        boolean cursed = EnchantmentHelper.getLevel(ModEnchantments.CURSED_REFLECTION, mirror) > 0;
-        if (!inputStack.isOf(cursed ? ModItems.CURSED_SOUL_FLASK : ModItems.SOUL_FLASK_OF_THE_ABYSS)) return false;
+        if (getChargesUsed(mirror) < getMaxCharges(mirror)) {
+            return false;
+        }
+        boolean cursed = EnchantmentHelper.getEnchantments(mirror).getEnchantmentEntries().stream().anyMatch(entry -> entry.getKey().getKey().filter(ModEnchantments.CURSED_REFLECTION::equals).isPresent() && entry.getIntValue() > 0);
+        Item requiredFuel = cursed ? ModItems.CURSED_SOUL_FLASK : ModItems.SOUL_FLASK_OF_THE_ABYSS;
+        if (!inputStack.isOf(requiredFuel)) {
+            return false;
+        }
         inputStack.decrement(1);
         ItemStack empty = ModItems.TINTED_GLASS_FLASK.getDefaultStack();
         if (!player.getInventory().insertStack(empty)) {
             player.dropItem(empty, false);
         }
-        mirror.getOrCreateNbt().putInt(CHARGES_USED_KEY, 0);
+        setChargesUsed(mirror, 0);
         player.playSound(cursed ? SoundEvents.ENTITY_WITHER_HURT : SoundEvents.ITEM_BOTTLE_FILL_DRAGONBREATH, 1f, 1f);
-        player.getItemCooldownManager().set(ModItems.MITHRIL_MIRROR, getMaxUseTime(mirror) * 20);
+        player.getItemCooldownManager().set(ModItems.MITHRIL_MIRROR, getMaxUseTime(mirror, player) * 20);
         return true;
     }
 

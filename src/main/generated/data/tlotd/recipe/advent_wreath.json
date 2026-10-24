@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "C": {
+      "tag": "minecraft:candles"
+    },
+    "L": {
+      "tag": "minecraft:leaves"
+    }
+  },
+  "pattern": [
+    "CLC",
+    "L L",
+    "CLC"
+  ],
+  "result": {
+    "count": 1,
+    "id": "tlotd:advent_wreath"
+  }
+}

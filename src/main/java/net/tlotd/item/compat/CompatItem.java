@@ -1,8 +1,8 @@
 package net.tlotd.item.compat;
 
-import net.minecraft.client.item.TooltipContext;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.text.Style;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
@@ -21,12 +21,12 @@ public class CompatItem extends Item {
         this.compat = compat;
     }
 
-    public static final Identifier DEFAULT_FONT_ID = new Identifier("minecraft", "default");
-    public static final Identifier MODS_FONT_ID = new Identifier("tlotd", "mods");
+    public static final Identifier DEFAULT_FONT_ID = Identifier.of("minecraft", "default");
+    public static final Identifier MODS_FONT_ID = Identifier.of("tlotd", "mods");
 
     @Override
-    public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        if (context.isCreative()) {
+    public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
+        /*if (context.isCreative()) {
             Style style = this.getName().getStyle();
             if (compat.contains("aet")) {
                 tooltip.add(Text.literal("\uE008 ").setStyle(style.withFont(MODS_FONT_ID)).append(Text.translatable("mod.aether.name").setStyle(style.withFont(DEFAULT_FONT_ID).withFormatting(Formatting.GRAY))));
@@ -64,7 +64,7 @@ public class CompatItem extends Item {
             if (compat.contains("udg")) {
                 tooltip.add(Text.literal("\uE016 ").setStyle(style.withFont(MODS_FONT_ID)).append(Text.translatable("mod.undergarden.name").setStyle(style.withFont(DEFAULT_FONT_ID).withFormatting(Formatting.GRAY))));
             }
-            super.appendTooltip(stack, world, tooltip, context);
-        }
+        }*/
+        super.appendTooltip(stack, context, tooltip, type);
     }
 }

@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:paper"
+    },
+    {
+      "item": "minecraft:slime_ball"
+    },
+    {
+      "item": "tlotd:mithril_nugget"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "tlotd:tlotd_sticker"
+  }
+}

@@ -1,7 +1,7 @@
 package net.tlotd.util;
 
-import net.minecraft.client.item.TooltipData;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.tooltip.TooltipData;
 import net.minecraft.util.collection.DefaultedList;
 
 public class EnvelopeTooltipData implements TooltipData {

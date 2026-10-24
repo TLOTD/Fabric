@@ -1,0 +1,43 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_heliorite_ingot": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tlotd:heliorite_ingot"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_steel_rod": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tlotd:steel_rod"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "tlotd:heliorite_shovel"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_heliorite_ingot",
+      "has_steel_rod"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "tlotd:heliorite_shovel"
+    ]
+  }
+}

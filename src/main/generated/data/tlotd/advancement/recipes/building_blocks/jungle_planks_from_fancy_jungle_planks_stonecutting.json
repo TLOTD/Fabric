@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_fancy_jungle_planks": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tlotd:fancy_jungle_planks"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "tlotd:jungle_planks_from_fancy_jungle_planks_stonecutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_fancy_jungle_planks"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "tlotd:jungle_planks_from_fancy_jungle_planks_stonecutting"
+    ]
+  }
+}

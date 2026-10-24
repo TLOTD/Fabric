@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:campfire_cooking",
+  "category": "food",
+  "cookingtime": 600,
+  "experience": 0.5,
+  "ingredient": {
+    "item": "tlotd:dinosaur_meat"
+  },
+  "result": {
+    "id": "tlotd:cooked_dinosaur_meat"
+  }
+}

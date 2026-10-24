@@ -19,8 +19,8 @@ public class ModPoiTagProvider extends TagProvider<PointOfInterestType> {
     @Override
     protected void configure(RegistryWrapper.WrapperLookup lookup) {
         this.getOrCreateTagBuilder(PointOfInterestTypeTags.ACQUIRABLE_JOB_SITE)
-                .addOptional(new Identifier(TLOTD.MOD_ID, "archaeologistpoi"))
-                .addOptional(new Identifier(TLOTD.MOD_ID, "cultistpoi"))
-                .addOptional(new Identifier(TLOTD.MOD_ID, "engineerpoi"));
+                .addOptional(Identifier.of(TLOTD.MOD_ID, "archaeologistpoi"))
+                .addOptional(Identifier.of(TLOTD.MOD_ID, "cultistpoi"))
+                .addOptional(Identifier.of(TLOTD.MOD_ID, "engineerpoi"));
     }
 }

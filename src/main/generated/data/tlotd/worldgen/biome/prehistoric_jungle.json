@@ -90,12 +90,6 @@
     "axolotls": [],
     "creature": [
       {
-        "type": "tlotd:t-rex",
-        "maxCount": 3,
-        "minCount": 1,
-        "weight": 2
-      },
-      {
         "type": "minecraft:sheep",
         "maxCount": 4,
         "minCount": 4,

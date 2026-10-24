@@ -3,7 +3,6 @@ package net.tlotd.block.custom;
 import net.minecraft.block.*;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.ActionResult;
@@ -13,8 +12,8 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
+import net.minecraft.world.WorldView;
 import net.tlotd.block.ModBlocks;
-import net.tlotd.item.ModItems;
 
 public class BackroomsLightSwitchBlock extends LeverBlock {
     public BackroomsLightSwitchBlock(Settings settings) {
@@ -22,7 +21,7 @@ public class BackroomsLightSwitchBlock extends LeverBlock {
     }
 
     @Override
-    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
+    protected ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
         Block BlockCheck = Blocks.BEDROCK;
         Block BlockPlace = Blocks.REDSTONE_BLOCK;
         if (state.get(POWERED).equals(true)) {
@@ -66,7 +65,7 @@ public class BackroomsLightSwitchBlock extends LeverBlock {
     }
 
     @Override
-    public ItemStack getPickStack(BlockView world, BlockPos pos, BlockState state) {
+    public ItemStack getPickStack(WorldView world, BlockPos pos, BlockState state) {
         return ModBlocks.LIGHT_SWITCH.asItem().getDefaultStack();
     }
 }

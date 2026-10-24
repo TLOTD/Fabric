@@ -640,13 +640,12 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.CATACLYSMIC_PICKAXE, Models.HANDHELD);
         itemModelGenerator.register(ModItems.ELDRITCH_PICKAXE, Models.HANDHELD);
 
-        itemModelGenerator.register(ModItems.HANGING_GINKGO_SIGN, Models.GENERATED);
+        //itemModelGenerator.register(ModItems.HANGING_GINKGO_SIGN, Models.GENERATED);
 
-        itemModelGenerator.register(ModItems.GINKGO_BOAT, Models.GENERATED);
-        itemModelGenerator.register(ModItems.GINKGO_CHEST_BOAT, Models.GENERATED);
+        //itemModelGenerator.register(ModItems.GINKGO_BOAT, Models.GENERATED);
+        //itemModelGenerator.register(ModItems.GINKGO_CHEST_BOAT, Models.GENERATED);
 
-        itemModelGenerator.register(ModItems.TREX_SPAWN_EGG,
-                new Model(Optional.of(new Identifier("item/template_spawn_egg")), Optional.empty()));
+        //itemModelGenerator.register(ModItems.TREX_SPAWN_EGG, new Model(Optional.of(new Identifier("item/template_spawn_egg")), Optional.empty()));
 
         itemModelGenerator.register(ModItems.DINOSAUR_HIDE, Models.GENERATED);
         itemModelGenerator.register(ModItems.DINOSAUR_MEAT, Models.GENERATED);

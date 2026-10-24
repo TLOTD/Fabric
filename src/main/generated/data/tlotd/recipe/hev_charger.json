@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "#": {
+      "item": "tlotd:large_battery"
+    },
+    "B": {
+      "tag": "minecraft:buttons"
+    },
+    "C": {
+      "tag": "tlotd:advanced_circuit_boards"
+    },
+    "L": {
+      "item": "tlotd:liquid_crystal_display_panel"
+    },
+    "S": {
+      "tag": "c:steel_ingots"
+    },
+    "W": {
+      "tag": "tlotd:wires_2"
+    },
+    "X": {
+      "item": "tlotd:xen_crystal"
+    }
+  },
+  "pattern": [
+    "XSL",
+    "WCB",
+    "#S#"
+  ],
+  "result": {
+    "count": 1,
+    "id": "tlotd:hev_charger"
+  }
+}

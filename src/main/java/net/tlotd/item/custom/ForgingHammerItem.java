@@ -1,13 +1,11 @@
 package net.tlotd.item.custom;
 
-import net.minecraft.client.item.TooltipContext;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
-import net.minecraft.world.World;
 import net.tlotd.util.ModTags;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
@@ -18,7 +16,7 @@ public class ForgingHammerItem extends Item {
     }
 
     @Override
-    public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
+    public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
         int level = 1;
         if (stack.isIn(ModTags.Items.FORGING_HAMMERS_TIER9)) {
             level = 9;
@@ -40,6 +38,6 @@ public class ForgingHammerItem extends Item {
         tooltip.add(Text.empty());
         tooltip.add(Text.translatable("item.tlotd.forging_hammer.tooltip").formatted(Formatting.GRAY));
         tooltip.add(Text.literal(" ").append(Text.translatable("item.tlotd.forging_hammer.tooltip_2", level)).formatted(Formatting.DARK_GREEN));
-        super.appendTooltip(stack, world, tooltip, context);
+        super.appendTooltip(stack, context, tooltip, type);
     }
 }

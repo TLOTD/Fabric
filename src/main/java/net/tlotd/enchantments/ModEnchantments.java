@@ -1,25 +1,25 @@
 package net.tlotd.enchantments;
 
 import net.minecraft.enchantment.Enchantment;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
+import net.minecraft.registry.RegistryKey;
+import net.minecraft.registry.RegistryKeys;
 import net.minecraft.util.Identifier;
 import net.tlotd.TLOTD;
 
 public class ModEnchantments {
-    public static final Enchantment TRANSDIMENSIONAL = registerEnchant("transdimensional", new TransdimensionalMirrorEnchantment());
-    public static final Enchantment DEPTH_OF_THE_ABYSS = registerEnchant("depth_of_the_abyss", new EnduringMirrorEnchantment());
-    public static final Enchantment SHARPER_LENS = registerEnchant("sharper_lens", new SharperLensEnchantment());
-    public static final Enchantment REINFORCED_GLASS = registerEnchant("reinforced_glass", new ReinforcedGlassEnchantment());
-    public static final Enchantment CURSED_REFLECTION = registerEnchant("shattering_reflection", new CursedReflectionEnchantment());
-    public static final Enchantment REFILL_CHARGES = registerEnchant("refill_charges", new RefillChargesEnchantment());
-    public static final Enchantment RESOURCEFUL_SMOKING = registerEnchant("resourceful_smoking", new ResourcefulSmokingEnchantment());
+    public static final RegistryKey<Enchantment> TRANSDIMENSIONAL = of("transdimensional");
+    public static final RegistryKey<Enchantment> DEPTH_OF_THE_ABYSS = of("depth_of_the_abyss");
+    public static final RegistryKey<Enchantment> SHARPER_LENS = of("sharper_lens");
+    public static final RegistryKey<Enchantment> REINFORCED_GLASS = of("reinforced_glass");
+    public static final RegistryKey<Enchantment> CURSED_REFLECTION = of("shattering_reflection");
+    public static final RegistryKey<Enchantment> REFILL_CHARGES = of("refill_charges");
+    public static final RegistryKey<Enchantment> RESOURCEFUL_SMOKING = of("resourceful_smoking");
 
-    private static Enchantment registerEnchant(String name, Enchantment enchantment) {
-        return Registry.register(Registries.ENCHANTMENT, new Identifier(TLOTD.MOD_ID, name), enchantment);
+    private static RegistryKey<Enchantment> of(String name) {
+        return RegistryKey.of(RegistryKeys.ENCHANTMENT, Identifier.of(TLOTD.MOD_ID, name));
     }
 
     public static void registerEnchants() {
-        TLOTD.LOGGER.debug("Registering Enchantmens for " + TLOTD.MOD_ID);
+        TLOTD.LOGGER.debug("Registering enchantment keys for " + TLOTD.MOD_ID);
     }
 }

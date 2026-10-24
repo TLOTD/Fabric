@@ -7,8 +7,9 @@ import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 
 public class HeavyDoorBlock extends DoorBlock {
-    public HeavyDoorBlock(Settings settings, BlockSetType blockSetType) {
-        super(settings, blockSetType);
+
+    public HeavyDoorBlock(BlockSetType type, Settings settings) {
+        super(type, settings);
     }
 
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {

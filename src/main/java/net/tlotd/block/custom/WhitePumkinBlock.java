@@ -1,6 +1,7 @@
 package net.tlotd.block.custom;
 
 import net.minecraft.block.*;
+import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
@@ -13,6 +14,7 @@ import net.minecraft.stat.Stats;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.ItemActionResult;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
@@ -20,16 +22,15 @@ import net.minecraft.world.World;
 import net.minecraft.world.event.GameEvent;
 import net.tlotd.block.ModBlocks;
 
-public class WhitePumkinBlock extends GourdBlock {
+public class WhitePumkinBlock extends PumpkinBlock {
 
     public WhitePumkinBlock(Settings settings) {
         super(settings);
     }
 
     @Override
-    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        ItemStack itemStack = player.getStackInHand(hand);
-        if (itemStack.isIn(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "shears")))) {
+    protected ItemActionResult onUseWithItem(ItemStack stack, BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
+        if (stack.isIn(TagKey.of(RegistryKeys.ITEM, Identifier.of("c", "shears")))) {
             if (!world.isClient) {
                 Direction direction = hit.getSide();
                 Direction direction2 = direction.getAxis() == Direction.Axis.Y ? player.getHorizontalFacing().getOpposite() : direction;
@@ -38,22 +39,13 @@ public class WhitePumkinBlock extends GourdBlock {
                 ItemEntity itemEntity = new ItemEntity(world, (double) pos.getX() + (double) 0.5F + direction2.getOffsetX() * 0.65, pos.getY() + 0.1, (double) pos.getZ() + (double) 0.5F + direction2.getOffsetZ() * 0.65, new ItemStack(Items.PUMPKIN_SEEDS, 4));
                 itemEntity.setVelocity(0.05 * direction2.getOffsetX() + world.random.nextDouble() * 0.02, 0.05, 0.05 * direction2.getOffsetZ() + world.random.nextDouble() * 0.02);
                 world.spawnEntity(itemEntity);
-                itemStack.damage(1, player, playerx -> playerx.sendToolBreakStatus(hand));
+                stack.damage(1, player, hand == Hand.MAIN_HAND ? EquipmentSlot.MAINHAND : EquipmentSlot.OFFHAND);
                 world.emitGameEvent(player, GameEvent.SHEAR, pos);
-                player.incrementStat(Stats.USED.getOrCreateStat(itemStack.getItem()));
+                player.incrementStat(Stats.USED.getOrCreateStat(stack.getItem()));
             }
-
-            return ActionResult.success(world.isClient);
+            return ItemActionResult.success(world.isClient);
         } else {
-            return super.onUse(state, world, pos, player, hand, hit);
+            return super.onUseWithItem(stack, state, world, pos, player, hand, hit);
         }
-    }
-
-    public StemBlock getStem() {
-        return (StemBlock) Blocks.PUMPKIN_STEM;
-    }
-
-    public AttachedStemBlock getAttachedStem() {
-        return (AttachedStemBlock) Blocks.ATTACHED_PUMPKIN_STEM;
     }
 }

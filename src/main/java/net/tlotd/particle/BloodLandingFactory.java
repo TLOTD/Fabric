@@ -4,9 +4,9 @@ import net.minecraft.client.particle.Particle;
 import net.minecraft.client.particle.ParticleFactory;
 import net.minecraft.client.particle.SpriteProvider;
 import net.minecraft.client.world.ClientWorld;
-import net.minecraft.particle.DefaultParticleType;
+import net.minecraft.particle.SimpleParticleType;
 
-public class BloodLandingFactory implements ParticleFactory<DefaultParticleType> {
+public class BloodLandingFactory implements ParticleFactory<SimpleParticleType> {
 
     private final SpriteProvider sprites;
 
@@ -15,7 +15,7 @@ public class BloodLandingFactory implements ParticleFactory<DefaultParticleType>
     }
 
     @Override
-    public Particle createParticle(DefaultParticleType type, ClientWorld world, double x, double y, double z, double vx, double vy, double vz) {
+    public Particle createParticle(SimpleParticleType type, ClientWorld world, double x, double y, double z, double vx, double vy, double vz) {
         BloodParticle.Landing particle = new BloodParticle.Landing(world, x, y, z);
         particle.setSprite(sprites);
         return particle;

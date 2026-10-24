@@ -1,6 +1,7 @@
 package net.tlotd.world.dimension;
 
 import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -26,13 +27,10 @@ import net.tlotd.config.ModConfigs;
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.Executor;
 
 public class PrehistoricChunkGenerator extends ChunkGenerator {
 
-    public static final Codec<PrehistoricChunkGenerator> CODEC = RecordCodecBuilder.create(instance -> instance.group(
-            BiomeSource.CODEC.fieldOf("biome_source").forGetter(generator -> generator.biomeSource)
-    ).apply(instance, PrehistoricChunkGenerator::new));
+    public static final MapCodec<PrehistoricChunkGenerator> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(BiomeSource.CODEC.fieldOf("biome_source").forGetter(generator -> generator.biomeSource)).apply(instance, PrehistoricChunkGenerator::new));
 
     private final BiomeSource biomeSource;
     private final PerlinNoiseSampler heightNoise;
@@ -44,7 +42,7 @@ public class PrehistoricChunkGenerator extends ChunkGenerator {
     }
 
     @Override
-    protected Codec<? extends ChunkGenerator> getCodec() {
+    protected MapCodec<? extends ChunkGenerator> getCodec() {
         return CODEC;
     }
 
@@ -69,7 +67,7 @@ public class PrehistoricChunkGenerator extends ChunkGenerator {
     }
 
     @Override
-    public CompletableFuture<Chunk> populateNoise(Executor executor, Blender blender, NoiseConfig noiseConfig, StructureAccessor structureAccessor, Chunk chunk) {
+    public CompletableFuture<Chunk> populateNoise(Blender blender, NoiseConfig noiseConfig, StructureAccessor structureAccessor, Chunk chunk) {
         ChunkPos chunkPos = chunk.getPos();
 
         for (int dx = 0; dx < 16; dx++) {
@@ -78,13 +76,17 @@ public class PrehistoricChunkGenerator extends ChunkGenerator {
                 int worldZ = chunkPos.getStartZ() + dz;
 
                 double noise = heightNoise.sample(worldX * 0.05, 0, worldZ * 0.05);
-                int height = 48 + (int)(noise * 16);
+                int height = 48 + (int) (noise * 16);
 
                 for (int dy = chunk.getBottomY(); dy <= height && dy < chunk.getTopY(); dy++) {
                     BlockState state;
-                    if (dy == height) { state = ModBlocks.RICH_GRASS_BLOCK.getDefaultState(); }
-                    else if (dy >= height - 3) { state = ModBlocks.RICH_DIRT.getDefaultState(); }
-                    else { state = ModBlocks.RED_DEEPSLATE.getDefaultState(); }
+                    if (dy == height) {
+                        state = ModBlocks.RICH_GRASS_BLOCK.getDefaultState();
+                    } else if (dy >= height - 3) {
+                        state = ModBlocks.RICH_DIRT.getDefaultState();
+                    } else {
+                        state = ModBlocks.RED_DEEPSLATE.getDefaultState();
+                    }
                     if (dy >= chunk.getBottomY() && dy < chunk.getTopY()) {
                         chunk.setBlockState(new BlockPos(dx, dy, dz), state, false);
                     }
@@ -116,7 +118,7 @@ public class PrehistoricChunkGenerator extends ChunkGenerator {
     @Override
     public int getHeight(int x, int z, Heightmap.Type heightmap, HeightLimitView world, NoiseConfig config) {
         double noise = heightNoise.sample(x * 0.05, 0, z * 0.05);
-        return 48 + (int)(noise * 16);
+        return 48 + (int) (noise * 16);
     }
 
     @Override

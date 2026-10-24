@@ -72,7 +72,7 @@ public class WoodenSteinBlock extends Block {
     }
 
     @Override
-    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
+    protected ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
         if (!this.equals(ModBlocks.WOODEN_STEIN)) {
             player.getHungerManager().add(1, 0.1f);
             if (this.equals(ModBlocks.WOODEN_BEER_STEIN) || this.equals(ModBlocks.WOODEN_MEAD_STEIN)) {

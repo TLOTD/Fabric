@@ -17,7 +17,6 @@ import net.minecraft.village.raid.Raid;
 import net.tlotd.TLOTD;
 import net.tlotd.block.ModBlocks;
 import net.tlotd.compat.CompatModsCheck;
-import net.tlotd.enchantments.ModEnchantments;
 import net.tlotd.fluid.ModFluids;
 import net.tlotd.item.custom.SpaceSuitArmorItem;
 import net.tlotd.util.AdAstraGasNbtHelper;
@@ -28,11 +27,11 @@ import java.util.Map;
 
 public class ModItemGroups {
 
-    public static final Identifier DEFAULT_FONT_ID = new Identifier("minecraft", "default");
-    public static final Identifier MODS_FONT_ID = new Identifier("tlotd", "mods");
+    public static final Identifier DEFAULT_FONT_ID = Identifier.of("minecraft", "default");
+    public static final Identifier MODS_FONT_ID = Identifier.of("tlotd", "mods");
 
     public static final ItemGroup TLOTD_1_MATERIALS_GROUP = Registry.register(Registries.ITEM_GROUP,
-            new Identifier(TLOTD.MOD_ID, "1_materials"),
+            Identifier.of(TLOTD.MOD_ID, "1_materials"),
             FabricItemGroup.builder()
                     .displayName(Text.literal("\uE000 ").styled(style -> style.withFont(MODS_FONT_ID).withFormatting(Formatting.WHITE)).append(Text.translatable("itemgroup.tlotd.materials").styled(style -> style.withFont(DEFAULT_FONT_ID))))
                     .icon(() -> new ItemStack(ModItems.RAW_MITHRIL)).entries((displayContext, entries) -> {
@@ -46,9 +45,9 @@ public class ModItemGroups {
                         entries.add(ModItems.LOTR_BANNER_PATTERN);
 
                         entries.add(ModItems.GAS_CYLINDER);
-                        entries.add(addGasItem(ModItems.GAS_CYLINDER, AdAstraGasNbtHelper.AD_ASTRA_OXYGEN_ID));
-                        entries.add(addGasItem(ModItems.GAS_CYLINDER, AdAstraGasNbtHelper.TLOTD_PIPE_WEED_SMOKE));
-                        entries.add(addGasItem(ModItems.GAS_CYLINDER, AdAstraGasNbtHelper.TLOTD_WITHERED_AIR));
+                        //entries.add(addGasItem(ModItems.GAS_CYLINDER, AdAstraGasNbtHelper.AD_ASTRA_OXYGEN_ID));
+                        //entries.add(addGasItem(ModItems.GAS_CYLINDER, AdAstraGasNbtHelper.TLOTD_PIPE_WEED_SMOKE));
+                        //entries.add(addGasItem(ModItems.GAS_CYLINDER, AdAstraGasNbtHelper.TLOTD_WITHERED_AIR));
 
                         entries.add(ModFluids.BEER_BUCKET);
                         entries.add(ModFluids.MEAD_BUCKET);
@@ -97,8 +96,8 @@ public class ModItemGroups {
 
                         entries.add(ModItems.SULFUR);
                         entries.add(ModItems.SULFURIC_ACID);
-                        entries.add(addEnergyItem(ModItems.BATTERY, 10000));
-                        entries.add(addEnergyItem(ModItems.LARGE_BATTERY, 50000));
+                        //entries.add(addEnergyItem(ModItems.BATTERY, 10000));
+                        //entries.add(addEnergyItem(ModItems.LARGE_BATTERY, 50000));
 
                         entries.add(ModItems.RAW_ALUMINIUM);
                         entries.add(ModItems.ALUMINIUM_NUGGET);
@@ -346,7 +345,7 @@ public class ModItemGroups {
                     }).build());
 
     public static final ItemGroup TLOTD_2_WEAPONS_TOOLS_UTILITIES_GROUP = Registry.register(Registries.ITEM_GROUP,
-            new Identifier(TLOTD.MOD_ID, "2_weapons_tools_and_utilities"),
+            Identifier.of(TLOTD.MOD_ID, "2_weapons_tools_and_utilities"),
             FabricItemGroup.builder().displayName(Text.literal("\uE000 ").styled(style -> style.withFont(MODS_FONT_ID).withFormatting(Formatting.WHITE)).append(Text.translatable("itemgroup.tlotd.weapons_tools_and_utilities").styled(style -> style.withFont(DEFAULT_FONT_ID))))
                     .icon(() -> new ItemStack(ModItems.ENDURIUM_PAXEL)).entries((displayContext, entries) -> {
 
@@ -363,7 +362,7 @@ public class ModItemGroups {
                         entries.add(ModItems.IMPERIAL_GERMAN_UNIFORM_BOOTS);
 
                         entries.add(ModItems.ASTRONAUT_HELMET);
-                        entries.add(fullSpaceSuit());
+                        //entries.add(fullSpaceSuit());
                         entries.add(ModItems.SPACE_SUIT_LEGGINGS);
                         entries.add(ModItems.SPACE_SUIT_BOOTS);
 
@@ -373,7 +372,7 @@ public class ModItemGroups {
                         entries.add(ModItems.DEPTH_SUIT_BOOTS);
 
                         entries.add(ModItems.SCIENTIST_GLASSES);
-                        entries.add(fullHEVSuit());
+                        //entries.add(fullHEVSuit());
                         entries.add(ModItems.HEV_SUIT_LEGGINGS);
                         entries.add(ModItems.HEV_SUIT_BOOTS);
 
@@ -525,8 +524,8 @@ public class ModItemGroups {
                         entries.add(ModItems.GONDORIAN_KNIGHT_SHIELD);
                         entries.add(ModItems.GONDORIAN_ORNAMENTED_KNIGHT_SHIELD);
 
-                        entries.add(ModItems.GINKGO_BOAT);
-                        entries.add(ModItems.GINKGO_CHEST_BOAT);
+                        //entries.add(ModItems.GINKGO_BOAT);
+                        //entries.add(ModItems.GINKGO_CHEST_BOAT);
 
                         entries.add(ModItems.EMPERORS_CROWN);
                         entries.add(ModBlocks.GLOBUS_CRUCIGER);
@@ -534,31 +533,31 @@ public class ModItemGroups {
                         entries.add(ModItems.FOSSIL_AND_STEEL);
                         entries.add(ModItems.JOINT);
                         entries.add(ModItems.PIPE);
-                        entries.add(addPipeItem(ModItems.PIPE, "tlotd:pipe_weed"));
-                        entries.add(ModItems.TREX_SPAWN_EGG);
-                        if (CompatModsCheck.SPORE) {
-                            entries.add(ModItems.INFECTED_TREX_SPAWN_EGG);
-                        }
-                        entries.add(addEnchantedBook(ModEnchantments.TRANSDIMENSIONAL, 1));
-                        entries.add(addEnchantedBook(ModEnchantments.TRANSDIMENSIONAL, 2));
-                        entries.add(addEnchantedBook(ModEnchantments.TRANSDIMENSIONAL, 3));
-                        entries.add(addEnchantedBook(ModEnchantments.TRANSDIMENSIONAL, 4));
-                        entries.add(addEnchantedBook(ModEnchantments.TRANSDIMENSIONAL, 5));
-                        entries.add(addEnchantedBook(ModEnchantments.DEPTH_OF_THE_ABYSS, 1));
-                        entries.add(addEnchantedBook(ModEnchantments.DEPTH_OF_THE_ABYSS, 2));
-                        entries.add(addEnchantedBook(ModEnchantments.DEPTH_OF_THE_ABYSS, 3));
-                        entries.add(addEnchantedBook(ModEnchantments.SHARPER_LENS, 1));
-                        entries.add(addEnchantedBook(ModEnchantments.SHARPER_LENS, 2));
-                        entries.add(addEnchantedBook(ModEnchantments.SHARPER_LENS, 3));
-                        entries.add(addEnchantedBook(ModEnchantments.SHARPER_LENS, 4));
-                        entries.add(addEnchantedBook(ModEnchantments.SHARPER_LENS, 5));
-                        entries.add(addEnchantedBook(ModEnchantments.REINFORCED_GLASS, 1));
-                        entries.add(addEnchantedBook(ModEnchantments.REINFORCED_GLASS, 2));
-                        entries.add(addEnchantedBook(ModEnchantments.REINFORCED_GLASS, 3));
-                        entries.add(addEnchantedBook(ModEnchantments.CURSED_REFLECTION, 1));
-                        entries.add(addEnchantedBook(ModEnchantments.REFILL_CHARGES, 1));
-                        entries.add(addEnchantedBook(ModEnchantments.RESOURCEFUL_SMOKING, 1));
-                        entries.add(addEnchantedBook(ModEnchantments.RESOURCEFUL_SMOKING, 2));
+                        //entries.add(addPipeItem(ModItems.PIPE, "tlotd:pipe_weed"));
+                        //entries.add(ModItems.TREX_SPAWN_EGG);
+                        //if (CompatModsCheck.SPORE) {
+                        //    entries.add(ModItems.INFECTED_TREX_SPAWN_EGG);
+                        //}
+                        //entries.add(addEnchantedBook(ModEnchantments.TRANSDIMENSIONAL, 1));
+                        //entries.add(addEnchantedBook(ModEnchantments.TRANSDIMENSIONAL, 2));
+                        //entries.add(addEnchantedBook(ModEnchantments.TRANSDIMENSIONAL, 3));
+                        //entries.add(addEnchantedBook(ModEnchantments.TRANSDIMENSIONAL, 4));
+                        //entries.add(addEnchantedBook(ModEnchantments.TRANSDIMENSIONAL, 5));
+                        //entries.add(addEnchantedBook(ModEnchantments.DEPTH_OF_THE_ABYSS, 1));
+                        //entries.add(addEnchantedBook(ModEnchantments.DEPTH_OF_THE_ABYSS, 2));
+                        //entries.add(addEnchantedBook(ModEnchantments.DEPTH_OF_THE_ABYSS, 3));
+                        //entries.add(addEnchantedBook(ModEnchantments.SHARPER_LENS, 1));
+                        //entries.add(addEnchantedBook(ModEnchantments.SHARPER_LENS, 2));
+                        //entries.add(addEnchantedBook(ModEnchantments.SHARPER_LENS, 3));
+                        //entries.add(addEnchantedBook(ModEnchantments.SHARPER_LENS, 4));
+                        //entries.add(addEnchantedBook(ModEnchantments.SHARPER_LENS, 5));
+                        //entries.add(addEnchantedBook(ModEnchantments.REINFORCED_GLASS, 1));
+                        //entries.add(addEnchantedBook(ModEnchantments.REINFORCED_GLASS, 2));
+                        //entries.add(addEnchantedBook(ModEnchantments.REINFORCED_GLASS, 3));
+                        //entries.add(addEnchantedBook(ModEnchantments.CURSED_REFLECTION, 1));
+                        //entries.add(addEnchantedBook(ModEnchantments.REFILL_CHARGES, 1));
+                        //entries.add(addEnchantedBook(ModEnchantments.RESOURCEFUL_SMOKING, 1));
+                        //entries.add(addEnchantedBook(ModEnchantments.RESOURCEFUL_SMOKING, 2));
 
                         entries.add(ModItems.AUGMENT_SLOT_EXPANSION);
                         entries.add(ModItems.AUGMENT_ELDER_DAYS_ELVEN_FORGED);
@@ -580,7 +579,7 @@ public class ModItemGroups {
                     }).build());
 
     public static final ItemGroup TLOTD_3_BLOCKS_GROUP = Registry.register(Registries.ITEM_GROUP,
-            new Identifier(TLOTD.MOD_ID, "3_blocks"),
+            Identifier.of(TLOTD.MOD_ID, "3_blocks"),
             FabricItemGroup.builder().displayName(Text.literal("\uE000 ").styled(style -> style.withFont(MODS_FONT_ID).withFormatting(Formatting.WHITE)).append(Text.translatable("itemgroup.tlotd.blocks").styled(style -> style.withFont(DEFAULT_FONT_ID))))
                     .icon(() -> new ItemStack(ModBlocks.RICH_GRASS_BLOCK)).entries((displayContext, entries) -> {
 
@@ -917,8 +916,8 @@ public class ModItemGroups {
                         entries.add(ModBlocks.GINKGO_PRESSURE_PLATE);
                         entries.add(ModBlocks.GINKGO_BUTTON);
 
-                        entries.add(ModItems.GINKGO_SIGN);
-                        entries.add(ModItems.HANGING_GINKGO_SIGN);
+                        //entries.add(ModItems.GINKGO_SIGN);
+                        //entries.add(ModItems.HANGING_GINKGO_SIGN);
 
                         entries.add(ModBlocks.BACKSHROOM_PLANKS);
 
@@ -1022,7 +1021,7 @@ public class ModItemGroups {
                     }).build());
 
     public static final ItemGroup TLOTD_9_COMPAT_GROUP = Registry.register(Registries.ITEM_GROUP,
-            new Identifier(TLOTD.MOD_ID, "9_compat"),
+            Identifier.of(TLOTD.MOD_ID, "9_compat"),
             FabricItemGroup.builder().displayName(Text.literal("\uE00A ").styled(style -> style.withFont(MODS_FONT_ID).withFormatting(Formatting.WHITE)).append(Text.translatable("itemgroup.tlotd.compat").styled(style -> style.withFont(DEFAULT_FONT_ID))))
                     .icon(() -> new ItemStack(ModBlocks.INFECTED_TREX_HEAD)).entries((displayContext, entries) -> {
                         entries.add(ModBlocks.RED_DEEPSLATE_ZINC_ORE);
@@ -1067,7 +1066,7 @@ public class ModItemGroups {
                         entries.add(ModBlocks.WOODEN_TORCHBERRY_MILKSHAKE_STEIN);
                         entries.add(ModItems.BIOLOGICAL_CIRCUIT_BOARD);
                         entries.add(ModItems.ARCANE_CIRCUIT_BOARD);
-                        entries.add(ModItems.INFECTED_TREX_SPAWN_EGG);
+                        //entries.add(ModItems.INFECTED_TREX_SPAWN_EGG);
                         entries.add(ModBlocks.INFECTED_TREX_EGG);
                         entries.add(ModBlocks.INFECTED_TREX_HEAD);
                         entries.add(ModBlocks.SCULK_TREX_HEAD);
@@ -1187,14 +1186,14 @@ public class ModItemGroups {
             content.addAfter(ModBlocks.NETHERITE_ANVIL, ModBlocks.MITHRIL_ANVIL);
             content.addAfter(Items.ENCHANTING_TABLE, ModBlocks.AUGMENTATION_TABLE);
             content.addAfter(ModBlocks.AUGMENTATION_TABLE, ModBlocks.WITCHING_TABLE);
-            content.addAfter(Items.CHERRY_HANGING_SIGN, ModItems.GINKGO_SIGN);
+            /*content.addAfter(Items.CHERRY_HANGING_SIGN, ModItems.GINKGO_SIGN);
             content.addAfter(ModItems.GINKGO_SIGN, ModItems.HANGING_GINKGO_SIGN);
             content.addAfter(Raid.getOminousBanner(), addBanner("gondor", Items.BLACK_BANNER, 0));
             content.addAfter(addBanner("gondor", Items.BLACK_BANNER, 0), addBanner("rohan", Items.GREEN_BANNER, 0));
             content.addAfter(addBanner("rohan", Items.GREEN_BANNER, 0), addBanner("elven", Items.BLUE_BANNER, 0));
             content.addAfter(addBanner("elven", Items.BLUE_BANNER, 0), addBanner("mordor", Items.BLACK_BANNER, 14));
             content.addAfter(addBanner("mordor", Items.BLACK_BANNER, 14), addBanner("isengard", Items.BLACK_BANNER, 0));
-            content.addAfter(addBanner("isengard", Items.BLACK_BANNER, 0), addBanner("angmar", Items.RED_BANNER, 15));
+            content.addAfter(addBanner("isengard", Items.BLACK_BANNER, 0), addBanner("angmar", Items.RED_BANNER, 15));*/
 
         });
 
@@ -1216,8 +1215,8 @@ public class ModItemGroups {
             content.addAfter(ModFluids.HOT_MILK_BUCKET, ModFluids.HOT_CHOCOLATE_BUCKET);
             content.addAfter(ModFluids.HOT_CHOCOLATE_BUCKET, ModFluids.BLOOD_BUCKET);
             content.addAfter(ModFluids.BLOOD_BUCKET, ModFluids.CHEMICAL_WASTE_BUCKET);
-            content.addAfter(Items.CHERRY_CHEST_BOAT, ModItems.GINKGO_BOAT);
-            content.addAfter(ModItems.GINKGO_BOAT, ModItems.GINKGO_CHEST_BOAT);
+            //content.addAfter(Items.CHERRY_CHEST_BOAT, ModItems.GINKGO_BOAT);
+            //content.addAfter(ModItems.GINKGO_BOAT, ModItems.GINKGO_CHEST_BOAT);
             content.addAfter(Items.MUSIC_DISC_OTHERSIDE, ModItems.MUSIC_DISC_1);
             content.addAfter(ModItems.MUSIC_DISC_1, ModItems.MUSIC_DISC_2);
             content.addAfter(ModItems.MUSIC_DISC_2, ModItems.MUSIC_DISC_3);
@@ -1226,7 +1225,7 @@ public class ModItemGroups {
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register(content -> {
             content.addAfter(Items.TURTLE_HELMET, ModItems.EMPERORS_CROWN);
-            content.addAfter(Items.DIAMOND_HORSE_ARMOR, ModItems.MITHRIL_HORSE_ARMOR);
+            //content.addAfter(Items.DIAMOND_HORSE_ARMOR, ModItems.MITHRIL_HORSE_ARMOR);
             content.addAfter(Items.SPECTRAL_ARROW, ModItems.SILVERTHORN_ARROW);
         });
 
@@ -1353,13 +1352,13 @@ public class ModItemGroups {
         });
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.SPAWN_EGGS).register(content -> {
-            content.addBefore(Items.TADPOLE_SPAWN_EGG, ModItems.TREX_SPAWN_EGG);
+            //content.addBefore(Items.TADPOLE_SPAWN_EGG, ModItems.TREX_SPAWN_EGG);
         });
 
         TLOTD.LOGGER.info("Registering Item Groups for " + TLOTD.MOD_ID);
     }
 
-    public static ItemStack fullSpaceSuit() {
+    /*public static ItemStack fullSpaceSuit() {
         ItemStack suit = new ItemStack(ModItems.SPACE_SUIT_CHESTPLATE);
         DefaultedList<ItemStack> tanks = DefaultedList.ofSize(2, ItemStack.EMPTY);
         for (int i = 0; i < 2; i++) {
@@ -1421,5 +1420,5 @@ public class ModItemGroups {
         itemStack.addHideFlag(ItemStack.TooltipSection.ADDITIONAL);
         itemStack.setCustomName(Text.translatable("block.tlotd." + patternName + "_banner").formatted(Formatting.GOLD));
         return itemStack;
-    }
+    }*/
 }

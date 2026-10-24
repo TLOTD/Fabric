@@ -16,6 +16,7 @@ import net.minecraft.state.property.Properties;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.BlockRotation;
 import net.minecraft.util.Hand;
+import net.minecraft.util.ItemActionResult;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
@@ -92,8 +93,7 @@ public class ElevatorControllerBlock extends Block {
     }
 
     @Override
-    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        ItemStack stack = player.getStackInHand(hand);
+    protected ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
         if (!state.get(BROKEN)) {
             if (!world.isClient) {
                 int max_distance = 0;
@@ -106,7 +106,7 @@ public class ElevatorControllerBlock extends Block {
                     if (player.isSneaking()) {
                         for (search_y = -2; search_y >= -max_distance - 1; search_y--) {
                             if ((world.getBlockState(pos.add(0, search_y, 0)).isIn(ModTags.Blocks.ELEVATOR_BASES)) && (world.getBlockState(pos.add(0, 1 + search_y, 0)).isIn(ModTags.Blocks.ELEVATOR_CONTROLLERS))) {
-                                player.teleport(player.getPos().getX(), player.getPos().getY() + search_y + 1, player.getPos().getZ());
+                                player.teleport(player.getPos().getX(), player.getPos().getY() + search_y + 1, player.getPos().getZ(), false);
                                 world.playSound(null, pos.add(0, search_y, 0), ModSounds.BLOCK_ELEVATOR_PLING, SoundCategory.BLOCKS, 1.0f, 1.0f);
                                 break;
                             }
@@ -114,7 +114,7 @@ public class ElevatorControllerBlock extends Block {
                     } else {
                         for (search_y = 0; search_y <= max_distance - 1; search_y++) {
                             if ((world.getBlockState(pos.add(0, search_y, 0)).isIn(ModTags.Blocks.ELEVATOR_BASES)) && (world.getBlockState(pos.add(0, 1 + search_y, 0)).isIn(ModTags.Blocks.ELEVATOR_CONTROLLERS))) {
-                                player.teleport(player.getPos().getX(), player.getPos().getY() + search_y + 1, player.getPos().getZ());
+                                player.teleport(player.getPos().getX(), player.getPos().getY() + search_y + 1, player.getPos().getZ(), false);
                                 world.playSound(null, pos.add(0, search_y, 0), ModSounds.BLOCK_ELEVATOR_PLING, SoundCategory.BLOCKS, 1.0f, 1.0f);
                                 break;
                             }
@@ -123,14 +123,18 @@ public class ElevatorControllerBlock extends Block {
                 }
             }
             return ActionResult.SUCCESS;
-        } else if (stack.isIn(ModTags.Items.CIRCUIT_BOARDS)) {
+        } else return ActionResult.PASS;
+    }
+
+    @Override
+    protected ItemActionResult onUseWithItem(ItemStack stack, BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
+        if (stack.isIn(ModTags.Items.CIRCUIT_BOARDS)) {
             if (!world.isClient) {
                 stack.decrement(1);
                 world.setBlockState(pos, state.with(BROKEN, false));
                 world.playSound(null, pos, SoundEvents.BLOCK_ANVIL_USE, SoundCategory.BLOCKS, 0.5f, 1.0f);
             }
-            return ActionResult.SUCCESS;
-        }
-        return ActionResult.PASS;
+            return ItemActionResult.SUCCESS;
+        } else return ItemActionResult.FAIL;
     }
 }

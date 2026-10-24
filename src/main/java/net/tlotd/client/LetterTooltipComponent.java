@@ -11,7 +11,7 @@ import net.tlotd.util.EnvelopeTooltipData;
 
 public class LetterTooltipComponent implements TooltipComponent {
     private final DefaultedList<ItemStack> stacks;
-    private static final Identifier EMPTY_SLOT_TEXTURE = new Identifier(TLOTD.MOD_ID, "textures/gui/container/tooltip/empty_letter.png");
+    private static final Identifier EMPTY_SLOT_TEXTURE = Identifier.of(TLOTD.MOD_ID, "textures/gui/container/tooltip/empty_letter.png");
 
     public LetterTooltipComponent(EnvelopeTooltipData data) {
         this.stacks = data.getStacks();

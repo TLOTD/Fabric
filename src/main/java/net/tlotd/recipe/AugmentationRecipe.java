@@ -1,70 +1,72 @@
 package net.tlotd.recipe;
 
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
-import net.minecraft.inventory.SimpleInventory;
+import com.mojang.serialization.MapCodec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.item.ItemStack;
-import net.minecraft.network.PacketByteBuf;
-import net.minecraft.recipe.*;
-import net.minecraft.registry.DynamicRegistryManager;
-import net.minecraft.util.Identifier;
-import net.minecraft.util.JsonHelper;
+import net.minecraft.network.RegistryByteBuf;
+import net.minecraft.network.codec.PacketCodec;
+import net.minecraft.recipe.Ingredient;
+import net.minecraft.recipe.Recipe;
+import net.minecraft.recipe.RecipeSerializer;
+import net.minecraft.recipe.RecipeType;
+import net.minecraft.recipe.input.RecipeInput;
+import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.world.World;
 
-public class AugmentationRecipe implements Recipe<SimpleInventory> {
+import java.util.ArrayList;
+import java.util.List;
 
-    private final Identifier id;
+public class AugmentationRecipe implements Recipe<RecipeInput> {
+
     private final ItemStack output;
     private final DefaultedList<Ingredient> recipeItems;
+
+    public AugmentationRecipe(ItemStack output, List<Ingredient> recipeItems) {
+        this.output = output.copy();
+        this.recipeItems = DefaultedList.ofSize(9, Ingredient.EMPTY);
+        for (int i = 0; i < Math.min(recipeItems.size(), 9); i++) {
+            this.recipeItems.set(i, recipeItems.get(i));
+        }
+    }
 
     @Override
     public DefaultedList<Ingredient> getIngredients() {
         return recipeItems;
     }
 
-    public AugmentationRecipe(Identifier id, ItemStack output, DefaultedList<Ingredient> recipeItems) {
-        this.id = id;
-        this.output = output;
-        this.recipeItems = recipeItems;
-    }
-
     @Override
-    public boolean matches(SimpleInventory inventory, World world) {
-        if (world.isClient()) {
+    public boolean matches(RecipeInput input, World world) {
+        if (world.isClient() || input.getSize() != 9) {
             return false;
         }
-        int recipeNum = 0;
-        int itemNum = 0;
-        for (int i = 0; i < recipeItems.size(); i++) {
-            if (inventory.getStack(i).isEmpty()) {
-                itemNum++;
-            }
-            if (recipeItems.get(i).isEmpty()) {
-                recipeNum++;
+        for (int i = 0; i < 9; i++) {
+            Ingredient ingredient = recipeItems.get(i);
+            ItemStack stack = input.getStackInSlot(i);
+            if (ingredient.isEmpty()) {
+                if (!stack.isEmpty()) {
+                    return false;
+                }
+            } else if (!ingredient.test(stack)) {
+                return false;
             }
         }
-        return (itemNum == recipeNum) && (recipeItems.get(0).test((inventory.getStack(0)))) && (recipeItems.get(1).test((inventory.getStack(1)))) && (recipeItems.get(2).test((inventory.getStack(2)))) && (recipeItems.get(3).test((inventory.getStack(3)))) && (recipeItems.get(4).test((inventory.getStack(4)))) && (recipeItems.get(5).test((inventory.getStack(5)))) && (recipeItems.get(6).test((inventory.getStack(6)))) && (recipeItems.get(7).test((inventory.getStack(7)))) && (recipeItems.get(8).test((inventory.getStack(8))));
-    }
-
-    @Override
-    public ItemStack craft(SimpleInventory inventory, DynamicRegistryManager registryManager) {
-        return output;
-    }
-
-    @Override
-    public boolean fits(int width, int height) {
         return true;
     }
 
     @Override
-    public ItemStack getOutput(DynamicRegistryManager registryManager) {
+    public ItemStack craft(RecipeInput input, RegistryWrapper.WrapperLookup registries) {
         return output.copy();
     }
 
     @Override
-    public Identifier getId() {
-        return id;
+    public boolean fits(int width, int height) {
+        return width * height >= 9;
+    }
+
+    @Override
+    public ItemStack getResult(RegistryWrapper.WrapperLookup registries) {
+        return output.copy();
     }
 
     @Override
@@ -78,43 +80,47 @@ public class AugmentationRecipe implements Recipe<SimpleInventory> {
     }
 
     public static class Type implements RecipeType<AugmentationRecipe> {
-        private Type() {
-        }
-
         public static final Type INSTANCE = new Type();
         public static final String ID = "augmenting";
+        private Type() {}
     }
 
     public static class Serializer implements RecipeSerializer<AugmentationRecipe> {
         public static final Serializer INSTANCE = new Serializer();
         public static final String ID = "augmenting";
+        private static final MapCodec<AugmentationRecipe> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(Ingredient.DISALLOW_EMPTY_CODEC.listOf().fieldOf("ingredients").forGetter(recipe -> new ArrayList<>(recipe.recipeItems)),
+                ItemStack.CODEC.fieldOf("augment").forGetter(recipe -> recipe.output)).apply(instance, (ingredients, output) -> new AugmentationRecipe(output, ingredients)));
 
-        @Override
-        public AugmentationRecipe read(Identifier id, JsonObject json) {
-            ItemStack output = ShapedRecipe.outputFromJson(JsonHelper.getObject(json, "augment"));
-            JsonArray ingredients = JsonHelper.getArray(json, "ingredients");
-            DefaultedList<Ingredient> inputs = DefaultedList.ofSize(9, Ingredient.EMPTY);
-            for (int i = 0; i < ingredients.size(); i++) {
-                inputs.set(i, Ingredient.fromJson(ingredients.get(i)));
+        private static final PacketCodec<RegistryByteBuf, AugmentationRecipe> PACKET_CODEC = PacketCodec.of((recipe, buf) -> {
+            buf.writeVarInt(recipe.recipeItems.size());
+            for (Ingredient ingredient : recipe.recipeItems) {
+                Ingredient.PACKET_CODEC.encode(buf, ingredient);
             }
-            return new AugmentationRecipe(id, output, inputs);
+            ItemStack.PACKET_CODEC.encode(buf, recipe.output);
+        }, buf -> {
+            int size = buf.readVarInt();
+            if (size != 9) {
+                throw new IllegalStateException("Augmentation recipe must have exactly 9 ingredients");
+            }
+            List<Ingredient> ingredients = new ArrayList<>(size);
+            for (int i = 0; i < size; i++) {
+                ingredients.add(Ingredient.PACKET_CODEC.decode(buf));
+            }
+            ItemStack output = ItemStack.PACKET_CODEC.decode(buf);
+            return new AugmentationRecipe(output, ingredients);
+        });
+
+        private Serializer() {
         }
 
         @Override
-        public AugmentationRecipe read(Identifier id, PacketByteBuf buf) {
-            DefaultedList<Ingredient> inputs = DefaultedList.ofSize(buf.readInt(), Ingredient.EMPTY);
-            inputs.replaceAll(ignored -> Ingredient.fromPacket(buf));
-            ItemStack output = buf.readItemStack();
-            return new AugmentationRecipe(id, output, inputs);
+        public MapCodec<AugmentationRecipe> codec() {
+            return CODEC;
         }
 
         @Override
-        public void write(PacketByteBuf buf, AugmentationRecipe recipe) {
-            buf.writeInt(recipe.getIngredients().size());
-            for (Ingredient ing : recipe.getIngredients()) {
-                ing.write(buf);
-            }
-            buf.writeItemStack(recipe.getOutput(null));
+        public PacketCodec<RegistryByteBuf, AugmentationRecipe> packetCodec() {
+            return PACKET_CODEC;
         }
     }
 }

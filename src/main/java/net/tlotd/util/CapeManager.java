@@ -19,7 +19,7 @@ public class CapeManager {
     private static final Map<String, Long> CACHE_TIME = new ConcurrentHashMap<>();
     private static final Set<String> PENDING = ConcurrentHashMap.newKeySet();
     private static final long CACHE_TTL = TimeUnit.MINUTES.toMillis(10);
-    private static final Identifier NO_CAPE = new Identifier("tlotd", "no_cape");
+    private static final Identifier NO_CAPE = Identifier.of("tlotd", "no_cape");
     private static final ExecutorService EXECUTOR = Executors.newCachedThreadPool();
     private static final String BASE_URL = "https://tlotd.net/api/minecraft/cape/";
 
@@ -51,7 +51,7 @@ public class CapeManager {
         try (InputStream stream = new URL(url).openStream()) {
             NativeImage image = NativeImage.read(stream);
             AbstractTexture texture = new NativeImageBackedTexture(image);
-            Identifier id = new Identifier("tlotd", "cape/" + uuid.replace("-", ""));
+            Identifier id = Identifier.of("tlotd", "cape/" + uuid.replace("-", ""));
             MC.execute(() -> {
                 try {
                     MC.getTextureManager().registerTexture(id, texture);

@@ -54,12 +54,12 @@ public class TlotdAPI {
         public int getTextureId() { return textureId; }
         public String getPlayerName() { return playerName; }
     }
-    public static Map<UUID, TlotdTextureEntry> getClientTextures() {
+    /*public static Map<UUID, TlotdTextureEntry> getClientTextures() {
         Map<UUID, TlotdTextureEntry> result = new HashMap<>();
         net.tlotd.networking.ClientTextureCache.TEXTURES.forEach((uuid, internalEntry) ->
                 result.put(uuid, new TlotdTextureEntry(internalEntry.textureId, internalEntry.playerName)));
         return Collections.unmodifiableMap(result);
-    }
+    }*/
 
     //Signals
     public static boolean hasStation(ServerWorld world, BlockPos pos) {

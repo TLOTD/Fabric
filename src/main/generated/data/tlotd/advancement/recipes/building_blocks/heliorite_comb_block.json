@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_heliorite_comb": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tlotd:heliorite_comb"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "tlotd:heliorite_comb_block"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_heliorite_comb"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "tlotd:heliorite_comb_block"
+    ]
+  }
+}

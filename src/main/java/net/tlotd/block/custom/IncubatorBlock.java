@@ -4,16 +4,15 @@ import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
 import net.minecraft.block.entity.BlockEntityType;
-import net.minecraft.client.gui.screen.Screen;
-import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.screen.NamedScreenHandlerFactory;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.DirectionProperty;
-import net.minecraft.text.Style;
 import net.minecraft.text.Text;
 import net.minecraft.util.*;
 import net.minecraft.util.hit.BlockHitResult;
@@ -22,14 +21,13 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
-import net.tlotd.block.entity.IncubatorBlockEntity;
-import net.tlotd.block.entity.ModBlockEntities;
-import net.tlotd.compat.CompatModsCheck;
+//import net.tlotd.block.entity.IncubatorBlockEntity;
+//import net.tlotd.block.entity.ModBlockEntities;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class IncubatorBlock extends BlockWithEntity implements BlockEntityProvider {
+public class IncubatorBlock extends Block/*WithEntity implements BlockEntityProvider*/ {
 
     public static final BooleanProperty ON = BooleanProperty.of("on");
     public static final DirectionProperty FACING = HorizontalFacingBlock.FACING;
@@ -66,17 +64,17 @@ public class IncubatorBlock extends BlockWithEntity implements BlockEntityProvid
         return BlockRenderType.MODEL;
     }
 
-    public static final Identifier RECIPIES_FONT_ID = new Identifier("tlotd", "recipies");
+    public static final Identifier RECIPIES_FONT_ID = Identifier.of("tlotd", "recipies");
 
     @Override
-    public void appendTooltip(ItemStack stack, @Nullable BlockView world, List<Text> tooltip, TooltipContext options) {
+    public void appendTooltip(ItemStack stack, Item.TooltipContext context, List<Text> tooltip, TooltipType options) {
         tooltip.add(Text.empty());
         tooltip.add(Text.translatable("block.tlotd.powered_by_computer.tooltip").formatted(Formatting.GRAY));
         tooltip.add(Text.literal(" ").append(Text.translatable("block.tlotd.computer").formatted(Formatting.BLUE)));
-        super.appendTooltip(stack, world, tooltip, options);
+        super.appendTooltip(stack, context, tooltip, options);
     }
 
-    @Override
+    /*@Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         if (state.get(ON)) {
             if (!world.isClient) {
@@ -110,5 +108,5 @@ public class IncubatorBlock extends BlockWithEntity implements BlockEntityProvid
     @Override
     public @Nullable <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
         return checkType(type, ModBlockEntities.INCUBATOR_BLOCK_ENTITY, (world1, pos, state1, blockEntity) -> blockEntity.tick(world1, pos, state1));
-    }
+    }*/
 }

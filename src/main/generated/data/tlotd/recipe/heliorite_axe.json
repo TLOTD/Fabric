@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "tlotd:heliorite_axe",
+  "key": {
+    "#": {
+      "item": "tlotd:heliorite_ingot"
+    },
+    "I": {
+      "tag": "c:steel_rods"
+    }
+  },
+  "pattern": [
+    "##",
+    "#I",
+    " I"
+  ],
+  "result": {
+    "count": 1,
+    "id": "tlotd:heliorite_axe"
+  }
+}

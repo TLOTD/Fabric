@@ -1,59 +1,65 @@
 package net.tlotd.recipe;
 
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
-import net.minecraft.inventory.SimpleInventory;
+import com.mojang.serialization.MapCodec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.item.ItemStack;
-import net.minecraft.network.PacketByteBuf;
-import net.minecraft.recipe.*;
-import net.minecraft.registry.DynamicRegistryManager;
-import net.minecraft.util.Identifier;
-import net.minecraft.util.JsonHelper;
+import net.minecraft.network.RegistryByteBuf;
+import net.minecraft.network.codec.PacketCodec;
+import net.minecraft.recipe.Ingredient;
+import net.minecraft.recipe.Recipe;
+import net.minecraft.recipe.RecipeSerializer;
+import net.minecraft.recipe.RecipeType;
+import net.minecraft.recipe.input.RecipeInput;
+import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.world.World;
 
-public class WitchingRecipe implements Recipe<SimpleInventory> {
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
-    private final Identifier id;
+public class WitchingRecipe implements Recipe<RecipeInput> {
+    private static final int INPUT_SIZE = 9;
+    private static final int[] SLOT_MAPPING = {4, 0, 1, 2, 3, 5, 6, 7, 8};
     private final ItemStack output;
     private final DefaultedList<Ingredient> recipeItems;
+
+    public WitchingRecipe(ItemStack output, List<Ingredient> recipeItems) {
+        this.output = output.copy();
+        this.recipeItems = DefaultedList.ofSize(INPUT_SIZE, Ingredient.EMPTY);
+
+        for (int i = 0; i < Math.min(recipeItems.size(), INPUT_SIZE); i++) {
+            this.recipeItems.set(i, recipeItems.get(i));
+        }
+    }
 
     @Override
     public DefaultedList<Ingredient> getIngredients() {
         return recipeItems;
     }
 
-    public WitchingRecipe(Identifier id, ItemStack output, DefaultedList<Ingredient> recipeItems) {
-        this.id = id;
-        this.output = output;
-        this.recipeItems = recipeItems;
-    }
-
     @Override
-    public boolean matches(SimpleInventory inventory, World world) {
-        if (world.isClient()) {
+    public boolean matches(RecipeInput input, World world) {
+        if (world.isClient() || input.getSize() != INPUT_SIZE) {
             return false;
         }
-        int recipeNum = 0;
-        int itemNum = 0;
-        for (int i = 0; i < recipeItems.size(); i++) {
-            if (inventory.getStack(i).isEmpty()) {
-                itemNum++;
-            }
-            if (recipeItems.get(i).isEmpty()) {
-                recipeNum++;
+        for (int i = 0; i < INPUT_SIZE; i++) {
+            Ingredient ingredient = recipeItems.get(i);
+            ItemStack stack = input.getStackInSlot(SLOT_MAPPING[i]);
+            if (ingredient.isEmpty()) {
+                if (!stack.isEmpty()) {
+                    return false;
+                }
+            } else if (!ingredient.test(stack)) {
+                return false;
             }
         }
-        return (itemNum == recipeNum) && (recipeItems.get(0).test((inventory.getStack(4)))) &&
-
-                (recipeItems.get(1).test((inventory.getStack(0)))) && (recipeItems.get(2).test((inventory.getStack(1)))) && (recipeItems.get(3).test((inventory.getStack(2)))) && (recipeItems.get(4).test((inventory.getStack(3)))) &&
-
-                (recipeItems.get(5).test((inventory.getStack(5)))) && (recipeItems.get(6).test((inventory.getStack(6)))) && (recipeItems.get(7).test((inventory.getStack(7)))) && (recipeItems.get(8).test((inventory.getStack(8))));
+        return true;
     }
 
     @Override
-    public ItemStack craft(SimpleInventory inventory, DynamicRegistryManager registryManager) {
-        return output;
+    public ItemStack craft(RecipeInput input, RegistryWrapper.WrapperLookup registries) {
+        return output.copy();
     }
 
     @Override
@@ -62,13 +68,8 @@ public class WitchingRecipe implements Recipe<SimpleInventory> {
     }
 
     @Override
-    public ItemStack getOutput(DynamicRegistryManager registryManager) {
+    public ItemStack getResult(RegistryWrapper.WrapperLookup registries) {
         return output.copy();
-    }
-
-    @Override
-    public Identifier getId() {
-        return id;
     }
 
     @Override
@@ -82,48 +83,62 @@ public class WitchingRecipe implements Recipe<SimpleInventory> {
     }
 
     public static class Type implements RecipeType<WitchingRecipe> {
-        private Type() {
-        }
-
         public static final Type INSTANCE = new Type();
         public static final String ID = "witching";
+
+        private Type() {
+        }
     }
 
     public static class Serializer implements RecipeSerializer<WitchingRecipe> {
         public static final Serializer INSTANCE = new Serializer();
         public static final String ID = "witching";
 
+        private static final MapCodec<WitchingRecipe> CODEC =
+                RecordCodecBuilder.mapCodec(instance -> instance.group(
+                        Ingredient.DISALLOW_EMPTY_CODEC.listOf()
+                                .fieldOf("ingredients")
+                                .forGetter(recipe ->
+                                        new ArrayList<>(recipe.recipeItems)),
+                        ItemStack.CODEC
+                                .fieldOf("output")
+                                .forGetter(recipe -> recipe.output)
+                ).apply(instance, (ingredients, output) ->
+                        new WitchingRecipe(output, ingredients)));
+
+        private static final PacketCodec<RegistryByteBuf, WitchingRecipe> PACKET_CODEC =
+                PacketCodec.of(
+                        (recipe, buf) -> {
+                            buf.writeVarInt(recipe.recipeItems.size());
+                            for (Ingredient ingredient : recipe.recipeItems) {
+                                Ingredient.PACKET_CODEC.encode(buf, ingredient);
+                            }
+                            ItemStack.PACKET_CODEC.encode(buf, recipe.output);
+                        },
+                        buf -> {
+                            int size = buf.readVarInt();
+                            if (size != INPUT_SIZE) {
+                                throw new IllegalStateException(
+                                        "Witching recipe must have exactly 9 ingredients, got " + size
+                                );
+                            }
+                            List<Ingredient> ingredients = new ArrayList<>(size);
+                            for (int i = 0; i < size; i++) {
+                                ingredients.add(Ingredient.PACKET_CODEC.decode(buf));
+                            }
+                            ItemStack output = ItemStack.PACKET_CODEC.decode(buf);
+                            return new WitchingRecipe(output, ingredients);
+                        }
+                );
+
         @Override
-        public WitchingRecipe read(Identifier id, JsonObject json) {
-            ItemStack output = ShapedRecipe.outputFromJson(JsonHelper.getObject(json, "output"));
-
-            JsonArray ingredients = JsonHelper.getArray(json, "ingredients");
-            DefaultedList<Ingredient> inputs = DefaultedList.ofSize(9, Ingredient.EMPTY);
-
-            for (int i = 0; i < ingredients.size(); i++) {
-                inputs.set(i, Ingredient.fromJson(ingredients.get(i)));
-            }
-
-            return new WitchingRecipe(id, output, inputs);
+        public MapCodec<WitchingRecipe> codec() {
+            return CODEC;
         }
 
         @Override
-        public WitchingRecipe read(Identifier id, PacketByteBuf buf) {
-            DefaultedList<Ingredient> inputs = DefaultedList.ofSize(buf.readInt(), Ingredient.EMPTY);
-
-            inputs.replaceAll(ignored -> Ingredient.fromPacket(buf));
-
-            ItemStack output = buf.readItemStack();
-            return new WitchingRecipe(id, output, inputs);
-        }
-
-        @Override
-        public void write(PacketByteBuf buf, WitchingRecipe recipe) {
-            buf.writeInt(recipe.getIngredients().size());
-            for (Ingredient ing : recipe.getIngredients()) {
-                ing.write(buf);
-            }
-            buf.writeItemStack(recipe.getOutput(null));
+        public PacketCodec<RegistryByteBuf, WitchingRecipe> packetCodec() {
+            return PACKET_CODEC;
         }
     }
 }

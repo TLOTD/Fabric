@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "I": {
+      "tag": "tlotd:stick_effigies"
+    },
+    "S": {
+      "item": "minecraft:string"
+    }
+  },
+  "pattern": [
+    "SSS",
+    "III",
+    "III"
+  ],
+  "result": {
+    "count": 1,
+    "id": "tlotd:effigies"
+  }
+}

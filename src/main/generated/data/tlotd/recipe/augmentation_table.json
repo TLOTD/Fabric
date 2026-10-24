@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "tlotd:marble"
+    },
+    "G": {
+      "tag": "c:gold_ingots"
+    }
+  },
+  "pattern": [
+    "G#G",
+    "###"
+  ],
+  "result": {
+    "count": 1,
+    "id": "tlotd:augmentation_table"
+  }
+}

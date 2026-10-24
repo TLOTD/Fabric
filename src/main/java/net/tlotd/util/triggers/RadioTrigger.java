@@ -1,75 +1,53 @@
 package net.tlotd.util.triggers;
 
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
+import com.mojang.serialization.Codec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.advancement.criterion.AbstractCriterion;
-import net.minecraft.advancement.criterion.AbstractCriterionConditions;
-import net.minecraft.predicate.entity.AdvancementEntityPredicateDeserializer;
 import net.minecraft.predicate.entity.LootContextPredicate;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.Identifier;
 import net.tlotd.TLOTD;
 
-import java.util.HashSet;
-import java.util.Set;
-import java.util.UUID;
+import java.util.*;
 
 public class RadioTrigger extends AbstractCriterion<RadioTrigger.Conditions> {
 
-    public static final Identifier ID = new Identifier(TLOTD.MOD_ID, "radio_play");
+    public static final Identifier ID = Identifier.of(TLOTD.MOD_ID, "radio_play");
+
+    private static final Codec<UUID> UUID_CODEC = Codec.STRING.xmap(UUID::fromString, UUID::toString);
 
     @Override
-    public Identifier getId() {
-        return ID;
-    }
-
-    @Override
-    protected Conditions conditionsFromJson(JsonObject json, LootContextPredicate playerPredicate, AdvancementEntityPredicateDeserializer deserializer) {
-        Identifier signal = null;
-        Identifier dimension = null;
-        Set<UUID> uuids = new HashSet<>();
-        if (json.has("signal")) {
-            signal = new Identifier(json.get("signal").getAsString());
-        }
-        if (json.has("dimension")) {
-            dimension = new Identifier(json.get("dimension").getAsString());
-        }
-        if (json.has("uuids")) {
-            JsonArray array = json.getAsJsonArray("uuids");
-            for (JsonElement element : array) {
-                uuids.add(UUID.fromString(element.getAsString()));
-            }
-        }
-        return new Conditions(playerPredicate, signal, dimension, uuids);
+    public Codec<Conditions> getConditionsCodec() {
+        return Conditions.CODEC;
     }
 
     public void trigger(ServerPlayerEntity player, ServerWorld world, Identifier playedSignal) {
+        Identifier currentDimension = world.getRegistryKey().getValue();
+
         this.trigger(player, conditions -> {
-            if (conditions.signal != null && !conditions.signal.equals(playedSignal)) {
+            if (conditions.signal().isPresent() && !conditions.signal().get().equals(playedSignal)) {
                 return false;
             }
-            if (conditions.dimension != null && !world.getRegistryKey().getValue().equals(conditions.dimension)) {
+
+            if (conditions.dimension().isPresent() && !conditions.dimension().get().equals(currentDimension)) {
                 return false;
             }
-            if (!conditions.allowedUuids.isEmpty() && !conditions.allowedUuids.contains(player.getUuid())) {
-                return false;
-            }
-            return true;
+
+            return conditions.allowedUuids().isEmpty() || conditions.allowedUuids().contains(player.getUuid());
         });
     }
 
-    public static class Conditions extends AbstractCriterionConditions {
-        private final Identifier signal;
-        private final Identifier dimension;
-        private final Set<UUID> allowedUuids;
+    public record Conditions(Optional<LootContextPredicate> player, Optional<Identifier> signal,
+                             Optional<Identifier> dimension,
+                             Set<UUID> allowedUuids) implements AbstractCriterion.Conditions {
 
-        public Conditions(LootContextPredicate predicate, Identifier signal, Identifier dimension, Set<UUID> uuids) {
-            super(ID, predicate);
-            this.signal = signal;
-            this.dimension = dimension;
-            this.allowedUuids = uuids;
-        }
+        public static final Codec<Conditions> CODEC = RecordCodecBuilder.create(instance -> instance.group(LootContextPredicate.CODEC.optionalFieldOf("player").forGetter(Conditions::player),
+
+                Identifier.CODEC.optionalFieldOf("signal").forGetter(Conditions::signal),
+
+                Identifier.CODEC.optionalFieldOf("dimension").forGetter(Conditions::dimension),
+
+                UUID_CODEC.listOf().optionalFieldOf("uuids", List.of()).xmap(Set::copyOf, List::copyOf).forGetter(Conditions::allowedUuids)).apply(instance, Conditions::new));
     }
 }

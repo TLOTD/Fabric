@@ -1,0 +1,43 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_leather": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:leather"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "tlotd:astronaut_helmet"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_tinted_glass": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:tinted_glass"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_tinted_glass",
+      "has_leather"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "tlotd:astronaut_helmet"
+    ]
+  }
+}

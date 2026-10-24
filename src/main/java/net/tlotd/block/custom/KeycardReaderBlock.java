@@ -9,18 +9,19 @@ import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
+import net.minecraft.util.ItemActionResult;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.event.GameEvent;
-import net.tlotd.block.entity.KeycardReaderBlockEntity;
+//import net.tlotd.block.entity.KeycardReaderBlockEntity;
 import net.tlotd.sound.ModSounds;
 import net.tlotd.util.ModTags;
 import org.jetbrains.annotations.Nullable;
 
-public class KeycardReaderBlock extends ButtonBlock implements BlockEntityProvider {
+public class KeycardReaderBlock extends ButtonBlock /*implements BlockEntityProvider*/ {
 
     public static final VoxelShape SOUTH_SHAPE = Block.createCuboidShape(4, 2, 0, 12, 14, 1);
     public static final VoxelShape WEST_SHAPE = Block.createCuboidShape(15, 2, 4, 16, 14, 12);
@@ -31,13 +32,12 @@ public class KeycardReaderBlock extends ButtonBlock implements BlockEntityProvid
     public static final VoxelShape UP_SHAPE = Block.createCuboidShape(2, 15, 4, 14, 16, 12);
     public static final VoxelShape UP_SHAPE_2 = Block.createCuboidShape(4, 15, 2, 12, 16, 14);
 
-    public KeycardReaderBlock(Settings settings, BlockSetType blockSetType, int pressTicks, boolean wooden) {
-        super(settings, blockSetType, pressTicks, wooden);
+    public KeycardReaderBlock(BlockSetType blockSetType, int pressTicks, Settings settings) {
+        super(blockSetType, pressTicks, settings);
     }
 
-    @Override
-    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        ItemStack stack = player.getStackInHand(hand);
+    /*@Override
+    protected ItemActionResult onUseWithItem(ItemStack stack, BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         BlockEntity blockEntity = world.getBlockEntity(pos);
         if (!world.isClient && stack.isIn(ModTags.Items.KEYCARDS) && blockEntity instanceof KeycardReaderBlockEntity keycardReaderBlockEntity) {
             if (stack.getNbt().getString("password").isEmpty()) {
@@ -67,6 +67,11 @@ public class KeycardReaderBlock extends ButtonBlock implements BlockEntityProvid
         }
         return ActionResult.FAIL;
     }
+
+    @Override
+    public @Nullable BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
+        return new KeycardReaderBlockEntity(pos, state);
+    }*/
 
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
@@ -100,10 +105,5 @@ public class KeycardReaderBlock extends ButtonBlock implements BlockEntityProvid
             }
         }
         return UP_SHAPE_2;
-    }
-
-    @Override
-    public @Nullable BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
-        return new KeycardReaderBlockEntity(pos, state);
     }
 }

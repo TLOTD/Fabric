@@ -4,16 +4,14 @@ import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.Screen;
-import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.text.Style;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
-import net.minecraft.world.World;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
@@ -25,13 +23,13 @@ public class FuturisticCircuitBoardItem extends Item {
         super(settings);
     }
 
-    public static final Identifier DEFAULT_FONT_ID = new Identifier("minecraft", "default");
-    public static final Identifier SGA_FONT_ID = new Identifier("minecraft", "alt");
-    public static final Identifier TOOLTIP_FONT_ID = new Identifier("tlotd", "tooltip");
+    public static final Identifier DEFAULT_FONT_ID = Identifier.of("minecraft", "default");
+    public static final Identifier SGA_FONT_ID = Identifier.of("minecraft", "alt");
+    public static final Identifier TOOLTIP_FONT_ID = Identifier.of("tlotd", "tooltip");
 
     @Override
     @Environment(EnvType.CLIENT)
-    public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
+    public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
         Style style = getName().getStyle();
         PlayerEntity player = MinecraftClient.getInstance().player;
         if (player == null) return;
@@ -50,6 +48,6 @@ public class FuturisticCircuitBoardItem extends Item {
             tooltip.add(Text.translatable("item.tlotd.futuristic_circuit_board.tooltip_2").setStyle(style.withFont(SGA_FONT_ID)).formatted(Formatting.GRAY));
             tooltip.add(Text.translatable("item.tlotd.futuristic_circuit_board.tooltip_3").setStyle(style.withFont(SGA_FONT_ID)).formatted(Formatting.GRAY));
         }
-        super.appendTooltip(stack, world, tooltip, context);
+        super.appendTooltip(stack, context, tooltip, type);
     }
 }

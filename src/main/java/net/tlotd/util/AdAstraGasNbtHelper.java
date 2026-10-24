@@ -14,7 +14,7 @@ import java.util.Map;
 
 import static net.tlotd.util.AugmentNbtHelper.getAugmentLevel;
 
-public class AdAstraGasNbtHelper {
+public class AdAstraGasNbtHelper {/*
     public static final String AD_ASTRA_OXYGEN_ID = "ad_astra:oxygen";
     public static final String TLOTD_WITHERED_AIR = "tlotd:withered_air";
     public static final String TLOTD_PIPE_WEED_SMOKE = "tlotd:pipe_weed_smoke";
@@ -235,5 +235,5 @@ public class AdAstraGasNbtHelper {
             this.amount = amount;
             this.max = max;
         }
-    }
+    }*/
 }

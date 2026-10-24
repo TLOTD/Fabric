@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:glass_bottle"
+    },
+    {
+      "tag": "c:oranges"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "tlotd:orange_juice_bottle"
+  }
+}

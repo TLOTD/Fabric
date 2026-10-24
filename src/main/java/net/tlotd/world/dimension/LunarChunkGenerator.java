@@ -1,6 +1,7 @@
 package net.tlotd.world.dimension;
 
 import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -24,13 +25,10 @@ import net.tlotd.config.ModConfigs;
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.Executor;
 
 public class LunarChunkGenerator extends ChunkGenerator {
 
-    public static final Codec<LunarChunkGenerator> CODEC = RecordCodecBuilder.create(instance -> instance.group(
-            BiomeSource.CODEC.fieldOf("biome_source").forGetter(generator -> generator.biomeSource)
-    ).apply(instance, LunarChunkGenerator::new));
+    public static final MapCodec<LunarChunkGenerator> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(BiomeSource.CODEC.fieldOf("biome_source").forGetter(generator -> generator.biomeSource)).apply(instance, LunarChunkGenerator::new));
 
     private final BiomeSource biomeSource;
     private final PerlinNoiseSampler heightNoise;
@@ -44,7 +42,7 @@ public class LunarChunkGenerator extends ChunkGenerator {
     }
 
     @Override
-    protected Codec<? extends ChunkGenerator> getCodec() {
+    protected MapCodec<? extends ChunkGenerator> getCodec() {
         return CODEC;
     }
 
@@ -69,7 +67,7 @@ public class LunarChunkGenerator extends ChunkGenerator {
     }
 
     @Override
-    public CompletableFuture<Chunk> populateNoise(Executor executor, Blender blender, NoiseConfig noiseConfig, StructureAccessor structureAccessor, Chunk chunk) {
+    public CompletableFuture<Chunk> populateNoise(Blender blender, NoiseConfig noiseConfig, StructureAccessor structureAccessor, Chunk chunk) {
         ChunkPos chunkPos = chunk.getPos();
 
         for (int dx = 0; dx < 16; dx++) {
@@ -78,11 +76,14 @@ public class LunarChunkGenerator extends ChunkGenerator {
                 int worldZ = chunkPos.getStartZ() + dz;
                 double baseNoise = heightNoise.sample(worldX * 0.03, 0, worldZ * 0.03) * 4;
                 double craterNoise = getCraterContribution(worldX, worldZ);
-                int height = (int)(64 + baseNoise + craterNoise);
+                int height = (int) (64 + baseNoise + craterNoise);
                 for (int dy = MoonBedrock; dy <= height && dy < chunk.getTopY(); dy++) {
                     BlockState state;
-                    if (dy == height) { state = ModBlocks.LUNAR_REGOLITH.getDefaultState(); }
-                    else { state = ModBlocks.MEGAREGOLITH.getDefaultState(); }
+                    if (dy == height) {
+                        state = ModBlocks.LUNAR_REGOLITH.getDefaultState();
+                    } else {
+                        state = ModBlocks.MEGAREGOLITH.getDefaultState();
+                    }
                     if (dy >= MoonBedrock && dy < chunk.getTopY()) {
                         chunk.setBlockState(new BlockPos(dx, dy, dz), state, false);
                     }
@@ -95,7 +96,7 @@ public class LunarChunkGenerator extends ChunkGenerator {
                         chunk.setBlockState(new BlockPos(dx, dy, dz), ModBlocks.LUNAR_BEDROCK.getDefaultState(), false);
                     }
                 }
-                chunk.setBlockState(new BlockPos(dx, MoonBedrock-1, dz), Blocks.BEDROCK.getDefaultState(), false);
+                chunk.setBlockState(new BlockPos(dx, MoonBedrock - 1, dz), Blocks.BEDROCK.getDefaultState(), false);
             }
         }
         return CompletableFuture.completedFuture(chunk);
@@ -114,7 +115,7 @@ public class LunarChunkGenerator extends ChunkGenerator {
     @Override
     public int getHeight(int x, int z, Heightmap.Type heightmap, HeightLimitView world, NoiseConfig config) {
         double noise = heightNoise.sample(x * 0.03, 0, z * 0.03) * 4;
-        return 64 + (int)(noise * 16);
+        return 64 + (int) (noise * 16);
     }
 
     @Override
@@ -130,11 +131,7 @@ public class LunarChunkGenerator extends ChunkGenerator {
         text.add("TLOTD Biome Builder: LunarChunkGenerator: Moon Terrain");
     }
 
-    private double craterHeight(
-            double dx,
-            double dz,
-            double radius
-    ) {
+    private double craterHeight(double dx, double dz, double radius) {
         double dist = Math.sqrt(dx * dx + dz * dz);
         if (dist > radius) return 0;
         double normalized = dist / radius;

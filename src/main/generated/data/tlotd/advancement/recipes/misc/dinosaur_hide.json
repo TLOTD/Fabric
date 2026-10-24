@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_dinosaur_hide": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tlotd:dinosaur_hide"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "tlotd:dinosaur_hide"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_dinosaur_hide"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "tlotd:dinosaur_hide"
+    ]
+  }
+}

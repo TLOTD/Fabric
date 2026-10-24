@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "tlotd:megaregolith_bricks"
+  },
+  "result": {
+    "count": 1,
+    "id": "tlotd:megaregolith_brick_stairs"
+  }
+}

@@ -2,12 +2,12 @@ package net.tlotd.item.custom;
 
 import net.minecraft.advancement.criterion.Criteria;
 import net.minecraft.block.Block;
-import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.*;
+import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
@@ -17,9 +17,6 @@ import net.minecraft.text.Text;
 import net.minecraft.util.*;
 import net.minecraft.world.World;
 import net.tlotd.block.ModBlocks;
-import net.tlotd.effect.ModEffects;
-import net.tlotd.item.ModItems;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
@@ -92,15 +89,15 @@ public class DrinkableWoodenSteinBlockItem extends BlockItem {
         return ItemUsage.consumeHeldItem(world, user, hand);
     }
 
-    public static final Identifier DEFAULT_FONT_ID = new Identifier("minecraft", "default");
-    public static final Identifier MODS_FONT_ID = new Identifier("tlotd", "mods");
+    public static final Identifier DEFAULT_FONT_ID = Identifier.of("minecraft", "default");
+    public static final Identifier MODS_FONT_ID = Identifier.of("tlotd", "mods");
 
     @Override
-    public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
+    public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
         if (stack.isOf(ModBlocks.WOODEN_BEER_STEIN.asItem()) || stack.isOf(ModBlocks.WOODEN_MEAD_STEIN.asItem())) {
             tooltip.add(Text.translatable("effect.tlotd.drunkenness").append(Text.literal(" (00:30)")).formatted(Formatting.RED));
         }
-        if (context.isCreative() && !compat.isEmpty()) {
+        /*if (context.isCreative() && !compat.isEmpty()) {
             Style style = this.getName().getStyle();
             if (compat.contains("aet")) {
                 tooltip.add(Text.literal("\uE008 ").setStyle(style.withFont(MODS_FONT_ID)).append(Text.translatable("mod.aether.name").setStyle(style.withFont(DEFAULT_FONT_ID).withFormatting(Formatting.GRAY))));
@@ -108,7 +105,7 @@ public class DrinkableWoodenSteinBlockItem extends BlockItem {
             if (compat.contains("tlf")) {
                 tooltip.add(Text.literal("\uE009 ").setStyle(style.withFont(MODS_FONT_ID)).append(Text.translatable("mod.twilightforest.name").setStyle(style.withFont(DEFAULT_FONT_ID).withFormatting(Formatting.GRAY))));
             }
-        }
-        super.appendTooltip(stack, world, tooltip, context);
+        }*/
+        super.appendTooltip(stack, context, tooltip, type);
     }
 }

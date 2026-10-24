@@ -3,6 +3,7 @@ package net.tlotd.block.custom;
 import net.minecraft.block.*;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.sound.SoundCategory;
@@ -12,6 +13,7 @@ import net.minecraft.state.StateManager;
 import net.minecraft.state.property.IntProperty;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
+import net.minecraft.util.ItemActionResult;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
@@ -47,9 +49,9 @@ public class AdventWreathBlock extends Block {
     }
 
     @Override
-    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
+    protected ItemActionResult onUseWithItem(ItemStack stack, BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         if (hand != Hand.MAIN_HAND) {
-            return ActionResult.PASS;
+            return ItemActionResult.FAIL;
         }
         if (!world.isClient()) {
             if (state.get(LIT) < 4 && (player.getStackInHand(hand).isOf(Items.FIRE_CHARGE) || player.getStackInHand(hand).isOf(Items.FLINT_AND_STEEL))) {
@@ -62,16 +64,16 @@ public class AdventWreathBlock extends Block {
                     }
                 } else {
                     world.playSound(null, pos, SoundEvents.ITEM_FLINTANDSTEEL_USE, SoundCategory.PLAYERS, 1.0f, 1.0f);
-                    player.getStackInHand(hand).damage(1, player, e -> e.sendEquipmentBreakStatus(EquipmentSlot.MAINHAND));
+                    player.getStackInHand(hand).damage(1, player, EquipmentSlot.MAINHAND);
                 }
-                return ActionResult.SUCCESS;
+                return ItemActionResult.SUCCESS;
             } else if (state.get(LIT) > 0) {
                 world.setBlockState(pos, state.with(LIT, state.get(LIT) - 1));
                 world.playSound(null, pos, SoundEvents.BLOCK_CANDLE_EXTINGUISH, SoundCategory.PLAYERS, 1.0f, 1.0f);
-                return ActionResult.SUCCESS;
+                return ItemActionResult.SUCCESS;
             }
         }
-        return ActionResult.FAIL;
+        return ItemActionResult.FAIL;
     }
 
     @Override

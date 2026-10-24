@@ -38,7 +38,7 @@ public abstract class BeerFluid extends FlowableFluid {
     }
 
     @Override
-    protected int getFlowSpeed(WorldView world) {
+    protected int getMaxFlowDistance(WorldView world) {
         return 4;
     }
 

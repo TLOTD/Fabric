@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "count": 1,
-  "ingredient": {
-    "item": "tlotd:fancy_birch_planks"
-  },
-  "result": "minecraft:birch_planks"
-}

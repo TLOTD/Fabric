@@ -1,0 +1,43 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_iron_door": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:iron_door"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_tall_dark_metal_tile": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tlotd:tall_dark_metal_tile"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "tlotd:heavy_metal_door"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_tall_dark_metal_tile",
+      "has_iron_door"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "tlotd:heavy_metal_door"
+    ]
+  }
+}

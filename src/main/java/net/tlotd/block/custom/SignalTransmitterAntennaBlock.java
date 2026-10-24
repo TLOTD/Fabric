@@ -1,12 +1,13 @@
 package net.tlotd.block.custom;
 
 import net.minecraft.block.*;
-import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
@@ -94,7 +95,7 @@ public class SignalTransmitterAntennaBlock extends Block {
         return BlockRenderType.MODEL;
     }
 
-    @Override
+    /*@Override
     public void onPlaced(World world, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack itemStack) {
         super.onPlaced(world, pos, state, placer, itemStack);
         if (world.isClient()) return;
@@ -118,10 +119,10 @@ public class SignalTransmitterAntennaBlock extends Block {
                 break;
             }
         }
-    }
+    }*/
 
     @Override
-    public void appendTooltip(ItemStack stack, @Nullable BlockView world, List<Text> tooltip, TooltipContext options) {
+    public void appendTooltip(ItemStack stack, Item.TooltipContext context, List<Text> tooltip, TooltipType options) {
         int signalStrength = 0;
         if (stack.isOf(ModBlocks.ALUMINIUM_SIGNAL_TRANSMITTER_ANTENNA.asItem())) {
             signalStrength = 1;
@@ -142,7 +143,7 @@ public class SignalTransmitterAntennaBlock extends Block {
         } else if (stack.isOf(ModBlocks.MITHRIL_SIGNAL_TRANSMITTER_ANTENNA.asItem())) {
             signalRange = 4;
         }
-        super.appendTooltip(stack, world, tooltip, options);
+        super.appendTooltip(stack, context, tooltip, options);
         tooltip.add(Text.empty());
         tooltip.add(Text.translatable("block.tlotd.signal_transmitter.signal_strength").formatted(Formatting.GRAY));
         tooltip.add(Text.literal(" ").append(SignalTrackingArray.getStrenthText(signalStrength)));

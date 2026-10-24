@@ -8,10 +8,11 @@ import net.minecraft.block.entity.BlockEntityTicker;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.Screen;
-import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.ai.pathing.NavigationType;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.screen.NamedScreenHandlerFactory;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.IntProperty;
@@ -23,8 +24,8 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
-import net.tlotd.block.entity.WitchingTableBlockEntity;
-import net.tlotd.block.entity.ModBlockEntities;
+//import net.tlotd.block.entity.WitchingTableBlockEntity;
+//import net.tlotd.block.entity.ModBlockEntities;
 import net.tlotd.item.ModItems;
 import net.tlotd.networking.ClientGlobalConfig;
 import org.jetbrains.annotations.Nullable;
@@ -33,7 +34,7 @@ import java.util.List;
 
 import static net.tlotd.api.TlotdAPI.enlightened;
 
-public class WitchingTableBlock extends BlockWithEntity implements BlockEntityProvider {
+public class WitchingTableBlock extends Block/*WithEntity implements BlockEntityProvider*/ {
 
     public static final IntProperty SOUL_CHARGES = IntProperty.of("soul_charges", 0, 3);
     public static final IntProperty CURSED_SOUL_CHARGES = IntProperty.of("cursed_soul_charges", 0, 3);
@@ -44,7 +45,7 @@ public class WitchingTableBlock extends BlockWithEntity implements BlockEntityPr
     }
 
     @Override
-    public boolean canPathfindThrough(BlockState state, BlockView world, BlockPos pos, NavigationType type) {
+    protected boolean canPathfindThrough(BlockState state, NavigationType type) {
         return false;
     }
 
@@ -60,7 +61,7 @@ public class WitchingTableBlock extends BlockWithEntity implements BlockEntityPr
         return BlockRenderType.MODEL;
     }
 
-    @Override
+    /*@Override
     public @Nullable BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
         return new WitchingTableBlockEntity(pos, state);
     }
@@ -94,20 +95,20 @@ public class WitchingTableBlock extends BlockWithEntity implements BlockEntityPr
     @Override
     public @Nullable <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
         return checkType(type, ModBlockEntities.WITCHING_TABLE_BLOCK_ENTITY, (world1, pos, state1, blockEntity) -> blockEntity.tick(world1, pos, state1));
-    }
+    }*/
 
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
         builder.add(SOUL_CHARGES, CURSED_SOUL_CHARGES, ABYSSAL_SOUL_CHARGES);
     }
 
-    public static final Identifier DEFAULT_FONT_ID = new Identifier("minecraft", "default");
-    public static final Identifier ILLAGER_FONT_ID = new Identifier("minecraft", "illageralt");
-    public static final Identifier TOOLTIP_FONT_ID = new Identifier("tlotd", "tooltip");
+    public static final Identifier DEFAULT_FONT_ID = Identifier.of("minecraft", "default");
+    public static final Identifier ILLAGER_FONT_ID = Identifier.of("minecraft", "illageralt");
+    public static final Identifier TOOLTIP_FONT_ID = Identifier.of("tlotd", "tooltip");
 
     @Override
     @Environment(EnvType.CLIENT)
-    public void appendTooltip(ItemStack stack, @Nullable BlockView world, List<Text> tooltip, TooltipContext options) {
+    public void appendTooltip(ItemStack stack, Item.TooltipContext context, List<Text> tooltip, TooltipType options) {
         Style style = getName().getStyle();
         PlayerEntity player = MinecraftClient.getInstance().player;
         if (player == null) return;
@@ -153,6 +154,6 @@ public class WitchingTableBlock extends BlockWithEntity implements BlockEntityPr
             }
         }
         tooltip.add(Text.translatable("item.tlotd.desc_occult").formatted(Formatting.RED));
-        super.appendTooltip(stack, world, tooltip, options);
+        super.appendTooltip(stack, context, tooltip, options);
     }
 }

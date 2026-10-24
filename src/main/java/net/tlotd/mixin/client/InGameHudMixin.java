@@ -12,16 +12,20 @@ import org.spongepowered.asm.mixin.injection.At;
 
 @Mixin(InGameHud.class)
 public class InGameHudMixin {
-    @ModifyExpressionValue(method = "render", at = @At(value = "INVOKE", target = "Lnet/minecraft/item/ItemStack;isOf(Lnet/minecraft/item/Item;)Z"))
+
+    @ModifyExpressionValue(method = "renderMiscOverlays", at = @At(value = "INVOKE", target = "Lnet/minecraft/item/ItemStack;isOf(Lnet/minecraft/item/Item;)Z"))
     private boolean allowTaggedPumpkins(boolean original) {
         if (original) {
             return true;
         }
+
         MinecraftClient client = MinecraftClient.getInstance();
         if (client.player == null) {
             return false;
         }
+
         ItemStack helmet = client.player.getInventory().getArmorStack(3);
-        return helmet.isIn(TagKey.of(RegistryKeys.ITEM, new Identifier("c", "carved_pumpkins")));
+
+        return helmet.isIn(TagKey.of(RegistryKeys.ITEM, Identifier.of("c", "carved_pumpkins")));
     }
 }

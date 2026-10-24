@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:wheat"
+    },
+    "P": {
+      "item": "tlotd:pipe_weed"
+    }
+  },
+  "pattern": [
+    "#P#"
+  ],
+  "result": {
+    "count": 8,
+    "id": "tlotd:hemp_cookie"
+  }
+}

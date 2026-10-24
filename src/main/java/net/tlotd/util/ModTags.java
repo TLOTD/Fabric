@@ -112,11 +112,11 @@ public class ModTags {
                 createTag("c", "paxel_mineable");
 
         private static TagKey<Block> createTag(String name) {
-            return TagKey.of(RegistryKeys.BLOCK, new Identifier(TLOTD.MOD_ID, name));
+            return TagKey.of(RegistryKeys.BLOCK, Identifier.of(TLOTD.MOD_ID, name));
         }
 
         private static TagKey<Block> createTag(String identifirer, String name) {
-            return TagKey.of(RegistryKeys.BLOCK, new Identifier(identifirer, name));
+            return TagKey.of(RegistryKeys.BLOCK, Identifier.of(identifirer, name));
         }
     }
 
@@ -412,11 +412,11 @@ public class ModTags {
                 createTag("fancy_burnable_planks");
 
         private static TagKey<Item> createTag(String name) {
-            return TagKey.of(RegistryKeys.ITEM, new Identifier(TLOTD.MOD_ID, name));
+            return TagKey.of(RegistryKeys.ITEM, Identifier.of(TLOTD.MOD_ID, name));
         }
 
         private static TagKey<Item> createTag(String identifier, String name) {
-            return TagKey.of(RegistryKeys.ITEM, new Identifier(identifier, name));
+            return TagKey.of(RegistryKeys.ITEM, Identifier.of(identifier, name));
         }
     }
 }

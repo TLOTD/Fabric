@@ -1,13 +1,13 @@
 package net.tlotd.item.custom;
 
-import net.minecraft.client.item.TooltipContext;
-import net.minecraft.client.item.TooltipData;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.StackReference;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.item.tooltip.TooltipData;
+import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtList;
 import net.minecraft.screen.slot.Slot;
@@ -17,10 +17,8 @@ import net.minecraft.text.Text;
 import net.minecraft.util.ClickType;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.collection.DefaultedList;
-import net.minecraft.world.World;
 import net.tlotd.util.EnvelopeTooltipData;
 import net.tlotd.util.ModTags;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 import java.util.Optional;
@@ -31,7 +29,7 @@ public class EnvelopeItem extends Item {
         super(settings);
     }
 
-    private static final String ITEMS_KEY = "Items";
+    /*private static final String ITEMS_KEY = "Items";
     private static final int MAX_SLOTS = 2;
 
     private static final String SEALED_KEY = "Sealed";
@@ -88,7 +86,7 @@ public class EnvelopeItem extends Item {
                 player.playSound(SoundEvents.ENTITY_SHEEP_SHEAR, 1F, 1F + player.getWorld().getRandom().nextFloat() * 0.4F);
                 if (inputStack.getDamage() + 1 >= inputStack.getMaxDamage()) {
                     inputStack.decrement(1);
-                    player.playSound(SoundEvents.ENTITY_ITEM_BREAK, SoundCategory.PLAYERS, 1f, 1f);
+                    //player.playSound(SoundEvents.ENTITY_ITEM_BREAK, SoundCategory.PLAYERS, 1f, 1f);
                 } else {
                     inputStack.setDamage(inputStack.getDamage() + 1);
                 }
@@ -98,7 +96,7 @@ public class EnvelopeItem extends Item {
         }
         if (!isSealed(envelope) && inputStack.isOf(Items.HONEYCOMB)) {
             seal(envelope, player);
-            player.playSound(SoundEvents.ITEM_HONEYCOMB_WAX_ON, SoundCategory.PLAYERS, 1F, 1F + player.getWorld().getRandom().nextFloat() * 0.4F);
+            //player.playSound(SoundEvents.ITEM_HONEYCOMB_WAX_ON, SoundCategory.PLAYERS, 1F, 1F + player.getWorld().getRandom().nextFloat() * 0.4F);
             inputStack.decrement(1);
             return true;
         }
@@ -110,7 +108,7 @@ public class EnvelopeItem extends Item {
                     stored.set(i, ItemStack.EMPTY);
                     giveItem.accept(extracted);
                     setStoredStacks(envelope, stored);
-                    player.playSound(SoundEvents.ITEM_BUNDLE_REMOVE_ONE, SoundCategory.PLAYERS, 0.8F, 0.8F + player.getWorld().getRandom().nextFloat() * 0.4F);
+                    //player.playSound(SoundEvents.ITEM_BUNDLE_REMOVE_ONE, SoundCategory.PLAYERS, 0.8F, 0.8F + player.getWorld().getRandom().nextFloat() * 0.4F);
                     return true;
                 }
             }
@@ -122,7 +120,7 @@ public class EnvelopeItem extends Item {
                 stored.set(i, inputStack.copy());
                 inputStack.setCount(0);
                 setStoredStacks(envelope, stored);
-                player.playSound(SoundEvents.ITEM_BUNDLE_INSERT, SoundCategory.PLAYERS, 0.8F, 0.8F + player.getWorld().getRandom().nextFloat() * 0.4F);
+                //player.playSound(SoundEvents.ITEM_BUNDLE_INSERT, SoundCategory.PLAYERS, 0.8F, 0.8F + player.getWorld().getRandom().nextFloat() * 0.4F);
                 return true;
             }
         }
@@ -165,7 +163,7 @@ public class EnvelopeItem extends Item {
     }
 
     @Override
-    public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
+    public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
         NbtCompound nbt = stack.getNbt();
         if (nbt == null) {
             return;
@@ -187,5 +185,5 @@ public class EnvelopeItem extends Item {
         if (isSealed(stack)) {
             tooltip.add(Text.translatable("item.tlotd.letter.sealed").formatted(Formatting.GRAY));
         }
-    }
+    }*/
 }

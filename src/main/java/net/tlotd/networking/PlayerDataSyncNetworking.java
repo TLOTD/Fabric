@@ -1,32 +1,29 @@
 package net.tlotd.networking;
 
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
-import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
+import net.fabricmc.fabric.api.networking.v1.PayloadTypeRegistry;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
-import net.minecraft.network.PacketByteBuf;
 import net.minecraft.server.network.ServerPlayerEntity;
-import net.minecraft.util.Identifier;
-import net.tlotd.TLOTD;
 import net.tlotd.util.EntityDataSaver;
 
 public class PlayerDataSyncNetworking {
-    public static final Identifier PLAYER_DATA_SYNC_ID = new Identifier(TLOTD.MOD_ID, "player_data_sync");
+
+    public static void registerPayloads() {
+        PayloadTypeRegistry.playS2C().register(PlayerDataSyncPayload.ID, PlayerDataSyncPayload.CODEC);
+    }
 
     public static void registerClientReceiver() {
-        ClientPlayNetworking.registerGlobalReceiver(PLAYER_DATA_SYNC_ID, (client, handler, buf, responseSender) -> {
-            PlayerDataSyncPacket packet = PlayerDataSyncPacket.read(buf);
-            client.execute(() -> {
-                if (client.player != null) {
-                    EntityDataSaver saver = (EntityDataSaver) client.player;
-                    saver.getPersistentData().copyFrom(packet.data);
+        ClientPlayNetworking.registerGlobalReceiver(PlayerDataSyncPayload.ID, (payload, context) -> {
+            context.client().execute(() -> {
+                if (context.client().player != null) {
+                    EntityDataSaver saver = (EntityDataSaver) context.client().player;
+                    saver.getPersistentData().copyFrom(payload.data());
                 }
             });
         });
     }
 
-    public static void sendToClient(ServerPlayerEntity player, PlayerDataSyncPacket packet) {
-        PacketByteBuf buf = PacketByteBufs.create();
-        packet.write(buf);
-        ServerPlayNetworking.send(player, PLAYER_DATA_SYNC_ID, buf);
+    public static void sendToClient(ServerPlayerEntity player, PlayerDataSyncPayload payload) {
+        ServerPlayNetworking.send(player, payload);
     }
 }

@@ -7,6 +7,7 @@ import net.minecraft.state.StateManager;
 import net.minecraft.state.property.IntProperty;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.BlockView;
+import net.minecraft.world.WorldView;
 import net.tlotd.block.ModBlocks;
 
 public class RitualisticCircleBlock extends Block {
@@ -24,7 +25,7 @@ public class RitualisticCircleBlock extends Block {
     }
 
     @Override
-    public ItemStack getPickStack(BlockView world, BlockPos pos, BlockState state) {
+    public ItemStack getPickStack(WorldView world, BlockPos pos, BlockState state) {
         return ModBlocks.FANCY_CHARRED_PLANKS.asItem().getDefaultStack();
     }
 }

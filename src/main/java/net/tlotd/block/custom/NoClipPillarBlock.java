@@ -6,6 +6,7 @@ import net.minecraft.block.PillarBlock;
 import net.minecraft.block.ShapeContext;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemStack;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
@@ -14,6 +15,7 @@ import net.minecraft.state.StateManager;
 import net.minecraft.state.property.EnumProperty;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
+import net.minecraft.util.ItemActionResult;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
@@ -69,22 +71,22 @@ public class NoClipPillarBlock extends PillarBlock {
     }
 
     @Override
-    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
+    protected ItemActionResult onUseWithItem(ItemStack stack, BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         if (!world.isClient) {
-            if (state.isOf(ModBlocks.YELLOW_WALLPAPERED_WALL) && player.getStackInHand(hand).isOf(ModItems.BACKSHROOM_BASEBOARD)) {
-                player.incrementStat(Stats.USED.getOrCreateStat(player.getStackInHand(hand).getItem()));
+            if (state.isOf(ModBlocks.YELLOW_WALLPAPERED_WALL) && stack.isOf(ModItems.BACKSHROOM_BASEBOARD)) {
+                player.incrementStat(Stats.USED.getOrCreateStat(stack.getItem()));
                 world.playSound(null, pos, SoundEvents.BLOCK_WOOD_PLACE, SoundCategory.BLOCKS, 1.0f, 1.0f);
                 world.setBlockState(pos, ModBlocks.YELLOW_WALLPAPERED_WALL_WITH_BASEBOARD.getDefaultState().with(NOCLIPABLE, state.get(NOCLIPABLE)));
-                player.getStackInHand(hand).decrement(1);
-                return ActionResult.SUCCESS;
-            } else if (state.isOf(ModBlocks.STRIPPED_YELLOW_WALLPAPERED_WALL) && player.getStackInHand(hand).isOf(ModItems.YELLOW_WALLPAPER)) {
-                player.incrementStat(Stats.USED.getOrCreateStat(player.getStackInHand(hand).getItem()));
+                stack.decrement(1);
+                return ItemActionResult.SUCCESS;
+            } else if (state.isOf(ModBlocks.STRIPPED_YELLOW_WALLPAPERED_WALL) && stack.isOf(ModItems.YELLOW_WALLPAPER)) {
+                player.incrementStat(Stats.USED.getOrCreateStat(stack.getItem()));
                 world.playSound(null, pos, SoundEvents.BLOCK_GRASS_PLACE, SoundCategory.BLOCKS, 1.0f, 1.0f);
                 world.setBlockState(pos, ModBlocks.YELLOW_WALLPAPERED_WALL.getDefaultState().with(NOCLIPABLE, state.get(NOCLIPABLE)));
-                player.getStackInHand(hand).decrement(1);
-                return ActionResult.SUCCESS;
+                stack.decrement(1);
+                return ItemActionResult.SUCCESS;
             }
         }
-        return ActionResult.FAIL;
+        return ItemActionResult.FAIL;
     }
 }

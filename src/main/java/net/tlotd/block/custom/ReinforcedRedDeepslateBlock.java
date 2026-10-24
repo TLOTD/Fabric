@@ -2,15 +2,14 @@ package net.tlotd.block.custom;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.gui.screen.Screen;
-import net.minecraft.client.item.TooltipContext;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.text.Style;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
-import net.minecraft.world.BlockView;
 import net.tlotd.compat.CompatModsCheck;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
@@ -19,11 +18,11 @@ public class ReinforcedRedDeepslateBlock extends Block {
         super(settings);
     }
 
-    public static final Identifier DEFAULT_FONT_ID = new Identifier("minecraft", "default");
-    public static final Identifier TOOLTIP_FONT_ID = new Identifier("tlotd", "tooltip");
+    public static final Identifier DEFAULT_FONT_ID = Identifier.of("minecraft", "default");
+    public static final Identifier TOOLTIP_FONT_ID = Identifier.of("tlotd", "tooltip");
 
     @Override
-    public void appendTooltip(ItemStack stack, @Nullable BlockView world, List<Text> tooltip, TooltipContext options) {
+    public void appendTooltip(ItemStack stack, Item.TooltipContext context, List<Text> tooltip, TooltipType options) {
         Style style = this.getName().getStyle();
         if (CompatModsCheck.PATCHOULI) {
             if (Screen.hasShiftDown()) {
@@ -34,6 +33,6 @@ public class ReinforcedRedDeepslateBlock extends Block {
                 tooltip.add(Text.literal("\uE100 ").setStyle(style.withFont(TOOLTIP_FONT_ID)).append(Text.translatable("item.patchouli.guide_book.tlotd.guiding_grimoire.ponder", Text.translatable("key.keyboard.shift").formatted(Formatting.GRAY)).setStyle(style.withFont(DEFAULT_FONT_ID).withFormatting(Formatting.DARK_GRAY))));
             }
         }
-        super.appendTooltip(stack, world, tooltip, options);
+        super.appendTooltip(stack, context, tooltip, options);
     }
 }

@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:wheat"
+    },
+    "C": {
+      "item": "tlotd:ground_coffee_beans"
+    }
+  },
+  "pattern": [
+    "#C#"
+  ],
+  "result": {
+    "count": 8,
+    "id": "tlotd:coffee_cookie"
+  }
+}

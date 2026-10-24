@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_dinosaur_meat": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tlotd:dinosaur_meat"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "tlotd:cooked_dinosaur_meat_from_furnace"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_dinosaur_meat"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "tlotd:cooked_dinosaur_meat_from_furnace"
+    ]
+  }
+}

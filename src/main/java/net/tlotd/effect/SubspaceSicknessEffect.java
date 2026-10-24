@@ -11,11 +11,11 @@ public class SubspaceSicknessEffect extends StatusEffect {
     }
 
     @Override
-    public void applyUpdateEffect(LivingEntity entity, int amplifier) {
+    public boolean applyUpdateEffect(LivingEntity entity, int amplifier) {
         if(!entity.getWorld().isClient()) {
             entity.damage(ModDamageTypes.of(entity.getWorld(), ModDamageTypes.SUBSPACE_SICKNESS), 1.0F);
         }
-        super.applyUpdateEffect(entity, amplifier);
+        return super.applyUpdateEffect(entity, amplifier);
     }
 
     @Override

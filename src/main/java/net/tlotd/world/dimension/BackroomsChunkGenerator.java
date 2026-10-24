@@ -1,6 +1,7 @@
 package net.tlotd.world.dimension;
 
 import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -27,7 +28,6 @@ import net.tlotd.config.ModConfigs;
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.Executor;
 
 import static net.minecraft.block.RedstoneLampBlock.LIT;
 import static net.tlotd.block.custom.NoClipBlock.NOCLIPABLE;
@@ -35,9 +35,7 @@ import static net.tlotd.block.custom.NoClipMoistCarpetBlock.MOISTURE;
 
 public class BackroomsChunkGenerator extends ChunkGenerator {
 
-    public static final Codec<BackroomsChunkGenerator> CODEC = RecordCodecBuilder.create(instance -> instance.group(
-            BiomeSource.CODEC.fieldOf("biome_source").forGetter(generator -> generator.biomeSource)
-    ).apply(instance, BackroomsChunkGenerator::new));
+    public static final MapCodec<BackroomsChunkGenerator> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(BiomeSource.CODEC.fieldOf("biome_source").forGetter(generator -> generator.biomeSource)).apply(instance, BackroomsChunkGenerator::new));
 
     private final BiomeSource biomeSource;
     private final PerlinNoiseSampler heightNoise;
@@ -49,7 +47,7 @@ public class BackroomsChunkGenerator extends ChunkGenerator {
     }
 
     @Override
-    protected Codec<? extends ChunkGenerator> getCodec() {
+    protected MapCodec<? extends ChunkGenerator> getCodec() {
         return CODEC;
     }
 
@@ -84,19 +82,19 @@ public class BackroomsChunkGenerator extends ChunkGenerator {
     }
 
     @Override
-    public CompletableFuture<Chunk> populateNoise(Executor executor, Blender blender, NoiseConfig noiseConfig, StructureAccessor structureAccessor, Chunk chunk) {
+    public CompletableFuture<Chunk> populateNoise(Blender blender, NoiseConfig noiseConfig, StructureAccessor structureAccessor, Chunk chunk) {
         long seed = ModConfigs.LUNAR_SEED;
-        BlockState air            = Blocks.AIR.getDefaultState();
-        BlockState wall           = ModBlocks.YELLOW_WALLPAPERED_WALL.getDefaultState();
-        BlockState baseboardWall  = ModBlocks.YELLOW_WALLPAPERED_WALL_WITH_BASEBOARD.getDefaultState();
-        BlockState floorCorridor  = ModBlocks.MOIST_CARPET.getDefaultState();
+        BlockState air = Blocks.AIR.getDefaultState();
+        BlockState wall = ModBlocks.YELLOW_WALLPAPERED_WALL.getDefaultState();
+        BlockState baseboardWall = ModBlocks.YELLOW_WALLPAPERED_WALL_WITH_BASEBOARD.getDefaultState();
+        BlockState floorCorridor = ModBlocks.MOIST_CARPET.getDefaultState();
         BlockState floorUnderWall = ModBlocks.FLOOR_TILE.getDefaultState();
-        BlockState ceiling        = ModBlocks.CEILING_TILE.getDefaultState();
-        BlockState lamp           = ModBlocks.CEILING_LIGHT.getDefaultState().with(LIT, true);
-        BlockState lampPower      = Blocks.REDSTONE_BLOCK.getDefaultState();
+        BlockState ceiling = ModBlocks.CEILING_TILE.getDefaultState();
+        BlockState lamp = ModBlocks.CEILING_LIGHT.getDefaultState().with(LIT, true);
+        BlockState lampPower = Blocks.REDSTONE_BLOCK.getDefaultState();
         int logicalSize = 4;
-        int renderSize  = 5;
-        int wallHeight  = 3;
+        int renderSize = 5;
+        int wallHeight = 3;
         int floorHeight = 1;
         int ceilingHeight = 1;
         int lampLayerHeight = 1;
@@ -115,25 +113,21 @@ public class BackroomsChunkGenerator extends ChunkGenerator {
                 for (int baseY = getMinimumY(); baseY < getWorldHeight(); baseY += totalLayerHeight) {
                     int layerIndex = (baseY - getMinimumY()) / totalLayerHeight;
                     boolean current = hasPillar(seed, segmentX, segmentZ, layerIndex);
-                    boolean north   = hasPillar(seed, segmentX, segmentZ - 1, layerIndex);
-                    boolean south   = hasPillar(seed, segmentX, segmentZ + 1, layerIndex);
-                    boolean west    = hasPillar(seed, segmentX - 1, segmentZ, layerIndex);
-                    boolean east    = hasPillar(seed, segmentX + 1, segmentZ, layerIndex);
+                    boolean north = hasPillar(seed, segmentX, segmentZ - 1, layerIndex);
+                    boolean south = hasPillar(seed, segmentX, segmentZ + 1, layerIndex);
+                    boolean west = hasPillar(seed, segmentX - 1, segmentZ, layerIndex);
+                    boolean east = hasPillar(seed, segmentX + 1, segmentZ, layerIndex);
                     boolean isNorthWall = current && !north && renderZ == 0;
                     boolean isSouthWall = current && !south && renderZ == renderSize - 1;
-                    boolean isWestWall  = current && !west && renderX == 0;
-                    boolean isEastWall  = current && !east && renderX == renderSize - 1;
-                    boolean isPillar    = current && renderX == 0 && renderZ == 0;
+                    boolean isWestWall = current && !west && renderX == 0;
+                    boolean isEastWall = current && !east && renderX == renderSize - 1;
+                    boolean isPillar = current && renderX == 0 && renderZ == 0;
                     boolean isWall = isNorthWall || isSouthWall || isWestWall || isEastWall || isPillar;
-                    int wallBaseY  = baseY + floorHeight;
-                    int ceilingY   = wallBaseY + wallHeight;
+                    int wallBaseY = baseY + floorHeight;
+                    int ceilingY = wallBaseY + wallHeight;
                     BlockState floorBlock = isWall ? floorUnderWall : floorCorridor;
                     if (!isWall) {
-                        long floorSeed = seed
-                                + layerIndex * 918273645231L
-                                + worldX * 7342871L
-                                + worldZ * 9127831L
-                                + baseY * 15485863L;
+                        long floorSeed = seed + layerIndex * 918273645231L + worldX * 7342871L + worldZ * 9127831L + baseY * 15485863L;
                         net.minecraft.util.math.random.Random floorRand = net.minecraft.util.math.random.Random.create(floorSeed);
                         if (floorRand.nextDouble() < 0.001) {
                             floorBlock = ModBlocks.MOIST_CARPET.getDefaultState().with(MOISTURE, 1);
@@ -144,20 +138,14 @@ public class BackroomsChunkGenerator extends ChunkGenerator {
                         BlockState chosenWall = wall;
                         BlockState bottomWall = baseboardWall;
                         if (isWall) {
-                            long segmentSeed = seed + layerIndex * 918273645231L
-                                    + segmentX * 341873128712L
-                                    + segmentZ * 132897987541L;
+                            long segmentSeed = seed + layerIndex * 918273645231L + segmentX * 341873128712L + segmentZ * 132897987541L;
                             Random segmentRand = Random.create(segmentSeed);
                             boolean fullSegmentVariant = segmentRand.nextDouble() < 0.0005;
                             if (fullSegmentVariant) {
                                 chosenWall = ModBlocks.YELLOW_WALLPAPERED_WALL.getDefaultState().with(NOCLIPABLE, NoClipable.PORTALING);
                                 bottomWall = ModBlocks.YELLOW_WALLPAPERED_WALL_WITH_BASEBOARD.getDefaultState().with(NOCLIPABLE, NoClipable.PORTALING);
                             } else {
-                                long blockSeed = seed
-                                        + layerIndex * 918273645231L
-                                        + worldX * 7342871L
-                                        + worldZ * 9127831L
-                                        + y * 15485863L;
+                                long blockSeed = seed + layerIndex * 918273645231L + worldX * 7342871L + worldZ * 9127831L + y * 15485863L;
                                 Random blockRand = Random.create(blockSeed);
                                 if (blockRand.nextDouble() < 0.001) {
                                     chosenWall = ModBlocks.STRIPPED_YELLOW_WALLPAPERED_WALL.getDefaultState();
@@ -173,10 +161,10 @@ public class BackroomsChunkGenerator extends ChunkGenerator {
                         chunk.setBlockState(new BlockPos(dx, y, dz), chosenWall, false);
                     }
                     chunk.setBlockState(new BlockPos(dx, ceilingY, dz), ceiling, false);
-                    chunk.setBlockState(new BlockPos(dx, ceilingY+1, dz), ceiling, false);
+                    chunk.setBlockState(new BlockPos(dx, ceilingY + 1, dz), ceiling, false);
                     if (localX == 2 && localZ == 2 && current) {
                         chunk.setBlockState(new BlockPos(dx, ceilingY, dz), lamp, false);
-                        chunk.setBlockState(new BlockPos(dx, ceilingY+1, dz), lampPower, false);
+                        chunk.setBlockState(new BlockPos(dx, ceilingY + 1, dz), lampPower, false);
                     }
                 }
             }
@@ -197,7 +185,7 @@ public class BackroomsChunkGenerator extends ChunkGenerator {
     @Override
     public int getHeight(int x, int z, Heightmap.Type heightmap, HeightLimitView world, NoiseConfig config) {
         double noise = heightNoise.sample(x * 0.05, 0, z * 0.05);
-        return 48 + (int)(noise * 16);
+        return 48 + (int) (noise * 16);
     }
 
     @Override

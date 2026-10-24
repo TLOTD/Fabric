@@ -11,7 +11,7 @@ import net.tlotd.util.HEVSuitTooltipData;
 
 public class HEVSuitTooltipComponent implements TooltipComponent {
     private final DefaultedList<ItemStack> stacks;
-    private static final Identifier EMPTY_SLOT_TEXTURE = new Identifier(TLOTD.MOD_ID, "textures/gui/container/tooltip/empty_battery.png");
+    private static final Identifier EMPTY_SLOT_TEXTURE = Identifier.of(TLOTD.MOD_ID, "textures/gui/container/tooltip/empty_battery.png");
 
     public HEVSuitTooltipComponent(HEVSuitTooltipData data) {
         this.stacks = data.getStacks();

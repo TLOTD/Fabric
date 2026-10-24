@@ -2,7 +2,7 @@ package net.tlotd.block.custom;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.GlassBlock;
+import net.minecraft.block.TransparentBlock;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.EnumProperty;
@@ -12,7 +12,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 import net.tlotd.block.enum_property.VerticalConnection;
 
-public class VerticalGlassBlock extends GlassBlock {
+public class VerticalGlassBlock extends TransparentBlock {
 
     public static final EnumProperty<VerticalConnection> CONNECTION = EnumProperty.of("connection", VerticalConnection.class);
 

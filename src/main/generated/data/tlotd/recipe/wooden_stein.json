@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "Block{tlotd:wooden_stein}",
+  "key": {
+    "#": {
+      "tag": "minecraft:logs"
+    },
+    "I": {
+      "tag": "c:iron_ingots"
+    }
+  },
+  "pattern": [
+    "# #",
+    "I I",
+    "###"
+  ],
+  "result": {
+    "count": 4,
+    "id": "tlotd:wooden_stein"
+  }
+}

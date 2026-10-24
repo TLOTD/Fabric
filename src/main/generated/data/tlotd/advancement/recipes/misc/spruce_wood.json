@@ -1,0 +1,43 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_spruce_bark": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tlotd:spruce_bark"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_stripped_spruce_wood": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:stripped_spruce_wood"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "tlotd:spruce_wood"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_stripped_spruce_wood",
+      "has_spruce_bark"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "tlotd:spruce_wood"
+    ]
+  }
+}

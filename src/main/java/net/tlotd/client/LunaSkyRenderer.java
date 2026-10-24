@@ -15,8 +15,8 @@ import java.util.Random;
 
 public class LunaSkyRenderer {
 
-    private static final Identifier SUN = new Identifier(TLOTD.MOD_ID, "textures/environment/sun.png");
-    private static final Identifier EARTH = new Identifier(TLOTD.MOD_ID, "textures/environment/earth.png");
+    private static final Identifier SUN = Identifier.of(TLOTD.MOD_ID, "textures/environment/sun.png");
+    private static final Identifier EARTH = Identifier.of(TLOTD.MOD_ID, "textures/environment/earth.png");
     private static final int STAR_COUNT = 1024;
     private static final Star[] STARS = generateStars();
 
@@ -41,88 +41,96 @@ public class LunaSkyRenderer {
     private static void renderBlackSky(MatrixStack matrices) {
         RenderSystem.setShader(GameRenderer::getPositionColorProgram);
         matrices.push();
-        Matrix4f matrix = matrices.peek().getPositionMatrix();
-        Tessellator tess = Tessellator.getInstance();
-        BufferBuilder buffer = tess.getBuffer();
-        float size = 100f;
-        buffer.begin(VertexFormat.DrawMode.QUADS, VertexFormats.POSITION_COLOR);
-        for (int i = 0; i < 6; i++) {
-            buffer.vertex(matrix, -size, -size, -size).color(0f, 0f, 0f, 1f).next();
-            buffer.vertex(matrix, -size, size, -size).color(0f, 0f, 0f, 1f).next();
-            buffer.vertex(matrix, size, size, -size).color(0f, 0f, 0f, 1f).next();
-            buffer.vertex(matrix, size, -size, -size).color(0f, 0f, 0f, 1f).next();
-            matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(90f));
-            matrix = matrices.peek().getPositionMatrix();
+        try {
+            Matrix4f matrix = matrices.peek().getPositionMatrix();
+            Tessellator tess = Tessellator.getInstance();
+            float size = 100f;
+            BufferBuilder buffer = tess.begin(VertexFormat.DrawMode.QUADS, VertexFormats.POSITION_COLOR);
+            for (int i = 0; i < 6; i++) {
+                buffer.vertex(matrix, -size, -size, -size).color(0f, 0f, 0f, 1f);
+                buffer.vertex(matrix, -size, size, -size).color(0f, 0f, 0f, 1f);
+                buffer.vertex(matrix, size, size, -size).color(0f, 0f, 0f, 1f);
+                buffer.vertex(matrix, size, -size, -size).color(0f, 0f, 0f, 1f);
+                matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(90f));
+                matrix = matrices.peek().getPositionMatrix();
+            }
+            BufferRenderer.drawWithGlobalProgram(buffer.end());
+        } finally {
+            matrices.pop();
         }
-        tess.draw();
-        matrices.pop();
     }
 
     private static void renderStars(MatrixStack matrices, Camera camera, float tickDelta) {
         RenderSystem.setShader(GameRenderer::getPositionColorProgram);
         matrices.push();
-        Quaternionf rotation = camera.getRotation();
-        Vector3f right = new Vector3f(1, 0, 0).rotate(rotation);
-        Vector3f up = new Vector3f(0, 1, 0).rotate(rotation);
-        Matrix4f matrix = matrices.peek().getPositionMatrix();
-        Tessellator tessellator = Tessellator.getInstance();
-        BufferBuilder buffer = tessellator.getBuffer();
-        buffer.begin(VertexFormat.DrawMode.QUADS, VertexFormats.POSITION_COLOR);
-        MinecraftClient client = MinecraftClient.getInstance();
-        float globalTime = (client.world.getTime() + tickDelta) / 20f;
-        for (Star star : STARS) {
-            float brightness = 0.5f + 0.5f * (float) Math.sin(globalTime * star.twinkleSpeed + star.phase);
-            float alpha = brightness * star.baseBrightness;
-            float s = star.size;
-            float x = star.x;
-            float y = star.y;
-            float z = star.z;
-            buffer.vertex(matrix, x - right.x() * s - up.x() * s, y - right.y() * s - up.y() * s, z - right.z() * s - up.z() * s).color(star.r * brightness, star.g * brightness, star.b * brightness, alpha).next();
-            buffer.vertex(matrix, x - right.x() * s + up.x() * s, y - right.y() * s + up.y() * s, z - right.z() * s + up.z() * s).color(star.r * brightness, star.g * brightness, star.b * brightness, alpha).next();
-            buffer.vertex(matrix, x + right.x() * s + up.x() * s, y + right.y() * s + up.y() * s, z + right.z() * s + up.z() * s).color(star.r * brightness, star.g * brightness, star.b * brightness, alpha).next();
-            buffer.vertex(matrix, x + right.x() * s - up.x() * s, y + right.y() * s - up.y() * s, z + right.z() * s - up.z() * s).color(star.r * brightness, star.g * brightness, star.b * brightness, alpha).next();
+        try {
+            Quaternionf rotation = camera.getRotation();
+            Vector3f right = new Vector3f(1, 0, 0).rotate(rotation);
+            Vector3f up = new Vector3f(0, 1, 0).rotate(rotation);
+            Matrix4f matrix = matrices.peek().getPositionMatrix();
+            Tessellator tessellator = Tessellator.getInstance();
+            BufferBuilder buffer = tessellator.begin(VertexFormat.DrawMode.QUADS, VertexFormats.POSITION_COLOR);
+            MinecraftClient client = MinecraftClient.getInstance();
+            float globalTime = (client.world.getTime() + tickDelta) / 20f;
+            for (Star star : STARS) {
+                float brightness = 0.5f + 0.5f * (float) Math.sin(globalTime * star.twinkleSpeed + star.phase);
+                float alpha = brightness * star.baseBrightness;
+                float s = star.size;
+                float x = star.x;
+                float y = star.y;
+                float z = star.z;
+                buffer.vertex(matrix, x - right.x() * s - up.x() * s, y - right.y() * s - up.y() * s, z - right.z() * s - up.z() * s).color(star.r * brightness, star.g * brightness, star.b * brightness, alpha);
+                buffer.vertex(matrix, x - right.x() * s + up.x() * s, y - right.y() * s + up.y() * s, z - right.z() * s + up.z() * s).color(star.r * brightness, star.g * brightness, star.b * brightness, alpha);
+                buffer.vertex(matrix, x + right.x() * s + up.x() * s, y + right.y() * s + up.y() * s, z + right.z() * s + up.z() * s).color(star.r * brightness, star.g * brightness, star.b * brightness, alpha);
+                buffer.vertex(matrix, x + right.x() * s - up.x() * s, y + right.y() * s - up.y() * s, z + right.z() * s - up.z() * s).color(star.r * brightness, star.g * brightness, star.b * brightness, alpha);
+            }
+            BufferRenderer.drawWithGlobalProgram(buffer.end());
+        } finally {
+            matrices.pop();
         }
-        tessellator.draw();
-        matrices.pop();
     }
 
     private static void renderEarth(MatrixStack matrices) {
         RenderSystem.setShader(GameRenderer::getPositionTexProgram);
         RenderSystem.setShaderTexture(0, EARTH);
         matrices.push();
-        matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(-90f));
-        matrices.multiply(RotationAxis.POSITIVE_X.rotationDegrees(67.5f));
-        Matrix4f matrix = matrices.peek().getPositionMatrix();
-        Tessellator tess = Tessellator.getInstance();
-        BufferBuilder buffer = tess.getBuffer();
-        float size = 7.5f;
-        buffer.begin(VertexFormat.DrawMode.QUADS, VertexFormats.POSITION_TEXTURE);
-        buffer.vertex(matrix, -size, 100f, -size).texture(0f, 0f).next();
-        buffer.vertex(matrix, size, 100f, -size).texture(1f, 0f).next();
-        buffer.vertex(matrix, size, 100f, size).texture(1f, 1f).next();
-        buffer.vertex(matrix, -size, 100f, size).texture(0f, 1f).next();
-        tess.draw();
-        matrices.pop();
+        try {
+            matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(-90f));
+            matrices.multiply(RotationAxis.POSITIVE_X.rotationDegrees(67.5f));
+            Matrix4f matrix = matrices.peek().getPositionMatrix();
+            Tessellator tess = Tessellator.getInstance();
+            float size = 7.5f;
+            BufferBuilder buffer = tess.begin(VertexFormat.DrawMode.QUADS, VertexFormats.POSITION_TEXTURE);
+            buffer.vertex(matrix, -size, 100f, -size).texture(0f, 0f);
+            buffer.vertex(matrix, size, 100f, -size).texture(1f, 0f);
+            buffer.vertex(matrix, size, 100f, size).texture(1f, 1f);
+            buffer.vertex(matrix, -size, 100f, size).texture(0f, 1f);
+            BufferRenderer.drawWithGlobalProgram(buffer.end());
+        } finally {
+            matrices.pop();
+        }
     }
 
     private static void renderSun(MatrixStack matrices, float tickDelta) {
         RenderSystem.setShader(GameRenderer::getPositionTexProgram);
         RenderSystem.setShaderTexture(0, SUN);
         matrices.push();
-        float skyAngle = (MinecraftClient.getInstance().world.getTimeOfDay() % 24000L + tickDelta) / 24000f;
-        matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(-90f));
-        matrices.multiply(RotationAxis.POSITIVE_X.rotationDegrees(skyAngle * 360f));
-        Matrix4f matrix = matrices.peek().getPositionMatrix();
-        Tessellator tess = Tessellator.getInstance();
-        BufferBuilder buffer = tess.getBuffer();
-        float size = 20;
-        buffer.begin(VertexFormat.DrawMode.QUADS, VertexFormats.POSITION_TEXTURE);
-        buffer.vertex(matrix, -size, 100f, -size).texture(0f, 0f).next();
-        buffer.vertex(matrix, size, 100f, -size).texture(1f, 0f).next();
-        buffer.vertex(matrix, size, 100f, size).texture(1f, 1f).next();
-        buffer.vertex(matrix, -size, 100f, size).texture(0f, 1f).next();
-        tess.draw();
-        matrices.pop();
+        try {
+            float skyAngle = (MinecraftClient.getInstance().world.getTimeOfDay() % 24000L + tickDelta) / 24000f;
+            matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(-90f));
+            matrices.multiply(RotationAxis.POSITIVE_X.rotationDegrees(skyAngle * 360f));
+            Matrix4f matrix = matrices.peek().getPositionMatrix();
+            Tessellator tess = Tessellator.getInstance();
+            float size = 20f;
+            BufferBuilder buffer = tess.begin(VertexFormat.DrawMode.QUADS, VertexFormats.POSITION_TEXTURE);
+            buffer.vertex(matrix, -size, 100f, -size).texture(0f, 0f);
+            buffer.vertex(matrix, size, 100f, -size).texture(1f, 0f);
+            buffer.vertex(matrix, size, 100f, size).texture(1f, 1f);
+            buffer.vertex(matrix, -size, 100f, size).texture(0f, 1f);
+            BufferRenderer.drawWithGlobalProgram(buffer.end());
+        } finally {
+            matrices.pop();
+        }
     }
 
     private static Star[] generateStars() {
@@ -283,35 +291,38 @@ public class LunaSkyRenderer {
     private static void renderShootingStars(MatrixStack matrices, Camera camera) {
         RenderSystem.setShader(GameRenderer::getPositionColorProgram);
         matrices.push();
-        Quaternionf rotation = camera.getRotation();
-        Vector3f cameraForward = new Vector3f(0, 0, 1).rotate(rotation);
-        Matrix4f matrix = matrices.peek().getPositionMatrix();
-        Tessellator tessellator = Tessellator.getInstance();
-        BufferBuilder buffer = tessellator.getBuffer();
-        buffer.begin(VertexFormat.DrawMode.QUADS, VertexFormats.POSITION_COLOR);
-        for (ShootingStar star : SHOOTING_STARS) {
-            if (!star.active) {
-                continue;
+        try {
+            Quaternionf rotation = camera.getRotation();
+            Vector3f cameraForward = new Vector3f(0, 0, 1).rotate(rotation);
+            Matrix4f matrix = matrices.peek().getPositionMatrix();
+            Tessellator tessellator = Tessellator.getInstance();
+            BufferBuilder buffer = tessellator.begin(VertexFormat.DrawMode.QUADS, VertexFormats.POSITION_COLOR);
+            for (ShootingStar star : SHOOTING_STARS) {
+                if (!star.active) {
+                    continue;
+                }
+                float progress = star.progress;
+                float travelDistance = 70f * progress;
+                float headX = star.x + star.dx * travelDistance;
+                float headY = star.y + star.dy * travelDistance;
+                float headZ = star.z + star.dz * travelDistance;
+                float tailX = headX - star.dx * star.length;
+                float tailY = headY - star.dy * star.length;
+                float tailZ = headZ - star.dz * star.length;
+                Vector3f direction = new Vector3f(star.dx, star.dy, star.dz);
+                Vector3f width = new Vector3f(direction).cross(cameraForward).normalize().mul(0.10f);
+                float fadeIn = Math.min(progress * 10f, 1f);
+                float fadeOut = Math.min((1f - progress) * 5f, 1f);
+                float alpha = fadeIn * fadeOut * star.brightness;
+                buffer.vertex(matrix, headX - width.x(), headY - width.y(), headZ - width.z()).color(1f, 1f, 1f, alpha);
+                buffer.vertex(matrix, headX + width.x(), headY + width.y(), headZ + width.z()).color(1f, 1f, 1f, alpha);
+                buffer.vertex(matrix, tailX + width.x(), tailY + width.y(), tailZ + width.z()).color(1f, 1f, 1f, alpha * 0.05f);
+                buffer.vertex(matrix, tailX - width.x(), tailY - width.y(), tailZ - width.z()).color(1f, 1f, 1f, alpha * 0.05f);
             }
-            float progress = star.progress;
-            float travelDistance = 70f * progress;
-            float headX = star.x + star.dx * travelDistance;
-            float headY = star.y + star.dy * travelDistance;
-            float headZ = star.z + star.dz * travelDistance;
-            float tailX = headX - star.dx * star.length;
-            float tailY = headY - star.dy * star.length;
-            float tailZ = headZ - star.dz * star.length;
-            Vector3f direction = new Vector3f(star.dx, star.dy, star.dz);
-            Vector3f width = new Vector3f(direction).cross(cameraForward).normalize().mul(0.10f);
-            float fadeIn = Math.min(progress * 10f, 1f);
-            float fadeOut = Math.min((1f - progress) * 5f, 1f);
-            float alpha = fadeIn * fadeOut * star.brightness;
-            buffer.vertex(matrix, headX - width.x(), headY - width.y(), headZ - width.z()).color(1f, 1f, 1f, alpha).next();
-            buffer.vertex(matrix, headX + width.x(), headY + width.y(), headZ + width.z()).color(1f, 1f, 1f, alpha).next();
-            buffer.vertex(matrix, tailX + width.x(), tailY + width.y(), tailZ + width.z()).color(1f, 1f, 1f, alpha * 0.05f).next();
-            buffer.vertex(matrix, tailX - width.x(), tailY - width.y(), tailZ - width.z()).color(1f, 1f, 1f, alpha * 0.05f).next();
+
+            BufferRenderer.drawWithGlobalProgram(buffer.end());
+        } finally {
+            matrices.pop();
         }
-        tessellator.draw();
-        matrices.pop();
     }
 }

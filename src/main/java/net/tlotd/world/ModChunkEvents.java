@@ -26,7 +26,7 @@ public class ModChunkEvents {
                     world.getServer().execute(() -> {
                         StructurePlacedPersistentState state = StructurePlacedPersistentState.get(world);
                         if (!state.isStructurePlaced()) {
-                            placeStructure(world, new Identifier(TLOTD.MOD_ID, "alien_gate"), new BlockPos(-6, -66, -6));
+                            placeStructure(world, Identifier.of(TLOTD.MOD_ID, "alien_gate"), new BlockPos(-6, -66, -6));
                             state.setStructurePlaced(true);
                             state.markDirty();
                         }

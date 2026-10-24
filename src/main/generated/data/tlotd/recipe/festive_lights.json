@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "tag": "c:glass_blocks"
+    },
+    "R": {
+      "item": "minecraft:redstone_lamp"
+    },
+    "W": {
+      "tag": "tlotd:wires"
+    }
+  },
+  "pattern": [
+    "WWW",
+    "#R#",
+    "###"
+  ],
+  "result": {
+    "count": 8,
+    "id": "tlotd:festive_lights"
+  }
+}

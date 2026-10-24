@@ -2,6 +2,8 @@ package net.tlotd.client;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.client.item.ModelPredicateProviderRegistry;
+import net.minecraft.component.DataComponentTypes;
+import net.minecraft.component.type.NbtComponent;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.mob.HostileEntity;
@@ -9,6 +11,7 @@ import net.minecraft.nbt.NbtCompound;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.tlotd.TLOTD;
+import net.tlotd.components.ModComponents;
 import net.tlotd.item.ModItems;
 import net.tlotd.item.custom.MithrilMirrorItem;
 import net.tlotd.util.AdAstraGasNbtHelper;
@@ -21,7 +24,7 @@ import java.util.Comparator;
 public class ModItemRenderLayerMap {
     public static void registerItemRenderLayerMaps() {
         ModelPredicateProviderRegistry.register(
-                ModItems.MITHRIL_INGOT, new Identifier(TLOTD.MOD_ID, "temperature"), (stack, world, entity, seed) -> {
+                ModItems.MITHRIL_INGOT, Identifier.of(TLOTD.MOD_ID, "temperature"), (stack, world, entity, seed) -> {
                     if (entity == null) return 0f;
                     if (ItemHeatHelper.getTemperature(stack) > 3000) return 0.3f;
                     else if (ItemHeatHelper.getTemperature(stack) > 1500) return 0.2f;
@@ -30,7 +33,7 @@ public class ModItemRenderLayerMap {
                 }
         );
         ModelPredicateProviderRegistry.register(
-                ModItems.ROUGH_MITHRIL_INGOT, new Identifier(TLOTD.MOD_ID, "temperature"), (stack, world, entity, seed) -> {
+                ModItems.ROUGH_MITHRIL_INGOT, Identifier.of(TLOTD.MOD_ID, "temperature"), (stack, world, entity, seed) -> {
                     if (entity == null) return 0f;
                     if (ItemHeatHelper.getTemperature(stack) > 3000) return 0.3f;
                     else if (ItemHeatHelper.getTemperature(stack) > 1500) return 0.2f;
@@ -39,43 +42,35 @@ public class ModItemRenderLayerMap {
                 }
         );
         ModelPredicateProviderRegistry.register(
-                ModItems.GONDORIAN_SHIELD, new Identifier(TLOTD.MOD_ID, "blocking"), (stack, world, entity, seed) -> {
+                ModItems.GONDORIAN_SHIELD, Identifier.of(TLOTD.MOD_ID, "blocking"), (stack, world, entity, seed) -> {
                     if (entity == null) return 0f;
                     if (entity.isUsingItem()) return 1f;
                     return 0f;
                 }
         );
         ModelPredicateProviderRegistry.register(
-                ModItems.GONDORIAN_TOWER_SHIELD, new Identifier(TLOTD.MOD_ID, "blocking"), (stack, world, entity, seed) -> {
+                ModItems.GONDORIAN_TOWER_SHIELD, Identifier.of(TLOTD.MOD_ID, "blocking"), (stack, world, entity, seed) -> {
                     if (entity == null) return 0f;
                     if (entity.isUsingItem()) return 1f;
                     return 0f;
                 }
         );
         ModelPredicateProviderRegistry.register(
-                ModItems.GONDORIAN_KINGS_GUARD_TOWER_SHIELD, new Identifier(TLOTD.MOD_ID, "blocking"), (stack, world, entity, seed) -> {
+                ModItems.GONDORIAN_KINGS_GUARD_TOWER_SHIELD, Identifier.of(TLOTD.MOD_ID, "blocking"), (stack, world, entity, seed) -> {
                     if (entity == null) return 0f;
                     if (entity.isUsingItem()) return 1f;
                     return 0f;
                 }
         );
         ModelPredicateProviderRegistry.register(
-                ModItems.GONDORIAN_KNIGHT_SHIELD, new Identifier(TLOTD.MOD_ID, "blocking"), (stack, world, entity, seed) -> {
+                ModItems.GONDORIAN_KNIGHT_SHIELD, Identifier.of(TLOTD.MOD_ID, "blocking"), (stack, world, entity, seed) -> {
                     if (entity == null) return 0f;
                     if (entity.isUsingItem()) return 1f;
                     return 0f;
                 }
         );
         ModelPredicateProviderRegistry.register(
-                ModItems.GONDORIAN_ORNAMENTED_KNIGHT_SHIELD, new Identifier(TLOTD.MOD_ID, "blocking"), (stack, world, entity, seed) -> {
-                    if (entity == null) return 0f;
-                    if (entity.isUsingItem()) return 1f;
-                    return 0f;
-                }
-        );
-
-        ModelPredicateProviderRegistry.register(
-                ModItems.ANDURIL, new Identifier(TLOTD.MOD_ID, "blocking"), (stack, world, entity, seed) -> {
+                ModItems.GONDORIAN_ORNAMENTED_KNIGHT_SHIELD, Identifier.of(TLOTD.MOD_ID, "blocking"), (stack, world, entity, seed) -> {
                     if (entity == null) return 0f;
                     if (entity.isUsingItem()) return 1f;
                     return 0f;
@@ -83,41 +78,55 @@ public class ModItemRenderLayerMap {
         );
 
         ModelPredicateProviderRegistry.register(
-                ModItems.MITHRIL_MIRROR, new Identifier(TLOTD.MOD_ID, "charge"), (stack, world, entity, seed) -> {
+                ModItems.ANDURIL, Identifier.of(TLOTD.MOD_ID, "blocking"), (stack, world, entity, seed) -> {
+                    if (entity == null) return 0f;
+                    if (entity.isUsingItem()) return 1f;
+                    return 0f;
+                }
+        );
+
+        ModelPredicateProviderRegistry.register(
+                ModItems.MITHRIL_MIRROR,
+                Identifier.of(TLOTD.MOD_ID, "charge"),
+                (stack, world, entity, seed) -> {
                     if (stack.isEmpty()) return 1.0f;
-                    if (!stack.hasNbt()) return 1.0f;
-                    NbtCompound tag = stack.getNbt();
-                    int used = tag.getInt("ChargesUsed");
+                    int used = stack.getOrDefault(
+                            ModComponents.MITHRIL_MIRROR_CHARGES_USED, 0
+                    );
                     int maxCharges = MithrilMirrorItem.getMaxCharges(stack);
-                    return Math.max(1.0f - ((float) used / (float) maxCharges), 0);
+                    return maxCharges <= 0
+                            ? 0.0f
+                            : Math.max(1.0f - ((float) used / maxCharges), 0.0f);
                 }
         );
+
         ModelPredicateProviderRegistry.register(
-                ModItems.PIPE, new Identifier(TLOTD.MOD_ID, "content"), (stack, world, entity, seed) -> {
+                ModItems.PIPE,
+                Identifier.of(TLOTD.MOD_ID, "content"),
+                (stack, world, entity, seed) -> {
                     if (stack.isEmpty()) return 0.0f;
-                    if (!stack.hasNbt()) return 0.0f;
-                    NbtCompound tag = stack.getNbt();
-                    String content = tag.getString("Content");
+                    NbtComponent customData = stack.get(DataComponentTypes.CUSTOM_DATA);
+                    if (customData == null) return 0.0f;
+                    String content = customData.copyNbt().getString("Content");
                     return switch (content) {
                         case "tlotd:pipe_weed" -> 0.1f;
                         default -> 0.0f;
                     };
                 }
         );
+
         ModelPredicateProviderRegistry.register(
-                ModItems.ENVELOPE, new Identifier(TLOTD.MOD_ID, "sealed"), (stack, world, entity, seed) -> {
+                ModItems.ENVELOPE,
+                Identifier.of(TLOTD.MOD_ID, "sealed"),
+                (stack, world, entity, seed) -> {
                     if (stack.isEmpty()) return 0.0f;
-                    if (!stack.hasNbt()) return 0.0f;
-                    NbtCompound tag = stack.getNbt();
-                    if (tag.getBoolean("Sealed")) {
-                        return  0.1f;
-                    } else {
-                        return  0.0f;
-                    }
+                    NbtComponent customData = stack.get(DataComponentTypes.CUSTOM_DATA);
+                    if (customData == null) return 0.0f;
+                    return customData.copyNbt().getBoolean("Sealed") ? 0.1f : 0.0f;
                 }
         );
-        ModelPredicateProviderRegistry.register(
-                ModItems.GAS_CYLINDER, new Identifier(TLOTD.MOD_ID, "gas"), (stack, world, entity, seed) -> {
+        /*ModelPredicateProviderRegistry.register(
+                ModItems.GAS_CYLINDER, Identifier.of(TLOTD.MOD_ID, "gas"), (stack, world, entity, seed) -> {
                     if (stack.isEmpty()) return 0.0f;
                     String gas = AdAstraGasNbtHelper.getGas(stack);
                     return switch (gas) {
@@ -127,9 +136,9 @@ public class ModItemRenderLayerMap {
                         default -> 0.0f;
                     };
                 }
-        );
+        );*/
         ModelPredicateProviderRegistry.register(
-                ModItems.EMF_READER, new Identifier(TLOTD.MOD_ID, "proximity"), (stack, world, entity, seed) -> {
+                ModItems.EMF_READER, Identifier.of(TLOTD.MOD_ID, "proximity"), (stack, world, entity, seed) -> {
                     if (entity == null || world == null) return 0.0f;
                     if (stack.isEmpty() || stack.getItem() != ModItems.EMF_READER) return 0.0f;
                     Entity nearest = world.getOtherEntities(entity, entity.getBoundingBox().expand(15.0), e -> e != entity && e instanceof LivingEntity)
@@ -148,7 +157,7 @@ public class ModItemRenderLayerMap {
                 }
         );
         ModelPredicateProviderRegistry.register(
-                ModItems.MITHRIL_SWORD, new Identifier(TLOTD.MOD_ID, "proximity"), (stack, world, entity, seed) -> {
+                ModItems.MITHRIL_SWORD, Identifier.of(TLOTD.MOD_ID, "proximity"), (stack, world, entity, seed) -> {
                     if (entity == null || world == null) return 0.0f;
                     if (stack.isEmpty() || !(stack.getItem() == ModItems.MITHRIL_SWORD && (AugmentNbtHelper.getAugmentLevel(stack, "tlotd:elder_days_elven_forged") > 0))) return 0.0f;
                     Entity nearest = world.getOtherEntities(entity, entity.getBoundingBox().expand(31.0), e -> e != entity && e instanceof HostileEntity)
@@ -168,7 +177,7 @@ public class ModItemRenderLayerMap {
         );
         ModelPredicateProviderRegistry.register(
                 ModItems.MITHRIL_PICKAXE,
-                new Identifier(TLOTD.MOD_ID, "proximity"),
+                Identifier.of(TLOTD.MOD_ID, "proximity"),
                 (stack, world, entity, seed) -> {
                     if (entity == null || world == null) return 0.0f;
                     if (stack.isEmpty() || !(stack.getItem() == ModItems.MITHRIL_PICKAXE

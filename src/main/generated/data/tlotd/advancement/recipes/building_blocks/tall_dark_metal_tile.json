@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_dark_metal_tile": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tlotd:dark_metal_tile"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "tlotd:tall_dark_metal_tile"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_dark_metal_tile"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "tlotd:tall_dark_metal_tile"
+    ]
+  }
+}

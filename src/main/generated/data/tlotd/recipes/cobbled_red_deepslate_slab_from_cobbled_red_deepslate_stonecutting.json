@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "count": 2,
-  "ingredient": {
-    "item": "tlotd:cobbled_red_deepslate"
-  },
-  "result": "tlotd:cobbled_red_deepslate_slab"
-}
