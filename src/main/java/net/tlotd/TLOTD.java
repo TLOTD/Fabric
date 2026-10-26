@@ -7,6 +7,7 @@ import net.tlotd.block.ModFlammableBlocks;
 import net.tlotd.block.ModUseBlockCallback;
 import net.tlotd.block.behaviour.ModCauldronBehaviors;
 import net.tlotd.compat.CompatModsCheck;
+import net.tlotd.components.ModComponents;
 import net.tlotd.config.ModConfigs;
 import net.tlotd.effect.ModEffects;
 import net.tlotd.effect.ModPotions;
@@ -41,6 +42,7 @@ public class TLOTD implements ModInitializer {
         ModEffects.registerEffects();
         ModPotions.registerPotions();
         ModSounds.registerSounds();
+        ModComponents.initialize();
         ModItemGroups.registerItemGroups();
         ModItems.registerModItems();
         ModCompostingChances.registerCompostableItems();

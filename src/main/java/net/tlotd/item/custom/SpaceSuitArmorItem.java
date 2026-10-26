@@ -1,5 +1,9 @@
 package net.tlotd.item.custom;
 
+import com.mojang.serialization.DataResult;
+import net.minecraft.client.MinecraftClient;
+import net.minecraft.component.DataComponentTypes;
+import net.minecraft.component.type.NbtComponent;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.StackReference;
@@ -8,7 +12,11 @@ import net.minecraft.item.ArmorMaterial;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.tooltip.TooltipData;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.nbt.NbtElement;
 import net.minecraft.nbt.NbtList;
+import net.minecraft.nbt.NbtOps;
+import net.minecraft.registry.DynamicRegistryManager;
+import net.minecraft.registry.RegistryOps;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.screen.slot.Slot;
 import net.minecraft.sound.SoundCategory;
@@ -32,12 +40,12 @@ public class SpaceSuitArmorItem extends ArmorItem {
     public SpaceSuitArmorItem(RegistryEntry<ArmorMaterial> material, Type type, Settings settings) {
         super(material, type, settings);
     }
-/*
+
     @Override
     public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
         if (!world.isClient() && entity instanceof PlayerEntity player) {
             if (stack == player.getInventory().getArmorStack(2)) {
-                Map<String, AdAstraGasNbtHelper.GasInfo> gases = AdAstraGasNbtHelper.getSuitGasContents(stack);
+                Map<String, AdAstraGasNbtHelper.GasInfo> gases = AdAstraGasNbtHelper.getSuitGasContents(stack, player.getWorld().getRegistryManager());
                 MutableText display = Text.empty();
                 if (gases.isEmpty()) {
                     display.append(Text.translatable("item.tlotd.gas_cylinder.tooltip", "0", "0", "0", "0", AdAstraGasNbtHelper.gasName("empty")));
@@ -71,7 +79,7 @@ public class SpaceSuitArmorItem extends ArmorItem {
         }
     }
 
-    public float getProgress(ItemStack stack) {
+    /*public float getProgress(ItemStack stack) {
         return Math.max(AdAstraGasNbtHelper.getMaxGasFromSuit(stack) - AdAstraGasNbtHelper.getGasAmountFromSuit(stack, AdAstraGasNbtHelper.AD_ASTRA_OXYGEN_ID), 0);
     }
 
@@ -87,32 +95,43 @@ public class SpaceSuitArmorItem extends ArmorItem {
     @Override
     public int getItemBarColor(ItemStack stack) {
         return 0xDAE6F0;
-    }
+    }*/
 
     private static final String ITEMS_KEY = "Items";
     private static final int MAX_SLOTS = 2;
 
-    public static DefaultedList<ItemStack> getStoredStacks(ItemStack stack) {
-        DefaultedList<ItemStack> list = DefaultedList.ofSize(MAX_SLOTS, ItemStack.EMPTY);
-        NbtCompound nbt = stack.getNbt();
-        if (nbt == null || !nbt.contains(ITEMS_KEY)) return list;
-        NbtList nbtList = nbt.getList(ITEMS_KEY, 10);
-        for (int i = 0; i < nbtList.size() && i < MAX_SLOTS; i++) {
-            list.set(i, ItemStack.fromNbt(nbtList.getCompound(i)));
+    public static DefaultedList<ItemStack> getStoredStacks(ItemStack stack, DynamicRegistryManager registryManager) {
+        DefaultedList<ItemStack> items = DefaultedList.ofSize(MAX_SLOTS, ItemStack.EMPTY);
+        NbtComponent customData = stack.get(DataComponentTypes.CUSTOM_DATA);
+        if (customData == null) {
+            return items;
         }
-        return list;
+        NbtCompound nbt = customData.copyNbt();
+        if (!nbt.contains(ITEMS_KEY, NbtElement.LIST_TYPE)) {
+            return items;
+        }
+        NbtList nbtList = nbt.getList(ITEMS_KEY, NbtElement.COMPOUND_TYPE);
+        RegistryOps<NbtElement> ops = RegistryOps.of(NbtOps.INSTANCE, registryManager);
+        for (int i = 0; i < nbtList.size() && i < MAX_SLOTS; i++) {
+            DataResult<ItemStack> result = ItemStack.CODEC.parse(ops, nbtList.getCompound(i));
+            int slotIndex = i;
+            result.result().ifPresent(item -> items.set(slotIndex, item));
+        }
+        return items;
     }
 
-    public static void setStoredStacks(ItemStack stack, DefaultedList<ItemStack> items) {
+    public static void setStoredStacks(ItemStack stack, DefaultedList<ItemStack> items, DynamicRegistryManager registryManager) {
         NbtList list = new NbtList();
-        for (ItemStack s : items) {
-            if (!s.isEmpty()) {
-                NbtCompound tag = new NbtCompound();
-                s.writeNbt(tag);
-                list.add(tag);
+        RegistryOps<NbtElement> ops = RegistryOps.of(NbtOps.INSTANCE, registryManager);
+        for (ItemStack item : items) {
+            if (item.isEmpty()) {
+                continue;
             }
+            ItemStack.CODEC.encodeStart(ops, item).result().ifPresent(list::add);
         }
-        stack.getOrCreateNbt().put(ITEMS_KEY, list);
+        NbtCompound nbt = stack.getOrDefault(DataComponentTypes.CUSTOM_DATA, NbtComponent.DEFAULT).copyNbt();
+        nbt.put(ITEMS_KEY, list);
+        stack.set(DataComponentTypes.CUSTOM_DATA, NbtComponent.of(nbt));
     }
 
     @Override
@@ -128,15 +147,15 @@ public class SpaceSuitArmorItem extends ArmorItem {
     }
 
     private boolean handleTankInteraction(ItemStack suit, ItemStack inputStack, Consumer<ItemStack> giveItem, PlayerEntity player) {
-        DefaultedList<ItemStack> stored = getStoredStacks(suit);
+        DefaultedList<ItemStack> stored = getStoredStacks(suit, player.getWorld().getRegistryManager());
         if (inputStack.isEmpty()) {
             for (int i = 0; i < stored.size(); i++) {
                 if (!stored.get(i).isEmpty()) {
                     ItemStack extracted = stored.get(i);
                     stored.set(i, ItemStack.EMPTY);
                     giveItem.accept(extracted);
-                    setStoredStacks(suit, stored);
-                    player.playSound(SoundEvents.ITEM_BUNDLE_REMOVE_ONE, SoundCategory.PLAYERS, 0.8F, 0.8F + player.getWorld().getRandom().nextFloat() * 0.4F);
+                    setStoredStacks(suit, stored, player.getWorld().getRegistryManager());
+                    player.playSound(SoundEvents.ITEM_BUNDLE_REMOVE_ONE, 0.8F, 0.8F + player.getWorld().getRandom().nextFloat() * 0.4F);
                     return true;
                 }
             }
@@ -147,8 +166,8 @@ public class SpaceSuitArmorItem extends ArmorItem {
             if (stored.get(i).isEmpty()) {
                 stored.set(i, inputStack.copyWithCount(1));
                 inputStack.decrement(1);
-                setStoredStacks(suit, stored);
-                player.playSound(SoundEvents.ITEM_BUNDLE_INSERT, SoundCategory.PLAYERS, 0.8F, 0.8F + player.getWorld().getRandom().nextFloat() * 0.4F);
+                setStoredStacks(suit, stored, player.getWorld().getRegistryManager());
+                player.playSound(SoundEvents.ITEM_BUNDLE_INSERT, 0.8F, 0.8F + player.getWorld().getRandom().nextFloat() * 0.4F);
                 return true;
             }
         }
@@ -161,6 +180,18 @@ public class SpaceSuitArmorItem extends ArmorItem {
 
     @Override
     public Optional<TooltipData> getTooltipData(ItemStack stack) {
-        return Optional.of(new SpaceSuitTooltipData(getStoredStacks(stack)));
-    }*/
+        return Optional.of(new SpaceSuitTooltipData(getSerializedStoredStacks(stack)));
+    }
+
+    public static NbtList getSerializedStoredStacks(ItemStack stack) {
+        NbtComponent customData = stack.get(DataComponentTypes.CUSTOM_DATA);
+        if (customData == null) {
+            return new NbtList();
+        }
+        NbtCompound nbt = customData.copyNbt();
+        if (!nbt.contains(ITEMS_KEY, NbtElement.LIST_TYPE)) {
+            return new NbtList();
+        }
+        return nbt.getList(ITEMS_KEY, NbtElement.COMPOUND_TYPE).copy();
+    }
 }

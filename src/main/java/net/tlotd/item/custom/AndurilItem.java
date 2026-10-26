@@ -1,6 +1,7 @@
 package net.tlotd.item.custom;
 
 import net.minecraft.client.gui.screen.Screen;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ShieldItem;
@@ -24,7 +25,8 @@ public class AndurilItem extends SwordItem {
         return UseAction.BLOCK;
     }
 
-    public int getMaxUseTime(ItemStack stack) {
+    @Override
+    public int getMaxUseTime(ItemStack stack, LivingEntity user) {
         return 72000;
     }
 

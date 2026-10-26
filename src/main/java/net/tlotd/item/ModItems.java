@@ -249,11 +249,11 @@ public class ModItems {
     public static final Item URANIUM_NUGGET = registerItem("uranium_nugget", new IrradiatedItem(new Item.Settings()));
     public static final Item URANIUM_INGOT = registerItem("uranium_ingot", new IrradiatedItem(new Item.Settings()));
 
-    public static final Item BAMBOO_SWORD = registerItem("bamboo_sword", new SwordItem(ModToolMaterial.BAMBOO, new Item.Settings()));
-    public static final Item BAMBOO_PICKAXE = registerItem("bamboo_pickaxe", new PickaxeItem(ModToolMaterial.BAMBOO, new Item.Settings()));
-    public static final Item BAMBOO_AXE = registerItem("bamboo_axe", new AxeItem(ModToolMaterial.BAMBOO, new Item.Settings()));
-    public static final Item BAMBOO_SHOVEL = registerItem("bamboo_shovel", new ShovelItem(ModToolMaterial.BAMBOO, new Item.Settings()));
-    public static final Item BAMBOO_HOE = registerItem("bamboo_hoe", new HoeItem(ModToolMaterial.BAMBOO, new Item.Settings()));
+    public static final Item BAMBOO_SWORD = registerItem("bamboo_sword", new SwordItem(ModToolMaterial.BAMBOO, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterial.BAMBOO, 3, -2.4F))));
+    public static final Item BAMBOO_PICKAXE = registerItem("bamboo_pickaxe", new PickaxeItem(ModToolMaterial.BAMBOO, new Item.Settings().attributeModifiers(PickaxeItem.createAttributeModifiers(ModToolMaterial.BAMBOO, 1.0F, -2.8F))));
+    public static final Item BAMBOO_AXE = registerItem("bamboo_axe", new AxeItem(ModToolMaterial.BAMBOO, new Item.Settings().attributeModifiers(AxeItem.createAttributeModifiers(ModToolMaterial.BAMBOO, 5.0F, -3.0F))));
+    public static final Item BAMBOO_SHOVEL = registerItem("bamboo_shovel", new ShovelItem(ModToolMaterial.BAMBOO, new Item.Settings().attributeModifiers(ShovelItem.createAttributeModifiers(ModToolMaterial.BAMBOO, 1.5F, -3.0F))));
+    public static final Item BAMBOO_HOE = registerItem("bamboo_hoe", new HoeItem(ModToolMaterial.BAMBOO, new Item.Settings().attributeModifiers(HoeItem.createAttributeModifiers(ModToolMaterial.BAMBOO, -4.0F, 0.0F))));
 
     public static final Item HELIORITE_COMB = registerItem("heliorite_comb", new HeatableItem(new Item.Settings()));
     public static final Item HELIORITE_NUGGET = registerItem("heliorite_nugget", new Item(new Item.Settings()));
@@ -263,11 +263,11 @@ public class ModItems {
 
     public static final Item HELIORITE_PICKAXE_HEAD = registerItem("heliorite_pickaxe_head", new Item(new Item.Settings().maxCount(1)));
 
-    public static final Item HELIORITE_SWORD = registerItem("heliorite_sword", new SwordItem(ModToolMaterial.HELIORITE, new Item.Settings()));
-    public static final Item HELIORITE_PICKAXE = registerItem("heliorite_pickaxe", new UpgradedPickaxeItem(ModToolMaterial.HELIORITE, new Item.Settings()));
-    public static final Item HELIORITE_AXE = registerItem("heliorite_axe", new AxeItem(ModToolMaterial.HELIORITE, new Item.Settings()));
-    public static final Item HELIORITE_SHOVEL = registerItem("heliorite_shovel", new ShovelItem(ModToolMaterial.HELIORITE, new Item.Settings()));
-    public static final Item HELIORITE_HOE = registerItem("heliorite_hoe", new HoeItem(ModToolMaterial.HELIORITE, new Item.Settings()));
+    public static final Item HELIORITE_SWORD = registerItem("heliorite_sword", new SwordItem(ModToolMaterial.HELIORITE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterial.HELIORITE, 3, -2.4F))));
+    public static final Item HELIORITE_PICKAXE = registerItem("heliorite_pickaxe", new UpgradedPickaxeItem(ModToolMaterial.HELIORITE, new Item.Settings().attributeModifiers(PickaxeItem.createAttributeModifiers(ModToolMaterial.HELIORITE, 1.0F, -2.8F))));
+    public static final Item HELIORITE_AXE = registerItem("heliorite_axe", new AxeItem(ModToolMaterial.HELIORITE, new Item.Settings().attributeModifiers(AxeItem.createAttributeModifiers(ModToolMaterial.HELIORITE, 5.0F, -3.0F))));
+    public static final Item HELIORITE_SHOVEL = registerItem("heliorite_shovel", new ShovelItem(ModToolMaterial.HELIORITE, new Item.Settings().attributeModifiers(ShovelItem.createAttributeModifiers(ModToolMaterial.HELIORITE, 1.5F, -3.0F))));
+    public static final Item HELIORITE_HOE = registerItem("heliorite_hoe", new HoeItem(ModToolMaterial.HELIORITE, new Item.Settings().attributeModifiers(HoeItem.createAttributeModifiers(ModToolMaterial.HELIORITE, -4.0F, 0.0F))));
     public static final Item HELIORITE_PAXEL = registerItem("heliorite_paxel", new PaxelItem(ModToolMaterial.HELIORITE, new Item.Settings()));
 
     public static final Item HELIORITE_SICKLE = registerItem("heliorite_sickle", new SickleItem(new Item.Settings().maxDamage(2319)));
@@ -286,11 +286,11 @@ public class ModItems {
 
     public static final Item ENDURIUM_PICKAXE_HEAD = registerItem("endurium_pickaxe_head", new Item(new Item.Settings().maxCount(1)));
 
-    public static final Item ENDURIUM_SWORD = registerItem("endurium_sword", new SwordItem(ModToolMaterial.ENDURIUM, new Item.Settings()));
-    public static final Item ENDURIUM_PICKAXE = registerItem("endurium_pickaxe", new UpgradedPickaxeItem(ModToolMaterial.ENDURIUM, new Item.Settings()));
-    public static final Item ENDURIUM_AXE = registerItem("endurium_axe", new AxeItem(ModToolMaterial.ENDURIUM, new Item.Settings()));
-    public static final Item ENDURIUM_SHOVEL = registerItem("endurium_shovel", new ShovelItem(ModToolMaterial.ENDURIUM, new Item.Settings()));
-    public static final Item ENDURIUM_HOE = registerItem("endurium_hoe", new HoeItem(ModToolMaterial.ENDURIUM, new Item.Settings()));
+    public static final Item ENDURIUM_SWORD = registerItem("endurium_sword", new SwordItem(ModToolMaterial.ENDURIUM, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterial.ENDURIUM, 3, -2.4F))));
+    public static final Item ENDURIUM_PICKAXE = registerItem("endurium_pickaxe", new UpgradedPickaxeItem(ModToolMaterial.ENDURIUM, new Item.Settings().attributeModifiers(PickaxeItem.createAttributeModifiers(ModToolMaterial.ENDURIUM, 1.0F, -2.8F))));
+    public static final Item ENDURIUM_AXE = registerItem("endurium_axe", new AxeItem(ModToolMaterial.ENDURIUM, new Item.Settings().attributeModifiers(AxeItem.createAttributeModifiers(ModToolMaterial.ENDURIUM, 5.0F, -3.0F))));
+    public static final Item ENDURIUM_SHOVEL = registerItem("endurium_shovel", new ShovelItem(ModToolMaterial.ENDURIUM, new Item.Settings().attributeModifiers(ShovelItem.createAttributeModifiers(ModToolMaterial.ENDURIUM, 1.5F, -3.0F))));
+    public static final Item ENDURIUM_HOE = registerItem("endurium_hoe", new HoeItem(ModToolMaterial.ENDURIUM, new Item.Settings().attributeModifiers(HoeItem.createAttributeModifiers(ModToolMaterial.ENDURIUM, -4.0F, 0.0F))));
     public static final Item ENDURIUM_PAXEL = registerItem("endurium_paxel", new PaxelItem(ModToolMaterial.ENDURIUM, new Item.Settings()));
 
     public static final Item ENDURIUM_SICKLE = registerItem("endurium_sickle", new SickleItem(new Item.Settings().maxDamage(2319)));
@@ -305,11 +305,11 @@ public class ModItems {
     public static final Item PALLADIUM_NUGGET = registerItem("palladium_nugget", new Item(new Item.Settings()));
     public static final Item PALLADIUM_INGOT = registerItem("palladium_ingot", new HeatableItem(new Item.Settings()));
 
-    public static final Item PALLADIUM_SWORD = registerItem("palladium_sword", new SwordItem(ModToolMaterial.PALLADIUM, new Item.Settings()));
-    public static final Item PALLADIUM_PICKAXE = registerItem("palladium_pickaxe", new PickaxeItem(ModToolMaterial.PALLADIUM, new Item.Settings()));
-    public static final Item PALLADIUM_AXE = registerItem("palladium_axe", new AxeItem(ModToolMaterial.PALLADIUM, new Item.Settings()));
-    public static final Item PALLADIUM_SHOVEL = registerItem("palladium_shovel", new ShovelItem(ModToolMaterial.PALLADIUM, new Item.Settings()));
-    public static final Item PALLADIUM_HOE = registerItem("palladium_hoe", new HoeItem(ModToolMaterial.PALLADIUM, new Item.Settings()));
+    public static final Item PALLADIUM_SWORD = registerItem("palladium_sword", new SwordItem(ModToolMaterial.PALLADIUM, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterial.PALLADIUM, 3, -2.4F))));
+    public static final Item PALLADIUM_PICKAXE = registerItem("palladium_pickaxe", new PickaxeItem(ModToolMaterial.PALLADIUM, new Item.Settings().attributeModifiers(PickaxeItem.createAttributeModifiers(ModToolMaterial.PALLADIUM, 1.0F, -2.8F))));
+    public static final Item PALLADIUM_AXE = registerItem("palladium_axe", new AxeItem(ModToolMaterial.PALLADIUM, new Item.Settings().attributeModifiers(AxeItem.createAttributeModifiers(ModToolMaterial.PALLADIUM, 5.0F, -3.0F))));
+    public static final Item PALLADIUM_SHOVEL = registerItem("palladium_shovel", new ShovelItem(ModToolMaterial.PALLADIUM, new Item.Settings().attributeModifiers(ShovelItem.createAttributeModifiers(ModToolMaterial.PALLADIUM, 1.5F, -3.0F))));
+    public static final Item PALLADIUM_HOE = registerItem("palladium_hoe", new HoeItem(ModToolMaterial.PALLADIUM, new Item.Settings().attributeModifiers(HoeItem.createAttributeModifiers(ModToolMaterial.PALLADIUM, -4.0F, 0.0F))));
     public static final Item PALLADIUM_PAXEL = registerItem("palladium_paxel", new PaxelItem(ModToolMaterial.PALLADIUM, new Item.Settings()));
 
     public static final Item PALLADIUM_SICKLE = registerItem("palladium_sickle", new SickleItem(new Item.Settings().maxDamage(2612)));
@@ -324,11 +324,11 @@ public class ModItems {
     public static final Item JURASSOLINE_NUGGET = registerItem("jurassoline_nugget", new Item(new Item.Settings()));
     public static final Item JURASSOLINE_INGOT = registerItem("jurassoline_ingot", new HeatableItem(new Item.Settings()));
 
-    public static final Item JURASSOLINE_SWORD = registerItem("jurassoline_sword", new SwordItem(ModToolMaterial.JURASSOLINE, new Item.Settings()));
-    public static final Item JURASSOLINE_PICKAXE = registerItem("jurassoline_pickaxe", new PickaxeItem(ModToolMaterial.JURASSOLINE, new Item.Settings()));
-    public static final Item JURASSOLINE_AXE = registerItem("jurassoline_axe", new AxeItem(ModToolMaterial.JURASSOLINE, new Item.Settings()));
-    public static final Item JURASSOLINE_SHOVEL = registerItem("jurassoline_shovel", new ShovelItem(ModToolMaterial.JURASSOLINE, new Item.Settings()));
-    public static final Item JURASSOLINE_HOE = registerItem("jurassoline_hoe", new HoeItem(ModToolMaterial.JURASSOLINE, new Item.Settings()));
+    public static final Item JURASSOLINE_SWORD = registerItem("jurassoline_sword", new SwordItem(ModToolMaterial.JURASSOLINE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterial.JURASSOLINE, 3, -2.4F))));
+    public static final Item JURASSOLINE_PICKAXE = registerItem("jurassoline_pickaxe", new PickaxeItem(ModToolMaterial.JURASSOLINE, new Item.Settings().attributeModifiers(PickaxeItem.createAttributeModifiers(ModToolMaterial.JURASSOLINE, 1.0F, -2.8F))));
+    public static final Item JURASSOLINE_AXE = registerItem("jurassoline_axe", new AxeItem(ModToolMaterial.JURASSOLINE, new Item.Settings().attributeModifiers(AxeItem.createAttributeModifiers(ModToolMaterial.JURASSOLINE, 5.0F, -3.0F))));
+    public static final Item JURASSOLINE_SHOVEL = registerItem("jurassoline_shovel", new ShovelItem(ModToolMaterial.JURASSOLINE, new Item.Settings().attributeModifiers(ShovelItem.createAttributeModifiers(ModToolMaterial.JURASSOLINE, 1.5F, -3.0F))));
+    public static final Item JURASSOLINE_HOE = registerItem("jurassoline_hoe", new HoeItem(ModToolMaterial.JURASSOLINE, new Item.Settings().attributeModifiers(HoeItem.createAttributeModifiers(ModToolMaterial.JURASSOLINE, -4.0F, 0.0F))));
     public static final Item JURASSOLINE_PAXEL = registerItem("jurassoline_paxel", new PaxelItem(ModToolMaterial.JURASSOLINE, new Item.Settings()));
 
     public static final Item JURASSOLINE_SICKLE = registerItem("jurassoline_sickle", new SickleItem(new Item.Settings().maxDamage(2612)));
@@ -343,11 +343,11 @@ public class ModItems {
     public static final Item CINNABAR_NUGGET = registerItem("cinnabar_nugget", new Item(new Item.Settings()));
     public static final Item CINNABAR_INGOT = registerItem("cinnabar_ingot", new HeatableItem(new Item.Settings()));
 
-    public static final Item CINNABAR_SWORD = registerItem("cinnabar_sword", new SwordItem(ModToolMaterial.CINNABAR, new Item.Settings()));
-    public static final Item CINNABAR_PICKAXE = registerItem("cinnabar_pickaxe", new PickaxeItem(ModToolMaterial.CINNABAR, new Item.Settings()));
-    public static final Item CINNABAR_AXE = registerItem("cinnabar_axe", new AxeItem(ModToolMaterial.CINNABAR, new Item.Settings()));
-    public static final Item CINNABAR_SHOVEL = registerItem("cinnabar_shovel", new ShovelItem(ModToolMaterial.CINNABAR, new Item.Settings()));
-    public static final Item CINNABAR_HOE = registerItem("cinnabar_hoe", new HoeItem(ModToolMaterial.CINNABAR, new Item.Settings()));
+    public static final Item CINNABAR_SWORD = registerItem("cinnabar_sword", new SwordItem(ModToolMaterial.CINNABAR, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterial.CINNABAR, 3, -2.4F))));
+    public static final Item CINNABAR_PICKAXE = registerItem("cinnabar_pickaxe", new PickaxeItem(ModToolMaterial.CINNABAR, new Item.Settings().attributeModifiers(PickaxeItem.createAttributeModifiers(ModToolMaterial.CINNABAR, 1.0F, -2.8F))));
+    public static final Item CINNABAR_AXE = registerItem("cinnabar_axe", new AxeItem(ModToolMaterial.CINNABAR, new Item.Settings().attributeModifiers(AxeItem.createAttributeModifiers(ModToolMaterial.CINNABAR, 5.0F, -3.0F))));
+    public static final Item CINNABAR_SHOVEL = registerItem("cinnabar_shovel", new ShovelItem(ModToolMaterial.CINNABAR, new Item.Settings().attributeModifiers(ShovelItem.createAttributeModifiers(ModToolMaterial.CINNABAR, 1.5F, -3.0F))));
+    public static final Item CINNABAR_HOE = registerItem("cinnabar_hoe", new HoeItem(ModToolMaterial.CINNABAR, new Item.Settings().attributeModifiers(HoeItem.createAttributeModifiers(ModToolMaterial.CINNABAR, -4.0F, 0.0F))));
     public static final Item CINNABAR_PAXEL = registerItem("cinnabar_paxel", new PaxelItem(ModToolMaterial.CINNABAR, new Item.Settings()));
 
     public static final Item CINNABAR_SICKLE = registerItem("cinnabar_sickle", new SickleItem(new Item.Settings().maxDamage(2612)));
@@ -362,11 +362,11 @@ public class ModItems {
     public static final Item NEBULAR_NUGGET = registerItem("nebular_nugget", new Item(new Item.Settings()));
     public static final Item NEBULAR_INGOT = registerItem("nebular_ingot", new HeatableItem(new Item.Settings()));
 
-    public static final Item NEBULAR_SWORD = registerItem("nebular_sword", new SwordItem(ModToolMaterial.NEBULAR, new Item.Settings()));
-    public static final Item NEBULAR_PICKAXE = registerItem("nebular_pickaxe", new PickaxeItem(ModToolMaterial.NEBULAR, new Item.Settings()));
-    public static final Item NEBULAR_AXE = registerItem("nebular_axe", new AxeItem(ModToolMaterial.NEBULAR, new Item.Settings()));
-    public static final Item NEBULAR_SHOVEL = registerItem("nebular_shovel", new ShovelItem(ModToolMaterial.NEBULAR, new Item.Settings()));
-    public static final Item NEBULAR_HOE = registerItem("nebular_hoe", new HoeItem(ModToolMaterial.NEBULAR, new Item.Settings()));
+    public static final Item NEBULAR_SWORD = registerItem("nebular_sword", new SwordItem(ModToolMaterial.NEBULAR, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterial.NEBULAR, 3, -2.4F))));
+    public static final Item NEBULAR_PICKAXE = registerItem("nebular_pickaxe", new PickaxeItem(ModToolMaterial.NEBULAR, new Item.Settings().attributeModifiers(PickaxeItem.createAttributeModifiers(ModToolMaterial.NEBULAR, 1.0F, -2.8F))));
+    public static final Item NEBULAR_AXE = registerItem("nebular_axe", new AxeItem(ModToolMaterial.NEBULAR, new Item.Settings().attributeModifiers(AxeItem.createAttributeModifiers(ModToolMaterial.NEBULAR, 5.0F, -3.0F))));
+    public static final Item NEBULAR_SHOVEL = registerItem("nebular_shovel", new ShovelItem(ModToolMaterial.NEBULAR, new Item.Settings().attributeModifiers(ShovelItem.createAttributeModifiers(ModToolMaterial.NEBULAR, 1.5F, -3.0F))));
+    public static final Item NEBULAR_HOE = registerItem("nebular_hoe", new HoeItem(ModToolMaterial.NEBULAR, new Item.Settings().attributeModifiers(HoeItem.createAttributeModifiers(ModToolMaterial.NEBULAR, -4.0F, 0.0F))));
     public static final Item NEBULAR_PAXEL = registerItem("nebular_paxel", new PaxelItem(ModToolMaterial.NEBULAR, new Item.Settings()));
 
     public static final Item NEBULAR_SICKLE = registerItem("nebular_sickle", new SickleItem(new Item.Settings().maxDamage(2612)));
@@ -386,11 +386,11 @@ public class ModItems {
     public static final Item MITHRIL_PLATE = registerItem("mithril_plate", new HeatableItem(new Item.Settings().rarity(Rarity.UNCOMMON).fireproof()));
     public static final Item MITHRIL_CHAINMAIL_CHUNK = registerItem("mithril_chainmail_chunk", new Item(new Item.Settings().rarity(Rarity.UNCOMMON).fireproof()));
 
-    public static final Item MITHRIL_SWORD = registerItem("mithril_sword", new SwordItem(ModToolMaterial.MITHRIL, new Item.Settings().rarity(Rarity.UNCOMMON).fireproof()));
-    public static final Item MITHRIL_PICKAXE = registerItem("mithril_pickaxe", new PickaxeItem(ModToolMaterial.MITHRIL, new Item.Settings().rarity(Rarity.UNCOMMON).fireproof()));
-    public static final Item MITHRIL_AXE = registerItem("mithril_axe", new AxeItem(ModToolMaterial.MITHRIL, new Item.Settings().rarity(Rarity.UNCOMMON).fireproof()));
-    public static final Item MITHRIL_SHOVEL = registerItem("mithril_shovel", new ShovelItem(ModToolMaterial.MITHRIL, new Item.Settings().rarity(Rarity.UNCOMMON).fireproof()));
-    public static final Item MITHRIL_HOE = registerItem("mithril_hoe", new HoeItem(ModToolMaterial.MITHRIL, new Item.Settings().rarity(Rarity.UNCOMMON).fireproof()));
+    public static final Item MITHRIL_SWORD = registerItem("mithril_sword", new SwordItem(ModToolMaterial.MITHRIL, new Item.Settings().rarity(Rarity.UNCOMMON).fireproof().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterial.MITHRIL, 3, -2.4F))));
+    public static final Item MITHRIL_PICKAXE = registerItem("mithril_pickaxe", new PickaxeItem(ModToolMaterial.MITHRIL, new Item.Settings().rarity(Rarity.UNCOMMON).fireproof().attributeModifiers(PickaxeItem.createAttributeModifiers(ModToolMaterial.MITHRIL, 1.0F, -2.8F))));
+    public static final Item MITHRIL_AXE = registerItem("mithril_axe", new AxeItem(ModToolMaterial.MITHRIL, new Item.Settings().rarity(Rarity.UNCOMMON).fireproof().attributeModifiers(AxeItem.createAttributeModifiers(ModToolMaterial.MITHRIL, 5.0F, -3.0F))));
+    public static final Item MITHRIL_SHOVEL = registerItem("mithril_shovel", new ShovelItem(ModToolMaterial.MITHRIL, new Item.Settings().rarity(Rarity.UNCOMMON).fireproof().attributeModifiers(ShovelItem.createAttributeModifiers(ModToolMaterial.MITHRIL, 1.5F, -3.0F))));
+    public static final Item MITHRIL_HOE = registerItem("mithril_hoe", new HoeItem(ModToolMaterial.MITHRIL, new Item.Settings().rarity(Rarity.UNCOMMON).fireproof().attributeModifiers(HoeItem.createAttributeModifiers(ModToolMaterial.MITHRIL, -4.0F, 0.0F))));
     public static final Item MITHRIL_PAXEL = registerItem("mithril_paxel", new PaxelItem(ModToolMaterial.MITHRIL, new Item.Settings().rarity(Rarity.UNCOMMON).fireproof()));
 
     public static final Item MITHRIL_SICKLE = registerItem("mithril_sickle", new SickleItem(new Item.Settings().maxDamage(3077).rarity(Rarity.UNCOMMON).fireproof()));
@@ -408,14 +408,14 @@ public class ModItems {
 
     public static final Item MITHRIL_HORSE_ARMOR = registerItem("mithril_horse_armor", new AnimalArmorItem(ModArmorMaterial.MITHRIL, AnimalArmorItem.Type.EQUESTRIAN, false, (new Item.Settings().rarity(Rarity.UNCOMMON).fireproof()).maxCount(1)));
 
-    public static final Item MITHRIL_COMMAND_BLOCK_SWORD = registerItem("mithril_command_block_sword", new CompatSwordItem(ModToolMaterial.ELDRITCH, new Item.Settings().rarity(Rarity.EPIC).fireproof(), "wsm"));
-    public static final Item MITHRIL_COMMAND_BLOCK_PICKAXE = registerItem("mithril_command_block_pickaxe", new CompatPickaxeItem(ModToolMaterial.ELDRITCH, new Item.Settings().rarity(Rarity.EPIC).fireproof(), "wsm"));
-    public static final Item MITHRIL_COMMAND_BLOCK_AXE = registerItem("mithril_command_block_axe", new CompatAxeItem(ModToolMaterial.ELDRITCH, new Item.Settings().rarity(Rarity.EPIC).fireproof(), "wsm"));
-    public static final Item MITHRIL_COMMAND_BLOCK_SHOVEL = registerItem("mithril_command_block_shovel", new CompatShovelItem(ModToolMaterial.ELDRITCH, new Item.Settings().rarity(Rarity.EPIC).fireproof(), "wsm"));
-    public static final Item MITHRIL_COMMAND_BLOCK_HOE = registerItem("mithril_command_block_hoe", new CompatHoeItem(ModToolMaterial.ELDRITCH, new Item.Settings().rarity(Rarity.EPIC).fireproof(), "wsm"));
+    public static final Item MITHRIL_COMMAND_BLOCK_SWORD = registerItem("mithril_command_block_sword", new CompatSwordItem(ModToolMaterial.ELDRITCH, new Item.Settings().rarity(Rarity.EPIC).fireproof().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterial.ELDRITCH, 3, -2.4F)), "wsm"));
+    public static final Item MITHRIL_COMMAND_BLOCK_PICKAXE = registerItem("mithril_command_block_pickaxe", new CompatPickaxeItem(ModToolMaterial.ELDRITCH, new Item.Settings().rarity(Rarity.EPIC).fireproof().attributeModifiers(PickaxeItem.createAttributeModifiers(ModToolMaterial.ELDRITCH, 1.0F, -2.8F)), "wsm"));
+    public static final Item MITHRIL_COMMAND_BLOCK_AXE = registerItem("mithril_command_block_axe", new CompatAxeItem(ModToolMaterial.ELDRITCH, new Item.Settings().rarity(Rarity.EPIC).fireproof().attributeModifiers(AxeItem.createAttributeModifiers(ModToolMaterial.ELDRITCH, 5.0F, -3.0F)), "wsm"));
+    public static final Item MITHRIL_COMMAND_BLOCK_SHOVEL = registerItem("mithril_command_block_shovel", new CompatShovelItem(ModToolMaterial.ELDRITCH, new Item.Settings().rarity(Rarity.EPIC).fireproof().attributeModifiers(ShovelItem.createAttributeModifiers(ModToolMaterial.ELDRITCH, 1.5F, -3.0F)), "wsm"));
+    public static final Item MITHRIL_COMMAND_BLOCK_HOE = registerItem("mithril_command_block_hoe", new CompatHoeItem(ModToolMaterial.ELDRITCH, new Item.Settings().rarity(Rarity.EPIC).fireproof().attributeModifiers(HoeItem.createAttributeModifiers(ModToolMaterial.ELDRITCH, -4.0F, 0.0F)), "wsm"));
 
-    public static final Item NARSIL_HANDLE = registerItem("narsil_handle", new SwordItem(ModToolMaterial.MITHRIL, new Item.Settings().rarity(Rarity.UNCOMMON).fireproof()));
-    public static final Item ANDURIL = registerItem("anduril", new AndurilItem(ModToolMaterial.MITHRIL, new Item.Settings().rarity(Rarity.UNCOMMON).fireproof()));
+    public static final Item NARSIL_HANDLE = registerItem("narsil_handle", new SwordItem(ModToolMaterial.MITHRIL, new Item.Settings().rarity(Rarity.UNCOMMON).fireproof().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterial.MITHRIL, -1, -2.4F))));
+    public static final Item ANDURIL = registerItem("anduril", new AndurilItem(ModToolMaterial.MITHRIL, new Item.Settings().rarity(Rarity.UNCOMMON).fireproof().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterial.MITHRIL, 6, -2.4F))));
 
     public static final Item GONDORIAN_SHIELD = registerItem("gondorian_shield", new ShieldItem(new Item.Settings().maxDamage(2612).rarity(Rarity.UNCOMMON).fireproof()));
     public static final Item GONDORIAN_TOWER_SHIELD = registerItem("gondorian_tower_shield", new ShieldItem(new Item.Settings().maxDamage(2612).rarity(Rarity.UNCOMMON).fireproof()));
@@ -426,11 +426,11 @@ public class ModItems {
     public static final Item ASTRAL_NUGGET = registerItem("astral_nugget", new Item(new Item.Settings().rarity(Rarity.EPIC).fireproof()));
     public static final Item ASTRAL_INGOT = registerItem("astral_ingot", new Item(new Item.Settings().rarity(Rarity.EPIC).fireproof()));
 
-    public static final Item ASTRAL_SWORD = registerItem("astral_sword", new SwordItem(ModToolMaterial.ASTRAL, new Item.Settings().rarity(Rarity.EPIC).fireproof()));
-    public static final Item ASTRAL_PICKAXE = registerItem("astral_pickaxe", new PickaxeItem(ModToolMaterial.ASTRAL, new Item.Settings().rarity(Rarity.EPIC).fireproof()));
-    public static final Item ASTRAL_AXE = registerItem("astral_axe", new AxeItem(ModToolMaterial.ASTRAL, new Item.Settings().rarity(Rarity.EPIC).fireproof()));
-    public static final Item ASTRAL_SHOVEL = registerItem("astral_shovel", new ShovelItem(ModToolMaterial.ASTRAL, new Item.Settings().rarity(Rarity.EPIC).fireproof()));
-    public static final Item ASTRAL_HOE = registerItem("astral_hoe", new HoeItem(ModToolMaterial.ASTRAL, new Item.Settings().rarity(Rarity.EPIC).fireproof()));
+    public static final Item ASTRAL_SWORD = registerItem("astral_sword", new SwordItem(ModToolMaterial.ASTRAL, new Item.Settings().rarity(Rarity.EPIC).fireproof().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterial.ASTRAL, 3, -2.4F))));
+    public static final Item ASTRAL_PICKAXE = registerItem("astral_pickaxe", new PickaxeItem(ModToolMaterial.ASTRAL, new Item.Settings().rarity(Rarity.EPIC).fireproof().attributeModifiers(PickaxeItem.createAttributeModifiers(ModToolMaterial.ASTRAL, 1.0F, -2.8F))));
+    public static final Item ASTRAL_AXE = registerItem("astral_axe", new AxeItem(ModToolMaterial.ASTRAL, new Item.Settings().rarity(Rarity.EPIC).fireproof().attributeModifiers(AxeItem.createAttributeModifiers(ModToolMaterial.ASTRAL, 5.0F, -3.0F))));
+    public static final Item ASTRAL_SHOVEL = registerItem("astral_shovel", new ShovelItem(ModToolMaterial.ASTRAL, new Item.Settings().rarity(Rarity.EPIC).fireproof().attributeModifiers(ShovelItem.createAttributeModifiers(ModToolMaterial.ASTRAL, 1.5F, -3.0F))));
+    public static final Item ASTRAL_HOE = registerItem("astral_hoe", new HoeItem(ModToolMaterial.ASTRAL, new Item.Settings().rarity(Rarity.EPIC).fireproof().attributeModifiers(HoeItem.createAttributeModifiers(ModToolMaterial.ASTRAL, -4.0F, 0.0F))));
 
     public static final Item ASTRAL_SICKLE = registerItem("astral_sickle", new SickleItem(new Item.Settings().maxDamage(5018).rarity(Rarity.EPIC).fireproof()));
     public static final Item ASTRAL_FORGING_HAMMER = registerItem("astral_forging_hammer", new ForgingHammerItem(new Item.Settings().rarity(Rarity.EPIC).maxDamage(60).fireproof()));
@@ -441,9 +441,9 @@ public class ModItems {
     public static final Item SOMBER_BLOOD_ORBS = registerItem("somber_blood_orbs", new Item(new Item.Settings().rarity(Rarity.EPIC).fireproof()));
     public static final Item OTHERWORLDLY_WHISPERS = registerItem("otherworldly_whispers", new Item(new Item.Settings().rarity(Rarity.EPIC).fireproof()));
 
-    public static final Item DIVINE_PICKAXE = registerItem("divine_pickaxe", new PickaxeItem(ModToolMaterial.DIVINE, new Item.Settings().rarity(Rarity.EPIC).fireproof()));
-    public static final Item CATACLYSMIC_PICKAXE = registerItem("cataclysmic_pickaxe", new PickaxeItem(ModToolMaterial.CATACLYSMIC, new Item.Settings().rarity(Rarity.EPIC).fireproof()));
-    public static final Item ELDRITCH_PICKAXE = registerItem("eldritch_pickaxe", new PickaxeItem(ModToolMaterial.ELDRITCH, new Item.Settings().rarity(Rarity.EPIC).fireproof()));
+    public static final Item DIVINE_PICKAXE = registerItem("divine_pickaxe", new PickaxeItem(ModToolMaterial.DIVINE, new Item.Settings().rarity(Rarity.EPIC).fireproof().attributeModifiers(PickaxeItem.createAttributeModifiers(ModToolMaterial.DIVINE, 1.0F, -2.8F))));
+    public static final Item CATACLYSMIC_PICKAXE = registerItem("cataclysmic_pickaxe", new PickaxeItem(ModToolMaterial.CATACLYSMIC, new Item.Settings().rarity(Rarity.EPIC).fireproof().attributeModifiers(PickaxeItem.createAttributeModifiers(ModToolMaterial.CATACLYSMIC, 1.0F, -2.8F))));
+    public static final Item ELDRITCH_PICKAXE = registerItem("eldritch_pickaxe", new PickaxeItem(ModToolMaterial.ELDRITCH, new Item.Settings().rarity(Rarity.EPIC).fireproof().attributeModifiers(PickaxeItem.createAttributeModifiers(ModToolMaterial.ELDRITCH, 1.0F, -2.8F))));
 
     /*public static final Item GINKGO_SIGN = registerItem("ginkgo_sign", new SignItem(new Item.Settings().maxCount(16), ModBlocks.STANDING_GINKGO_SIGN, ModBlocks.WALL_GINKGO_SIGN));
     public static final Item HANGING_GINKGO_SIGN = registerItem("ginkgo_hanging_sign", new HangingSignItem(ModBlocks.HANGING_GINKGO_SIGN, ModBlocks.WALL_HANGING_GINKGO_SIGN, new Item.Settings().maxCount(16)));

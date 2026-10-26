@@ -105,9 +105,7 @@ public class ModItemRenderLayerMap {
                 Identifier.of(TLOTD.MOD_ID, "content"),
                 (stack, world, entity, seed) -> {
                     if (stack.isEmpty()) return 0.0f;
-                    NbtComponent customData = stack.get(DataComponentTypes.CUSTOM_DATA);
-                    if (customData == null) return 0.0f;
-                    String content = customData.copyNbt().getString("Content");
+                    String content = stack.getOrDefault(ModComponents.PIPE_CONTENT, "");
                     return switch (content) {
                         case "tlotd:pipe_weed" -> 0.1f;
                         default -> 0.0f;
@@ -125,7 +123,7 @@ public class ModItemRenderLayerMap {
                     return customData.copyNbt().getBoolean("Sealed") ? 0.1f : 0.0f;
                 }
         );
-        /*ModelPredicateProviderRegistry.register(
+        ModelPredicateProviderRegistry.register(
                 ModItems.GAS_CYLINDER, Identifier.of(TLOTD.MOD_ID, "gas"), (stack, world, entity, seed) -> {
                     if (stack.isEmpty()) return 0.0f;
                     String gas = AdAstraGasNbtHelper.getGas(stack);
@@ -136,7 +134,7 @@ public class ModItemRenderLayerMap {
                         default -> 0.0f;
                     };
                 }
-        );*/
+        );
         ModelPredicateProviderRegistry.register(
                 ModItems.EMF_READER, Identifier.of(TLOTD.MOD_ID, "proximity"), (stack, world, entity, seed) -> {
                     if (entity == null || world == null) return 0.0f;

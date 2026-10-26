@@ -2,7 +2,6 @@ package net.tlotd.block.custom;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.component.DataComponentTypes;
 import net.minecraft.component.type.PotionContentsComponent;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.player.PlayerEntity;
@@ -37,7 +36,7 @@ public class NoClipMoistCarpetBlock extends NoClipBlock {
 
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        builder.add(NOCLIPABLE).add(MOISTURE);
+        builder.add(NOCLIPABLE, MOISTURE);
     }
 
     @Override

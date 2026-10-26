@@ -11,9 +11,11 @@ import net.tlotd.TLOTD;
 
 public class ModComponents {
     public static final ComponentType<Integer> MITHRIL_MIRROR_CHARGES_USED = Registry.register(Registries.DATA_COMPONENT_TYPE, Identifier.of(TLOTD.MOD_ID, "mithril_mirror_charges_used"), ComponentType.<Integer>builder().codec(Codec.INT).packetCodec(PacketCodecs.VAR_INT).build());
+    public static final ComponentType<Integer> PIPE_CHARGES_USED = Registry.register(Registries.DATA_COMPONENT_TYPE, Identifier.of(TLOTD.MOD_ID, "pipe_charges_used"), ComponentType.<Integer>builder().codec(Codec.INT).build());
+    public static final ComponentType<String> PIPE_CONTENT = Registry.register(Registries.DATA_COMPONENT_TYPE, Identifier.of(TLOTD.MOD_ID, "pipe_content"), ComponentType.<String>builder().codec(Codec.STRING).build());
     public static final ComponentType<NbtComponent> AUGMENTS = Registry.register(Registries.DATA_COMPONENT_TYPE, Identifier.of(TLOTD.MOD_ID, "augments"), ComponentType.<NbtComponent>builder().codec(NbtComponent.CODEC).build());
     public static final ComponentType<NbtComponent> ITEM_STORAGE = Registry.register(Registries.DATA_COMPONENT_TYPE, Identifier.of(TLOTD.MOD_ID, "item_storage"), ComponentType.<NbtComponent>builder().codec(NbtComponent.CODEC).build());
     public static final ComponentType<Integer> TEMPERATURE = Registry.register(Registries.DATA_COMPONENT_TYPE, Identifier.of(TLOTD.MOD_ID, "temperature"), ComponentType.<Integer>builder().codec(Codec.INT).packetCodec(PacketCodecs.VAR_INT).build());
-    public static void register() {
-    }
+
+    public static void initialize() {}
 }

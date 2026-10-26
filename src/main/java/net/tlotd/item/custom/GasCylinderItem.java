@@ -1,13 +1,26 @@
 package net.tlotd.item.custom;
 
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvents;
+import net.minecraft.text.Text;
+import net.minecraft.util.Hand;
+import net.minecraft.util.TypedActionResult;
+import net.minecraft.world.World;
+import net.tlotd.util.AdAstraGasNbtHelper;
+import net.tlotd.util.ModTags;
+
+import static net.tlotd.util.AdAstraGasNbtHelper.getMaxGasItem;
+import static net.tlotd.util.AugmentNbtHelper.getAugmentLevel;
 
 public class GasCylinderItem extends Item {
     public GasCylinderItem(Settings settings) {
         super(settings);
     }
 
-    /*@Override
+    @Override
     public ItemStack getDefaultStack() {
         ItemStack base = new ItemStack(this);
         AdAstraGasNbtHelper.setOxygen(base, 0);
@@ -60,7 +73,7 @@ public class GasCylinderItem extends Item {
                 long tankOxygen = AdAstraGasNbtHelper.getOxygen(itemStack);
                 if (chest.getItem() instanceof SpaceSuitArmorItem) {
                     if (tankOxygen > 0) {
-                        long accepted = AdAstraGasNbtHelper.modifyGasInSuit(chest, "ad_astra:oxygen", tankOxygen);
+                        long accepted = AdAstraGasNbtHelper.modifyGasInSuit(chest, "ad_astra:oxygen", tankOxygen, world.getRegistryManager());
                         if (accepted > 0) {
                             AdAstraGasNbtHelper.setOxygen(itemStack, tankOxygen - accepted);
                             world.playSound(null, user.getBlockPos(), SoundEvents.ENTITY_PLAYER_BREATH, SoundCategory.PLAYERS, 1.0f, 1.0f);
@@ -69,7 +82,7 @@ public class GasCylinderItem extends Item {
                     }
                 } else {
                     long chestOxygen = AdAstraGasNbtHelper.getOxygen(chest);
-                    long maxChestOxygen = AdAstraGasNbtHelper.getMaxGasItem(chest);
+                    long maxChestOxygen = getMaxGasItem(chest);
                     if (tankOxygen > 0 && chestOxygen < maxChestOxygen) {
                         long transfer = Math.min(tankOxygen, maxChestOxygen - chestOxygen);
                         AdAstraGasNbtHelper.setOxygen(chest, chestOxygen + transfer);
@@ -81,5 +94,5 @@ public class GasCylinderItem extends Item {
             }
         }
         return TypedActionResult.pass(itemStack);
-    }*/
+    }
 }

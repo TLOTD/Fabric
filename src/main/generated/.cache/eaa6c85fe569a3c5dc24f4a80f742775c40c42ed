@@ -1,4 +1,4 @@
-// 1.21.1	2026-10-24T22:04:58.8910121	TLOTD/Tags for minecraft:item
+// 1.21.1	2026-10-26T22:50:23.8222744	TLOTD/Tags for minecraft:item
 1cb1d2f13655302acb2a4d1cbd7b781de7bbbc3a data\c\tags\item\armor.json
 3bf502c10151aec4681c42c1356acd0e4fd794d0 data\c\tags\item\nuggets.json
 ba96f1ef33b762ab101a479b5518305cdad03d4a data\tlotd\tags\item\burns_in_forge.json
@@ -126,6 +126,7 @@ a3b0fdc3cf47b08e440cd335ef9bffdfc3de3628 data\c\tags\item\metal_ingots.json
 d9052ecd0cb4111e2e839081d0df052df2f399f2 data\tlotd\tags\item\jurassoline_forgables.json
 f3e6900a93f70cceaf172d24fa6b203727dbcdb4 data\c\tags\item\copper_ores.json
 e02b237db0a7927c61225e5df4978af48406ef2b data\tlotd\tags\item\envelope_blacklist.json
+ccecf16f31d0adb8df371f77806b33665e4aae94 data\tlotd\tags\item\refillable.json
 82da90f8c83837b3525f6b43ae8d156c6c19bf58 data\tlotd\tags\item\eggs.json
 33a5328edb1003b87094e3d3e3478254258372fd data\tlotd\tags\item\lunar_regoliths.json
 251cb19ea661c7bc8265b6bcabf3682a39f7d4ba data\c\tags\item\emerald_ores.json

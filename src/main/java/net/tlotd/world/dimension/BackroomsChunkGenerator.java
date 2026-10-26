@@ -22,6 +22,7 @@ import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.chunk.VerticalBlockSample;
 import net.minecraft.world.gen.noise.NoiseConfig;
 import net.tlotd.block.ModBlocks;
+import net.tlotd.block.custom.NoClipPillarBlock;
 import net.tlotd.block.enum_property.NoClipable;
 import net.tlotd.config.ModConfigs;
 
@@ -30,7 +31,6 @@ import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 import static net.minecraft.block.RedstoneLampBlock.LIT;
-import static net.tlotd.block.custom.NoClipBlock.NOCLIPABLE;
 import static net.tlotd.block.custom.NoClipMoistCarpetBlock.MOISTURE;
 
 public class BackroomsChunkGenerator extends ChunkGenerator {
@@ -142,8 +142,8 @@ public class BackroomsChunkGenerator extends ChunkGenerator {
                             Random segmentRand = Random.create(segmentSeed);
                             boolean fullSegmentVariant = segmentRand.nextDouble() < 0.0005;
                             if (fullSegmentVariant) {
-                                chosenWall = ModBlocks.YELLOW_WALLPAPERED_WALL.getDefaultState().with(NOCLIPABLE, NoClipable.PORTALING);
-                                bottomWall = ModBlocks.YELLOW_WALLPAPERED_WALL_WITH_BASEBOARD.getDefaultState().with(NOCLIPABLE, NoClipable.PORTALING);
+                                chosenWall = ModBlocks.YELLOW_WALLPAPERED_WALL.getDefaultState().with(NoClipPillarBlock.NOCLIPABLE, NoClipable.PORTALING);
+                                bottomWall = ModBlocks.YELLOW_WALLPAPERED_WALL_WITH_BASEBOARD.getDefaultState().with(NoClipPillarBlock.NOCLIPABLE, NoClipable.PORTALING);
                             } else {
                                 long blockSeed = seed + layerIndex * 918273645231L + worldX * 7342871L + worldZ * 9127831L + y * 15485863L;
                                 Random blockRand = Random.create(blockSeed);

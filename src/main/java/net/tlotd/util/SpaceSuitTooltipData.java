@@ -1,17 +1,16 @@
 package net.tlotd.util;
 
-import net.minecraft.item.ItemStack;
 import net.minecraft.item.tooltip.TooltipData;
-import net.minecraft.util.collection.DefaultedList;
+import net.minecraft.nbt.NbtList;
 
 public class SpaceSuitTooltipData implements TooltipData {
-    private final DefaultedList<ItemStack> stacks;
+    private final NbtList serializedStacks;
 
-    public SpaceSuitTooltipData(DefaultedList<ItemStack> stacks) {
-        this.stacks = stacks;
+    public SpaceSuitTooltipData(NbtList serializedStacks) {
+        this.serializedStacks = serializedStacks.copy();
     }
 
-    public DefaultedList<ItemStack> getStacks() {
-        return stacks;
+    public NbtList getSerializedStacks() {
+        return serializedStacks.copy();
     }
 }

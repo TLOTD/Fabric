@@ -1,4 +1,4 @@
-// 1.21.1	2026-10-24T22:04:58.8697891	TLOTD/Tags for minecraft:block
+// 1.21.1	2026-10-26T22:50:23.7917248	TLOTD/Tags for minecraft:block
 dd0657ec07c097f6c47f74bc704f9ba2c9eceb6d data\minecraft\tags\block\flower_pots.json
 1d1278e6ac54a1232e317558b7b08bbd395cc8a3 data\tlotd\tags\block\logs_with_bark.json
 c684d285932a344b9defdb8699998317963dd97d data\tlotd\tags\block\infiniburn_prehistoric.json
@@ -15,12 +15,12 @@ bc693ac4b259a89cab4e679a551ea189fde2920a data\minecraft\tags\block\wooden_stairs
 7e30cc523d59f3631745cd5f2aa2dc582f2f5d27 data\minecraft\tags\block\maintains_farmland.json
 9773240384325bfd3683b96e0bafe79fd2e57794 data\minecraft\tags\block\mineable\hoe.json
 54f323c5fc9e5b2b6874c4f29d574fb9c0d25f05 data\tlotd\tags\block\computers_off.json
-c70fe17a970a439fc075a6ea5d3f73afcecfdde5 data\tlotd\tags\block\elevator_controllers.json
 522ca24fa90ea8d2995b4d312624db2b700eed55 data\minecraft\tags\block\dragon_immune.json
+c70fe17a970a439fc075a6ea5d3f73afcecfdde5 data\tlotd\tags\block\elevator_controllers.json
 4f775b0978cce1480b26ea79808c6ed596e1e00b data\minecraft\tags\block\vibration_resonators.json
 e4f68efa8370dc9cd962f771efbf9e007139793b data\tlotd\tags\block\bedrock_extractable_blocks.json
-712ee5f7394c62a04377dcb89dbf60cd6fbd8180 data\fabric\tags\block\needs_tool_level_7.json
 60c459deb94a75c4b3afbafa0ff2add3534fbd25 data\minecraft\tags\block\wool.json
+712ee5f7394c62a04377dcb89dbf60cd6fbd8180 data\fabric\tags\block\needs_tool_level_7.json
 8fb248fed559ac5d000e7806c1137c4ff8ca4512 data\tlotd\tags\block\computer_accessories.json
 abe66f51ab6cecb396877c85288f081ecc006788 data\tlotd\tags\block\wooden_steins.json
 9bf09b837f1f7729d9fb87dabdbb597ff1bbcf0e data\minecraft\tags\block\rabbits_spawnable_on.json

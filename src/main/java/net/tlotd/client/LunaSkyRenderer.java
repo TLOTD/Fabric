@@ -291,15 +291,20 @@ public class LunaSkyRenderer {
     private static void renderShootingStars(MatrixStack matrices, Camera camera) {
         RenderSystem.setShader(GameRenderer::getPositionColorProgram);
         matrices.push();
+
         try {
             Quaternionf rotation = camera.getRotation();
             Vector3f cameraForward = new Vector3f(0, 0, 1).rotate(rotation);
             Matrix4f matrix = matrices.peek().getPositionMatrix();
             Tessellator tessellator = Tessellator.getInstance();
-            BufferBuilder buffer = tessellator.begin(VertexFormat.DrawMode.QUADS, VertexFormats.POSITION_COLOR);
+            boolean hasVertices = false;
+            BufferBuilder buffer = null;
             for (ShootingStar star : SHOOTING_STARS) {
                 if (!star.active) {
                     continue;
+                }
+                if (buffer == null) {
+                    buffer = tessellator.begin(VertexFormat.DrawMode.QUADS, VertexFormats.POSITION_COLOR);
                 }
                 float progress = star.progress;
                 float travelDistance = 70f * progress;
@@ -318,9 +323,11 @@ public class LunaSkyRenderer {
                 buffer.vertex(matrix, headX + width.x(), headY + width.y(), headZ + width.z()).color(1f, 1f, 1f, alpha);
                 buffer.vertex(matrix, tailX + width.x(), tailY + width.y(), tailZ + width.z()).color(1f, 1f, 1f, alpha * 0.05f);
                 buffer.vertex(matrix, tailX - width.x(), tailY - width.y(), tailZ - width.z()).color(1f, 1f, 1f, alpha * 0.05f);
+                hasVertices = true;
             }
-
-            BufferRenderer.drawWithGlobalProgram(buffer.end());
+            if (hasVertices) {
+                BufferRenderer.drawWithGlobalProgram(buffer.end());
+            }
         } finally {
             matrices.pop();
         }

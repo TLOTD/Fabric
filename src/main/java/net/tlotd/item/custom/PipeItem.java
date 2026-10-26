@@ -1,5 +1,6 @@
 package net.tlotd.item.custom;
 
+import it.unimi.dsi.fastutil.objects.Object2IntMap;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
@@ -8,8 +9,7 @@ import net.minecraft.inventory.StackReference;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsage;
-import net.minecraft.nbt.NbtCompound;
-import net.minecraft.nbt.NbtElement;
+import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.screen.slot.Slot;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
@@ -18,7 +18,9 @@ import net.minecraft.text.Style;
 import net.minecraft.text.Text;
 import net.minecraft.util.*;
 import net.minecraft.world.World;
+import net.tlotd.components.ModComponents;
 import net.tlotd.effect.ModEffects;
+import net.tlotd.enchantments.ModEnchantments;
 import net.tlotd.item.ModItems;
 
 import java.util.List;
@@ -29,8 +31,6 @@ public class PipeItem extends Item {
         super(settings);
     }
 
-    /*private static final String CONTENT_KEY = "Content";
-    private static final String CHARGES_USED_KEY = "ChargesUsed";
     private static final int BASE_MAX_CHARGES = 3;
     private static final int CHARGES_PER_LEVEL = 1;
     private static final int USE_TIME = 20;
@@ -41,20 +41,16 @@ public class PipeItem extends Item {
     }
 
     public float getProgress(ItemStack stack) {
-        if (!stack.hasNbt()) return 1.0f;
-        NbtCompound tag = stack.getNbt();
-        int used = tag.getInt(CHARGES_USED_KEY);
+        int used = getChargesUsed(stack);
         int maxCharges = getMaxCharges(stack);
-        return Math.max(1.0f - ((float) used / (float) maxCharges), 0);
+        return Math.max(1.0f - ((float) used / maxCharges), 0.0f);
     }
 
     @Override
     public boolean isItemBarVisible(ItemStack stack) {
         if (stack.isOf(ModItems.JOINT)) return true;
-        if (!stack.hasNbt()) return false;
-        if (!stack.getNbt().contains(CHARGES_USED_KEY, NbtElement.NUMBER_TYPE)) return false;
-        if (stack.getNbt().getString(CONTENT_KEY).equals("empty")) return false;
-        return true;
+        if (!stack.contains(ModComponents.PIPE_CHARGES_USED)) return false;
+        return !getContent(stack).equals("empty");
     }
 
     @Override
@@ -71,13 +67,14 @@ public class PipeItem extends Item {
         return ItemUsage.consumeHeldItem(world, user, hand);
     }
 
-    public int getMaxUseTime(ItemStack stack) {
+    @Override
+    public int getMaxUseTime(ItemStack stack, LivingEntity user) {
         return USE_TIME;
     }
 
     private int getMaxCharges(ItemStack stack) {
-        int abyssLevel = EnchantmentHelper.getLevel(ModEnchantments.RESOURCEFUL_SMOKING, stack);
-        return BASE_MAX_CHARGES + (abyssLevel * CHARGES_PER_LEVEL);
+        int smokingLevel = EnchantmentHelper.getEnchantments(stack).getEnchantmentEntries().stream().filter(entry -> entry.getKey().getKey().filter(ModEnchantments.RESOURCEFUL_SMOKING::equals).isPresent()).mapToInt(Object2IntMap.Entry::getIntValue).findFirst().orElse(0);
+        return BASE_MAX_CHARGES + (smokingLevel * CHARGES_PER_LEVEL);
     }
 
     private static String getChargeGlyphs(int remaining, int max) {
@@ -94,28 +91,27 @@ public class PipeItem extends Item {
     public ItemStack finishUsing(ItemStack stack, World world, LivingEntity user) {
         if (!(user instanceof PlayerEntity player)) return stack;
         if (!world.isClient()) {
-            int usedCharges = (stack.isOf(ModItems.JOINT) || (stack.hasNbt() && stack.getNbt().contains(CHARGES_USED_KEY, NbtElement.NUMBER_TYPE))) ? stack.getOrCreateNbt().getInt(CHARGES_USED_KEY) : 64;
+            int usedCharges = (stack.isOf(ModItems.JOINT) || stack.contains(ModComponents.PIPE_CHARGES_USED)) ? getChargesUsed(stack) : 64;
             if (usedCharges < getMaxCharges(stack)) {
                 user.addStatusEffect(new StatusEffectInstance(ModEffects.STONED, 600));
-                NbtCompound tag = stack.getOrCreateNbt();
-                int used = tag.getInt(CHARGES_USED_KEY);
-                int refillLevel = EnchantmentHelper.getLevel(ModEnchantments.REFILL_CHARGES, stack);
+                int used = getChargesUsed(stack);
+                int refillLevel = EnchantmentHelper.getEnchantments(stack).getEnchantmentEntries().stream().filter(entry -> entry.getKey().getKey().filter(ModEnchantments.REFILL_CHARGES::equals).isPresent()).mapToInt(Object2IntMap.Entry::getIntValue).findFirst().orElse(0);
                 int maxCharges = getMaxCharges(stack);
                 used++;
-                tag.putInt(CHARGES_USED_KEY, used);
+                setChargesUsed(stack, used);
                 if (used >= maxCharges) {
                     if (stack.isOf(ModItems.JOINT)) {
                         stack.decrement(1);
                     } else {
-                        tag.putString(CONTENT_KEY, "empty");
+                        setContent(stack, "empty");
                         if (refillLevel > 0) {
                             for (int i = 0; i < player.getInventory().size(); i++) {
                                 ItemStack invStack = player.getInventory().getStack(i);
                                 if (!invStack.isEmpty() && invStack.isOf(ModItems.PIPE_WEED)) {
                                     invStack.decrement(1);
-                                    tag.putString(CONTENT_KEY, "tlotd:pipe_weed");
-                                    tag.putInt(CHARGES_USED_KEY, 0);
-                                    player.playSound(SoundEvents.BLOCK_GRASS_STEP, SoundCategory.PLAYERS, 1f, 1f);
+                                    setContent(stack, "tlotd:pipe_weed");
+                                    setChargesUsed(stack, 0);
+                                    player.playSound(SoundEvents.BLOCK_GRASS_STEP, 1f, 1f);
                                     break;
                                 }
                             }
@@ -128,8 +124,8 @@ public class PipeItem extends Item {
                     ItemStack invStack = player.getInventory().getStack(i);
                     if (!invStack.isEmpty() && invStack.isOf(ModItems.PIPE_WEED)) {
                         invStack.decrement(1);
-                        stack.getOrCreateNbt().putString(CONTENT_KEY, "tlotd:pipe_weed");
-                        stack.getOrCreateNbt().putInt(CHARGES_USED_KEY, 0);
+                        setContent(stack, "tlotd:pipe_weed");
+                        setChargesUsed(stack, 0);
                         world.playSound(null, player.getBlockPos(), SoundEvents.BLOCK_GRASS_STEP, SoundCategory.PLAYERS, 0.8f, 1.2f);
                         restored = true;
                         break;
@@ -149,19 +145,19 @@ public class PipeItem extends Item {
     @Override
     public Text getName(ItemStack stack) {
         Text name = super.getName(stack);
-        if (stack.isOf(ModItems.JOINT) || !stack.hasNbt()) return name;
-        else if (!stack.getNbt().contains(CHARGES_USED_KEY, NbtElement.NUMBER_TYPE)) return name;
-        else if (stack.getOrCreateNbt().getString(CONTENT_KEY).equals("tlotd:pipe_weed")) {
+        if (stack.isOf(ModItems.JOINT)) return name;
+        if (!stack.contains(ModComponents.PIPE_CHARGES_USED)) return name;
+        if (getContent(stack).equals("tlotd:pipe_weed")) {
             return Text.translatable("item.tlotd.pipe.pipe_weed");
-        } else return name;
+        }
+        return name;
     }
 
     @Override
     public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
-        boolean clean = !stack.isOf(ModItems.JOINT) && (!stack.hasNbt() || !stack.getNbt().contains(CHARGES_USED_KEY, NbtElement.NUMBER_TYPE));
-        NbtCompound tag = stack.getOrCreateNbt();
-        String content = tag.getString(CONTENT_KEY);
-        int used = tag.getInt(CHARGES_USED_KEY);
+        boolean clean = !stack.isOf(ModItems.JOINT) && !stack.contains(ModComponents.PIPE_CHARGES_USED);
+        String content = getContent(stack);
+        int used = getChargesUsed(stack);
         int max = getMaxCharges(stack);
         int remaining = clean ? 0 : Math.max(0, max - used);
         String pictogram = getChargeGlyphs(remaining, max);
@@ -185,12 +181,13 @@ public class PipeItem extends Item {
     }
 
     private boolean tryRefill(ItemStack pipe, ItemStack inputStack, PlayerEntity player) {
-        if ((pipe.isOf(ModItems.JOINT) || pipe.hasNbt()) && pipe.getOrCreateNbt().getInt(CHARGES_USED_KEY) < getMaxCharges(pipe))
+        if ((pipe.isOf(ModItems.JOINT) || pipe.contains(ModComponents.PIPE_CHARGES_USED)) && getChargesUsed(pipe) < getMaxCharges(pipe)) {
             return false;
+        }
         if (!inputStack.isOf(ModItems.PIPE_WEED)) return false;
         inputStack.decrement(1);
-        pipe.getOrCreateNbt().putString(CONTENT_KEY, "tlotd:pipe_weed");
-        pipe.getOrCreateNbt().putInt(CHARGES_USED_KEY, 0);
+        setContent(pipe, "tlotd:pipe_weed");
+        setChargesUsed(pipe, 0);
         player.playSound(SoundEvents.BLOCK_GRASS_STEP, 1f, 1f);
         player.getItemCooldownManager().set(ModItems.JOINT, 20);
         player.getItemCooldownManager().set(ModItems.PIPE, 20);
@@ -205,5 +202,21 @@ public class PipeItem extends Item {
     @Override
     public int getEnchantability() {
         return 10;
-    }*/
+    }
+
+    private static int getChargesUsed(ItemStack stack) {
+        return stack.getOrDefault(ModComponents.PIPE_CHARGES_USED, 0);
+    }
+
+    private static void setChargesUsed(ItemStack stack, int amount) {
+        stack.set(ModComponents.PIPE_CHARGES_USED, amount);
+    }
+
+    private static String getContent(ItemStack stack) {
+        return stack.getOrDefault(ModComponents.PIPE_CONTENT, "");
+    }
+
+    private static void setContent(ItemStack stack, String content) {
+        stack.set(ModComponents.PIPE_CONTENT, content);
+    }
 }

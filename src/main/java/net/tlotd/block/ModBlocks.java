@@ -374,36 +374,36 @@ public class ModBlocks {
     public static final Block ALIEN_BRICK_WALL = registerRarityBlock("alien_brick_wall",
             new WallBlock(AbstractBlock.Settings.create().mapColor(MapColor.LIGHT_GRAY).strength(-1.0F, 3600000.0F)), Rarity.EPIC);
 
-    public static final Block YELLOW_WALLPAPERED_WALL_WITH_BASEBOARD_AND_OUTLET = registerBlock("yellow_wallpapered_wall_with_baseboard_and_outlet",
+    public static final Block YELLOW_WALLPAPERED_WALL_WITH_BASEBOARD_AND_OUTLET = registerBlockWithoutItem("yellow_wallpapered_wall_with_baseboard_and_outlet",
             new OutletBlock(AbstractBlock.Settings.create().mapColor(MapColor.PALE_YELLOW).strength(-1.0F, 3600000.0F).sounds(BlockSoundGroup.AZALEA_LEAVES)));
-    public static final Block YELLOW_WALLPAPERED_WALL_WITH_BASEBOARD = registerBlock("yellow_wallpapered_wall_with_baseboard",
+    public static final Block YELLOW_WALLPAPERED_WALL_WITH_BASEBOARD = registerBlockWithoutItem("yellow_wallpapered_wall_with_baseboard",
             new NoClipPillarBlock(AbstractBlock.Settings.create().mapColor(MapColor.PALE_YELLOW).strength(-1.0F, 3600000.0F).sounds(BlockSoundGroup.AZALEA_LEAVES).emissiveLighting((state, view, blockPos) -> !state.get(NoClipPillarBlock.NOCLIPABLE).equals(NoClipable.SOLID))));
-    public static final Block YELLOW_WALLPAPERED_WALL = registerBlock("yellow_wallpapered_wall",
+    public static final Block YELLOW_WALLPAPERED_WALL = registerBlockWithoutItem("yellow_wallpapered_wall",
             new NoClipPillarBlock(AbstractBlock.Settings.create().mapColor(MapColor.PALE_YELLOW).strength(-1.0F, 3600000.0F).sounds(BlockSoundGroup.AZALEA_LEAVES).emissiveLighting((state, view, blockPos) -> !state.get(NoClipPillarBlock.NOCLIPABLE).equals(NoClipable.SOLID))));
-    public static final Block STRIPPED_YELLOW_WALLPAPERED_WALL = registerBlock("stripped_yellow_wallpapered_wall",
+    public static final Block STRIPPED_YELLOW_WALLPAPERED_WALL = registerBlockWithoutItem("stripped_yellow_wallpapered_wall",
             new NoClipPillarBlock(AbstractBlock.Settings.create().mapColor(MapColor.PALE_YELLOW).strength(-1.0F, 3600000.0F).emissiveLighting((state, view, blockPos) -> !state.get(NoClipPillarBlock.NOCLIPABLE).equals(NoClipable.SOLID))));
-    public static final Block CEILING_LIGHT = registerBlock("ceiling_light",
+    public static final Block CEILING_LIGHT = registerBlockWithoutItem("ceiling_light",
             new RedstoneLampBlock(AbstractBlock.Settings.create().mapColor(MapColor.LIGHT_GRAY).strength(-1.0F, 3600000.0F).sounds(BlockSoundGroup.GLASS).luminance(createLightLevelFromLitBlockState(15))));
-    public static final Block CEILING_TILE = registerBlock("ceiling_tile",
-            new NoClipBlock(AbstractBlock.Settings.create().mapColor(MapColor.LIGHT_GRAY).strength(-1.0F, 3600000.0F).emissiveLighting((state, view, blockPos) -> !state.get(NoClipPillarBlock.NOCLIPABLE).equals(NoClipable.SOLID))));
-    public static final Block CEILING_TILE_STAIRS = registerBlock("ceiling_tile_stairs",
+    public static final Block CEILING_TILE = registerBlockWithoutItem("ceiling_tile",
+            new NoClipBlock(AbstractBlock.Settings.create().mapColor(MapColor.LIGHT_GRAY).strength(-1.0F, 3600000.0F).emissiveLighting((state, view, blockPos) -> !state.get(NoClipBlock.NOCLIPABLE).equals(NoClipable.SOLID))));
+    public static final Block CEILING_TILE_STAIRS = registerBlockWithoutItem("ceiling_tile_stairs",
             new StairsBlock(ModBlocks.CEILING_TILE.getDefaultState(), AbstractBlock.Settings.create().mapColor(MapColor.LIGHT_GRAY).strength(-1.0F, 3600000.0F)));
-    public static final Block HORIZONTAL_CEILING_TILE_STAIRS = registerBlock("horizontal_ceiling_tile_stairs",
+    public static final Block HORIZONTAL_CEILING_TILE_STAIRS = registerBlockWithoutItem("horizontal_ceiling_tile_stairs",
             new HorizontalStairBlock(AbstractBlock.Settings.create().mapColor(MapColor.LIGHT_GRAY).strength(-1.0F, 3600000.0F)));
-    public static final Block MOIST_CARPET = registerBlock("moist_carpet",
-            new NoClipMoistCarpetBlock(AbstractBlock.Settings.create().mapColor(MapColor.YELLOW).strength(-1.0F, 3600000.0F).sounds(BlockSoundGroup.WOOL).emissiveLighting((state, view, blockPos) -> !state.get(NoClipPillarBlock.NOCLIPABLE).equals(NoClipable.SOLID))));
-    public static final Block MOIST_CARPET_STAIRS = registerBlock("moist_carpet_stairs",
+    public static final Block MOIST_CARPET = registerBlockWithoutItem("moist_carpet",
+            new NoClipMoistCarpetBlock(AbstractBlock.Settings.create().mapColor(MapColor.YELLOW).strength(-1.0F, 3600000.0F).sounds(BlockSoundGroup.WOOL).emissiveLighting((state, view, blockPos) -> !state.get(NoClipMoistCarpetBlock.NOCLIPABLE).equals(NoClipable.SOLID))));
+    public static final Block MOIST_CARPET_STAIRS = registerBlockWithoutItem("moist_carpet_stairs",
             new StairsBlock(ModBlocks.MOIST_CARPET.getDefaultState(), AbstractBlock.Settings.create().mapColor(MapColor.YELLOW).strength(-1.0F, 3600000.0F).sounds(BlockSoundGroup.WOOL)));
-    public static final Block HORIZONTAL_MOIST_CARPET_STAIRS = registerBlock("horizontal_moist_carpet_stairs",
+    public static final Block HORIZONTAL_MOIST_CARPET_STAIRS = registerBlockWithoutItem("horizontal_moist_carpet_stairs",
             new HorizontalStairBlock(AbstractBlock.Settings.create().mapColor(MapColor.YELLOW).strength(-1.0F, 3600000.0F).sounds(BlockSoundGroup.WOOL)));
-    public static final Block FLOOR_TILE = registerBlock("floor_tile",
-            new NoClipBlock(AbstractBlock.Settings.create().mapColor(MapColor.LIGHT_GRAY).strength(-1.0F, 3600000.0F).emissiveLighting((state, view, blockPos) -> !state.get(NoClipPillarBlock.NOCLIPABLE).equals(NoClipable.SOLID))));
-    public static final Block BACKROOMS_ELEVATOR_CONTROLLER = registerBlock("backrooms_elevator_controller",
+    public static final Block FLOOR_TILE = registerBlockWithoutItem("floor_tile",
+            new NoClipBlock(AbstractBlock.Settings.create().mapColor(MapColor.LIGHT_GRAY).strength(-1.0F, 3600000.0F).emissiveLighting((state, view, blockPos) -> !state.get(NoClipBlock.NOCLIPABLE).equals(NoClipable.SOLID))));
+    public static final Block BACKROOMS_ELEVATOR_CONTROLLER = registerBlockWithoutItem("backrooms_elevator_controller",
             new ElevatorControllerBlock(AbstractBlock.Settings.create().mapColor(MapColor.PALE_YELLOW).requiresTool().strength(-1.0F, 3600000.0F).sounds(BlockSoundGroup.AZALEA_LEAVES)));
-    public static final Block BACKROOMS_ELEVATOR_BASE = registerBlock("backrooms_elevator_base",
+    public static final Block BACKROOMS_ELEVATOR_BASE = registerBlockWithoutItem("backrooms_elevator_base",
             new ElevatorBaseBlock(AbstractBlock.Settings.create().mapColor(MapColor.PALE_YELLOW).requiresTool().strength(-1.0F, 3600000.0F).sounds(BlockSoundGroup.AZALEA_LEAVES)));
-    public static final Block VOID = registerBlock("void",
-            new NoClipBlock(AbstractBlock.Settings.create().mapColor(MapColor.BLACK).strength(-1.0F, 3600000.0F).emissiveLighting((state, view, blockPos) -> !state.get(NoClipPillarBlock.NOCLIPABLE).equals(NoClipable.SOLID))));
+    public static final Block VOID = registerBlockWithoutItem("void",
+            new NoClipBlock(AbstractBlock.Settings.create().mapColor(MapColor.BLACK).strength(-1.0F, 3600000.0F).emissiveLighting((state, view, blockPos) -> !state.get(NoClipBlock.NOCLIPABLE).equals(NoClipable.SOLID))));
     public static final Block FRAGILE_LIGHT_SWITCH = registerBlock("fragile_light_switch",
             new BackroomsLightSwitchBlock(AbstractBlock.Settings.create().strength(0.5F).pistonBehavior(PistonBehavior.DESTROY).noCollision()));
 

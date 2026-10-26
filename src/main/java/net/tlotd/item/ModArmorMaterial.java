@@ -29,19 +29,19 @@ public class ModArmorMaterial {
 
     public static final RegistryEntry<ArmorMaterial> MITHRIL = register("mithril", new int[]{6, 12, 10, 6}, 25, SoundEvents.ITEM_ARMOR_EQUIP_NETHERITE, 5.0f, 0.3f, () -> Ingredient.ofItems(ModItems.MITHRIL_INGOT));
 
-    public static final RegistryEntry<ArmorMaterial> MONOCLE = register("victorian", new int[]{0, 3, 2, 1}, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f, 0f, () -> Ingredient.ofItems(Items.GLASS_PANE));
+    public static final RegistryEntry<ArmorMaterial> MONOCLE = register("monocle", new int[]{0, 3, 2, 1}, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f, 0f, () -> Ingredient.ofItems(Items.GLASS_PANE));
     public static final RegistryEntry<ArmorMaterial> VICTORIAN = register("victorian", new int[]{0, 3, 2, 1}, 0, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0f, 0f, () -> Ingredient.ofItems(Items.LEATHER));
 
-    public static final RegistryEntry<ArmorMaterial> PICKELHAUBE = register("imperial_german_uniform", new int[]{4, 3, 2, 1}, 0, SoundEvents.ITEM_ARMOR_EQUIP_NETHERITE, 3f, 0f, () -> Ingredient.ofItems(ModItems.STEEL_INGOT));
+    public static final RegistryEntry<ArmorMaterial> PICKELHAUBE = register("picklehaube", new int[]{4, 3, 2, 1}, 0, SoundEvents.ITEM_ARMOR_EQUIP_NETHERITE, 3f, 0f, () -> Ingredient.ofItems(ModItems.STEEL_INGOT));
     public static final RegistryEntry<ArmorMaterial> IMPERIAL_GERMAN_UNIFORM = register("imperial_german_uniform", new int[]{4, 3, 2, 1}, 0, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0f, 0f, () -> Ingredient.ofItems(Items.LEATHER));
 
-    public static final RegistryEntry<ArmorMaterial> ASTRONAUT = register("space_suit", new int[]{1, 3, 2, 1}, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f, 0f, () -> Ingredient.ofItems(Items.TINTED_GLASS));
+    public static final RegistryEntry<ArmorMaterial> ASTRONAUT = register("astronaut_helmet", new int[]{1, 3, 2, 1}, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f, 0f, () -> Ingredient.ofItems(Items.TINTED_GLASS));
     public static final RegistryEntry<ArmorMaterial> SPACE_SUIT = register("space_suit", new int[]{1, 3, 2, 1}, 0, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0f, 0f, () -> Ingredient.ofItems(Items.LEATHER));
 
-    public static final RegistryEntry<ArmorMaterial> CTHONAUT = register("depth_suit", new int[]{1, 3, 2, 1}, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f, 0f, () -> Ingredient.ofItems(Items.TINTED_GLASS));
+    public static final RegistryEntry<ArmorMaterial> CTHONAUT = register("cthonaut_helmet", new int[]{1, 3, 2, 1}, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f, 0f, () -> Ingredient.ofItems(Items.TINTED_GLASS));
     public static final RegistryEntry<ArmorMaterial> DEPTH_SUIT = register("depth_suit", new int[]{1, 3, 2, 1}, 0, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0f, 0f, () -> Ingredient.ofItems(Items.LEATHER));
 
-    public static final RegistryEntry<ArmorMaterial> SCIENTIST = register("hev_suit", new int[]{0, 6, 4, 2}, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f, 0f, () -> Ingredient.ofItems(Items.GLASS_PANE));
+    public static final RegistryEntry<ArmorMaterial> SCIENTIST = register("scientist_glasses", new int[]{0, 6, 4, 2}, 0, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0f, 0f, () -> Ingredient.ofItems(Items.GLASS_PANE));
     public static final RegistryEntry<ArmorMaterial> HEV_SUIT = register("hev_suit", new int[]{0, 6, 4, 2}, 0, SoundEvents.ITEM_ARMOR_EQUIP_NETHERITE, 5f, 0.5f, () -> Ingredient.ofItems(ModItems.XEN_CRYSTAL));
 
     public static final RegistryEntry<ArmorMaterial> EMPEROR = register("emperor", new int[]{4, 0, 0, 0}, 25, SoundEvents.ITEM_ARMOR_EQUIP_GOLD, 3f, 0f, () -> Ingredient.ofItems(Items.GOLD_INGOT));

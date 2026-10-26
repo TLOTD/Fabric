@@ -3,12 +3,14 @@ package net.tlotd.item;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.block.entity.BlockEntityType;
+import net.minecraft.component.type.ItemEnchantmentsComponent;
 import net.minecraft.enchantment.Enchantment;
+import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.item.*;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtList;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
+import net.minecraft.registry.*;
+import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.text.Text;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.Formatting;
@@ -17,6 +19,8 @@ import net.minecraft.village.raid.Raid;
 import net.tlotd.TLOTD;
 import net.tlotd.block.ModBlocks;
 import net.tlotd.compat.CompatModsCheck;
+import net.tlotd.components.ModComponents;
+import net.tlotd.enchantments.ModEnchantments;
 import net.tlotd.fluid.ModFluids;
 import net.tlotd.item.custom.SpaceSuitArmorItem;
 import net.tlotd.util.AdAstraGasNbtHelper;
@@ -45,9 +49,9 @@ public class ModItemGroups {
                         entries.add(ModItems.LOTR_BANNER_PATTERN);
 
                         entries.add(ModItems.GAS_CYLINDER);
-                        //entries.add(addGasItem(ModItems.GAS_CYLINDER, AdAstraGasNbtHelper.AD_ASTRA_OXYGEN_ID));
-                        //entries.add(addGasItem(ModItems.GAS_CYLINDER, AdAstraGasNbtHelper.TLOTD_PIPE_WEED_SMOKE));
-                        //entries.add(addGasItem(ModItems.GAS_CYLINDER, AdAstraGasNbtHelper.TLOTD_WITHERED_AIR));
+                        entries.add(addGasItem(ModItems.GAS_CYLINDER, AdAstraGasNbtHelper.AD_ASTRA_OXYGEN_ID));
+                        entries.add(addGasItem(ModItems.GAS_CYLINDER, AdAstraGasNbtHelper.TLOTD_PIPE_WEED_SMOKE));
+                        entries.add(addGasItem(ModItems.GAS_CYLINDER, AdAstraGasNbtHelper.TLOTD_WITHERED_AIR));
 
                         entries.add(ModFluids.BEER_BUCKET);
                         entries.add(ModFluids.MEAD_BUCKET);
@@ -69,7 +73,7 @@ public class ModItemGroups {
                         if (CompatModsCheck.BIOMANCY || CompatModsCheck.NEEPMEAT || CompatModsCheck.SPORE) {
                             entries.add(ModItems.BIOLOGICAL_CIRCUIT_BOARD);
                         }
-                        //entries.add(ModItems.ARCANE_CIRCUIT_BOARD);
+                        entries.add(ModItems.ARCANE_CIRCUIT_BOARD);
                         entries.add(ModItems.INTEGRATED_CIRCUIT);
                         entries.add(ModItems.CATHODE_RAY_TUBE);
                         entries.add(ModItems.LIQUID_CRYSTAL_DISPLAY_PANEL);
@@ -96,8 +100,8 @@ public class ModItemGroups {
 
                         entries.add(ModItems.SULFUR);
                         entries.add(ModItems.SULFURIC_ACID);
-                        //entries.add(addEnergyItem(ModItems.BATTERY, 10000));
-                        //entries.add(addEnergyItem(ModItems.LARGE_BATTERY, 50000));
+                        entries.add(addEnergyItem(ModItems.BATTERY, 10000));
+                        entries.add(addEnergyItem(ModItems.LARGE_BATTERY, 50000));
 
                         entries.add(ModItems.RAW_ALUMINIUM);
                         entries.add(ModItems.ALUMINIUM_NUGGET);
@@ -363,6 +367,7 @@ public class ModItemGroups {
 
                         entries.add(ModItems.ASTRONAUT_HELMET);
                         //entries.add(fullSpaceSuit());
+                        entries.add(ModItems.SPACE_SUIT_CHESTPLATE);
                         entries.add(ModItems.SPACE_SUIT_LEGGINGS);
                         entries.add(ModItems.SPACE_SUIT_BOOTS);
 
@@ -373,6 +378,7 @@ public class ModItemGroups {
 
                         entries.add(ModItems.SCIENTIST_GLASSES);
                         //entries.add(fullHEVSuit());
+                        entries.add(ModItems.HEV_SUIT_CHESTPLATE);
                         entries.add(ModItems.HEV_SUIT_LEGGINGS);
                         entries.add(ModItems.HEV_SUIT_BOOTS);
 
@@ -533,31 +539,31 @@ public class ModItemGroups {
                         entries.add(ModItems.FOSSIL_AND_STEEL);
                         entries.add(ModItems.JOINT);
                         entries.add(ModItems.PIPE);
-                        //entries.add(addPipeItem(ModItems.PIPE, "tlotd:pipe_weed"));
+                        entries.add(addPipeItem(ModItems.PIPE, "tlotd:pipe_weed"));
                         //entries.add(ModItems.TREX_SPAWN_EGG);
                         //if (CompatModsCheck.SPORE) {
                         //    entries.add(ModItems.INFECTED_TREX_SPAWN_EGG);
                         //}
-                        //entries.add(addEnchantedBook(ModEnchantments.TRANSDIMENSIONAL, 1));
-                        //entries.add(addEnchantedBook(ModEnchantments.TRANSDIMENSIONAL, 2));
-                        //entries.add(addEnchantedBook(ModEnchantments.TRANSDIMENSIONAL, 3));
-                        //entries.add(addEnchantedBook(ModEnchantments.TRANSDIMENSIONAL, 4));
-                        //entries.add(addEnchantedBook(ModEnchantments.TRANSDIMENSIONAL, 5));
-                        //entries.add(addEnchantedBook(ModEnchantments.DEPTH_OF_THE_ABYSS, 1));
-                        //entries.add(addEnchantedBook(ModEnchantments.DEPTH_OF_THE_ABYSS, 2));
-                        //entries.add(addEnchantedBook(ModEnchantments.DEPTH_OF_THE_ABYSS, 3));
-                        //entries.add(addEnchantedBook(ModEnchantments.SHARPER_LENS, 1));
-                        //entries.add(addEnchantedBook(ModEnchantments.SHARPER_LENS, 2));
-                        //entries.add(addEnchantedBook(ModEnchantments.SHARPER_LENS, 3));
-                        //entries.add(addEnchantedBook(ModEnchantments.SHARPER_LENS, 4));
-                        //entries.add(addEnchantedBook(ModEnchantments.SHARPER_LENS, 5));
-                        //entries.add(addEnchantedBook(ModEnchantments.REINFORCED_GLASS, 1));
-                        //entries.add(addEnchantedBook(ModEnchantments.REINFORCED_GLASS, 2));
-                        //entries.add(addEnchantedBook(ModEnchantments.REINFORCED_GLASS, 3));
-                        //entries.add(addEnchantedBook(ModEnchantments.CURSED_REFLECTION, 1));
-                        //entries.add(addEnchantedBook(ModEnchantments.REFILL_CHARGES, 1));
-                        //entries.add(addEnchantedBook(ModEnchantments.RESOURCEFUL_SMOKING, 1));
-                        //entries.add(addEnchantedBook(ModEnchantments.RESOURCEFUL_SMOKING, 2));
+                        entries.add(addEnchantedBook(displayContext.lookup(), ModEnchantments.TRANSDIMENSIONAL, 1));
+                        entries.add(addEnchantedBook(displayContext.lookup(), ModEnchantments.TRANSDIMENSIONAL, 2));
+                        entries.add(addEnchantedBook(displayContext.lookup(), ModEnchantments.TRANSDIMENSIONAL, 3));
+                        entries.add(addEnchantedBook(displayContext.lookup(), ModEnchantments.TRANSDIMENSIONAL, 4));
+                        entries.add(addEnchantedBook(displayContext.lookup(), ModEnchantments.TRANSDIMENSIONAL, 5));
+                        entries.add(addEnchantedBook(displayContext.lookup(), ModEnchantments.DEPTH_OF_THE_ABYSS, 1));
+                        entries.add(addEnchantedBook(displayContext.lookup(), ModEnchantments.DEPTH_OF_THE_ABYSS, 2));
+                        entries.add(addEnchantedBook(displayContext.lookup(), ModEnchantments.DEPTH_OF_THE_ABYSS, 3));
+                        entries.add(addEnchantedBook(displayContext.lookup(), ModEnchantments.SHARPER_LENS, 1));
+                        entries.add(addEnchantedBook(displayContext.lookup(), ModEnchantments.SHARPER_LENS, 2));
+                        entries.add(addEnchantedBook(displayContext.lookup(), ModEnchantments.SHARPER_LENS, 3));
+                        entries.add(addEnchantedBook(displayContext.lookup(), ModEnchantments.SHARPER_LENS, 4));
+                        entries.add(addEnchantedBook(displayContext.lookup(), ModEnchantments.SHARPER_LENS, 5));
+                        entries.add(addEnchantedBook(displayContext.lookup(), ModEnchantments.REINFORCED_GLASS, 1));
+                        entries.add(addEnchantedBook(displayContext.lookup(), ModEnchantments.REINFORCED_GLASS, 2));
+                        entries.add(addEnchantedBook(displayContext.lookup(), ModEnchantments.REINFORCED_GLASS, 3));
+                        entries.add(addEnchantedBook(displayContext.lookup(), ModEnchantments.CURSED_REFLECTION, 1));
+                        entries.add(addEnchantedBook(displayContext.lookup(), ModEnchantments.REFILL_CHARGES, 1));
+                        entries.add(addEnchantedBook(displayContext.lookup(), ModEnchantments.RESOURCEFUL_SMOKING, 1));
+                        entries.add(addEnchantedBook(displayContext.lookup(), ModEnchantments.RESOURCEFUL_SMOKING, 2));
 
                         entries.add(ModItems.AUGMENT_SLOT_EXPANSION);
                         entries.add(ModItems.AUGMENT_ELDER_DAYS_ELVEN_FORGED);
@@ -1368,7 +1374,7 @@ public class ModItemGroups {
         }
         SpaceSuitArmorItem.setStoredStacks(suit, tanks);
         return suit;
-    }
+    }*/
 
     public static ItemStack addGasItem(Item baseItem, String gas) {
         ItemStack itemStack = new ItemStack(baseItem);
@@ -1376,7 +1382,7 @@ public class ModItemGroups {
         return itemStack;
     }
 
-    public static ItemStack fullHEVSuit() {
+    /*public static ItemStack fullHEVSuit() {
         ItemStack suit = new ItemStack(ModItems.HEV_SUIT_CHESTPLATE);
         DefaultedList<ItemStack> batteries = DefaultedList.ofSize(2, ItemStack.EMPTY);
         for (int i = 0; i < 2; i++) {
@@ -1386,7 +1392,7 @@ public class ModItemGroups {
         }
         SpaceSuitArmorItem.setStoredStacks(suit, batteries);
         return suit;
-    }
+    }*/
 
     public static ItemStack addEnergyItem(Item baseItem, long energy) {
         ItemStack itemStack = new ItemStack(baseItem);
@@ -1396,18 +1402,21 @@ public class ModItemGroups {
 
     public static ItemStack addPipeItem(Item baseItem, String content) {
         ItemStack stack = new ItemStack(baseItem);
-        stack.getOrCreateNbt().putString("Content", content);
-        stack.getOrCreateNbt().putInt("ChargesUsed", 0);
+        stack.set(ModComponents.PIPE_CONTENT, content);
+        stack.set(ModComponents.PIPE_CHARGES_USED, 0);
         return stack;
     }
 
-    private static ItemStack addEnchantedBook(Enchantment enchantment, int level) {
+    private static ItemStack addEnchantedBook(RegistryWrapper.WrapperLookup registries, RegistryKey<Enchantment> enchantmentKey, int level) {
         ItemStack book = new ItemStack(Items.ENCHANTED_BOOK);
-        net.minecraft.enchantment.EnchantmentHelper.set(Map.of(enchantment, level), book);
+        RegistryEntry<Enchantment> enchantment = registries.getWrapperOrThrow(RegistryKeys.ENCHANTMENT).getOrThrow(enchantmentKey);
+        ItemEnchantmentsComponent.Builder builder = new ItemEnchantmentsComponent.Builder(ItemEnchantmentsComponent.DEFAULT);
+        builder.add(enchantment, level);
+        EnchantmentHelper.set(book, builder.build());
         return book;
     }
 
-    public static ItemStack addBanner(String patternName, Item baseBanner, int color) {
+    /*public static ItemStack addBanner(String patternName, Item baseBanner, int color) {
         ItemStack itemStack = new ItemStack(baseBanner);
         NbtCompound nbtCompound = new NbtCompound();
         NbtCompound pattern = new NbtCompound();

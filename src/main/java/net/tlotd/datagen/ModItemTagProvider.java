@@ -24,6 +24,11 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
     @Override
     protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
 
+        getOrCreateTagBuilder(ModTags.Items.REFILLABLE)
+                .add(ModItems.MITHRIL_MIRROR)
+                .add(ModItems.PIPE)
+        ;
+
         getOrCreateTagBuilder(ModTags.Items.NYI)
                 .add(ModBlocks.SULFUR_CAMPFIRE.asItem())
                 .add(ModItems.DAYBREAK_DOMAIN_FRAGMENTS)

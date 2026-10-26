@@ -60,7 +60,8 @@ public class DrinkableCan extends Item {
         }
     }
 
-    public int getMaxUseTime(ItemStack stack) {
+    @Override
+    public int getMaxUseTime(ItemStack stack, LivingEntity user) {
         return 40;
     }
 

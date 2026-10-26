@@ -1,6 +1,7 @@
 {
 	"required": true,
 	"package": "net.tlotd.mixin",
+	"plugin": "net.tlotd.compat.CompatMixinPlugin",
 	"compatibilityLevel": "JAVA_21",
 	"mixins": [
 		"ItemMixin",

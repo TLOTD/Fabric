@@ -1,9 +1,14 @@
 package net.tlotd.client;
 
+import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.font.TextRenderer;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.tooltip.TooltipComponent;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NbtElement;
+import net.minecraft.nbt.NbtList;
+import net.minecraft.nbt.NbtOps;
+import net.minecraft.registry.RegistryOps;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.collection.DefaultedList;
 import net.tlotd.TLOTD;
@@ -14,7 +19,17 @@ public class SpaceSuitTooltipComponent implements TooltipComponent {
     private static final Identifier EMPTY_SLOT_TEXTURE = Identifier.of(TLOTD.MOD_ID, "textures/gui/container/tooltip/empty_tank.png");
 
     public SpaceSuitTooltipComponent(SpaceSuitTooltipData data) {
-        this.stacks = data.getStacks();
+        MinecraftClient client = MinecraftClient.getInstance();
+        this.stacks = DefaultedList.ofSize(2, ItemStack.EMPTY);
+        if (client.world == null) {
+            return;
+        }
+        RegistryOps<NbtElement> ops = RegistryOps.of(NbtOps.INSTANCE, client.world.getRegistryManager());
+        NbtList serialized = data.getSerializedStacks();
+        for (int i = 0; i < serialized.size() && i < stacks.size(); i++) {
+            final int index = i;
+            ItemStack.CODEC.parse(ops, serialized.getCompound(i)).result().ifPresent(item -> stacks.set(index, item));
+        }
     }
 
     @Override

@@ -122,6 +122,8 @@ public class ModTags {
 
     public static class Items {
 
+        public static final TagKey<Item> REFILLABLE = createTag("refillable");
+
         public static final TagKey<Item> NYI = createTag("nyi");
         public static final TagKey<Item> UNBREAKABLE = createTag("unbreakable");
 

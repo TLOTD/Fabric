@@ -16,6 +16,7 @@ import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
 import net.tlotd.block.ModBlocks;
 import net.tlotd.item.ModItems;
+import net.tlotd.item.custom.SpaceSuitArmorItem;
 import net.tlotd.util.*;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -23,6 +24,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.List;
+import java.util.Map;
 
 import static net.tlotd.util.AugmentNbtHelper.getAugmentLevel;
 
@@ -147,10 +149,10 @@ public abstract class ItemTooltipMixin {
                 tooltip.add(Text.translatable("item.tlotd.gas_cylinder.tooltip", formattedGas, formattedMaxGas, formattedGas.replace(',', '.'), formattedMaxGas.replace(',', '.'), AdAstraGasNbtHelper.gasName(gas)).formatted(Formatting.GOLD));
             }
             return;
-        }
+        }*/
         if (stack.isOf(ModItems.GAS_CYLINDER) || getAugmentLevel(stack, "tlotd:oxygen_tank") > 0) {
             String gas = AdAstraGasNbtHelper.getGas(stack);
-            long gasRaw = stack.hasNbt() ? AdAstraGasNbtHelper.getGasAmount(stack, gas) : 0;
+            long gasRaw = AdAstraGasNbtHelper.getGasAmount(stack, gas);
             long maxGasRaw = AdAstraGasNbtHelper.getMaxGasItem(stack);
             long maxOxygen = maxGasRaw / AdAstraGasNbtHelper.MAX_AMOUNT;
             String formattedOxygen;
@@ -169,7 +171,7 @@ public abstract class ItemTooltipMixin {
                 gas = "empty";
             }
             tooltip.add(Text.translatable("item.tlotd.gas_cylinder.tooltip", formattedOxygen, formattedMaxOxygen, formattedOxygen2, formattedMaxOxygen2, AdAstraGasNbtHelper.gasName(gas)).formatted(Formatting.GOLD));
-        }*/
+        }
         int slots = 0;
         if (stack.isIn(ModTags.Items.THREE_AUGMENT_SLOTS)) {
             slots = 3;

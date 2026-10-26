@@ -154,7 +154,7 @@ public class StickerBlock extends WallMountedBlock {
     protected ItemActionResult onUseWithItem(ItemStack stack, BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         if (player != null && world.isClient) {
             boolean easterEggs = ClientGlobalConfig.easterEggs;
-            if (easterEggs && player.getStackInHand(hand).isOf(ModItems.MAULTASCHE /*ModItems.MAULTASCHEN_BROTH*/)) {
+            if (easterEggs && player.getStackInHand(hand).isOf(ModItems.MAULTASCHEN_BROTH)) {
                 MinecraftClient client = MinecraftClient.getInstance();
                 LanguageManager languageManager = client.getLanguageManager();
                 LanguageDefinition languageDefinition = languageManager.getLanguage("swg_de");
