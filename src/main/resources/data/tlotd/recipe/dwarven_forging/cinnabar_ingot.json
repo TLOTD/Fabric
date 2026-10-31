@@ -1,0 +1,12 @@
+{
+  "type": "tlotd:dwarven_forging",
+  "ingredients": [
+    {
+      "tag": "tlotd:cinnabar_forgables"
+    }
+  ],
+  "output": {
+    "count": 1,
+    "id": "tlotd:cinnabar_ingot"
+  }
+}

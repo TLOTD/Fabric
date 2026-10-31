@@ -1,5 +1,6 @@
 package net.tlotd.block.custom;
 
+import com.mojang.serialization.MapCodec;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
@@ -11,7 +12,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.tooltip.TooltipType;
-import net.minecraft.screen.NamedScreenHandlerFactory;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.DirectionProperty;
@@ -25,13 +25,13 @@ import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
-//import net.tlotd.block.entity.KeycardProgrammerBlockEntity;
-//import net.tlotd.block.entity.ModBlockEntities;
+import net.tlotd.block.entity.KeycardProgrammerBlockEntity;
+import net.tlotd.block.entity.ModBlockEntities;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class KeycardProgrammerBlock extends Block/*WithEntity implements BlockEntityProvider*/ {
+public class KeycardProgrammerBlock extends BlockWithEntity implements BlockEntityProvider {
 
     public static final BooleanProperty ON = BooleanProperty.of("on");
     public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
@@ -52,7 +52,6 @@ public class KeycardProgrammerBlock extends Block/*WithEntity implements BlockEn
         if (state.get(WATERLOGGED)) {
             world.scheduleFluidTick(pos, Fluids.WATER, Fluids.WATER.getTickRate(world));
         }
-
         return super.getStateForNeighborUpdate(state, direction, neighborState, world, pos, neighborPos);
     }
 
@@ -69,6 +68,13 @@ public class KeycardProgrammerBlock extends Block/*WithEntity implements BlockEn
     public KeycardProgrammerBlock(Settings settings) {
         super(settings);
         this.setDefaultState(this.stateManager.getDefaultState().with(FACING, Direction.NORTH).with(ON, false).with(WATERLOGGED, false));
+    }
+
+    public static final MapCodec<KeycardProgrammerBlock> CODEC = BlockWithEntity.createCodec(KeycardProgrammerBlock::new);
+
+    @Override
+    protected MapCodec<? extends BlockWithEntity> getCodec() {
+        return CODEC;
     }
 
     public static final VoxelShape NORTH_SHAPE = Block.createCuboidShape(0, 0, 0, 14, 7.5, 14);
@@ -99,18 +105,17 @@ public class KeycardProgrammerBlock extends Block/*WithEntity implements BlockEn
         super.appendTooltip(stack, context, tooltip, options);
     }
 
-    /*@Override
-    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
+    @Override
+    protected ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
         if (state.get(ON)) {
             if (!world.isClient) {
-                NamedScreenHandlerFactory screenHandlerFactory = ((KeycardProgrammerBlockEntity) world.getBlockEntity(pos));
-                if (screenHandlerFactory != null) {
-                    player.openHandledScreen(screenHandlerFactory);
+                BlockEntity blockEntity = world.getBlockEntity(pos);
+                if (blockEntity instanceof KeycardProgrammerBlockEntity entity) {
+                    player.openHandledScreen(entity);
                 }
             }
             return ActionResult.SUCCESS;
-        }
-        return ActionResult.FAIL;
+        } else return ActionResult.FAIL;
     }
 
     @Override
@@ -131,7 +136,8 @@ public class KeycardProgrammerBlock extends Block/*WithEntity implements BlockEn
     }
 
     @Override
-    public @Nullable <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        return checkType(type, ModBlockEntities.KEYCARD_PROGRAMMER_BLOCK_ENTITY, (world1, pos, state1, blockEntity) -> blockEntity.tick(world1, pos, state1));
-    }*/
+    @Nullable
+    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
+        return validateTicker(type, ModBlockEntities.KEYCARD_PROGRAMMER_BLOCK_ENTITY, (world1, pos, state1, blockEntity) -> blockEntity.tick(world1, pos, state1));
+    }
 }

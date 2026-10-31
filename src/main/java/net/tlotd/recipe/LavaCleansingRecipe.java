@@ -73,49 +73,34 @@ public class LavaCleansingRecipe implements Recipe<RecipeInput> {
         public static final Type INSTANCE = new Type();
         public static final String ID = "lava_cleansing";
 
-        private Type() {}
+        private Type() {
+        }
     }
 
     public static class Serializer implements RecipeSerializer<LavaCleansingRecipe> {
         public static final Serializer INSTANCE = new Serializer();
         public static final String ID = "lava_cleansing";
 
-        private static final MapCodec<LavaCleansingRecipe> CODEC =
-                RecordCodecBuilder.mapCodec(instance -> instance.group(
-                        Ingredient.DISALLOW_EMPTY_CODEC.listOf()
-                                .fieldOf("ingredients")
-                                .forGetter(recipe ->
-                                        new ArrayList<>(recipe.recipeItems)),
-                        ItemStack.CODEC
-                                .fieldOf("output")
-                                .forGetter(recipe -> recipe.output)
-                ).apply(instance, (ingredients, output) ->
-                        new LavaCleansingRecipe(output, ingredients)));
+        private static final MapCodec<LavaCleansingRecipe> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(Ingredient.DISALLOW_EMPTY_CODEC.listOf().fieldOf("ingredients").forGetter(recipe -> new ArrayList<>(recipe.recipeItems)), ItemStack.CODEC.fieldOf("output").forGetter(recipe -> recipe.output)).apply(instance, (ingredients, output) -> new LavaCleansingRecipe(output, ingredients)));
 
-        private static final PacketCodec<RegistryByteBuf, LavaCleansingRecipe> PACKET_CODEC =
-                PacketCodec.of(
-                        (recipe, buf) -> {
-                            buf.writeVarInt(recipe.recipeItems.size());
-                            for (Ingredient ingredient : recipe.recipeItems) {
-                                Ingredient.PACKET_CODEC.encode(buf, ingredient);
-                            }
-                            ItemStack.PACKET_CODEC.encode(buf, recipe.output);
-                        },
-                        buf -> {
-                            int size = buf.readVarInt();
-                            if (size != INPUT_SIZE) {
-                                throw new IllegalStateException(
-                                        "Lava cleansing recipe must have exactly 1 ingredient, got " + size
-                                );
-                            }
-                            List<Ingredient> ingredients = new ArrayList<>(size);
-                            for (int i = 0; i < size; i++) {
-                                ingredients.add(Ingredient.PACKET_CODEC.decode(buf));
-                            }
-                            ItemStack output = ItemStack.PACKET_CODEC.decode(buf);
-                            return new LavaCleansingRecipe(output, ingredients);
-                        }
-                );
+        private static final PacketCodec<RegistryByteBuf, LavaCleansingRecipe> PACKET_CODEC = PacketCodec.of((recipe, buf) -> {
+            buf.writeVarInt(recipe.recipeItems.size());
+            for (Ingredient ingredient : recipe.recipeItems) {
+                Ingredient.PACKET_CODEC.encode(buf, ingredient);
+            }
+            ItemStack.PACKET_CODEC.encode(buf, recipe.output);
+        }, buf -> {
+            int size = buf.readVarInt();
+            if (size != INPUT_SIZE) {
+                throw new IllegalStateException("Lava cleansing recipe must have exactly 1 ingredient, got " + size);
+            }
+            List<Ingredient> ingredients = new ArrayList<>(size);
+            for (int i = 0; i < size; i++) {
+                ingredients.add(Ingredient.PACKET_CODEC.decode(buf));
+            }
+            ItemStack output = ItemStack.PACKET_CODEC.decode(buf);
+            return new LavaCleansingRecipe(output, ingredients);
+        });
 
         @Override
         public MapCodec<LavaCleansingRecipe> codec() {

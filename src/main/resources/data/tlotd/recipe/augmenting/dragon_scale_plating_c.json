@@ -1,0 +1,15 @@
+{
+  "type": "tlotd:augmenting",
+  "ingredients": [
+    {
+      "tag": "c:armor"
+    },
+    {
+      "item": "tlotd:augment-dragon_scale_plating"
+    }
+  ],
+  "augment": {
+    "count": 3,
+    "id": "tlotd:augment-dragon_scale_plating"
+  }
+}

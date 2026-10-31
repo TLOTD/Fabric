@@ -1,10 +1,10 @@
 package net.tlotd.block.custom;
 
+import com.mojang.serialization.MapCodec;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
 import net.minecraft.block.entity.BlockEntityType;
-import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.entity.ai.pathing.NavigationType;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
@@ -12,10 +12,8 @@ import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.particle.ParticleTypes;
-import net.minecraft.screen.NamedScreenHandlerFactory;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.DirectionProperty;
-import net.minecraft.text.Style;
 import net.minecraft.text.Text;
 import net.minecraft.util.*;
 import net.minecraft.util.hit.BlockHitResult;
@@ -26,14 +24,14 @@ import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
-//import net.tlotd.block.entity.MithrilAnvilBlockEntity;
-//import net.tlotd.block.entity.ModBlockEntities;
+import net.tlotd.block.entity.MithrilAnvilBlockEntity;
+import net.tlotd.block.entity.ModBlockEntities;
 import net.tlotd.networking.ClientGlobalConfig;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class MithrilAnvilBlock extends Block/*WithEntity implements BlockEntityProvider*/ {
+public class MithrilAnvilBlock extends BlockWithEntity implements BlockEntityProvider {
 
     public static final DirectionProperty FACING;
     private static final VoxelShape BASE_SHAPE;
@@ -49,6 +47,13 @@ public class MithrilAnvilBlock extends Block/*WithEntity implements BlockEntityP
     public MithrilAnvilBlock(AbstractBlock.Settings settings) {
         super(settings);
         this.setDefaultState(this.stateManager.getDefaultState().with(FACING, Direction.NORTH));
+    }
+
+    public static final MapCodec<MithrilAnvilBlock> CODEC = BlockWithEntity.createCodec(MithrilAnvilBlock::new);
+
+    @Override
+    protected MapCodec<? extends BlockWithEntity> getCodec() {
+        return CODEC;
     }
 
     @Override
@@ -95,7 +100,7 @@ public class MithrilAnvilBlock extends Block/*WithEntity implements BlockEntityP
         return BlockRenderType.MODEL;
     }
 
-    /*@Override
+    @Override
     public @Nullable BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
         return new MithrilAnvilBlockEntity(pos, state);
     }
@@ -113,20 +118,21 @@ public class MithrilAnvilBlock extends Block/*WithEntity implements BlockEntityP
     }
 
     @Override
-    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
+    protected ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
         if (!world.isClient) {
-            NamedScreenHandlerFactory screenHandlerFactory = ((MithrilAnvilBlockEntity) world.getBlockEntity(pos));
-            if (screenHandlerFactory != null) {
-                player.openHandledScreen(screenHandlerFactory);
+            BlockEntity blockEntity = world.getBlockEntity(pos);
+            if (blockEntity instanceof MithrilAnvilBlockEntity entity) {
+                player.openHandledScreen(entity);
             }
         }
         return ActionResult.SUCCESS;
     }
 
     @Override
-    public @Nullable <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        return checkType(type, ModBlockEntities.MITHRIL_ANVIL_BLOCK_ENTITY, (world1, pos, state1, blockEntity) -> blockEntity.tick(world1, pos, state1));
-    }*/
+    @Nullable
+    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
+        return validateTicker(type, ModBlockEntities.MITHRIL_ANVIL_BLOCK_ENTITY, (world1, pos, state1, blockEntity) -> blockEntity.tick(world1, pos, state1));
+    }
 
     public void randomDisplayTick(BlockState state, World world, BlockPos pos, Random random) {
         spawnParticles(world, pos);

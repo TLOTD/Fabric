@@ -1,0 +1,12 @@
+{
+  "type": "tlotd:dwarven_forging",
+  "ingredients": [
+    {
+      "tag": "tlotd:jurassoline_forgables"
+    }
+  ],
+  "output": {
+    "count": 1,
+    "id": "tlotd:jurassoline_ingot"
+  }
+}

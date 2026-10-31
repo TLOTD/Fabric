@@ -15,7 +15,6 @@ import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
 import net.tlotd.item.ModItems;
 import net.tlotd.networking.PlayerDataSyncNetworking;
-import net.tlotd.networking.PlayerDataSyncPacket;
 import net.tlotd.networking.PlayerDataSyncPayload;
 import net.tlotd.util.EntityDataSaver;
 

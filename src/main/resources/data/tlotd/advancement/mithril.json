@@ -1,0 +1,33 @@
+{
+  "display": {
+    "icon": {
+      "count": 1,
+      "id": "tlotd:mithril_ingot"
+    },
+    "title": {
+      "translate": "advancements.tlotd.mithril"
+    },
+    "description": {
+      "translate": "advancements.tlotd.mithril.desc"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "tlotd:mithril_ingot"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "parent": "tlotd:refined_raw_mithril"
+}

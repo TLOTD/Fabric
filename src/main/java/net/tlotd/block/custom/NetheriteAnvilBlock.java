@@ -1,5 +1,6 @@
 package net.tlotd.block.custom;
 
+import com.mojang.serialization.MapCodec;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
@@ -7,29 +8,21 @@ import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.entity.ai.pathing.NavigationType;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemPlacementContext;
-import net.minecraft.item.ItemStack;
-import net.minecraft.particle.ParticleTypes;
-import net.minecraft.screen.NamedScreenHandlerFactory;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.DirectionProperty;
-import net.minecraft.text.Text;
 import net.minecraft.util.*;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
-import net.minecraft.util.math.random.Random;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
-//import net.tlotd.block.entity.NetheriteAnvilBlockEntity;
-//import net.tlotd.block.entity.ModBlockEntities;
-import net.tlotd.networking.ClientGlobalConfig;
+import net.tlotd.block.entity.NetheriteAnvilBlockEntity;
+import net.tlotd.block.entity.ModBlockEntities;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.List;
-
-public class NetheriteAnvilBlock extends Block/*WithEntity implements BlockEntityProvider*/ {
+public class NetheriteAnvilBlock extends BlockWithEntity implements BlockEntityProvider {
 
     public static final DirectionProperty FACING;
     private static final VoxelShape BASE_SHAPE;
@@ -45,6 +38,13 @@ public class NetheriteAnvilBlock extends Block/*WithEntity implements BlockEntit
     public NetheriteAnvilBlock(Settings settings) {
         super(settings);
         this.setDefaultState(this.stateManager.getDefaultState().with(FACING, Direction.NORTH));
+    }
+
+    public static final MapCodec<NetheriteAnvilBlock> CODEC = BlockWithEntity.createCodec(NetheriteAnvilBlock::new);
+
+    @Override
+    protected MapCodec<? extends BlockWithEntity> getCodec() {
+        return CODEC;
     }
 
     @Override
@@ -91,36 +91,25 @@ public class NetheriteAnvilBlock extends Block/*WithEntity implements BlockEntit
         return BlockRenderType.MODEL;
     }
 
-    /*@Override
+    @Override
     public @Nullable BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
         return new NetheriteAnvilBlockEntity(pos, state);
     }
 
     @Override
-    public void onStateReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean moved) {
-        if (state.getBlock() != newState.getBlock()) {
-            BlockEntity blockEntity = world.getBlockEntity(pos);
-            if (blockEntity instanceof NetheriteAnvilBlockEntity) {
-                ItemScatterer.spawn(world, pos, (NetheriteAnvilBlockEntity) blockEntity);
-                world.updateComparators(pos, this);
-            }
-            super.onStateReplaced(state, world, pos, newState, moved);
-        }
-    }
-
-    @Override
-    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
+    protected ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
         if (!world.isClient) {
-            NamedScreenHandlerFactory screenHandlerFactory = ((NetheriteAnvilBlockEntity) world.getBlockEntity(pos));
-            if (screenHandlerFactory != null) {
-                player.openHandledScreen(screenHandlerFactory);
+            BlockEntity blockEntity = world.getBlockEntity(pos);
+            if (blockEntity instanceof NetheriteAnvilBlockEntity entity) {
+                player.openHandledScreen(entity);
             }
         }
         return ActionResult.SUCCESS;
     }
 
     @Override
-    public @Nullable <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        return checkType(type, ModBlockEntities.NETHERITE_ANVIL_BLOCK_ENTITY, (world1, pos, state1, blockEntity) -> blockEntity.tick(world1, pos, state1));
-    }*/
+    @Nullable
+    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
+        return validateTicker(type, ModBlockEntities.NETHERITE_ANVIL_BLOCK_ENTITY, (world1, pos, state1, blockEntity) -> blockEntity.tick(world1, pos, state1));
+    }
 }

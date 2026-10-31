@@ -1,0 +1,34 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:not",
+      "value": {
+        "condition": "fabric:any_mods_loaded",
+        "values": [
+          "create",
+          "farmersdelight"
+        ]
+      }
+    }
+  ],
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "tlotd:preserves_jar"
+    },
+    {
+      "item": "minecraft:glow_berries"
+    },
+    {
+      "item": "minecraft:glow_berries"
+    },
+    {
+      "tag": "c:sugar"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "tlotd:glow_berry_jam_jar"
+  }
+}

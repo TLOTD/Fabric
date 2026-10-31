@@ -1,0 +1,176 @@
+package net.tlotd.block.entity;
+
+import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerFactory;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
+import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.player.PlayerInventory;
+import net.minecraft.inventory.Inventories;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NbtCompound;
+import net.minecraft.registry.DynamicRegistryManager;
+import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.screen.PropertyDelegate;
+import net.minecraft.screen.ScreenHandler;
+import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.text.Text;
+import net.minecraft.util.collection.DefaultedList;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
+import net.tlotd.block.ModBlocks;
+import net.tlotd.gui.OxygenCollectorGUIHandler;
+import net.tlotd.item.custom.SpaceSuitArmorItem;
+import net.tlotd.util.AdAstraGasNbtHelper;
+import net.tlotd.util.ModTags;
+import org.jetbrains.annotations.Nullable;
+
+import static net.tlotd.util.AugmentNbtHelper.getAugmentLevel;
+
+public class OxygenCollectorBlockEntity extends BlockEntity implements ExtendedScreenHandlerFactory, ImplementedInventory {
+
+    private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(1, ItemStack.EMPTY);
+
+    protected final PropertyDelegate propertyDelegate;
+
+    private int gas = 0;
+    private int amount = 0;
+
+    public OxygenCollectorBlockEntity(BlockPos pos, BlockState state) {
+        super(ModBlockEntities.OXYGEN_COLLECTOR_BLOCK_ENTITY, pos, state);
+
+        this.propertyDelegate = new PropertyDelegate() {
+            @Override
+            public int get(int index) {
+                return switch (index) {
+                    case 0 -> OxygenCollectorBlockEntity.this.gas;
+                    case 1 -> OxygenCollectorBlockEntity.this.amount;
+                    default -> 0;
+                };
+            }
+            @Override
+            public void set(int index, int value) {
+                switch (index) {
+                    case 0 -> OxygenCollectorBlockEntity.this.gas = value;
+                    case 1 -> OxygenCollectorBlockEntity.this.amount = value;
+                }
+            }
+            @Override
+            public int size() {
+                return 2;
+            }
+        };
+    }
+
+    public int getGas() {
+        return gas;
+    }
+
+    public int getAmount() {
+        return amount;
+    }
+
+    @Override
+    public Object getScreenOpeningData(ServerPlayerEntity serverPlayerEntity) {
+        return this.pos;
+    }
+
+    @Override
+    public Text getDisplayName() {
+        return Text.translatable("block.tlotd.oxygen_collector");
+    }
+
+    @Override
+    public DefaultedList<ItemStack> getItems() {
+        return inventory;
+    }
+
+    @Override
+    protected void writeNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registryLookup) {
+        super.writeNbt(nbt, registryLookup);
+        Inventories.writeNbt(nbt, inventory, registryLookup);
+        nbt.putInt("gas", gas);
+        nbt.putInt("amount", amount);
+    }
+
+    @Override
+    public void readNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registryLookup) {
+        super.readNbt(nbt, registryLookup);
+        Inventories.readNbt(nbt, inventory, registryLookup);
+        gas = nbt.getInt("gas");
+        amount = nbt.getInt("amount");
+    }
+
+    @Override
+    public @Nullable ScreenHandler createMenu(int syncId, PlayerInventory playerInventory, PlayerEntity player) {
+        return new OxygenCollectorGUIHandler(syncId, playerInventory, this, this.propertyDelegate);
+    }
+
+    public void tick(World world, BlockPos pos) {
+        if (world.isClient()) {
+            return;
+        }
+        if (world.getBlockState(pos.down()).isOf(Blocks.WITHER_ROSE) || world.getBlockState(pos.down()).isOf(Blocks.POTTED_WITHER_ROSE)) {
+            if (gas != 2) {
+                amount = 0;
+            }
+            gas = 2;
+        } else if (world.getBlockState(pos.down(2)).isOf(ModBlocks.PIPE_WEED_CRATE)) {
+            if (gas != 1) {
+                amount = 0;
+            }
+            gas = 1;
+        } else {
+            if (gas != 0) {
+                amount = 0;
+            }
+            gas = 0;
+        }
+        if (oxygenChargable()) {
+            if (canBeFilled(gas, world.getRegistryManager())) {
+                fillGas(gas, world.getRegistryManager());
+            } else {
+                amount = (int) Math.min(amount + 9L, 1000 * 81L);
+            }
+        } else {
+            amount = (int) Math.min(amount + 9L, 1000 * 81L);
+        }
+        markDirty();
+    }
+
+    private boolean oxygenChargable() {
+        return getStack(0).isIn(ModTags.Items.OXYGEN_STORING) || getAugmentLevel(getStack(0), "tlotd:oxygen_tank") > 0;
+    }
+
+    private boolean canBeFilled(int gas, DynamicRegistryManager registryManager) {
+        ItemStack stack = getStack(0);
+        String gasId = switch (gas) {
+            case 2 -> AdAstraGasNbtHelper.TLOTD_WITHERED_AIR;
+            case 1 -> AdAstraGasNbtHelper.TLOTD_PIPE_WEED_SMOKE;
+            default -> AdAstraGasNbtHelper.AD_ASTRA_OXYGEN_ID;
+        };
+        return amount > 81L && ((stack.getItem() instanceof SpaceSuitArmorItem && AdAstraGasNbtHelper.getGasAmountFromSuit(stack, gasId, registryManager) < AdAstraGasNbtHelper.getMaxGasFromSuit(stack, registryManager)) || (stack.isIn(ModTags.Items.OXYGEN_STORING) && AdAstraGasNbtHelper.getGasAmount(stack, gasId) < AdAstraGasNbtHelper.getMaxGasItem(stack)));
+    }
+
+    private void fillGas(int gas, DynamicRegistryManager registryManager) {
+        ItemStack stack = getStack(0);
+        if (stack.isEmpty()) {
+            return;
+        }
+        String gasId = switch (gas) {
+            case 2 -> AdAstraGasNbtHelper.TLOTD_WITHERED_AIR;
+            case 1 -> AdAstraGasNbtHelper.TLOTD_PIPE_WEED_SMOKE;
+            default -> AdAstraGasNbtHelper.AD_ASTRA_OXYGEN_ID;
+        };
+        if (stack.getItem() instanceof SpaceSuitArmorItem) {
+            AdAstraGasNbtHelper.modifyGasInSuit(stack, gasId, 81L, registryManager);
+        } else {
+            String presentGas = AdAstraGasNbtHelper.getGas(stack);
+            long current = AdAstraGasNbtHelper.getGasAmount(stack, presentGas);
+            long next = Math.min(current + 81L, AdAstraGasNbtHelper.getMaxGasItem(stack));
+
+            AdAstraGasNbtHelper.setGasAmount(stack, gasId, next);
+        }
+        amount = (int) Math.max(amount - 81L, 0L);
+    }
+}

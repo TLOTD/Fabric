@@ -12,15 +12,13 @@ import net.tlotd.config.ModConfigs;
 import net.tlotd.effect.ModEffects;
 import net.tlotd.effect.ModPotions;
 import net.tlotd.enchantments.ModEnchantments;
-import net.tlotd.networking.GlobalConfigNetworking;
-import net.tlotd.networking.PlayerDataSyncNetworking;
-import net.tlotd.networking.TextureSyncNetworking;
+import net.tlotd.gui.ModGUIHandlers;
+import net.tlotd.networking.*;
 import net.tlotd.particle.ModParticles;
 import net.tlotd.util.*;
 import net.tlotd.fluid.ModFluids;
 import net.tlotd.item.*;
 import net.tlotd.block.ModBlocks;
-import net.tlotd.networking.JoinDataSync;
 import net.tlotd.recipe.ModRecipies;
 import net.tlotd.sound.ModSounds;
 import net.tlotd.tick.ModServerTickEvents;
@@ -56,7 +54,7 @@ public class TLOTD implements ModInitializer {
         ModFuels.registerModFuels();
         BrewingRecipeBuilder.registerBrewingRecipes();
         ModLootTableModifiers.modifyLootTables();
-        //ModGUIHandlers.registerGUIHandlers();
+        ModGUIHandlers.registerGUIHandlers();
         ModRecipies.registerRecipes();
         ModVillagers.registerVillagers();
         ModTrades.registerTrades();
@@ -80,6 +78,7 @@ public class TLOTD implements ModInitializer {
         TextureSyncNetworking.registerPayloads();
         GlobalConfigNetworking.registerPayloads();
         PlayerDataSyncNetworking.registerPayloads();
+        FluidSyncNetworking.registerPayloads();
 
         JoinDataSync.init();
         LOGGER.info("TLOTD INITIALIZED!");

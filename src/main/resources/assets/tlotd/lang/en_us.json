@@ -994,6 +994,7 @@
 
   "item.tlotd.heliorite_pickaxe_head": "Heliorite Pickaxe Head",
 
+  "item.tlotd.heliorite_upgrade_smithing_template": "Smithing Template",
   "item.tlotd.heliorite_upgrade_smithing_template.tooltip": "Heliorite Upgrade",
   "item.tlotd.heliorite_upgrade_smithing_template.tooltip_1": "Netherite Pickaxe",
   "item.tlotd.heliorite_upgrade_smithing_template.tooltip_2": "Heliorite Pickaxe Head",
@@ -1020,6 +1021,7 @@
 
   "item.tlotd.endurium_pickaxe_head": "Endurium Pickaxe Head",
 
+  "item.tlotd.endurium_upgrade_smithing_template": "Smithing Template",
   "item.tlotd.endurium_upgrade_smithing_template.tooltip": "Endurium Upgrade",
   "item.tlotd.endurium_upgrade_smithing_template.tooltip_1": "Netherite Pickaxe",
   "item.tlotd.endurium_upgrade_smithing_template.tooltip_2": "Endurium Pickaxe Head",

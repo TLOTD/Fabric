@@ -1,0 +1,31 @@
+{
+  "type": "tlotd:witching",
+  "ingredients": [
+    {
+      "item": "minecraft:bowl"
+    },
+    {
+      "item": "tlotd:maultasche"
+    },
+    {
+      "item": "tlotd:maultasche"
+    },
+    {
+      "item": "tlotd:maultasche"
+    },
+    {
+      "item": "minecraft:spider_eye"
+    },
+    {
+      "item": "minecraft:wither_rose"
+    }
+  ],
+  "fluid": {
+    "tag": "c:blood",
+    "amount": 250
+  },
+  "output": {
+    "count": 1,
+    "id": "tlotd:suspicious_maultaschen_broth"
+  }
+}

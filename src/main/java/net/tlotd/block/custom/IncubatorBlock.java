@@ -1,5 +1,6 @@
 package net.tlotd.block.custom;
 
+import com.mojang.serialization.MapCodec;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
@@ -9,7 +10,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.tooltip.TooltipType;
-import net.minecraft.screen.NamedScreenHandlerFactory;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.DirectionProperty;
@@ -21,13 +21,14 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
-//import net.tlotd.block.entity.IncubatorBlockEntity;
-//import net.tlotd.block.entity.ModBlockEntities;
+import net.tlotd.block.entity.*;
+import net.tlotd.block.entity.IncubatorBlockEntity;
+import net.tlotd.block.entity.ModBlockEntities;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class IncubatorBlock extends Block/*WithEntity implements BlockEntityProvider*/ {
+public class IncubatorBlock extends BlockWithEntity implements BlockEntityProvider {
 
     public static final BooleanProperty ON = BooleanProperty.of("on");
     public static final DirectionProperty FACING = HorizontalFacingBlock.FACING;
@@ -35,6 +36,13 @@ public class IncubatorBlock extends Block/*WithEntity implements BlockEntityProv
     public IncubatorBlock(Settings settings) {
         super(settings);
         this.setDefaultState(this.stateManager.getDefaultState().with(FACING, Direction.NORTH).with(ON, false));
+    }
+
+    public static final MapCodec<IncubatorBlock> CODEC = BlockWithEntity.createCodec(IncubatorBlock::new);
+
+    @Override
+    protected MapCodec<? extends BlockWithEntity> getCodec() {
+        return CODEC;
     }
 
     @Override
@@ -74,18 +82,15 @@ public class IncubatorBlock extends Block/*WithEntity implements BlockEntityProv
         super.appendTooltip(stack, context, tooltip, options);
     }
 
-    /*@Override
-    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        if (state.get(ON)) {
-            if (!world.isClient) {
-                NamedScreenHandlerFactory screenHandlerFactory = ((IncubatorBlockEntity) world.getBlockEntity(pos));
-                if (screenHandlerFactory != null) {
-                    player.openHandledScreen(screenHandlerFactory);
-                }
+    @Override
+    protected ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
+        if (!world.isClient) {
+            BlockEntity blockEntity = world.getBlockEntity(pos);
+            if (blockEntity instanceof IncubatorBlockEntity entity) {
+                player.openHandledScreen(entity);
             }
-            return ActionResult.SUCCESS;
         }
-        return ActionResult.FAIL;
+        return ActionResult.SUCCESS;
     }
 
     @Override
@@ -106,7 +111,8 @@ public class IncubatorBlock extends Block/*WithEntity implements BlockEntityProv
     }
 
     @Override
-    public @Nullable <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        return checkType(type, ModBlockEntities.INCUBATOR_BLOCK_ENTITY, (world1, pos, state1, blockEntity) -> blockEntity.tick(world1, pos, state1));
-    }*/
+    @Nullable
+    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
+        return validateTicker(type, ModBlockEntities.INCUBATOR_BLOCK_ENTITY, (world1, pos, state1, blockEntity) -> blockEntity.tick(world1, pos, state1));
+    }
 }

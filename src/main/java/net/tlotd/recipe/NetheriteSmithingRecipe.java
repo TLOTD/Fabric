@@ -23,10 +23,7 @@ public class NetheriteSmithingRecipe implements Recipe<RecipeInput> {
     private final ItemStack output;
     private final DefaultedList<Ingredient> recipeItems;
 
-    public NetheriteSmithingRecipe(
-            ItemStack output,
-            List<Ingredient> recipeItems
-    ) {
+    public NetheriteSmithingRecipe(ItemStack output, List<Ingredient> recipeItems) {
         this.output = output.copy();
         this.recipeItems = DefaultedList.ofSize(6, Ingredient.EMPTY);
         for (int i = 0; i < Math.min(recipeItems.size(), 6); i++) {
@@ -117,53 +114,40 @@ public class NetheriteSmithingRecipe implements Recipe<RecipeInput> {
 
     public static class Type implements RecipeType<NetheriteSmithingRecipe> {
         public static final Type INSTANCE = new Type();
-        public static final String ID = "netherite_metalworking";
-        private Type() {}
+        public static final String ID = "metalworking";
+
+        private Type() {
+        }
     }
 
     public static class Serializer implements RecipeSerializer<NetheriteSmithingRecipe> {
         public static final Serializer INSTANCE = new Serializer();
-        public static final String ID = "netherite_metalworking";
-        private static final MapCodec<NetheriteSmithingRecipe> CODEC =
-                RecordCodecBuilder.mapCodec(instance -> instance.group(
-                        Ingredient.DISALLOW_EMPTY_CODEC.listOf()
-                                .fieldOf("ingredients")
-                                .forGetter(recipe ->
-                                        new ArrayList<>(recipe.recipeItems)
-                                ),
+        public static final String ID = "metalworking";
+        private static final MapCodec<NetheriteSmithingRecipe> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(Ingredient.DISALLOW_EMPTY_CODEC.listOf().fieldOf("ingredients").forGetter(recipe -> new ArrayList<>(recipe.recipeItems)),
 
-                        ItemStack.CODEC
-                                .fieldOf("output")
-                                .forGetter(recipe -> recipe.output)
-                ).apply(instance, (ingredients, output) ->
-                        new NetheriteSmithingRecipe(output, ingredients)
-                ));
+                ItemStack.CODEC.fieldOf("output").forGetter(recipe -> recipe.output)).apply(instance, (ingredients, output) -> new NetheriteSmithingRecipe(output, ingredients)));
 
-        private static final PacketCodec<RegistryByteBuf, NetheriteSmithingRecipe> PACKET_CODEC = PacketCodec.of(
-                (recipe, buf) -> {
-                    buf.writeVarInt(recipe.recipeItems.size());
-                    for (Ingredient ingredient : recipe.recipeItems) {
-                        Ingredient.PACKET_CODEC.encode(buf, ingredient);
-                    }
-                    ItemStack.PACKET_CODEC.encode(buf, recipe.output);
-                },
-                buf -> {
-                    int size = buf.readVarInt();
-                    if (size != 6) {
-                        throw new IllegalStateException(
-                                "Netherite smithing recipe must have exactly 6 ingredients"
-                        );
-                    }
-                    List<Ingredient> ingredients = new ArrayList<>(size);
-                    for (int i = 0; i < size; i++) {
-                        ingredients.add(Ingredient.PACKET_CODEC.decode(buf));
-                    }
-                    ItemStack output = ItemStack.PACKET_CODEC.decode(buf);
-                    return new NetheriteSmithingRecipe(output, ingredients);
-                }
-        );
+        private static final PacketCodec<RegistryByteBuf, NetheriteSmithingRecipe> PACKET_CODEC = PacketCodec.of((recipe, buf) -> {
+            buf.writeVarInt(recipe.recipeItems.size());
+            for (Ingredient ingredient : recipe.recipeItems) {
+                Ingredient.PACKET_CODEC.encode(buf, ingredient);
+            }
+            ItemStack.PACKET_CODEC.encode(buf, recipe.output);
+        }, buf -> {
+            int size = buf.readVarInt();
+            if (size != 6) {
+                throw new IllegalStateException("Netherite smithing recipe must have exactly 6 ingredients");
+            }
+            List<Ingredient> ingredients = new ArrayList<>(size);
+            for (int i = 0; i < size; i++) {
+                ingredients.add(Ingredient.PACKET_CODEC.decode(buf));
+            }
+            ItemStack output = ItemStack.PACKET_CODEC.decode(buf);
+            return new NetheriteSmithingRecipe(output, ingredients);
+        });
 
-        private Serializer() {}
+        private Serializer() {
+        }
 
         @Override
         public MapCodec<NetheriteSmithingRecipe> codec() {
@@ -171,7 +155,8 @@ public class NetheriteSmithingRecipe implements Recipe<RecipeInput> {
         }
 
         @Override
-        public PacketCodec<RegistryByteBuf, NetheriteSmithingRecipe>
-        packetCodec() {return PACKET_CODEC;}
+        public PacketCodec<RegistryByteBuf, NetheriteSmithingRecipe> packetCodec() {
+            return PACKET_CODEC;
+        }
     }
 }

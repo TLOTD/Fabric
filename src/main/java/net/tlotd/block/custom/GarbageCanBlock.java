@@ -1,5 +1,6 @@
 package net.tlotd.block.custom;
 
+import com.mojang.serialization.MapCodec;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -11,8 +12,8 @@ import net.minecraft.sound.SoundCategory;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.Properties;
-import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
+import net.minecraft.util.ItemActionResult;
 import net.minecraft.util.ItemScatterer;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
@@ -22,13 +23,20 @@ import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
-//import net.tlotd.block.entity.GarbageCanBlockEntity;
+import net.tlotd.block.entity.GarbageCanBlockEntity;
 import net.tlotd.sound.ModSounds;
 import org.jetbrains.annotations.Nullable;
 
-public class GarbageCanBlock extends Block/*WithEntity implements BlockEntityProvider*/ {
+public class GarbageCanBlock extends BlockWithEntity implements BlockEntityProvider {
 
     public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
+
+    public static final MapCodec<GarbageCanBlock> CODEC = BlockWithEntity.createCodec(GarbageCanBlock::new);
+
+    @Override
+    protected MapCodec<? extends BlockWithEntity> getCodec() {
+        return CODEC;
+    }
 
     @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {
@@ -45,7 +53,6 @@ public class GarbageCanBlock extends Block/*WithEntity implements BlockEntityPro
         if (state.get(WATERLOGGED)) {
             world.scheduleFluidTick(pos, Fluids.WATER, Fluids.WATER.getTickRate(world));
         }
-
         return super.getStateForNeighborUpdate(state, direction, neighborState, world, pos, neighborPos);
     }
 
@@ -60,9 +67,7 @@ public class GarbageCanBlock extends Block/*WithEntity implements BlockEntityPro
     }
 
     private static final VoxelShape SHAPE = VoxelShapes.union(Block.createCuboidShape(2, 0, 2, 14, 12, 14),
-
             Block.createCuboidShape(2, 12, 2, 3, 13, 14), Block.createCuboidShape(2, 12, 2, 14, 13, 3), Block.createCuboidShape(2, 12, 13, 14, 13, 14), Block.createCuboidShape(13, 12, 2, 14, 13, 14),
-
             Block.createCuboidShape(1, 13, 1, 3, 16, 15), Block.createCuboidShape(1, 13, 1, 15, 16, 3), Block.createCuboidShape(1, 13, 13, 15, 16, 15), Block.createCuboidShape(13, 13, 1, 15, 16, 15));
 
     @Override
@@ -75,14 +80,13 @@ public class GarbageCanBlock extends Block/*WithEntity implements BlockEntityPro
         return BlockRenderType.MODEL;
     }
 
-    /*@Override
+    @Override
     public @Nullable BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
         return new GarbageCanBlockEntity(pos, state);
     }
 
     @Override
-    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        ItemStack stack = player.getStackInHand(hand);
+    protected ItemActionResult onUseWithItem(ItemStack stack, BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         BlockEntity blockEntity = world.getBlockEntity(pos);
         if (!world.isClient && blockEntity instanceof GarbageCanBlockEntity garbageCanBlockEntity) {
             if (player.isSneaking()) {
@@ -101,7 +105,7 @@ public class GarbageCanBlock extends Block/*WithEntity implements BlockEntityPro
                 world.playSound(null, pos, ModSounds.BLOCK_GARBAGE_CAN_USED, SoundCategory.BLOCKS, 1.0f, 1.0f);
             }
         }
-        return ActionResult.SUCCESS;
+        return ItemActionResult.SUCCESS;
     }
 
     @Override
@@ -114,5 +118,5 @@ public class GarbageCanBlock extends Block/*WithEntity implements BlockEntityPro
             }
             super.onStateReplaced(state, world, pos, newState, moved);
         }
-    }*/
+    }
 }

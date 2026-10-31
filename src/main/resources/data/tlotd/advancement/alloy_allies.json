@@ -1,0 +1,34 @@
+{
+  "display": {
+    "icon": {
+      "count": 1,
+      "id": "tlotd:endurium_ingot"
+    },
+    "title": {
+      "translate": "advancements.tlotd.alloy_allies"
+    },
+    "description": {
+      "translate": "advancements.tlotd.alloy_allies.desc"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "tlotd:heliorite_ingot",
+              "tlotd:endurium_ingot"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "parent": "tlotd:dwarven_forge"
+}

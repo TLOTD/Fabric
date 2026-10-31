@@ -684,6 +684,7 @@
 
   "item.tlotd.heliorite_pickaxe_head": "Cabeza de pico de heliorita",
 
+  "item.tlotd.heliorite_upgrade_smithing_template": "Pantilla de herrería",
   "item.tlotd.heliorite_upgrade_smithing_template.tooltip": "Mejora de la heliorita",
   "item.tlotd.heliorite_upgrade_smithing_template.tooltip_1": "Pico de netherita",
   "item.tlotd.heliorite_upgrade_smithing_template.tooltip_2": "Cabeza de pico de heliorita",
@@ -710,6 +711,7 @@
 
   "item.tlotd.endurium_pickaxe_head": "Cabeza de pico endurium",
 
+  "item.tlotd.endurium_upgrade_smithing_template": "Pantilla de herrería",
   "item.tlotd.endurium_upgrade_smithing_template.tooltip": "Mejora de endurium",
   "item.tlotd.endurium_upgrade_smithing_template.tooltip_1": "Pico de netherita",
   "item.tlotd.endurium_upgrade_smithing_template.tooltip_2": "Cabeza de pico endurium",

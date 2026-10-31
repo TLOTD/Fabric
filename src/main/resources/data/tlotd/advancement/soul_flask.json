@@ -1,0 +1,33 @@
+{
+  "display": {
+    "icon": {
+      "count": 1,
+      "id": "tlotd:soul_flask"
+    },
+    "title": {
+      "translate": "advancements.tlotd.soul_flask"
+    },
+    "description": {
+      "translate": "advancements.tlotd.soul_flask.desc"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "tlotd:soul_flask"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "parent": "tlotd:magic"
+}

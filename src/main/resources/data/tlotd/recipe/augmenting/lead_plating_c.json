@@ -1,0 +1,15 @@
+{
+  "type": "tlotd:augmenting",
+  "ingredients": [
+    {
+      "tag": "c:armor"
+    },
+    {
+      "item": "tlotd:augment-lead_plating"
+    }
+  ],
+  "augment": {
+    "count": 2,
+    "id": "tlotd:augment-lead_plating"
+  }
+}

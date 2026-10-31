@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "tlotd:heliorite_pickaxe_head"
+  },
+  "base": {
+    "item": "minecraft:netherite_pickaxe"
+  },
+  "result": {
+    "count": 1,
+    "id": "tlotd:heliorite_pickaxe"
+  },
+  "template": {
+    "item": "tlotd:heliorite_upgrade_smithing_template"
+  }
+}

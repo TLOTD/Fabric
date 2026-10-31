@@ -1,0 +1,12 @@
+{
+  "type": "tlotd:dwarven_forging",
+  "ingredients": [
+    {
+      "item": "tlotd:refined_raw_mithril"
+    }
+  ],
+  "output": {
+    "count": 1,
+    "id": "tlotd:rough_mithril_ingot"
+  }
+}

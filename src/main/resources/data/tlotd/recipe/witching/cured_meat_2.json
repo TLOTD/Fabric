@@ -1,0 +1,40 @@
+{
+  "type": "tlotd:witching",
+  "ingredients": [
+    {
+      "item": "minecraft:rotten_flesh"
+    },
+    {
+      "item": "minecraft:sugar"
+    },
+    {
+      "item": "tlotd:mistletoe"
+    },
+    {
+      "item": "tlotd:edelweiss_petals"
+    },
+    {
+      "item": "minecraft:rotten_flesh"
+    },
+    {
+      "item": "minecraft:rotten_flesh"
+    },
+    {
+      "item": "minecraft:rotten_flesh"
+    },
+    {
+      "item": "minecraft:rotten_flesh"
+    },
+    {
+      "item": "minecraft:rotten_flesh"
+    }
+  ],
+  "fluid": {
+    "tag": "c:blood",
+    "amount": 250
+  },
+  "output": {
+    "count": 6,
+    "id": "tlotd:cured_meat"
+  }
+}

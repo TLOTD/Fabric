@@ -1,0 +1,12 @@
+{
+  "type": "tlotd:dwarven_forging",
+  "ingredients": [
+    {
+      "item": "tlotd:raw_nebular_block"
+    }
+  ],
+  "output": {
+    "count": 1,
+    "id": "tlotd:nebular_block"
+  }
+}

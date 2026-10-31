@@ -71,49 +71,35 @@ public class IncubatonRecipe implements Recipe<RecipeInput> {
     public static class Type implements RecipeType<IncubatonRecipe> {
         public static final Type INSTANCE = new Type();
         public static final String ID = "incubation";
-        private Type() {}
+
+        private Type() {
+        }
     }
 
     public static class Serializer implements RecipeSerializer<IncubatonRecipe> {
         public static final Serializer INSTANCE = new Serializer();
         public static final String ID = "incubation";
 
-        private static final MapCodec<IncubatonRecipe> CODEC =
-                RecordCodecBuilder.mapCodec(instance -> instance.group(
-                        Ingredient.DISALLOW_EMPTY_CODEC.listOf()
-                                .fieldOf("ingredients")
-                                .forGetter(recipe ->
-                                        new ArrayList<>(recipe.recipeItems)),
-                        ItemStack.CODEC
-                                .fieldOf("output")
-                                .forGetter(recipe -> recipe.output)
-                ).apply(instance, (ingredients, output) ->
-                        new IncubatonRecipe(output, ingredients)));
+        private static final MapCodec<IncubatonRecipe> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(Ingredient.DISALLOW_EMPTY_CODEC.listOf().fieldOf("ingredients").forGetter(recipe -> new ArrayList<>(recipe.recipeItems)), ItemStack.CODEC.fieldOf("output").forGetter(recipe -> recipe.output)).apply(instance, (ingredients, output) -> new IncubatonRecipe(output, ingredients)));
 
-        private static final PacketCodec<RegistryByteBuf, IncubatonRecipe> PACKET_CODEC =
-                PacketCodec.of(
-                        (recipe, buf) -> {
-                            buf.writeVarInt(recipe.recipeItems.size());
-                            for (Ingredient ingredient : recipe.recipeItems) {
-                                Ingredient.PACKET_CODEC.encode(buf, ingredient);
-                            }
-                            ItemStack.PACKET_CODEC.encode(buf, recipe.output);
-                        },
-                        buf -> {
-                            int size = buf.readVarInt();
-                            if (size != INPUT_SIZE) {
-                                throw new IllegalStateException(
-                                        "Incubation recipe must have exactly 2 ingredients, got " + size
-                                );
-                            }
-                            List<Ingredient> ingredients = new ArrayList<>(size);
-                            for (int i = 0; i < size; i++) {
-                                ingredients.add(Ingredient.PACKET_CODEC.decode(buf));
-                            }
-                            ItemStack output = ItemStack.PACKET_CODEC.decode(buf);
-                            return new IncubatonRecipe(output, ingredients);
-                        }
-                );
+        private static final PacketCodec<RegistryByteBuf, IncubatonRecipe> PACKET_CODEC = PacketCodec.of((recipe, buf) -> {
+            buf.writeVarInt(recipe.recipeItems.size());
+            for (Ingredient ingredient : recipe.recipeItems) {
+                Ingredient.PACKET_CODEC.encode(buf, ingredient);
+            }
+            ItemStack.PACKET_CODEC.encode(buf, recipe.output);
+        }, buf -> {
+            int size = buf.readVarInt();
+            if (size != INPUT_SIZE) {
+                throw new IllegalStateException("Incubation recipe must have exactly 2 ingredients, got " + size);
+            }
+            List<Ingredient> ingredients = new ArrayList<>(size);
+            for (int i = 0; i < size; i++) {
+                ingredients.add(Ingredient.PACKET_CODEC.decode(buf));
+            }
+            ItemStack output = ItemStack.PACKET_CODEC.decode(buf);
+            return new IncubatonRecipe(output, ingredients);
+        });
 
         @Override
         public MapCodec<IncubatonRecipe> codec() {

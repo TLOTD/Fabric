@@ -1,0 +1,12 @@
+{
+  "type": "tlotd:dwarven_forging",
+  "ingredients": [
+    {
+      "item": "tlotd:raw_endurium_block"
+    }
+  ],
+  "output": {
+    "count": 1,
+    "id": "tlotd:endurium_block"
+  }
+}

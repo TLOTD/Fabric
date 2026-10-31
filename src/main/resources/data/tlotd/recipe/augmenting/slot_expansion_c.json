@@ -1,0 +1,15 @@
+{
+  "type": "tlotd:augmenting",
+  "ingredients": [
+    {
+      "tag": "c:damagable"
+    },
+    {
+      "item": "tlotd:augment-slot_expansion"
+    }
+  ],
+  "augment": {
+    "count": 4,
+    "id": "tlotd:augment-slot_expansion"
+  }
+}

@@ -285,7 +285,6 @@ public class AdAstraGasNbtHelper {
                 }
                 if (remaining <= 0) break;
             }
-
         } else if (delta < 0) {
             remaining = -remaining;
             for (ItemStack tank : tanks) {

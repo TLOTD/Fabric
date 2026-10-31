@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "tag": "c:framed_colorless_glass_panes"
+  },
+  "result": {
+    "count": 1,
+    "id": "tlotd:framed_glass_pane"
+  }
+}

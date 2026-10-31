@@ -1,0 +1,12 @@
+{
+  "type": "tlotd:dwarven_forging",
+  "ingredients": [
+    {
+      "item": "tlotd:jurassoline_crystal_block"
+    }
+  ],
+  "output": {
+    "count": 1,
+    "id": "tlotd:jurassoline_block"
+  }
+}

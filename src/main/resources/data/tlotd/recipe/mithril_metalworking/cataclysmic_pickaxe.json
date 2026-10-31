@@ -1,0 +1,27 @@
+{
+  "type": "tlotd:mithril_metalworking",
+  "ingredients": [
+    {
+      "tag": "tlotd:forging_hammers_tier9"
+    },
+    {
+      "item": "tlotd:divine_pickaxe"
+    },
+    {
+      "item": "tlotd:somber_blood_orbs"
+    },
+    {
+      "item": "tlotd:somber_blood_orbs"
+    },
+    {
+      "item": "tlotd:somber_blood_orbs"
+    },
+    {
+      "item": "tlotd:somber_blood_orbs"
+    }
+  ],
+  "output": {
+    "count": 1,
+    "id": "tlotd:cataclysmic_pickaxe"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "display": {
+    "icon": {
+      "count": 1,
+      "id": "tlotd:tome_of_enlightenment"
+    },
+    "title": {
+      "translate": "advancements.tlotd.magic"
+    },
+    "description": {
+      "translate": "advancements.tlotd.magic.desc"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "tlotd:tome_of_enlightenment"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "parent": "tlotd:root"
+}

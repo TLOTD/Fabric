@@ -688,6 +688,7 @@
 
   "item.tlotd.heliorite_pickaxe_head": "Helioritschpitzhaggnkopf",
 
+  "item.tlotd.heliorite_upgrade_smithing_template": "Schmiedevorlagn",
   "item.tlotd.heliorite_upgrade_smithing_template.tooltip": "Heliorit-Verbessrung",
   "item.tlotd.heliorite_upgrade_smithing_template.tooltip_1": "Netheritschpitzhaggn",
   "item.tlotd.heliorite_upgrade_smithing_template.tooltip_2": "Helioritschpitzhaggnkopf",
@@ -714,6 +715,7 @@
 
   "item.tlotd.endurium_pickaxe_head": "Enduriumschpitzhaggnkopf",
 
+  "item.tlotd.endurium_upgrade_smithing_template": "Schmiedevorlagn",
   "item.tlotd.endurium_upgrade_smithing_template.tooltip": "Endurium Verbesserung",
   "item.tlotd.endurium_upgrade_smithing_template.tooltip_1": "Netheritschpitzhaggn",
   "item.tlotd.endurium_upgrade_smithing_template.tooltip_2": "Enduriumschpitzhaggnkopf",

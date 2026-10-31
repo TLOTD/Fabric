@@ -31,7 +31,6 @@ public class DwarvenForgingRecipe implements Recipe<RecipeInput> {
     @Override
     public DefaultedList<Ingredient> getIngredients() {
         DefaultedList<Ingredient> ingredients = DefaultedList.ofSize(recipeItems.size(), Ingredient.EMPTY);
-
         for (int i = 0; i < recipeItems.size(); i++) {
             ingredients.set(i, recipeItems.get(i));
         }
@@ -99,7 +98,10 @@ public class DwarvenForgingRecipe implements Recipe<RecipeInput> {
 
     public static class Type implements RecipeType<DwarvenForgingRecipe> {
         public static final Type INSTANCE = new Type();
-        private Type() {}
+
+        private Type() {
+        }
+
         public static final String ID = "dwarven_forging";
     }
 
@@ -107,8 +109,7 @@ public class DwarvenForgingRecipe implements Recipe<RecipeInput> {
         public static final Serializer INSTANCE = new Serializer();
         public static final String ID = "dwarven_forging";
 
-        private static final MapCodec<DwarvenForgingRecipe> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(Ingredient.DISALLOW_EMPTY_CODEC.listOf().fieldOf("ingredients").forGetter(recipe -> recipe.recipeItems),
-                ItemStack.CODEC.fieldOf("result").forGetter(recipe -> recipe.output)).apply(instance, (ingredients, output) -> new DwarvenForgingRecipe(output, ingredients)));
+        private static final MapCodec<DwarvenForgingRecipe> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(Ingredient.DISALLOW_EMPTY_CODEC.listOf().fieldOf("ingredients").forGetter(recipe -> recipe.recipeItems), ItemStack.CODEC.fieldOf("output").forGetter(recipe -> recipe.output)).apply(instance, (ingredients, output) -> new DwarvenForgingRecipe(output, ingredients)));
 
         private static final PacketCodec<RegistryByteBuf, DwarvenForgingRecipe> PACKET_CODEC = PacketCodec.of((recipe, buf) -> {
             buf.writeVarInt(recipe.recipeItems.size());

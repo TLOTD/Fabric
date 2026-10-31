@@ -53,6 +53,9 @@
 		],
 		"fabric-datagen": [
 			"net.tlotd.TLOTDDataGenerator"
+		],
+		"emi": [
+			"net.tlotd.compat.emi.TLOTDEMIPlugin"
 		]
 	},
 	"mixins": [

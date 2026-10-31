@@ -107,6 +107,29 @@ public class ModTags {
                 createTag("fabric", "needs_tool_level_9");
         public static final TagKey<Block> TOOL_LEVEL_10 =
                 createTag("fabric", "needs_tool_level_10");
+        public static final TagKey<Block> TOOL_LEVEL_11 =
+                createTag("fabric", "needs_tool_level_11");
+        public static final TagKey<Block> TOOL_LEVEL_12 =
+                createTag("fabric", "needs_tool_level_12");
+        public static final TagKey<Block> TOOL_LEVEL_13 =
+                createTag("fabric", "needs_tool_level_13");
+
+        public static final TagKey<Block> INCORRECT_FOR_LEVEL_5_TOOL =
+                createTag("fabric", "incorrect_for_level_5_tool");
+        public static final TagKey<Block> INCORRECT_FOR_LEVEL_6_TOOL =
+                createTag("fabric", "incorrect_for_level_6_tool");
+        public static final TagKey<Block> INCORRECT_FOR_LEVEL_7_TOOL =
+                createTag("fabric", "incorrect_for_level_7_tool");
+        public static final TagKey<Block> INCORRECT_FOR_LEVEL_8_TOOL =
+                createTag("fabric", "incorrect_for_level_8_tool");
+        public static final TagKey<Block> INCORRECT_FOR_LEVEL_9_TOOL =
+                createTag("fabric", "incorrect_for_level_9_tool");
+        public static final TagKey<Block> INCORRECT_FOR_LEVEL_10_TOOL =
+                createTag("fabric", "incorrect_for_level_10_tool");
+        public static final TagKey<Block> INCORRECT_FOR_LEVEL_11_TOOL =
+                createTag("fabric", "incorrect_for_level_11_tool");
+        public static final TagKey<Block> INCORRECT_FOR_LEVEL_12_TOOL =
+                createTag("fabric", "incorrect_for_level_12_tool");
 
         public static final TagKey<Block> PAXEL_MINEABLE =
                 createTag("c", "paxel_mineable");

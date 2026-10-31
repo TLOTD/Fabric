@@ -1,5 +1,6 @@
 package net.tlotd.block.custom;
 
+import com.mojang.serialization.MapCodec;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
@@ -12,7 +13,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.tooltip.TooltipType;
-import net.minecraft.screen.NamedScreenHandlerFactory;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.DirectionProperty;
@@ -29,15 +29,15 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 import net.minecraft.world.WorldView;
-//import net.tlotd.block.entity.ModBlockEntities;
-//import net.tlotd.block.entity.OxygenCollectorBlockEntity;
+import net.tlotd.block.entity.ModBlockEntities;
+import net.tlotd.block.entity.OxygenCollectorBlockEntity;
 import net.tlotd.compat.CompatModsCheck;
 import net.tlotd.util.ModTags;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class OxygenCollectorBlock extends Block/*WithEntity implements BlockEntityProvider*/ {
+public class OxygenCollectorBlock extends BlockWithEntity implements BlockEntityProvider {
 
     public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
     public static final DirectionProperty FACING = HorizontalFacingBlock.FACING;
@@ -79,6 +79,13 @@ public class OxygenCollectorBlock extends Block/*WithEntity implements BlockEnti
     public OxygenCollectorBlock(Settings settings) {
         super(settings);
         this.setDefaultState(this.stateManager.getDefaultState().with(FACING, Direction.NORTH).with(WATERLOGGED, false));
+    }
+
+    public static final MapCodec<OxygenCollectorBlock> CODEC = BlockWithEntity.createCodec(OxygenCollectorBlock::new);
+
+    @Override
+    protected MapCodec<? extends BlockWithEntity> getCodec() {
+        return CODEC;
     }
 
     private static final VoxelShape BASE_SHAPE = Block.createCuboidShape(0, -16, 0, 16, 4, 16);
@@ -128,7 +135,7 @@ public class OxygenCollectorBlock extends Block/*WithEntity implements BlockEnti
         super.appendTooltip(stack, context, tooltip, options);
     }
 
-    /*@Override
+    @Override
     public @Nullable BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
         return new OxygenCollectorBlockEntity(pos, state);
     }
@@ -146,18 +153,19 @@ public class OxygenCollectorBlock extends Block/*WithEntity implements BlockEnti
     }
 
     @Override
-    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
+    protected ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
         if (!world.isClient) {
-            NamedScreenHandlerFactory screenHandlerFactory = ((OxygenCollectorBlockEntity) world.getBlockEntity(pos));
-            if (screenHandlerFactory != null) {
-                player.openHandledScreen(screenHandlerFactory);
+            BlockEntity blockEntity = world.getBlockEntity(pos);
+            if (blockEntity instanceof OxygenCollectorBlockEntity entity) {
+                player.openHandledScreen(entity);
             }
         }
         return ActionResult.SUCCESS;
     }
 
     @Override
-    public @Nullable <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        return checkType(type, ModBlockEntities.OXYGEN_COLLECTOR_BLOCK_ENTITY, (world1, pos, state1, blockEntity) -> blockEntity.tick(world1, pos));
-    }*/
+    @Nullable
+    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
+        return validateTicker(type, ModBlockEntities.OXYGEN_COLLECTOR_BLOCK_ENTITY, (world1, pos, state1, blockEntity) -> blockEntity.tick(world1, pos));
+    }
 }

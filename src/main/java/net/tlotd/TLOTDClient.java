@@ -5,13 +5,16 @@ import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
 import net.fabricmc.fabric.api.client.render.fluid.v1.FluidRenderHandlerRegistry;
 import net.fabricmc.fabric.api.client.render.fluid.v1.SimpleFluidRenderHandler;
 import net.fabricmc.fabric.api.client.rendering.v1.TooltipComponentCallback;
+import net.minecraft.client.gui.screen.ingame.HandledScreens;
 import net.minecraft.client.particle.FlameParticle;
+import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
 import net.minecraft.util.Identifier;
+import net.tlotd.block.entity.ModBlockEntities;
+import net.tlotd.block.entity.renderer.*;
 import net.tlotd.client.*;
 import net.tlotd.fluid.ModFluids;
-import net.tlotd.networking.GlobalConfigNetworking;
-import net.tlotd.networking.PlayerDataSyncNetworking;
-import net.tlotd.networking.TextureSyncNetworking;
+import net.tlotd.gui.*;
+import net.tlotd.networking.*;
 import net.tlotd.particle.BloodDrippingFactory;
 import net.tlotd.particle.BloodFallingFactory;
 import net.tlotd.particle.BloodLandingFactory;
@@ -66,7 +69,7 @@ public class TLOTDClient implements ClientModInitializer {
         SpriteIdentifierRegistry.INSTANCE.addIdentifier(new SpriteIdentifier(TexturedRenderLayers.SIGNS_ATLAS_TEXTURE, ModBlocks.GINKGO_SIGN_TEXTURE));
         SpriteIdentifierRegistry.INSTANCE.addIdentifier(new SpriteIdentifier(TexturedRenderLayers.SIGNS_ATLAS_TEXTURE, ModBlocks.GINKGO_HANGING_SIGN_TEXTURE));
 
-        TerraformBoatClientHelper.registerModelLayers(ModBoats.GINKGO_BOAT_ID, false);
+        TerraformBoatClientHelper.registerModelLayers(ModBoats.GINKGO_BOAT_ID, false);*/
 
         HandledScreens.register(ModGUIHandlers.DWARVEN_FORGE_GUI_HANDLER, DwarvenForgeGUI::new);
         BlockEntityRendererFactories.register(ModBlockEntities.DWARVEN_FORGE_BLOCK_ENTITY, DwarvenForgeBlockEntityRenderer::new);
@@ -83,7 +86,7 @@ public class TLOTDClient implements ClientModInitializer {
         HandledScreens.register(ModGUIHandlers.AUGMENTATION_TABLE_GUI_HANDLER, AugmentationTableGUI::new);
         BlockEntityRendererFactories.register(ModBlockEntities.AUGMENTATION_TABLE_BLOCK_ENTITY, AugmentationTableBlockEntityRenderer::new);
 
-        BlockEntityRendererFactories.register(ModBlockEntities.HEV_CHARGER_BLOCK_ENTITY, HEVChargerBlockEntityRenderer::new);
+        //BlockEntityRendererFactories.register(ModBlockEntities.HEV_CHARGER_BLOCK_ENTITY, HEVChargerBlockEntityRenderer::new);
 
         HandledScreens.register(ModGUIHandlers.INCUBATOR_GUI_HANDLER, IncubatorGUI::new);
 
@@ -91,10 +94,10 @@ public class TLOTDClient implements ClientModInitializer {
 
         HandledScreens.register(ModGUIHandlers.KEYCARD_PROGRAMMER_GUI_HANDLER, KeycardProgrammerGUI::new);
 
-        ModMessages.registerS2CPackets();*/
         TextureSyncNetworking.registerClientReceiver();
         GlobalConfigNetworking.registerClientReceiver();
         PlayerDataSyncNetworking.registerClientReceiver();
+        FluidSyncNetworking.registerClientReceiver();
 
         TooltipComponentCallback.EVENT.register(data -> {
             if (data instanceof SpaceSuitTooltipData suitData) {

@@ -82,14 +82,15 @@ public class AugmentationRecipe implements Recipe<RecipeInput> {
     public static class Type implements RecipeType<AugmentationRecipe> {
         public static final Type INSTANCE = new Type();
         public static final String ID = "augmenting";
-        private Type() {}
+
+        private Type() {
+        }
     }
 
     public static class Serializer implements RecipeSerializer<AugmentationRecipe> {
         public static final Serializer INSTANCE = new Serializer();
         public static final String ID = "augmenting";
-        private static final MapCodec<AugmentationRecipe> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(Ingredient.DISALLOW_EMPTY_CODEC.listOf().fieldOf("ingredients").forGetter(recipe -> new ArrayList<>(recipe.recipeItems)),
-                ItemStack.CODEC.fieldOf("augment").forGetter(recipe -> recipe.output)).apply(instance, (ingredients, output) -> new AugmentationRecipe(output, ingredients)));
+        private static final MapCodec<AugmentationRecipe> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(Ingredient.DISALLOW_EMPTY_CODEC.listOf().fieldOf("ingredients").forGetter(recipe -> new ArrayList<>(recipe.recipeItems)), ItemStack.CODEC.fieldOf("augment").forGetter(recipe -> recipe.output)).apply(instance, (ingredients, output) -> new AugmentationRecipe(output, ingredients)));
 
         private static final PacketCodec<RegistryByteBuf, AugmentationRecipe> PACKET_CODEC = PacketCodec.of((recipe, buf) -> {
             buf.writeVarInt(recipe.recipeItems.size());

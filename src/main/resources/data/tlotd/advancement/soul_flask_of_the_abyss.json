@@ -1,0 +1,33 @@
+{
+  "display": {
+    "icon": {
+      "count": 1,
+      "id": "tlotd:soul_flask_of_the_abyss"
+    },
+    "title": {
+      "translate": "advancements.tlotd.soul_flask_of_the_abyss"
+    },
+    "description": {
+      "translate": "advancements.tlotd.soul_flask_of_the_abyss.desc"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "tlotd:soul_flask_of_the_abyss"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "parent": "tlotd:cursed_soul_flask"
+}

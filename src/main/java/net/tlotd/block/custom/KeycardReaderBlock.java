@@ -2,6 +2,8 @@ package net.tlotd.block.custom;
 
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.component.DataComponentTypes;
+import net.minecraft.component.type.NbtComponent;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.sound.SoundCategory;
@@ -16,12 +18,12 @@ import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.event.GameEvent;
-//import net.tlotd.block.entity.KeycardReaderBlockEntity;
+import net.tlotd.block.entity.KeycardReaderBlockEntity;
 import net.tlotd.sound.ModSounds;
 import net.tlotd.util.ModTags;
 import org.jetbrains.annotations.Nullable;
 
-public class KeycardReaderBlock extends ButtonBlock /*implements BlockEntityProvider*/ {
+public class KeycardReaderBlock extends ButtonBlock implements BlockEntityProvider {
 
     public static final VoxelShape SOUTH_SHAPE = Block.createCuboidShape(4, 2, 0, 12, 14, 1);
     public static final VoxelShape WEST_SHAPE = Block.createCuboidShape(15, 2, 4, 16, 14, 12);
@@ -36,42 +38,42 @@ public class KeycardReaderBlock extends ButtonBlock /*implements BlockEntityProv
         super(blockSetType, pressTicks, settings);
     }
 
-    /*@Override
+    @Override
     protected ItemActionResult onUseWithItem(ItemStack stack, BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         BlockEntity blockEntity = world.getBlockEntity(pos);
-        if (!world.isClient && stack.isIn(ModTags.Items.KEYCARDS) && blockEntity instanceof KeycardReaderBlockEntity keycardReaderBlockEntity) {
-            if (stack.getNbt().getString("password").isEmpty()) {
-                player.sendMessage(Text.translatable("block.tlotd.keycard_reader.no_password"), true);
-                world.playSound(null, pos, SoundEvents.ENTITY_VILLAGER_NO, SoundCategory.BLOCKS, 1.0f, 1.0f);
+        if (!stack.isIn(ModTags.Items.KEYCARDS) || !(blockEntity instanceof KeycardReaderBlockEntity keycardReader)) {
+            return ItemActionResult.FAIL;
+        }
+        if (world.isClient) {
+            return ItemActionResult.SUCCESS;
+        }
+        String password = stack.getOrDefault(DataComponentTypes.CUSTOM_DATA, NbtComponent.DEFAULT).copyNbt().getString("password");
+        if (password.isEmpty()) {
+            player.sendMessage(Text.translatable("block.tlotd.keycard_reader.no_password"), true);
+            world.playSound(null, pos, SoundEvents.ENTITY_VILLAGER_NO, SoundCategory.BLOCKS, 1.0f, 1.0f);
+        } else {
+            if (keycardReader.hasNoPassword()) {
+                keycardReader.setPassword(password);
+                world.playSound(null, pos, ModSounds.BLOCK_KEYCARD_READER_PLING, SoundCategory.BLOCKS, 1.0f, 1.0f);
+                player.sendMessage(Text.translatable("block.tlotd.keycard_reader.password_set"), true);
             } else {
-                if (keycardReaderBlockEntity.hasPassword()) {
-                    keycardReaderBlockEntity.setPassword(stack.getNbt().getString("password"));
-                    keycardReaderBlockEntity.markDirty();
+                if (keycardReader.getPassword().equals(password)) {
+                    this.powerOn(state, world, pos, player);
+                    this.playClickSound(player, world, pos, true);
+                    world.emitGameEvent(player, GameEvent.BLOCK_ACTIVATE, pos);
                     world.playSound(null, pos, ModSounds.BLOCK_KEYCARD_READER_PLING, SoundCategory.BLOCKS, 1.0f, 1.0f);
-                    player.sendMessage(Text.translatable("block.tlotd.keycard_reader.password_set"), true);
                 } else {
-                    if (keycardReaderBlockEntity.getPassword().equals(stack.getNbt().getString("password"))) {
-                        if (state.get(POWERED)) {
-                            return ActionResult.CONSUME;
-                        }
-                        this.powerOn(state, world, pos);
-                        this.playClickSound(player, world, pos, true);
-                        world.emitGameEvent(player, GameEvent.BLOCK_ACTIVATE, pos);
-                        world.playSound(null, pos, ModSounds.BLOCK_KEYCARD_READER_PLING, SoundCategory.BLOCKS, 1.0f, 1.0f);
-                    } else {
-                        world.playSound(null, pos, SoundEvents.ENTITY_VILLAGER_NO, SoundCategory.BLOCKS, 1.0f, 1.0f);
-                    }
+                    world.playSound(null, pos, SoundEvents.ENTITY_VILLAGER_NO, SoundCategory.BLOCKS, 1.0f, 1.0f);
                 }
             }
-            return ActionResult.SUCCESS;
         }
-        return ActionResult.FAIL;
+        return ItemActionResult.SUCCESS;
     }
 
     @Override
     public @Nullable BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
         return new KeycardReaderBlockEntity(pos, state);
-    }*/
+    }
 
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {

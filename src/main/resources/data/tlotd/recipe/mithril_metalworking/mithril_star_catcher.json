@@ -1,0 +1,24 @@
+{
+  "type": "tlotd:mithril_metalworking",
+  "ingredients": [
+    {
+      "tag": "tlotd:forging_hammers_tier7"
+    },
+    {
+      "item": "tlotd:mithril_chainmail_chunk"
+    },
+    {
+      "item": "tlotd:fancy_tool_rod"
+    },
+    {
+      "item": "tlotd:fancy_tool_rod"
+    },
+    {
+      "item": "tlotd:mithril_ingot"
+    }
+  ],
+  "output": {
+    "count": 1,
+    "id": "tlotd:mithril_star_catcher"
+  }
+}

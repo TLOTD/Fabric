@@ -1,0 +1,33 @@
+{
+  "display": {
+    "icon": {
+      "count": 1,
+      "id": "tlotd:interdimensional_receiver"
+    },
+    "title": {
+      "translate": "advancements.tlotd.interdimensional_receiver"
+    },
+    "description": {
+      "translate": "advancements.tlotd.interdimensional_receiver.desc"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "tlotd:interdimensional_receiver"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "parent": "tlotd:transcendent_circuit_board"
+}

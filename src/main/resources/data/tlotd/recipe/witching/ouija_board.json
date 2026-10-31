@@ -1,0 +1,40 @@
+{
+  "type": "tlotd:witching",
+  "ingredients": [
+    {
+      "item": "minecraft:paper"
+    },
+    {
+      "item": "minecraft:paper"
+    },
+    {
+      "item": "minecraft:paper"
+    },
+    {
+      "item": "minecraft:paper"
+    },
+    {
+      "item": "minecraft:paper"
+    },
+    {
+      "item": "minecraft:paper"
+    },
+    {
+      "item": "minecraft:black_dye"
+    },
+    {
+      "item": "tlotd:cursed_soul_flask"
+    },
+    {
+      "item": "minecraft:black_dye"
+    }
+  ],
+  "fluid": {
+    "tag": "c:blood",
+    "amount": 250
+  },
+  "output": {
+    "count": 1,
+    "id": "tlotd:ouija_board"
+  }
+}

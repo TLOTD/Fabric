@@ -1,0 +1,45 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:not",
+      "value": {
+        "condition": "fabric:all_mods_loaded",
+        "values": [
+          "create"
+        ]
+      }
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "C": {
+      "tag": "tlotd:circuit_boards"
+    },
+    "G": {
+      "tag": "c:colorless_glass_panes"
+    },
+    "I": {
+      "tag": "c:iron_ingots"
+    },
+    "O": {
+      "item": "tlotd:gas_cylinder"
+    },
+    "Q": {
+      "tag": "c:quartz_blocks"
+    },
+    "R": {
+      "item": "tlotd:cathode_ray_tube"
+    }
+  },
+  "pattern": [
+    "QCQ",
+    "GRO",
+    "IGI"
+  ],
+  "result": {
+    "count": 1,
+    "id": "tlotd:oxygen_collector"
+  },
+  "show_notification": true
+}

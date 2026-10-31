@@ -1,0 +1,9 @@
+{
+  "values": [
+    "#fabric:needs_tool_level_9",
+    "#fabric:needs_tool_level_10",
+    "#fabric:needs_tool_level_11",
+    "#fabric:needs_tool_level_12",
+    "#fabric:needs_tool_level_13"
+  ]
+}

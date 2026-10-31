@@ -1,5 +1,6 @@
 package net.tlotd.block.custom;
 
+import com.mojang.serialization.MapCodec;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.block.*;
@@ -13,7 +14,6 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.tooltip.TooltipType;
-import net.minecraft.screen.NamedScreenHandlerFactory;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.IntProperty;
 import net.minecraft.text.Style;
@@ -24,9 +24,8 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
-//import net.tlotd.block.entity.WitchingTableBlockEntity;
-//import net.tlotd.block.entity.ModBlockEntities;
-import net.tlotd.item.ModItems;
+import net.tlotd.block.entity.ModBlockEntities;
+import net.tlotd.block.entity.WitchingTableBlockEntity;
 import net.tlotd.networking.ClientGlobalConfig;
 import org.jetbrains.annotations.Nullable;
 
@@ -34,7 +33,7 @@ import java.util.List;
 
 import static net.tlotd.api.TlotdAPI.enlightened;
 
-public class WitchingTableBlock extends Block/*WithEntity implements BlockEntityProvider*/ {
+public class WitchingTableBlock extends BlockWithEntity implements BlockEntityProvider {
 
     public static final IntProperty SOUL_CHARGES = IntProperty.of("soul_charges", 0, 3);
     public static final IntProperty CURSED_SOUL_CHARGES = IntProperty.of("cursed_soul_charges", 0, 3);
@@ -42,6 +41,13 @@ public class WitchingTableBlock extends Block/*WithEntity implements BlockEntity
 
     public WitchingTableBlock(Settings settings) {
         super(settings);
+    }
+
+    public static final MapCodec<WitchingTableBlock> CODEC = BlockWithEntity.createCodec(WitchingTableBlock::new);
+
+    @Override
+    protected MapCodec<? extends BlockWithEntity> getCodec() {
+        return CODEC;
     }
 
     @Override
@@ -61,7 +67,7 @@ public class WitchingTableBlock extends Block/*WithEntity implements BlockEntity
         return BlockRenderType.MODEL;
     }
 
-    /*@Override
+    @Override
     public @Nullable BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
         return new WitchingTableBlockEntity(pos, state);
     }
@@ -79,23 +85,21 @@ public class WitchingTableBlock extends Block/*WithEntity implements BlockEntity
     }
 
     @Override
-    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
+    protected ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
         if (!world.isClient) {
-            if (player.getStackInHand(hand).isOf(ModItems.SOUL_FLASK) || player.getStackInHand(hand).isOf(ModItems.CURSED_SOUL_FLASK) || player.getStackInHand(hand).isOf(ModItems.SOUL_FLASK_OF_THE_ABYSS)) {
-                return ActionResult.FAIL;
-            }
-            NamedScreenHandlerFactory screenHandlerFactory = ((WitchingTableBlockEntity) world.getBlockEntity(pos));
-            if (screenHandlerFactory != null) {
-                player.openHandledScreen(screenHandlerFactory);
+            BlockEntity blockEntity = world.getBlockEntity(pos);
+            if (blockEntity instanceof WitchingTableBlockEntity entity) {
+                player.openHandledScreen(entity);
             }
         }
         return ActionResult.SUCCESS;
     }
 
     @Override
-    public @Nullable <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        return checkType(type, ModBlockEntities.WITCHING_TABLE_BLOCK_ENTITY, (world1, pos, state1, blockEntity) -> blockEntity.tick(world1, pos, state1));
-    }*/
+    @Nullable
+    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
+        return validateTicker(type, ModBlockEntities.WITCHING_TABLE_BLOCK_ENTITY, (world1, pos, state1, blockEntity) -> blockEntity.tick(world1, pos, state1));
+    }
 
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {

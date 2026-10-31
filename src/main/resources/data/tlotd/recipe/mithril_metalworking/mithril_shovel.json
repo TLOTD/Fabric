@@ -1,0 +1,21 @@
+{
+  "type": "tlotd:mithril_metalworking",
+  "ingredients": [
+    {
+      "tag": "tlotd:forging_hammers_tier7"
+    },
+    {
+      "item": "tlotd:fancy_tool_rod"
+    },
+    {
+      "item": "tlotd:mithril_plate"
+    },
+    {
+      "item": "tlotd:fancy_tool_rod"
+    }
+  ],
+  "output": {
+    "count": 1,
+    "id": "tlotd:mithril_shovel"
+  }
+}

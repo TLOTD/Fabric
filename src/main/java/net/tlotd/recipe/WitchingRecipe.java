@@ -15,7 +15,6 @@ import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.world.World;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 public class WitchingRecipe implements Recipe<RecipeInput> {
@@ -94,42 +93,26 @@ public class WitchingRecipe implements Recipe<RecipeInput> {
         public static final Serializer INSTANCE = new Serializer();
         public static final String ID = "witching";
 
-        private static final MapCodec<WitchingRecipe> CODEC =
-                RecordCodecBuilder.mapCodec(instance -> instance.group(
-                        Ingredient.DISALLOW_EMPTY_CODEC.listOf()
-                                .fieldOf("ingredients")
-                                .forGetter(recipe ->
-                                        new ArrayList<>(recipe.recipeItems)),
-                        ItemStack.CODEC
-                                .fieldOf("output")
-                                .forGetter(recipe -> recipe.output)
-                ).apply(instance, (ingredients, output) ->
-                        new WitchingRecipe(output, ingredients)));
+        private static final MapCodec<WitchingRecipe> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(Ingredient.DISALLOW_EMPTY_CODEC.listOf().fieldOf("ingredients").forGetter(recipe -> new ArrayList<>(recipe.recipeItems)), ItemStack.CODEC.fieldOf("output").forGetter(recipe -> recipe.output)).apply(instance, (ingredients, output) -> new WitchingRecipe(output, ingredients)));
 
-        private static final PacketCodec<RegistryByteBuf, WitchingRecipe> PACKET_CODEC =
-                PacketCodec.of(
-                        (recipe, buf) -> {
-                            buf.writeVarInt(recipe.recipeItems.size());
-                            for (Ingredient ingredient : recipe.recipeItems) {
-                                Ingredient.PACKET_CODEC.encode(buf, ingredient);
-                            }
-                            ItemStack.PACKET_CODEC.encode(buf, recipe.output);
-                        },
-                        buf -> {
-                            int size = buf.readVarInt();
-                            if (size != INPUT_SIZE) {
-                                throw new IllegalStateException(
-                                        "Witching recipe must have exactly 9 ingredients, got " + size
-                                );
-                            }
-                            List<Ingredient> ingredients = new ArrayList<>(size);
-                            for (int i = 0; i < size; i++) {
-                                ingredients.add(Ingredient.PACKET_CODEC.decode(buf));
-                            }
-                            ItemStack output = ItemStack.PACKET_CODEC.decode(buf);
-                            return new WitchingRecipe(output, ingredients);
-                        }
-                );
+        private static final PacketCodec<RegistryByteBuf, WitchingRecipe> PACKET_CODEC = PacketCodec.of((recipe, buf) -> {
+            buf.writeVarInt(recipe.recipeItems.size());
+            for (Ingredient ingredient : recipe.recipeItems) {
+                Ingredient.PACKET_CODEC.encode(buf, ingredient);
+            }
+            ItemStack.PACKET_CODEC.encode(buf, recipe.output);
+        }, buf -> {
+            int size = buf.readVarInt();
+            if (size != INPUT_SIZE) {
+                throw new IllegalStateException("Witching recipe must have exactly 9 ingredients, got " + size);
+            }
+            List<Ingredient> ingredients = new ArrayList<>(size);
+            for (int i = 0; i < size; i++) {
+                ingredients.add(Ingredient.PACKET_CODEC.decode(buf));
+            }
+            ItemStack output = ItemStack.PACKET_CODEC.decode(buf);
+            return new WitchingRecipe(output, ingredients);
+        });
 
         @Override
         public MapCodec<WitchingRecipe> codec() {

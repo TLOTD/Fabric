@@ -1,0 +1,27 @@
+{
+  "type": "tlotd:mithril_metalworking",
+  "ingredients": [
+    {
+      "tag": "tlotd:forging_hammers_tier9"
+    },
+    {
+      "item": "tlotd:astral_pickaxe"
+    },
+    {
+      "item": "tlotd:daybreak_domain_fragments"
+    },
+    {
+      "item": "tlotd:daybreak_domain_fragments"
+    },
+    {
+      "item": "tlotd:daybreak_domain_fragments"
+    },
+    {
+      "item": "tlotd:daybreak_domain_fragments"
+    }
+  ],
+  "output": {
+    "count": 1,
+    "id": "tlotd:divine_pickaxe"
+  }
+}

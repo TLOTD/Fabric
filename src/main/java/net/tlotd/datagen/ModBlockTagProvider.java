@@ -1239,6 +1239,138 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         getOrCreateTagBuilder(ModTags.Blocks.TOOL_LEVEL_10)
         ;
 
+        getOrCreateTagBuilder(ModTags.Blocks.TOOL_LEVEL_11)
+        ;
+
+        getOrCreateTagBuilder(ModTags.Blocks.TOOL_LEVEL_12)
+        ;
+
+        getOrCreateTagBuilder(ModTags.Blocks.TOOL_LEVEL_13)
+        ;
+
+        getOrCreateTagBuilder(BlockTags.INCORRECT_FOR_WOODEN_TOOL)
+                .addTag(ModTags.Blocks.TOOL_LEVEL_4)
+                .addTag(ModTags.Blocks.TOOL_LEVEL_5)
+                .addTag(ModTags.Blocks.TOOL_LEVEL_6)
+                .addTag(ModTags.Blocks.TOOL_LEVEL_7)
+                .addTag(ModTags.Blocks.TOOL_LEVEL_8)
+                .addTag(ModTags.Blocks.TOOL_LEVEL_9)
+                .addTag(ModTags.Blocks.TOOL_LEVEL_10)
+                .addTag(ModTags.Blocks.TOOL_LEVEL_11)
+                .addTag(ModTags.Blocks.TOOL_LEVEL_12)
+                .addTag(ModTags.Blocks.TOOL_LEVEL_13);
+
+        getOrCreateTagBuilder(BlockTags.INCORRECT_FOR_GOLD_TOOL)
+                .addTag(ModTags.Blocks.TOOL_LEVEL_4)
+                .addTag(ModTags.Blocks.TOOL_LEVEL_5)
+                .addTag(ModTags.Blocks.TOOL_LEVEL_6)
+                .addTag(ModTags.Blocks.TOOL_LEVEL_7)
+                .addTag(ModTags.Blocks.TOOL_LEVEL_8)
+                .addTag(ModTags.Blocks.TOOL_LEVEL_9)
+                .addTag(ModTags.Blocks.TOOL_LEVEL_10)
+                .addTag(ModTags.Blocks.TOOL_LEVEL_11)
+                .addTag(ModTags.Blocks.TOOL_LEVEL_12)
+                .addTag(ModTags.Blocks.TOOL_LEVEL_13);
+
+        getOrCreateTagBuilder(BlockTags.INCORRECT_FOR_STONE_TOOL)
+                .addTag(ModTags.Blocks.TOOL_LEVEL_4)
+                .addTag(ModTags.Blocks.TOOL_LEVEL_5)
+                .addTag(ModTags.Blocks.TOOL_LEVEL_6)
+                .addTag(ModTags.Blocks.TOOL_LEVEL_7)
+                .addTag(ModTags.Blocks.TOOL_LEVEL_8)
+                .addTag(ModTags.Blocks.TOOL_LEVEL_9)
+                .addTag(ModTags.Blocks.TOOL_LEVEL_10)
+                .addTag(ModTags.Blocks.TOOL_LEVEL_11)
+                .addTag(ModTags.Blocks.TOOL_LEVEL_12)
+                .addTag(ModTags.Blocks.TOOL_LEVEL_13);
+
+        getOrCreateTagBuilder(BlockTags.INCORRECT_FOR_IRON_TOOL)
+                .addTag(ModTags.Blocks.TOOL_LEVEL_4)
+                .addTag(ModTags.Blocks.TOOL_LEVEL_5)
+                .addTag(ModTags.Blocks.TOOL_LEVEL_6)
+                .addTag(ModTags.Blocks.TOOL_LEVEL_7)
+                .addTag(ModTags.Blocks.TOOL_LEVEL_8)
+                .addTag(ModTags.Blocks.TOOL_LEVEL_9)
+                .addTag(ModTags.Blocks.TOOL_LEVEL_10)
+                .addTag(ModTags.Blocks.TOOL_LEVEL_11)
+                .addTag(ModTags.Blocks.TOOL_LEVEL_12)
+                .addTag(ModTags.Blocks.TOOL_LEVEL_13);
+
+        getOrCreateTagBuilder(BlockTags.INCORRECT_FOR_DIAMOND_TOOL)
+                .addTag(ModTags.Blocks.TOOL_LEVEL_4)
+                .addTag(ModTags.Blocks.TOOL_LEVEL_5)
+                .addTag(ModTags.Blocks.TOOL_LEVEL_6)
+                .addTag(ModTags.Blocks.TOOL_LEVEL_7)
+                .addTag(ModTags.Blocks.TOOL_LEVEL_8)
+                .addTag(ModTags.Blocks.TOOL_LEVEL_9)
+                .addTag(ModTags.Blocks.TOOL_LEVEL_10)
+                .addTag(ModTags.Blocks.TOOL_LEVEL_11)
+                .addTag(ModTags.Blocks.TOOL_LEVEL_12)
+                .addTag(ModTags.Blocks.TOOL_LEVEL_13);
+
+        getOrCreateTagBuilder(BlockTags.INCORRECT_FOR_NETHERITE_TOOL)
+                .addTag(ModTags.Blocks.TOOL_LEVEL_5)
+                .addTag(ModTags.Blocks.TOOL_LEVEL_6)
+                .addTag(ModTags.Blocks.TOOL_LEVEL_7)
+                .addTag(ModTags.Blocks.TOOL_LEVEL_8)
+                .addTag(ModTags.Blocks.TOOL_LEVEL_9)
+                .addTag(ModTags.Blocks.TOOL_LEVEL_10)
+                .addTag(ModTags.Blocks.TOOL_LEVEL_11)
+                .addTag(ModTags.Blocks.TOOL_LEVEL_12)
+                .addTag(ModTags.Blocks.TOOL_LEVEL_13);
+
+        getOrCreateTagBuilder(ModTags.Blocks.INCORRECT_FOR_LEVEL_5_TOOL)
+                .addTag(ModTags.Blocks.TOOL_LEVEL_6)
+                .addTag(ModTags.Blocks.TOOL_LEVEL_7)
+                .addTag(ModTags.Blocks.TOOL_LEVEL_8)
+                .addTag(ModTags.Blocks.TOOL_LEVEL_9)
+                .addTag(ModTags.Blocks.TOOL_LEVEL_10)
+                .addTag(ModTags.Blocks.TOOL_LEVEL_11)
+                .addTag(ModTags.Blocks.TOOL_LEVEL_12)
+                .addTag(ModTags.Blocks.TOOL_LEVEL_13);
+
+        getOrCreateTagBuilder(ModTags.Blocks.INCORRECT_FOR_LEVEL_6_TOOL)
+                .addTag(ModTags.Blocks.TOOL_LEVEL_7)
+                .addTag(ModTags.Blocks.TOOL_LEVEL_8)
+                .addTag(ModTags.Blocks.TOOL_LEVEL_9)
+                .addTag(ModTags.Blocks.TOOL_LEVEL_10)
+                .addTag(ModTags.Blocks.TOOL_LEVEL_11)
+                .addTag(ModTags.Blocks.TOOL_LEVEL_12)
+                .addTag(ModTags.Blocks.TOOL_LEVEL_13);
+
+        getOrCreateTagBuilder(ModTags.Blocks.INCORRECT_FOR_LEVEL_7_TOOL)
+                .addTag(ModTags.Blocks.TOOL_LEVEL_8)
+                .addTag(ModTags.Blocks.TOOL_LEVEL_9)
+                .addTag(ModTags.Blocks.TOOL_LEVEL_10)
+                .addTag(ModTags.Blocks.TOOL_LEVEL_11)
+                .addTag(ModTags.Blocks.TOOL_LEVEL_12)
+                .addTag(ModTags.Blocks.TOOL_LEVEL_13);
+
+        getOrCreateTagBuilder(ModTags.Blocks.INCORRECT_FOR_LEVEL_8_TOOL)
+                .addTag(ModTags.Blocks.TOOL_LEVEL_9)
+                .addTag(ModTags.Blocks.TOOL_LEVEL_10)
+                .addTag(ModTags.Blocks.TOOL_LEVEL_11)
+                .addTag(ModTags.Blocks.TOOL_LEVEL_12)
+                .addTag(ModTags.Blocks.TOOL_LEVEL_13);
+
+        getOrCreateTagBuilder(ModTags.Blocks.INCORRECT_FOR_LEVEL_9_TOOL)
+                .addTag(ModTags.Blocks.TOOL_LEVEL_10)
+                .addTag(ModTags.Blocks.TOOL_LEVEL_11)
+                .addTag(ModTags.Blocks.TOOL_LEVEL_12)
+                .addTag(ModTags.Blocks.TOOL_LEVEL_13);
+
+        getOrCreateTagBuilder(ModTags.Blocks.INCORRECT_FOR_LEVEL_10_TOOL)
+                .addTag(ModTags.Blocks.TOOL_LEVEL_11)
+                .addTag(ModTags.Blocks.TOOL_LEVEL_12)
+                .addTag(ModTags.Blocks.TOOL_LEVEL_13);
+
+        getOrCreateTagBuilder(ModTags.Blocks.INCORRECT_FOR_LEVEL_11_TOOL)
+                .addTag(ModTags.Blocks.TOOL_LEVEL_12)
+                .addTag(ModTags.Blocks.TOOL_LEVEL_13);
+
+        getOrCreateTagBuilder(ModTags.Blocks.INCORRECT_FOR_LEVEL_12_TOOL)
+                .addTag(ModTags.Blocks.TOOL_LEVEL_13);
+
         getOrCreateTagBuilder(ModTags.Blocks.ELEVATOR_CONTROLLERS)
                 .add(ModBlocks.MINING_ELEVATOR_CONTROLLER)
                 .add(ModBlocks.WOODEN_ELEVATOR_CONTROLLER)
