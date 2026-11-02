@@ -19,7 +19,9 @@
     "hold_item_specific_player": {
       "trigger": "tlotd:player_holds_item",
       "conditions": {
-        "item": "tlotd:anduril",
+        "item": {
+          "items": "tlotd:anduril"
+        },
         "uuids": [
           "67148bd0-1a00-4bca-9d9e-ec246afbcf51"
         ]

@@ -19,7 +19,9 @@
     "hold_item_specific_player": {
       "trigger": "tlotd:player_holds_item",
       "conditions": {
-        "tag": "c:pickaxes",
+        "item": {
+          "items": "#c:pickaxes"
+        },
         "augments": {
           "tlotd:extraction": 1
         }

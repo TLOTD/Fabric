@@ -77,7 +77,7 @@ public class AugmentationTableBlockEntity extends BlockEntity implements Extende
     }
 
     public ItemStack getRenderStack() {
-        if(!this.getStack(OUTPUT_SLOT).isEmpty()) {
+        if (!this.getStack(OUTPUT_SLOT).isEmpty()) {
             return this.getStack(OUTPUT_SLOT);
         } else if (!this.getStack(9).isEmpty()) {
             return this.getStack(9);
@@ -152,26 +152,33 @@ public class AugmentationTableBlockEntity extends BlockEntity implements Extende
         if (world.isClient()) {
             return;
         }
-        if (isOutputSlotEmptyOrReceivable()) {
-            if (this.hasRecipe() && this.canApply()) {
-                progress++;
+        ItemStack augmentInput = getStack(9);
+        if (!isOutputSlotEmptyOrReceivable()) {
+            resetProgress();
+            markDirty(world, pos, state);
+            return;
+        }
+        boolean hasRecipe = hasRecipe();
+        boolean canApply = canApply();
+        boolean hasAugments = hasAugments(augmentInput);
+        if (hasRecipe && canApply) {
+            progress++;
+            markDirty(world, pos, state);
+            if (progress >= maxProgress) {
+                augmentItem();
+                resetProgress();
                 markDirty(world, pos, state);
-                if (progress >= maxProgress) {
-                    this.augmentItem();
-                    this.resetProgress();
-                }
-            } else if (hasAugments(this.getStack(9))) {
-                progress2++;
+            }
+        } else if (hasAugments) {
+            progress2++;
+            markDirty(world, pos, state);
+            if (progress2 >= maxProgress) {
+                cleanseItem();
+                resetProgress();
                 markDirty(world, pos, state);
-                if (progress2 >= maxProgress) {
-                    this.cleanseItem();
-                }
-            } else {
-                this.resetProgress();
             }
         } else {
-            this.resetProgress();
-            markDirty(world, pos, state);
+            resetProgress();
         }
     }
 
@@ -200,10 +207,11 @@ public class AugmentationTableBlockEntity extends BlockEntity implements Extende
         }
         ItemStack recipeOutput = currentRecipe.get().getResult(world.getRegistryManager());
         ItemStack augmentedItem = getStack(0).copy();
+        String augment = getAugment(recipeOutput);
         for (int i = 0; i < 9; i++) {
             removeStack(i, 1);
         }
-        addOrUpdateAugment(augmentedItem, getAugment(recipeOutput), 1, recipeOutput.getCount());
+        addOrUpdateAugment(augmentedItem, augment, 1, recipeOutput.getCount());
         setStack(OUTPUT_SLOT, augmentedItem);
         world.playSound(null, getPos(), SoundEvents.BLOCK_ENCHANTMENT_TABLE_USE, SoundCategory.BLOCKS, 1.0f, 1.0f);
     }
@@ -231,7 +239,7 @@ public class AugmentationTableBlockEntity extends BlockEntity implements Extende
             return false;
         }
         return getCurrentRecipe().map(recipe -> {
-            ItemStack result = recipe.getResult(world.getRegistryManager());
+            ItemStack result = getStack(0).copy();
             return canInsertAmountIntoOutputSlot(result) && canInsertItemIntoOutputSlot(result.getItem());
         }).orElse(false);
     }
@@ -253,10 +261,12 @@ public class AugmentationTableBlockEntity extends BlockEntity implements Extende
         public ItemStack getStackInSlot(int slot) {
             return stacks.get(slot);
         }
+
         @Override
         public int getSize() {
             return stacks.size();
         }
+
         @Override
         public boolean isEmpty() {
             return stacks.stream().allMatch(ItemStack::isEmpty);

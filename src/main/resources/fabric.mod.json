@@ -54,6 +54,12 @@
 		"fabric-datagen": [
 			"net.tlotd.TLOTDDataGenerator"
 		],
+		"jade": [
+			"net.tlotd.compat.jade.TLOTDJadeIntegration"
+		],
+		"rei_client": [
+			"net.tlotd.compat.rei.TLOTDREIClientPlugin"
+		],
 		"emi": [
 			"net.tlotd.compat.emi.TLOTDEMIPlugin"
 		]

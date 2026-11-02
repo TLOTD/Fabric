@@ -7,8 +7,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.PickaxeItem;
 import net.minecraft.item.tooltip.TooltipType;
-import net.minecraft.nbt.NbtCompound;
-import net.minecraft.nbt.NbtList;
 import net.minecraft.text.MutableText;
 import net.minecraft.text.Style;
 import net.minecraft.text.Text;
@@ -16,7 +14,6 @@ import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
 import net.tlotd.block.ModBlocks;
 import net.tlotd.item.ModItems;
-import net.tlotd.item.custom.SpaceSuitArmorItem;
 import net.tlotd.util.*;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -24,7 +21,6 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.List;
-import java.util.Map;
 
 import static net.tlotd.util.AugmentNbtHelper.getAugmentLevel;
 
@@ -172,33 +168,20 @@ public abstract class ItemTooltipMixin {
             }
             tooltip.add(Text.translatable("item.tlotd.gas_cylinder.tooltip", formattedOxygen, formattedMaxOxygen, formattedOxygen2, formattedMaxOxygen2, AdAstraGasNbtHelper.gasName(gas)).formatted(Formatting.GOLD));
         }
-        int slots = 0;
-        if (stack.isIn(ModTags.Items.THREE_AUGMENT_SLOTS)) {
-            slots = 3;
-        } else if (stack.isIn(ModTags.Items.TWO_AUGMENT_SLOTS)) {
-            slots = 2;
-        } else if (stack.isIn(ModTags.Items.ONE_AUGMENT_SLOT)) {
-            slots = 1;
-        }
-        if (getAugmentLevel(stack, "tlotd:slot_expansion") > 0) {
-            slots += 1 + getAugmentLevel(stack, "tlotd:slot_expansion");
-        }
+        int slots = AugmentNbtHelper.getMaxAugmentSlots(stack);
         if (slots <= 0) return;
         final Identifier DEFAULT_FONT_ID = Identifier.of("minecraft", "default");
         final Identifier AUGMENTS_FONT_ID = Identifier.of("tlotd", "augments");
         final Identifier TENGWAR_FONT_ID = Identifier.of("tlotd", "tengwar");
-        NbtList augments = new NbtList();
+        List<AugmentData> augments = AugmentNbtHelper.getAugments(stack);
         tooltip.add(Text.empty());
         tooltip.add(Text.translatable("augments.tlotd.title").formatted(Formatting.GRAY));
-        /*if (stack.hasNbt() && stack.getNbt().contains("Augments", NbtElement.LIST_TYPE)) {
-            augments = stack.getNbt().getList("Augments", NbtElement.COMPOUND_TYPE);
-        }*/
         MutableText iconRow = Text.literal(" ");
         if (Screen.hasShiftDown()) {
             for (int slot = 0; slot < slots; slot++) {
                 if (slot < augments.size()) {
-                    NbtCompound augment = augments.getCompound(slot);
-                    String id = augment.getString("id");
+                    AugmentData augment = augments.get(slot);
+                    String id = augment.id();
                     Formatting rarity = Formatting.GRAY;
                     if (id.equals("tlotd:slot_expansion")) {
                         rarity = Formatting.GOLD;
@@ -208,7 +191,7 @@ public abstract class ItemTooltipMixin {
                     }
                     if (id.equals("tlotd:elder_days_elven_forged")) {
                         rarity = Formatting.AQUA;
-                        int level = augment.getInt("lvl");
+                        int level = augment.lvl();
                         if (Screen.hasControlDown()) {
                             MutableText line = Text.literal(" ").append(Text.translatable("augment." + id.replace(':', '.') + ".icon").setStyle(Style.EMPTY.withFont(AUGMENTS_FONT_ID)).append(Text.literal(" ")).append(Text.translatable("augment." + id.replace(':', '.')).setStyle(Style.EMPTY.withFont(DEFAULT_FONT_ID)).formatted(rarity)));
                             if (level > 1) {
@@ -229,7 +212,7 @@ public abstract class ItemTooltipMixin {
                             tooltip.add(line);
                         }
                     } else {
-                        int level = augment.getInt("lvl");
+                        int level = augment.lvl();
                         MutableText line = Text.literal(" ").append(Text.translatable("augment." + id.replace(':', '.') + ".icon").setStyle(Style.EMPTY.withFont(AUGMENTS_FONT_ID)).append(Text.literal(" ")).append(Text.translatable("augment." + id.replace(':', '.')).setStyle(Style.EMPTY.withFont(DEFAULT_FONT_ID)).formatted(rarity)));
                         if (level > 1) {
                             line.append(" ").append(Text.translatable("enchantment.level." + level).formatted(rarity));
@@ -250,7 +233,7 @@ public abstract class ItemTooltipMixin {
         } else {
             for (int slot = 0; slot < slots; slot++) {
                 if (slot < augments.size()) {
-                    String id = augments.getCompound(slot).getString("id");
+                    String id = augments.get(slot).id();
                     iconRow.append(Text.translatable("augment." + id.replace(':', '.') + ".icon").setStyle(Style.EMPTY.withFont(AUGMENTS_FONT_ID)));
                 } else {
                     iconRow.append(Text.translatable("augment.tlotd.empty.icon").setStyle(Style.EMPTY.withFont(AUGMENTS_FONT_ID)));

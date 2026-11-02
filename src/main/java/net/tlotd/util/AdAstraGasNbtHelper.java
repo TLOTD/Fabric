@@ -190,6 +190,26 @@ public class AdAstraGasNbtHelper {
         setFluidList(stack, fluids);
     }
 
+    public static void clearAllGases(ItemStack stack) {
+        if (stack.isEmpty()) {
+            return;
+        }
+        ComponentType<Object> type = getAdAstraFluidsComponentType();
+        if (type != null) {
+            stack.remove(type);
+        }
+        NbtComponent customData = stack.get(DataComponentTypes.CUSTOM_DATA);
+        if (customData != null) {
+            NbtCompound nbt = customData.copyNbt();
+            nbt.remove(FALLBACK_FLUIDS_KEY);
+            if (nbt.isEmpty()) {
+                stack.remove(DataComponentTypes.CUSTOM_DATA);
+            } else {
+                stack.set(DataComponentTypes.CUSTOM_DATA, NbtComponent.of(nbt));
+            }
+        }
+    }
+
     public static Text gasName(String gas) {
         if (gas == null || gas.equals("empty")) {
             return Text.translatable("gas.empty");

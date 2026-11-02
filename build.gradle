@@ -9,10 +9,15 @@ repositories {
 	// Loom adds the essential maven repositories to download Minecraft and libraries from automatically.
 	// See https://docs.gradle.org/current/userguide/declaring_repositories.html
 	// for more information about repositories.
+	maven { url = "https://api.modrinth.com/maven" }
 	maven {
 		name = "Sleeping Town"
 		url = "https://repo.sleeping.town/"
 	} //EMI
+	maven {
+		name = "shedaniel’s"
+		url = "https://maven.shedaniel.me/"
+	} //REI
 }
 
 fabricApi {
@@ -36,10 +41,12 @@ dependencies {
 	//modImplementation "net.kyrptonaught:customportalapi:0.0.1-beta67-1.21"
 	//include "net.kyrptonaught:customportalapi:0.0.1-beta67-1.21"
 
-	//modCompileOnly "me.shedaniel:RoughlyEnoughItems-api-fabric:12.1.785"
-	//modRuntimeOnly "me.shedaniel:RoughlyEnoughItems-fabric:12.1.785"
+	modCompileOnly "me.shedaniel:RoughlyEnoughItems-api-fabric:16.0.799"
+	modRuntimeOnly "me.shedaniel:RoughlyEnoughItems-fabric:16.0.799"
 	modCompileOnly "dev.emi:emi-fabric:1.1.24+1.21.1:api"
-	modLocalRuntime "dev.emi:emi-fabric:1.1.24+1.21.1"
+	//modLocalRuntime "dev.emi:emi-fabric:1.1.24+1.21.1"
+
+	modImplementation "maven.modrinth:nvQzSEkH:adpNvTZS" //jade
 
 	include modApi('teamreborn:energy:4.1.0')
 }
@@ -55,6 +62,12 @@ processResources {
 
 tasks.withType(JavaCompile).configureEach {
 	it.options.release = 21
+}
+
+tasks.register('apiJar', Jar) {
+	archiveClassifier.set("api")
+	from sourceSets.main.output
+	include "net/tlotd/api/**"
 }
 
 java {

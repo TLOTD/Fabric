@@ -8,6 +8,7 @@ import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.*;
 import net.minecraft.registry.tag.BlockTags;
+import net.minecraft.registry.tag.TagKey;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
@@ -71,30 +72,9 @@ public class PaxelItem extends MiningToolItem {
                 }
                 String name = state.getBlock().getTranslationKey();
                 int damage = 1;
-                //int miningLevel = this.paxelMaterial.getMiningLevel();
-                int blockLevel = 0;
-                if (state.isIn(ModTags.Blocks.TOOL_LEVEL_10)) {
-                    blockLevel = 10;
-                } else if (state.isIn(ModTags.Blocks.TOOL_LEVEL_9)) {
-                    blockLevel = 9;
-                } else if (state.isIn(ModTags.Blocks.TOOL_LEVEL_8)) {
-                    blockLevel = 8;
-                } else if (state.isIn(ModTags.Blocks.TOOL_LEVEL_7)) {
-                    blockLevel = 7;
-                } else if (state.isIn(ModTags.Blocks.TOOL_LEVEL_6)) {
-                    blockLevel = 6;
-                } else if (state.isIn(ModTags.Blocks.TOOL_LEVEL_5)) {
-                    blockLevel = 5;
-                } else if (state.isIn(ModTags.Blocks.TOOL_LEVEL_4)) {
-                    blockLevel = 4;
-                } else if (state.isIn(BlockTags.NEEDS_DIAMOND_TOOL)) {
-                    blockLevel = 3;
-                } else if (state.isIn(BlockTags.NEEDS_IRON_TOOL)) {
-                    blockLevel = 2;
-                } else if (state.isIn(BlockTags.NEEDS_STONE_TOOL)) {
-                    blockLevel = 1;
-                }
-                if (/*miningLevel >= blockLevel &&*/ (state == ModBlocks.ALIEN_CONTROL_PANEL.getStateWithProperties(state).with(HARVESTED, false) || state.isIn(ModTags.Blocks.EXTRACTABLE_BLOCKS) || (compat && name.contains("_ore")))) {
+                int miningLevel = getMiningLevel((MiningToolItem) context.getStack().getItem());
+                int blockLevel = getBlockLevel(state);
+                if (miningLevel >= blockLevel && (state == ModBlocks.ALIEN_CONTROL_PANEL.getStateWithProperties(state).with(HARVESTED, false) || state.isIn(ModTags.Blocks.EXTRACTABLE_BLOCKS) || (compat && name.contains("_ore")))) {
                     context.getWorld().breakBlock(positionClicked, true);
                     if (state.isOf(ModBlocks.ALIEN_CONTROL_PANEL) && !state.get(HARVESTED)) {
                         context.getWorld().setBlockState(positionClicked, state.with(HARVESTED, true));
@@ -156,5 +136,59 @@ public class PaxelItem extends MiningToolItem {
             }
         }
         return ActionResult.FAIL;
+    }
+
+    public static int getBlockLevel(BlockState state) {
+        int blockLevel = 0;
+        if (state.isIn(ModTags.Blocks.TOOL_LEVEL_10)) {
+            blockLevel = 10;
+        } else if (state.isIn(ModTags.Blocks.TOOL_LEVEL_9)) {
+            blockLevel = 9;
+        } else if (state.isIn(ModTags.Blocks.TOOL_LEVEL_8)) {
+            blockLevel = 8;
+        } else if (state.isIn(ModTags.Blocks.TOOL_LEVEL_7)) {
+            blockLevel = 7;
+        } else if (state.isIn(ModTags.Blocks.TOOL_LEVEL_6)) {
+            blockLevel = 6;
+        } else if (state.isIn(ModTags.Blocks.TOOL_LEVEL_5)) {
+            blockLevel = 5;
+        } else if (state.isIn(ModTags.Blocks.TOOL_LEVEL_4)) {
+            blockLevel = 4;
+        } else if (state.isIn(BlockTags.NEEDS_DIAMOND_TOOL)) {
+            blockLevel = 3;
+        } else if (state.isIn(BlockTags.NEEDS_IRON_TOOL)) {
+            blockLevel = 2;
+        } else if (state.isIn(BlockTags.NEEDS_STONE_TOOL)) {
+            blockLevel = 1;
+        }
+        return blockLevel;
+    }
+
+    public static int getMiningLevel(MiningToolItem item) {
+        TagKey<Block> pickstrength = item.getMaterial().getInverseTag();
+        int miningLevel = 0;
+        if (pickstrength.equals(ModTags.Blocks.INCORRECT_FOR_LEVEL_10_TOOL)) {
+            miningLevel = 10;
+        } else if (pickstrength.equals(ModTags.Blocks.INCORRECT_FOR_LEVEL_9_TOOL)) {
+            miningLevel = 9;
+        } else if (pickstrength.equals(ModTags.Blocks.INCORRECT_FOR_LEVEL_8_TOOL)) {
+            miningLevel = 8;
+        } else if (pickstrength.equals(ModTags.Blocks.INCORRECT_FOR_LEVEL_7_TOOL)) {
+            miningLevel = 7;
+        } else if (pickstrength.equals(ModTags.Blocks.INCORRECT_FOR_LEVEL_6_TOOL)) {
+            miningLevel = 6;
+        } else if (pickstrength.equals(ModTags.Blocks.INCORRECT_FOR_LEVEL_5_TOOL)) {
+            miningLevel = 5;
+        } else if (pickstrength.equals(BlockTags.INCORRECT_FOR_NETHERITE_TOOL)) {
+            miningLevel = 4;
+        } else if (pickstrength.equals(BlockTags.INCORRECT_FOR_DIAMOND_TOOL)) {
+            miningLevel = 3;
+        } else if (pickstrength.equals(BlockTags.INCORRECT_FOR_IRON_TOOL)) {
+            miningLevel = 2;
+        } else if (pickstrength.equals(BlockTags.INCORRECT_FOR_STONE_TOOL)) {
+            miningLevel = 1;
+        } else if (pickstrength.equals(BlockTags.INCORRECT_FOR_WOODEN_TOOL) || pickstrength.equals(BlockTags.INCORRECT_FOR_GOLD_TOOL)) {
+        }
+        return miningLevel;
     }
 }

@@ -768,15 +768,15 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModItems.VHS_CASSETTE)
         ;
 
-        //getOrCreateTagBuilder(ItemTags.MUSIC_DISCS)
-        //        .add(ModItems.MUSIC_DISC_1)
-        //        .add(ModItems.MUSIC_DISC_2)
-        //        .add(ModItems.MUSIC_DISC_3)
-        //        .add(ModItems.MUSIC_DISC_4)
-        //;
+        getOrCreateTagBuilder(ModTags.Items.MUSIC_DISCS)
+                .add(ModItems.MUSIC_DISC_1)
+                .add(ModItems.MUSIC_DISC_2)
+                .add(ModItems.MUSIC_DISC_3)
+                .add(ModItems.MUSIC_DISC_4)
+        ;
 
         getOrCreateTagBuilder(ModTags.Items.TRANSMITTABLE_SIGNALS)
-                //.addTag(ItemTags.MUSIC_DISCS)
+                .addTag(ModTags.Items.MUSIC_DISCS)
                 .addTag(ModTags.Items.VHS_CASSETTES)
                 .addTag(ModTags.Items.GAME_CARTRIDGES)
         ;

@@ -10,7 +10,9 @@ import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.screen.slot.Slot;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.MathHelper;
 import net.tlotd.block.entity.OxygenCollectorBlockEntity;
+import net.tlotd.util.AdAstraGasNbtHelper;
 import net.tlotd.util.ModTags;
 
 public class OxygenCollectorGUIHandler extends ScreenHandler {
@@ -20,7 +22,7 @@ public class OxygenCollectorGUIHandler extends ScreenHandler {
     public final OxygenCollectorBlockEntity blockEntity;
 
     public OxygenCollectorGUIHandler(int syncId, PlayerInventory inventory, BlockPos pos) {
-        this(syncId, inventory, inventory.player.getWorld().getBlockEntity(pos), new ArrayPropertyDelegate(2));
+        this(syncId, inventory, inventory.player.getWorld().getBlockEntity(pos), new ArrayPropertyDelegate(3));
     }
 
     public OxygenCollectorGUIHandler(int syncId, PlayerInventory playerInventory, BlockEntity blockEntity, PropertyDelegate propertyDelegate) {
@@ -42,13 +44,11 @@ public class OxygenCollectorGUIHandler extends ScreenHandler {
     }
 
     public int getAmount() {
-        return this.propertyDelegate.get(1);
+        return (this.propertyDelegate.get(1) & 0xFFFF) | ((this.propertyDelegate.get(2) & 0xFFFF) << 16);
     }
 
     public int getScaledAmount() {
-        long amount = this.propertyDelegate.get(1);
-        long max = 1000 * 81L;
-        return (int) (amount * 18 / max);
+        return MathHelper.clamp((int) ((long) getAmount() * 18 / AdAstraGasNbtHelper.MAX_AMOUNT), 0, 18);
     }
 
     @Override

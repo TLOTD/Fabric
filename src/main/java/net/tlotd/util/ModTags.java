@@ -388,6 +388,9 @@ public class ModTags {
         public static final TagKey<Item> SICKLES =
                 createTag("sickles");
 
+        public static final TagKey<Item> MUSIC_DISCS =
+                createTag("c","music_discs");
+
         public static final TagKey<Item> VHS_CASSETTES =
                 createTag("vhs_cassettes");
 

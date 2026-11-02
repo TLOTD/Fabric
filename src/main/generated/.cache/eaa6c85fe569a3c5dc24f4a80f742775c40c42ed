@@ -1,4 +1,4 @@
-// 1.21.1	2026-10-31T01:09:56.08335	TLOTD/Tags for minecraft:item
+// 1.21.1	2026-11-03T00:16:15.4125673	TLOTD/Tags for minecraft:item
 1cb1d2f13655302acb2a4d1cbd7b781de7bbbc3a data\c\tags\item\armor.json
 3bf502c10151aec4681c42c1356acd0e4fd794d0 data\c\tags\item\nuggets.json
 ba96f1ef33b762ab101a479b5518305cdad03d4a data\tlotd\tags\item\burns_in_forge.json
@@ -6,8 +6,8 @@ ba96f1ef33b762ab101a479b5518305cdad03d4a data\tlotd\tags\item\burns_in_forge.jso
 2fa14cc5f84fb9c8edab869a90f3ed7269bd869b data\c\tags\item\carved_pumpkins.json
 40a5fc69cc0065925f49a91b085a3b2e79933c55 data\tlotd\tags\item\mead_container.json
 a0358ba99224784e2d846ebcdaf2e08b382fc78b data\c\tags\item\stripped_woods.json
-40ccd6e7e2fd1cbf57214e36a6b46e8df02f71a4 data\tlotd\tags\item\fancy_burnable_planks.json
 e1c5a91a5b69dc4c85f142b9f444ac4d6f54042b data\minecraft\tags\item\piglin_loved.json
+40ccd6e7e2fd1cbf57214e36a6b46e8df02f71a4 data\tlotd\tags\item\fancy_burnable_planks.json
 948d546d2df6eed40012b4759de51c933b3dc3cc data\minecraft\tags\item\wooden_slabs.json
 6416da21e4d82126f6e5b42756d24e960cfbd38b data\tlotd\tags\item\fire_base_forge.json
 6b543a792f7797a87724ed58025370e8f0a85150 data\c\tags\item\gold_nuggets.json
@@ -71,12 +71,12 @@ e8c6f5818aafbd63df52aa81c63e55b28262834a data\tlotd\tags\item\oxygen_storing_4k.
 d602aa5db8cf604d346b6542962a56224a445ee9 data\c\tags\item\fossils.json
 17495ff1387bfa3dab1889188c84de5cf51088b9 data\c\tags\item\shields.json
 74652f16c62cda9b25303664bdb1784a369e758e data\tlotd\tags\item\blood_bottles.json
-cb0a22eb2575d3a22326e2f20620edb2f8957cdf data\tlotd\tags\item\futuristic_circuit_boards.json
 804069255ee5b60b48b12b3898fc9a238979d422 data\c\tags\item\flint_and_steels.json
+cb0a22eb2575d3a22326e2f20620edb2f8957cdf data\tlotd\tags\item\futuristic_circuit_boards.json
 df9e47d7f7e74ba498e168cd8fb7a480c4396548 data\tlotd\tags\item\smithing_heat_4200.json
 791ca5dfdc5b13e2684d4b773d066d736a16fec2 data\c\tags\item\framed_colorless_glass_panes.json
 f10eb26fe1d6cd89298c1b641ba6c77d38947776 data\c\tags\item\raw_uranium_blocks.json
-c602f71576edbafdd3bc8ff94c52fea794ec0f4a data\tlotd\tags\item\transmittable_signals.json
+ed7fac6271490649ae050bba34bda5f0f740ceb7 data\tlotd\tags\item\transmittable_signals.json
 2d9adea57ac290caa021130d54a78b7e1553c33a data\tlotd\tags\item\oxygen_storing_1k.json
 08dbaf49bbecd2cbf918a552d7af5cb8473c2003 data\c\tags\item\shears.json
 47271a27dae241fbb6138512340839ee90138450 data\c\tags\item\quartz_ores.json
@@ -225,6 +225,7 @@ d66078fe03c4a07a0a12934d4bb5bbf3b63a223e data\c\tags\item\eggs.json
 fb0ee81f5c397971f85e23bc59480782408707c3 data\tlotd\tags\item\keycards.json
 7c95fe25e9a4f9c457b976241c211a4967cb5bab data\tlotd\tags\item\forging_hammers_tier1.json
 6b75fa3d27c71ee43e031e1103d9fcdcde88aa15 data\c\tags\item\aluminium_ingots.json
+1f0e1551a369b8200c8782664b7dd43ec99d4984 data\c\tags\item\music_discs.json
 2fa14cc5f84fb9c8edab869a90f3ed7269bd869b data\tlotd\tags\item\hides_identity.json
 0d7a66bf9fe07159ebeaa39058737ac1eaf448de data\c\tags\item\steel_nuggets.json
 05abdd0d8560b0671f8c122f795fcb1bc2155276 data\tlotd\tags\item\burns_1400.json

@@ -38,26 +38,29 @@ public class OxygenCollectorBlockEntity extends BlockEntity implements ExtendedS
 
     public OxygenCollectorBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.OXYGEN_COLLECTOR_BLOCK_ENTITY, pos, state);
-
         this.propertyDelegate = new PropertyDelegate() {
             @Override
             public int get(int index) {
                 return switch (index) {
                     case 0 -> OxygenCollectorBlockEntity.this.gas;
-                    case 1 -> OxygenCollectorBlockEntity.this.amount;
+                    case 1 -> OxygenCollectorBlockEntity.this.amount & 0xFFFF;
+                    case 2 -> (OxygenCollectorBlockEntity.this.amount >>> 16) & 0xFFFF;
                     default -> 0;
                 };
             }
+
             @Override
             public void set(int index, int value) {
                 switch (index) {
                     case 0 -> OxygenCollectorBlockEntity.this.gas = value;
-                    case 1 -> OxygenCollectorBlockEntity.this.amount = value;
+                    case 1 -> OxygenCollectorBlockEntity.this.amount = (OxygenCollectorBlockEntity.this.amount & 0xFFFF0000) | (value & 0xFFFF);
+                    case 2 -> OxygenCollectorBlockEntity.this.amount = (OxygenCollectorBlockEntity.this.amount & 0xFFFF) | ((value & 0xFFFF) << 16);
                 }
             }
+
             @Override
             public int size() {
-                return 2;
+                return 3;
             }
         };
     }
@@ -168,7 +171,6 @@ public class OxygenCollectorBlockEntity extends BlockEntity implements ExtendedS
             String presentGas = AdAstraGasNbtHelper.getGas(stack);
             long current = AdAstraGasNbtHelper.getGasAmount(stack, presentGas);
             long next = Math.min(current + 81L, AdAstraGasNbtHelper.getMaxGasItem(stack));
-
             AdAstraGasNbtHelper.setGasAmount(stack, gasId, next);
         }
         amount = (int) Math.max(amount - 81L, 0L);

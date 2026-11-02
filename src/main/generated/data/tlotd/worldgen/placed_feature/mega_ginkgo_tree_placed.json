@@ -36,7 +36,10 @@
       "predicate": {
         "type": "minecraft:would_survive",
         "state": {
-          "Name": "tlotd:ginkgo_sapling"
+          "Name": "tlotd:ginkgo_sapling",
+          "Properties": {
+            "stage": "0"
+          }
         }
       }
     }

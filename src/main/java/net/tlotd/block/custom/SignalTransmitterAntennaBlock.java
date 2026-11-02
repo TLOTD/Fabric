@@ -95,7 +95,7 @@ public class SignalTransmitterAntennaBlock extends Block {
         return BlockRenderType.MODEL;
     }
 
-    /*@Override
+    @Override
     public void onPlaced(World world, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack itemStack) {
         super.onPlaced(world, pos, state, placer, itemStack);
         if (world.isClient()) return;
@@ -119,7 +119,7 @@ public class SignalTransmitterAntennaBlock extends Block {
                 break;
             }
         }
-    }*/
+    }
 
     @Override
     public void appendTooltip(ItemStack stack, Item.TooltipContext context, List<Text> tooltip, TooltipType options) {

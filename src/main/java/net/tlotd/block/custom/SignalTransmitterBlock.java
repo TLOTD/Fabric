@@ -2,6 +2,7 @@ package net.tlotd.block.custom;
 
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.component.DataComponentTypes;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.FluidState;
@@ -32,6 +33,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 import net.tlotd.block.ModBlocks;
 //import net.tlotd.block.entity.SignalTransmitterBlockEntity;
+import net.tlotd.block.entity.SignalTransmitterBlockEntity;
 import net.tlotd.block.enum_property.AntennaMaterial;
 import net.tlotd.sound.ModSounds;
 import net.tlotd.util.ModTags;
@@ -41,7 +43,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class SignalTransmitterBlock extends Block /*implements BlockEntityProvider*/ {
+public class SignalTransmitterBlock extends Block implements BlockEntityProvider {
 
     public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
     public static final DirectionProperty FACING = HorizontalFacingBlock.FACING;
@@ -62,7 +64,6 @@ public class SignalTransmitterBlock extends Block /*implements BlockEntityProvid
         if (state.get(WATERLOGGED)) {
             world.scheduleFluidTick(pos, Fluids.WATER, Fluids.WATER.getTickRate(world));
         }
-
         return super.getStateForNeighborUpdate(state, direction, neighborState, world, pos, neighborPos);
     }
 
@@ -104,11 +105,53 @@ public class SignalTransmitterBlock extends Block /*implements BlockEntityProvid
         super.appendTooltip(stack, context, tooltip, options);
     }
 
-    /*private void buildSignalTower(ItemStack stack, World world, BlockPos pos, BlockState state, PlayerEntity player) {
+    private void buildSignalTower(ItemStack stack, World world, BlockPos pos, BlockState state, PlayerEntity player) {
         world.setBlockState(pos, state);
         world.playSound(null, pos, SoundEvents.BLOCK_COPPER_PLACE, SoundCategory.BLOCKS, 1.0f, 1.0f);
         if (!player.isCreative()) {
             stack.decrement(1);
+        }
+    }
+
+    private void showStationInfo(World world, BlockPos pos, PlayerEntity player) {
+        ServerWorld serverWorld = (ServerWorld) world;
+        SignalTrackingArray tracker = SignalTrackingArray.get(serverWorld);
+        RadioStation station = tracker.getStation(pos);
+        if (station == null || !station.hasSignals()) {
+            if (player.isSneaking()) {
+                player.sendMessage(station == null || station.getName().isEmpty() ? Text.translatable("block.tlotd.signal_transmitter.unnamed").formatted(Formatting.GRAY) : Text.literal(station.getName()).formatted(Formatting.GRAY), false);
+                player.sendMessage(SignalTrackingArray.getStats(station != null && station.isActive(), station == null ? 0 : station.getStrength(), station == null ? 0 : station.getRange(), station == null ? 0 : station.getSignals().size(), ".1"), false);
+                player.sendMessage(SignalTrackingArray.getStats(station != null && station.isActive(), station == null ? 0 : station.getStrength(), station == null ? 0 : station.getRange(), station == null ? 0 : station.getSignals().size(), ".2"), false);
+            } else {
+                player.sendMessage(SignalTrackingArray.getStats(station != null && station.isActive(), station == null ? 0 : station.getStrength(), station == null ? 0 : station.getRange(), station == null ? 0 : station.getSignals().size(), ""), true);
+            }
+            return;
+        }
+        if (player.isSneaking()) {
+            player.sendMessage(station.getName().isEmpty() ? Text.translatable("block.tlotd.signal_transmitter.unnamed").formatted(Formatting.GRAY) : Text.literal(station.getName()).formatted(Formatting.GRAY), false);
+            player.sendMessage(SignalTrackingArray.getStats(station.isActive(), station.getStrength(), station.getRange(), station.getSignals().size(), ".1"), false);
+            player.sendMessage(SignalTrackingArray.getStats(station.isActive(), station.getStrength(), station.getRange(), station.getSignals().size(), ".2"), false);
+            for (Identifier sig : station.getSignals()) {
+                String keyName = "item." + sig.getNamespace() + "." + sig.getPath();
+                String descKey = keyName + ".desc";
+                Text nameText;
+                Text descText;
+                if (Language.getInstance().hasTranslation(keyName)) {
+                    nameText = Text.translatable(keyName);
+                } else {
+                    String prettyName = sig.getPath().replace('_', ' ');
+                    prettyName = Character.toUpperCase(prettyName.charAt(0)) + prettyName.substring(1);
+                    nameText = Text.literal(prettyName);
+                }
+                if (Language.getInstance().hasTranslation(descKey)) {
+                    descText = Text.translatable(descKey);
+                } else {
+                    descText = Text.literal("");
+                }
+                player.sendMessage(Text.literal(" ").formatted(Formatting.GRAY).append(nameText).append(Text.literal(": ")).append(descText), false);
+            }
+        } else {
+            player.sendMessage(SignalTrackingArray.getStats(station.isActive(), station.getStrength(), station.getRange(), station.getSignals().size(), ""), true);
         }
     }
 
@@ -141,70 +184,73 @@ public class SignalTransmitterBlock extends Block /*implements BlockEntityProvid
         tracker.markDirty();
     }
 
+    private void installAntenna(ItemStack stack, World world, BlockPos pos, PlayerEntity player) {
+        Block antennaBlock;
+        AntennaMaterial material;
+        if (stack.isOf(ModBlocks.ALUMINIUM_SIGNAL_TRANSMITTER_ANTENNA.asItem())) {
+            antennaBlock = ModBlocks.ALUMINIUM_SIGNAL_TRANSMITTER_ANTENNA;
+            material = AntennaMaterial.ALUMINIUM;
+        } else if (stack.isOf(ModBlocks.COPPER_SIGNAL_TRANSMITTER_ANTENNA.asItem())) {
+            antennaBlock = ModBlocks.COPPER_SIGNAL_TRANSMITTER_ANTENNA;
+            material = AntennaMaterial.COPPER;
+        } else if (stack.isOf(ModBlocks.GOLD_SIGNAL_TRANSMITTER_ANTENNA.asItem())) {
+            antennaBlock = ModBlocks.GOLD_SIGNAL_TRANSMITTER_ANTENNA;
+            material = AntennaMaterial.GOLD;
+        } else if (stack.isOf(ModBlocks.MITHRIL_SIGNAL_TRANSMITTER_ANTENNA.asItem())) {
+            antennaBlock = ModBlocks.MITHRIL_SIGNAL_TRANSMITTER_ANTENNA;
+            material = AntennaMaterial.MITHRIL;
+        } else {
+            sendIncompleteMessage(world, pos, player);
+            return;
+        }
+        for (int i = 1; i <= 4; i++) {
+            BlockPos antennaPos = pos.up(i);
+            if (world.getBlockState(antennaPos).isAir()) {
+                BlockState antennaState = antennaBlock.getDefaultState().with(SignalTransmitterAntennaBlock.PART, i - 1);
+                buildSignalTower(stack, world, antennaPos, antennaState, player);
+                world.setBlockState(pos, world.getBlockState(pos).with(ANTENNA_MATERIAL, material));
+                return;
+            }
+        }
+        sendIncompleteMessage(world, pos, player);
+    }
+
+    private void sendIncompleteMessage(World world, BlockPos pos, PlayerEntity player) {
+        player.sendMessage(Text.translatable("block.tlotd.signal_transmitter.incomplete"), false);
+        world.playSound(null, pos, SoundEvents.BLOCK_STONE_BUTTON_CLICK_ON, SoundCategory.BLOCKS, 1.0f, 1.0f);
+    }
+
     @Override
-    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        if (world.isClient) return ActionResult.SUCCESS;
+    protected ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
+        if (world.isClient) {
+            return ActionResult.SUCCESS;
+        }
+        showStationInfo(world, pos, player);
+        world.playSound(null, pos, SoundEvents.BLOCK_STONE_BUTTON_CLICK_ON, SoundCategory.BLOCKS, 1.0f, 1.0f);
+        return ActionResult.SUCCESS;
+    }
+
+    @Override
+    protected ItemActionResult onUseWithItem(ItemStack stack, BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
+        if (!antenna(world, pos)) {
+            if (!world.isClient) {
+                installAntenna(stack, world, pos, player);
+                updateStationActive(world, pos);
+            }
+            return ItemActionResult.SUCCESS;
+        }
+        boolean isSignal = stack.isIn(ModTags.Items.TRANSMITTABLE_SIGNALS);
+        boolean isNamedNameTag = stack.isOf(Items.NAME_TAG) && stack.contains(DataComponentTypes.CUSTOM_NAME);
+        if (!isSignal && !isNamedNameTag) {
+            return ItemActionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+        }
+        if (world.isClient) {
+            return ItemActionResult.SUCCESS;
+        }
         ServerWorld serverWorld = (ServerWorld) world;
         SignalTrackingArray tracker = SignalTrackingArray.get(serverWorld);
         RadioStation station = tracker.getStation(pos);
-        ItemStack stack = player.getMainHandStack();
-        if (!antenna(world, pos)) {
-            if (world.getBlockState(pos.up()).getBlock() instanceof AirBlock && stack.isOf(ModBlocks.ALUMINIUM_SIGNAL_TRANSMITTER_ANTENNA.asItem())) {
-                buildSignalTower(stack, world, pos.up(), ModBlocks.ALUMINIUM_SIGNAL_TRANSMITTER_ANTENNA.getDefaultState(), player);
-                world.setBlockState(pos, state.with(ANTENNA_MATERIAL, AntennaMaterial.ALUMINIUM));
-            } else if (world.getBlockState(pos.up(2)).getBlock() instanceof AirBlock && stack.isOf(ModBlocks.ALUMINIUM_SIGNAL_TRANSMITTER_ANTENNA.asItem())) {
-                buildSignalTower(stack, world, pos.up(2), ModBlocks.ALUMINIUM_SIGNAL_TRANSMITTER_ANTENNA.getDefaultState().with(SignalTransmitterAntennaBlock.PART, 1), player);
-                world.setBlockState(pos, state.with(ANTENNA_MATERIAL, AntennaMaterial.ALUMINIUM));
-            } else if (world.getBlockState(pos.up(3)).getBlock() instanceof AirBlock && stack.isOf(ModBlocks.ALUMINIUM_SIGNAL_TRANSMITTER_ANTENNA.asItem())) {
-                buildSignalTower(stack, world, pos.up(3), ModBlocks.ALUMINIUM_SIGNAL_TRANSMITTER_ANTENNA.getDefaultState().with(SignalTransmitterAntennaBlock.PART, 2), player);
-                world.setBlockState(pos, state.with(ANTENNA_MATERIAL, AntennaMaterial.ALUMINIUM));
-            } else if (world.getBlockState(pos.up(4)).getBlock() instanceof AirBlock && stack.isOf(ModBlocks.ALUMINIUM_SIGNAL_TRANSMITTER_ANTENNA.asItem())) {
-                buildSignalTower(stack, world, pos.up(4), ModBlocks.ALUMINIUM_SIGNAL_TRANSMITTER_ANTENNA.getDefaultState().with(SignalTransmitterAntennaBlock.PART, 3), player);
-                world.setBlockState(pos, state.with(ANTENNA_MATERIAL, AntennaMaterial.ALUMINIUM));
-            } else if (world.getBlockState(pos.up()).getBlock() instanceof AirBlock && stack.isOf(ModBlocks.COPPER_SIGNAL_TRANSMITTER_ANTENNA.asItem())) {
-                buildSignalTower(stack, world, pos.up(), ModBlocks.COPPER_SIGNAL_TRANSMITTER_ANTENNA.getDefaultState(), player);
-                world.setBlockState(pos, state.with(ANTENNA_MATERIAL, AntennaMaterial.COPPER));
-            } else if (world.getBlockState(pos.up(2)).getBlock() instanceof AirBlock && stack.isOf(ModBlocks.COPPER_SIGNAL_TRANSMITTER_ANTENNA.asItem())) {
-                buildSignalTower(stack, world, pos.up(2), ModBlocks.COPPER_SIGNAL_TRANSMITTER_ANTENNA.getDefaultState().with(SignalTransmitterAntennaBlock.PART, 1), player);
-                world.setBlockState(pos, state.with(ANTENNA_MATERIAL, AntennaMaterial.COPPER));
-            } else if (world.getBlockState(pos.up(3)).getBlock() instanceof AirBlock && stack.isOf(ModBlocks.COPPER_SIGNAL_TRANSMITTER_ANTENNA.asItem())) {
-                buildSignalTower(stack, world, pos.up(3), ModBlocks.COPPER_SIGNAL_TRANSMITTER_ANTENNA.getDefaultState().with(SignalTransmitterAntennaBlock.PART, 2), player);
-                world.setBlockState(pos, state.with(ANTENNA_MATERIAL, AntennaMaterial.COPPER));
-            } else if (world.getBlockState(pos.up(4)).getBlock() instanceof AirBlock && stack.isOf(ModBlocks.COPPER_SIGNAL_TRANSMITTER_ANTENNA.asItem())) {
-                buildSignalTower(stack, world, pos.up(4), ModBlocks.COPPER_SIGNAL_TRANSMITTER_ANTENNA.getDefaultState().with(SignalTransmitterAntennaBlock.PART, 3), player);
-                world.setBlockState(pos, state.with(ANTENNA_MATERIAL, AntennaMaterial.COPPER));
-            } else if (world.getBlockState(pos.up()).getBlock() instanceof AirBlock && stack.isOf(ModBlocks.GOLD_SIGNAL_TRANSMITTER_ANTENNA.asItem())) {
-                buildSignalTower(stack, world, pos.up(), ModBlocks.GOLD_SIGNAL_TRANSMITTER_ANTENNA.getDefaultState(), player);
-                world.setBlockState(pos, state.with(ANTENNA_MATERIAL, AntennaMaterial.GOLD));
-            } else if (world.getBlockState(pos.up(2)).getBlock() instanceof AirBlock && stack.isOf(ModBlocks.GOLD_SIGNAL_TRANSMITTER_ANTENNA.asItem())) {
-                buildSignalTower(stack, world, pos.up(2), ModBlocks.GOLD_SIGNAL_TRANSMITTER_ANTENNA.getDefaultState().with(SignalTransmitterAntennaBlock.PART, 1), player);
-                world.setBlockState(pos, state.with(ANTENNA_MATERIAL, AntennaMaterial.GOLD));
-            } else if (world.getBlockState(pos.up(3)).getBlock() instanceof AirBlock && stack.isOf(ModBlocks.GOLD_SIGNAL_TRANSMITTER_ANTENNA.asItem())) {
-                buildSignalTower(stack, world, pos.up(3), ModBlocks.GOLD_SIGNAL_TRANSMITTER_ANTENNA.getDefaultState().with(SignalTransmitterAntennaBlock.PART, 2), player);
-                world.setBlockState(pos, state.with(ANTENNA_MATERIAL, AntennaMaterial.GOLD));
-            } else if (world.getBlockState(pos.up(4)).getBlock() instanceof AirBlock && stack.isOf(ModBlocks.GOLD_SIGNAL_TRANSMITTER_ANTENNA.asItem())) {
-                buildSignalTower(stack, world, pos.up(4), ModBlocks.GOLD_SIGNAL_TRANSMITTER_ANTENNA.getDefaultState().with(SignalTransmitterAntennaBlock.PART, 3), player);
-                world.setBlockState(pos, state.with(ANTENNA_MATERIAL, AntennaMaterial.GOLD));
-            } else if (world.getBlockState(pos.up()).getBlock() instanceof AirBlock && stack.isOf(ModBlocks.MITHRIL_SIGNAL_TRANSMITTER_ANTENNA.asItem())) {
-                buildSignalTower(stack, world, pos.up(), ModBlocks.MITHRIL_SIGNAL_TRANSMITTER_ANTENNA.getDefaultState(), player);
-                world.setBlockState(pos, state.with(ANTENNA_MATERIAL, AntennaMaterial.MITHRIL));
-            } else if (world.getBlockState(pos.up(2)).getBlock() instanceof AirBlock && stack.isOf(ModBlocks.MITHRIL_SIGNAL_TRANSMITTER_ANTENNA.asItem())) {
-                buildSignalTower(stack, world, pos.up(2), ModBlocks.MITHRIL_SIGNAL_TRANSMITTER_ANTENNA.getDefaultState().with(SignalTransmitterAntennaBlock.PART, 1), player);
-                world.setBlockState(pos, state.with(ANTENNA_MATERIAL, AntennaMaterial.MITHRIL));
-            } else if (world.getBlockState(pos.up(3)).getBlock() instanceof AirBlock && stack.isOf(ModBlocks.MITHRIL_SIGNAL_TRANSMITTER_ANTENNA.asItem())) {
-                buildSignalTower(stack, world, pos.up(3), ModBlocks.MITHRIL_SIGNAL_TRANSMITTER_ANTENNA.getDefaultState().with(SignalTransmitterAntennaBlock.PART, 2), player);
-                world.setBlockState(pos, state.with(ANTENNA_MATERIAL, AntennaMaterial.MITHRIL));
-            } else if (world.getBlockState(pos.up(4)).getBlock() instanceof AirBlock && stack.isOf(ModBlocks.MITHRIL_SIGNAL_TRANSMITTER_ANTENNA.asItem())) {
-                buildSignalTower(stack, world, pos.up(4), ModBlocks.MITHRIL_SIGNAL_TRANSMITTER_ANTENNA.getDefaultState().with(SignalTransmitterAntennaBlock.PART, 3), player);
-                world.setBlockState(pos, state.with(ANTENNA_MATERIAL, AntennaMaterial.MITHRIL));
-            } else {
-                player.sendMessage(Text.translatable("block.tlotd.signal_transmitter.incomplete"), false);
-                world.playSound(null, pos, SoundEvents.BLOCK_STONE_BUTTON_CLICK_ON, SoundCategory.BLOCKS, 1.0f, 1.0f);
-            }
-            updateStationActive(world, pos);
-            return ActionResult.SUCCESS;
-        }
-        if (!stack.isEmpty() && stack.isIn(ModTags.Items.TRANSMITTABLE_SIGNALS)) {
+        if (isSignal) {
             if (station == null) {
                 tracker.addStation(pos, 1, 1);
                 station = tracker.getStation(pos);
@@ -220,50 +266,15 @@ public class SignalTransmitterBlock extends Block /*implements BlockEntityProvid
                 player.sendMessage(Text.translatable("block.tlotd.signal_transmitter.added"), true);
             }
             world.playSound(null, pos, ModSounds.BLOCK_VIDEOCASSETTE_RECORDER, SoundCategory.BLOCKS, 1.0f, 1.0f);
-        } else if (station != null && stack.isOf(Items.NAME_TAG) && stack.hasCustomName()) {
-            Text.translatable("block.tlotd.signal_transmitter.name_set").formatted(Formatting.GRAY);
+            return ItemActionResult.SUCCESS;
+        }
+        if (station != null && isNamedNameTag) {
             station.setName(stack.getName().getString());
             world.playSound(null, pos, SoundEvents.BLOCK_STONE_BUTTON_CLICK_ON, SoundCategory.BLOCKS, 1.0f, 1.0f);
-        } else {
-            if (station == null || !station.hasSignals()) {
-                if (player.isSneaking()) {
-                    player.sendMessage(station == null || station.getName().isEmpty() ? Text.translatable("block.tlotd.signal_transmitter.unnamed").formatted(Formatting.GRAY) : Text.literal(station.getName()).formatted(Formatting.GRAY));
-                    player.sendMessage(SignalTrackingArray.getStats(station != null && station.isActive(), station == null ? 0 : station.getStrength(), station == null ? 0 : station.getRange(), station == null ? 0 : station.getSignals().size(), ".1"), false);
-                    player.sendMessage(SignalTrackingArray.getStats(station != null && station.isActive(), station == null ? 0 : station.getStrength(), station == null ? 0 : station.getRange(), station == null ? 0 : station.getSignals().size(), ".2"), false);
-                } else {
-                    player.sendMessage(SignalTrackingArray.getStats(station != null && station.isActive(), station == null ? 0 : station.getStrength(), station == null ? 0 : station.getRange(), station == null ? 0 : station.getSignals().size(), ""), true);
-                }
-            } else {
-                if (player.isSneaking()) {
-                    player.sendMessage(station.getName().isEmpty() ? Text.translatable("block.tlotd.signal_transmitter.unnamed").formatted(Formatting.GRAY) : Text.literal(station.getName()).formatted(Formatting.GRAY));
-                    player.sendMessage(SignalTrackingArray.getStats(station.isActive(), station.getStrength(), station.getRange(), station.getSignals().size(), ".1"), false);
-                    player.sendMessage(SignalTrackingArray.getStats(station.isActive(), station.getStrength(), station.getRange(), station.getSignals().size(), ".2"), false);
-                    for (Identifier sig : station.getSignals()) {
-                        String keyName = "item." + sig.getNamespace() + "." + sig.getPath();
-                        String descKey = keyName + ".desc";
-                        Text nameText;
-                        Text descText;
-                        if (Language.getInstance().hasTranslation(keyName)) {
-                            nameText = Text.translatable(keyName);
-                        } else {
-                            String prettyName = sig.getPath().replace('_', ' ');
-                            prettyName = Character.toUpperCase(prettyName.charAt(0)) + prettyName.substring(1);
-                            nameText = Text.literal(prettyName);
-                        }
-                        if (Language.getInstance().hasTranslation(descKey)) {
-                            descText = Text.translatable(descKey);
-                        } else {
-                            descText = Text.literal("");
-                        }
-                        player.sendMessage(Text.literal(" ").formatted(Formatting.GRAY).append(nameText).append(Text.literal(": ")).append(descText), false);
-                    }
-                } else {
-                    player.sendMessage(SignalTrackingArray.getStats(station.isActive(), station.getStrength(), station.getRange(), station.getSignals().size(), ""), true);
-                }
-            }
-            world.playSound(null, pos, SoundEvents.BLOCK_STONE_BUTTON_CLICK_ON, SoundCategory.BLOCKS, 1.0f, 1.0f);
+            player.sendMessage(Text.translatable("block.tlotd.signal_transmitter.name_set"), true);
+            return ItemActionResult.SUCCESS;
         }
-        return ActionResult.SUCCESS;
+        return ItemActionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
     }
 
     private static boolean antenna(World world, BlockPos pos) {
@@ -311,5 +322,5 @@ public class SignalTransmitterBlock extends Block /*implements BlockEntityProvid
     @Override
     public @Nullable BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
         return new SignalTransmitterBlockEntity(pos, state);
-    }*/
+    }
 }

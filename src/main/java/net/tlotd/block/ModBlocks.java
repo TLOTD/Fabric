@@ -25,6 +25,7 @@ import net.tlotd.item.ModFoodComponents;
 import net.tlotd.item.compat.CompatBlockItem;
 import net.tlotd.item.custom.*;
 import net.tlotd.particle.ModParticles;
+import net.tlotd.world.tree.ModSaplingGenerators;
 
 import static net.minecraft.block.Blocks.createLightLevelFromLitBlockState;
 import static net.tlotd.TLOTD.MOD_ID;
@@ -710,7 +711,7 @@ public class ModBlocks {
             new ShelfMushroomBlock(AbstractBlock.Settings.create().mapColor(MapColor.BROWN).ticksRandomly().breakInstantly().sounds(BlockSoundGroup.WOOD).pistonBehavior(PistonBehavior.DESTROY).nonOpaque()));
 
     public static final Block GINKGO_SAPLING = registerBlock("ginkgo_sapling",
-            new /*Sapling*/Block(/*new GinkgoSaplingGenerator(),*/ AbstractBlock.Settings.create().mapColor(MapColor.PALE_GREEN).noCollision().strength(0F, 0F).sounds(BlockSoundGroup.GRASS).nonOpaque().ticksRandomly().pistonBehavior(PistonBehavior.DESTROY)));
+            new SaplingBlock(ModSaplingGenerators.GINKGO, AbstractBlock.Settings.create().mapColor(MapColor.PALE_GREEN).noCollision().strength(0F, 0F).sounds(BlockSoundGroup.GRASS).nonOpaque().ticksRandomly().pistonBehavior(PistonBehavior.DESTROY)));
     public static final Block POTTED_GINKGO_SAPLING = Registry.register(Registries.BLOCK, Identifier.of(MOD_ID, "potted_ginkgo_sapling"),
             new FlowerPotBlock(GINKGO_SAPLING, AbstractBlock.Settings.create().breakInstantly().nonOpaque().pistonBehavior(PistonBehavior.DESTROY)));
 

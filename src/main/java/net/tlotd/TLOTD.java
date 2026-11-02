@@ -62,7 +62,6 @@ public class TLOTD implements ModInitializer {
         ModBanners.registerBanners();
         ModEnchantments.registerEnchants();
         //ModEntities.registerModEntities();
-        //ModMessages.registerC2SPackets();
         //ModVillageAdditions.registerNewVillageStructures();
         ModWorldGeneration.generateModWorldGen();
         DamageMitigation.registerAllowedDamages();

@@ -1,26 +1,15 @@
 package net.tlotd.util;
 
 import net.fabricmc.fabric.api.entity.event.v1.ServerLivingEntityEvents;
-import net.fabricmc.fabric.api.transfer.v1.context.ContainerItemContext;
-import net.fabricmc.fabric.api.transfer.v1.item.ItemVariant;
-import net.fabricmc.fabric.api.transfer.v1.item.PlayerInventoryStorage;
-import net.fabricmc.fabric.api.transfer.v1.storage.base.SingleSlotStorage;
-import net.fabricmc.fabric.api.transfer.v1.transaction.Transaction;
+import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.damage.DamageTypes;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvents;
-import net.minecraft.text.Text;
 import net.minecraft.util.math.random.Random;
 import net.tlotd.TLOTD;
 import net.tlotd.effect.ModEffects;
-import net.tlotd.item.ModItems;
-import net.tlotd.item.custom.HEVArmorItem;
 import net.tlotd.item.custom.SpaceSuitArmorItem;
-import net.tlotd.sound.ModSounds;
-import team.reborn.energy.api.EnergyStorage;
 
 import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -34,38 +23,13 @@ public class DamageMitigation {
     }
 
     public static void registerAllowedDamages() {
-        /*
         final Set<UUID> ignoredDamagePlayers = Collections.newSetFromMap(new WeakHashMap<>());
         AtomicInteger oxygenTick = new AtomicInteger();
         ServerLivingEntityEvents.ALLOW_DAMAGE.register(((livingEntity, damageSource, amount) -> {
             if (!(livingEntity instanceof PlayerEntity player)) return true;
             if (ignoredDamagePlayers.contains(player.getUuid())) return true;
             ItemStack chestplate = player.getInventory().getArmorStack(2);
-            if (chestplate.isOf(ModItems.HEV_SUIT_CHESTPLATE) && player.getInventory().getArmorStack(1).isOf(ModItems.HEV_SUIT_LEGGINGS) && player.getInventory().getArmorStack(0).isOf(ModItems.HEV_SUIT_BOOTS) && (HEVArmorItem.getStoredEnergy(chestplate) >= (amount * 500.0f))
-                    && isBlockable(damageSource) || damageSource.getType().msgId().contains("bullet") || damageSource.getType().msgId().contains("ammo") || damageSource.getType().msgId().contains("round") || damageSource.getType().msgId().contains("gunfire") || damageSource.isOf(ModDamageTypes.SUBSPACE_SICKNESS) || damageSource.getType().msgId().contains("radiation") || damageSource.getType().msgId().contains("radiated") || damageSource.getType().msgId().contains("freeze") || damageSource.getType().msgId().contains("freezing") || damageSource.getType().msgId().contains("hypothermia")) {
-                long energyRequired = (long) (amount * 500.0f);
-                PlayerInventoryStorage inventoryStorage = PlayerInventoryStorage.of(player);
-                SingleSlotStorage<ItemVariant> chestplateSlot = inventoryStorage.getSlot(38);
-                ContainerItemContext context = ContainerItemContext.ofPlayerSlot(player, chestplateSlot);
-                EnergyStorage storage = HEVArmorItem.getEnergyStorage(context);
-                if (storage != null && storage.supportsExtraction()) {
-                    try (Transaction transaction = Transaction.openOuter()) {
-                        long extracted = storage.extract(energyRequired, transaction);
-                        if (extracted == energyRequired) {
-                            transaction.commit();
-                            float reducedAmount = amount * 0.5f;
-                            ignoredDamagePlayers.add(player.getUuid());
-                            player.getWorld().playSound(null, player.getBlockPos(), SoundEvents.UI_TOAST_IN, SoundCategory.PLAYERS, 0.8f, 0.8f);
-                            try {
-                                player.damage(damageSource, reducedAmount);
-                            } finally {
-                                ignoredDamagePlayers.remove(player.getUuid());
-                            }
-                            return false;
-                        }
-                    }
-                }
-            } else if (damageSource.getType().msgId().contains("freeze") || damageSource.getType().msgId().contains("freezing") || damageSource.getType().msgId().contains("hypothermia")) {
+            if (damageSource.getType().msgId().contains("freeze") || damageSource.getType().msgId().contains("freezing") || damageSource.getType().msgId().contains("hypothermia")) {
                 if (player.hasStatusEffect(ModEffects.DRUNKENNESS)) {
                     float reducedAmount = amount - (player.getStatusEffect(ModEffects.DRUNKENNESS).getAmplifier() + 1);
                     if (reducedAmount > 0) {
@@ -105,8 +69,14 @@ public class DamageMitigation {
                     Random random = player.getRandom();
                     int index = random.nextInt(armorList.size());
                     ItemStack armorPiece = armorList.get(index);
-                    armorPiece.damage(1, player, (p) -> {
-                    });
+                    EquipmentSlot slot = switch (slotIndices.get(index)) {
+                        case 0 -> EquipmentSlot.FEET;
+                        case 1 -> EquipmentSlot.LEGS;
+                        case 2 -> EquipmentSlot.CHEST;
+                        case 3 -> EquipmentSlot.HEAD;
+                        default -> throw new IllegalStateException("Invalid armor slot");
+                    };
+                    armorPiece.damage(1, player, slot);
                     if (armorPiece.getDamage() >= armorPiece.getMaxDamage()) {
                         player.getInventory().armor.set(slotIndices.get(index), ItemStack.EMPTY);
                     }
@@ -142,8 +112,14 @@ public class DamageMitigation {
                     Random random = player.getRandom();
                     int index = random.nextInt(armorList.size());
                     ItemStack armorPiece = armorList.get(index);
-                    armorPiece.damage(1, player, (p) -> {
-                    });
+                    EquipmentSlot slot = switch (slotIndices.get(index)) {
+                        case 0 -> EquipmentSlot.FEET;
+                        case 1 -> EquipmentSlot.LEGS;
+                        case 2 -> EquipmentSlot.CHEST;
+                        case 3 -> EquipmentSlot.HEAD;
+                        default -> throw new IllegalStateException("Invalid armor slot");
+                    };
+                    armorPiece.damage(1, player, slot);
                     if (armorPiece.getDamage() >= armorPiece.getMaxDamage()) {
                         player.getInventory().armor.set(slotIndices.get(index), ItemStack.EMPTY);
                     }
@@ -160,11 +136,11 @@ public class DamageMitigation {
                         oxygenTank = true;
                     }
                 }
-                if ((airtightArmor >= 4) && oxygenTank && AdAstraGasNbtHelper.canMitigateDamage(chestplate)) {
+                if ((airtightArmor >= 4) && oxygenTank && AdAstraGasNbtHelper.canMitigateDamage(chestplate, livingEntity.getRegistryManager())) {
                     if (chestplate.getItem() instanceof SpaceSuitArmorItem) {
                         if (oxygenTick.get() >= 20) {
                             oxygenTick.set(0);
-                            AdAstraGasNbtHelper.consumeMitigationGas(chestplate, 10);
+                            AdAstraGasNbtHelper.consumeMitigationGas(chestplate, 10, livingEntity.getRegistryManager());
                         } else {
                             oxygenTick.getAndIncrement();
                         }
@@ -216,8 +192,14 @@ public class DamageMitigation {
                         int chance = random.nextInt(20);
                         if (chance == 19) {
                             ItemStack armorPiece = armorList.get(index);
-                            armorPiece.damage(1, player, (p) -> {
-                            });
+                            EquipmentSlot slot = switch (slotIndices.get(index)) {
+                                case 0 -> EquipmentSlot.FEET;
+                                case 1 -> EquipmentSlot.LEGS;
+                                case 2 -> EquipmentSlot.CHEST;
+                                case 3 -> EquipmentSlot.HEAD;
+                                default -> throw new IllegalStateException("Invalid armor slot");
+                            };
+                            armorPiece.damage(1, player, slot);
                             if (armorPiece.getDamage() >= armorPiece.getMaxDamage()) {
                                 player.getInventory().armor.set(slotIndices.get(index), ItemStack.EMPTY);
                             }
@@ -284,6 +266,6 @@ public class DamageMitigation {
             }
             return true;
         }));
-        TLOTD.LOGGER.info("Registering Special Armor Protection for " + TLOTD.MOD_ID);*/
+        TLOTD.LOGGER.info("Registering Special Armor Protection for " + TLOTD.MOD_ID);
     }
 }

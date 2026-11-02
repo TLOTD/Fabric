@@ -11,6 +11,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
 import net.minecraft.item.PickaxeItem;
 import net.minecraft.registry.tag.BlockTags;
+import net.minecraft.registry.tag.TagKey;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.stat.Stats;
@@ -18,6 +19,7 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.math.BlockPos;
 import net.tlotd.block.ModBlocks;
 import net.tlotd.item.ModItems;
+import net.tlotd.item.custom.PaxelItem;
 import net.tlotd.sound.ModSounds;
 import net.tlotd.util.ModTags;
 import net.tlotd.world.ModGlobalState;
@@ -57,32 +59,11 @@ public class ItemMixin {
             compat = globalState.extractionOreCompat();
         }
         int damage = 1;
-        //int miningLevel = item.getMaterial().getMiningLevel();
-        int blockLevel = 0;
-        if (state.isIn(ModTags.Blocks.TOOL_LEVEL_10)) {
-            blockLevel = 10;
-        } else if (state.isIn(ModTags.Blocks.TOOL_LEVEL_9)) {
-            blockLevel = 9;
-        } else if (state.isIn(ModTags.Blocks.TOOL_LEVEL_8)) {
-            blockLevel = 8;
-        } else if (state.isIn(ModTags.Blocks.TOOL_LEVEL_7)) {
-            blockLevel = 7;
-        } else if (state.isIn(ModTags.Blocks.TOOL_LEVEL_6)) {
-            blockLevel = 6;
-        } else if (state.isIn(ModTags.Blocks.TOOL_LEVEL_5)) {
-            blockLevel = 5;
-        } else if (state.isIn(ModTags.Blocks.TOOL_LEVEL_4)) {
-            blockLevel = 4;
-        } else if (state.isIn(BlockTags.NEEDS_DIAMOND_TOOL)) {
-            blockLevel = 3;
-        } else if (state.isIn(BlockTags.NEEDS_IRON_TOOL)) {
-            blockLevel = 2;
-        } else if (state.isIn(BlockTags.NEEDS_STONE_TOOL)) {
-            blockLevel = 1;
-        }
+        int miningLevel = PaxelItem.getMiningLevel(item);
+        int blockLevel = PaxelItem.getBlockLevel(state);
         if (context.getStack().isIn(ModTags.Items.MOUTH_OF_THE_ABYSS)) {
             context.getWorld().breakBlock(positionClicked, true);
-        } else if (/*miningLevel >= blockLevel &&*/ (state == ModBlocks.ALIEN_CONTROL_PANEL.getStateWithProperties(state).with(HARVESTED, false) || state.isIn(ModTags.Blocks.EXTRACTABLE_BLOCKS) || (compat && name.contains("_ore")))) {
+        } else if (miningLevel >= blockLevel && (state == ModBlocks.ALIEN_CONTROL_PANEL.getStateWithProperties(state).with(HARVESTED, false) || state.isIn(ModTags.Blocks.EXTRACTABLE_BLOCKS) || (compat && name.contains("_ore")))) {
             context.getWorld().breakBlock(positionClicked, true);
             if (state.isOf(ModBlocks.ALIEN_CONTROL_PANEL) && !state.get(HARVESTED)) {
                 context.getWorld().setBlockState(positionClicked, state.with(HARVESTED, true));
