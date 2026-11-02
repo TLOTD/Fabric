@@ -52,8 +52,8 @@ dependencies {
 	modImplementation "net.kyrptonaught:customportalapi:0.0.1-beta65-1.20"
 	include "net.kyrptonaught:customportalapi:0.0.1-beta65-1.20"
 
-	modImplementation "maven.modrinth:Wd844r7Q:1.20.1-01"
-	include "maven.modrinth:Wd844r7Q:1.20.1-01"
+	modImplementation "maven.modrinth:Wd844r7Q:9bAkNJm5"
+	include "maven.modrinth:Wd844r7Q:9bAkNJm5"
 
     modImplementation "vazkii.patchouli:Patchouli:1.20.1-84.1-FABRIC"
 

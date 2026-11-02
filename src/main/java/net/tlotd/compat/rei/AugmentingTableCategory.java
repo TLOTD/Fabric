@@ -20,7 +20,7 @@ import java.util.List;
 public class AugmentingTableCategory implements DisplayCategory<BasicDisplay> {
 
     public static final Identifier TEXTURE = new Identifier(TLOTD.MOD_ID, "textures/gui/rei/augmentation_table.png");
-    public static final CategoryIdentifier<MithrilSmithingDisplay> AUGMENTING = CategoryIdentifier.of(TLOTD.MOD_ID, "augmenting");
+    public static final CategoryIdentifier<AugmentingTableDisplay> AUGMENTING = CategoryIdentifier.of(TLOTD.MOD_ID, "augmenting");
 
     @Override
     public CategoryIdentifier<? extends BasicDisplay> getCategoryIdentifier() {

@@ -57,6 +57,6 @@ public enum OxygenCollectorComponentProvider implements IBlockComponentProvider,
 
     @Override
     public Identifier getUid() {
-        return new Identifier(TLOTD.MOD_ID, "hev_charger");
+        return new Identifier(TLOTD.MOD_ID, "oxygen_collector");
     }
 }

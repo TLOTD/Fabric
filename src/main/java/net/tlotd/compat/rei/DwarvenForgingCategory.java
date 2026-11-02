@@ -25,7 +25,7 @@ import java.util.List;
 public class DwarvenForgingCategory implements DisplayCategory<BasicDisplay> {
 
     public static final Identifier TEXTURE = new Identifier(TLOTD.MOD_ID, "textures/gui/rei/dwarven_forge.png");
-    public static final CategoryIdentifier<MithrilSmithingDisplay> DWARVEN_FORGING = CategoryIdentifier.of(TLOTD.MOD_ID, "dwarven_forging");
+    public static final CategoryIdentifier<DwarvenForgingDisplay> DWARVEN_FORGING = CategoryIdentifier.of(TLOTD.MOD_ID, "dwarven_forging");
 
     @Override
     public CategoryIdentifier<? extends BasicDisplay> getCategoryIdentifier() {

@@ -153,11 +153,6 @@ public class RadioBlock extends Block implements BlockEntityProvider {
     }
 
     @Override
-    public ItemStack getPickStack(BlockView world, BlockPos pos, BlockState state) {
-        return ModBlocks.RADIO.asItem().getDefaultStack();
-    }
-
-    @Override
     public void appendTooltip(ItemStack stack, @Nullable BlockView world, List<Text> tooltip, TooltipContext opts) {
         tooltip.add(Text.empty());
         tooltip.add(Text.translatable("block.tlotd.radio.tooltip").formatted(Formatting.GRAY));

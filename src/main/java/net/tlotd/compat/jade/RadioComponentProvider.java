@@ -67,6 +67,6 @@ public enum RadioComponentProvider implements IBlockComponentProvider, IServerDa
 
     @Override
     public Identifier getUid() {
-        return new Identifier(TLOTD.MOD_ID, "keycard_reader");
+        return new Identifier(TLOTD.MOD_ID, "radio");
     }
 }

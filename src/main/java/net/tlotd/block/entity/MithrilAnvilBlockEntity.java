@@ -182,20 +182,11 @@ public class MithrilAnvilBlockEntity extends BlockEntity implements ExtendedScre
     }
 
     private void tryCoolingItems() {
-        if (!this.getStack(1).isEmpty()) {
-            ItemHeatHelper.editTemperature(this.getStack(1), -1);
-        }
-        if (!this.getStack(2).isEmpty()) {
-            ItemHeatHelper.editTemperature(this.getStack(2), -1);
-        }
-        if (!this.getStack(3).isEmpty()) {
-            ItemHeatHelper.editTemperature(this.getStack(3), -1);
-        }
-        if (!this.getStack(4).isEmpty()) {
-            ItemHeatHelper.editTemperature(this.getStack(3), -1);
-        }
-        if (!this.getStack(5).isEmpty()) {
-            ItemHeatHelper.editTemperature(this.getStack(3), -1);
+        for (int i = 1; i <= 5; i++) {
+            ItemStack stack = getStack(i);
+            if (!stack.isEmpty()) {
+                ItemHeatHelper.editTemperature(stack, -1);
+            }
         }
     }
 

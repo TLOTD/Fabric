@@ -74,6 +74,6 @@ public enum SignalTransmitterComponentProvider implements IBlockComponentProvide
 
     @Override
     public Identifier getUid() {
-        return new Identifier(TLOTD.MOD_ID, "keycard_reader");
+        return new Identifier(TLOTD.MOD_ID, "signal_transmitter");
     }
 }
